@@ -5,10 +5,11 @@ import json
 from connection import *
 from auth import *
 from errors import *
+from models import *
 
 class API(object):
     def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
-                 timeout=10.0):
+                 timeout=5.0):
         self.conn = Connection(host, secure, port, root, timeout)
 
 
@@ -22,7 +23,20 @@ class API(object):
         self.conn.authenticator = None
 
 
+    def service(self, id):
+        return Service.find(self.conn, service_id=id)
+
+    def version(self, service_id, version):
+        return Version.find(self.conn, service_id=service_id, number=version)
+
+    def domain(self, service_id, version, name):
+        return Domain.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def backend(self, service_id, version, name):
+        return Backend.find(self.conn, service_id=service_id, version=version, name=name)
+
+
     def purge_url(self, host, path):
-        resp, data = self.conn.request('PURGE', path, headers={ 'Host': host })
+        resp, data = self.conn.request('PURGE', path, headers={'Host':host})
         return resp.status == 200
 

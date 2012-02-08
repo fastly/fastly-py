@@ -1,5 +1,5 @@
 """
-Durp.
+
 """
 
 from fastly import *

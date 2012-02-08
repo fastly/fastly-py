@@ -31,7 +31,8 @@ class Connection(object):
 
         if self.authenticator:
             self.authenticator.add_auth(headers)
-        
+
+        print(self.root + path)
         self.http_conn.request(method, self.root + path, body, headers=headers)
         response = self.http_conn.getresponse()
         body = response.read()
@@ -45,6 +46,8 @@ class Connection(object):
         elif response.status == 500:
             raise InternalServerError()
         elif response.status == 400:
-            raise BadRequestError()
+            raise BadRequestError(body)
+        elif response.status == 404:
+            raise NotFoundError()
 
         return (response, data)
