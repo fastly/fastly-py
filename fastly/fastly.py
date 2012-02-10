@@ -9,8 +9,11 @@ from models import *
 
 class API(object):
     def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
-                 timeout=5.0):
+                 timeout=5.0, key=None):
         self.conn = Connection(host, secure, port, root, timeout)
+
+        if key:
+            self.authenticate_by_key(key)
 
 
     def authenticate_by_key(self, key):
@@ -24,7 +27,7 @@ class API(object):
 
 
     def service(self, id):
-        return Service.find(self.conn, service_id=id)
+        return Service.find(self.conn, id=id)
 
     def version(self, service_id, version):
         return Version.find(self.conn, service_id=service_id, number=version)

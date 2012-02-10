@@ -3,19 +3,46 @@
 
 from string import Template
 from copy import copy
+from urllib import urlencode
 
 class Model(object):
+    def __init__(self):
+        self._original_attrs = None
+        self.attrs = {}
+
     @classmethod
     def query(cls, conn, pattern, method, suffix='', body=None, **kwargs):
         url = Template(pattern).substitute(**kwargs)
         url += suffix
-        return conn.request(method, url, body)
+
+        headers = { 'Content-Accept': 'application/json' }
+        if method == 'POST' or method == 'PUT':
+            headers['Content-Type'] = 'application/x-www-form-urlencoded'
+
+        return conn.request(method, url, body, headers)
 
     def _query(self, method, suffix='', body=None):
         return self.__class__.query(self.conn, self.INSTANCE_PATTERN, method, suffix, body, **self.attrs)
 
     def _collection_query(self, method, suffix='', body=None):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
+
+    def save(self):
+        if self._original_attrs:
+            out = {}
+            for k in self.attrs:
+                if self.attrs[k] != self._original_attrs[k]:
+                    out[k] = self.attrs[k]
+            params_str = urlencode(out)
+            resp, data = self._query('PUT', body=params_str)
+
+        else:
+            params_str = urlencode(self.attrs)
+            resp, data = self._collection_query('POST', body=params_str)
+
+        self._original_attrs = data
+        self.attrs = data
+
 
     @classmethod
     def find(cls, conn, **kwargs):
@@ -33,7 +60,7 @@ class Model(object):
 
 class Service(Model):
     COLLECTION_PATTERN = '/service'
-    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$service_id'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
 
     def purge_key(self, key):
         self._query('POST', '/purge/%s' % key)
@@ -42,7 +69,7 @@ class Service(Model):
         self._query('POST', '/purge_all')
 
 class Version(Model):
-    COLLECTION_PATTERN = Service.INSTANCE_PATTERN + '/version'
+    COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/version'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$number'
 
     def check_backends(self):
