@@ -1,9 +1,14 @@
 Fastly Python Client
 
+EXAMPLE:
+import fastly
+api = fastly.API()
+api.authenticate_by_key('MYKEY')
+api.purge_url('www.example.com', '/some/path')
+
 TODO:
 Doc files
 Docstrings
-Models
 Config file
 
 
