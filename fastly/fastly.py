@@ -38,8 +38,14 @@ class API(object):
     def backend(self, service_id, version, name):
         return Backend.find(self.conn, service_id=service_id, version=version, name=name)
 
-
     def purge_url(self, host, path):
         resp, data = self.conn.request('PURGE', path, headers={'Host':host})
         return resp.status == 200
 
+    def purge_service(self, service):
+        resp, data = self.conn.request('POST','/service/%s/purge_all' % service)
+        return resp.status == 200
+
+    def purge_key(self, service, key):
+        resp, data = self.conn.request('POST','/service/%s/purge/%s' % (service, key))
+        return resp.status == 200
