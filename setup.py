@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "fastly",
-    version = "0.0.1-bitmonk15",
+    version = "0.0.2,
     author = "Fastly?",
     author_email="support@fastly.com",
     description = ("Fastly python API"),
