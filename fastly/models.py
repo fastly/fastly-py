@@ -108,3 +108,8 @@ class Syslog(Model):
 class User(Model):
     COLLECTION_PATTERN = '/user/$id'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
+
+class Settings(Model):
+    INSTANCE_PATTERN = Version.COLLECTION_PATTERN + '/$version/settings'
+    COLLECTION_PATTERN = INSTANCE_PATTERN
+    
