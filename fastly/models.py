@@ -113,3 +113,7 @@ class Settings(Model):
     INSTANCE_PATTERN = Version.COLLECTION_PATTERN + '/$version/settings'
     COLLECTION_PATTERN = INSTANCE_PATTERN
     
+class Condition(Model):
+    COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/condition'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+    

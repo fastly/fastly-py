@@ -40,6 +40,9 @@ class API(object):
     
     def settings(self, service_id, version):
         return Settings.find(self.conn, service_id=service_id, version=version)
+    
+    def condition(self, service_id, version, name):
+        return Condition.find(self.conn, service_id=service_id, version=version, name=name)
 
     def purge_url(self, host, path):
         resp, data = self.conn.request('PURGE', path, headers={'Host':host})
