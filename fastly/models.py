@@ -117,3 +117,6 @@ class Condition(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/condition'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
     
+class Header(Model):
+    COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/header'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'

@@ -43,6 +43,10 @@ class API(object):
     
     def condition(self, service_id, version, name):
         return Condition.find(self.conn, service_id=service_id, version=version, name=name)
+    
+    def header(self, service_id, version, name):
+        return Header.find(self.conn, service_id=service_id, version=version, name=name)
+    
 
     def purge_url(self, host, path):
         resp, data = self.conn.request('PURGE', path, headers={'Host':host})
