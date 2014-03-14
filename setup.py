@@ -10,7 +10,7 @@ setup(
     author = "Fastly?",
     author_email="support@fastly.com",
     description = ("Fastly python API"),
-    license = "dunno",
+    license = "MIT",
     keywords = "fastly api",
     url = "https://github.com/fastly/fastly-py",
     packages=find_packages(),
