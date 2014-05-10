@@ -1,9 +1,12 @@
 import unittest
+
 import fastly
 
+
 class APITest(unittest.TestCase):
+
     def setUp(self):
-        self.api = fastly.API()#host='127.0.0.1', port=5500, secure=False)
+        self.api = fastly.API()
 
     def test_purge(self):
         self.assertTrue(self.api.purge_url('test.com', '/'))
@@ -20,7 +23,7 @@ class APITest(unittest.TestCase):
 
     def test_auth_session_success(self):
         self.api.deauthenticate()
-        self.api.authenticate_by_password('foo@test.com', 'password')
+        self.api.authenticate_by_password('foo@example.com', 'password')
         self.api.conn.request('GET', '/current_customer')
 
 if __name__ == '__main__':
