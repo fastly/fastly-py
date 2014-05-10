@@ -1,8 +1,4 @@
-import os
-from setuptools import setup, find_packages
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+from setuptools import setup
 
 setup(
     name="fastly",
@@ -12,8 +8,8 @@ setup(
     description="Fastly python API",
     keywords="fastly api",
     url="https://github.com/fastly/fastly-py",
-    packages=find_packages(),
-    long_description=read('README'),
+    packages=['fastly'],
+    long_description=open('README').read(),
     classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -21,11 +17,9 @@ setup(
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities"
     ],
-    entry_points={
-      'console_scripts': [
-        'purge_service = fastly.scripts.purge_service:purge_service',
-        'purge_key     = fastly.scripts.purge_key:purge_key',
-        'purge_url     = fastly.scripts.purge_url:purge_url',
-      ]
-    },
+    scripts=[
+        "bin/purge_service",
+        "bin/purge_key",
+        "bin/purge_url"
+    ]
 )
