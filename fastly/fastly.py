@@ -57,5 +57,8 @@ class API(object):
         return resp.status == 200
 
     def purge_key(self, service, key):
+        if type(self.conn.authenticator) is not KeyAuthenticator:
+            raise AuthenticationError("This request requires an API key")
+
         resp, data = self.conn.request('POST','/service/%s/purge/%s' % (service, key))
         return resp.status == 200

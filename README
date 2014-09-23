@@ -11,4 +11,7 @@ Doc files
 Docstrings
 Config file
 
+TESTING:
+
+`python -m test.api_test`
 
