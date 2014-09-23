@@ -31,5 +31,7 @@ $ python -m test.api_test
 $ python setup.py register
 ```
 
-will build and upload to PyPi. You will need to be granted access to the fastly package in order to push.
+Builds and uploads to PyPi. More info on this at the [python site](https://docs.python.org/2/distutils/packageindex.html).
+You will need to be granted access to the fastly package in order to push.
+
 
