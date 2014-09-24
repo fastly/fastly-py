@@ -9,7 +9,7 @@ setup(
     keywords="fastly api",
     url="https://github.com/fastly/fastly-py",
     packages=['fastly'],
-    long_description=open('README').read(),
+    long_description=open('README.md').read(),
     classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python",
