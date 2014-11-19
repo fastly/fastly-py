@@ -22,7 +22,7 @@ Config file
 ### Running Tests
 
 ```
-$ python -m test.api_test
+$ python setup.py test
 ```
 
 ### Distributing a package
