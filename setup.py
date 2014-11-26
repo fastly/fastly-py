@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="fastly",
-    version="0.0.3",
+    version="0.0.4",
     author="Fastly",
     author_email="support@fastly.com",
     description="Fastly python API",
@@ -21,5 +21,7 @@ setup(
         "bin/purge_service",
         "bin/purge_key",
         "bin/purge_url"
-    ]
+    ],
+    test_suite="test.api_test",
+    use_2to3 = True,
 )
