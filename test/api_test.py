@@ -22,6 +22,21 @@ class APITest(unittest.TestCase):
         with self.assertRaises(fastly.AuthenticationError):
             self.api.purge_key('test.com', 'foo')
 
+    def test_soft_purge(self):
+        self.api.deauthenticate()
+        self.assertTrue(self.api.soft_purge_url('test.com', '/'))
+
+    def test_soft_purge_by_key(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_key('TESTAPIKEY')
+        self.assertTrue(self.api.soft_purge_key('test.com', 'foo'))
+
+    def test_cookie_soft_purge_by_key(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_password('foo@example.com', 'password')
+        with self.assertRaises(fastly.AuthenticationError):
+            self.api.soft_purge_key('test.com', 'foo')
+
     def test_auth_error(self):
         self.api.deauthenticate()
         with self.assertRaises(fastly.AuthenticationError):
