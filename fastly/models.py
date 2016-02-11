@@ -76,6 +76,25 @@ class Version(Model):
         resp, data = self._query('GET', '/backend/check_all')
         return data
 
+    def activate(self):
+        resp, data = self._query('PUT', '/activate')
+        return data
+
+    def deactivate(self):
+        resp, data = self._query('PUT', '/deactivate')
+        return data
+
+    def clone(self):
+        resp, data = self._query('PUT', '/clone')
+        return data
+
+    def validate(self):
+        resp, data = self._query('GET', '/validate')
+        return data
+
+    def lock(self):
+        resp, data = self._query('PUT', '/lock')
+        return data
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
