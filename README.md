@@ -31,7 +31,11 @@ $ python -m test.api_test
 $ python setup.py register
 ```
 
+Follow the prompts to create an account or login. The `register` command also ensures that your account has access to the fastly package on PyPi.
+
+```
+$ python setup.py sdist upload
+```
+
 Builds and uploads to PyPi. More info on this at the [python site](https://docs.python.org/2/distutils/packageindex.html).
 You will need to be granted access to the fastly package in order to push.
-
-
