@@ -1,1 +1,4 @@
 *.pyc
+dist
+fastly.egg-info
+build
