@@ -1,6 +1,7 @@
 import httplib
 import urllib
 import json
+import os
 
 from connection import *
 from auth import *
@@ -8,7 +9,7 @@ from errors import *
 from models import *
 
 class API(object):
-    def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
+    def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', True), port=None, root='',
                  timeout=5.0, key=None):
         self.conn = Connection(host, secure, port, root, timeout)
 
