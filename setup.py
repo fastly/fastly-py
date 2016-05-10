@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="fastly",
-    version="0.0.5",
+    version="0.1.0",
     author="Fastly",
     author_email="support@fastly.com",
     description="Fastly python API",
