@@ -55,7 +55,8 @@ class API(object):
         return resp.status == 200
 
     def soft_purge_url(self, host, path):
-        self.purge_url(host, path, True)
+        return self.purge_url(host, path, True)
+
 
     def purge_service(self, service, soft=False):
         headers = {}
@@ -66,7 +67,7 @@ class API(object):
         return resp.status == 200
 
     def soft_purge_service(self, service):
-        self.purge_service(service, True)
+        return self.purge_service(service, True)
 
     def purge_key(self, service, key, soft=False):
         if type(self.conn.authenticator) is not KeyAuthenticator:
@@ -80,4 +81,4 @@ class API(object):
         return resp.status == 200
 
     def soft_purge_key(self, service, key):
-        self.purge_key(service, key, True)
+        return self.purge_key(service, key, True)
