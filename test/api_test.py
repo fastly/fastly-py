@@ -57,5 +57,9 @@ class APITest(unittest.TestCase):
         self.api.authenticate_by_password(self.user, self.password)
         self.api.conn.request('GET', '/current_customer')
 
+    def test_sets_default_user_agent_header(self):
+        default_headers = self.api.conn.default_headers
+        self.assertTrue(default_headers['User-Agent'])
+
 if __name__ == '__main__':
     unittest.main()

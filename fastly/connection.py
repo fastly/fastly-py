@@ -18,9 +18,10 @@ class Connection(object):
 
         self.authenticator = None
         self.http_conn = None
-    
+        self.default_headers = { 'User-Agent': 'fastly-py-v{}'.format(__version__) }
+
     def request(self, method, path, body=None, headers={}):
-        headers['User-Agent'] = 'fastly-py-v{}'.format(__version__)
+        headers.update(self.default_headers)
 
         if not self.port:
             self.port = 443 if self.secure else 80
