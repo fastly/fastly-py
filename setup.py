@@ -1,8 +1,9 @@
 from setuptools import setup
+exec(open('fastly/_version.py').read())
 
 setup(
     name="fastly",
-    version="0.1.1",
+    version=__version__,
     author="Fastly",
     author_email="support@fastly.com",
     description="Fastly python API",
