@@ -1,7 +1,7 @@
 import unittest
 import os
 import fastly
-
+from fastly._version import __version__
 
 class APITest(unittest.TestCase):
 
@@ -56,6 +56,10 @@ class APITest(unittest.TestCase):
         self.api.deauthenticate()
         self.api.authenticate_by_password(self.user, self.password)
         self.api.conn.request('GET', '/current_customer')
+
+    def test_sets_default_user_agent_header(self):
+        default_headers = self.api.conn.default_headers
+        self.assertEqual(default_headers['User-Agent'], 'fastly-py-v{}'.format(__version__))
 
 if __name__ == '__main__':
     unittest.main()
