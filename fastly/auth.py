@@ -10,7 +10,7 @@ class KeyAuthenticator(object):
         self.key = key
 
     def add_auth(self, headers):
-        headers['X-Fastly-Key'] = self.key
+        headers['Fastly-Key'] = self.key
 
 class SessionAuthenticator(object):
     def __init__(self, conn, login, password):
