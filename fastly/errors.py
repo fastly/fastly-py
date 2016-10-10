@@ -1,18 +1,21 @@
 """
 """
 
-class AuthenticationError(Exception):
+class FastlyError(Exception):
     pass
 
-class InternalServerError(Exception):
+class AuthenticationError(FastlyError):
     pass
 
-class BadRequestError(Exception):
+class InternalServerError(FastlyError):
+    pass
+
+class BadRequestError(FastlyError):
     def __init__(self, reason):
         self.reason = reason
 
     def __str__(self):
         return repr(self.reason)
 
-class NotFoundError(Exception):
+class NotFoundError(FastlyError):
     pass
