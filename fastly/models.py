@@ -68,6 +68,17 @@ class Service(Model):
     def purge_all(self):
         self._query('POST', '/purge_all')
 
+    @classmethod
+    def list(self, conn):
+        resp, data = self.query(conn, Service.COLLECTION_PATTERN, 'GET')
+        collection = []
+        for i in range(0, len(data)):
+            obj = super(Service, self).construct_instance(data[i])
+            obj.conn = conn
+            collection.append(obj)
+
+        return collection
+
 class Version(Model):
     COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/version'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$number'
