@@ -68,6 +68,20 @@ class Service(Model):
     def purge_all(self):
         self._query('POST', '/purge_all')
 
+    @classmethod
+    def list(cls, conn):
+        resp, data = cls.query(conn, Service.COLLECTION_PATTERN, 'GET')
+
+        collection = []
+        if resp.status != 200 or not hasattr(data, 'sort'):
+            return collection
+        for i in range(0, len(data)):
+            obj = Service.construct_instance(data[i])
+            obj.conn = conn
+            collection.append(obj)
+
+        return collection
+
 class Version(Model):
     COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/version'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$number'

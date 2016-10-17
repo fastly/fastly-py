@@ -25,6 +25,9 @@ class API(object):
     def deauthenticate(self):
         self.conn.authenticator = None
 
+    def services(self):
+        return Service.list(self.conn)
+        
     def service(self, id):
         return Service.find(self.conn, id=id)
 
