@@ -61,5 +61,15 @@ class APITest(unittest.TestCase):
         default_headers = self.api.conn.default_headers
         self.assertEqual(default_headers['User-Agent'], 'fastly-py-v{}'.format(__version__))
 
+    def test_gets_services(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_key(self.api_key)
+        services = self.api.services()
+        self.assertIsNotNone(services)
+        self.assertTrue(hasattr(services, 'sort'))
+        for s in services:
+            self.assertIsNotNone(s.attrs.get('name', None))
+            self.assertIsNotNone(s.attrs.get('id', None))
+
 if __name__ == '__main__':
     unittest.main()
