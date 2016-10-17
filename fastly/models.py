@@ -69,11 +69,14 @@ class Service(Model):
         self._query('POST', '/purge_all')
 
     @classmethod
-    def list(self, conn):
-        resp, data = self.query(conn, Service.COLLECTION_PATTERN, 'GET')
+    def list(cls, conn):
+        resp, data = cls.query(conn, Service.COLLECTION_PATTERN, 'GET')
+
         collection = []
+        if resp.status != 200 or not hasattr(data, 'sort'):
+            return collection
         for i in range(0, len(data)):
-            obj = super(Service, self).construct_instance(data[i])
+            obj = Service.construct_instance(data[i])
             obj.conn = conn
             collection.append(obj)
 
