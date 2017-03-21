@@ -75,12 +75,31 @@ class Version(Model):
     def check_backends(self):
         resp, data = self._query('GET', '/backend/check_all')
         return data
-        
+
+    def activate(self):
+        resp, data = self._query('PUT', '/activate')
+        return data
+
+    def deactivate(self):
+        resp, data = self._query('PUT', '/deactivate')
+        return data
+
+    def clone(self):
+        resp, data = self._query('PUT', '/clone')
+        return data
+
+    def validate(self):
+        resp, data = self._query('GET', '/validate')
+        return data
+
+    def lock(self):
+        resp, data = self._query('PUT', '/lock')
+        return data
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
-    
+
     def check_cname(self):
         resp, data = self._query('GET', '/check')
         return (data[1], data[2])
@@ -112,11 +131,15 @@ class User(Model):
 class Settings(Model):
     INSTANCE_PATTERN = Version.COLLECTION_PATTERN + '/$version/settings'
     COLLECTION_PATTERN = INSTANCE_PATTERN
-    
+
 class Condition(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/condition'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
-    
+
 class Header(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/header'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
+class VCL(Model):
+    COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/vcl'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'

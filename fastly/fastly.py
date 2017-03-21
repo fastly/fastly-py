@@ -46,6 +46,9 @@ class API(object):
     def header(self, service_id, version, name):
         return Header.find(self.conn, service_id=service_id, version=version, name=name)
 
+    def vcl(self, service_id, version, name):
+        return VCL.find(self.conn, service_id=service_id, version=version, name=name)
+
     def purge_url(self, host, path, soft=False):
         headers = {'Host':host}
         if soft:
