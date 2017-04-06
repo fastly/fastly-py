@@ -25,14 +25,26 @@ class API(object):
     def deauthenticate(self):
         self.conn.authenticator = None
 
+    def services(self):
+        return Service.list(self.conn)
+
     def service(self, id):
         return Service.find(self.conn, id=id)
+
+    def versions(self, service_id):
+        return Version.list(self.conn, service_id=service_id)
 
     def version(self, service_id, version):
         return Version.find(self.conn, service_id=service_id, number=version)
 
+    def domains(self, service_id, version):
+        return Domain.list(self.conn, service_id=service_id, version=version)
+
     def domain(self, service_id, version, name):
         return Domain.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def backends(self, service_id, version):
+        return Backend.list(self.conn, service_id=service_id, version=version)
 
     def backend(self, service_id, version, name):
         return Backend.find(self.conn, service_id=service_id, version=version, name=name)
@@ -45,6 +57,9 @@ class API(object):
 
     def header(self, service_id, version, name):
         return Header.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def vcls(self, service_id, version):
+        return VCL.list(self.conn, service_id=service_id, version=version)
 
     def vcl(self, service_id, version, name):
         return VCL.find(self.conn, service_id=service_id, version=version, name=name)

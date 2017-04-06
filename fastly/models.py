@@ -45,6 +45,20 @@ class Model(object):
 
 
     @classmethod
+    def list(cls, conn, **kwargs):
+        resp, data = cls.query(conn, cls.COLLECTION_PATTERN, 'GET', **kwargs)
+
+        collection = []
+
+        if resp.status == 200 and hasattr(data, 'sort'):
+            for i in range(0, len(data)):
+                obj = cls.construct_instance(data[i])
+                obj.conn = conn
+                collection.append(obj)
+
+        return collection
+
+    @classmethod
     def find(cls, conn, **kwargs):
         resp, data = cls.query(conn, cls.INSTANCE_PATTERN, 'GET', **kwargs)
         obj = cls.construct_instance(data)
@@ -67,6 +81,20 @@ class Service(Model):
 
     def purge_all(self):
         self._query('POST', '/purge_all')
+
+    def version(self):
+        """ Create a new version under this service. """
+        ver = Version()
+        ver.conn = self.conn
+
+        ver.attrs = {
+            # Parent params
+            'service_id': self.attrs['id'],
+        }
+
+        ver.save()
+
+        return ver
 
 class Version(Model):
     COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/version'
@@ -95,6 +123,33 @@ class Version(Model):
     def lock(self):
         resp, data = self._query('PUT', '/lock')
         return data
+
+    def boilerplate(self):
+        resp, data = self._query('GET', '/boilerplate')
+        return data
+
+    def generated_vcl(self):
+        resp, data = self._query('GET', '/generated_vcl')
+        return data
+
+    def vcl(self, name, content):
+        """ Create a new VCL under this version. """
+        vcl = VCL()
+        vcl.conn = self.conn
+
+        vcl.attrs = {
+            # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+
+            # New instance params
+            'name': name,
+            'content': content,
+        }
+
+        vcl.save()
+
+        return vcl
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
@@ -143,3 +198,11 @@ class Header(Model):
 class VCL(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/vcl'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
+    def download(self):
+        resp, data = self._query('GET', '/download')
+        return data
+
+    def main(self):
+        resp, data = self._query('PUT', '/main')
+        return data
