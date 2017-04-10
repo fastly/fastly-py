@@ -10,6 +10,11 @@ setup(
     keywords="fastly api",
     url="https://github.com/fastly/fastly-py",
     packages=['fastly'],
+    entry_points={
+        "console_scripts": [
+            "fastly = fastly.cli:main",
+        ],
+    },
     long_description=open('README.md').read(),
     classifiers=[
         "Operating System :: OS Independent",
