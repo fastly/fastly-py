@@ -77,10 +77,12 @@ class Service(Model):
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
 
     def purge_key(self, key):
-        self._query('POST', '/purge/%s' % key)
+        resp, data = self._query('POST', '/purge/%s' % key)
+        return data
 
     def purge_all(self):
-        self._query('POST', '/purge_all')
+        resp, data = self._query('POST', '/purge_all')
+        return data
 
     def version(self):
         """ Create a new version under this service. """
