@@ -68,6 +68,13 @@ def main():
         parents=[service_parser],
     ).set_defaults(cmd=cmd_service)
 
+    parser_service = commands.add_parser(
+        "purge_service",
+        help="purge entire service",
+
+        parents=[service_parser],
+    ).set_defaults(cmd=cmd_purge_service)
+
     parser_versions = commands.add_parser(
         "versions",
         help="list versions",
@@ -204,6 +211,10 @@ def cmd_services(args):
 
 def cmd_service(args):
     print api.service(args.service_id).attrs
+
+
+def cmd_purge_service(args):
+    print api.service(args.service_id).purge_all()
 
 
 def cmd_newversion(args):
