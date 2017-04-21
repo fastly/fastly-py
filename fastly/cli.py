@@ -286,7 +286,7 @@ def cmd_backends(args):
 
 # VCL Commands
 def cmd_vcls(args):
-    vcl_line = "# {name}{is_main} {created_at}/{updated_at}\n\n{content}"
+    vcl_line = "{is_main}{name} @{updated_at}"
     for vcl in api.vcls(args.service_id, args.version_id):
         print vcl_line.format(
             is_main=('*' if vcl.attrs['main'] else ' '),
@@ -296,7 +296,11 @@ def cmd_vcls(args):
 
 def cmd_vcl(args):
     vcl = api.vcl(args.service_id, args.version_id, args.vcl_name)
-    print vcl.attrs
+    vcl_line = "### {is_main}{name} @{updated_at}\n\n{content}"
+    print vcl_line.format(
+        is_main=('*' if vcl.attrs['main'] else ' '),
+        **vcl.attrs
+    )
 
 
 def cmd_main(args):
