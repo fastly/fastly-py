@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 fastly - Fastly Command Line Utility
 """
@@ -90,7 +91,8 @@ def main():
         help="version info",
 
         parents=[service_parser, version_parser],
-    ).set_defaults(cmd=cmd_version)
+    )
+    parser_version.set_defaults(cmd=cmd_version)
 
     parser_version = commands.add_parser(
         "newversion",
@@ -229,9 +231,10 @@ def cmd_newversion(args):
 
 # Version Commands
 def cmd_versions(args):
-    version_line = "{is_active}{number} @{updated_at}"
+    version_line = "{is_active}{number} @{updated_at} {is_locked}"
     for version in api.versions(args.service_id):
         print version_line.format(
+            is_locked=('🔒' if version.attrs['locked'] else ' '),
             is_active=('*' if version.attrs['active'] else ' '),
             **version.attrs
         )
@@ -239,7 +242,10 @@ def cmd_versions(args):
 
 def cmd_version(args):
     version = api.version(args.service_id, args.version_id)
-    print version.attrs
+    print "Created: {created_at}".format(**version.attrs)
+    print "Updated: {updated_at}".format(**version.attrs)
+    print "Active: {}".format("Yes" if version.attrs["active"] else "No")
+    print "Locked: {}".format("Yes" if version.attrs["locked"] else "No")
 
 
 def cmd_activate(args):
