@@ -59,7 +59,8 @@ def main():
     parser_services = commands.add_parser(
         "services",
         help="list services",
-    ).set_defaults(cmd=cmd_services)
+    )
+    parser_services.set_defaults(cmd=cmd_services)
 
     parser_service = commands.add_parser(
         "service",
@@ -206,7 +207,7 @@ def main():
 # Services Commands
 def cmd_services(args):
     for service in api.services():
-        print "{name} [{id}]".format(**service.attrs)
+        print "{name}: {id} #{version} @{updated_at}".format(**service.attrs)
 
 
 def cmd_service(args):
