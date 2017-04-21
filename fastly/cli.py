@@ -16,12 +16,12 @@ def main():
     # Process command line arguments
     argparser = argparse.ArgumentParser(
         description=__doc__,
-        epilog="FASTLY_KEY environment variable will be consulted if not provided as a parameter."
+        epilog="FASTLY_API_KEY environment variable will be consulted if not provided as a parameter."
     )
 
     argparser.add_argument(
-        "-k", "--fastly-key", required=False,
-        help="Fastly key", default=os.environ.get('FASTLY_KEY')
+        "-k", "--api-key", required=False,
+        help="Fastly API key", default=os.environ.get('FASTLY_API_KEY')
     )
 
     argparser.add_argument(
@@ -199,7 +199,7 @@ def main():
 
     # Now actually parse the arguments, log into the API, and run the command
     args = argparser.parse_args()
-    api.authenticate_by_key(args.fastly_key)
+    api.authenticate_by_key(args.api_key)
     args.cmd(args)
 
 
