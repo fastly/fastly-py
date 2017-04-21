@@ -134,11 +134,12 @@ def main():
         nargs="?", default="-", type=argparse.FileType('w')
     )
 
-    parser_lock = commands.add_parser(
+    parser_generated_vcl = commands.add_parser(
         "generated_vcl",
-        help="generated_vcl?",
+        help="processed VCL",
         parents=[service_parser, version_parser],
-    ).set_defaults(cmd=cmd_generated_vcl)
+    )
+    parser_generated_vcl.set_defaults(cmd=cmd_generated_vcl)
 
     parser_backends = commands.add_parser(
         "backends",
@@ -275,7 +276,7 @@ def cmd_boilerplate(args):
 
 def cmd_generated_vcl(args):
     version = api.version(args.service_id, args.version_id)
-    print version.generated_vcl()
+    print version.generated_vcl()['content']
 
 
 # Backend Commands
