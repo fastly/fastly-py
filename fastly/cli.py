@@ -82,7 +82,8 @@ def main():
         help="list versions",
 
         parents=[service_parser],
-    ).set_defaults(cmd=cmd_versions)
+    )
+    parser_versions.set_defaults(cmd=cmd_versions)
 
     parser_version = commands.add_parser(
         "version",
@@ -228,7 +229,7 @@ def cmd_newversion(args):
 
 # Version Commands
 def cmd_versions(args):
-    version_line = "{is_active}{number} {created_at}/{updated_at} [{comment}]"
+    version_line = "{is_active}{number} @{updated_at}"
     for version in api.versions(args.service_id):
         print version_line.format(
             is_active=('*' if version.attrs['active'] else ' '),
