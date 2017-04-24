@@ -21,8 +21,9 @@ def main():
     )
 
     argparser.add_argument(
-        "-k", "--api-key", required=False,
-        help="Fastly API key", default=os.environ.get('FASTLY_API_KEY')
+        "-k", "--api-key",
+        required=False, default=os.environ.get('FASTLY_API_KEY'),
+        help="Fastly API key"
     )
 
     argparser.add_argument(
@@ -39,7 +40,8 @@ def main():
     # These parsers are used multiple times
     service_parser = argparse.ArgumentParser(add_help=False)
     service_parser.add_argument(
-        'service_id',
+        "-s", "--service-id",
+        required=False, default=os.environ.get('FASTLY_SERVICE_ID'),
         help='Service ID',
     )
 
