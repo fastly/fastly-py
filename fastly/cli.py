@@ -205,7 +205,10 @@ def main():
 
     # Now actually parse the arguments, log into the API, and run the command
     args = argparser.parse_args()
-    api.authenticate_by_key(args.api_key)
+
+    if args.api_key:
+        api.authenticate_by_key(args.api_key)
+
     args.cmd(args)
 
 
