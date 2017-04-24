@@ -358,9 +358,18 @@ def cmd_vcl(args):
     )
 
 
+def print_vcl(vcl):
+    vcl_line = "{is_main}{name} #{version} @{updated_at}"
+    print vcl_line.format(
+        is_main=('*' if vcl['main'] else ' '),
+        **vcl
+    )
+
+
 def cmd_main(args):
     vcl = api.vcl(args.service_id, pick_version(args), args.vcl_name)
-    print vcl.main()
+    mained = vcl.main()
+    print_vcl(mained)
 
 
 def cmd_download(args):
@@ -375,14 +384,14 @@ def cmd_upload(args):
         vcl.attrs['content'] = args.file.read()
         vcl.save()
 
-        print vcl.attrs
+        print_vcl(vcl.attrs)
 
     except Exception:
         ver = api.version(args.service_id, pick_version(args))
 
         vcl = ver.vcl(args.vcl_name, args.file.read())
 
-        print vcl.attrs
+        print_vcl(vcl.attrs)
 
 
 # Domain Commands
