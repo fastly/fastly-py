@@ -63,6 +63,10 @@ def main():
         action='store_true',
         help='Latest Version',
     )
+    version_parser.add_argument(
+        "--output-number-only",
+        action="store_true",
+    )
 
     vcl_parser = argparse.ArgumentParser(add_help=False)
     vcl_parser.add_argument(
@@ -286,41 +290,45 @@ def cmd_versions(args):
         )
 
 
-def print_version(version):
-    print "Version {number}".format(**version)
-    print "\tCreated: {created_at}".format(**version)
-    print "\tUpdated: {updated_at}".format(**version)
-    print "\tActive: {}".format("Yes" if version["active"] else "No")
-    print "\tLocked: {}".format("Yes" if version["locked"] else "No")    
+def print_version(version, args=None):
+    if getattr(args, 'output_number_only', False):
+        sys.stdout.write(str(version['number']))
+        sys.stdout.flush()
+    else:
+        print "Version {number}".format(**version)
+        print "\tCreated: {created_at}".format(**version)
+        print "\tUpdated: {updated_at}".format(**version)
+        print "\tActive: {}".format("Yes" if version["active"] else "No")
+        print "\tLocked: {}".format("Yes" if version["locked"] else "No")    
 
 
 def cmd_version(args):
     version = api.version(args.service_id, pick_version(args))
-    print_version(version.attrs)
+    print_version(version.attrs, args)
 
 
 def cmd_activate(args):
     version = api.version(args.service_id, pick_version(args))
     activated = version.activate()
-    print_version(activated)
+    print_version(activated, args)
 
 
 def cmd_clone(args):
     version = api.version(args.service_id, pick_version(args))
     cloned = version.clone()
-    print_version(cloned)
+    print_version(cloned, args)
 
 
 def cmd_deactivate(args):
     version = api.version(args.service_id, pick_version(args))
     deactivated = version.deactivate()
-    print_version(deactivated)
+    print_version(deactivated, args)
 
 
 def cmd_lock(args):
     version = api.version(args.service_id, pick_version(args))
     locked = version.lock()
-    print_version(locked)
+    print_version(locked, args)
 
 
 def cmd_boilerplate(args):
