@@ -129,7 +129,8 @@ def main():
     parser_clone = commands.add_parser(
         "clone",
         parents=[service_parser, version_parser],
-    ).set_defaults(cmd=cmd_clone)
+    )
+    parser_clone.set_defaults(cmd=cmd_clone)
 
     parser_lock = commands.add_parser(
         "lock",
@@ -285,33 +286,41 @@ def cmd_versions(args):
         )
 
 
+def print_version(version):
+    print "Version {number}".format(**version)
+    print "\tCreated: {created_at}".format(**version)
+    print "\tUpdated: {updated_at}".format(**version)
+    print "\tActive: {}".format("Yes" if version["active"] else "No")
+    print "\tLocked: {}".format("Yes" if version["locked"] else "No")    
+
+
 def cmd_version(args):
     version = api.version(args.service_id, pick_version(args))
-    print "Version {number}".format(**version.attrs)
-    print "\tCreated: {created_at}".format(**version.attrs)
-    print "\tUpdated: {updated_at}".format(**version.attrs)
-    print "\tActive: {}".format("Yes" if version.attrs["active"] else "No")
-    print "\tLocked: {}".format("Yes" if version.attrs["locked"] else "No")
+    print_version(version.attrs)
 
 
 def cmd_activate(args):
     version = api.version(args.service_id, pick_version(args))
-    print version.activate()
+    activated = version.activate()
+    print_version(activated)
 
 
 def cmd_clone(args):
     version = api.version(args.service_id, pick_version(args))
-    print version.clone()
+    cloned = version.clone()
+    print_version(cloned)
 
 
 def cmd_deactivate(args):
     version = api.version(args.service_id, pick_version(args))
-    print version.deactivate()
+    deactivated = version.deactivate()
+    print_version(deactivated)
 
 
 def cmd_lock(args):
     version = api.version(args.service_id, pick_version(args))
-    print version.lock()
+    locked = version.lock()
+    print_version(locked)
 
 
 def cmd_boilerplate(args):
