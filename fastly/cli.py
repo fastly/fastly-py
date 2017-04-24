@@ -4,6 +4,7 @@ fastly - Fastly Command Line Utility
 """
 
 import os
+import sys
 import argparse
 
 import fastly
@@ -46,10 +47,21 @@ def main():
     )
 
     version_parser = argparse.ArgumentParser(add_help=False)
-    version_parser.add_argument(
-        'version_id',
+    pick_version_group = version_parser.add_mutually_exclusive_group(required=True)
+    pick_version_group.add_argument(
+        "-v", "--version-id",
         type=int,
         help='Version ID',
+    )
+    pick_version_group.add_argument(
+        "-a", "--active-version",
+        action='store_true',
+        help='Active Version',
+    )
+    pick_version_group.add_argument(
+        "-l", "--latest-version",
+        action='store_true',
+        help='Latest Version',
     )
 
     vcl_parser = argparse.ArgumentParser(add_help=False)
@@ -214,6 +226,33 @@ def main():
     args.cmd(args)
 
 
+def pick_version(args):
+
+    version_id = None
+
+    if args.latest_version:
+        service_attrs = api.service(args.service_id).attrs
+
+        versions = service_attrs.get('versions')
+
+        if len(versions) > 0:
+            version_id = versions[-1]['number']
+
+    elif args.active_version:
+        service_attrs = api.service(args.service_id).attrs
+        for version in service_attrs.get('versions'):
+            if version.get('active'):
+                return version['number']
+
+    else:
+        version_id = args.version_id
+
+    if version_id is None:
+        sys.exit("No matching version found for service {}.".format(args.service_id))
+
+    return version_id
+
+
 # Services Commands
 def cmd_services(args):
     for service in api.services():
@@ -247,53 +286,54 @@ def cmd_versions(args):
 
 
 def cmd_version(args):
-    version = api.version(args.service_id, args.version_id)
-    print "Created: {created_at}".format(**version.attrs)
-    print "Updated: {updated_at}".format(**version.attrs)
-    print "Active: {}".format("Yes" if version.attrs["active"] else "No")
-    print "Locked: {}".format("Yes" if version.attrs["locked"] else "No")
+    version = api.version(args.service_id, pick_version(args))
+    print "Version {number}".format(**version.attrs)
+    print "\tCreated: {created_at}".format(**version.attrs)
+    print "\tUpdated: {updated_at}".format(**version.attrs)
+    print "\tActive: {}".format("Yes" if version.attrs["active"] else "No")
+    print "\tLocked: {}".format("Yes" if version.attrs["locked"] else "No")
 
 
 def cmd_activate(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     print version.activate()
 
 
 def cmd_clone(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     print version.clone()
 
 
 def cmd_deactivate(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     print version.deactivate()
 
 
 def cmd_lock(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     print version.lock()
 
 
 def cmd_boilerplate(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     args.file.write(version.boilerplate())
 
 
 def cmd_generated_vcl(args):
-    version = api.version(args.service_id, args.version_id)
+    version = api.version(args.service_id, pick_version(args))
     print version.generated_vcl()['content']
 
 
 # Backend Commands
 def cmd_backends(args):
-    for backend in api.backends(args.service_id, args.version_id):
+    for backend in api.backends(args.service_id, pick_version(args)):
         print backend.attrs
 
 
 # VCL Commands
 def cmd_vcls(args):
     vcl_line = "{is_main}{name} @{updated_at}"
-    for vcl in api.vcls(args.service_id, args.version_id):
+    for vcl in api.vcls(args.service_id, pick_version(args)):
         print vcl_line.format(
             is_main=('*' if vcl.attrs['main'] else ' '),
             **vcl.attrs
@@ -301,7 +341,7 @@ def cmd_vcls(args):
 
 
 def cmd_vcl(args):
-    vcl = api.vcl(args.service_id, args.version_id, args.vcl_name)
+    vcl = api.vcl(args.service_id, pick_version(args), args.vcl_name)
     vcl_line = "### {is_main}{name} @{updated_at}\n\n{content}"
     print vcl_line.format(
         is_main=('*' if vcl.attrs['main'] else ' '),
@@ -310,18 +350,18 @@ def cmd_vcl(args):
 
 
 def cmd_main(args):
-    vcl = api.vcl(args.service_id, args.version_id, args.vcl_name)
+    vcl = api.vcl(args.service_id, pick_version(args), args.vcl_name)
     print vcl.main()
 
 
 def cmd_download(args):
-    vcl = api.vcl(args.service_id, args.version_id, args.vcl_name)
+    vcl = api.vcl(args.service_id, pick_version(args), args.vcl_name)
     args.file.write(vcl.download())
 
 
 def cmd_upload(args):
     try:
-        vcl = api.vcl(args.service_id, args.version_id, args.vcl_name)
+        vcl = api.vcl(args.service_id, pick_version(args), args.vcl_name)
 
         vcl.attrs['content'] = args.file.read()
         vcl.save()
@@ -329,7 +369,7 @@ def cmd_upload(args):
         print vcl.attrs
 
     except Exception:
-        ver = api.version(args.service_id, args.version_id)
+        ver = api.version(args.service_id, pick_version(args))
 
         vcl = ver.vcl(args.vcl_name, args.file.read())
 
@@ -338,6 +378,6 @@ def cmd_upload(args):
 
 # Domain Commands
 def cmd_domains(args):
-    for domain in api.domains(args.service_id, args.version_id):
+    for domain in api.domains(args.service_id, pick_version(args)):
         # print domain
         print "{name} [{comment}]".format(**domain.attrs)
