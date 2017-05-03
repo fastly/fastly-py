@@ -5,6 +5,7 @@ fastly - Fastly Command Line Utility
 
 import os
 import sys
+import json
 import argparse
 
 import fastly
@@ -220,7 +221,16 @@ def main():
         help="list domains",
 
         parents=[service_parser, version_parser]
-    ).set_defaults(cmd=cmd_domains)
+    )
+    parser_domains.set_defaults(cmd=cmd_domains)
+
+    parser_settings = commands.add_parser(
+        "settings",
+        help="display settings",
+
+        parents=[service_parser, version_parser]
+    )
+    parser_settings.set_defaults(cmd=cmd_settings)
 
     # Now actually parse the arguments, log into the API, and run the command
     args = argparser.parse_args()
@@ -344,7 +354,7 @@ def cmd_generated_vcl(args):
 # Backend Commands
 def cmd_backends(args):
     for backend in api.backends(args.service_id, pick_version(args)):
-        print backend.attrs
+        print json.dumps(backend.attrs, indent=4)
 
 
 # VCL Commands
@@ -407,3 +417,9 @@ def cmd_domains(args):
     for domain in api.domains(args.service_id, pick_version(args)):
         # print domain
         print "{name} [{comment}]".format(**domain.attrs)
+
+
+# Settings Commands
+def cmd_settings(args):
+    settings = api.settings(args.service_id, pick_version(args))
+    print json.dumps(settings.attrs, indent=4)
