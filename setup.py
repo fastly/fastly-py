@@ -1,9 +1,11 @@
 from setuptools import setup
-exec(open('fastly/_version.py').read())
+version = {}
+with open('fastly/_version.py') as fp:
+    exec(fp.read(), version)
 
 setup(
     name="fastly",
-    version=__version__,
+    version=version['__version__'],
     author="Fastly",
     author_email="support@fastly.com",
     description="Fastly python API",
@@ -13,7 +15,7 @@ setup(
     long_description=open('README.md').read(),
     classifiers=[
         "Operating System :: OS Independent",
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities"
