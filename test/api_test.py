@@ -13,6 +13,9 @@ class APITest(unittest.TestCase):
         self.user = os.environ.get('FASTLY_USER', 'foo@example.com')
         self.password = os.environ.get('FASTLY_PASSWORD', 'password')
 
+    def tearDown(self):
+        self.api.conn.close()
+
     def test_purge(self):
         self.assertTrue(self.api.purge_url(self.host, '/'))
 

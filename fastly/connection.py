@@ -54,3 +54,8 @@ class Connection(object):
             raise NotFoundError()
 
         return (response, data)
+
+    def close(self):
+        if self.http_conn:
+            self.http_conn.close()
+            self.http_conn = None
