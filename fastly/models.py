@@ -3,7 +3,7 @@
 
 from string import Template
 from copy import copy
-from urllib import urlencode
+from urllib.parse import urlencode
 
 class Model(object):
     def __init__(self):

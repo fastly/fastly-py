@@ -1,11 +1,11 @@
 """
 """
 
-import httplib
+import http.client
 import json
-from _version import __version__
+from ._version import __version__
 
-from errors import *
+from .errors import *
 
 class Connection(object):
     def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
@@ -27,10 +27,10 @@ class Connection(object):
             self.port = 443 if self.secure else 80
 
         if self.secure:
-            self.http_conn = httplib.HTTPSConnection(self.host, self.port,
+            self.http_conn = http.client.HTTPSConnection(self.host, self.port,
                                            timeout=self.timeout)
         else:
-            self.http_conn = httplib.HTTPConnection(self.host, self.port,
+            self.http_conn = http.client.HTTPConnection(self.host, self.port,
                                           timeout=self.timeout)
 
         if self.authenticator:
@@ -44,7 +44,7 @@ class Connection(object):
         except ValueError:
             data = body
 
-        if response.status == 403:
+        if response.status in (401, 403):
             raise AuthenticationError()
         elif response.status == 500:
             raise InternalServerError()
@@ -54,3 +54,8 @@ class Connection(object):
             raise NotFoundError()
 
         return (response, data)
+
+    def close(self):
+        if self.http_conn:
+            self.http_conn.close()
+            self.http_conn = None

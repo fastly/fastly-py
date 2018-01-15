@@ -3,7 +3,7 @@
 import sys, fastly
 
 if len(sys.argv) < 4:
-  print "not enough arguments!"
+  print("not enough arguments!")
   sys.exit()
 else:
   _, auth_key, svc_key, purge_key = sys.argv
