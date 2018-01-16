@@ -1,5 +1,6 @@
 from setuptools import setup
-exec(open('fastly/_version.py').read())
+
+exec (open('fastly/_version.py').read())
 
 setup(
     name="fastly",
