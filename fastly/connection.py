@@ -1,11 +1,16 @@
 """
 """
-
-import httplib
 import json
-from _version import __version__
+import sys
 
-from errors import *
+if sys.version_info[0] == 2:
+    import httplib
+else:
+    import http.client as httplib
+
+from ._version import __version__
+from .errors import *
+
 
 class Connection(object):
     def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
@@ -18,9 +23,11 @@ class Connection(object):
 
         self.authenticator = None
         self.http_conn = None
-        self.default_headers = { 'User-Agent': 'fastly-py-v{}'.format(__version__) }
+        self.default_headers = {
+            'User-Agent': 'fastly-py-v{}'.format(__version__)}
 
-    def request(self, method, path, body=None, headers={}):
+    def request(self, method, path, body=None, headers=None):
+        headers = headers if headers is not None else {}
         headers.update(self.default_headers)
 
         if not self.port:
@@ -28,10 +35,10 @@ class Connection(object):
 
         if self.secure:
             self.http_conn = httplib.HTTPSConnection(self.host, self.port,
-                                           timeout=self.timeout)
+                                                     timeout=self.timeout)
         else:
             self.http_conn = httplib.HTTPConnection(self.host, self.port,
-                                          timeout=self.timeout)
+                                                    timeout=self.timeout)
 
         if self.authenticator:
             self.authenticator.add_auth(headers)

@@ -1,9 +1,12 @@
 """
 """
+import sys
 
-from errors import *
+if sys.version_info[0] == 2:
+    from urllib import urlencode
+else:
+    from urllib.parse import urlencode
 
-import urllib
 
 class KeyAuthenticator(object):
     def __init__(self, key):
@@ -12,9 +15,10 @@ class KeyAuthenticator(object):
     def add_auth(self, headers):
         headers['Fastly-Key'] = self.key
 
+
 class SessionAuthenticator(object):
     def __init__(self, conn, login, password):
-        body = urllib.urlencode({ 'user': login, 'password': password })
+        body = urlencode({'user': login, 'password': password})
         resp, data = conn.request('POST', '/login', body)
         self.session_key = resp.getheader('Set-Cookie')
 
