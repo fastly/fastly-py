@@ -1,1 +1,1 @@
-from fastly import *
+from .fastly import *

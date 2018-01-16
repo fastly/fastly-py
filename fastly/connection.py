@@ -1,11 +1,14 @@
 """
 """
-
-import httplib
+import sys
+if sys.version_info[0] == 2:
+    import httplib
+else:
+    import http.client as httplib
 import json
-from _version import __version__
+from ._version import __version__
 
-from errors import *
+from .errors import *
 
 class Connection(object):
     def __init__(self, host='api.fastly.com', secure=True, port=None, root='',

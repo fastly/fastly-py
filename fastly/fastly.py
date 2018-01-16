@@ -1,12 +1,16 @@
-import httplib
+import sys
+if sys.version_info[0] == 2:
+    import httplib
+else:
+    import http.client as httplib
 import urllib
 import json
 import os
 
-from connection import *
-from auth import *
-from errors import *
-from models import *
+from .connection import *
+from .auth import *
+from .errors import *
+from .models import *
 
 class API(object):
     def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', True), port=None, root='',
