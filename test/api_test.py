@@ -1,6 +1,6 @@
 import unittest
 import os
-import fastly
+from fastly import fastly, errors
 from fastly._version import __version__
 
 class APITest(unittest.TestCase):
@@ -24,7 +24,7 @@ class APITest(unittest.TestCase):
     def test_cookie_purge_by_key(self):
         self.api.deauthenticate()
         self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(fastly.AuthenticationError):
+        with self.assertRaises(errors.AuthenticationError):
             self.api.purge_key(self.service_id, 'foo')
 
     def test_soft_purge(self):
@@ -39,12 +39,12 @@ class APITest(unittest.TestCase):
     def test_cookie_soft_purge_by_key(self):
         self.api.deauthenticate()
         self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(fastly.AuthenticationError):
+        with self.assertRaises(errors.AuthenticationError):
             self.api.soft_purge_key(self.service_id, 'foo')
 
     def test_auth_error(self):
         self.api.deauthenticate()
-        with self.assertRaises(fastly.AuthenticationError):
+        with self.assertRaises(errors.AuthenticationError), e:
             self.api.conn.request('GET', '/current_customer')
 
     def test_auth_key_success(self):

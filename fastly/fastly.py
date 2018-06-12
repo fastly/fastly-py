@@ -1,12 +1,16 @@
-import httplib
-import urllib
+from __future__ import absolute_import
+
 import json
 import os
 
-from connection import *
-from auth import *
-from errors import *
-from models import *
+from six.moves import http_client, urllib
+
+from fastly.connection import Connection
+from fastly.auth import KeyAuthenticator, SessionAuthenticator
+from fastly.errors import AuthenticationError
+
+#from fastly import connection, auth, errors, models
+
 
 class API(object):
     def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', True), port=None, root='',
@@ -70,7 +74,7 @@ class API(object):
         return self.purge_service(service, True)
 
     def purge_key(self, service, key, soft=False):
-        if type(self.conn.authenticator) is not KeyAuthenticator:
+        if not isinstance(self.conn.authenticator, KeyAuthenticator):
             raise AuthenticationError("This request requires an API key")
 
         headers = {}
