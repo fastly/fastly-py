@@ -13,6 +13,10 @@ class APITest(unittest.TestCase):
         self.user = os.environ.get('FASTLY_USER', 'foo@example.com')
         self.password = os.environ.get('FASTLY_PASSWORD', 'password')
 
+    def tearDown(self):
+        if self.api.conn.http_conn is not None:
+            self.api.conn.http_conn.close()
+
     def test_purge(self):
         self.assertTrue(self.api.purge_url(self.host, '/'))
 
@@ -20,12 +24,6 @@ class APITest(unittest.TestCase):
         self.api.deauthenticate()
         self.api.authenticate_by_key(self.api_key)
         self.assertTrue(self.api.purge_key(self.service_id, 'foo'))
-
-    def test_cookie_purge_by_key(self):
-        self.api.deauthenticate()
-        self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(errors.AuthenticationError):
-            self.api.purge_key(self.service_id, 'foo')
 
     def test_soft_purge(self):
         self.api.deauthenticate()
@@ -36,25 +34,14 @@ class APITest(unittest.TestCase):
         self.api.authenticate_by_key(self.api_key)
         self.assertTrue(self.api.soft_purge_key(self.service_id, 'foo'))
 
-    def test_cookie_soft_purge_by_key(self):
-        self.api.deauthenticate()
-        self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(errors.AuthenticationError):
-            self.api.soft_purge_key(self.service_id, 'foo')
-
     def test_auth_error(self):
         self.api.deauthenticate()
-        with self.assertRaises(errors.AuthenticationError), e:
+        with self.assertRaises(errors.AuthenticationError):
             self.api.conn.request('GET', '/current_customer')
 
     def test_auth_key_success(self):
         self.api.deauthenticate()
         self.api.authenticate_by_key(self.api_key)
-        self.api.conn.request('GET', '/current_customer')
-
-    def test_auth_session_success(self):
-        self.api.deauthenticate()
-        self.api.authenticate_by_password(self.user, self.password)
         self.api.conn.request('GET', '/current_customer')
 
     def test_sets_default_user_agent_header(self):

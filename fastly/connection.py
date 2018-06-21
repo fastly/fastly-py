@@ -3,6 +3,7 @@
 from __future__ import absolute_import
 
 import json
+import ssl
 
 from six.moves import http_client
 
@@ -29,8 +30,9 @@ class Connection(object):
             self.port = 443 if self.secure else 80
 
         if self.secure:
+            ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
             self.http_conn = http_client.HTTPSConnection(self.host, self.port,
-                                           timeout=self.timeout)
+                                           timeout=self.timeout, context=ctx)
         else:
             self.http_conn = http_client.HTTPConnection(self.host, self.port,
                                           timeout=self.timeout)
@@ -46,7 +48,7 @@ class Connection(object):
         except ValueError:
             data = body
 
-        if response.status == 403:
+        if response.status in [401, 403]:
             raise errors.AuthenticationError()
         elif response.status == 500:
             raise errors.InternalServerError()
