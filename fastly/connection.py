@@ -30,7 +30,7 @@ class Connection(object):
             self.port = 443 if self.secure else 80
 
         if self.secure:
-            ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+            ctx = ssl.SSLContext(ssl.PROTOCOL_TLS)
             self.http_conn = http_client.HTTPSConnection(self.host, self.port,
                                            timeout=self.timeout, context=ctx)
         else:
