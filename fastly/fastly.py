@@ -1,15 +1,11 @@
 from __future__ import absolute_import
 
-import json
 import os
-
-from six.moves import http_client, urllib
 
 from fastly.connection import Connection
 from fastly.auth import KeyAuthenticator, SessionAuthenticator
 from fastly.errors import AuthenticationError
-
-#from fastly import connection, auth, errors, models
+from fastly.models import Service, Version, Domain, Backend, Settings, Condition, Header
 
 
 class API(object):
@@ -61,7 +57,6 @@ class API(object):
     def soft_purge_url(self, host, path):
         return self.purge_url(host, path, True)
 
-
     def purge_service(self, service, soft=False):
         headers = {}
         if soft:
@@ -81,7 +76,7 @@ class API(object):
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
-        resp, data = self.conn.request('POST','/service/%s/purge/%s' % (service, key), headers=headers)
+        resp, data = self.conn.request('POST', '/service/%s/purge/%s' % (service, key), headers=headers)
         return resp.status == 200
 
     def soft_purge_key(self, service, key):

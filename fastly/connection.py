@@ -1,5 +1,3 @@
-"""
-"""
 from __future__ import absolute_import
 
 import json
@@ -10,9 +8,9 @@ from six.moves import http_client
 from fastly._version import __version__
 from fastly import errors
 
+
 class Connection(object):
-    def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
-                 timeout=10.0):
+    def __init__(self, host='api.fastly.com', secure=True, port=None, root='', timeout=10.0):
         self.host = host
         self.secure = secure
         self.port = port
@@ -23,7 +21,11 @@ class Connection(object):
         self.http_conn = None
         self.default_headers = { 'User-Agent': 'fastly-py-v{}'.format(__version__) }
 
-    def request(self, method, path, body=None, headers={}):
+    def request(self, method, path, body=None, headers=None):
+
+        if not headers:
+            headers = {}
+
         headers.update(self.default_headers)
 
         if not self.port:
@@ -32,10 +34,10 @@ class Connection(object):
         if self.secure:
             ctx = ssl.SSLContext(ssl.PROTOCOL_TLS)
             self.http_conn = http_client.HTTPSConnection(self.host, self.port,
-                                           timeout=self.timeout, context=ctx)
+                                                         timeout=self.timeout, context=ctx)
         else:
             self.http_conn = http_client.HTTPConnection(self.host, self.port,
-                                          timeout=self.timeout)
+                                                        timeout=self.timeout)
 
         if self.authenticator:
             self.authenticator.add_auth(headers)
