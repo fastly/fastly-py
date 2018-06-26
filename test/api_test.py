@@ -1,7 +1,8 @@
 import unittest
 import os
-import fastly
+from fastly import fastly, errors
 from fastly._version import __version__
+
 
 class APITest(unittest.TestCase):
 
@@ -12,6 +13,10 @@ class APITest(unittest.TestCase):
         self.api_key = os.environ.get('FASTLY_API_KEY', 'TESTAPIKEY')
         self.user = os.environ.get('FASTLY_USER', 'foo@example.com')
         self.password = os.environ.get('FASTLY_PASSWORD', 'password')
+
+    def tearDown(self):
+        if self.api.conn.http_conn is not None:
+            self.api.conn.http_conn.close()
 
     def test_purge(self):
         self.assertTrue(self.api.purge_url(self.host, '/'))
@@ -44,22 +49,23 @@ class APITest(unittest.TestCase):
 
     def test_auth_error(self):
         self.api.deauthenticate()
-        with self.assertRaises(fastly.AuthenticationError):
+        with self.assertRaises(errors.AuthenticationError):
             self.api.conn.request('GET', '/current_customer')
-
-    def test_auth_key_success(self):
-        self.api.deauthenticate()
-        self.api.authenticate_by_key(self.api_key)
-        self.api.conn.request('GET', '/current_customer')
 
     def test_auth_session_success(self):
         self.api.deauthenticate()
         self.api.authenticate_by_password(self.user, self.password)
         self.api.conn.request('GET', '/current_customer')
 
+    def test_auth_key_success(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_key(self.api_key)
+        self.api.conn.request('GET', '/current_customer')
+
     def test_sets_default_user_agent_header(self):
         default_headers = self.api.conn.default_headers
         self.assertEqual(default_headers['User-Agent'], 'fastly-py-v{}'.format(__version__))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,15 +1,16 @@
-"""
-"""
+from __future__ import absolute_import
 
-import httplib
 import json
-from _version import __version__
+import ssl
 
-from errors import *
+from six.moves import http_client
+
+from fastly._version import __version__
+from fastly import errors
+
 
 class Connection(object):
-    def __init__(self, host='api.fastly.com', secure=True, port=None, root='',
-                 timeout=10.0):
+    def __init__(self, host='api.fastly.com', secure=True, port=None, root='', timeout=10.0):
         self.host = host
         self.secure = secure
         self.port = port
@@ -20,18 +21,23 @@ class Connection(object):
         self.http_conn = None
         self.default_headers = { 'User-Agent': 'fastly-py-v{}'.format(__version__) }
 
-    def request(self, method, path, body=None, headers={}):
+    def request(self, method, path, body=None, headers=None):
+
+        if not headers:
+            headers = {}
+
         headers.update(self.default_headers)
 
         if not self.port:
             self.port = 443 if self.secure else 80
 
         if self.secure:
-            self.http_conn = httplib.HTTPSConnection(self.host, self.port,
-                                           timeout=self.timeout)
+            ctx = ssl.SSLContext(ssl.PROTOCOL_TLS)
+            self.http_conn = http_client.HTTPSConnection(self.host, self.port,
+                                                         timeout=self.timeout, context=ctx)
         else:
-            self.http_conn = httplib.HTTPConnection(self.host, self.port,
-                                          timeout=self.timeout)
+            self.http_conn = http_client.HTTPConnection(self.host, self.port,
+                                                        timeout=self.timeout)
 
         if self.authenticator:
             self.authenticator.add_auth(headers)
@@ -44,13 +50,13 @@ class Connection(object):
         except ValueError:
             data = body
 
-        if response.status == 403:
-            raise AuthenticationError()
+        if response.status in [401, 403]:
+            raise errors.AuthenticationError()
         elif response.status == 500:
-            raise InternalServerError()
+            raise errors.InternalServerError()
         elif response.status == 400:
-            raise BadRequestError(body)
+            raise errors.BadRequestError(body)
         elif response.status == 404:
-            raise NotFoundError()
+            raise errors.NotFoundError()
 
         return (response, data)

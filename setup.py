@@ -11,6 +11,9 @@ setup(
     url="https://github.com/fastly/fastly-py",
     packages=['fastly'],
     long_description=open('README.md').read(),
+    install_requires=[
+        'six',
+    ],
     classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python",
