@@ -43,15 +43,46 @@ source .env
 
 ### Distributing a package
 
-```
-$ python setup.py register
-```
-
-Follow the prompts to create an account or login. The `register` command also ensures that your account has access to the fastly package on PyPi.
+Create a `.pypirc` file:
 
 ```
-$ python setup.py sdist upload
+$ cat > .pypirc
+[distutils]
+index-servers =
+    pypi
+
+[pypi]
+repository: https://upload.python.org/legacy/
 ```
 
-Builds and uploads to PyPi. More info on this at the [python site](https://docs.python.org/2/distutils/packageindex.html).
-You will need to be granted access to the fastly package in order to push.
+Install twine:
+
+```
+$ python3 -m pip install --user --upgrade twine
+```
+
+Create a build:
+```
+$ python3 setup.py sdist bdist_wheel
+```
+
+Use twine to publish to Pypi:
+
+```
+$ twine upload dist/* 
+Uploading distributions to https://upload.pypi.org/legacy/
+Enter your username: [YOUR_USERNAME]
+Enter your password:
+Uploading fastly-0.2.3-py3-none-any.whl
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13.2k/13.2k [00:02<00:00, 6.40kB/s]
+Uploading fastly-0.1.3-py2.7.egg
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 17.8k/17.8k [00:01<00:00, 12.8kB/s]
+Uploading fastly-0.1.3-py3.6.egg
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 18.3k/18.3k [00:01<00:00, 14.2kB/s]
+Uploading fastly-0.2.3.tar.gz
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9.25k/9.25k [00:01<00:00, 9.09kB/s]
+```
+
+Builds and uploads to PyPi. More info on this at the [python
+site](https://packaging.python.org/tutorials/packaging-projects/). You will
+need to be granted access to the fastly package in order to push.

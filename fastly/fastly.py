@@ -1,12 +1,12 @@
-import httplib
-import urllib
-import json
+from __future__ import absolute_import
+
 import os
 
-from connection import *
-from auth import *
-from errors import *
-from models import *
+from fastly.connection import Connection
+from fastly.auth import KeyAuthenticator, SessionAuthenticator
+from fastly.errors import AuthenticationError
+from fastly.models import Service, Version, Domain, Backend, Settings, Condition, Header
+
 
 class API(object):
     def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', True), port=None, root='',
@@ -75,7 +75,6 @@ class API(object):
     def soft_purge_url(self, host, path):
         return self.purge_url(host, path, True)
 
-
     def purge_service(self, service, soft=False):
         headers = {}
         if soft:
@@ -88,14 +87,14 @@ class API(object):
         return self.purge_service(service, True)
 
     def purge_key(self, service, key, soft=False):
-        if type(self.conn.authenticator) is not KeyAuthenticator:
+        if not isinstance(self.conn.authenticator, KeyAuthenticator):
             raise AuthenticationError("This request requires an API key")
 
         headers = {}
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
-        resp, data = self.conn.request('POST','/service/%s/purge/%s' % (service, key), headers=headers)
+        resp, data = self.conn.request('POST', '/service/%s/purge/%s' % (service, key), headers=headers)
         return resp.status == 200
 
     def soft_purge_key(self, service, key):
