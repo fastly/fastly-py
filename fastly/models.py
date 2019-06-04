@@ -150,6 +150,75 @@ class Version(Model):
         vcl.save()
 
         return vcl
+    
+    def domain(self, name, comment):
+        domain = Domain()
+        domain.conn = self.conn
+
+        domain.attrs = {
+            # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+
+            # New instance params
+            'name': name,
+            'comment': comment,
+        }
+
+        domain.save()
+
+        return domain
+
+    def condition(self, **kwargs):
+        cond = Condition()
+        cond.conn = self.conn
+
+        cond.attrs = {
+            # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+
+            # New instance params
+            **kwargs
+        }
+
+        cond.save()
+
+        return cond
+
+    def header(self, **kwargs):
+        header = Header()
+        header.conn = self.conn
+
+        header.attrs = {
+            # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+
+            # New instance params
+            **kwargs
+        }
+
+        header.save()
+
+        return header
+
+    def backend(self, **kwargs):
+        backend = Backend()
+        backend.conn = self.conn
+
+        backend.attrs = {
+             # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+
+            # New instance params
+            **kwargs
+        }
+
+        backend.save()
+
+        return backend
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'

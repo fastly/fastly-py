@@ -13,6 +13,59 @@ api.authenticate_by_key('MYKEY')
 api.purge_url('www.example.com', '/some/path')
 ```
 
+### Some Examples
+
+```python
+import fastly
+api = fastly.API()
+api.authenticate_by_key('MYKEY')
+
+# Get list of services
+services_list = api.services()
+# Get individual services
+for service in services_list:
+    svc = vars(service)
+    # get backends
+    backends = api.backends(svc['id'], svc['version'])
+
+    # get the most current version
+    version = api.version(svc['id'], svc['version'])
+
+    # clone it
+    version.clone()
+    new_version = int(svc['version']) + 1
+
+    #get new version object
+    version = api.version(svc['id'], new_version)
+
+    # Add domain
+    new_domain = 'www.example.com'
+    version.domain(new_domain, 'this is a comment')
+
+    # Add condition
+    version.condition(name='new condition', statement='"req.http.host ~ www.example.com"', type='REQUEST')
+
+    # Add a header
+    version.header(
+            name='new header',
+            type='REQUEST',
+            dst='http.Host',
+            src='www.example.com',
+            priority='10',
+            request_condition='new condition'
+    )
+
+    # Add a backend
+    version.backend(
+            name='new origin,
+            hostname='www.example.com',
+            port='443',
+            request_condition='new condition'
+    )
+
+    # activate new version
+    version.activate()
+
 ### TODO:
 
 Doc files
