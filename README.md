@@ -65,7 +65,7 @@ for service in services_list:
 
     # activate new version
     version.activate()
-
+```
 ### TODO:
 
 Doc files
