@@ -91,6 +91,16 @@ class Service(Model):
     COLLECTION_PATTERN = '/service'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
 
+    def details(self):
+        resp, data = self._query('GET', '/details')
+        return data
+
+    def get_active_version_number(self):
+        versions = self.attrs.get('versions')
+        if versions:
+            return list(filter(lambda x: x['active'] is True, versions))[0]['number']
+        return None
+
     def purge_key(self, key):
         self._query('POST', '/purge/%s' % key)
 
