@@ -28,6 +28,9 @@ class Model(object):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
     def save(self):
+        if self._original_attrs == self.attrs:
+            return False
+
         if self._original_attrs:
             out = {}
             for k in self.attrs:
@@ -35,13 +38,13 @@ class Model(object):
                     out[k] = self.attrs[k]
             params_str = urlencode(out)
             resp, data = self._query('PUT', body=params_str)
-
         else:
             params_str = urlencode(self.attrs)
             resp, data = self._collection_query('POST', body=params_str)
 
         self._original_attrs = data
         self.attrs = data
+        return True
 
 
     @classmethod
