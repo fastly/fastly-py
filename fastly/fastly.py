@@ -5,7 +5,7 @@ import os
 from fastly.connection import Connection
 from fastly.auth import KeyAuthenticator, SessionAuthenticator
 from fastly.errors import AuthenticationError
-from fastly.models import Service, Version, Domain, Backend, Settings, Condition, Header
+from fastly.models import Service, Version, Domain, Backend, Settings, Condition, Header, VCL
 
 
 class API(object):
