@@ -4,8 +4,6 @@ from __future__ import absolute_import
 
 from six.moves.urllib.parse import urlencode
 
-from fastly import errors
-
 
 class KeyAuthenticator(object):
     def __init__(self, key):
