@@ -2,3 +2,4 @@
 dist
 fastly.egg-info
 build
+.env

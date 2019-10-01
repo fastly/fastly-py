@@ -5,6 +5,7 @@ from string import Template
 from copy import copy
 from six.moves.urllib.parse import urlencode
 
+
 class Model(object):
     def __init__(self):
         self._original_attrs = None
@@ -28,6 +29,9 @@ class Model(object):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
     def save(self):
+        if self._original_attrs == self.attrs:
+            return False
+
         if self._original_attrs:
             out = {}
             for k in self.attrs:
@@ -35,14 +39,17 @@ class Model(object):
                     out[k] = self.attrs[k]
             params_str = urlencode(out)
             resp, data = self._query('PUT', body=params_str)
-
         else:
             params_str = urlencode(self.attrs)
             resp, data = self._collection_query('POST', body=params_str)
 
         self._original_attrs = data
         self.attrs = data
+        return True
 
+    def delete(self):
+        resp, data = self._query('DELETE')
+        return data
 
     @classmethod
     def list(cls, conn, **kwargs):
@@ -66,15 +73,33 @@ class Model(object):
         return obj
 
     @classmethod
-    def construct_instance(cls, data):
+    def create(cls, conn, data):
+        instance = cls.construct_instance(data, new=True)
+        instance.conn = conn
+        instance.save()
+        return instance
+
+    @classmethod
+    def construct_instance(cls, data, new=False):
         obj = cls()
-        obj._original_attrs = data
+        if not new:
+            obj._original_attrs = data
         obj.attrs = copy(data)
         return obj
 
 class Service(Model):
     COLLECTION_PATTERN = '/service'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
+
+    def details(self):
+        resp, data = self._query('GET', '/details')
+        return data
+
+    def get_active_version_number(self):
+        versions = self.attrs.get('versions')
+        if versions:
+            return list(filter(lambda x: x['active'] is True, versions))[0]['number']
+        return None
 
     def purge_key(self, key):
         self._query('POST', '/purge/%s' % key)
@@ -84,17 +109,11 @@ class Service(Model):
 
     def version(self):
         """ Create a new version under this service. """
-        ver = Version()
-        ver.conn = self.conn
-
-        ver.attrs = {
+        return Version.create(self.conn, {
             # Parent params
             'service_id': self.attrs['id'],
-        }
+        })
 
-        ver.save()
-
-        return ver
 
 class Version(Model):
     COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/version'
@@ -134,22 +153,14 @@ class Version(Model):
 
     def vcl(self, name, content):
         """ Create a new VCL under this version. """
-        vcl = VCL()
-        vcl.conn = self.conn
-
-        vcl.attrs = {
+        return VCL.create(self.conn, {
             # Parent params
             'service_id': self.attrs['service_id'],
             'version': self.attrs['number'],
-
             # New instance params
             'name': name,
             'content': content,
-        }
-
-        vcl.save()
-
-        return vcl
+        })
     
     def domain(self, name, comment):
         domain = Domain()
@@ -219,6 +230,7 @@ class Version(Model):
         backend.save()
 
         return backend
+        })
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
