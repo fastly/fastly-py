@@ -47,6 +47,16 @@ class APITest(unittest.TestCase):
         with self.assertRaises(fastly.AuthenticationError):
             self.api.soft_purge_key(self.service_id, 'foo')
 
+    def test_batch_purge_by_key(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_key(self.api_key)
+        self.assertTrue(self.api.batch_purge_key(self.service_id, ['foo', 'bar']))
+
+    def test_soft_batch_purge_by_key(self):
+        self.api.deauthenticate()
+        self.api.authenticate_by_key(self.api_key)
+        self.assertTrue(self.api.soft_batch_purge_key(self.service_id, ['foo', 'bar']))
+
     def test_auth_error(self):
         self.api.deauthenticate()
         with self.assertRaises(errors.AuthenticationError):

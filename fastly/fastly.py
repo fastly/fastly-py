@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+import json
 import os
 
 from fastly.connection import Connection
@@ -102,3 +103,20 @@ class API(object):
 
     def soft_purge_key(self, service, key):
         return self.purge_key(service, key, True)
+
+    def batch_purge_key(self, service, keys, soft=False):
+        if not isinstance(self.conn.authenticator, KeyAuthenticator):
+            raise AuthenticationError("This request requires an API key")
+
+        body = json.dumps({"surrogate_keys": keys})
+        headers = {'Content-Type': 'application/json'}
+
+        if soft:
+            headers['Fastly-Soft-Purge'] = 1
+
+        resp, data = self.conn.request('POST', '/service/%s/purge' % (service),
+                                       body=body, headers=headers)
+        return resp.status == 200
+
+    def soft_batch_purge_key(self, service, keys):
+        return self.batch_purge_key(service, keys, True)
