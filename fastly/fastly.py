@@ -5,11 +5,7 @@ import os
 from fastly.connection import Connection
 from fastly.auth import KeyAuthenticator, SessionAuthenticator
 from fastly.errors import AuthenticationError
-from fastly.models import (
-    Service, Version, Domain, Backend,
-    Settings, Condition, Header, VCL,
-    Dictionary, DictionaryItem
-)
+from fastly.models import Service, Version, Domain, Backend, Settings, Condition, Header, VCL, Dictionary, DictionaryItem
 
 
 class API(object):
@@ -24,7 +20,8 @@ class API(object):
         self.conn.authenticator = KeyAuthenticator(key)
 
     def authenticate_by_password(self, login, password):
-        self.conn.authenticator = SessionAuthenticator(self.conn, login, password)
+        self.conn.authenticator = SessionAuthenticator(
+            self.conn, login, password)
 
     def deauthenticate(self):
         self.conn.authenticator = None
@@ -81,7 +78,7 @@ class API(object):
         return DictionaryItem.find(self.conn, service_id=service_id, dictionary_id=dictionary_id, item_key=item_key)
 
     def purge_url(self, host, path, soft=False):
-        headers = {'Host':host}
+        headers = {'Host': host}
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
@@ -96,7 +93,8 @@ class API(object):
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
-        resp, data = self.conn.request('POST','/service/%s/purge_all' % service, headers=headers)
+        resp, data = self.conn.request(
+            'POST', '/service/%s/purge_all' % service, headers=headers)
         return resp.status == 200
 
     def soft_purge_service(self, service):
@@ -110,7 +108,8 @@ class API(object):
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
-        resp, data = self.conn.request('POST', '/service/%s/purge/%s' % (service, key), headers=headers)
+        resp, data = self.conn.request(
+            'POST', '/service/%s/purge/%s' % (service, key), headers=headers)
         return resp.status == 200
 
     def soft_purge_key(self, service, key):
