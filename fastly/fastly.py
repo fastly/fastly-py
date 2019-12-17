@@ -7,7 +7,8 @@ from fastly.auth import KeyAuthenticator, SessionAuthenticator
 from fastly.errors import AuthenticationError
 from fastly.models import (
     Service, Version, Domain, Backend,
-    Settings, Condition, Header, VCL
+    Settings, Condition, Header, VCL,
+    Dictionary, DictionaryItem
 )
 
 
@@ -66,6 +67,18 @@ class API(object):
 
     def vcl(self, service_id, version, name):
         return VCL.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def dictionaries(self, service_id, version):
+        return Dictionary.list(self.conn, service_id=service_id, version=version)
+
+    def dictionary(self, service_id, version, name):
+        return Dictionary.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def dictionary_items(self, service_id, dictionary_id):
+        return DictionaryItem.list(self.conn, service_id=service_id, dictionary_id=dictionary_id)
+
+    def dictionary_item(self, service_id, dictionary_id, item_key):
+        return DictionaryItem.find(self.conn, service_id=service_id, dictionary_id=dictionary_id, item_key=item_key)
 
     def purge_url(self, host, path, soft=False):
         headers = {'Host':host}
