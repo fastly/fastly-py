@@ -44,7 +44,7 @@ class Connection(object):
 
         self.http_conn.request(method, self.root + path, body, headers=headers)
         response = self.http_conn.getresponse()
-        body = response.read()
+        body = response.read().decode('utf-8')
         try:
             data = json.loads(body)
         except ValueError:
