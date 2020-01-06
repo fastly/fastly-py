@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - January 6, 2020: 
+
+### Fixed
+
+- Fixed [unused imports](https://github.com/fastly/fastly-py/pull/47)
+- Fixed [compatibility with python < 3.6](https://github.com/fastly/fastly-py/pull/46)
+
 ## [0.3.0] - July 10, 2019: 
 ### Added
 
