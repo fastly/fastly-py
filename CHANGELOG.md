@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - January 6, 2020
+
+### Added
+
+- new command-line interface: `fastly` using argparse, thanks to the work of @dcmoore-gd
+
 ## [0.3.1] - January 6, 2020: 
 
 ### Fixed
