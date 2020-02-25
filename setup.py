@@ -9,7 +9,6 @@ setup(
     version=__version__,  # pylint: disable=undefined-variable
     author="Fastly",
     author_email="support@fastly.com",
-    description="Fastly python API",
     classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python",
