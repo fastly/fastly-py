@@ -81,11 +81,13 @@ class API(object):
         return DictionaryItem.find(self.conn, service_id=service_id, dictionary_id=dictionary_id, item_key=item_key)
 
     def purge_url(self, host, path, soft=False):
-        headers = {'Host':host}
+        headers = {}
         if soft:
             headers['Fastly-Soft-Purge'] = 1
 
-        resp, data = self.conn.request('PURGE', path, headers=headers)
+        purge_path = "/purge/%s%s" % (host, path)
+        resp, data = self.conn.request(
+            'POST', purge_path, body='', headers=headers)
         return resp.status == 200
 
     def soft_purge_url(self, host, path):
