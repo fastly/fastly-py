@@ -220,6 +220,10 @@ class VCL(Model):
         resp, data = self._query('PUT', '/main')
         return data
 
+class Snippet(Model):
+    COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/snippet'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
 class Dictionary(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/dictionary'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
