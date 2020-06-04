@@ -1,5 +1,6 @@
 import unittest
 import os
+import warnings
 from fastly import fastly, errors
 from fastly._version import __version__
 
@@ -39,6 +40,14 @@ class APITest(unittest.TestCase):
         self.api.authenticate_by_password(self.user, self.password)
         with self.assertRaises(fastly.AuthenticationError):
             self.api.purge_key(self.service_id, 'foo')
+    
+    def test_deprecation_warning(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            self.api.authenticate_by_password(self.user, self.password)
+            assert len(w) == 1
+            assert issubclass(w[-1].category, PendingDeprecationWarning)
+            assert 'DEPRECATION WARNING: Username/password authentication is deprecated and will not be available starting September 2020; please migrate to API tokens as soon as possible.' in str(w[-1].message)
 
     def test_soft_purge_by_key(self):
         self.api.authenticate_by_key(self.api_key)
