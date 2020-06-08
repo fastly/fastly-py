@@ -12,21 +12,22 @@ class Model(object):
         self.attrs = {}
 
     @classmethod
-    def query(cls, conn, pattern, method, suffix='', body=None, **kwargs):
+    def query(cls, conn, pattern, req_method, suffix='', body=None, **kwargs):
         url = Template(pattern).substitute(**kwargs)
         url += Template(suffix).substitute(**kwargs)
 
         headers = { 'Content-Accept': 'application/json' }
-        if method == 'POST' or method == 'PUT':
+        if req_method == 'POST' or req_method == 'PUT':
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
-        return conn.request(method, url, body, headers)
+        return conn.request(req_method, url, body, headers)
 
-    def _query(self, method, suffix='', body=None):
-        return self.__class__.query(self.conn, self.INSTANCE_PATTERN, method, suffix, body, **self.attrs)
+    def _query(self, req_method, suffix='', body=None):
+        import code; code.interact(local=dict(globals(), **locals()))
+        return self.__class__.query(self.conn, self.INSTANCE_PATTERN, req_method, suffix, body, **self.attrs)
 
-    def _collection_query(self, method, suffix='', body=None):
-        return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
+    def _collection_query(self, req_method, suffix='', body=None):
+        return self.__class__.query(self.conn, self.COLLECTION_PATTERN, req_method, suffix, body, **self.attrs)
 
     def save(self):
         if self._original_attrs == self.attrs:
