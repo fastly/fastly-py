@@ -220,9 +220,19 @@ class VCL(Model):
         resp, data = self._query('PUT', '/main')
         return data
 
+
 class Snippet(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/snippet'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
+    def dynamic(self):
+        return DynamicSnippet.find(self.conn, service_id=self.attrs['service_id'], snippet_id=self.attrs['id'] )
+
+
+class DynamicSnippet(Model):
+    COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/snippet'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$snippet_id'
+
 
 class Dictionary(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/dictionary'

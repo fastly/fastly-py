@@ -9,7 +9,7 @@ from fastly.errors import AuthenticationError
 from fastly.models import (
     Service, Version, Domain, Backend,
     Settings, Condition, Header, VCL,
-    Snippet, Dictionary, DictionaryItem
+    Snippet, DynamicSnippet, Dictionary, DictionaryItem
 )
 
 
