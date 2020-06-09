@@ -17,7 +17,6 @@ setup(
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities"
     ],
-    description="Fastly python API",
     keywords="fastly api",
     long_description=long_description,
     long_description_content_type="text/markdown",
