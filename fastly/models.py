@@ -98,7 +98,9 @@ class Service(Model):
     def get_active_version_number(self):
         versions = self.attrs.get('versions')
         if versions:
-            return list(filter(lambda x: x['active'] is True, versions))[0]['number']
+            active_versions = list(filter(lambda x: x['active'] is True, versions))
+            if len(active_versions) > 0:
+              return active_versions[0]['number']
         return None
 
     def purge_key(self, key):
