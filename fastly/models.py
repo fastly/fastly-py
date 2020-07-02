@@ -13,8 +13,12 @@ class Model(object):
 
     @classmethod
     def query(cls, conn, pattern, method, suffix='', body=None, **kwargs):
-        url = Template(pattern).substitute(**kwargs)
-        url += Template(suffix).substitute(**kwargs)
+        quoted_kwargs = {
+            key: urlencode(value) if isinstance(value, str) else value
+            for key, value in kwargs.items()
+        }
+        url = Template(pattern).substitute(**quoted_kwargs)
+        url += Template(suffix).substitute(**quoted_kwargs)
 
         headers = { 'Content-Accept': 'application/json' }
         if method == 'POST' or method == 'PUT':
