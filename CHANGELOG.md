@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-<<<<<<< HEAD
-- No longer raises KeyError exception when trying to save a model object with an attribute set not found in original attributes
+- Executing query on a model where attributes containing non-safe characters used in the URL no longer raises exception
+- No longer raises KeyError exception when trying to save a model object with an attribute set not found in original attributes 
 
 ## [0.5.0] - September 30, 2020
 
@@ -15,10 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Removed support for password authentication because the API no longer supports it.
 - Fixed how the `FASTLY_SECURE` environment variable is processed so as to convert it to a boolean
-=======
-- Executing query on a model where attributes containing non-safe characters used in the URL no longer raises exception
-- No longer raises KeyError exception when trying to save a model object with an attribute set not found in original attributes 
->>>>>>> 99d2225... Should not raise exceptions when running query with unsafe chars in kw
 
 ## [0.4.0] - January 6, 2020
 
