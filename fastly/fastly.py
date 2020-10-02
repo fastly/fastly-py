@@ -4,7 +4,7 @@ import json
 import os
 
 from fastly.connection import Connection
-from fastly.auth import KeyAuthenticator, SessionAuthenticator
+from fastly.auth import KeyAuthenticator
 from fastly.errors import AuthenticationError
 from fastly.models import (
     Service, Version, Domain, Backend,
@@ -14,8 +14,10 @@ from fastly.models import (
 
 
 class API(object):
-    def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', True), port=None, root='',
+    def __init__(self, host=os.environ.get('FASTLY_HOST', 'api.fastly.com'), secure=os.environ.get('FASTLY_SECURE', 'true'), port=None, root='',
                  timeout=5.0, key=None):
+        secure = secure.lower() in ['true', '1', 't', 'y', 'yes']
+
         self.conn = Connection(host, secure, port, root, timeout)
 
         if key:
@@ -23,9 +25,6 @@ class API(object):
 
     def authenticate_by_key(self, key):
         self.conn.authenticator = KeyAuthenticator(key)
-
-    def authenticate_by_password(self, login, password):
-        self.conn.authenticator = SessionAuthenticator(self.conn, login, password)
 
     def deauthenticate(self):
         self.conn.authenticator = None

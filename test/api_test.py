@@ -12,8 +12,6 @@ class APITest(unittest.TestCase):
         self.host = os.environ.get('FASTLY_SERVICE_HOST', 'test.com')
         self.service_id = os.environ.get('FASTLY_SERVICE_ID', 'test.com')
         self.api_key = os.environ.get('FASTLY_API_KEY', 'TESTAPIKEY')
-        self.user = os.environ.get('FASTLY_USER', 'foo@example.com')
-        self.password = os.environ.get('FASTLY_PASSWORD', 'password')
         self.api.deauthenticate()
 
     def tearDown(self):
@@ -37,26 +35,16 @@ class APITest(unittest.TestCase):
         self.assertTrue(self.api.purge_key(self.service_id, 'foo'))
 
     def test_cookie_purge_by_key(self):
-        self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(fastly.AuthenticationError):
-            self.api.purge_key(self.service_id, 'foo')
+        self.api.authenticate_by_key(self.api_key)
+        self.api.purge_key(self.service_id, 'foo')
     
-    def test_deprecation_warning(self):
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            self.api.authenticate_by_password(self.user, self.password)
-            assert len(w) == 1
-            assert issubclass(w[-1].category, PendingDeprecationWarning)
-            assert 'DEPRECATION WARNING: Username/password authentication is deprecated and will not be available starting September 2020; please migrate to API tokens as soon as possible.' in str(w[-1].message)
-
     def test_soft_purge_by_key(self):
         self.api.authenticate_by_key(self.api_key)
         self.assertTrue(self.api.soft_purge_key(self.service_id, 'foo'))
 
     def test_cookie_soft_purge_by_key(self):
-        self.api.authenticate_by_password(self.user, self.password)
-        with self.assertRaises(fastly.AuthenticationError):
-            self.api.soft_purge_key(self.service_id, 'foo')
+        self.api.authenticate_by_key(self.api_key)
+        self.api.soft_purge_key(self.service_id, 'foo')
 
     def test_batch_purge_by_key(self):
         self.api.deauthenticate()
@@ -71,10 +59,6 @@ class APITest(unittest.TestCase):
     def test_auth_error(self):
         with self.assertRaises(errors.AuthenticationError):
             self.api.conn.request('GET', '/current_customer')
-
-    def test_auth_session_success(self):
-        self.api.authenticate_by_password(self.user, self.password)
-        self.api.conn.request('GET', '/current_customer')
 
     def test_auth_key_success(self):
         self.api.authenticate_by_key(self.api_key)

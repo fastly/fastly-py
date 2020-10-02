@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - September 30, 2020
+
+### Breaking
+
+- Removed support for password authentication because the API no longer supports it.
+- Fixed how the `FASTLY_SECURE` environment variable is processed so as to convert it to a boolean
+
 ## [0.4.0] - January 6, 2020
 
 ### Added
