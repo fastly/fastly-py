@@ -20,10 +20,9 @@ api.purge_url('www.example.com', '/some/path')
 
 ### TODO:
 
-Doc files
-Docstrings
-Config file
-create `requirements.txt` file
+Doc files<br>
+Docstrings<br>
+Config file<br>
 
 ### Running Tests
 
