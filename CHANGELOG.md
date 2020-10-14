@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.5.0-ilon1] - October 14, 2020
+## [0.5.1] - October 14, 2020
 
 ### Fixed
 
