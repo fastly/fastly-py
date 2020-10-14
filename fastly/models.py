@@ -35,7 +35,7 @@ class Model(object):
         if self._original_attrs:
             out = {}
             for k in self.attrs:
-                if self.attrs[k] != self._original_attrs[k]:
+                if k not in self._original_attrs or self.attrs[k] != self._original_attrs[k]:
                     out[k] = self.attrs[k]
             params_str = urlencode(out)
             resp, data = self._query('PUT', body=params_str)

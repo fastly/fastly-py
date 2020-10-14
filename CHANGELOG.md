@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0-ilon1] - October 14, 2020
+
+### Fixed
+
+- No longer raises KeyError exception when trying to save a model object with an attribute set not found in original attributes
+
 ## [0.5.0] - September 30, 2020
 
 ### Breaking
