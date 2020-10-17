@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - October 17, 2020:
+
+### Fixed
+
+- Fixed [IndexError when a service has no active version](https://github.com/fastly/fastly-py/pull/70)
+
 ## [0.5.0] - September 30, 2020
 
 ### Breaking
