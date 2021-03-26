@@ -28,6 +28,18 @@ class Model(object):
     def _collection_query(self, method, suffix='', body=None):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
+    def _urlencode(self, attrs):
+        """ Get the urlencoded representation of attributes dict, with lower-case booleans """
+        def get_sanitized(key, value):
+            """ Get a sanitized value for the key/value """
+            if isinstance(value, bool):
+                return str(value).lower()
+            return value
+        return urlencode({
+            key: get_sanitized(key, value)
+            for key, value in attrs.items()
+        })
+
     def save(self):
         if self._original_attrs == self.attrs:
             return False
@@ -37,10 +49,10 @@ class Model(object):
             for k in self.attrs:
                 if self.attrs[k] != self._original_attrs[k]:
                     out[k] = self.attrs[k]
-            params_str = urlencode(out)
+            params_str = self._urlencode(out)
             resp, data = self._query('PUT', body=params_str)
         else:
-            params_str = urlencode(self.attrs)
+            params_str = self._urlencode(self.attrs)
             resp, data = self._collection_query('POST', body=params_str)
 
         self._original_attrs = data
