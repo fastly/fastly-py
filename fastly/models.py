@@ -31,13 +31,13 @@ class Model(object):
     @staticmethod
     def _urlencode(attrs):
         """ Get the urlencoded representation of attributes dict, with lower-case booleans """
-        def get_sanitized(key, value):
-            """ Get a sanitized value for the key/value """
+        def get_sanitized(value):
+            """ Get value sanitized """
             if isinstance(value, bool):
                 return str(value).lower()
             return value
         return urlencode({
-            key: get_sanitized(key, value)
+            key: get_sanitized(value)
             for key, value in attrs.items()
         })
 
