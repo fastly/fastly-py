@@ -28,7 +28,8 @@ class Model(object):
     def _collection_query(self, method, suffix='', body=None):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
-    def _urlencode(self, attrs):
+    @staticmethod
+    def _urlencode(attrs):
         """ Get the urlencoded representation of attributes dict, with lower-case booleans """
         def get_sanitized(key, value):
             """ Get a sanitized value for the key/value """
