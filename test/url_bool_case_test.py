@@ -5,21 +5,20 @@ import fastly
 import fastly.models
 
 
-SERVICE_ID = os.environ['FASTLY_SERVICE_ID']
-API_AUTH_TOKEN = os.environ['FASTLY_API_TOKEN']
-BACKEND_NAME = 'Google'
-BACKEND_ADDRESS = 'google.com'
-DOMAIN_NAME = 'test.fastly.redbee.dev'
-
-
 class OriginUrlBoolCase(unittest.TestCase):
-    def __init__(self, *args):
-        super().__init__(*args)
-        self.client = fastly.API(key=API_AUTH_TOKEN)
+    def setUp(self):
+        self.api = fastly.API()
+        self.api_key = os.environ.get('FASTLY_API_KEY', 'TESTAPIKEY')
+        self.backend_address = os.environ.get('FASTLY_SERVICE_BACKEND_ADDRESS', 'example.com')
+        self.backend_name = os.environ.get('FASTLY_SERVICE_BACKEND_NAME', 'Example')
+        self.domain_name = os.environ.get('FASTLY_SERVICE_DOMAIN', 'test.example.com')
+        self.host = os.environ.get('FASTLY_SERVICE_HOST', 'test.com')
+        self.service_id = os.environ.get('FASTLY_SERVICE_ID', 'test.com')
 
-        self.service = self.client.service(SERVICE_ID)
+        self.client = fastly.API(key=self.api_key)
+        self.service = self.client.service(self.service_id)
         self.version = self.service.get_active_version_number()
-        self.backend = self.client.backend(self.service.attrs['id'], self.version, BACKEND_NAME)
+        self.backend = self.client.backend(self.service.attrs['id'], self.version, self.backend_name)
 
     def _update_backend_use_ssl(self, value):
         cloned_version = self.service.version()
@@ -28,15 +27,15 @@ class OriginUrlBoolCase(unittest.TestCase):
         domain = fastly.models.Domain.construct_instance(dict(
             service_id=self.service.attrs['id'],
             version=self.version,
-            name=DOMAIN_NAME,
+            name=self.domain_name,
         ), new=True)
         domain.conn = self.client.conn
         domain.save()
 
         backend = fastly.models.Backend.construct_instance(dict(
             service_id=self.service.attrs['id'],
-            name=BACKEND_NAME,
-            address=BACKEND_ADDRESS,
+            name=self.backend_name,
+            address=self.backend_address,
             use_ssl=value,
             version=self.version,
         ), new=True)
