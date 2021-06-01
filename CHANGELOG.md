@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - March 26, 2021
+
+### Fixed
+
+- Boolean values in attributes now properly lower-cased during save
+
 ## [0.5.0] - September 30, 2020
 
 ### Breaking
