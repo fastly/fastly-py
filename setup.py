@@ -23,6 +23,8 @@ setup(
     packages=['fastly'],
     install_requires=[
         'six',
+        'requests',
+        'requests_toolbelt',
     ],
     scripts=[
         "bin/purge_service",
