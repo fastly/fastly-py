@@ -12,21 +12,21 @@ class Model(object):
         self.attrs = {}
 
     @classmethod
-    def query(cls, conn, pattern, method, suffix='', body=None, **kwargs):
+    def query(cls, session, pattern, method, suffix='', body=None, **kwargs):
         url = Template(pattern).substitute(**kwargs)
         url += Template(suffix).substitute(**kwargs)
 
-        headers = { 'Content-Accept': 'application/json' }
+        headers = {'Content-Accept': 'application/json'}
         if method == 'POST' or method == 'PUT':
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
-        return conn.request(method, url, body, headers)
+        return session.request(method, url, body, headers)
 
     def _query(self, method, suffix='', body=None):
-        return self.__class__.query(self.conn, self.INSTANCE_PATTERN, method, suffix, body, **self.attrs)
+        return self.__class__.query(self.session, self.INSTANCE_PATTERN, method, suffix, body, **self.attrs)
 
     def _collection_query(self, method, suffix='', body=None):
-        return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
+        return self.__class__.query(self.session, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
     @staticmethod
     def _urlencode(attrs):
@@ -65,30 +65,30 @@ class Model(object):
         return data
 
     @classmethod
-    def list(cls, conn, **kwargs):
-        resp, data = cls.query(conn, cls.COLLECTION_PATTERN, 'GET', **kwargs)
+    def list(cls, session, **kwargs):
+        resp, data = cls.query(session, cls.COLLECTION_PATTERN, 'GET', **kwargs)
 
         collection = []
 
-        if resp.status == 200 and hasattr(data, 'sort'):
+        if resp.status_code == 200 and hasattr(data, 'sort'):
             for i in range(0, len(data)):
                 obj = cls.construct_instance(data[i])
-                obj.conn = conn
+                obj.session = session
                 collection.append(obj)
 
         return collection
 
     @classmethod
-    def find(cls, conn, **kwargs):
-        resp, data = cls.query(conn, cls.INSTANCE_PATTERN, 'GET', **kwargs)
+    def find(cls, session, **kwargs):
+        resp, data = cls.query(session, cls.INSTANCE_PATTERN, 'GET', **kwargs)
         obj = cls.construct_instance(data)
-        obj.conn = conn
+        obj.session = session
         return obj
 
     @classmethod
-    def create(cls, conn, data):
+    def create(cls, session, data):
         instance = cls.construct_instance(data, new=True)
-        instance.conn = conn
+        instance.session = session
         instance.save()
         return instance
 
@@ -99,6 +99,7 @@ class Model(object):
             obj._original_attrs = data
         obj.attrs = copy(data)
         return obj
+
 
 class Service(Model):
     COLLECTION_PATTERN = '/service'
@@ -124,7 +125,7 @@ class Service(Model):
 
     def version(self):
         """ Create a new version under this service. """
-        return Version.create(self.conn, {
+        return Version.create(self.session, {
             # Parent params
             'service_id': self.attrs['id'],
         })
@@ -168,7 +169,7 @@ class Version(Model):
 
     def vcl(self, name, content):
         """ Create a new VCL under this version. """
-        return VCL.create(self.conn, {
+        return VCL.create(self.session, {
             # Parent params
             'service_id': self.attrs['service_id'],
             'version': self.attrs['number'],
@@ -176,6 +177,7 @@ class Version(Model):
             'name': name,
             'content': content,
         })
+
 
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
@@ -185,41 +187,51 @@ class Domain(Model):
         resp, data = self._query('GET', '/check')
         return (data[1], data[2])
 
+
 class Backend(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/backend'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
 
 class Director(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/director'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
 
+
 class Origin(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/origin'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
 
 class Healthcheck(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/healthcheck'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
 
+
 class Syslog(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/syslog'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
 
 class User(Model):
     COLLECTION_PATTERN = '/user/$id'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$id'
 
+
 class Settings(Model):
     INSTANCE_PATTERN = Version.COLLECTION_PATTERN + '/$version/settings'
     COLLECTION_PATTERN = INSTANCE_PATTERN
+
 
 class Condition(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/condition'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
 
+
 class Header(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/header'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
 
 class VCL(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/vcl'
@@ -233,6 +245,7 @@ class VCL(Model):
         resp, data = self._query('PUT', '/main')
         return data
 
+
 class Dictionary(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/dictionary'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
@@ -243,16 +256,17 @@ class Dictionary(Model):
 
     def item(self, item_key, item_value=None):
         if item_value is not None:
-            return DictionaryItem.upsert(self.conn, {
+            return DictionaryItem.upsert(self.session, {
                 'service_id': self.attrs['service_id'],
                 'dictionary_id': self.attrs['id'],
                 'item_key': item_key,
                 'item_value': item_value,
             })
-        return DictionaryItem.find(self.conn, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'], item_key=item_key)
+        return DictionaryItem.find(self.session, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'], item_key=item_key)
 
     def items(self):
-        return DictionaryItem.list(self.conn, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'])
+        return DictionaryItem.list(self.session, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'])
+
 
 class DictionaryItem(Model):
     COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/dictionary/$dictionary_id/items'
@@ -260,10 +274,10 @@ class DictionaryItem(Model):
     INSTANCE_CREATE_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/dictionary/$dictionary_id/item'
 
     @classmethod
-    def upsert(cls, conn, data):
+    def upsert(cls, session, data):
         # https://docs.fastly.com/api/config#dictionary_item_34c884a7cdce84dfcfd38dac7a0b5bb0
         instance = cls.construct_instance(data)
-        instance.conn = conn
+        instance.session = session
         params_str = urlencode(instance.attrs)
         resp, data = instance._query('PUT', body=params_str)
         instance._original_attrs = data
@@ -275,4 +289,4 @@ class DictionaryItem(Model):
         # with the use of singular and plural ("item" and "items").
         # Only use case for POST on this Model is to create one item, so swap in that API URL.
         pattern = self.INSTANCE_CREATE_PATTERN if method == 'POST' else self.COLLECTION_PATTERN
-        return self.__class__.query(self.conn, pattern, method, suffix, body, **self.attrs)
+        return self.__class__.query(self.session, pattern, method, suffix, body, **self.attrs)
