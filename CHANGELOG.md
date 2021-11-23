@@ -2,6 +2,32 @@
 All notable changes to this project will be documented in this file.
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - March 26, 2021
+
+### Fixed
+
+- Boolean values in attributes now properly lower-cased during save
+
+## [0.5.0] - September 30, 2020
+
+### Breaking
+
+- Removed support for password authentication because the API no longer supports it.
+- Fixed how the `FASTLY_SECURE` environment variable is processed so as to convert it to a boolean
+
+## [0.4.0] - January 6, 2020
+
+### Added
+
+- new command-line interface: `fastly` using argparse, thanks to the work of @dcmoore-gd
+
+## [0.3.1] - January 6, 2020: 
+
+### Fixed
+
+- Fixed [unused imports](https://github.com/fastly/fastly-py/pull/47)
+- Fixed [compatibility with python < 3.6](https://github.com/fastly/fastly-py/pull/46)
+
 ## [0.3.0] - July 10, 2019: 
 ### Added
 

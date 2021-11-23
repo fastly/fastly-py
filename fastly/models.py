@@ -14,7 +14,7 @@ class Model(object):
     @classmethod
     def query(cls, conn, pattern, method, suffix='', body=None, **kwargs):
         url = Template(pattern).substitute(**kwargs)
-        url += suffix
+        url += Template(suffix).substitute(**kwargs)
 
         headers = { 'Content-Accept': 'application/json' }
         if method == 'POST' or method == 'PUT':
@@ -28,6 +28,19 @@ class Model(object):
     def _collection_query(self, method, suffix='', body=None):
         return self.__class__.query(self.conn, self.COLLECTION_PATTERN, method, suffix, body, **self.attrs)
 
+    @staticmethod
+    def _urlencode(attrs):
+        """ Get the urlencoded representation of attributes dict, with lower-case booleans """
+        def get_sanitized(value):
+            """ Get value sanitized """
+            if isinstance(value, bool):
+                return str(value).lower()
+            return value
+        return urlencode({
+            key: get_sanitized(value)
+            for key, value in attrs.items()
+        })
+
     def save(self):
         if self._original_attrs == self.attrs:
             return False
@@ -37,10 +50,10 @@ class Model(object):
             for k in self.attrs:
                 if self.attrs[k] != self._original_attrs[k]:
                     out[k] = self.attrs[k]
-            params_str = urlencode(out)
+            params_str = self._urlencode(out)
             resp, data = self._query('PUT', body=params_str)
         else:
-            params_str = urlencode(self.attrs)
+            params_str = self._urlencode(self.attrs)
             resp, data = self._collection_query('POST', body=params_str)
 
         self._original_attrs = data
@@ -102,10 +115,12 @@ class Service(Model):
         return None
 
     def purge_key(self, key):
-        self._query('POST', '/purge/%s' % key)
+        resp, data = self._query('POST', '/purge/%s' % key)
+        return data
 
     def purge_all(self):
-        self._query('POST', '/purge_all')
+        resp, data = self._query('POST', '/purge_all')
+        return data
 
     def version(self):
         """ Create a new version under this service. """
@@ -287,3 +302,47 @@ class VCL(Model):
     def main(self):
         resp, data = self._query('PUT', '/main')
         return data
+
+class Dictionary(Model):
+    COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/dictionary'
+    INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
+
+    def info(self):
+        resp, data = self._collection_query('GET', suffix='/$id/info')
+        return data
+
+    def item(self, item_key, item_value=None):
+        if item_value is not None:
+            return DictionaryItem.upsert(self.conn, {
+                'service_id': self.attrs['service_id'],
+                'dictionary_id': self.attrs['id'],
+                'item_key': item_key,
+                'item_value': item_value,
+            })
+        return DictionaryItem.find(self.conn, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'], item_key=item_key)
+
+    def items(self):
+        return DictionaryItem.list(self.conn, service_id=self.attrs['service_id'], dictionary_id=self.attrs['id'])
+
+class DictionaryItem(Model):
+    COLLECTION_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/dictionary/$dictionary_id/items'
+    INSTANCE_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/dictionary/$dictionary_id/item/$item_key'
+    INSTANCE_CREATE_PATTERN = Service.COLLECTION_PATTERN + '/$service_id/dictionary/$dictionary_id/item'
+
+    @classmethod
+    def upsert(cls, conn, data):
+        # https://docs.fastly.com/api/config#dictionary_item_34c884a7cdce84dfcfd38dac7a0b5bb0
+        instance = cls.construct_instance(data)
+        instance.conn = conn
+        params_str = urlencode(instance.attrs)
+        resp, data = instance._query('PUT', body=params_str)
+        instance._original_attrs = data
+        instance.attrs = data
+        return instance
+
+    def _collection_query(self, method, suffix='', body=None):
+        # DictionaryItem's create API URL is inconsistent with the other APIs,
+        # with the use of singular and plural ("item" and "items").
+        # Only use case for POST on this Model is to create one item, so swap in that API URL.
+        pattern = self.INSTANCE_CREATE_PATTERN if method == 'POST' else self.COLLECTION_PATTERN
+        return self.__class__.query(self.conn, pattern, method, suffix, body, **self.attrs)
