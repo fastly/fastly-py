@@ -1,0 +1,16 @@
+# CacheSetting
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**action** | **str, none_type** | If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.  | [optional] 
+**cache_condition** | **str, none_type** | Name of the cache condition controlling when this configuration applies. | [optional] 
+**name** | **str** | Name for the cache settings object. | [optional] 
+**stale_ttl** | **int** | Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as &#39;stale if error&#39;). | [optional] 
+**ttl** | **int** | Maximum time to consider the object fresh in the cache (the cache &#39;time to live&#39;). | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
