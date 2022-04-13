@@ -47,7 +47,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = waf_rule_revisions_api.WafRuleRevisionsApi(api_client)
     waf_rule_id = "3krg2uUGZzb2W9Euo4moOR" # str | Alphanumeric string identifying a WAF rule.
-    waf_rule_revision_number = 2 # float | Revision number.
+    waf_rule_revision_number = 2 # int | Revision number.
     include = "source,vcl,waf_rule" # str | Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included.  (optional)
 
     # example passing only required values which don't have defaults set
@@ -74,7 +74,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **waf_rule_id** | **str**| Alphanumeric string identifying a WAF rule. |
- **waf_rule_revision_number** | **float**| Revision number. |
+ **waf_rule_revision_number** | **int**| Revision number. |
  **include** | **str**| Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included.  | [optional]
 
 ### Return type

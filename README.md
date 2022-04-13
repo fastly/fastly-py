@@ -47,7 +47,7 @@ with fastly.ApiClient(configuration) as api_client:
 
 ## Authorization
 
-The Fastly API requires an [API token](https://developer.fastly.com/reference/api/#authentication) for most operations.  Set it in the Python client by assigning to `api_token` of a configuration as shown:
+The Fastly API requires an [API token](https://developer.fastly.com/reference/api/#authentication) for most operations.  Set it by assigning `api_token` to a configuration as shown:
 
 ```python
 # Authorize the client with a Fastly API token.
@@ -55,7 +55,7 @@ configuration = fastly.Configuration()
 configuration.api_token = 'YOUR_API_KEY'
 ```
 
-Alternatively, set the `FASTLY_API_TOKEN` environment variable instead of setting `api_token`.
+Alternatively, set the `FASTLY_API_TOKEN` environment variable.
 
 ## Documentation for API Endpoints
 

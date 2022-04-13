@@ -71,7 +71,7 @@ class WafRuleRevisionsApi(object):
                     'waf_rule_id':
                         (str,),
                     'waf_rule_revision_number':
-                        (float,),
+                        (int,),
                     'include':
                         (str,),
                 },
@@ -191,7 +191,7 @@ class WafRuleRevisionsApi(object):
 
         Args:
             waf_rule_id (str): Alphanumeric string identifying a WAF rule.
-            waf_rule_revision_number (float): Revision number.
+            waf_rule_revision_number (int): Revision number.
 
         Keyword Args:
             include (str): Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included. . [optional]

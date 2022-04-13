@@ -86,7 +86,7 @@ class WafRuleRevisionAttributes(ModelNormal):
             'message': (str,),  # noqa: E501
             'modsec_rule_id': (int,),  # noqa: E501
             'paranoia_level': (int,),  # noqa: E501
-            'revision': (float,),  # noqa: E501
+            'revision': (int,),  # noqa: E501
             'severity': (int,),  # noqa: E501
             'source': (str,),  # noqa: E501
             'state': (str,),  # noqa: E501
@@ -160,7 +160,7 @@ class WafRuleRevisionAttributes(ModelNormal):
             message (str): Message metadata for the rule.. [optional]  # noqa: E501
             modsec_rule_id (int): Corresponding ModSecurity rule ID.. [optional]  # noqa: E501
             paranoia_level (int): Paranoia level for the rule.. [optional]  # noqa: E501
-            revision (float): Revision number.. [optional]  # noqa: E501
+            revision (int): Revision number.. [optional]  # noqa: E501
             severity (int): Severity metadata for the rule.. [optional]  # noqa: E501
             source (str): The ModSecurity rule logic.. [optional]  # noqa: E501
             state (str): The state, indicating if the revision is the most recent version of the rule.. [optional]  # noqa: E501
@@ -249,7 +249,7 @@ class WafRuleRevisionAttributes(ModelNormal):
             message (str): Message metadata for the rule.. [optional]  # noqa: E501
             modsec_rule_id (int): Corresponding ModSecurity rule ID.. [optional]  # noqa: E501
             paranoia_level (int): Paranoia level for the rule.. [optional]  # noqa: E501
-            revision (float): Revision number.. [optional]  # noqa: E501
+            revision (int): Revision number.. [optional]  # noqa: E501
             severity (int): Severity metadata for the rule.. [optional]  # noqa: E501
             source (str): The ModSecurity rule logic.. [optional]  # noqa: E501
             state (str): The state, indicating if the revision is the most recent version of the rule.. [optional]  # noqa: E501

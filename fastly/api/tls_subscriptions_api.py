@@ -93,7 +93,7 @@ class TlsSubscriptionsApi(object):
                     'application/json'
                 ],
                 'content_type': [
-                    'application/json'
+                    'application/vnd.api+json'
                 ]
             },
             api_client=api_client
@@ -481,7 +481,7 @@ class TlsSubscriptionsApi(object):
     ):
         """Creates a GlobalSign email challenge.  # noqa: E501
 
-        Creates an email challenge for domain on a GlobalSign subscription. An email challenge will generate an email that can be used to validate domain ownership. If this challenge is created, then the domain can only be validated using email for the given subscription.  # noqa: E501
+        Creates an email challenge for a domain on a GlobalSign subscription. An email challenge will generate an email that can be used to validate domain ownership. If this challenge is created, then the domain can only be validated using email for the given subscription.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -489,8 +489,8 @@ class TlsSubscriptionsApi(object):
         >>> result = thread.get()
 
         Args:
-            tls_subscription_id (str):
-            tls_authorization_id (str):
+            tls_subscription_id (str): Alphanumeric string identifying a TLS subscription.
+            tls_authorization_id (str): Alphanumeric string identifying a TLS subscription.
 
         Keyword Args:
             request_body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]
@@ -648,9 +648,9 @@ class TlsSubscriptionsApi(object):
         >>> result = thread.get()
 
         Args:
-            tls_subscription_id (str):
-            globalsign_email_challenge_id (str):
-            tls_authorization_id (str):
+            tls_subscription_id (str): Alphanumeric string identifying a TLS subscription.
+            globalsign_email_challenge_id (str): Alphanumeric string identifying a GlobalSign email challenge.
+            tls_authorization_id (str): Alphanumeric string identifying a TLS subscription.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

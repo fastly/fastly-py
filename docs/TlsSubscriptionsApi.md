@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Creates a GlobalSign email challenge.
 
-Creates an email challenge for domain on a GlobalSign subscription. An email challenge will generate an email that can be used to validate domain ownership. If this challenge is created, then the domain can only be validated using email for the given subscription.
+Creates an email challenge for a domain on a GlobalSign subscription. An email challenge will generate an email that can be used to validate domain ownership. If this challenge is created, then the domain can only be validated using email for the given subscription. 
 
 ### Example
 
@@ -50,8 +50,8 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
-    tls_subscription_id = "tls_subscription_id_example" # str | 
-    tls_authorization_id = "tls_authorization_id_example" # str | 
+    tls_subscription_id = "sU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
+    tls_authorization_id = "aU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
     request_body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -77,8 +77,8 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tls_subscription_id** | **str**|  |
- **tls_authorization_id** | **str**|  |
+ **tls_subscription_id** | **str**| Alphanumeric string identifying a TLS subscription. |
+ **tls_authorization_id** | **str**| Alphanumeric string identifying a TLS subscription. |
  **request_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  | [optional]
 
 ### Return type
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/vnd.api+json
  - **Accept**: application/json
 
 
@@ -230,9 +230,9 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
-    tls_subscription_id = "tls_subscription_id_example" # str | 
-    globalsign_email_challenge_id = "globalsign_email_challenge_id_example" # str | 
-    tls_authorization_id = "tls_authorization_id_example" # str | 
+    tls_subscription_id = "sU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
+    globalsign_email_challenge_id = "gU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a GlobalSign email challenge.
+    tls_authorization_id = "aU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
 
     # example passing only required values which don't have defaults set
     try:
@@ -247,9 +247,9 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tls_subscription_id** | **str**|  |
- **globalsign_email_challenge_id** | **str**|  |
- **tls_authorization_id** | **str**|  |
+ **tls_subscription_id** | **str**| Alphanumeric string identifying a TLS subscription. |
+ **globalsign_email_challenge_id** | **str**| Alphanumeric string identifying a GlobalSign email challenge. |
+ **tls_authorization_id** | **str**| Alphanumeric string identifying a TLS subscription. |
 
 ### Return type
 

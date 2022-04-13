@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **message** | **str** | Message metadata for the rule. | [optional] [readonly] 
 **modsec_rule_id** | **int** | Corresponding ModSecurity rule ID. | [optional] [readonly] 
 **paranoia_level** | **int** | Paranoia level for the rule. | [optional] [readonly] 
-**revision** | **float** | Revision number. | [optional] 
+**revision** | **int** | Revision number. | [optional] 
 **severity** | **int** | Severity metadata for the rule. | [optional] [readonly] 
 **source** | **str** | The ModSecurity rule logic. | [optional] [readonly] 
 **state** | **str** | The state, indicating if the revision is the most recent version of the rule. | [optional] [readonly] 
