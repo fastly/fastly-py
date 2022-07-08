@@ -177,6 +177,16 @@ class Version(Model):
             'content': content,
         })
 
+    def dictionary(self, name):
+        """ Create a new Dictionary under this version. """
+        return Dictionary.create(self.conn, {
+            # Parent params
+            'service_id': self.attrs['service_id'],
+            'version': self.attrs['number'],
+            # New instance params
+            'name': name,
+        })
+
 class Domain(Model):
     COLLECTION_PATTERN = Version.COLLECTION_PATTERN + '/$version/domain'
     INSTANCE_PATTERN = COLLECTION_PATTERN + '/$name'
