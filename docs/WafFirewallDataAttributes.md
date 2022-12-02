@@ -1,0 +1,15 @@
+# WafFirewallDataAttributes
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**disabled** | **bool** | The status of the firewall. | [optional]  if omitted the server will use the default value of False
+**prefetch_condition** | **str** | Name of the corresponding condition object. | [optional] 
+**response** | **str** | Name of the corresponding response object. | [optional] 
+**service_version_number** | **int** |  | [optional] [readonly] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

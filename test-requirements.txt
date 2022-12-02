@@ -1,0 +1,2 @@
+pytest-cov>=2.8.1
+pytest-custom_exit_code>=0.3.0
