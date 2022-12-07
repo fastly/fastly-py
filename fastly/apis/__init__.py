@@ -31,9 +31,7 @@ from fastly.api.dictionary_item_api import DictionaryItemApi
 from fastly.api.diff_api import DiffApi
 from fastly.api.director_api import DirectorApi
 from fastly.api.director_backend_api import DirectorBackendApi
-from fastly.api.docs_api import DocsApi
 from fastly.api.domain_api import DomainApi
-from fastly.api.domain_ownerships_api import DomainOwnershipsApi
 from fastly.api.enabled_products_api import EnabledProductsApi
 from fastly.api.events_api import EventsApi
 from fastly.api.gzip_api import GzipApi

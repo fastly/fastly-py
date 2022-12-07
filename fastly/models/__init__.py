@@ -141,7 +141,6 @@ from fastly.model.included_with_waf_rule_revision import IncludedWithWafRuleRevi
 from fastly.model.inline_object import InlineObject
 from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
-from fastly.model.inline_response2001 import InlineResponse2001
 from fastly.model.invitation import Invitation
 from fastly.model.invitation_data import InvitationData
 from fastly.model.invitation_data_attributes import InvitationDataAttributes

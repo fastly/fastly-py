@@ -182,7 +182,7 @@ class HealthcheckResponse(ModelComposed):
             check_interval (int): How often to run the health check in milliseconds.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             expected_response (int): The status code expected from the host.. [optional]  # noqa: E501
-            headers ([str]): Array of custom headers that will be added to the health check probes. This feature is part of an **alpha release**, which may be subject to breaking changes and improvements over time.. [optional]  # noqa: E501
+            headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]  # noqa: E501
             host (str): Which host to check.. [optional]  # noqa: E501
             http_version (str): Whether to use version 1.0 or 1.1 HTTP.. [optional]  # noqa: E501
             initial (int): When loading a config, the initial number of probes to be seen as OK.. [optional]  # noqa: E501
@@ -299,7 +299,7 @@ class HealthcheckResponse(ModelComposed):
             check_interval (int): How often to run the health check in milliseconds.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             expected_response (int): The status code expected from the host.. [optional]  # noqa: E501
-            headers ([str]): Array of custom headers that will be added to the health check probes. This feature is part of an **alpha release**, which may be subject to breaking changes and improvements over time.. [optional]  # noqa: E501
+            headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]  # noqa: E501
             host (str): Which host to check.. [optional]  # noqa: E501
             http_version (str): Whether to use version 1.0 or 1.1 HTTP.. [optional]  # noqa: E501
             initial (int): When loading a config, the initial number of probes to be seen as OK.. [optional]  # noqa: E501
