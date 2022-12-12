@@ -1,0 +1,56 @@
+name: Release CI
+on:
+  push:
+    tags:
+      - 'release/v?[0-9]*'
+
+env:
+  RELEASE_TAG: ${{ github.ref_name }}
+
+jobs:
+  publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: main
+      - name: Set up environment variables
+        run: ./.github/scripts/publish_env.sh >> $GITHUB_ENV
+        working-directory: ./main
+        shell: bash
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Pack API client
+        run: ./.github/scripts/pack.sh
+        working-directory: ./main
+        shell: bash
+      - name: Prepare API client for publish
+        run: ./.github/scripts/prepare.sh
+        working-directory: ./main
+        shell: bash
+      - name: Publish API client
+        if: ${{ env.DRY_RUN != '1' }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_PUBLISH_TOKEN }}
+          packages-dir: ./main/dist/
+      - name: Write release body file
+        run: CODE_PATH=./main ./main/.github/scripts/release_body.sh > ./dist/release_body.txt
+        shell: bash
+      - name: Create release (dry run)
+        if: ${{ env.DRY_RUN == '1' }}
+        run: cat ./dist/release_body.txt
+      - name: Create GitHub release
+        if: ${{ env.DRY_RUN != '1' }}
+        uses: softprops/action-gh-release@v1
+        with:
+          name: v${{ env.VERSION }}
+          body_path: ./dist/release_body.txt
+          files: |
+            ./dist/${{ env.PACKAGE_FILENAME }}
+          draft: false
+          prerelease: ${{ env.PUBLISH_TAG != 'latest' }}
