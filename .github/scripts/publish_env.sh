@@ -1,7 +1,7 @@
 # Parse the release tag
 
 # strip leading 'release/'
-TAG="${RELEASE_TAG#release/}"
+TAG="${GITHUB_REF_NAME#release/}"
 
 # strip leading v
 TAG_VALUE="${TAG#v}"
