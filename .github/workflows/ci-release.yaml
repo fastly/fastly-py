@@ -2,6 +2,8 @@ name: Release CI
 on:
   push:
     tags:
+      # This looks like a regex, but it's actually a filter pattern
+      # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
       - 'release/v?[0-9]*'
 
 env:
