@@ -29,6 +29,7 @@ fi
 
 echo "API_CLIENT_NAME=Python"
 echo "PROJECT_NAME=fastly-py"
+echo "PACKAGE_REPO_NAME=PyPI"
 echo "VERSION=${VERSION}"
 echo "DRY_RUN=${DRY_RUN}"
 echo "PUBLISH_TAG=${PUBLISH_TAG}"
