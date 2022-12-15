@@ -17,6 +17,7 @@ python3 -m pip install fastly
 
 ```python
 import fastly
+from fastly.api import acl_api
 from pprint import pprint
 
 # Authorize the client with a Fastly API token.
