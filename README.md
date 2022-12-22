@@ -1,5 +1,9 @@
 ## Fastly Python Client
 
+> NOTE: This version of Fastly Python Client is no longer maintained.
+> Fastly now provides a [generated API client](https://dev.to/fastly/better-fastly-api-clients-with-openapi-generator-3lno) to cover the Fastly API.
+> The current version is available at https://github.com/fastly/fastly-py/tree/main.
+
 fastly-py is available through `pip` as the [fastly](https://pypi.python.org/pypi/fastly) package
 
 There are three simple scripts provided in `/bin` that can be used for various stand-alone purge operations.
