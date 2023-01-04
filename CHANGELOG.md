@@ -1,6 +1,15 @@
 # Changelog
-All notable changes to this project will be documented in this file.
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [v1.0.0](https://github.com/fastly/fastly-py/releases/tag/v1.0.0) (2022-12-15)
+
+[Full Changelog](https://github.com/fastly/fastly-py/compare/v0.5.1...v1.0.0)
+
+**Enhancements:**
+
+* New interface from code-generated API client [#82](https://github.com/fastly/fastly-py/pull/82) 
+  * [Blog post: Better Fastly API clients with OpenAPI Generator](https://dev.to/fastly/better-fastly-api-clients-with-openapi-generator-3lno)
+  * [Documentation](https://github.com/fastly/fastly-py#documentation-for-api-endpoints)
+  * [Unsupported API endpoints](https://github.com/fastly/fastly-py#issues)
 
 ## [0.5.1] - March 26, 2021
 
