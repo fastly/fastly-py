@@ -71,6 +71,7 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.object_store_api import ObjectStoreApi
 from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi

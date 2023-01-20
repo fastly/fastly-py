@@ -2,6 +2,16 @@
 
 A Python client library for interacting with most facets of the [Fastly API](https://developer.fastly.com/reference/api).
 
+> NOTE: This 1.x release is a new [generated API client](https://dev.to/fastly/better-fastly-api-clients-with-openapi-generator-3lno) for the Fastly API.
+> The previous 0.5.x version is no longer supported, but can be found at https://github.com/fastly/fastly-py/tree/v0.5.x.
+
+
+    > ⚠️ This client library (`v1.1.0`)  is an early-access release. Features may change without notice. Use at your own risk.
+
+**We strongly recommend that you do not install alpha and beta releases on live production services.** No official support is provided for such releases. Please try out the library in a test environment, see what breaks without worrying about consequences, and give us [feedback](#issues).
+
+Read about the [Fastly Product Lifecycle](https://docs.fastly.com/products/fastly-product-lifecycle).
+
 
 ## Requirements
 
@@ -313,6 +323,14 @@ Class | Method | HTTP request | Description
 *MutualAuthenticationApi* | [**get_mutual_authentication**](docs/MutualAuthenticationApi.md#get_mutual_authentication) | **GET** /tls/mutual_authentications/{mutual_authentication_id} | Get a Mutual Authentication
 *MutualAuthenticationApi* | [**list_mutual_authentications**](docs/MutualAuthenticationApi.md#list_mutual_authentications) | **GET** /tls/mutual_authentications | List Mutual Authentications
 *MutualAuthenticationApi* | [**patch_mutual_authentication**](docs/MutualAuthenticationApi.md#patch_mutual_authentication) | **PATCH** /tls/mutual_authentications/{mutual_authentication_id} | Update a Mutual Authentication
+*ObjectStoreApi* | [**create_store**](docs/ObjectStoreApi.md#create_store) | **POST** /resources/stores/object | Create an object store.
+*ObjectStoreApi* | [**delete_key_from_store**](docs/ObjectStoreApi.md#delete_key_from_store) | **DELETE** /resources/stores/object/{store_id}/keys/{key_name} | Delete object store key.
+*ObjectStoreApi* | [**delete_store**](docs/ObjectStoreApi.md#delete_store) | **DELETE** /resources/stores/object/{store_id} | Delete an object store.
+*ObjectStoreApi* | [**get_keys**](docs/ObjectStoreApi.md#get_keys) | **GET** /resources/stores/object/{store_id}/keys | List object store keys.
+*ObjectStoreApi* | [**get_store**](docs/ObjectStoreApi.md#get_store) | **GET** /resources/stores/object/{store_id} | Describe an object store.
+*ObjectStoreApi* | [**get_stores**](docs/ObjectStoreApi.md#get_stores) | **GET** /resources/stores/object | List object stores.
+*ObjectStoreApi* | [**get_value_for_key**](docs/ObjectStoreApi.md#get_value_for_key) | **GET** /resources/stores/object/{store_id}/keys/{key_name} | Get object store key value.
+*ObjectStoreApi* | [**set_value_for_key**](docs/ObjectStoreApi.md#set_value_for_key) | **PUT** /resources/stores/object/{store_id}/keys/{key_name} | Insert object store key-value.
 *PackageApi* | [**get_package**](docs/PackageApi.md#get_package) | **GET** /service/{service_id}/version/{version_id}/package | Get details of the service&#39;s Compute@Edge package.
 *PackageApi* | [**put_package**](docs/PackageApi.md#put_package) | **PUT** /service/{service_id}/version/{version_id}/package | Upload a Compute@Edge package.
 *PoolApi* | [**create_server_pool**](docs/PoolApi.md#create_server_pool) | **POST** /service/{service_id}/version/{version_id}/pool | Create a server pool
@@ -363,6 +381,7 @@ Class | Method | HTTP request | Description
 *ServiceAuthorizationsApi* | [**show_service_authorization**](docs/ServiceAuthorizationsApi.md#show_service_authorization) | **GET** /service-authorizations/{service_authorization_id} | Show service authorization
 *ServiceAuthorizationsApi* | [**update_service_authorization**](docs/ServiceAuthorizationsApi.md#update_service_authorization) | **PATCH** /service-authorizations/{service_authorization_id} | Update service authorization
 *SettingsApi* | [**get_service_settings**](docs/SettingsApi.md#get_service_settings) | **GET** /service/{service_id}/version/{version_id}/settings | Get service settings
+*SettingsApi* | [**update_service_settings**](docs/SettingsApi.md#update_service_settings) | **PUT** /service/{service_id}/version/{version_id}/settings | Update service settings
 *SnippetApi* | [**create_snippet**](docs/SnippetApi.md#create_snippet) | **POST** /service/{service_id}/version/{version_id}/snippet | Create a snippet
 *SnippetApi* | [**delete_snippet**](docs/SnippetApi.md#delete_snippet) | **DELETE** /service/{service_id}/version/{version_id}/snippet/{snippet_name} | Delete a snippet
 *SnippetApi* | [**get_snippet**](docs/SnippetApi.md#get_snippet) | **GET** /service/{service_id}/version/{version_id}/snippet/{snippet_name} | Get a versioned snippet
@@ -469,87 +488,6 @@ Class | Method | HTTP request | Description
 
 
 ## Issues
-
-The fastly-py API client currently does not support the following endpoints:
-
-- [`/automation-tokens/{id}/services`](https://developer.fastly.com/reference/api/auth-tokens/automation) (GET)
-- [`/automation-tokens/{id}`](https://developer.fastly.com/reference/api/auth-tokens/automation) (DELETE, GET)
-- [`/automation-tokens`](https://developer.fastly.com/reference/api/auth-tokens/automation) (GET, POST)
-- [`/customer/{customer_id}/contacts`](https://developer.fastly.com/reference/api/account/contact) (POST)
-- [`/docs/section/{section}`](https://developer.fastly.com/reference/api/utils/docs) (GET)
-- [`/docs/subject/{subject}`](https://developer.fastly.com/reference/api/utils/docs) (GET)
-- [`/metrics/domains/services/{service_id}`](https://developer.fastly.com/reference/api/metrics-stats/domain-inspector/historical) (GET)
-- [`/metrics/origins/services/{service_id}`](https://developer.fastly.com/reference/api/metrics-stats/origin-inspector/historical) (GET)
-- [`/rate-limiters/{rate_limiter_id}`](https://developer.fastly.com/reference/api/vcl-services/rate-limiter) (PUT)
-- [`/resources/stores/object/{store_id}/keys/{key_name}`](https://developer.fastly.com/reference/api/) (DELETE, GET, PUT)
-- [`/resources/stores/object/{store_id}/keys`](https://developer.fastly.com/reference/api/) (GET)
-- [`/resources/stores/object/{store_id}`](https://developer.fastly.com/reference/api/) (DELETE, GET)
-- [`/resources/stores/object`](https://developer.fastly.com/reference/api/) (GET, POST)
-- [`/resources/stores/secret/{store_id}/secrets/{secret_name}`](https://developer.fastly.com/reference/api/) (DELETE, GET)
-- [`/resources/stores/secret/{store_id}/secrets`](https://developer.fastly.com/reference/api/) (GET, POST)
-- [`/resources/stores/secret/{store_id}`](https://developer.fastly.com/reference/api/) (DELETE, GET)
-- [`/resources/stores/secret`](https://developer.fastly.com/reference/api/) (GET, POST)
-- [`/roles/{role_id}/permissions`](https://developer.fastly.com/reference/api/account/roles) (DELETE, POST)
-- [`/roles/{role_id}`](https://developer.fastly.com/reference/api/account/roles) (PATCH)
-- [`/roles`](https://developer.fastly.com/reference/api/account/roles) (POST)
-- [`/service-authorizations`](https://developer.fastly.com/reference/api/account/service-authorization) (DELETE, PATCH)
-- [`/service-groups/{service_group_id}/services`](https://developer.fastly.com/reference/api/account/service-groups) (DELETE, POST)
-- [`/service-groups/{service_group_id}`](https://developer.fastly.com/reference/api/account/service-groups) (PATCH)
-- [`/service-groups`](https://developer.fastly.com/reference/api/account/service-groups) (POST)
-- [`/service/{service_id}/dictionary/{dictionary_id}/items`](https://developer.fastly.com/reference/api/dictionaries/dictionary-item) (PATCH)
-- [`/service/{service_id}/purge`](https://developer.fastly.com/reference/api/purging) (POST)
-- [`/service/{service_id}/version/{version_id}/apex-redirects`](https://developer.fastly.com/reference/api/vcl-services/apex-redirect) (POST)
-- [`/service/{service_id}/version/{version_id}/director/{director_name}`](https://developer.fastly.com/reference/api/load-balancing/directors/director) (PUT)
-- [`/service/{service_id}/version/{version_id}/generated_vcl/content`](https://developer.fastly.com/reference/api/vcl-services/vcl) (GET)
-- [`/service/{service_id}/version/{version_id}/logging/kafka/{logging_kafka_name}`](https://developer.fastly.com/reference/api/logging/kafka) (PUT)
-- [`/service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name}`](https://developer.fastly.com/reference/api/logging/kinesis) (PUT)
-- [`/service/{service_id}/version/{version_id}/rate-limiters`](https://developer.fastly.com/reference/api/vcl-services/rate-limiter) (POST)
-- [`/service/{service_id}/version/{version_id}/request_settings`](https://developer.fastly.com/reference/api/vcl-services/request-settings) (POST)
-- [`/service/{service_id}/version/{version_id}/response_object/{response_object_name}`](https://developer.fastly.com/reference/api/vcl-services/response-object) (PUT)
-- [`/service/{service_id}/version/{version_id}/response_object`](https://developer.fastly.com/reference/api/vcl-services/response-object) (POST)
-- [`/service/{service_id}/version/{version_id}/settings`](https://developer.fastly.com/reference/api/vcl-services/settings) (PUT)
-- [`/service/{service_id}/version/{version_id}/snippet/{snippet_name}`](https://developer.fastly.com/reference/api/vcl-services/snippet) (PUT)
-- [`/service/{service_id}/version/{version_id}/vcl/{vcl_name}/content`](https://developer.fastly.com/reference/api/vcl-services/vcl) (GET)
-- [`/service/{service_id}/version/{version_id}/wafs/{firewall_id}`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (GET, PATCH)
-- [`/service/{service_id}/version/{version_id}/wafs`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (GET, POST)
-- [`/service/{service_id}/wafs/{firewall_id}/owasp`](https://developer.fastly.com/reference/api/legacy-waf/owasp) (GET, PATCH, POST)
-- [`/service/{service_id}/wafs/{firewall_id}/rule_statuses`](https://developer.fastly.com/reference/api/legacy-waf/rule-status) (GET, POST)
-- [`/service/{service_id}/wafs/{firewall_id}/rules/{waf_rule_id}/rule_status`](https://developer.fastly.com/reference/api/legacy-waf/rule-status) (GET, PATCH)
-- [`/service/{service_id}/wafs/{firewall_id}/ruleset/preview`](https://developer.fastly.com/reference/api/legacy-waf/ruleset) (GET)
-- [`/service/{service_id}/wafs/{firewall_id}/ruleset`](https://developer.fastly.com/reference/api/legacy-waf/ruleset) (GET, PATCH)
-- [`/service/{service_id}/wafs/{firewall_id}/update_statuses/{update_status_id}`](https://developer.fastly.com/reference/api/legacy-waf/update-status) (GET)
-- [`/service/{service_id}/wafs/{firewall_id}/update_statuses`](https://developer.fastly.com/reference/api/legacy-waf/update-status) (GET)
-- [`/sudo`](https://developer.fastly.com/reference/api/utils/sudo) (POST)
-- [`/tls/activations/{tls_activation_id}`](https://developer.fastly.com/reference/api/tls/mutual-tls/activations) (GET, PATCH)
-- [`/tls/activations`](https://developer.fastly.com/reference/api/tls/mutual-tls/activations) (GET)
-- [`/tokens`](https://developer.fastly.com/reference/api/auth-tokens/user) (DELETE, POST)
-- [`/user-groups/{user_group_id}/members`](https://developer.fastly.com/reference/api/account/user-groups) (DELETE, POST)
-- [`/user-groups/{user_group_id}/roles`](https://developer.fastly.com/reference/api/account/user-groups) (DELETE, POST)
-- [`/user-groups/{user_group_id}/service-groups`](https://developer.fastly.com/reference/api/account/user-groups) (DELETE, POST)
-- [`/user-groups/{user_group_id}`](https://developer.fastly.com/reference/api/account/user-groups) (PATCH)
-- [`/user-groups`](https://developer.fastly.com/reference/api/account/user-groups) (POST)
-- [`/v1/channel/{service_id}/ts/h/limit/{max_entries}`](https://developer.fastly.com/reference/api/metrics-stats/origin-insights) (GET)
-- [`/v1/channel/{service_id}/ts/h`](https://developer.fastly.com/reference/api/metrics-stats/origin-insights) (GET)
-- [`/v1/channel/{service_id}/ts/{start_timestamp}`](https://developer.fastly.com/reference/api/metrics-stats/origin-insights) (GET)
-- [`/v1/domains/{service_id}/ts/h/limit/{max_entries}`](https://developer.fastly.com/reference/api/metrics-stats/domain-inspector/real-time) (GET)
-- [`/v1/domains/{service_id}/ts/h`](https://developer.fastly.com/reference/api/metrics-stats/domain-inspector/real-time) (GET)
-- [`/v1/domains/{service_id}/ts/{start_timestamp}`](https://developer.fastly.com/reference/api/metrics-stats/domain-inspector/real-time) (GET)
-- [`/v1/origins/{service_id}/ts/h/limit/{max_entries}`](https://developer.fastly.com/reference/api/metrics-stats/origin-inspector/real-time) (GET)
-- [`/v1/origins/{service_id}/ts/h`](https://developer.fastly.com/reference/api/metrics-stats/origin-inspector/real-time) (GET)
-- [`/v1/origins/{service_id}/ts/{start_timestamp}`](https://developer.fastly.com/reference/api/metrics-stats/origin-inspector/real-time) (GET)
-- [`/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules`](https://developer.fastly.com/reference/api/waf/rules/active) (DELETE)
-- [`/wafs/configuration_sets/{configuration_set_id}/relationships/wafs`](https://developer.fastly.com/reference/api/legacy-waf/configuration-set) (GET, PATCH)
-- [`/wafs/configuration_sets`](https://developer.fastly.com/reference/api/legacy-waf/configuration-set) (GET)
-- [`/wafs/rules/{waf_rule_id}/vcl`](https://developer.fastly.com/reference/api/legacy-waf/rule) (GET)
-- [`/wafs/rules/{waf_rule_id}`](https://developer.fastly.com/reference/api/legacy-waf/rule) (GET)
-- [`/wafs/rules`](https://developer.fastly.com/reference/api/legacy-waf/rule) (GET)
-- [`/wafs/tags`](https://developer.fastly.com/reference/api/legacy-waf/tag) (GET)
-- [`/wafs/{firewall_id}/disable`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (PATCH)
-- [`/wafs/{firewall_id}/enable`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (PATCH)
-- [`/wafs/{firewall_id}/rules/{waf_rule_id}/vcl`](https://developer.fastly.com/reference/api/legacy-waf/rule) (GET)
-- [`/wafs/{firewall_id}`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (GET)
-- [`/wafs`](https://developer.fastly.com/reference/api/legacy-waf/firewall) (GET)
-
 
 If you encounter any non-security-related bug or unexpected behavior, please [file an issue][bug]
 using the bug report template.

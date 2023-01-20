@@ -89,6 +89,8 @@ from fastly.model.event_response import EventResponse
 from fastly.model.events_response import EventsResponse
 from fastly.model.events_response_all_of import EventsResponseAllOf
 from fastly.model.generic_token_error import GenericTokenError
+from fastly.model.get_stores_response import GetStoresResponse
+from fastly.model.get_stores_response_meta import GetStoresResponseMeta
 from fastly.model.gzip import Gzip
 from fastly.model.gzip_response import GzipResponse
 from fastly.model.header import Header
@@ -150,6 +152,7 @@ from fastly.model.invitation_response_data import InvitationResponseData
 from fastly.model.invitation_response_data_all_of import InvitationResponseDataAllOf
 from fastly.model.invitations_response import InvitationsResponse
 from fastly.model.invitations_response_all_of import InvitationsResponseAllOf
+from fastly.model.key_response import KeyResponse
 from fastly.model.logging_address_and_port import LoggingAddressAndPort
 from fastly.model.logging_azureblob import LoggingAzureblob
 from fastly.model.logging_azureblob_all_of import LoggingAzureblobAllOf
@@ -429,6 +432,8 @@ from fastly.model.star_data import StarData
 from fastly.model.star_response import StarResponse
 from fastly.model.star_response_all_of import StarResponseAllOf
 from fastly.model.stats import Stats
+from fastly.model.store import Store
+from fastly.model.store_response import StoreResponse
 from fastly.model.timestamps import Timestamps
 from fastly.model.timestamps_no_delete import TimestampsNoDelete
 from fastly.model.tls_activation import TlsActivation

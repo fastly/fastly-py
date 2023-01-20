@@ -216,11 +216,21 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mutual_authentication_api.MutualAuthenticationApi(api_client)
     mutual_authentication_id = "SEAwSOsP7dEpTgGZdP7ZFw" # str | Alphanumeric string identifying a mutual authentication.
+    include = "include_example" # str | Comma-separated list of related objects to include (optional). Permitted values: `tls_activations`. Including TLS activations will provide you with the TLS domain names that are related to your Mutual TLS authentication.  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get a Mutual Authentication
         api_response = api_instance.get_mutual_authentication(mutual_authentication_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling MutualAuthenticationApi->get_mutual_authentication: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get a Mutual Authentication
+        api_response = api_instance.get_mutual_authentication(mutual_authentication_id, include=include)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling MutualAuthenticationApi->get_mutual_authentication: %s\n" % e)
@@ -232,6 +242,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mutual_authentication_id** | **str**| Alphanumeric string identifying a mutual authentication. |
+ **include** | **str**| Comma-separated list of related objects to include (optional). Permitted values: `tls_activations`. Including TLS activations will provide you with the TLS domain names that are related to your Mutual TLS authentication.  | [optional]
 
 ### Return type
 
@@ -293,6 +304,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mutual_authentication_api.MutualAuthenticationApi(api_client)
+    include = "include_example" # str | Comma-separated list of related objects to include (optional). Permitted values: `tls_activations`. Including TLS activations will provide you with the TLS domain names that are related to your Mutual TLS authentication.  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
 
@@ -300,7 +312,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Mutual Authentications
-        api_response = api_instance.list_mutual_authentications(page_number=page_number, page_size=page_size)
+        api_response = api_instance.list_mutual_authentications(include=include, page_number=page_number, page_size=page_size)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling MutualAuthenticationApi->list_mutual_authentications: %s\n" % e)
@@ -311,6 +323,7 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **include** | **str**| Comma-separated list of related objects to include (optional). Permitted values: `tls_activations`. Including TLS activations will provide you with the TLS domain names that are related to your Mutual TLS authentication.  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
 
