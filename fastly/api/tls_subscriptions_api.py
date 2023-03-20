@@ -889,7 +889,7 @@ class TlsSubscriptionsApi(object):
 
 
         Keyword Args:
-            filter_state (str): Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, and `renewing`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`). . [optional]
+            filter_state (str): Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`). . [optional]
             filter_tls_domains_id (str): Limit the returned subscriptions to those that include the specific domain.. [optional]
             filter_has_active_order (bool): Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`. . [optional]
             include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`. . [optional]
@@ -961,7 +961,7 @@ class TlsSubscriptionsApi(object):
     ):
         """Update a TLS subscription  # noqa: E501
 
-        Change the TLS domains or common name associated with this subscription, or update the TLS configuration for this set of domains.  # noqa: E501
+        Change the TLS domains or common name associated with this subscription, update the TLS configuration for this set of domains, or retry a subscription with state `failed` by setting the state to `retry`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -110,7 +110,7 @@ class ResourceApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{resource_id}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'delete_resource',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -119,12 +119,12 @@ class ResourceApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                 ],
                 'nullable': [
                 ],
@@ -143,18 +143,18 @@ class ResourceApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'resource_id':
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'resource_id': 'resource_id',
+                    'id': 'id',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'resource_id': 'path',
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -173,7 +173,7 @@ class ResourceApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{resource_id}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'get_resource',
                 'http_method': 'GET',
                 'servers': None,
@@ -182,12 +182,12 @@ class ResourceApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                 ],
                 'nullable': [
                 ],
@@ -206,18 +206,18 @@ class ResourceApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'resource_id':
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'resource_id': 'resource_id',
+                    'id': 'id',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'resource_id': 'path',
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -293,7 +293,7 @@ class ResourceApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{resource_id}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'update_resource',
                 'http_method': 'PUT',
                 'servers': None,
@@ -302,13 +302,13 @@ class ResourceApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                     'name',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'resource_id',
+                    'id',
                 ],
                 'nullable': [
                 ],
@@ -327,7 +327,7 @@ class ResourceApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'resource_id':
+                    'id':
                         (str,),
                     'name':
                         (str,),
@@ -335,13 +335,13 @@ class ResourceApi(object):
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'resource_id': 'resource_id',
+                    'id': 'id',
                     'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'resource_id': 'path',
+                    'id': 'path',
                     'name': 'form',
                 },
                 'collection_format_map': {
@@ -446,7 +446,7 @@ class ResourceApi(object):
         self,
         service_id,
         version_id,
-        resource_id,
+        id,
         **kwargs
     ):
         """Delete a resource  # noqa: E501
@@ -455,13 +455,13 @@ class ResourceApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_resource(service_id, version_id, resource_id, async_req=True)
+        >>> thread = api.delete_resource(service_id, version_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            resource_id (str): An alphanumeric string identifying the resource.
+            id (str): An alphanumeric string identifying the resource link.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -524,15 +524,15 @@ class ResourceApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['resource_id'] = \
-            resource_id
+        kwargs['id'] = \
+            id
         return self.delete_resource_endpoint.call_with_http_info(**kwargs)
 
     def get_resource(
         self,
         service_id,
         version_id,
-        resource_id,
+        id,
         **kwargs
     ):
         """Display a resource  # noqa: E501
@@ -541,13 +541,13 @@ class ResourceApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_resource(service_id, version_id, resource_id, async_req=True)
+        >>> thread = api.get_resource(service_id, version_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            resource_id (str): An alphanumeric string identifying the resource.
+            id (str): An alphanumeric string identifying the resource link.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -610,8 +610,8 @@ class ResourceApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['resource_id'] = \
-            resource_id
+        kwargs['id'] = \
+            id
         return self.get_resource_endpoint.call_with_http_info(**kwargs)
 
     def list_resources(
@@ -700,7 +700,7 @@ class ResourceApi(object):
         self,
         service_id,
         version_id,
-        resource_id,
+        id,
         **kwargs
     ):
         """Update a resource  # noqa: E501
@@ -709,13 +709,13 @@ class ResourceApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_resource(service_id, version_id, resource_id, async_req=True)
+        >>> thread = api.update_resource(service_id, version_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            resource_id (str): An alphanumeric string identifying the resource.
+            id (str): An alphanumeric string identifying the resource link.
 
         Keyword Args:
             name (str): The name of the resource.. [optional]
@@ -779,7 +779,7 @@ class ResourceApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['resource_id'] = \
-            resource_id
+        kwargs['id'] = \
+            id
         return self.update_resource_endpoint.call_with_http_info(**kwargs)
 

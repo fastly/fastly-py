@@ -78,9 +78,10 @@ from fastly.model.domain_check_response import DomainCheckResponse
 from fastly.model.domain_check_response_list import DomainCheckResponseList
 from fastly.model.domain_response import DomainResponse
 from fastly.model.domains_response import DomainsResponse
-from fastly.model.enabled_product import EnabledProduct
-from fastly.model.enabled_product_links import EnabledProductLinks
-from fastly.model.enabled_product_product import EnabledProductProduct
+from fastly.model.enabled_product_response import EnabledProductResponse
+from fastly.model.enabled_product_response_links import EnabledProductResponseLinks
+from fastly.model.enabled_product_response_product import EnabledProductResponseProduct
+from fastly.model.enabled_product_response_service import EnabledProductResponseService
 from fastly.model.error_response import ErrorResponse
 from fastly.model.error_response_data import ErrorResponseData
 from fastly.model.event import Event
@@ -89,8 +90,6 @@ from fastly.model.event_response import EventResponse
 from fastly.model.events_response import EventsResponse
 from fastly.model.events_response_all_of import EventsResponseAllOf
 from fastly.model.generic_token_error import GenericTokenError
-from fastly.model.get_stores_response import GetStoresResponse
-from fastly.model.get_stores_response_meta import GetStoresResponseMeta
 from fastly.model.gzip import Gzip
 from fastly.model.gzip_response import GzipResponse
 from fastly.model.header import Header
@@ -143,6 +142,8 @@ from fastly.model.included_with_waf_rule_revision import IncludedWithWafRuleRevi
 from fastly.model.inline_object import InlineObject
 from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
+from fastly.model.inline_response2001 import InlineResponse2001
+from fastly.model.inline_response2001_meta import InlineResponse2001Meta
 from fastly.model.invitation import Invitation
 from fastly.model.invitation_data import InvitationData
 from fastly.model.invitation_data_attributes import InvitationDataAttributes
@@ -152,7 +153,6 @@ from fastly.model.invitation_response_data import InvitationResponseData
 from fastly.model.invitation_response_data_all_of import InvitationResponseDataAllOf
 from fastly.model.invitations_response import InvitationsResponse
 from fastly.model.invitations_response_all_of import InvitationsResponseAllOf
-from fastly.model.key_response import KeyResponse
 from fastly.model.logging_address_and_port import LoggingAddressAndPort
 from fastly.model.logging_azureblob import LoggingAzureblob
 from fastly.model.logging_azureblob_all_of import LoggingAzureblobAllOf

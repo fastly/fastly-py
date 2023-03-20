@@ -29,8 +29,16 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.enabled_product_response_links import EnabledProductResponseLinks
+    from fastly.model.enabled_product_response_product import EnabledProductResponseProduct
+    from fastly.model.enabled_product_response_service import EnabledProductResponseService
+    globals()['EnabledProductResponseLinks'] = EnabledProductResponseLinks
+    globals()['EnabledProductResponseProduct'] = EnabledProductResponseProduct
+    globals()['EnabledProductResponseService'] = EnabledProductResponseService
 
-class EnabledProductLinks(ModelNormal):
+
+class EnabledProductResponse(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +72,7 @@ class EnabledProductLinks(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,9 +87,11 @@ class EnabledProductLinks(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            '_self': (str,),  # noqa: E501
-            'service': (str,),  # noqa: E501
+            'product': (EnabledProductResponseProduct,),  # noqa: E501
+            'service': (EnabledProductResponseService,),  # noqa: E501
+            'links': (EnabledProductResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -89,8 +100,9 @@ class EnabledProductLinks(ModelNormal):
 
 
     attribute_map = {
-        '_self': 'self',  # noqa: E501
+        'product': 'product',  # noqa: E501
         'service': 'service',  # noqa: E501
+        'links': '_links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,7 +113,7 @@ class EnabledProductLinks(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """EnabledProductLinks - a model defined in OpenAPI
+        """EnabledProductResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,8 +146,9 @@ class EnabledProductLinks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _self (str): [optional]  # noqa: E501
-            service (str): [optional]  # noqa: E501
+            product (EnabledProductResponseProduct): [optional]  # noqa: E501
+            service (EnabledProductResponseService): [optional]  # noqa: E501
+            links (EnabledProductResponseLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,7 +197,7 @@ class EnabledProductLinks(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """EnabledProductLinks - a model defined in OpenAPI
+        """EnabledProductResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +230,9 @@ class EnabledProductLinks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _self (str): [optional]  # noqa: E501
-            service (str): [optional]  # noqa: E501
+            product (EnabledProductResponseProduct): [optional]  # noqa: E501
+            service (EnabledProductResponseService): [optional]  # noqa: E501
+            links (EnabledProductResponseLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

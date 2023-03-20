@@ -58,6 +58,7 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
             'PROCESSING': "processing",
             'ISSUED': "issued",
             'RENEWING': "renewing",
+            'FAILED': "failed",
         },
     }
 
@@ -98,7 +99,6 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
     }
 
     read_only_vars = {
-        'state',  # noqa: E501
     }
 
     _composed_schemas = {}

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | An alphanumeric string identifying the resource. | [optional] 
+**id** | **str** | An alphanumeric string identifying the resource link. | [optional] 
 **href** | **str** | The path to the resource. | [optional] 
 **service_id** | **str** | Alphanumeric string identifying the service. | [optional] 
 **version** | **int** | Integer identifying a service version. | [optional] 

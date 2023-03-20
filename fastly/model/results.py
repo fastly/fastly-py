@@ -275,6 +275,8 @@ class Results(ModelNormal):
             'websocket_conn_time_ms': (int,),  # noqa: E501
             'fanout_recv_publishes': (int,),  # noqa: E501
             'fanout_send_publishes': (int,),  # noqa: E501
+            'object_store_class_a_operations': (int,),  # noqa: E501
+            'object_store_class_b_operations': (int,),  # noqa: E501
             'object_store_read_requests': (int,),  # noqa: E501
             'object_store_write_requests': (int,),  # noqa: E501
             'fanout_req_header_bytes': (int,),  # noqa: E501
@@ -490,6 +492,8 @@ class Results(ModelNormal):
         'websocket_conn_time_ms': 'websocket_conn_time_ms',  # noqa: E501
         'fanout_recv_publishes': 'fanout_recv_publishes',  # noqa: E501
         'fanout_send_publishes': 'fanout_send_publishes',  # noqa: E501
+        'object_store_class_a_operations': 'object_store_class_a_operations',  # noqa: E501
+        'object_store_class_b_operations': 'object_store_class_b_operations',  # noqa: E501
         'object_store_read_requests': 'object_store_read_requests',  # noqa: E501
         'object_store_write_requests': 'object_store_write_requests',  # noqa: E501
         'fanout_req_header_bytes': 'fanout_req_header_bytes',  # noqa: E501
@@ -554,7 +558,7 @@ class Results(ModelNormal):
             errors (int): Number of cache errors.. [optional]  # noqa: E501
             restarts (int): Number of restarts performed.. [optional]  # noqa: E501
             hit_ratio (float, none_type): Ratio of cache hits to cache misses (between 0 and 1).. [optional]  # noqa: E501
-            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes`).. [optional]  # noqa: E501
+            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes` + `fanout_resp_header_bytes` + `fanout_resp_body_bytes` + `fanout_bereq_header_bytes` + `fanout_bereq_body_bytes`).. [optional]  # noqa: E501
             body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
             header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
             req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
@@ -740,8 +744,10 @@ class Results(ModelNormal):
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
-            object_store_read_requests (int): The total number of reads received for the object store.. [optional]  # noqa: E501
-            object_store_write_requests (int): The total number of writes received for the object store.. [optional]  # noqa: E501
+            object_store_class_a_operations (int): The total number of class a operations for the object store.. [optional]  # noqa: E501
+            object_store_class_b_operations (int): The total number of class b operations for the object store.. [optional]  # noqa: E501
+            object_store_read_requests (int): Use object_store_class_b_operations.. [optional]  # noqa: E501
+            object_store_write_requests (int): Use object_store_class_a_operations.. [optional]  # noqa: E501
             fanout_req_header_bytes (int): Total header bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_req_body_bytes (int): Total body or message content bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_resp_header_bytes (int): Total header bytes sent to end users over Fanout connections.. [optional]  # noqa: E501
@@ -842,7 +848,7 @@ class Results(ModelNormal):
             errors (int): Number of cache errors.. [optional]  # noqa: E501
             restarts (int): Number of restarts performed.. [optional]  # noqa: E501
             hit_ratio (float, none_type): Ratio of cache hits to cache misses (between 0 and 1).. [optional]  # noqa: E501
-            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes`).. [optional]  # noqa: E501
+            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes` + `fanout_resp_header_bytes` + `fanout_resp_body_bytes` + `fanout_bereq_header_bytes` + `fanout_bereq_body_bytes`).. [optional]  # noqa: E501
             body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
             header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
             req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
@@ -1028,8 +1034,10 @@ class Results(ModelNormal):
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
-            object_store_read_requests (int): The total number of reads received for the object store.. [optional]  # noqa: E501
-            object_store_write_requests (int): The total number of writes received for the object store.. [optional]  # noqa: E501
+            object_store_class_a_operations (int): The total number of class a operations for the object store.. [optional]  # noqa: E501
+            object_store_class_b_operations (int): The total number of class b operations for the object store.. [optional]  # noqa: E501
+            object_store_read_requests (int): Use object_store_class_b_operations.. [optional]  # noqa: E501
+            object_store_write_requests (int): Use object_store_class_a_operations.. [optional]  # noqa: E501
             fanout_req_header_bytes (int): Total header bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_req_body_bytes (int): Total body or message content bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_resp_header_bytes (int): Total header bytes sent to end users over Fanout connections.. [optional]  # noqa: E501

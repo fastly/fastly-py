@@ -103,6 +103,7 @@ class EventsApi(object):
                     'filter_service_id',
                     'filter_user_id',
                     'filter_token_id',
+                    'filter_created_at',
                     'page_number',
                     'page_size',
                     'sort',
@@ -143,6 +144,8 @@ class EventsApi(object):
                         (str,),
                     'filter_token_id':
                         (str,),
+                    'filter_created_at':
+                        (str,),
                     'page_number':
                         (int,),
                     'page_size':
@@ -156,6 +159,7 @@ class EventsApi(object):
                     'filter_service_id': 'filter[service_id]',
                     'filter_user_id': 'filter[user_id]',
                     'filter_token_id': 'filter[token_id]',
+                    'filter_created_at': 'filter[created_at]',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
                     'sort': 'sort',
@@ -166,6 +170,7 @@ class EventsApi(object):
                     'filter_service_id': 'query',
                     'filter_user_id': 'query',
                     'filter_token_id': 'query',
+                    'filter_created_at': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
                     'sort': 'query',
@@ -280,6 +285,7 @@ class EventsApi(object):
             filter_service_id (str): Limit the results returned to a specific service.. [optional]
             filter_user_id (str): Limit the results returned to a specific user.. [optional]
             filter_token_id (str): Limit the returned events to a specific token.. [optional]
+            filter_created_at (str): Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]=2022-01-12). . [optional]
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
             sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"

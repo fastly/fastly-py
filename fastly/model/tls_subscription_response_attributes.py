@@ -64,6 +64,7 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
             'PROCESSING': "processing",
             'ISSUED': "issued",
             'RENEWING': "renewing",
+            'FAILED': "failed",
         },
     }
 
@@ -115,7 +116,6 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
         'created_at',  # noqa: E501
         'deleted_at',  # noqa: E501
         'updated_at',  # noqa: E501
-        'state',  # noqa: E501
     }
 
     @classmethod

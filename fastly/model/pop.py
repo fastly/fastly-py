@@ -57,6 +57,46 @@ class Pop(ModelNormal):
     """
 
     allowed_values = {
+        ('region',): {
+            'APAC': "APAC",
+            'ASIA': "Asia",
+            'AF-WEST': "AF-West",
+            'EU-CENTRAL': "EU-Central",
+            'EU-EAST': "EU-East",
+            'EU-WEST': "EU-West",
+            'MIDDLE-EAST': "Middle-East",
+            'NORTH-AMERICA': "North-America",
+            'SA-SOUTH': "SA-South",
+            'SA-EAST': "SA-East",
+            'SA-WEST': "SA-West",
+            'SA-NORTH': "SA-North",
+            'SOUTH-AFRICA': "South-Africa",
+            'SOUTH-AMERICA': "South-America",
+            'US-CENTRAL': "US-Central",
+            'US-EAST': "US-East",
+            'US-WEST': "US-West",
+            'ASIA-SOUTH': "Asia-South",
+        },
+        ('stats_region',): {
+            'SOUTHAMERICA_STD': "southamerica_std",
+            'AFRICA_STD': "africa_std",
+            'ANZAC': "anzac",
+            'ASIA': "asia",
+            'EUROPE': "europe",
+            'USA': "usa",
+            'ASIA_INDIA': "asia_india",
+            'ASIA_SOUTHKOREA': "asia_southkorea",
+        },
+        ('billing_region',): {
+            'AFRICA': "Africa",
+            'AUSTRALIA': "Australia",
+            'ASIA': "Asia",
+            'EUROPE': "Europe",
+            'INDIA': "India",
+            'NORTH_AMERICA': "North America",
+            'SOUTH_KOREA': "South Korea",
+            'SOUTH_AMERICA': "South America",
+        },
     }
 
     validations = {
@@ -88,6 +128,9 @@ class Pop(ModelNormal):
             'code': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'group': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'stats_region': (str,),  # noqa: E501
+            'billing_region': (str,),  # noqa: E501
             'coordinates': (PopCoordinates,),  # noqa: E501
             'shield': (str,),  # noqa: E501
         }
@@ -101,6 +144,9 @@ class Pop(ModelNormal):
         'code': 'code',  # noqa: E501
         'name': 'name',  # noqa: E501
         'group': 'group',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'stats_region': 'stats_region',  # noqa: E501
+        'billing_region': 'billing_region',  # noqa: E501
         'coordinates': 'coordinates',  # noqa: E501
         'shield': 'shield',  # noqa: E501
     }
@@ -112,8 +158,16 @@ class Pop(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, code, name, group, region, stats_region, billing_region, *args, **kwargs):  # noqa: E501
         """Pop - a model defined in OpenAPI
+
+        Args:
+            code (str): the three-letter code for the [POP](https://developer.fastly.com/learning/concepts/pop/)
+            name (str): the name of the POP
+            group (str):
+            region (str):
+            stats_region (str): the region used for stats reporting
+            billing_region (str): the region used for billing
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,11 +200,8 @@ class Pop(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            code (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            group (str): [optional]  # noqa: E501
             coordinates (PopCoordinates): [optional]  # noqa: E501
-            shield (str): [optional]  # noqa: E501
+            shield (str): the name of the [shield code](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -178,6 +229,12 @@ class Pop(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.code = code
+        self.name = name
+        self.group = group
+        self.region = region
+        self.stats_region = stats_region
+        self.billing_region = billing_region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,8 +255,16 @@ class Pop(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, code, name, group, region, stats_region, billing_region, *args, **kwargs):  # noqa: E501
         """Pop - a model defined in OpenAPI
+
+        Args:
+            code (str): the three-letter code for the [POP](https://developer.fastly.com/learning/concepts/pop/)
+            name (str): the name of the POP
+            group (str):
+            region (str):
+            stats_region (str): the region used for stats reporting
+            billing_region (str): the region used for billing
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,11 +297,8 @@ class Pop(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            code (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            group (str): [optional]  # noqa: E501
             coordinates (PopCoordinates): [optional]  # noqa: E501
-            shield (str): [optional]  # noqa: E501
+            shield (str): the name of the [shield code](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,6 +324,12 @@ class Pop(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.code = code
+        self.name = name
+        self.group = group
+        self.region = region
+        self.stats_region = stats_region
+        self.billing_region = billing_region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

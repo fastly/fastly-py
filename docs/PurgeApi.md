@@ -96,7 +96,7 @@ Instant Purge an individual URL.
 
 ### Example
 
-* Basic Authentication (url_purge):
+* Api Key Authentication (token):
 
 ```python
 import time
@@ -115,11 +115,11 @@ configuration = fastly.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure HTTP basic authorization: url_purge
-configuration = fastly.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with fastly.ApiClient(configuration) as api_client:
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[url_purge](../README.md#url_purge)
+[token](../README.md#token)
 
 ### HTTP request headers
 

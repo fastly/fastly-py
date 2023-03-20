@@ -476,7 +476,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
-    filter_state = "filter[state]_example" # str | Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, and `renewing`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`).  (optional)
+    filter_state = "filter[state]_example" # str | Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`).  (optional)
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned subscriptions to those that include the specific domain. (optional)
     filter_has_active_order = True # bool | Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  (optional)
     include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  (optional)
@@ -499,7 +499,7 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter_state** | **str**| Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, and `renewing`. Accepts parameters: `not` (e.g., `filter[state][not]&#x3D;renewing`).  | [optional]
+ **filter_state** | **str**| Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]&#x3D;renewing`).  | [optional]
  **filter_tls_domains_id** | **str**| Limit the returned subscriptions to those that include the specific domain. | [optional]
  **filter_has_active_order** | **bool**| Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  | [optional]
  **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  | [optional]
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 Update a TLS subscription
 
-Change the TLS domains or common name associated with this subscription, or update the TLS configuration for this set of domains.
+Change the TLS domains or common name associated with this subscription, update the TLS configuration for this set of domains, or retry a subscription with state `failed` by setting the state to `retry`.
 
 ### Example
 

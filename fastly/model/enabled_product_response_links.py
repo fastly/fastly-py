@@ -29,14 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.enabled_product_links import EnabledProductLinks
-    from fastly.model.enabled_product_product import EnabledProductProduct
-    globals()['EnabledProductLinks'] = EnabledProductLinks
-    globals()['EnabledProductProduct'] = EnabledProductProduct
 
-
-class EnabledProduct(ModelNormal):
+class EnabledProductResponseLinks(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -70,7 +64,6 @@ class EnabledProduct(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -85,11 +78,9 @@ class EnabledProduct(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'product': (EnabledProductProduct,),  # noqa: E501
-            'service': (EnabledProductProduct,),  # noqa: E501
-            'links': (EnabledProductLinks,),  # noqa: E501
+            '_self': (str,),  # noqa: E501
+            'service': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,9 +89,8 @@ class EnabledProduct(ModelNormal):
 
 
     attribute_map = {
-        'product': 'product',  # noqa: E501
+        '_self': 'self',  # noqa: E501
         'service': 'service',  # noqa: E501
-        'links': '_links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,7 +101,7 @@ class EnabledProduct(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """EnabledProduct - a model defined in OpenAPI
+        """EnabledProductResponseLinks - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,9 +134,8 @@ class EnabledProduct(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            product (EnabledProductProduct): [optional]  # noqa: E501
-            service (EnabledProductProduct): [optional]  # noqa: E501
-            links (EnabledProductLinks): [optional]  # noqa: E501
+            _self (str): Location of resource. [optional]  # noqa: E501
+            service (str): Location of the service resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -195,7 +184,7 @@ class EnabledProduct(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """EnabledProduct - a model defined in OpenAPI
+        """EnabledProductResponseLinks - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,9 +217,8 @@ class EnabledProduct(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            product (EnabledProductProduct): [optional]  # noqa: E501
-            service (EnabledProductProduct): [optional]  # noqa: E501
-            links (EnabledProductLinks): [optional]  # noqa: E501
+            _self (str): Location of resource. [optional]  # noqa: E501
+            service (str): Location of the service resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

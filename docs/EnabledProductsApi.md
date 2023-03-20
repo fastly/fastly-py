@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Disable a product
 
-Disable a product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.
+Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
 
 ### Example
 
@@ -88,11 +88,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_product**
-> EnabledProduct enable_product(product_id, service_id)
+> EnabledProductResponse enable_product(product_id, service_id)
 
 Enable a product
 
-Enable a product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.
+Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
 
 ### Example
 
@@ -102,7 +102,7 @@ Enable a product on a service. Supported product IDs: `origin_inspector`,`domain
 import time
 import fastly
 from fastly.api import enabled_products_api
-from fastly.model.enabled_product import EnabledProduct
+from fastly.model.enabled_product_response import EnabledProductResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnabledProduct**](EnabledProduct.md)
+[**EnabledProductResponse**](EnabledProductResponse.md)
 
 ### Authorization
 
@@ -168,11 +168,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_enabled_product**
-> EnabledProduct get_enabled_product(product_id, service_id)
+> EnabledProductResponse get_enabled_product(product_id, service_id)
 
 Get enabled product
 
-Get enabled product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.
+Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
 
 ### Example
 
@@ -182,7 +182,7 @@ Get enabled product on a service. Supported product IDs: `origin_inspector`,`dom
 import time
 import fastly
 from fastly.api import enabled_products_api
-from fastly.model.enabled_product import EnabledProduct
+from fastly.model.enabled_product_response import EnabledProductResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnabledProduct**](EnabledProduct.md)
+[**EnabledProductResponse**](EnabledProductResponse.md)
 
 ### Authorization
 

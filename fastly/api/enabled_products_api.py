@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.enabled_product import EnabledProduct
+from fastly.model.enabled_product_response import EnabledProductResponse
 
 
 class EnabledProductsApi(object):
@@ -90,7 +90,7 @@ class EnabledProductsApi(object):
         )
         self.enable_product_endpoint = _Endpoint(
             settings={
-                'response_type': (EnabledProduct,),
+                'response_type': (EnabledProductResponse,),
                 'auth': [
                     'token'
                 ],
@@ -147,7 +147,7 @@ class EnabledProductsApi(object):
         )
         self.get_enabled_product_endpoint = _Endpoint(
             settings={
-                'response_type': (EnabledProduct,),
+                'response_type': (EnabledProductResponse,),
                 'auth': [
                     'token'
                 ],
@@ -211,7 +211,7 @@ class EnabledProductsApi(object):
     ):
         """Disable a product  # noqa: E501
 
-        Disable a product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.  # noqa: E501
+        Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -293,7 +293,7 @@ class EnabledProductsApi(object):
     ):
         """Enable a product  # noqa: E501
 
-        Enable a product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.  # noqa: E501
+        Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -333,7 +333,7 @@ class EnabledProductsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnabledProduct
+            EnabledProductResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -375,7 +375,7 @@ class EnabledProductsApi(object):
     ):
         """Get enabled product  # noqa: E501
 
-        Get enabled product on a service. Supported product IDs: `origin_inspector`,`domain_inspector`,`image_optimizer`, and `websockets`.  # noqa: E501
+        Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -415,7 +415,7 @@ class EnabledProductsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnabledProduct
+            EnabledProductResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

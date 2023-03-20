@@ -5,10 +5,10 @@ All URIs are relative to *https://api.fastly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_resource**](ResourceApi.md#create_resource) | **POST** /service/{service_id}/version/{version_id}/resource | Create a resource
-[**delete_resource**](ResourceApi.md#delete_resource) | **DELETE** /service/{service_id}/version/{version_id}/resource/{resource_id} | Delete a resource
-[**get_resource**](ResourceApi.md#get_resource) | **GET** /service/{service_id}/version/{version_id}/resource/{resource_id} | Display a resource
+[**delete_resource**](ResourceApi.md#delete_resource) | **DELETE** /service/{service_id}/version/{version_id}/resource/{id} | Delete a resource
+[**get_resource**](ResourceApi.md#get_resource) | **GET** /service/{service_id}/version/{version_id}/resource/{id} | Display a resource
 [**list_resources**](ResourceApi.md#list_resources) | **GET** /service/{service_id}/version/{version_id}/resource | List resources
-[**update_resource**](ResourceApi.md#update_resource) | **PUT** /service/{service_id}/version/{version_id}/resource/{resource_id} | Update a resource
+[**update_resource**](ResourceApi.md#update_resource) | **PUT** /service/{service_id}/version/{version_id}/resource/{id} | Update a resource
 
 
 # **create_resource**
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_resource**
-> InlineResponse200 delete_resource(service_id, version_id, resource_id)
+> InlineResponse200 delete_resource(service_id, version_id, id)
 
 Delete a resource
 
@@ -144,12 +144,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = resource_api.ResourceApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    resource_id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource.
+    id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource link.
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a resource
-        api_response = api_instance.delete_resource(service_id, version_id, resource_id)
+        api_response = api_instance.delete_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->delete_resource: %s\n" % e)
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **resource_id** | **str**| An alphanumeric string identifying the resource. |
+ **id** | **str**| An alphanumeric string identifying the resource link. |
 
 ### Return type
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_resource**
-> ResourceResponse get_resource(service_id, version_id, resource_id)
+> ResourceResponse get_resource(service_id, version_id, id)
 
 Display a resource
 
@@ -226,12 +226,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = resource_api.ResourceApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    resource_id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource.
+    id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource link.
 
     # example passing only required values which don't have defaults set
     try:
         # Display a resource
-        api_response = api_instance.get_resource(service_id, version_id, resource_id)
+        api_response = api_instance.get_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->get_resource: %s\n" % e)
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **resource_id** | **str**| An alphanumeric string identifying the resource. |
+ **id** | **str**| An alphanumeric string identifying the resource link. |
 
 ### Return type
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_resource**
-> ResourceResponse update_resource(service_id, version_id, resource_id)
+> ResourceResponse update_resource(service_id, version_id, id)
 
 Update a resource
 
@@ -388,13 +388,13 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = resource_api.ResourceApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    resource_id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource.
+    id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource link.
     name = "test-resource" # str | The name of the resource. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update a resource
-        api_response = api_instance.update_resource(service_id, version_id, resource_id)
+        api_response = api_instance.update_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->update_resource: %s\n" % e)
@@ -403,7 +403,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a resource
-        api_response = api_instance.update_resource(service_id, version_id, resource_id, name=name)
+        api_response = api_instance.update_resource(service_id, version_id, id, name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->update_resource: %s\n" % e)
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **resource_id** | **str**| An alphanumeric string identifying the resource. |
+ **id** | **str**| An alphanumeric string identifying the resource link. |
  **name** | **str**| The name of the resource. | [optional]
 
 ### Return type

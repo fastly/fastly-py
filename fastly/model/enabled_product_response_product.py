@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class EnabledProductProduct(ModelNormal):
+class EnabledProductResponseProduct(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -101,7 +101,7 @@ class EnabledProductProduct(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """EnabledProductProduct - a model defined in OpenAPI
+        """EnabledProductResponseProduct - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,8 +134,8 @@ class EnabledProductProduct(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            object (str): [optional]  # noqa: E501
+            id (str): Product identifier. [optional]  # noqa: E501
+            object (str): Name of the object. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,7 +184,7 @@ class EnabledProductProduct(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """EnabledProductProduct - a model defined in OpenAPI
+        """EnabledProductResponseProduct - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +217,8 @@ class EnabledProductProduct(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            object (str): [optional]  # noqa: E501
+            id (str): Product identifier. [optional]  # noqa: E501
+            object (str): Name of the object. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

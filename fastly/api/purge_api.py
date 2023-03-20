@@ -89,7 +89,7 @@ class PurgeApi(object):
             settings={
                 'response_type': (PurgeResponse,),
                 'auth': [
-                    'url_purge'
+                    'token'
                 ],
                 'endpoint_path': '/purge/{cached_url}',
                 'operation_id': 'purge_single_url',

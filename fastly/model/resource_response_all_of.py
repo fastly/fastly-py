@@ -146,7 +146,7 @@ class ResourceResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): An alphanumeric string identifying the resource.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             version (int): Integer identifying a service version.. [optional]  # noqa: E501
@@ -232,7 +232,7 @@ class ResourceResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): An alphanumeric string identifying the resource.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             version (int): Integer identifying a service version.. [optional]  # noqa: E501

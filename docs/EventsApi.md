@@ -129,6 +129,7 @@ with fastly.ApiClient(configuration) as api_client:
     filter_service_id = "filter[service_id]_example" # str | Limit the results returned to a specific service. (optional)
     filter_user_id = "filter[user_id]_example" # str | Limit the results returned to a specific user. (optional)
     filter_token_id = "filter[token_id]_example" # str | Limit the returned events to a specific token. (optional)
+    filter_created_at = "filter[created_at]_example" # str | Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]=2022-01-12).  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
     sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
@@ -137,7 +138,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List events
-        api_response = api_instance.list_events(filter_customer_id=filter_customer_id, filter_event_type=filter_event_type, filter_service_id=filter_service_id, filter_user_id=filter_user_id, filter_token_id=filter_token_id, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_events(filter_customer_id=filter_customer_id, filter_event_type=filter_event_type, filter_service_id=filter_service_id, filter_user_id=filter_user_id, filter_token_id=filter_token_id, filter_created_at=filter_created_at, page_number=page_number, page_size=page_size, sort=sort)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling EventsApi->list_events: %s\n" % e)
@@ -153,6 +154,7 @@ Name | Type | Description  | Notes
  **filter_service_id** | **str**| Limit the results returned to a specific service. | [optional]
  **filter_user_id** | **str**| Limit the results returned to a specific user. | [optional]
  **filter_token_id** | **str**| Limit the returned events to a specific token. | [optional]
+ **filter_created_at** | **str**| Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]&#x3D;2022-01-12).  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
  **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"

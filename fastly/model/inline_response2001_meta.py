@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class GetStoresResponseMeta(ModelNormal):
+class InlineResponse2001Meta(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -101,7 +101,7 @@ class GetStoresResponseMeta(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """GetStoresResponseMeta - a model defined in OpenAPI
+        """InlineResponse2001Meta - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,7 +184,7 @@ class GetStoresResponseMeta(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """GetStoresResponseMeta - a model defined in OpenAPI
+        """InlineResponse2001Meta - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

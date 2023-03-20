@@ -79,8 +79,6 @@ class PopCoordinates(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'x': (float,),  # noqa: E501
-            'y': (float,),  # noqa: E501
             'latitude': (float,),  # noqa: E501
             'longitude': (float,),  # noqa: E501
         }
@@ -91,8 +89,6 @@ class PopCoordinates(ModelNormal):
 
 
     attribute_map = {
-        'x': 'x',  # noqa: E501
-        'y': 'y',  # noqa: E501
         'latitude': 'latitude',  # noqa: E501
         'longitude': 'longitude',  # noqa: E501
     }
@@ -104,8 +100,12 @@ class PopCoordinates(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, latitude, longitude, *args, **kwargs):  # noqa: E501
         """PopCoordinates - a model defined in OpenAPI
+
+        Args:
+            latitude (float):
+            longitude (float):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,10 +138,6 @@ class PopCoordinates(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            x (float): [optional]  # noqa: E501
-            y (float): [optional]  # noqa: E501
-            latitude (float): [optional]  # noqa: E501
-            longitude (float): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +165,8 @@ class PopCoordinates(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.latitude = latitude
+        self.longitude = longitude
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +187,12 @@ class PopCoordinates(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, latitude, longitude, *args, **kwargs):  # noqa: E501
         """PopCoordinates - a model defined in OpenAPI
+
+        Args:
+            latitude (float):
+            longitude (float):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,10 +225,6 @@ class PopCoordinates(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            x (float): [optional]  # noqa: E501
-            y (float): [optional]  # noqa: E501
-            latitude (float): [optional]  # noqa: E501
-            longitude (float): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +250,8 @@ class PopCoordinates(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.latitude = latitude
+        self.longitude = longitude
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

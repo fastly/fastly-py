@@ -168,7 +168,7 @@ class ResourceResponse(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             name (str): The name of the resource.. [optional]  # noqa: E501
             resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
-            id (str): An alphanumeric string identifying the resource.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             version (int): Integer identifying a service version.. [optional]  # noqa: E501
@@ -277,7 +277,7 @@ class ResourceResponse(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             name (str): The name of the resource.. [optional]  # noqa: E501
             resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
-            id (str): An alphanumeric string identifying the resource.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             version (int): Integer identifying a service version.. [optional]  # noqa: E501

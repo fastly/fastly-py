@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.get_stores_response_meta import GetStoresResponseMeta
+    from fastly.model.inline_response2001_meta import InlineResponse2001Meta
     from fastly.model.store_response import StoreResponse
-    globals()['GetStoresResponseMeta'] = GetStoresResponseMeta
+    globals()['InlineResponse2001Meta'] = InlineResponse2001Meta
     globals()['StoreResponse'] = StoreResponse
 
 
-class GetStoresResponse(ModelNormal):
+class InlineResponse2001(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -88,7 +88,7 @@ class GetStoresResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([StoreResponse],),  # noqa: E501
-            'meta': (GetStoresResponseMeta,),  # noqa: E501
+            'meta': (InlineResponse2001Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -109,7 +109,7 @@ class GetStoresResponse(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """GetStoresResponse - a model defined in OpenAPI
+        """InlineResponse2001 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,7 +143,7 @@ class GetStoresResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data ([StoreResponse]): [optional]  # noqa: E501
-            meta (GetStoresResponseMeta): [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,7 +192,7 @@ class GetStoresResponse(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """GetStoresResponse - a model defined in OpenAPI
+        """InlineResponse2001 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,7 +226,7 @@ class GetStoresResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data ([StoreResponse]): [optional]  # noqa: E501
-            meta (GetStoresResponseMeta): [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
