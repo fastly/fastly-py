@@ -97,6 +97,8 @@ class VclDiffApi(object):
                     'to_version_id': 'path',
                     'format': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

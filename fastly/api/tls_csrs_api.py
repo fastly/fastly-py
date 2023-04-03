@@ -72,6 +72,8 @@ class TlsCsrsApi(object):
                 'location_map': {
                     'tls_csr': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

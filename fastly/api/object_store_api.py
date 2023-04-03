@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2001 import InlineResponse2001
+from fastly.model.inline_response2002 import InlineResponse2002
 from fastly.model.store import Store
 from fastly.model.store_response import StoreResponse
 
@@ -48,6 +48,7 @@ class ObjectStoreApi(object):
             },
             params_map={
                 'all': [
+                    'location',
                     'store',
                 ],
                 'required': [],
@@ -64,13 +65,19 @@ class ObjectStoreApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'location':
+                        (str,),
                     'store':
                         (Store,),
                 },
                 'attribute_map': {
+                    'location': 'location',
                 },
                 'location_map': {
+                    'location': 'query',
                     'store': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -99,6 +106,7 @@ class ObjectStoreApi(object):
             params_map={
                 'all': [
                     'store_id',
+                    'force',
                 ],
                 'required': [
                     'store_id',
@@ -118,12 +126,18 @@ class ObjectStoreApi(object):
                 'openapi_types': {
                     'store_id':
                         (str,),
+                    'force':
+                        (bool,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
+                    'force': 'force',
                 },
                 'location_map': {
                     'store_id': 'path',
+                    'force': 'header',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -174,6 +188,8 @@ class ObjectStoreApi(object):
                 'location_map': {
                     'store_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -187,7 +203,7 @@ class ObjectStoreApi(object):
         )
         self.get_stores_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2001,),
+                'response_type': (InlineResponse2002,),
                 'auth': [
                     'token'
                 ],
@@ -228,6 +244,8 @@ class ObjectStoreApi(object):
                     'cursor': 'query',
                     'limit': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -255,6 +273,7 @@ class ObjectStoreApi(object):
 
 
         Keyword Args:
+            location (str): [optional]
             store (Store): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -332,6 +351,7 @@ class ObjectStoreApi(object):
             store_id (str):
 
         Keyword Args:
+            force (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -515,7 +535,7 @@ class ObjectStoreApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2001
+            InlineResponse2002
                 If the method is called asynchronously, returns the request
                 thread.
         """

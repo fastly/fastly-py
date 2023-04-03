@@ -74,6 +74,8 @@ class ApexRedirectApi(object):
                 'location_map': {
                     'apex_redirect_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -124,6 +126,8 @@ class ApexRedirectApi(object):
                 },
                 'location_map': {
                     'apex_redirect_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -181,6 +185,8 @@ class ApexRedirectApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -293,6 +299,8 @@ class ApexRedirectApi(object):
                     'status_code': 'form',
                     'domains': 'form',
                     'feature_revision': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                     'domains': 'csv',

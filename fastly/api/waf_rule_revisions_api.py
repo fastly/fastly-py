@@ -85,6 +85,8 @@ class WafRuleRevisionsApi(object):
                     'waf_rule_revision_number': 'path',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -161,6 +163,8 @@ class WafRuleRevisionsApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

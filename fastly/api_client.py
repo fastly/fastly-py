@@ -79,7 +79,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fastly-py/1.2.0'
+        self.user_agent = 'fastly-py/1.3.0'
 
         # The last observed value of http header Fastly-RateLimit-Remaining
         self.rate_limit_remaining = DEFAULT_RATELIMIT
@@ -128,6 +128,7 @@ class ApiClient(object):
         resource_path: str,
         method: str,
         path_params: typing.Optional[typing.Dict[str, typing.Any]] = None,
+        path_params_allow_reserved_map: typing.Optional[typing.Dict[str, bool]] = None,
         query_params: typing.Optional[typing.List[typing.Tuple[str, typing.Any]]] = None,
         header_params: typing.Optional[typing.Dict[str, typing.Any]] = None,
         body: typing.Optional[typing.Any] = None,
@@ -162,10 +163,13 @@ class ApiClient(object):
             path_params = self.parameters_to_tuples(path_params,
                                                     collection_formats)
             for k, v in path_params:
-                # specified safe chars, encode everything
+                value = str(v)
+                if not path_params_allow_reserved_map.get(k):
+                    # specified safe chars, encode everything
+                    value = quote(value, safe=config.safe_chars_for_path_param)
                 resource_path = resource_path.replace(
                     '{%s}' % k,
-                    quote(str(v), safe=config.safe_chars_for_path_param)
+                    value
                 )
 
         # query parameters
@@ -349,6 +353,7 @@ class ApiClient(object):
         resource_path: str,
         method: str,
         path_params: typing.Optional[typing.Dict[str, typing.Any]] = None,
+        path_params_allow_reserved_map: typing.Optional[typing.Dict[str, bool]] = None,
         query_params: typing.Optional[typing.List[typing.Tuple[str, typing.Any]]] = None,
         header_params: typing.Optional[typing.Dict[str, typing.Any]] = None,
         body: typing.Optional[typing.Any] = None,
@@ -371,6 +376,7 @@ class ApiClient(object):
         :param resource_path: Path to method endpoint.
         :param method: Method to call.
         :param path_params: Path parameters in the url.
+        :param path_params_allow_reserved_map: Specify path params that should be passed unencoded.
         :param query_params: Query parameters in the url.
         :param header_params: Header parameters to be
             placed in the request header.
@@ -419,7 +425,7 @@ class ApiClient(object):
         """
         if not async_req:
             return self.__call_api(resource_path, method,
-                                   path_params, query_params, header_params,
+                                   path_params, path_params_allow_reserved_map, query_params, header_params,
                                    body, post_params, files,
                                    response_type, auth_settings,
                                    _return_http_data_only, collection_formats,
@@ -428,6 +434,7 @@ class ApiClient(object):
 
         return self.pool.apply_async(self.__call_api, (resource_path,
                                                        method, path_params,
+                                                       path_params_allow_reserved_map,
                                                        query_params,
                                                        header_params, body,
                                                        post_params, files,
@@ -667,6 +674,8 @@ class Endpoint(object):
                 'attribute_map' (dict): param_name to camelCase name
                 'location_map' (dict): param_name to  'body', 'file', 'form',
                     'header', 'path', 'query'
+                'path_params_allow_reserved_map' (dict): param_name to boolean, denoting whether
+                    value should be passed without escaping
                 collection_format_map (dict): param_name to `csv` etc.
             headers_map (dict): see below key value pairs
                 'accept' (list): list of Accept header strings
@@ -706,6 +715,7 @@ class Endpoint(object):
         self.openapi_types.update(extra_types)
         self.attribute_map = root_map['attribute_map']
         self.location_map = root_map['location_map']
+        self.path_params_allow_reserved_map = root_map['path_params_allow_reserved_map']
         self.collection_format_map = root_map['collection_format_map']
         self.headers_map = headers_map
         self.api_client = api_client
@@ -862,6 +872,7 @@ class Endpoint(object):
         return self.api_client.call_api(
             self.settings['endpoint_path'], self.settings['http_method'],
             params['path'],
+            self.path_params_allow_reserved_map,
             params['query'],
             params['header'],
             body=params['body'],

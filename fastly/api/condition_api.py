@@ -125,6 +125,8 @@ class ConditionApi(object):
                     'version': 'form',
                     'type': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -190,6 +192,8 @@ class ConditionApi(object):
                     'version_id': 'path',
                     'condition_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -253,6 +257,8 @@ class ConditionApi(object):
                     'version_id': 'path',
                     'condition_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -309,6 +315,8 @@ class ConditionApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -416,6 +424,8 @@ class ConditionApi(object):
                     'service_id2': 'form',
                     'version': 'form',
                     'type': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

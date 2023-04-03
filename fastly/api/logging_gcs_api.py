@@ -197,6 +197,8 @@ class LoggingGcsApi(object):
                     'public_key': 'form',
                     'project_id': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -262,6 +264,8 @@ class LoggingGcsApi(object):
                     'version_id': 'path',
                     'logging_gcs_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -325,6 +329,8 @@ class LoggingGcsApi(object):
                     'version_id': 'path',
                     'logging_gcs_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -381,6 +387,8 @@ class LoggingGcsApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -561,6 +569,8 @@ class LoggingGcsApi(object):
                     'path': 'form',
                     'public_key': 'form',
                     'project_id': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

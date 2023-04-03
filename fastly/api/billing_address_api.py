@@ -80,6 +80,8 @@ class BillingAddressApi(object):
                     'customer_id': 'path',
                     'billing_address_request': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -133,6 +135,8 @@ class BillingAddressApi(object):
                 'location_map': {
                     'customer_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -181,6 +185,8 @@ class BillingAddressApi(object):
                 },
                 'location_map': {
                     'customer_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -236,6 +242,8 @@ class BillingAddressApi(object):
                 'location_map': {
                     'customer_id': 'path',
                     'update_billing_address_request': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

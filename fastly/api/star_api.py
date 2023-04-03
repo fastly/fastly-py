@@ -72,6 +72,8 @@ class StarApi(object):
                 'location_map': {
                     'star': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -125,6 +127,8 @@ class StarApi(object):
                 'location_map': {
                     'star_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -174,6 +178,8 @@ class StarApi(object):
                 'location_map': {
                     'star_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -217,6 +223,8 @@ class StarApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -73,6 +73,8 @@ class RealtimeApi(object):
                 'location_map': {
                     'service_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -130,6 +132,8 @@ class RealtimeApi(object):
                     'service_id': 'path',
                     'max_entries': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -186,6 +190,8 @@ class RealtimeApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'timestamp_in_seconds': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

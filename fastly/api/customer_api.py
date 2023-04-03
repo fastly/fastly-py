@@ -75,6 +75,8 @@ class CustomerApi(object):
                 'location_map': {
                     'customer_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -126,6 +128,8 @@ class CustomerApi(object):
                 'location_map': {
                     'customer_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -169,6 +173,8 @@ class CustomerApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -220,6 +226,8 @@ class CustomerApi(object):
                 },
                 'location_map': {
                     'customer_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -404,6 +412,8 @@ class CustomerApi(object):
                     'pricing_plan_id': 'form',
                     'security_contact_id': 'form',
                     'technical_contact_id': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

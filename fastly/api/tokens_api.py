@@ -67,6 +67,8 @@ class TokensApi(object):
                 },
                 'location_map': {
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -118,6 +120,8 @@ class TokensApi(object):
                 'location_map': {
                     'customer_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -161,6 +165,8 @@ class TokensApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -213,6 +219,8 @@ class TokensApi(object):
                 'location_map': {
                     'token_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -256,6 +264,8 @@ class TokensApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

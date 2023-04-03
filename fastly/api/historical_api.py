@@ -111,6 +111,8 @@ class HistoricalApi(object):
                     'by': 'query',
                     'region': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -192,6 +194,8 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -282,6 +286,8 @@ class HistoricalApi(object):
                     'by': 'query',
                     'region': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -370,6 +376,8 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -466,6 +474,8 @@ class HistoricalApi(object):
                     'by': 'query',
                     'region': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -509,6 +519,8 @@ class HistoricalApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -563,6 +575,8 @@ class HistoricalApi(object):
                 'location_map': {
                     '_from': 'query',
                     'to': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -623,6 +637,8 @@ class HistoricalApi(object):
                     'month': 'query',
                     'billable_units': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -676,6 +692,8 @@ class HistoricalApi(object):
                 'location_map': {
                     '_from': 'query',
                     'to': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

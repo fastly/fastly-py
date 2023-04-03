@@ -92,6 +92,8 @@ class DirectorBackendApi(object):
                     'version_id': 'path',
                     'backend_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -161,6 +163,8 @@ class DirectorBackendApi(object):
                     'version_id': 'path',
                     'backend_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -229,6 +233,8 @@ class DirectorBackendApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                     'backend_name': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

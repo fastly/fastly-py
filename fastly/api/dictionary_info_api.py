@@ -85,6 +85,8 @@ class DictionaryInfoApi(object):
                     'version_id': 'path',
                     'dictionary_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

@@ -29,8 +29,12 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.inline_response2003_meta import InlineResponse2003Meta
+    globals()['InlineResponse2003Meta'] = InlineResponse2003Meta
 
-class InlineResponse2001Meta(ModelNormal):
+
+class InlineResponse2003(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +68,7 @@ class InlineResponse2001Meta(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,9 +83,10 @@ class InlineResponse2001Meta(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'next_cursor': (str,),  # noqa: E501
-            'limit': (int,),  # noqa: E501
+            'data': ([str],),  # noqa: E501
+            'meta': (InlineResponse2003Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -89,8 +95,8 @@ class InlineResponse2001Meta(ModelNormal):
 
 
     attribute_map = {
-        'next_cursor': 'next_cursor',  # noqa: E501
-        'limit': 'limit',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,7 +107,7 @@ class InlineResponse2001Meta(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """InlineResponse2001Meta - a model defined in OpenAPI
+        """InlineResponse2003 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,8 +140,8 @@ class InlineResponse2001Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_cursor (str): Cursor for the next page.. [optional]  # noqa: E501
-            limit (int): Entries returned.. [optional]  # noqa: E501
+            data ([str]): [optional]  # noqa: E501
+            meta (InlineResponse2003Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,7 +190,7 @@ class InlineResponse2001Meta(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """InlineResponse2001Meta - a model defined in OpenAPI
+        """InlineResponse2003 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +223,8 @@ class InlineResponse2001Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_cursor (str): Cursor for the next page.. [optional]  # noqa: E501
-            limit (int): Entries returned.. [optional]  # noqa: E501
+            data ([str]): [optional]  # noqa: E501
+            meta (InlineResponse2003Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -32,6 +32,7 @@ from fastly.api.diff_api import DiffApi
 from fastly.api.director_api import DirectorApi
 from fastly.api.director_backend_api import DirectorBackendApi
 from fastly.api.domain_api import DomainApi
+from fastly.api.domain_ownerships_api import DomainOwnershipsApi
 from fastly.api.enabled_products_api import EnabledProductsApi
 from fastly.api.events_api import EventsApi
 from fastly.api.gzip_api import GzipApi
@@ -72,6 +73,7 @@ from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
 from fastly.api.object_store_api import ObjectStoreApi
+from fastly.api.object_store_item_api import ObjectStoreItemApi
 from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi

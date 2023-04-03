@@ -141,6 +141,8 @@ class LoggingScalyrApi(object):
                     'token': 'form',
                     'project_id': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -206,6 +208,8 @@ class LoggingScalyrApi(object):
                     'version_id': 'path',
                     'logging_scalyr_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -269,6 +273,8 @@ class LoggingScalyrApi(object):
                     'version_id': 'path',
                     'logging_scalyr_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -325,6 +331,8 @@ class LoggingScalyrApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -449,6 +457,8 @@ class LoggingScalyrApi(object):
                     'region': 'form',
                     'token': 'form',
                     'project_id': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

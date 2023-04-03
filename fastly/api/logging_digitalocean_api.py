@@ -193,6 +193,8 @@ class LoggingDigitaloceanApi(object):
                     'path': 'form',
                     'public_key': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -258,6 +260,8 @@ class LoggingDigitaloceanApi(object):
                     'version_id': 'path',
                     'logging_digitalocean_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -321,6 +325,8 @@ class LoggingDigitaloceanApi(object):
                     'version_id': 'path',
                     'logging_digitalocean_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -377,6 +383,8 @@ class LoggingDigitaloceanApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -553,6 +561,8 @@ class LoggingDigitaloceanApi(object):
                     'domain': 'form',
                     'path': 'form',
                     'public_key': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

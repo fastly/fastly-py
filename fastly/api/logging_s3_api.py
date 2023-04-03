@@ -224,6 +224,8 @@ class LoggingS3Api(object):
                     'server_side_encryption_kms_key_id': 'form',
                     'server_side_encryption': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -289,6 +291,8 @@ class LoggingS3Api(object):
                     'version_id': 'path',
                     'logging_s3_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -352,6 +356,8 @@ class LoggingS3Api(object):
                     'version_id': 'path',
                     'logging_s3_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -408,6 +414,8 @@ class LoggingS3Api(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -615,6 +623,8 @@ class LoggingS3Api(object):
                     'secret_key': 'form',
                     'server_side_encryption_kms_key_id': 'form',
                     'server_side_encryption': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

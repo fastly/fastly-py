@@ -79,6 +79,8 @@ class WafRulesApi(object):
                     'waf_rule_id': 'path',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -163,6 +165,8 @@ class WafRulesApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

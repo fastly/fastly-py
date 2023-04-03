@@ -72,6 +72,8 @@ class IamUserGroupsApi(object):
                 'location_map': {
                     'user_group_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -120,6 +122,8 @@ class IamUserGroupsApi(object):
                 },
                 'location_map': {
                     'user_group_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -188,6 +192,8 @@ class IamUserGroupsApi(object):
                     'per_page': 'query',
                     'page': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -254,6 +260,8 @@ class IamUserGroupsApi(object):
                     'user_group_id': 'path',
                     'per_page': 'query',
                     'page': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -322,6 +330,8 @@ class IamUserGroupsApi(object):
                     'per_page': 'query',
                     'page': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -381,6 +391,8 @@ class IamUserGroupsApi(object):
                 'location_map': {
                     'per_page': 'query',
                     'page': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

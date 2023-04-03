@@ -79,6 +79,8 @@ class SettingsApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -155,6 +157,8 @@ class SettingsApi(object):
                     'general_default_ttl': 'form',
                     'general_stale_if_error': 'form',
                     'general_stale_if_error_ttl': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

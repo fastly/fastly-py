@@ -118,6 +118,8 @@ class Http3Api(object):
                     'updated_at': 'form',
                     'feature_revision': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -177,6 +179,8 @@ class Http3Api(object):
                     'service_id': 'path',
                     'version_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -233,6 +237,8 @@ class Http3Api(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

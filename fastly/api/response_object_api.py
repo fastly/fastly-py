@@ -86,6 +86,8 @@ class ResponseObjectApi(object):
                     'version_id': 'path',
                     'response_object_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -149,6 +151,8 @@ class ResponseObjectApi(object):
                     'version_id': 'path',
                     'response_object_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -205,6 +209,8 @@ class ResponseObjectApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

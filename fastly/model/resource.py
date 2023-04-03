@@ -79,6 +79,7 @@ class Resource(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'resource_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -88,6 +89,7 @@ class Resource(ModelNormal):
 
 
     attribute_map = {
+        'resource_id': 'resource_id',  # noqa: E501
         'name': 'name',  # noqa: E501
     }
 
@@ -132,7 +134,8 @@ class Resource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the resource.. [optional]  # noqa: E501
+            resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
+            name (str): The name of the resource link.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -214,7 +217,8 @@ class Resource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the resource.. [optional]  # noqa: E501
+            resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
+            name (str): The name of the resource link.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

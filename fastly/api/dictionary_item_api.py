@@ -90,6 +90,8 @@ class DictionaryItemApi(object):
                     'item_key': 'form',
                     'item_value': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -155,6 +157,8 @@ class DictionaryItemApi(object):
                     'dictionary_id': 'path',
                     'dictionary_item_key': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -217,6 +221,8 @@ class DictionaryItemApi(object):
                     'service_id': 'path',
                     'dictionary_id': 'path',
                     'dictionary_item_key': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -307,6 +313,8 @@ class DictionaryItemApi(object):
                     'sort': 'query',
                     'direction': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -379,6 +387,8 @@ class DictionaryItemApi(object):
                     'dictionary_item_key': 'path',
                     'item_key': 'form',
                     'item_value': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -454,6 +464,8 @@ class DictionaryItemApi(object):
                     'dictionary_item_key': 'path',
                     'item_key': 'form',
                     'item_value': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

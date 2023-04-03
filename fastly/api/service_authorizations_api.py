@@ -72,6 +72,8 @@ class ServiceAuthorizationsApi(object):
                 'location_map': {
                     'service_authorization': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -124,6 +126,8 @@ class ServiceAuthorizationsApi(object):
                 },
                 'location_map': {
                     'service_authorization_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -183,6 +187,8 @@ class ServiceAuthorizationsApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -233,6 +239,8 @@ class ServiceAuthorizationsApi(object):
                 },
                 'location_map': {
                     'service_authorization_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -288,6 +296,8 @@ class ServiceAuthorizationsApi(object):
                 'location_map': {
                     'service_authorization_id': 'path',
                     'service_authorization': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

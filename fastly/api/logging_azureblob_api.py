@@ -198,6 +198,8 @@ class LoggingAzureblobApi(object):
                     'public_key': 'form',
                     'file_max_bytes': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -263,6 +265,8 @@ class LoggingAzureblobApi(object):
                     'version_id': 'path',
                     'logging_azureblob_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -326,6 +330,8 @@ class LoggingAzureblobApi(object):
                     'version_id': 'path',
                     'logging_azureblob_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -382,6 +388,8 @@ class LoggingAzureblobApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -563,6 +571,8 @@ class LoggingAzureblobApi(object):
                     'sas_token': 'form',
                     'public_key': 'form',
                     'file_max_bytes': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

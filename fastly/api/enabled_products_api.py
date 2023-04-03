@@ -79,6 +79,8 @@ class EnabledProductsApi(object):
                     'product_id': 'path',
                     'service_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -133,6 +135,8 @@ class EnabledProductsApi(object):
                 'location_map': {
                     'product_id': 'path',
                     'service_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -190,6 +194,8 @@ class EnabledProductsApi(object):
                 'location_map': {
                     'product_id': 'path',
                     'service_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

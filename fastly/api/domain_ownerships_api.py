@@ -21,10 +21,10 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.diff_response import DiffResponse
+from fastly.model.inline_response2001 import InlineResponse2001
 
 
-class DiffApi(object):
+class DomainOwnershipsApi(object):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
     """
@@ -33,33 +33,24 @@ class DiffApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.diff_service_versions_endpoint = _Endpoint(
+        self.list_domain_ownerships_endpoint = _Endpoint(
             settings={
-                'response_type': (DiffResponse,),
+                'response_type': (InlineResponse2001,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/diff/from/{from_version_id}/to/{to_version_id}',
-                'operation_id': 'diff_service_versions',
+                'endpoint_path': '/domain-ownerships',
+                'operation_id': 'list_domain_ownerships',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'service_id',
-                    'from_version_id',
-                    'to_version_id',
-                    'format',
                 ],
-                'required': [
-                    'service_id',
-                    'from_version_id',
-                    'to_version_id',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
-                    'format',
                 ],
                 'validation': [
                 ]
@@ -68,34 +59,12 @@ class DiffApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('format',): {
-
-                        "TEXT": "text",
-                        "HTML": "html",
-                        "HTML_SIMPLE": "html_simple"
-                    },
                 },
                 'openapi_types': {
-                    'service_id':
-                        (str,),
-                    'from_version_id':
-                        (int,),
-                    'to_version_id':
-                        (int,),
-                    'format':
-                        (str,),
                 },
                 'attribute_map': {
-                    'service_id': 'service_id',
-                    'from_version_id': 'from_version_id',
-                    'to_version_id': 'to_version_id',
-                    'format': 'format',
                 },
                 'location_map': {
-                    'service_id': 'path',
-                    'from_version_id': 'path',
-                    'to_version_id': 'path',
-                    'format': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -104,36 +73,28 @@ class DiffApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json'
+                    'application/vnd.api+json'
                 ],
                 'content_type': [],
             },
             api_client=api_client
         )
 
-    def diff_service_versions(
+    def list_domain_ownerships(
         self,
-        service_id,
-        from_version_id,
-        to_version_id,
         **kwargs
     ):
-        """Diff two service versions  # noqa: E501
+        """List domain-ownerships  # noqa: E501
 
-        Get diff between two versions.  # noqa: E501
+        List all domain-ownerships.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.diff_service_versions(service_id, from_version_id, to_version_id, async_req=True)
+        >>> thread = api.list_domain_ownerships(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            service_id (str): Alphanumeric string identifying the service.
-            from_version_id (int): The version number of the service to which changes in the generated VCL are being compared. Can either be a positive number from 1 to your maximum version or a negative number from -1 down (-1 is latest version etc).
-            to_version_id (int): The version number of the service from which changes in the generated VCL are being compared. Uses same numbering scheme as `from`.
 
         Keyword Args:
-            format (str): Optional method to format the diff field.. [optional] if omitted the server will use the default value of "text"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -162,7 +123,7 @@ class DiffApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DiffResponse
+            InlineResponse2001
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -190,11 +151,5 @@ class DiffApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['service_id'] = \
-            service_id
-        kwargs['from_version_id'] = \
-            from_version_id
-        kwargs['to_version_id'] = \
-            to_version_id
-        return self.diff_service_versions_endpoint.call_with_http_info(**kwargs)
+        return self.list_domain_ownerships_endpoint.call_with_http_info(**kwargs)
 

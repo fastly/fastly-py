@@ -98,6 +98,8 @@ class VclApi(object):
                     'main': 'form',
                     'name': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -162,6 +164,8 @@ class VclApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                     'vcl_name': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -231,6 +235,8 @@ class VclApi(object):
                     'vcl_name': 'path',
                     'no_content': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -288,6 +294,8 @@ class VclApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -344,6 +352,8 @@ class VclApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -408,6 +418,8 @@ class VclApi(object):
                     'version_id': 'path',
                     'vcl_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -457,6 +469,8 @@ class VclApi(object):
                 },
                 'location_map': {
                     'inline_object1': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -516,6 +530,8 @@ class VclApi(object):
                     'service_id': 'path',
                     'inline_object': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -574,6 +590,8 @@ class VclApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -637,6 +655,8 @@ class VclApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                     'vcl_name': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -715,6 +735,8 @@ class VclApi(object):
                     'content': 'form',
                     'main': 'form',
                     'name': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

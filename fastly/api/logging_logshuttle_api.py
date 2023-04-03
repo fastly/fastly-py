@@ -131,6 +131,8 @@ class LoggingLogshuttleApi(object):
                     'token': 'form',
                     'url': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -196,6 +198,8 @@ class LoggingLogshuttleApi(object):
                     'version_id': 'path',
                     'logging_logshuttle_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -259,6 +263,8 @@ class LoggingLogshuttleApi(object):
                     'version_id': 'path',
                     'logging_logshuttle_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -315,6 +321,8 @@ class LoggingLogshuttleApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -429,6 +437,8 @@ class LoggingLogshuttleApi(object):
                     'format': 'form',
                     'token': 'form',
                     'url': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

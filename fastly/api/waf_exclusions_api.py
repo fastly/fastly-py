@@ -85,6 +85,8 @@ class WafExclusionsApi(object):
                     'firewall_version_number': 'path',
                     'waf_exclusion': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -150,6 +152,8 @@ class WafExclusionsApi(object):
                     'firewall_version_number': 'path',
                     'exclusion_number': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -210,6 +214,8 @@ class WafExclusionsApi(object):
                     'firewall_id': 'path',
                     'firewall_version_number': 'path',
                     'exclusion_number': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -311,6 +317,8 @@ class WafExclusionsApi(object):
                     'page_size': 'query',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -377,6 +385,8 @@ class WafExclusionsApi(object):
                     'firewall_version_number': 'path',
                     'exclusion_number': 'path',
                     'waf_exclusion': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -75,6 +75,8 @@ class TlsBulkCertificatesApi(object):
                 'location_map': {
                     'certificate_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -123,6 +125,8 @@ class TlsBulkCertificatesApi(object):
                 },
                 'location_map': {
                     'certificate_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -200,6 +204,8 @@ class TlsBulkCertificatesApi(object):
                     'page_size': 'query',
                     'sort': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -255,6 +261,8 @@ class TlsBulkCertificatesApi(object):
                     'certificate_id': 'path',
                     'tls_bulk_certificate': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -304,6 +312,8 @@ class TlsBulkCertificatesApi(object):
                 },
                 'location_map': {
                     'tls_bulk_certificate': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

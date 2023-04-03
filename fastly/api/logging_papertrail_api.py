@@ -130,6 +130,8 @@ class LoggingPapertrailApi(object):
                     'address': 'form',
                     'port': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -195,6 +197,8 @@ class LoggingPapertrailApi(object):
                     'version_id': 'path',
                     'logging_papertrail_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -258,6 +262,8 @@ class LoggingPapertrailApi(object):
                     'version_id': 'path',
                     'logging_papertrail_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -314,6 +320,8 @@ class LoggingPapertrailApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -427,6 +435,8 @@ class LoggingPapertrailApi(object):
                     'format': 'form',
                     'address': 'form',
                     'port': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -1,21 +1,40 @@
 # Changelog
 
-## [v1.2.0](https://github.com/fastly/fastly-py/releases/tag/v1.2.0) (2023-03-20)
+## [v1.3.0](https://github.com/fastly/fastly-py/releases/tag/release/v1.3.0) (2023-04-03)
+
+**Bug fixes:**
+
+- fix(purge): avoid escaping URL parameter
+
+**Enhancements:**
+
+- feat(domain-ownership): list API endpoint
+- feat(object-store): items API endpoints
+- feat(object-store): add 'location' property to 'create_store'
+- feat(object-store): add 'force' property to 'delete_store'
+- feat(realtime): additional DDoS properties
+
+**Documentation:**
+
+- docs(acl-entries): document batch updating
+- docs(resource): terminology + 'config_store' support.
+
+## [v1.2.0](https://github.com/fastly/fastly-py/releases/tag/release/v1.2.0) (2023-03-20)
 
 [Full Changelog](https://github.com/fastly/fastly-py/compare/v1.1.0...v1.2.0)
 
-## Bug fixes
+**Bug fixes:**
 
 - fix(purge): switch authentication type to 'token'
 
-## Enhancements
+**Enhancements:**
 
 - feat(events): implement 'filter_created_at' property
 - feat(mutual-authentication): implement 'include' property
 - feat(object-store): implement new Object Store API endpoints
 - feat(settings): implement Service Settings 'update' endpoint
 
-## Documentation
+**Documentation:**
 
 - docs(backend): keepalive_time
 - docs(pop): region, shield, latitude, longitude

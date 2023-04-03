@@ -80,6 +80,8 @@ class TlsConfigurationsApi(object):
                     'tls_configuration_id': 'path',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -150,6 +152,8 @@ class TlsConfigurationsApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -204,6 +208,8 @@ class TlsConfigurationsApi(object):
                 'location_map': {
                     'tls_configuration_id': 'path',
                     'tls_configuration': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

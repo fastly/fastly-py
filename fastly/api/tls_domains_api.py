@@ -113,6 +113,8 @@ class TlsDomainsApi(object):
                     'page_size': 'query',
                     'sort': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

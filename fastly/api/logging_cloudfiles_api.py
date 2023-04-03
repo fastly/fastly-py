@@ -205,6 +205,8 @@ class LoggingCloudfilesApi(object):
                     'public_key': 'form',
                     'user': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -270,6 +272,8 @@ class LoggingCloudfilesApi(object):
                     'version_id': 'path',
                     'logging_cloudfiles_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -333,6 +337,8 @@ class LoggingCloudfilesApi(object):
                     'version_id': 'path',
                     'logging_cloudfiles_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -389,6 +395,8 @@ class LoggingCloudfilesApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -577,6 +585,8 @@ class LoggingCloudfilesApi(object):
                     'region': 'form',
                     'public_key': 'form',
                     'user': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

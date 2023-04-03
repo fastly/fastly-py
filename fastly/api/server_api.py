@@ -123,6 +123,8 @@ class ServerApi(object):
                     'disabled': 'form',
                     'override_host': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -188,6 +190,8 @@ class ServerApi(object):
                     'pool_id': 'path',
                     'server_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -251,6 +255,8 @@ class ServerApi(object):
                     'pool_id': 'path',
                     'server_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -307,6 +313,8 @@ class ServerApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'pool_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -413,6 +421,8 @@ class ServerApi(object):
                     'comment': 'form',
                     'disabled': 'form',
                     'override_host': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

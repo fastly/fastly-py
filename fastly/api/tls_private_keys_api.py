@@ -72,6 +72,8 @@ class TlsPrivateKeysApi(object):
                 'location_map': {
                     'tls_private_key': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -125,6 +127,8 @@ class TlsPrivateKeysApi(object):
                 'location_map': {
                     'tls_private_key_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -173,6 +177,8 @@ class TlsPrivateKeysApi(object):
                 },
                 'location_map': {
                     'tls_private_key_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -238,6 +244,8 @@ class TlsPrivateKeysApi(object):
                     'filter_in_use': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

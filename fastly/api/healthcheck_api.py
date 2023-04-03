@@ -146,6 +146,8 @@ class HealthcheckApi(object):
                     'timeout': 'form',
                     'window': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                     'headers': 'csv',
                 }
@@ -212,6 +214,8 @@ class HealthcheckApi(object):
                     'version_id': 'path',
                     'healthcheck_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -275,6 +279,8 @@ class HealthcheckApi(object):
                     'version_id': 'path',
                     'healthcheck_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -331,6 +337,8 @@ class HealthcheckApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -460,6 +468,8 @@ class HealthcheckApi(object):
                     'threshold': 'form',
                     'timeout': 'form',
                     'window': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                     'headers': 'csv',

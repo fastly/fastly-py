@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**resource_id** | **str** | The ID of the underlying linked resource. | [optional] 
+**name** | **str** | The name of the resource link. | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
-**name** | **str** | The name of the resource. | [optional] 
-**resource_id** | **str** | The ID of the linked resource. | [optional] 
 **id** | **str** | An alphanumeric string identifying the resource link. | [optional] 
 **href** | **str** | The path to the resource. | [optional] 
 **service_id** | **str** | Alphanumeric string identifying the service. | [optional] 

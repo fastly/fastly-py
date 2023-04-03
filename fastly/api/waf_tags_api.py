@@ -97,6 +97,8 @@ class WafTagsApi(object):
                     'page_size': 'query',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

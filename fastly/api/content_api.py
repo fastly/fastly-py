@@ -71,6 +71,8 @@ class ContentApi(object):
                 'location_map': {
                     'url': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

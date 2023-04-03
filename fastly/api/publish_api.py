@@ -77,6 +77,8 @@ class PublishApi(object):
                     'service_id': 'path',
                     'publish_request': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

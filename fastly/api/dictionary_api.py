@@ -90,6 +90,8 @@ class DictionaryApi(object):
                     'name': 'form',
                     'write_only': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -155,6 +157,8 @@ class DictionaryApi(object):
                     'version_id': 'path',
                     'dictionary_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -218,6 +222,8 @@ class DictionaryApi(object):
                     'version_id': 'path',
                     'dictionary_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -274,6 +280,8 @@ class DictionaryApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -347,6 +355,8 @@ class DictionaryApi(object):
                     'dictionary_name': 'path',
                     'name': 'form',
                     'write_only': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

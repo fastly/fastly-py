@@ -206,6 +206,8 @@ class LoggingHttpsApi(object):
                     'method': 'form',
                     'json_format': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -271,6 +273,8 @@ class LoggingHttpsApi(object):
                     'version_id': 'path',
                     'logging_https_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -334,6 +338,8 @@ class LoggingHttpsApi(object):
                     'version_id': 'path',
                     'logging_https_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -390,6 +396,8 @@ class LoggingHttpsApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -578,6 +586,8 @@ class LoggingHttpsApi(object):
                     'header_value': 'form',
                     'method': 'form',
                     'json_format': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -85,6 +85,8 @@ class TlsSubscriptionsApi(object):
                     'tls_authorization_id': 'path',
                     'request_body': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -139,6 +141,8 @@ class TlsSubscriptionsApi(object):
                 'location_map': {
                     'force': 'query',
                     'tls_subscription': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -205,6 +209,8 @@ class TlsSubscriptionsApi(object):
                     'globalsign_email_challenge_id': 'path',
                     'tls_authorization_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -253,6 +259,8 @@ class TlsSubscriptionsApi(object):
                 },
                 'location_map': {
                     'tls_subscription_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -307,6 +315,8 @@ class TlsSubscriptionsApi(object):
                 'location_map': {
                     'tls_subscription_id': 'path',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -399,6 +409,8 @@ class TlsSubscriptionsApi(object):
                     'page_size': 'query',
                     'sort': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -458,6 +470,8 @@ class TlsSubscriptionsApi(object):
                     'tls_subscription_id': 'path',
                     'force': 'query',
                     'tls_subscription': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

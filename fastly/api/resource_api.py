@@ -22,7 +22,6 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.inline_response200 import InlineResponse200
-from fastly.model.resource_list_response import ResourceListResponse
 from fastly.model.resource_response import ResourceResponse
 
 
@@ -50,8 +49,8 @@ class ResourceApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'name',
                     'resource_id',
+                    'name',
                 ],
                 'required': [
                     'service_id',
@@ -74,22 +73,24 @@ class ResourceApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'name':
-                        (str,),
                     'resource_id':
+                        (str,),
+                    'name':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'name': 'name',
                     'resource_id': 'resource_id',
+                    'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'name': 'form',
                     'resource_id': 'form',
+                    'name': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -156,6 +157,8 @@ class ResourceApi(object):
                     'version_id': 'path',
                     'id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -219,6 +222,8 @@ class ResourceApi(object):
                     'version_id': 'path',
                     'id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -232,7 +237,7 @@ class ResourceApi(object):
         )
         self.list_resources_endpoint = _Endpoint(
             settings={
-                'response_type': (ResourceListResponse,),
+                'response_type': ([ResourceResponse],),
                 'auth': [
                     'token'
                 ],
@@ -276,6 +281,8 @@ class ResourceApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -303,6 +310,7 @@ class ResourceApi(object):
                     'service_id',
                     'version_id',
                     'id',
+                    'resource_id',
                     'name',
                 ],
                 'required': [
@@ -329,6 +337,8 @@ class ResourceApi(object):
                         (int,),
                     'id':
                         (str,),
+                    'resource_id':
+                        (str,),
                     'name':
                         (str,),
                 },
@@ -336,13 +346,17 @@ class ResourceApi(object):
                     'service_id': 'service_id',
                     'version_id': 'version_id',
                     'id': 'id',
+                    'resource_id': 'resource_id',
                     'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
                     'id': 'path',
+                    'resource_id': 'form',
                     'name': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -364,9 +378,9 @@ class ResourceApi(object):
         version_id,
         **kwargs
     ):
-        """Create a resource  # noqa: E501
+        """Create a resource link  # noqa: E501
 
-        Create a resource.  # noqa: E501
+        Create a link between a resource and a service version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -378,8 +392,8 @@ class ResourceApi(object):
             version_id (int): Integer identifying a service version.
 
         Keyword Args:
-            name (str): The name of the resource.. [optional]
-            resource_id (str): The ID of the linked resource.. [optional]
+            resource_id (str): The ID of the underlying linked resource.. [optional]
+            name (str): The name of the resource link.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -449,9 +463,9 @@ class ResourceApi(object):
         id,
         **kwargs
     ):
-        """Delete a resource  # noqa: E501
+        """Delete a resource link  # noqa: E501
 
-        Delete a resource.  # noqa: E501
+        Delete a link between a resource and a service version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -535,9 +549,9 @@ class ResourceApi(object):
         id,
         **kwargs
     ):
-        """Display a resource  # noqa: E501
+        """Display a resource link  # noqa: E501
 
-        Display a resource by its identifier.  # noqa: E501
+        Display a resource link by its identifier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -620,9 +634,9 @@ class ResourceApi(object):
         version_id,
         **kwargs
     ):
-        """List resources  # noqa: E501
+        """List resource links  # noqa: E501
 
-        List resources.  # noqa: E501
+        List links between resources and services  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -662,7 +676,7 @@ class ResourceApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ResourceListResponse
+            [ResourceResponse]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -703,9 +717,9 @@ class ResourceApi(object):
         id,
         **kwargs
     ):
-        """Update a resource  # noqa: E501
+        """Update a resource link  # noqa: E501
 
-        Update a resource.  # noqa: E501
+        Update a link between a resource and a service version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -718,7 +732,8 @@ class ResourceApi(object):
             id (str): An alphanumeric string identifying the resource link.
 
         Keyword Args:
-            name (str): The name of the resource.. [optional]
+            resource_id (str): The ID of the underlying linked resource.. [optional]
+            name (str): The name of the resource link.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

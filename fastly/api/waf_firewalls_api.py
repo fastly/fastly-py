@@ -72,6 +72,8 @@ class WafFirewallsApi(object):
                 'location_map': {
                     'waf_firewall': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -128,6 +130,8 @@ class WafFirewallsApi(object):
                 'location_map': {
                     'firewall_id': 'path',
                     'waf_firewall': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -194,6 +198,8 @@ class WafFirewallsApi(object):
                     'firewall_id': 'path',
                     'filter_service_version_number': 'query',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -275,6 +281,8 @@ class WafFirewallsApi(object):
                     'filter_service_version_number': 'query',
                     'include': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -329,6 +337,8 @@ class WafFirewallsApi(object):
                 'location_map': {
                     'firewall_id': 'path',
                     'waf_firewall': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

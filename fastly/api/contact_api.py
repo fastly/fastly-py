@@ -80,6 +80,8 @@ class ContactApi(object):
                     'customer_id': 'path',
                     'contact_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -130,6 +132,8 @@ class ContactApi(object):
                 },
                 'location_map': {
                     'customer_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

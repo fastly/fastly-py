@@ -65,6 +65,8 @@ class IamPermissionsApi(object):
                 },
                 'location_map': {
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

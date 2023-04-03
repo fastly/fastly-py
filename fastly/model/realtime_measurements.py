@@ -290,6 +290,12 @@ class RealtimeMeasurements(ModelNormal):
             'fanout_beresp_header_bytes': (int,),  # noqa: E501
             'fanout_beresp_body_bytes': (int,),  # noqa: E501
             'fanout_conn_time_ms': (int,),  # noqa: E501
+            'ddos_action_limit_streams_connections': (int,),  # noqa: E501
+            'ddos_action_limit_streams_requests': (int,),  # noqa: E501
+            'ddos_action_tarpit_accept': (int,),  # noqa: E501
+            'ddos_action_tarpit': (int,),  # noqa: E501
+            'ddos_action_close': (int,),  # noqa: E501
+            'ddos_action_blackhole': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -509,6 +515,12 @@ class RealtimeMeasurements(ModelNormal):
         'fanout_beresp_header_bytes': 'fanout_beresp_header_bytes',  # noqa: E501
         'fanout_beresp_body_bytes': 'fanout_beresp_body_bytes',  # noqa: E501
         'fanout_conn_time_ms': 'fanout_conn_time_ms',  # noqa: E501
+        'ddos_action_limit_streams_connections': 'ddos_action_limit_streams_connections',  # noqa: E501
+        'ddos_action_limit_streams_requests': 'ddos_action_limit_streams_requests',  # noqa: E501
+        'ddos_action_tarpit_accept': 'ddos_action_tarpit_accept',  # noqa: E501
+        'ddos_action_tarpit': 'ddos_action_tarpit',  # noqa: E501
+        'ddos_action_close': 'ddos_action_close',  # noqa: E501
+        'ddos_action_blackhole': 'ddos_action_blackhole',  # noqa: E501
     }
 
     read_only_vars = {
@@ -763,6 +775,12 @@ class RealtimeMeasurements(ModelNormal):
             fanout_beresp_header_bytes (int): Total header bytes received from backends over Fanout connections.. [optional]  # noqa: E501
             fanout_beresp_body_bytes (int): Total body or message content bytes received from backends over Fanout connections.. [optional]  # noqa: E501
             fanout_conn_time_ms (int): Total duration of Fanout connections with end users.. [optional]  # noqa: E501
+            ddos_action_limit_streams_connections (int): For HTTP/2, the number of connections the limit-streams action was applied to. The limit-streams action caps the allowed number of concurrent streams in a connection.. [optional]  # noqa: E501
+            ddos_action_limit_streams_requests (int): For HTTP/2, the number of requests made on a connection for which the limit-streams action was taken. The limit-streams action caps the allowed number of concurrent streams in a connection.. [optional]  # noqa: E501
+            ddos_action_tarpit_accept (int): The number of times the tarpit-accept action was taken. The tarpit-accept action adds a delay when accepting future connections.. [optional]  # noqa: E501
+            ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
+            ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
+            ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1055,6 +1073,12 @@ class RealtimeMeasurements(ModelNormal):
             fanout_beresp_header_bytes (int): Total header bytes received from backends over Fanout connections.. [optional]  # noqa: E501
             fanout_beresp_body_bytes (int): Total body or message content bytes received from backends over Fanout connections.. [optional]  # noqa: E501
             fanout_conn_time_ms (int): Total duration of Fanout connections with end users.. [optional]  # noqa: E501
+            ddos_action_limit_streams_connections (int): For HTTP/2, the number of connections the limit-streams action was applied to. The limit-streams action caps the allowed number of concurrent streams in a connection.. [optional]  # noqa: E501
+            ddos_action_limit_streams_requests (int): For HTTP/2, the number of requests made on a connection for which the limit-streams action was taken. The limit-streams action caps the allowed number of concurrent streams in a connection.. [optional]  # noqa: E501
+            ddos_action_tarpit_accept (int): The number of times the tarpit-accept action was taken. The tarpit-accept action adds a delay when accepting future connections.. [optional]  # noqa: E501
+            ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
+            ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
+            ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

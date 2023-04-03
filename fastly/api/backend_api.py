@@ -248,6 +248,8 @@ class BackendApi(object):
                     'use_ssl': 'form',
                     'weight': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -313,6 +315,8 @@ class BackendApi(object):
                     'version_id': 'path',
                     'backend_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -376,6 +380,8 @@ class BackendApi(object):
                     'version_id': 'path',
                     'backend_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -432,6 +438,8 @@ class BackendApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -663,6 +671,8 @@ class BackendApi(object):
                     'ssl_sni_hostname': 'form',
                     'use_ssl': 'form',
                     'weight': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

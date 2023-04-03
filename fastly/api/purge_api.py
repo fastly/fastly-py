@@ -74,6 +74,8 @@ class PurgeApi(object):
                 'location_map': {
                     'service_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -129,6 +131,9 @@ class PurgeApi(object):
                 'location_map': {
                     'cached_url': 'path',
                     'fastly_soft_purge': 'header',
+                },
+                'path_params_allow_reserved_map': {
+                    'cached_url': 1,
                 },
                 'collection_format_map': {
                 }
@@ -191,6 +196,8 @@ class PurgeApi(object):
                     'service_id': 'path',
                     'surrogate_key': 'path',
                     'fastly_soft_purge': 'header',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

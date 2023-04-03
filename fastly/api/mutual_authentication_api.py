@@ -72,6 +72,8 @@ class MutualAuthenticationApi(object):
                 'location_map': {
                     'mutual_authentication': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -124,6 +126,8 @@ class MutualAuthenticationApi(object):
                 },
                 'location_map': {
                     'mutual_authentication_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -178,6 +182,8 @@ class MutualAuthenticationApi(object):
                 'location_map': {
                     'mutual_authentication_id': 'path',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -244,6 +250,8 @@ class MutualAuthenticationApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -298,6 +306,8 @@ class MutualAuthenticationApi(object):
                 'location_map': {
                     'mutual_authentication_id': 'path',
                     'mutual_authentication': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -80,6 +80,8 @@ class BillingApi(object):
                     'month': 'path',
                     'year': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -138,6 +140,8 @@ class BillingApi(object):
                 'location_map': {
                     'customer_id': 'path',
                     'invoice_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -201,6 +205,8 @@ class BillingApi(object):
                     'customer_id': 'path',
                     'month': 'query',
                     'year': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

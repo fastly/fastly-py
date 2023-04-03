@@ -98,6 +98,8 @@ class ServiceApi(object):
                     'customer_id': 'form',
                     'type': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -151,6 +153,8 @@ class ServiceApi(object):
                 'location_map': {
                     'service_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -201,6 +205,8 @@ class ServiceApi(object):
                 },
                 'location_map': {
                     'service_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -258,6 +264,8 @@ class ServiceApi(object):
                     'service_id': 'path',
                     'version': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -308,6 +316,8 @@ class ServiceApi(object):
                 },
                 'location_map': {
                     'service_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -385,6 +395,8 @@ class ServiceApi(object):
                     'sort': 'query',
                     'direction': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -435,6 +447,8 @@ class ServiceApi(object):
                 },
                 'location_map': {
                     'name': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -502,6 +516,8 @@ class ServiceApi(object):
                     'comment': 'form',
                     'name': 'form',
                     'customer_id': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

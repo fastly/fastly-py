@@ -74,6 +74,8 @@ class EventsApi(object):
                 'location_map': {
                     'event_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -174,6 +176,8 @@ class EventsApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                     'sort': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

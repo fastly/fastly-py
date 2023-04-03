@@ -145,6 +145,8 @@ class LoggingPubsubApi(object):
                     'topic': 'form',
                     'project_id': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -210,6 +212,8 @@ class LoggingPubsubApi(object):
                     'version_id': 'path',
                     'logging_google_pubsub_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -273,6 +277,8 @@ class LoggingPubsubApi(object):
                     'version_id': 'path',
                     'logging_google_pubsub_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -329,6 +335,8 @@ class LoggingPubsubApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -457,6 +465,8 @@ class LoggingPubsubApi(object):
                     'account_name': 'form',
                     'topic': 'form',
                     'project_id': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

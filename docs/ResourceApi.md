@@ -4,19 +4,19 @@ All URIs are relative to *https://api.fastly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_resource**](ResourceApi.md#create_resource) | **POST** /service/{service_id}/version/{version_id}/resource | Create a resource
-[**delete_resource**](ResourceApi.md#delete_resource) | **DELETE** /service/{service_id}/version/{version_id}/resource/{id} | Delete a resource
-[**get_resource**](ResourceApi.md#get_resource) | **GET** /service/{service_id}/version/{version_id}/resource/{id} | Display a resource
-[**list_resources**](ResourceApi.md#list_resources) | **GET** /service/{service_id}/version/{version_id}/resource | List resources
-[**update_resource**](ResourceApi.md#update_resource) | **PUT** /service/{service_id}/version/{version_id}/resource/{id} | Update a resource
+[**create_resource**](ResourceApi.md#create_resource) | **POST** /service/{service_id}/version/{version_id}/resource | Create a resource link
+[**delete_resource**](ResourceApi.md#delete_resource) | **DELETE** /service/{service_id}/version/{version_id}/resource/{id} | Delete a resource link
+[**get_resource**](ResourceApi.md#get_resource) | **GET** /service/{service_id}/version/{version_id}/resource/{id} | Display a resource link
+[**list_resources**](ResourceApi.md#list_resources) | **GET** /service/{service_id}/version/{version_id}/resource | List resource links
+[**update_resource**](ResourceApi.md#update_resource) | **PUT** /service/{service_id}/version/{version_id}/resource/{id} | Update a resource link
 
 
 # **create_resource**
 > ResourceResponse create_resource(service_id, version_id)
 
-Create a resource
+Create a resource link
 
-Create a resource.
+Create a link between a resource and a service version.
 
 ### Example
 
@@ -51,12 +51,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = resource_api.ResourceApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    name = "test-resource" # str | The name of the resource. (optional)
-    resource_id = "3vjTN8v1O7nOAY7aNDGOL" # str | The ID of the linked resource. (optional)
+    resource_id = "3vjTN8v1O7nOAY7aNDGOL" # str | The ID of the underlying linked resource. (optional)
+    name = "test-resource" # str | The name of the resource link. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Create a resource
+        # Create a resource link
         api_response = api_instance.create_resource(service_id, version_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -65,8 +65,8 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create a resource
-        api_response = api_instance.create_resource(service_id, version_id, name=name, resource_id=resource_id)
+        # Create a resource link
+        api_response = api_instance.create_resource(service_id, version_id, resource_id=resource_id, name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->create_resource: %s\n" % e)
@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **name** | **str**| The name of the resource. | [optional]
- **resource_id** | **str**| The ID of the linked resource. | [optional]
+ **resource_id** | **str**| The ID of the underlying linked resource. | [optional]
+ **name** | **str**| The name of the resource link. | [optional]
 
 ### Return type
 
@@ -107,9 +107,9 @@ Name | Type | Description  | Notes
 # **delete_resource**
 > InlineResponse200 delete_resource(service_id, version_id, id)
 
-Delete a resource
+Delete a resource link
 
-Delete a resource.
+Delete a link between a resource and a service version.
 
 ### Example
 
@@ -148,7 +148,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete a resource
+        # Delete a resource link
         api_response = api_instance.delete_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -189,9 +189,9 @@ Name | Type | Description  | Notes
 # **get_resource**
 > ResourceResponse get_resource(service_id, version_id, id)
 
-Display a resource
+Display a resource link
 
-Display a resource by its identifier.
+Display a resource link by its identifier.
 
 ### Example
 
@@ -230,7 +230,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Display a resource
+        # Display a resource link
         api_response = api_instance.get_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -269,11 +269,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_resources**
-> ResourceListResponse list_resources(service_id, version_id)
+> [ResourceResponse] list_resources(service_id, version_id)
 
-List resources
+List resource links
 
-List resources.
+List links between resources and services
 
 ### Example
 
@@ -283,7 +283,7 @@ List resources.
 import time
 import fastly
 from fastly.api import resource_api
-from fastly.model.resource_list_response import ResourceListResponse
+from fastly.model.resource_response import ResourceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -311,7 +311,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List resources
+        # List resource links
         api_response = api_instance.list_resources(service_id, version_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListResponse**](ResourceListResponse.md)
+[**[ResourceResponse]**](ResourceResponse.md)
 
 ### Authorization
 
@@ -351,9 +351,9 @@ Name | Type | Description  | Notes
 # **update_resource**
 > ResourceResponse update_resource(service_id, version_id, id)
 
-Update a resource
+Update a resource link
 
-Update a resource.
+Update a link between a resource and a service version.
 
 ### Example
 
@@ -389,11 +389,12 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource link.
-    name = "test-resource" # str | The name of the resource. (optional)
+    resource_id = "3vjTN8v1O7nOAY7aNDGOL" # str | The ID of the underlying linked resource. (optional)
+    name = "test-resource" # str | The name of the resource link. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Update a resource
+        # Update a resource link
         api_response = api_instance.update_resource(service_id, version_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -402,8 +403,8 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update a resource
-        api_response = api_instance.update_resource(service_id, version_id, id, name=name)
+        # Update a resource link
+        api_response = api_instance.update_resource(service_id, version_id, id, resource_id=resource_id, name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResourceApi->update_resource: %s\n" % e)
@@ -417,7 +418,8 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **id** | **str**| An alphanumeric string identifying the resource link. |
- **name** | **str**| The name of the resource. | [optional]
+ **resource_id** | **str**| The ID of the underlying linked resource. | [optional]
+ **name** | **str**| The name of the resource link. | [optional]
 
 ### Return type
 

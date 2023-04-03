@@ -93,6 +93,8 @@ class StatsApi(object):
                     'start_time': 'query',
                     'end_time': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },

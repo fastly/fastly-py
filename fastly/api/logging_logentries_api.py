@@ -152,6 +152,8 @@ class LoggingLogentriesApi(object):
                     'use_tls': 'form',
                     'region': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -217,6 +219,8 @@ class LoggingLogentriesApi(object):
                     'version_id': 'path',
                     'logging_logentries_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -280,6 +284,8 @@ class LoggingLogentriesApi(object):
                     'version_id': 'path',
                     'logging_logentries_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -336,6 +342,8 @@ class LoggingLogentriesApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -470,6 +478,8 @@ class LoggingLogentriesApi(object):
                     'token': 'form',
                     'use_tls': 'form',
                     'region': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -86,6 +86,8 @@ class AclEntryApi(object):
                     'acl_id': 'path',
                     'bulk_update_acl_entries_request': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -148,6 +150,8 @@ class AclEntryApi(object):
                     'service_id': 'path',
                     'acl_id': 'path',
                     'acl_entry': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -214,6 +218,8 @@ class AclEntryApi(object):
                     'acl_id': 'path',
                     'acl_entry_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -276,6 +282,8 @@ class AclEntryApi(object):
                     'service_id': 'path',
                     'acl_id': 'path',
                     'acl_entry_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -366,6 +374,8 @@ class AclEntryApi(object):
                     'sort': 'query',
                     'direction': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -433,6 +443,8 @@ class AclEntryApi(object):
                     'acl_entry_id': 'path',
                     'acl_entry': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -455,7 +467,7 @@ class AclEntryApi(object):
     ):
         """Update multiple ACL entries  # noqa: E501
 
-        Update multiple ACL entries on the same ACL.  # noqa: E501
+        Update multiple ACL entries on the same ACL. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 entries. [Contact support](https://support.fastly.com/) to discuss raising this limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

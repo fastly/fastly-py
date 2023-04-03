@@ -30,11 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.resource_create import ResourceCreate
+    from fastly.model.resource import Resource
     from fastly.model.resource_response_all_of import ResourceResponseAllOf
     from fastly.model.timestamps import Timestamps
     from fastly.model.type_resource import TypeResource
-    globals()['ResourceCreate'] = ResourceCreate
+    globals()['Resource'] = Resource
     globals()['ResourceResponseAllOf'] = ResourceResponseAllOf
     globals()['Timestamps'] = Timestamps
     globals()['TypeResource'] = TypeResource
@@ -91,11 +91,11 @@ class ResourceResponse(ModelComposed):
         """
         lazy_import()
         return {
+            'resource_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'resource_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
@@ -109,11 +109,11 @@ class ResourceResponse(ModelComposed):
 
 
     attribute_map = {
+        'resource_id': 'resource_id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'resource_id': 'resource_id',  # noqa: E501
         'id': 'id',  # noqa: E501
         'href': 'href',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
@@ -163,11 +163,11 @@ class ResourceResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
+            name (str): The name of the resource link.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            name (str): The name of the resource.. [optional]  # noqa: E501
-            resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
             id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
@@ -272,11 +272,11 @@ class ResourceResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
+            name (str): The name of the resource link.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            name (str): The name of the resource.. [optional]  # noqa: E501
-            resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
             id (str): An alphanumeric string identifying the resource link.. [optional]  # noqa: E501
             href (str): The path to the resource.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
@@ -347,7 +347,7 @@ class ResourceResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ResourceCreate,
+              Resource,
               ResourceResponseAllOf,
               Timestamps,
           ],

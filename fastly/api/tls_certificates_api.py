@@ -72,6 +72,8 @@ class TlsCertificatesApi(object):
                 'location_map': {
                     'tls_certificate': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -125,6 +127,8 @@ class TlsCertificatesApi(object):
                 'location_map': {
                     'tls_certificate_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -173,6 +177,8 @@ class TlsCertificatesApi(object):
                 },
                 'location_map': {
                     'tls_certificate_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -260,6 +266,8 @@ class TlsCertificatesApi(object):
                     'page_size': 'query',
                     'sort': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -314,6 +322,8 @@ class TlsCertificatesApi(object):
                 'location_map': {
                     'tls_certificate_id': 'path',
                     'tls_certificate': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

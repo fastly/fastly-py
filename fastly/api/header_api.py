@@ -162,6 +162,8 @@ class HeaderApi(object):
                     'substitution': 'form',
                     'type': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -227,6 +229,8 @@ class HeaderApi(object):
                     'version_id': 'path',
                     'header_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -290,6 +294,8 @@ class HeaderApi(object):
                     'version_id': 'path',
                     'header_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -346,6 +352,8 @@ class HeaderApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -491,6 +499,8 @@ class HeaderApi(object):
                     'src': 'form',
                     'substitution': 'form',
                     'type': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

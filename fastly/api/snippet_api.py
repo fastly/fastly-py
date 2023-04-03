@@ -126,6 +126,8 @@ class SnippetApi(object):
                     'content': 'form',
                     'priority': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -191,6 +193,8 @@ class SnippetApi(object):
                     'version_id': 'path',
                     'snippet_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -254,6 +258,8 @@ class SnippetApi(object):
                     'version_id': 'path',
                     'snippet_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -311,6 +317,8 @@ class SnippetApi(object):
                     'service_id': 'path',
                     'snippet_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -367,6 +375,8 @@ class SnippetApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -470,6 +480,8 @@ class SnippetApi(object):
                     'type': 'form',
                     'content': 'form',
                     'priority': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

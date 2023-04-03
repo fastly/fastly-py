@@ -132,6 +132,8 @@ class LoggingKinesisApi(object):
                     'access_key': 'form',
                     'iam_role': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -197,6 +199,8 @@ class LoggingKinesisApi(object):
                     'version_id': 'path',
                     'logging_kinesis_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -260,6 +264,8 @@ class LoggingKinesisApi(object):
                     'version_id': 'path',
                     'logging_kinesis_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -316,6 +322,8 @@ class LoggingKinesisApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

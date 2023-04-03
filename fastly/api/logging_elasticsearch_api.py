@@ -182,6 +182,8 @@ class LoggingElasticsearchApi(object):
                     'user': 'form',
                     'password': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -247,6 +249,8 @@ class LoggingElasticsearchApi(object):
                     'version_id': 'path',
                     'logging_elasticsearch_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -310,6 +314,8 @@ class LoggingElasticsearchApi(object):
                     'version_id': 'path',
                     'logging_elasticsearch_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -366,6 +372,8 @@ class LoggingElasticsearchApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -531,6 +539,8 @@ class LoggingElasticsearchApi(object):
                     'pipeline': 'form',
                     'user': 'form',
                     'password': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

@@ -193,6 +193,8 @@ class LoggingOpenstackApi(object):
                     'url': 'form',
                     'user': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -258,6 +260,8 @@ class LoggingOpenstackApi(object):
                     'version_id': 'path',
                     'logging_openstack_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -321,6 +325,8 @@ class LoggingOpenstackApi(object):
                     'version_id': 'path',
                     'logging_openstack_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -377,6 +383,8 @@ class LoggingOpenstackApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -553,6 +561,8 @@ class LoggingOpenstackApi(object):
                     'public_key': 'form',
                     'url': 'form',
                     'user': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

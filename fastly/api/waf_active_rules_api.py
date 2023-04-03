@@ -88,6 +88,8 @@ class WafActiveRulesApi(object):
                     'version_id': 'path',
                     'body': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -148,6 +150,8 @@ class WafActiveRulesApi(object):
                     'firewall_id': 'path',
                     'version_id': 'path',
                     'waf_active_rule': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -219,6 +223,8 @@ class WafActiveRulesApi(object):
                     'waf_tag_name': 'path',
                     'waf_active_rule': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -281,6 +287,8 @@ class WafActiveRulesApi(object):
                     'firewall_id': 'path',
                     'version_id': 'path',
                     'waf_rule_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -347,6 +355,8 @@ class WafActiveRulesApi(object):
                     'version_id': 'path',
                     'waf_rule_id': 'path',
                     'include': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -446,6 +456,8 @@ class WafActiveRulesApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -512,6 +524,8 @@ class WafActiveRulesApi(object):
                     'version_id': 'path',
                     'waf_rule_id': 'path',
                     'waf_active_rule': 'body',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

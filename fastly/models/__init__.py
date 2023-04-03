@@ -143,7 +143,10 @@ from fastly.model.inline_object import InlineObject
 from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.inline_response2001 import InlineResponse2001
-from fastly.model.inline_response2001_meta import InlineResponse2001Meta
+from fastly.model.inline_response2002 import InlineResponse2002
+from fastly.model.inline_response2002_meta import InlineResponse2002Meta
+from fastly.model.inline_response2003 import InlineResponse2003
+from fastly.model.inline_response2003_meta import InlineResponse2003Meta
 from fastly.model.invitation import Invitation
 from fastly.model.invitation_data import InvitationData
 from fastly.model.invitation_data_attributes import InvitationDataAttributes
@@ -372,9 +375,6 @@ from fastly.model.relationships_for_waf_rule import RelationshipsForWafRule
 from fastly.model.request_settings import RequestSettings
 from fastly.model.request_settings_response import RequestSettingsResponse
 from fastly.model.resource import Resource
-from fastly.model.resource_create import ResourceCreate
-from fastly.model.resource_create_all_of import ResourceCreateAllOf
-from fastly.model.resource_list_response import ResourceListResponse
 from fastly.model.resource_response import ResourceResponse
 from fastly.model.resource_response_all_of import ResourceResponseAllOf
 from fastly.model.response_object import ResponseObject

@@ -29,8 +29,14 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.inline_response2002_meta import InlineResponse2002Meta
+    from fastly.model.store_response import StoreResponse
+    globals()['InlineResponse2002Meta'] = InlineResponse2002Meta
+    globals()['StoreResponse'] = StoreResponse
 
-class ResourceCreateAllOf(ModelNormal):
+
+class InlineResponse2002(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +70,7 @@ class ResourceCreateAllOf(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +85,10 @@ class ResourceCreateAllOf(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'resource_id': (str,),  # noqa: E501
+            'data': ([StoreResponse],),  # noqa: E501
+            'meta': (InlineResponse2002Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -88,7 +97,8 @@ class ResourceCreateAllOf(ModelNormal):
 
 
     attribute_map = {
-        'resource_id': 'resource_id',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -99,7 +109,7 @@ class ResourceCreateAllOf(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """ResourceCreateAllOf - a model defined in OpenAPI
+        """InlineResponse2002 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -132,7 +142,8 @@ class ResourceCreateAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
+            data ([StoreResponse]): [optional]  # noqa: E501
+            meta (InlineResponse2002Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,7 +192,7 @@ class ResourceCreateAllOf(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """ResourceCreateAllOf - a model defined in OpenAPI
+        """InlineResponse2002 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,7 +225,8 @@ class ResourceCreateAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            resource_id (str): The ID of the linked resource.. [optional]  # noqa: E501
+            data ([StoreResponse]): [optional]  # noqa: E501
+            meta (InlineResponse2002Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

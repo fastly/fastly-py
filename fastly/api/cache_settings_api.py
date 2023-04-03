@@ -114,6 +114,8 @@ class CacheSettingsApi(object):
                     'stale_ttl': 'form',
                     'ttl': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -179,6 +181,8 @@ class CacheSettingsApi(object):
                     'version_id': 'path',
                     'cache_settings_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -242,6 +246,8 @@ class CacheSettingsApi(object):
                     'version_id': 'path',
                     'cache_settings_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -298,6 +304,8 @@ class CacheSettingsApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -395,6 +403,8 @@ class CacheSettingsApi(object):
                     'name': 'form',
                     'stale_ttl': 'form',
                     'ttl': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

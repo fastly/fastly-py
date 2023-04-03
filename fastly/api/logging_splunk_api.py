@@ -170,6 +170,8 @@ class LoggingSplunkApi(object):
                     'token': 'form',
                     'use_tls': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -235,6 +237,8 @@ class LoggingSplunkApi(object):
                     'version_id': 'path',
                     'logging_splunk_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -298,6 +302,8 @@ class LoggingSplunkApi(object):
                     'version_id': 'path',
                     'logging_splunk_name': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -354,6 +360,8 @@ class LoggingSplunkApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -506,6 +514,8 @@ class LoggingSplunkApi(object):
                     'url': 'form',
                     'token': 'form',
                     'use_tls': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

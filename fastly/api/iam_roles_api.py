@@ -72,6 +72,8 @@ class IamRolesApi(object):
                 'location_map': {
                     'role_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -120,6 +122,8 @@ class IamRolesApi(object):
                 },
                 'location_map': {
                     'role_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -171,6 +175,8 @@ class IamRolesApi(object):
                 },
                 'location_map': {
                     'role_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -231,6 +237,8 @@ class IamRolesApi(object):
                 'location_map': {
                     'per_page': 'query',
                     'page': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

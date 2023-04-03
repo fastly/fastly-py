@@ -108,6 +108,8 @@ class UserApi(object):
                     'two_factor_auth_enabled': 'form',
                     'two_factor_setup_required': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -161,6 +163,8 @@ class UserApi(object):
                 'location_map': {
                     'user_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -204,6 +208,8 @@ class UserApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -256,6 +262,8 @@ class UserApi(object):
                 'location_map': {
                     'user_id': 'path',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -306,6 +314,8 @@ class UserApi(object):
                 },
                 'location_map': {
                     'user_login': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -398,6 +408,8 @@ class UserApi(object):
                     'two_factor_auth_enabled': 'form',
                     'two_factor_setup_required': 'form',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -453,6 +465,8 @@ class UserApi(object):
                 'location_map': {
                     'old_password': 'form',
                     'new_password': 'form',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }

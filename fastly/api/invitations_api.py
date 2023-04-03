@@ -72,6 +72,8 @@ class InvitationsApi(object):
                 'location_map': {
                     'invitation': 'body',
                 },
+                'path_params_allow_reserved_map': {
+                },
                 'collection_format_map': {
                 }
             },
@@ -124,6 +126,8 @@ class InvitationsApi(object):
                 },
                 'location_map': {
                     'invitation_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
@@ -182,6 +186,8 @@ class InvitationsApi(object):
                 'location_map': {
                     'page_number': 'query',
                     'page_size': 'query',
+                },
+                'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
                 }
