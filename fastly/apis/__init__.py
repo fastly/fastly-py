@@ -96,7 +96,6 @@ from fastly.api.tls_activations_api import TlsActivationsApi
 from fastly.api.tls_bulk_certificates_api import TlsBulkCertificatesApi
 from fastly.api.tls_certificates_api import TlsCertificatesApi
 from fastly.api.tls_configurations_api import TlsConfigurationsApi
-from fastly.api.tls_csrs_api import TlsCsrsApi
 from fastly.api.tls_domains_api import TlsDomainsApi
 from fastly.api.tls_private_keys_api import TlsPrivateKeysApi
 from fastly.api.tls_subscriptions_api import TlsSubscriptionsApi

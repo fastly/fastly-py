@@ -165,7 +165,7 @@ class ObjectStoreItemApi(object):
         )
         self.get_value_for_key_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': (str,),
                 'auth': [
                     'token'
                 ],
@@ -224,7 +224,7 @@ class ObjectStoreItemApi(object):
         )
         self.set_value_for_key_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': (str,),
                 'auth': [
                     'token'
                 ],
@@ -282,7 +282,7 @@ class ObjectStoreItemApi(object):
                     'background_fetch':
                         (bool,),
                     'body':
-                        (file_type,),
+                        (str,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
@@ -535,7 +535,7 @@ class ObjectStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            str
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -596,7 +596,7 @@ class ObjectStoreItemApi(object):
             append (bool): [optional]
             prepend (bool): [optional]
             background_fetch (bool): [optional]
-            body (file_type): [optional]
+            body (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -625,7 +625,7 @@ class ObjectStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            str
                 If the method is called asynchronously, returns the request
                 thread.
         """

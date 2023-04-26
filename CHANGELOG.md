@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.3.1](https://github.com/fastly/fastly-py/releases/tag/release/v1.3.1) (2023-04-26)
+
+**Bug fixes:**
+
+- fix(object-store-item): use correct type for key value
+- fix(tls-csrs): remove internal endpoint
+
 ## [v1.3.0](https://github.com/fastly/fastly-py/releases/tag/release/v1.3.0) (2023-04-03)
 
 **Bug fixes:**

@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_value_for_key**
-> file_type get_value_for_key(store_id, key_name)
+> str get_value_for_key(store_id, key_name)
 
 Get the value of an object store item
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+**str**
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_value_for_key**
-> file_type set_value_for_key(store_id, key_name)
+> str set_value_for_key(store_id, key_name)
 
 Insert an item into an object store
 
@@ -316,7 +316,7 @@ with fastly.ApiClient(configuration) as api_client:
     append = True # bool |  (optional)
     prepend = True # bool |  (optional)
     background_fetch = True # bool |  (optional)
-    body = open('/path/to/file', 'rb') # file_type |  (optional)
+    body = 'YQ==' # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -350,11 +350,11 @@ Name | Type | Description  | Notes
  **append** | **bool**|  | [optional]
  **prepend** | **bool**|  | [optional]
  **background_fetch** | **bool**|  | [optional]
- **body** | **file_type**|  | [optional]
+ **body** | **str**|  | [optional]
 
 ### Return type
 
-**file_type**
+**str**
 
 ### Authorization
 

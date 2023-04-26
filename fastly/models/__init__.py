@@ -82,8 +82,6 @@ from fastly.model.enabled_product_response import EnabledProductResponse
 from fastly.model.enabled_product_response_links import EnabledProductResponseLinks
 from fastly.model.enabled_product_response_product import EnabledProductResponseProduct
 from fastly.model.enabled_product_response_service import EnabledProductResponseService
-from fastly.model.error_response import ErrorResponse
-from fastly.model.error_response_data import ErrorResponseData
 from fastly.model.event import Event
 from fastly.model.event_attributes import EventAttributes
 from fastly.model.event_response import EventResponse
@@ -364,7 +362,6 @@ from fastly.model.relationships_for_star import RelationshipsForStar
 from fastly.model.relationships_for_tls_activation import RelationshipsForTlsActivation
 from fastly.model.relationships_for_tls_bulk_certificate import RelationshipsForTlsBulkCertificate
 from fastly.model.relationships_for_tls_configuration import RelationshipsForTlsConfiguration
-from fastly.model.relationships_for_tls_csr import RelationshipsForTlsCsr
 from fastly.model.relationships_for_tls_domain import RelationshipsForTlsDomain
 from fastly.model.relationships_for_tls_private_key import RelationshipsForTlsPrivateKey
 from fastly.model.relationships_for_tls_subscription import RelationshipsForTlsSubscription
@@ -474,12 +471,6 @@ from fastly.model.tls_configuration_response_data import TlsConfigurationRespons
 from fastly.model.tls_configuration_response_data_all_of import TlsConfigurationResponseDataAllOf
 from fastly.model.tls_configurations_response import TlsConfigurationsResponse
 from fastly.model.tls_configurations_response_all_of import TlsConfigurationsResponseAllOf
-from fastly.model.tls_csr import TlsCsr
-from fastly.model.tls_csr_data import TlsCsrData
-from fastly.model.tls_csr_data_attributes import TlsCsrDataAttributes
-from fastly.model.tls_csr_response import TlsCsrResponse
-from fastly.model.tls_csr_response_attributes import TlsCsrResponseAttributes
-from fastly.model.tls_csr_response_data import TlsCsrResponseData
 from fastly.model.tls_dns_record import TlsDnsRecord
 from fastly.model.tls_domain_data import TlsDomainData
 from fastly.model.tls_domains_response import TlsDomainsResponse
@@ -523,7 +514,6 @@ from fastly.model.type_tls_activation import TypeTlsActivation
 from fastly.model.type_tls_bulk_certificate import TypeTlsBulkCertificate
 from fastly.model.type_tls_certificate import TypeTlsCertificate
 from fastly.model.type_tls_configuration import TypeTlsConfiguration
-from fastly.model.type_tls_csr import TypeTlsCsr
 from fastly.model.type_tls_dns_record import TypeTlsDnsRecord
 from fastly.model.type_tls_domain import TypeTlsDomain
 from fastly.model.type_tls_private_key import TypeTlsPrivateKey
