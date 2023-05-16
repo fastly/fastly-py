@@ -85,6 +85,7 @@ class PackageMetadata(ModelNormal):
             'language': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'hashsum': (str,),  # noqa: E501
+            'files_hash': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class PackageMetadata(ModelNormal):
         'language': 'language',  # noqa: E501
         'size': 'size',  # noqa: E501
         'hashsum': 'hashsum',  # noqa: E501
+        'files_hash': 'files_hash',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +150,7 @@ class PackageMetadata(ModelNormal):
             language (str): The language of the Compute@Edge package.. [optional]  # noqa: E501
             size (int): Size of the Compute@Edge package in bytes.. [optional]  # noqa: E501
             hashsum (str): Hash of the Compute@Edge package.. [optional]  # noqa: E501
+            files_hash (str): Hash of the files within the Compute@Edge package.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,6 +238,7 @@ class PackageMetadata(ModelNormal):
             language (str): The language of the Compute@Edge package.. [optional]  # noqa: E501
             size (int): Size of the Compute@Edge package in bytes.. [optional]  # noqa: E501
             hashsum (str): Hash of the Compute@Edge package.. [optional]  # noqa: E501
+            files_hash (str): Hash of the files within the Compute@Edge package.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

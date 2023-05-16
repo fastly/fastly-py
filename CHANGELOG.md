@@ -1,5 +1,17 @@
 # Changelog
 
+## [v2.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.0.0) (2023-05-16)
+
+**Breaking changes:**
+
+- breaking(object_store): rename to kv_store
+
+**Enhancements:**
+
+- feat(dictionary_item): add 'bulk' PATCH endpoint.
+- feat(package): add `files_hash` metadata property.
+- feat(tls_certificates): add `filter[in_use]` parameter.
+
 ## [v1.3.1](https://github.com/fastly/fastly-py/releases/tag/release/v1.3.1) (2023-04-26)
 
 **Bug fixes:**

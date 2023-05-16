@@ -21,6 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fastly.model.bulk_update_dictionary_list_request import BulkUpdateDictionaryListRequest
 from fastly.model.dictionary_item_response import DictionaryItemResponse
 from fastly.model.inline_response200 import InlineResponse200
 
@@ -34,6 +35,71 @@ class DictionaryItemApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.bulk_update_dictionary_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (InlineResponse200,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/items',
+                'operation_id': 'bulk_update_dictionary_item',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'service_id',
+                    'dictionary_id',
+                    'bulk_update_dictionary_list_request',
+                ],
+                'required': [
+                    'service_id',
+                    'dictionary_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'service_id':
+                        (str,),
+                    'dictionary_id':
+                        (str,),
+                    'bulk_update_dictionary_list_request':
+                        (BulkUpdateDictionaryListRequest,),
+                },
+                'attribute_map': {
+                    'service_id': 'service_id',
+                    'dictionary_id': 'dictionary_id',
+                },
+                'location_map': {
+                    'service_id': 'path',
+                    'dictionary_id': 'path',
+                    'bulk_update_dictionary_list_request': 'body',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_dictionary_item_endpoint = _Endpoint(
             settings={
                 'response_type': (DictionaryItemResponse,),
@@ -480,6 +546,89 @@ class DictionaryItemApi(object):
             },
             api_client=api_client
         )
+
+    def bulk_update_dictionary_item(
+        self,
+        service_id,
+        dictionary_id,
+        **kwargs
+    ):
+        """Update multiple entries in an edge dictionary  # noqa: E501
+
+        Update multiple items in the same dictionary. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 items. [Contact support](https://support.fastly.com/) to discuss raising this limit.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.bulk_update_dictionary_item(service_id, dictionary_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            service_id (str): Alphanumeric string identifying the service.
+            dictionary_id (str): Alphanumeric string identifying a Dictionary.
+
+        Keyword Args:
+            bulk_update_dictionary_list_request (BulkUpdateDictionaryListRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse200
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['service_id'] = \
+            service_id
+        kwargs['dictionary_id'] = \
+            dictionary_id
+        return self.bulk_update_dictionary_item_endpoint.call_with_http_info(**kwargs)
 
     def create_dictionary_item(
         self,

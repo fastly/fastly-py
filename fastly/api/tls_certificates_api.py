@@ -204,6 +204,7 @@ class TlsCertificatesApi(object):
             },
             params_map={
                 'all': [
+                    'filter_in_use',
                     'filter_not_after',
                     'filter_tls_domains_id',
                     'include',
@@ -237,6 +238,8 @@ class TlsCertificatesApi(object):
                     },
                 },
                 'openapi_types': {
+                    'filter_in_use':
+                        (str,),
                     'filter_not_after':
                         (str,),
                     'filter_tls_domains_id':
@@ -251,6 +254,7 @@ class TlsCertificatesApi(object):
                         (str,),
                 },
                 'attribute_map': {
+                    'filter_in_use': 'filter[in_use]',
                     'filter_not_after': 'filter[not_after]',
                     'filter_tls_domains_id': 'filter[tls_domains.id]',
                     'include': 'include',
@@ -259,6 +263,7 @@ class TlsCertificatesApi(object):
                     'sort': 'sort',
                 },
                 'location_map': {
+                    'filter_in_use': 'query',
                     'filter_not_after': 'query',
                     'filter_tls_domains_id': 'query',
                     'include': 'query',
@@ -584,6 +589,7 @@ class TlsCertificatesApi(object):
 
 
         Keyword Args:
+            filter_in_use (str): Optional. Limit the returned certificates to those currently using Fastly to terminate TLS (that is, certificates associated with an activation). Permitted values: true, false.. [optional]
             filter_not_after (str): Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]=2020-05-05). . [optional]
             filter_tls_domains_id (str): Limit the returned certificates to those that include the specific domain.. [optional]
             include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`. . [optional]

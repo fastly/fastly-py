@@ -45,6 +45,8 @@ from fastly.api.iam_roles_api import IamRolesApi
 from fastly.api.iam_service_groups_api import IamServiceGroupsApi
 from fastly.api.iam_user_groups_api import IamUserGroupsApi
 from fastly.api.invitations_api import InvitationsApi
+from fastly.api.kv_store_api import KvStoreApi
+from fastly.api.kv_store_item_api import KvStoreItemApi
 from fastly.api.logging_azureblob_api import LoggingAzureblobApi
 from fastly.api.logging_bigquery_api import LoggingBigqueryApi
 from fastly.api.logging_cloudfiles_api import LoggingCloudfilesApi
@@ -72,8 +74,6 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
-from fastly.api.object_store_api import ObjectStoreApi
-from fastly.api.object_store_item_api import ObjectStoreItemApi
 from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi

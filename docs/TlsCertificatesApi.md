@@ -299,6 +299,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_certificates_api.TlsCertificatesApi(api_client)
+    filter_in_use = "filter[in_use]_example" # str | Optional. Limit the returned certificates to those currently using Fastly to terminate TLS (that is, certificates associated with an activation). Permitted values: true, false. (optional)
     filter_not_after = "filter[not_after]_example" # str | Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]=2020-05-05).  (optional)
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned certificates to those that include the specific domain. (optional)
     include = "include_example" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`.  (optional)
@@ -310,7 +311,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List TLS certificates
-        api_response = api_instance.list_tls_certs(filter_not_after=filter_not_after, filter_tls_domains_id=filter_tls_domains_id, include=include, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_certs(filter_in_use=filter_in_use, filter_not_after=filter_not_after, filter_tls_domains_id=filter_tls_domains_id, include=include, page_number=page_number, page_size=page_size, sort=sort)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsCertificatesApi->list_tls_certs: %s\n" % e)
@@ -321,6 +322,7 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filter_in_use** | **str**| Optional. Limit the returned certificates to those currently using Fastly to terminate TLS (that is, certificates associated with an activation). Permitted values: true, false. | [optional]
  **filter_not_after** | **str**| Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]&#x3D;2020-05-05).  | [optional]
  **filter_tls_domains_id** | **str**| Limit the returned certificates to those that include the specific domain. | [optional]
  **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`.  | [optional]

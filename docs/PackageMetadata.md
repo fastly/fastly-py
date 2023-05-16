@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **language** | **str** | The language of the Compute@Edge package. | [optional] 
 **size** | **int** | Size of the Compute@Edge package in bytes. | [optional] 
 **hashsum** | **str** | Hash of the Compute@Edge package. | [optional] 
+**files_hash** | **str** | Hash of the files within the Compute@Edge package. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,21 +1,21 @@
-# fastly.ObjectStoreApi
+# fastly.KvStoreItemApi
 
 All URIs are relative to *https://api.fastly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_store**](ObjectStoreApi.md#create_store) | **POST** /resources/stores/object | Create an object store.
-[**delete_store**](ObjectStoreApi.md#delete_store) | **DELETE** /resources/stores/object/{store_id} | Delete an object store.
-[**get_store**](ObjectStoreApi.md#get_store) | **GET** /resources/stores/object/{store_id} | Describe an object store.
-[**get_stores**](ObjectStoreApi.md#get_stores) | **GET** /resources/stores/object | List object stores.
+[**delete_key_from_store**](KvStoreItemApi.md#delete_key_from_store) | **DELETE** /resources/stores/kv/{store_id}/keys/{key_name} | Delete kv store item.
+[**get_keys**](KvStoreItemApi.md#get_keys) | **GET** /resources/stores/kv/{store_id}/keys | List kv store keys.
+[**get_value_for_key**](KvStoreItemApi.md#get_value_for_key) | **GET** /resources/stores/kv/{store_id}/keys/{key_name} | Get the value of an kv store item
+[**set_value_for_key**](KvStoreItemApi.md#set_value_for_key) | **PUT** /resources/stores/kv/{store_id}/keys/{key_name} | Insert an item into an kv store
 
 
-# **create_store**
-> StoreResponse create_store()
+# **delete_key_from_store**
+> delete_key_from_store(store_id, key_name)
 
-Create an object store.
+Delete kv store item.
 
-Create a new object store.
+Delete an item from an kv store
 
 ### Example
 
@@ -24,9 +24,7 @@ Create a new object store.
 ```python
 import time
 import fastly
-from fastly.api import object_store_api
-from fastly.model.store_response import StoreResponse
-from fastly.model.store import Store
+from fastly.api import kv_store_item_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -48,106 +46,25 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_store_api.ObjectStoreApi(api_client)
-    location = "location_example" # str |  (optional)
-    store = Store(
-        name="name_example",
-    ) # Store |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Create an object store.
-        api_response = api_instance.create_store(location=location, store=store)
-        pprint(api_response)
-    except fastly.ApiException as e:
-        print("Exception when calling ObjectStoreApi->create_store: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location** | **str**|  | [optional]
- **store** | [**Store**](Store.md)|  | [optional]
-
-### Return type
-
-[**StoreResponse**](StoreResponse.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_store**
-> delete_store(store_id)
-
-Delete an object store.
-
-An object store must be empty before it can be deleted.  Deleting an object store that still contains keys will result in a `409` (Conflict).
-
-### Example
-
-* Api Key Authentication (token):
-
-```python
-import time
-import fastly
-from fastly.api import object_store_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.fastly.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fastly.Configuration(
-    host = "https://api.fastly.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: token
-configuration.api_key['token'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['token'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with fastly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = object_store_api.ObjectStoreApi(api_client)
+    api_instance = kv_store_item_api.KvStoreItemApi(api_client)
     store_id = "store_id_example" # str | 
+    key_name = "key_name_example" # str | 
     force = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete an object store.
-        api_instance.delete_store(store_id)
+        # Delete kv store item.
+        api_instance.delete_key_from_store(store_id, key_name)
     except fastly.ApiException as e:
-        print("Exception when calling ObjectStoreApi->delete_store: %s\n" % e)
+        print("Exception when calling KvStoreItemApi->delete_key_from_store: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Delete an object store.
-        api_instance.delete_store(store_id, force=force)
+        # Delete kv store item.
+        api_instance.delete_key_from_store(store_id, key_name, force=force)
     except fastly.ApiException as e:
-        print("Exception when calling ObjectStoreApi->delete_store: %s\n" % e)
+        print("Exception when calling KvStoreItemApi->delete_key_from_store: %s\n" % e)
 ```
 
 
@@ -156,6 +73,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **str**|  |
+ **key_name** | **str**|  |
  **force** | **bool**|  | [optional]
 
 ### Return type
@@ -180,12 +98,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_store**
-> StoreResponse get_store(store_id)
+# **get_keys**
+> InlineResponse2003 get_keys(store_id)
 
-Describe an object store.
+List kv store keys.
 
-Get an object store by ID.
+List the keys of all items within an kv store.
 
 ### Example
 
@@ -194,8 +112,8 @@ Get an object store by ID.
 ```python
 import time
 import fastly
-from fastly.api import object_store_api
-from fastly.model.store_response import StoreResponse
+from fastly.api import kv_store_item_api
+from fastly.model.inline_response2003 import InlineResponse2003
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -217,16 +135,28 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_store_api.ObjectStoreApi(api_client)
+    api_instance = kv_store_item_api.KvStoreItemApi(api_client)
     store_id = "store_id_example" # str | 
+    cursor = "cursor_example" # str |  (optional)
+    limit = 100 # int |  (optional) if omitted the server will use the default value of 100
+    prefix = "prefix_example" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Describe an object store.
-        api_response = api_instance.get_store(store_id)
+        # List kv store keys.
+        api_response = api_instance.get_keys(store_id)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling ObjectStoreApi->get_store: %s\n" % e)
+        print("Exception when calling KvStoreItemApi->get_keys: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List kv store keys.
+        api_response = api_instance.get_keys(store_id, cursor=cursor, limit=limit, prefix=prefix)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling KvStoreItemApi->get_keys: %s\n" % e)
 ```
 
 
@@ -235,10 +165,13 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **str**|  |
+ **cursor** | **str**|  | [optional]
+ **limit** | **int**|  | [optional] if omitted the server will use the default value of 100
+ **prefix** | **str**|  | [optional]
 
 ### Return type
 
-[**StoreResponse**](StoreResponse.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -258,12 +191,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_stores**
-> InlineResponse2002 get_stores()
+# **get_value_for_key**
+> str get_value_for_key(store_id, key_name)
 
-List object stores.
+Get the value of an kv store item
 
-Get all stores for a given customer.
+Get the value associated with a key.
 
 ### Example
 
@@ -272,8 +205,7 @@ Get all stores for a given customer.
 ```python
 import time
 import fastly
-from fastly.api import object_store_api
-from fastly.model.inline_response2002 import InlineResponse2002
+from fastly.api import kv_store_item_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -295,18 +227,17 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_store_api.ObjectStoreApi(api_client)
-    cursor = "cursor_example" # str |  (optional)
-    limit = 100 # int |  (optional) if omitted the server will use the default value of 100
+    api_instance = kv_store_item_api.KvStoreItemApi(api_client)
+    store_id = "store_id_example" # str | 
+    key_name = "key_name_example" # str | 
 
     # example passing only required values which don't have defaults set
-    # and optional values
     try:
-        # List object stores.
-        api_response = api_instance.get_stores(cursor=cursor, limit=limit)
+        # Get the value of an kv store item
+        api_response = api_instance.get_value_for_key(store_id, key_name)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling ObjectStoreApi->get_stores: %s\n" % e)
+        print("Exception when calling KvStoreItemApi->get_value_for_key: %s\n" % e)
 ```
 
 
@@ -314,12 +245,12 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cursor** | **str**|  | [optional]
- **limit** | **int**|  | [optional] if omitted the server will use the default value of 100
+ **store_id** | **str**|  |
+ **key_name** | **str**|  |
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+**str**
 
 ### Authorization
 
@@ -328,14 +259,118 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | OK |  * generation - A unique, non-serial 32-bit integer that can be used for testing against a specific kv store value. <br>  * metadata - An arbitrary data field which can contain up to 2000B of data <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_value_for_key**
+> str set_value_for_key(store_id, key_name)
+
+Insert an item into an kv store
+
+Set a new value for a new or existing key in an kv store.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import kv_store_item_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = kv_store_item_api.KvStoreItemApi(api_client)
+    store_id = "store_id_example" # str | 
+    key_name = "key_name_example" # str | 
+    if_generation_match = 1 # int |  (optional)
+    time_to_live_sec = 1 # int |  (optional)
+    metadata = "metadata_example" # str |  (optional)
+    add = True # bool |  (optional)
+    append = True # bool |  (optional)
+    prepend = True # bool |  (optional)
+    background_fetch = True # bool |  (optional)
+    body = 'YQ==' # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert an item into an kv store
+        api_response = api_instance.set_value_for_key(store_id, key_name)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling KvStoreItemApi->set_value_for_key: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Insert an item into an kv store
+        api_response = api_instance.set_value_for_key(store_id, key_name, if_generation_match=if_generation_match, time_to_live_sec=time_to_live_sec, metadata=metadata, add=add, append=append, prepend=prepend, background_fetch=background_fetch, body=body)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling KvStoreItemApi->set_value_for_key: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **str**|  |
+ **key_name** | **str**|  |
+ **if_generation_match** | **int**|  | [optional]
+ **time_to_live_sec** | **int**|  | [optional]
+ **metadata** | **str**|  | [optional]
+ **add** | **bool**|  | [optional]
+ **append** | **bool**|  | [optional]
+ **prepend** | **bool**|  | [optional]
+ **background_fetch** | **bool**|  | [optional]
+ **body** | **str**|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/octet-stream
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  * generation - A unique, non-serial 32-bit integer that can be used for testing against a specific kv store value. <br>  * metadata - An arbitrary data field which can contain up to 2000B of data <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
