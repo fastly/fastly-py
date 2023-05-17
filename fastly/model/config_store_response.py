@@ -30,13 +30,15 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bulk_update_config_store_item_all_of import BulkUpdateConfigStoreItemAllOf
-    from fastly.model.dictionary_item import DictionaryItem
-    globals()['BulkUpdateConfigStoreItemAllOf'] = BulkUpdateConfigStoreItemAllOf
-    globals()['DictionaryItem'] = DictionaryItem
+    from fastly.model.config_store import ConfigStore
+    from fastly.model.config_store_response_all_of import ConfigStoreResponseAllOf
+    from fastly.model.timestamps import Timestamps
+    globals()['ConfigStore'] = ConfigStore
+    globals()['ConfigStoreResponseAllOf'] = ConfigStoreResponseAllOf
+    globals()['Timestamps'] = Timestamps
 
 
-class BulkUpdateDictionaryItem(ModelComposed):
+class ConfigStoreResponse(ModelComposed):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -59,12 +61,6 @@ class BulkUpdateDictionaryItem(ModelComposed):
     """
 
     allowed_values = {
-        ('op',): {
-            'CREATE': "create",
-            'UPDATE': "update",
-            'DELETE': "delete",
-            'UPSERT': "upsert",
-        },
     }
 
     validations = {
@@ -93,9 +89,11 @@ class BulkUpdateDictionaryItem(ModelComposed):
         """
         lazy_import()
         return {
-            'item_key': (str,),  # noqa: E501
-            'item_value': (str,),  # noqa: E501
-            'op': (str,),  # noqa: E501
+            'created_at': (datetime, none_type,),  # noqa: E501
+            'deleted_at': (datetime, none_type,),  # noqa: E501
+            'updated_at': (datetime, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,18 +102,23 @@ class BulkUpdateDictionaryItem(ModelComposed):
 
 
     attribute_map = {
-        'item_key': 'item_key',  # noqa: E501
-        'item_value': 'item_value',  # noqa: E501
-        'op': 'op',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'deleted_at': 'deleted_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
+        'created_at',  # noqa: E501
+        'deleted_at',  # noqa: E501
+        'updated_at',  # noqa: E501
     }
 
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BulkUpdateDictionaryItem - a model defined in OpenAPI
+        """ConfigStoreResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,9 +151,11 @@ class BulkUpdateDictionaryItem(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_key (str): Item key, maximum 256 characters.. [optional]  # noqa: E501
-            item_value (str): Item value, maximum 8000 characters.. [optional]  # noqa: E501
-            op (str): [optional]  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            name (str): The name of the config store.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the config store.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +222,7 @@ class BulkUpdateDictionaryItem(ModelComposed):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BulkUpdateDictionaryItem - a model defined in OpenAPI
+        """ConfigStoreResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -250,9 +255,11 @@ class BulkUpdateDictionaryItem(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_key (str): Item key, maximum 256 characters.. [optional]  # noqa: E501
-            item_value (str): Item value, maximum 8000 characters.. [optional]  # noqa: E501
-            op (str): [optional]  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            name (str): The name of the config store.. [optional]  # noqa: E501
+            id (str): An alphanumeric string identifying the config store.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,8 +325,9 @@ class BulkUpdateDictionaryItem(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              BulkUpdateConfigStoreItemAllOf,
-              DictionaryItem,
+              ConfigStore,
+              ConfigStoreResponseAllOf,
+              Timestamps,
           ],
           'oneOf': [
           ],

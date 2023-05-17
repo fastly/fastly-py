@@ -43,8 +43,10 @@ from fastly.model.billing_total_extras import BillingTotalExtras
 from fastly.model.bulk_update_acl_entries_request import BulkUpdateAclEntriesRequest
 from fastly.model.bulk_update_acl_entry import BulkUpdateAclEntry
 from fastly.model.bulk_update_acl_entry_all_of import BulkUpdateAclEntryAllOf
+from fastly.model.bulk_update_config_store_item import BulkUpdateConfigStoreItem
+from fastly.model.bulk_update_config_store_item_all_of import BulkUpdateConfigStoreItemAllOf
+from fastly.model.bulk_update_config_store_list_request import BulkUpdateConfigStoreListRequest
 from fastly.model.bulk_update_dictionary_item import BulkUpdateDictionaryItem
-from fastly.model.bulk_update_dictionary_item_all_of import BulkUpdateDictionaryItemAllOf
 from fastly.model.bulk_update_dictionary_list_request import BulkUpdateDictionaryListRequest
 from fastly.model.bulk_waf_active_rule import BulkWafActiveRule
 from fastly.model.bulk_waf_active_rules import BulkWafActiveRules
@@ -53,6 +55,13 @@ from fastly.model.cache_setting_response import CacheSettingResponse
 from fastly.model.condition import Condition
 from fastly.model.condition_response import ConditionResponse
 from fastly.model.conditions_response import ConditionsResponse
+from fastly.model.config_store import ConfigStore
+from fastly.model.config_store_info_response import ConfigStoreInfoResponse
+from fastly.model.config_store_item import ConfigStoreItem
+from fastly.model.config_store_item_response import ConfigStoreItemResponse
+from fastly.model.config_store_item_response_all_of import ConfigStoreItemResponseAllOf
+from fastly.model.config_store_response import ConfigStoreResponse
+from fastly.model.config_store_response_all_of import ConfigStoreResponseAllOf
 from fastly.model.contact import Contact
 from fastly.model.contact_response import ContactResponse
 from fastly.model.contact_response_all_of import ContactResponseAllOf

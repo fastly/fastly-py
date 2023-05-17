@@ -31,12 +31,12 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.bulk_update_config_store_item_all_of import BulkUpdateConfigStoreItemAllOf
-    from fastly.model.dictionary_item import DictionaryItem
+    from fastly.model.config_store_item import ConfigStoreItem
     globals()['BulkUpdateConfigStoreItemAllOf'] = BulkUpdateConfigStoreItemAllOf
-    globals()['DictionaryItem'] = DictionaryItem
+    globals()['ConfigStoreItem'] = ConfigStoreItem
 
 
-class BulkUpdateDictionaryItem(ModelComposed):
+class BulkUpdateConfigStoreItem(ModelComposed):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -115,7 +115,7 @@ class BulkUpdateDictionaryItem(ModelComposed):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BulkUpdateDictionaryItem - a model defined in OpenAPI
+        """BulkUpdateConfigStoreItem - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,7 +217,7 @@ class BulkUpdateDictionaryItem(ModelComposed):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BulkUpdateDictionaryItem - a model defined in OpenAPI
+        """BulkUpdateConfigStoreItem - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -319,7 +319,7 @@ class BulkUpdateDictionaryItem(ModelComposed):
           ],
           'allOf': [
               BulkUpdateConfigStoreItemAllOf,
-              DictionaryItem,
+              ConfigStoreItem,
           ],
           'oneOf': [
           ],

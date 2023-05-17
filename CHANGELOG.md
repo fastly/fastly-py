@@ -1,5 +1,11 @@
 # Changelog
 
+## [v2.1.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.1.0) (2023-05-17)
+
+**Enhancements:**
+
+- feat(config_store): add Config Store endpoints.
+
 ## [v2.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.0.0) (2023-05-16)
 
 **Breaking changes:**

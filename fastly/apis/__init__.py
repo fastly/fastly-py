@@ -22,6 +22,8 @@ from fastly.api.billing_api import BillingApi
 from fastly.api.billing_address_api import BillingAddressApi
 from fastly.api.cache_settings_api import CacheSettingsApi
 from fastly.api.condition_api import ConditionApi
+from fastly.api.config_store_api import ConfigStoreApi
+from fastly.api.config_store_item_api import ConfigStoreItemApi
 from fastly.api.contact_api import ContactApi
 from fastly.api.content_api import ContentApi
 from fastly.api.customer_api import CustomerApi
