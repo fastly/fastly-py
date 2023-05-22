@@ -30,11 +30,9 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
     from fastly.model.snippet import Snippet
     from fastly.model.snippet_response_all_of import SnippetResponseAllOf
     from fastly.model.timestamps import Timestamps
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
     globals()['Snippet'] = Snippet
     globals()['SnippetResponseAllOf'] = SnippetResponseAllOf
     globals()['Timestamps'] = Timestamps
@@ -112,12 +110,12 @@ class SchemasSnippetResponse(ModelComposed):
             'dynamic': (int,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'content': (str,),  # noqa: E501
-            'priority': (int,),  # noqa: E501
-            'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'priority': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
         }
 
@@ -132,20 +130,20 @@ class SchemasSnippetResponse(ModelComposed):
         'type': 'type',  # noqa: E501
         'content': 'content',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'service_id': 'service_id',  # noqa: E501
-        'version': 'version',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
-        'service_id',  # noqa: E501
-        'version',  # noqa: E501
         'created_at',  # noqa: E501
         'deleted_at',  # noqa: E501
         'updated_at',  # noqa: E501
+        'service_id',  # noqa: E501
+        'version',  # noqa: E501
         'id',  # noqa: E501
     }
 
@@ -189,12 +187,12 @@ class SchemasSnippetResponse(ModelComposed):
             dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
@@ -299,12 +297,12 @@ class SchemasSnippetResponse(ModelComposed):
             dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
@@ -371,7 +369,6 @@ class SchemasSnippetResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ServiceIdAndVersion,
               Snippet,
               SnippetResponseAllOf,
               Timestamps,

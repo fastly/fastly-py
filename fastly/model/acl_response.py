@@ -32,11 +32,9 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.acl import Acl
     from fastly.model.acl_response_all_of import AclResponseAllOf
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
     from fastly.model.timestamps import Timestamps
     globals()['Acl'] = Acl
     globals()['AclResponseAllOf'] = AclResponseAllOf
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
     globals()['Timestamps'] = Timestamps
 
 
@@ -96,7 +94,7 @@ class AclResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
         }
 
@@ -165,7 +163,7 @@ class AclResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
@@ -271,7 +269,7 @@ class AclResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
@@ -340,7 +338,6 @@ class AclResponse(ModelComposed):
           'allOf': [
               Acl,
               AclResponseAllOf,
-              ServiceIdAndVersion,
               Timestamps,
           ],
           'oneOf': [

@@ -101,7 +101,7 @@ class Backend(ModelNormal):
             'shield': (str, none_type,),  # noqa: E501
             'ssl_ca_cert': (str, none_type,),  # noqa: E501
             'ssl_cert_hostname': (str, none_type,),  # noqa: E501
-            'ssl_check_cert': (bool,),  # noqa: E501
+            'ssl_check_cert': (bool, none_type,),  # noqa: E501
             'ssl_ciphers': (str, none_type,),  # noqa: E501
             'ssl_client_cert': (str, none_type,),  # noqa: E501
             'ssl_client_key': (str, none_type,),  # noqa: E501
@@ -212,7 +212,7 @@ class Backend(ModelNormal):
             shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]  # noqa: E501
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]  # noqa: E501
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]  # noqa: E501
-            ssl_check_cert (bool): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501
             ssl_ciphers (str, none_type): List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             ssl_client_cert (str, none_type): Client certificate attached to origin.. [optional]  # noqa: E501
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]  # noqa: E501
@@ -323,7 +323,7 @@ class Backend(ModelNormal):
             shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]  # noqa: E501
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]  # noqa: E501
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]  # noqa: E501
-            ssl_check_cert (bool): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501
             ssl_ciphers (str, none_type): List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             ssl_client_cert (str, none_type): Client certificate attached to origin.. [optional]  # noqa: E501
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]  # noqa: E501

@@ -106,7 +106,7 @@ class SnippetApi(object):
                     'content':
                         (str,),
                     'priority':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -461,7 +461,7 @@ class SnippetApi(object):
                     'content':
                         (str,),
                     'priority':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -521,7 +521,7 @@ class SnippetApi(object):
             dynamic (int): Sets the snippet version.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -944,7 +944,7 @@ class SnippetApi(object):
             dynamic (int): Sets the snippet version.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

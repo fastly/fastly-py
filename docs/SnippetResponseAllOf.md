@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**service_id** | **str** |  | [optional] [readonly] 
+**version** | **str** | String representing the number identifying a version of the service. | [optional] [readonly] 
 **id** | **str** |  | [optional] [readonly] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -100,7 +100,7 @@ class Snippet(ModelNormal):
             'dynamic': (int,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'content': (str,),  # noqa: E501
-            'priority': (int,),  # noqa: E501
+            'priority': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -161,7 +161,7 @@ class Snippet(ModelNormal):
             dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,7 +247,7 @@ class Snippet(ModelNormal):
             dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

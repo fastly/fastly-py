@@ -98,6 +98,7 @@ class BackendApi(object):
                     'shield',
                     'ssl_ca_cert',
                     'ssl_cert_hostname',
+                    'ssl_check_cert',
                     'ssl_ciphers',
                     'ssl_client_cert',
                     'ssl_client_key',
@@ -164,7 +165,7 @@ class BackendApi(object):
                     'ssl_cert_hostname':
                         (str, none_type,),
                     'ssl_check_cert':
-                        (bool,),
+                        (bool, none_type,),
                     'ssl_ciphers':
                         (str, none_type,),
                     'ssl_client_cert':
@@ -518,6 +519,7 @@ class BackendApi(object):
                     'shield',
                     'ssl_ca_cert',
                     'ssl_cert_hostname',
+                    'ssl_check_cert',
                     'ssl_ciphers',
                     'ssl_client_cert',
                     'ssl_client_key',
@@ -586,7 +588,7 @@ class BackendApi(object):
                     'ssl_cert_hostname':
                         (str, none_type,),
                     'ssl_check_cert':
-                        (bool,),
+                        (bool, none_type,),
                     'ssl_ciphers':
                         (str, none_type,),
                     'ssl_client_cert':
@@ -730,7 +732,7 @@ class BackendApi(object):
             shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]
-            ssl_check_cert (bool): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True
+            ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True
             ssl_ciphers (str, none_type): List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]
             ssl_client_cert (str, none_type): Client certificate attached to origin.. [optional]
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]
@@ -1098,7 +1100,7 @@ class BackendApi(object):
             shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]
-            ssl_check_cert (bool): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True
+            ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True
             ssl_ciphers (str, none_type): List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]
             ssl_client_cert (str, none_type): Client certificate attached to origin.. [optional]
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]

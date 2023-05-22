@@ -198,6 +198,7 @@ class PurgeApi(object):
                     'fastly_soft_purge': 'header',
                 },
                 'path_params_allow_reserved_map': {
+                    'surrogate_key': 1,
                 },
                 'collection_format_map': {
                 }

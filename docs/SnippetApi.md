@@ -56,7 +56,7 @@ with fastly.ApiClient(configuration) as api_client:
     dynamic = 0 # int | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
-    priority = 10 # int | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of 100
+    priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
 
     # example passing only required values which don't have defaults set
     try:
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
  **dynamic** | **int**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
- **priority** | **int**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of 100
+ **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
 
 ### Return type
 
@@ -479,7 +479,7 @@ with fastly.ApiClient(configuration) as api_client:
     dynamic = 0 # int | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
-    priority = 10 # int | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of 100
+    priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
 
     # example passing only required values which don't have defaults set
     try:
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
  **dynamic** | **int**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
- **priority** | **int**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of 100
+ **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
 
 ### Return type
 

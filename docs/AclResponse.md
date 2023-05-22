@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **service_id** | **str** |  | [optional] [readonly] 
-**version** | **int** |  | [optional] [readonly] 
+**version** | **str** | String representing the number identifying a version of the service. | [optional] [readonly] 
 **id** | **str** |  | [optional] [readonly] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

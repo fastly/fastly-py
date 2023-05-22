@@ -79,6 +79,8 @@ class AclResponseAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'service_id': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
         }
 
@@ -88,10 +90,14 @@ class AclResponseAllOf(ModelNormal):
 
 
     attribute_map = {
+        'service_id': 'service_id',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
+        'service_id',  # noqa: E501
+        'version',  # noqa: E501
         'id',  # noqa: E501
     }
 
@@ -133,6 +139,8 @@ class AclResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            service_id (str): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
@@ -215,6 +223,8 @@ class AclResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            service_id (str): [optional]  # noqa: E501
+            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
         """
 
