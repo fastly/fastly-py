@@ -41,7 +41,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups/{user_group_id}',
                 'operation_id': 'delete_a_user_group',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -92,7 +97,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups/{user_group_id}',
                 'operation_id': 'get_a_user_group',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -145,7 +155,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups/{user_group_id}/members',
                 'operation_id': 'list_user_group_members',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -214,7 +229,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups/{user_group_id}/roles',
                 'operation_id': 'list_user_group_roles',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -283,7 +303,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups/{user_group_id}/service-groups',
                 'operation_id': 'list_user_group_service_groups',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -352,7 +377,12 @@ class IamUserGroupsApi(object):
                 'endpoint_path': '/user-groups',
                 'operation_id': 'list_user_groups',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

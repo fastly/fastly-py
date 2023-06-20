@@ -43,7 +43,12 @@ class ApexRedirectApi(object):
                 'endpoint_path': '/apex-redirects/{apex_redirect_id}',
                 'operation_id': 'delete_apex_redirect',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class ApexRedirectApi(object):
                 'endpoint_path': '/apex-redirects/{apex_redirect_id}',
                 'operation_id': 'get_apex_redirect',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -149,7 +159,12 @@ class ApexRedirectApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/apex-redirects',
                 'operation_id': 'list_apex_redirects',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -208,7 +223,12 @@ class ApexRedirectApi(object):
                 'endpoint_path': '/apex-redirects/{apex_redirect_id}',
                 'operation_id': 'update_apex_redirect',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -42,7 +42,12 @@ class EnabledProductsApi(object):
                 'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
                 'operation_id': 'disable_product',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -99,7 +104,12 @@ class EnabledProductsApi(object):
                 'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
                 'operation_id': 'enable_product',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -158,7 +168,12 @@ class EnabledProductsApi(object):
                 'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
                 'operation_id': 'get_enabled_product',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

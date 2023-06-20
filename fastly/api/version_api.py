@@ -45,7 +45,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/activate',
                 'operation_id': 'activate_service_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -104,7 +109,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/clone',
                 'operation_id': 'clone_service_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -163,7 +173,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version',
                 'operation_id': 'create_service_version',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -216,7 +231,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/deactivate',
                 'operation_id': 'deactivate_service_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -275,7 +295,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}',
                 'operation_id': 'get_service_version',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -334,7 +359,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version',
                 'operation_id': 'list_service_versions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -387,7 +417,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/lock',
                 'operation_id': 'lock_service_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -446,7 +481,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}',
                 'operation_id': 'update_service_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -543,7 +583,12 @@ class VersionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/validate',
                 'operation_id': 'validate_service_version',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

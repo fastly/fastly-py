@@ -43,7 +43,12 @@ class BillingApi(object):
                 'endpoint_path': '/billing/v2/year/{year}/month/{month}',
                 'operation_id': 'get_invoice',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -104,7 +109,12 @@ class BillingApi(object):
                 'endpoint_path': '/billing/v2/account_customers/{customer_id}/invoices/{invoice_id}',
                 'operation_id': 'get_invoice_by_id',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -165,7 +175,12 @@ class BillingApi(object):
                 'endpoint_path': '/billing/v2/account_customers/{customer_id}/mtd_invoice',
                 'operation_id': 'get_invoice_mtd',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

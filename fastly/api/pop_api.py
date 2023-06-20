@@ -42,7 +42,12 @@ class PopApi(object):
                 'endpoint_path': '/datacenters',
                 'operation_id': 'list_pops',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

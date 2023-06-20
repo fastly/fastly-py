@@ -41,7 +41,12 @@ class IamPermissionsApi(object):
                 'endpoint_path': '/permissions',
                 'operation_id': 'list_permissions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

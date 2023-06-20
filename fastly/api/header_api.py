@@ -43,7 +43,12 @@ class HeaderApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/header',
                 'operation_id': 'create_header_object',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -186,7 +191,12 @@ class HeaderApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/header/{header_name}',
                 'operation_id': 'delete_header_object',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -251,7 +261,12 @@ class HeaderApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/header/{header_name}',
                 'operation_id': 'get_header_object',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -316,7 +331,12 @@ class HeaderApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/header',
                 'operation_id': 'list_header_objects',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -375,7 +395,12 @@ class HeaderApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/header/{header_name}',
                 'operation_id': 'update_header_object',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

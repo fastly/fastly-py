@@ -42,7 +42,12 @@ class ContentApi(object):
                 'endpoint_path': '/content/edge_check',
                 'operation_id': 'content_check',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -44,7 +44,12 @@ class StarApi(object):
                 'endpoint_path': '/stars',
                 'operation_id': 'create_service_star',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class StarApi(object):
                 'endpoint_path': '/stars/{star_id}',
                 'operation_id': 'delete_service_star',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class StarApi(object):
                 'endpoint_path': '/stars/{star_id}',
                 'operation_id': 'get_service_star',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -200,7 +215,12 @@ class StarApi(object):
                 'endpoint_path': '/stars',
                 'operation_id': 'list_service_stars',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

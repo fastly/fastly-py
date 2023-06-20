@@ -29,8 +29,14 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.historical_field_results_attributes_all_of import HistoricalFieldResultsAttributesAllOf
+    from fastly.model.results import Results
+    globals()['HistoricalFieldResultsAttributesAllOf'] = HistoricalFieldResultsAttributesAllOf
+    globals()['Results'] = Results
 
-class RealtimeMeasurements(ModelNormal):
+
+class HistoricalFieldResultsAttributes(ModelComposed):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +70,7 @@ class RealtimeMeasurements(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,73 +85,97 @@ class RealtimeMeasurements(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'requests': (int,),  # noqa: E501
-            'logging': (int,),  # noqa: E501
-            'log': (int,),  # noqa: E501
-            'resp_header_bytes': (int,),  # noqa: E501
-            'header_size': (int,),  # noqa: E501
-            'resp_body_bytes': (int,),  # noqa: E501
-            'body_size': (int,),  # noqa: E501
             'hits': (int,),  # noqa: E501
-            'miss': (int,),  # noqa: E501
-            '_pass': (int,),  # noqa: E501
-            'synth': (int,),  # noqa: E501
-            'errors': (int,),  # noqa: E501
             'hits_time': (float,),  # noqa: E501
+            'miss': (int,),  # noqa: E501
             'miss_time': (float,),  # noqa: E501
-            'miss_histogram': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'compute_requests': (int,),  # noqa: E501
-            'compute_execution_time_ms': (float,),  # noqa: E501
-            'compute_ram_used': (int,),  # noqa: E501
-            'compute_request_time_ms': (float,),  # noqa: E501
-            'compute_request_time_billed_ms': (float,),  # noqa: E501
+            '_pass': (int,),  # noqa: E501
+            'pass_time': (float,),  # noqa: E501
+            'errors': (int,),  # noqa: E501
+            'restarts': (int,),  # noqa: E501
+            'hit_ratio': (float, none_type,),  # noqa: E501
+            'bandwidth': (int,),  # noqa: E501
+            'body_size': (int,),  # noqa: E501
+            'header_size': (int,),  # noqa: E501
+            'req_body_bytes': (int,),  # noqa: E501
+            'req_header_bytes': (int,),  # noqa: E501
+            'resp_body_bytes': (int,),  # noqa: E501
+            'resp_header_bytes': (int,),  # noqa: E501
+            'bereq_body_bytes': (int,),  # noqa: E501
+            'bereq_header_bytes': (int,),  # noqa: E501
+            'uncacheable': (int,),  # noqa: E501
+            'pipe': (int,),  # noqa: E501
+            'synth': (int,),  # noqa: E501
+            'tls': (int,),  # noqa: E501
+            'tls_v10': (int,),  # noqa: E501
+            'tls_v11': (int,),  # noqa: E501
+            'tls_v12': (int,),  # noqa: E501
+            'tls_v13': (int,),  # noqa: E501
+            'edge_requests': (int,),  # noqa: E501
+            'edge_resp_header_bytes': (int,),  # noqa: E501
+            'edge_resp_body_bytes': (int,),  # noqa: E501
+            'edge_hit_requests': (int,),  # noqa: E501
+            'edge_miss_requests': (int,),  # noqa: E501
+            'origin_fetches': (int,),  # noqa: E501
+            'origin_fetch_header_bytes': (int,),  # noqa: E501
+            'origin_fetch_body_bytes': (int,),  # noqa: E501
+            'origin_fetch_resp_header_bytes': (int,),  # noqa: E501
+            'origin_fetch_resp_body_bytes': (int,),  # noqa: E501
+            'origin_revalidations': (int,),  # noqa: E501
+            'origin_cache_fetches': (int,),  # noqa: E501
             'shield': (int,),  # noqa: E501
+            'shield_resp_body_bytes': (int,),  # noqa: E501
+            'shield_resp_header_bytes': (int,),  # noqa: E501
+            'shield_fetches': (int,),  # noqa: E501
+            'shield_fetch_header_bytes': (int,),  # noqa: E501
+            'shield_fetch_body_bytes': (int,),  # noqa: E501
+            'shield_fetch_resp_header_bytes': (int,),  # noqa: E501
+            'shield_fetch_resp_body_bytes': (int,),  # noqa: E501
+            'shield_revalidations': (int,),  # noqa: E501
+            'shield_cache_fetches': (int,),  # noqa: E501
             'ipv6': (int,),  # noqa: E501
-            'imgopto': (int,),  # noqa: E501
-            'imgopto_shield': (int,),  # noqa: E501
-            'imgopto_transforms': (int,),  # noqa: E501
             'otfp': (int,),  # noqa: E501
-            'otfp_shield': (int,),  # noqa: E501
+            'otfp_resp_body_bytes': (int,),  # noqa: E501
+            'otfp_resp_header_bytes': (int,),  # noqa: E501
+            'otfp_shield_resp_body_bytes': (int,),  # noqa: E501
+            'otfp_shield_resp_header_bytes': (int,),  # noqa: E501
             'otfp_manifests': (int,),  # noqa: E501
+            'otfp_deliver_time': (float,),  # noqa: E501
+            'otfp_shield_time': (float,),  # noqa: E501
             'video': (int,),  # noqa: E501
             'pci': (int,),  # noqa: E501
+            'log': (int,),  # noqa: E501
+            'log_bytes': (int,),  # noqa: E501
             'http2': (int,),  # noqa: E501
             'http3': (int,),  # noqa: E501
-            'restarts': (int,),  # noqa: E501
-            'req_header_bytes': (int,),  # noqa: E501
-            'req_body_bytes': (int,),  # noqa: E501
-            'bereq_header_bytes': (int,),  # noqa: E501
-            'bereq_body_bytes': (int,),  # noqa: E501
-            'waf_blocked': (int,),  # noqa: E501
             'waf_logged': (int,),  # noqa: E501
+            'waf_blocked': (int,),  # noqa: E501
             'waf_passed': (int,),  # noqa: E501
-            'attack_req_header_bytes': (int,),  # noqa: E501
             'attack_req_body_bytes': (int,),  # noqa: E501
-            'attack_resp_synth_bytes': (int,),  # noqa: E501
-            'attack_logged_req_header_bytes': (int,),  # noqa: E501
+            'attack_req_header_bytes': (int,),  # noqa: E501
             'attack_logged_req_body_bytes': (int,),  # noqa: E501
-            'attack_blocked_req_header_bytes': (int,),  # noqa: E501
+            'attack_logged_req_header_bytes': (int,),  # noqa: E501
             'attack_blocked_req_body_bytes': (int,),  # noqa: E501
-            'attack_passed_req_header_bytes': (int,),  # noqa: E501
+            'attack_blocked_req_header_bytes': (int,),  # noqa: E501
             'attack_passed_req_body_bytes': (int,),  # noqa: E501
-            'shield_resp_header_bytes': (int,),  # noqa: E501
-            'shield_resp_body_bytes': (int,),  # noqa: E501
-            'otfp_resp_header_bytes': (int,),  # noqa: E501
-            'otfp_resp_body_bytes': (int,),  # noqa: E501
-            'otfp_shield_resp_header_bytes': (int,),  # noqa: E501
-            'otfp_shield_resp_body_bytes': (int,),  # noqa: E501
-            'otfp_shield_time': (float,),  # noqa: E501
-            'otfp_deliver_time': (float,),  # noqa: E501
-            'imgopto_resp_header_bytes': (int,),  # noqa: E501
+            'attack_passed_req_header_bytes': (int,),  # noqa: E501
+            'attack_resp_synth_bytes': (int,),  # noqa: E501
+            'imgopto': (int,),  # noqa: E501
             'imgopto_resp_body_bytes': (int,),  # noqa: E501
-            'imgopto_shield_resp_header_bytes': (int,),  # noqa: E501
+            'imgopto_resp_header_bytes': (int,),  # noqa: E501
             'imgopto_shield_resp_body_bytes': (int,),  # noqa: E501
-            'status_1xx': (int,),  # noqa: E501
-            'status_2xx': (int,),  # noqa: E501
-            'status_3xx': (int,),  # noqa: E501
-            'status_4xx': (int,),  # noqa: E501
-            'status_5xx': (int,),  # noqa: E501
+            'imgopto_shield_resp_header_bytes': (int,),  # noqa: E501
+            'imgvideo': (int,),  # noqa: E501
+            'imgvideo_frames': (int,),  # noqa: E501
+            'imgvideo_resp_header_bytes': (int,),  # noqa: E501
+            'imgvideo_resp_body_bytes': (int,),  # noqa: E501
+            'imgvideo_shield_resp_header_bytes': (int,),  # noqa: E501
+            'imgvideo_shield_resp_body_bytes': (int,),  # noqa: E501
+            'imgvideo_shield': (int,),  # noqa: E501
+            'imgvideo_shield_frames': (int,),  # noqa: E501
             'status_200': (int,),  # noqa: E501
             'status_204': (int,),  # noqa: E501
             'status_206': (int,),  # noqa: E501
@@ -164,13 +195,11 @@ class RealtimeMeasurements(ModelNormal):
             'status_503': (int,),  # noqa: E501
             'status_504': (int,),  # noqa: E501
             'status_505': (int,),  # noqa: E501
-            'uncacheable': (int,),  # noqa: E501
-            'pass_time': (float,),  # noqa: E501
-            'tls': (int,),  # noqa: E501
-            'tls_v10': (int,),  # noqa: E501
-            'tls_v11': (int,),  # noqa: E501
-            'tls_v12': (int,),  # noqa: E501
-            'tls_v13': (int,),  # noqa: E501
+            'status_1xx': (int,),  # noqa: E501
+            'status_2xx': (int,),  # noqa: E501
+            'status_3xx': (int,),  # noqa: E501
+            'status_4xx': (int,),  # noqa: E501
+            'status_5xx': (int,),  # noqa: E501
             'object_size_1k': (int,),  # noqa: E501
             'object_size_10k': (int,),  # noqa: E501
             'object_size_100k': (int,),  # noqa: E501
@@ -178,7 +207,6 @@ class RealtimeMeasurements(ModelNormal):
             'object_size_10m': (int,),  # noqa: E501
             'object_size_100m': (int,),  # noqa: E501
             'object_size_1g': (int,),  # noqa: E501
-            'object_size_other': (int,),  # noqa: E501
             'recv_sub_time': (float,),  # noqa: E501
             'recv_sub_count': (int,),  # noqa: E501
             'hash_sub_time': (float,),  # noqa: E501
@@ -201,52 +229,30 @@ class RealtimeMeasurements(ModelNormal):
             'prehash_sub_count': (int,),  # noqa: E501
             'predeliver_sub_time': (float,),  # noqa: E501
             'predeliver_sub_count': (int,),  # noqa: E501
+            'tls_handshake_sent_bytes': (int,),  # noqa: E501
             'hit_resp_body_bytes': (int,),  # noqa: E501
             'miss_resp_body_bytes': (int,),  # noqa: E501
             'pass_resp_body_bytes': (int,),  # noqa: E501
+            'segblock_origin_fetches': (int,),  # noqa: E501
+            'segblock_shield_fetches': (int,),  # noqa: E501
+            'compute_requests': (int,),  # noqa: E501
+            'compute_request_time_ms': (float,),  # noqa: E501
+            'compute_request_time_billed_ms': (float,),  # noqa: E501
+            'compute_ram_used': (int,),  # noqa: E501
+            'compute_execution_time_ms': (float,),  # noqa: E501
             'compute_req_header_bytes': (int,),  # noqa: E501
             'compute_req_body_bytes': (int,),  # noqa: E501
             'compute_resp_header_bytes': (int,),  # noqa: E501
             'compute_resp_body_bytes': (int,),  # noqa: E501
-            'imgvideo': (int,),  # noqa: E501
-            'imgvideo_frames': (int,),  # noqa: E501
-            'imgvideo_resp_header_bytes': (int,),  # noqa: E501
-            'imgvideo_resp_body_bytes': (int,),  # noqa: E501
-            'imgvideo_shield': (int,),  # noqa: E501
-            'imgvideo_shield_frames': (int,),  # noqa: E501
-            'imgvideo_shield_resp_header_bytes': (int,),  # noqa: E501
-            'imgvideo_shield_resp_body_bytes': (int,),  # noqa: E501
-            'log_bytes': (int,),  # noqa: E501
-            'edge_requests': (int,),  # noqa: E501
-            'edge_resp_header_bytes': (int,),  # noqa: E501
-            'edge_resp_body_bytes': (int,),  # noqa: E501
-            'origin_revalidations': (int,),  # noqa: E501
-            'origin_fetches': (int,),  # noqa: E501
-            'origin_fetch_header_bytes': (int,),  # noqa: E501
-            'origin_fetch_body_bytes': (int,),  # noqa: E501
-            'origin_fetch_resp_header_bytes': (int,),  # noqa: E501
-            'origin_fetch_resp_body_bytes': (int,),  # noqa: E501
-            'shield_revalidations': (int,),  # noqa: E501
-            'shield_fetches': (int,),  # noqa: E501
-            'shield_fetch_header_bytes': (int,),  # noqa: E501
-            'shield_fetch_body_bytes': (int,),  # noqa: E501
-            'shield_fetch_resp_header_bytes': (int,),  # noqa: E501
-            'shield_fetch_resp_body_bytes': (int,),  # noqa: E501
-            'segblock_origin_fetches': (int,),  # noqa: E501
-            'segblock_shield_fetches': (int,),  # noqa: E501
             'compute_resp_status_1xx': (int,),  # noqa: E501
             'compute_resp_status_2xx': (int,),  # noqa: E501
             'compute_resp_status_3xx': (int,),  # noqa: E501
             'compute_resp_status_4xx': (int,),  # noqa: E501
             'compute_resp_status_5xx': (int,),  # noqa: E501
-            'edge_hit_requests': (int,),  # noqa: E501
-            'edge_miss_requests': (int,),  # noqa: E501
             'compute_bereq_header_bytes': (int,),  # noqa: E501
             'compute_bereq_body_bytes': (int,),  # noqa: E501
             'compute_beresp_header_bytes': (int,),  # noqa: E501
             'compute_beresp_body_bytes': (int,),  # noqa: E501
-            'origin_cache_fetches': (int,),  # noqa: E501
-            'shield_cache_fetches': (int,),  # noqa: E501
             'compute_bereqs': (int,),  # noqa: E501
             'compute_bereq_errors': (int,),  # noqa: E501
             'compute_resource_limit_exceeded': (int,),  # noqa: E501
@@ -270,12 +276,12 @@ class RealtimeMeasurements(ModelNormal):
             'websocket_req_header_bytes': (int,),  # noqa: E501
             'websocket_req_body_bytes': (int,),  # noqa: E501
             'websocket_resp_header_bytes': (int,),  # noqa: E501
+            'websocket_resp_body_bytes': (int,),  # noqa: E501
             'websocket_bereq_header_bytes': (int,),  # noqa: E501
             'websocket_bereq_body_bytes': (int,),  # noqa: E501
             'websocket_beresp_header_bytes': (int,),  # noqa: E501
             'websocket_beresp_body_bytes': (int,),  # noqa: E501
             'websocket_conn_time_ms': (int,),  # noqa: E501
-            'websocket_resp_body_bytes': (int,),  # noqa: E501
             'fanout_recv_publishes': (int,),  # noqa: E501
             'fanout_send_publishes': (int,),  # noqa: E501
             'kv_store_class_a_operations': (int,),  # noqa: E501
@@ -297,6 +303,8 @@ class RealtimeMeasurements(ModelNormal):
             'ddos_action_tarpit': (int,),  # noqa: E501
             'ddos_action_close': (int,),  # noqa: E501
             'ddos_action_blackhole': (int,),  # noqa: E501
+            'service_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'start_time': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -306,71 +314,94 @@ class RealtimeMeasurements(ModelNormal):
 
     attribute_map = {
         'requests': 'requests',  # noqa: E501
-        'logging': 'logging',  # noqa: E501
-        'log': 'log',  # noqa: E501
-        'resp_header_bytes': 'resp_header_bytes',  # noqa: E501
-        'header_size': 'header_size',  # noqa: E501
-        'resp_body_bytes': 'resp_body_bytes',  # noqa: E501
-        'body_size': 'body_size',  # noqa: E501
         'hits': 'hits',  # noqa: E501
-        'miss': 'miss',  # noqa: E501
-        '_pass': 'pass',  # noqa: E501
-        'synth': 'synth',  # noqa: E501
-        'errors': 'errors',  # noqa: E501
         'hits_time': 'hits_time',  # noqa: E501
+        'miss': 'miss',  # noqa: E501
         'miss_time': 'miss_time',  # noqa: E501
-        'miss_histogram': 'miss_histogram',  # noqa: E501
-        'compute_requests': 'compute_requests',  # noqa: E501
-        'compute_execution_time_ms': 'compute_execution_time_ms',  # noqa: E501
-        'compute_ram_used': 'compute_ram_used',  # noqa: E501
-        'compute_request_time_ms': 'compute_request_time_ms',  # noqa: E501
-        'compute_request_time_billed_ms': 'compute_request_time_billed_ms',  # noqa: E501
+        '_pass': 'pass',  # noqa: E501
+        'pass_time': 'pass_time',  # noqa: E501
+        'errors': 'errors',  # noqa: E501
+        'restarts': 'restarts',  # noqa: E501
+        'hit_ratio': 'hit_ratio',  # noqa: E501
+        'bandwidth': 'bandwidth',  # noqa: E501
+        'body_size': 'body_size',  # noqa: E501
+        'header_size': 'header_size',  # noqa: E501
+        'req_body_bytes': 'req_body_bytes',  # noqa: E501
+        'req_header_bytes': 'req_header_bytes',  # noqa: E501
+        'resp_body_bytes': 'resp_body_bytes',  # noqa: E501
+        'resp_header_bytes': 'resp_header_bytes',  # noqa: E501
+        'bereq_body_bytes': 'bereq_body_bytes',  # noqa: E501
+        'bereq_header_bytes': 'bereq_header_bytes',  # noqa: E501
+        'uncacheable': 'uncacheable',  # noqa: E501
+        'pipe': 'pipe',  # noqa: E501
+        'synth': 'synth',  # noqa: E501
+        'tls': 'tls',  # noqa: E501
+        'tls_v10': 'tls_v10',  # noqa: E501
+        'tls_v11': 'tls_v11',  # noqa: E501
+        'tls_v12': 'tls_v12',  # noqa: E501
+        'tls_v13': 'tls_v13',  # noqa: E501
+        'edge_requests': 'edge_requests',  # noqa: E501
+        'edge_resp_header_bytes': 'edge_resp_header_bytes',  # noqa: E501
+        'edge_resp_body_bytes': 'edge_resp_body_bytes',  # noqa: E501
+        'edge_hit_requests': 'edge_hit_requests',  # noqa: E501
+        'edge_miss_requests': 'edge_miss_requests',  # noqa: E501
+        'origin_fetches': 'origin_fetches',  # noqa: E501
+        'origin_fetch_header_bytes': 'origin_fetch_header_bytes',  # noqa: E501
+        'origin_fetch_body_bytes': 'origin_fetch_body_bytes',  # noqa: E501
+        'origin_fetch_resp_header_bytes': 'origin_fetch_resp_header_bytes',  # noqa: E501
+        'origin_fetch_resp_body_bytes': 'origin_fetch_resp_body_bytes',  # noqa: E501
+        'origin_revalidations': 'origin_revalidations',  # noqa: E501
+        'origin_cache_fetches': 'origin_cache_fetches',  # noqa: E501
         'shield': 'shield',  # noqa: E501
+        'shield_resp_body_bytes': 'shield_resp_body_bytes',  # noqa: E501
+        'shield_resp_header_bytes': 'shield_resp_header_bytes',  # noqa: E501
+        'shield_fetches': 'shield_fetches',  # noqa: E501
+        'shield_fetch_header_bytes': 'shield_fetch_header_bytes',  # noqa: E501
+        'shield_fetch_body_bytes': 'shield_fetch_body_bytes',  # noqa: E501
+        'shield_fetch_resp_header_bytes': 'shield_fetch_resp_header_bytes',  # noqa: E501
+        'shield_fetch_resp_body_bytes': 'shield_fetch_resp_body_bytes',  # noqa: E501
+        'shield_revalidations': 'shield_revalidations',  # noqa: E501
+        'shield_cache_fetches': 'shield_cache_fetches',  # noqa: E501
         'ipv6': 'ipv6',  # noqa: E501
-        'imgopto': 'imgopto',  # noqa: E501
-        'imgopto_shield': 'imgopto_shield',  # noqa: E501
-        'imgopto_transforms': 'imgopto_transforms',  # noqa: E501
         'otfp': 'otfp',  # noqa: E501
-        'otfp_shield': 'otfp_shield',  # noqa: E501
+        'otfp_resp_body_bytes': 'otfp_resp_body_bytes',  # noqa: E501
+        'otfp_resp_header_bytes': 'otfp_resp_header_bytes',  # noqa: E501
+        'otfp_shield_resp_body_bytes': 'otfp_shield_resp_body_bytes',  # noqa: E501
+        'otfp_shield_resp_header_bytes': 'otfp_shield_resp_header_bytes',  # noqa: E501
         'otfp_manifests': 'otfp_manifests',  # noqa: E501
+        'otfp_deliver_time': 'otfp_deliver_time',  # noqa: E501
+        'otfp_shield_time': 'otfp_shield_time',  # noqa: E501
         'video': 'video',  # noqa: E501
         'pci': 'pci',  # noqa: E501
+        'log': 'log',  # noqa: E501
+        'log_bytes': 'log_bytes',  # noqa: E501
         'http2': 'http2',  # noqa: E501
         'http3': 'http3',  # noqa: E501
-        'restarts': 'restarts',  # noqa: E501
-        'req_header_bytes': 'req_header_bytes',  # noqa: E501
-        'req_body_bytes': 'req_body_bytes',  # noqa: E501
-        'bereq_header_bytes': 'bereq_header_bytes',  # noqa: E501
-        'bereq_body_bytes': 'bereq_body_bytes',  # noqa: E501
-        'waf_blocked': 'waf_blocked',  # noqa: E501
         'waf_logged': 'waf_logged',  # noqa: E501
+        'waf_blocked': 'waf_blocked',  # noqa: E501
         'waf_passed': 'waf_passed',  # noqa: E501
-        'attack_req_header_bytes': 'attack_req_header_bytes',  # noqa: E501
         'attack_req_body_bytes': 'attack_req_body_bytes',  # noqa: E501
-        'attack_resp_synth_bytes': 'attack_resp_synth_bytes',  # noqa: E501
-        'attack_logged_req_header_bytes': 'attack_logged_req_header_bytes',  # noqa: E501
+        'attack_req_header_bytes': 'attack_req_header_bytes',  # noqa: E501
         'attack_logged_req_body_bytes': 'attack_logged_req_body_bytes',  # noqa: E501
-        'attack_blocked_req_header_bytes': 'attack_blocked_req_header_bytes',  # noqa: E501
+        'attack_logged_req_header_bytes': 'attack_logged_req_header_bytes',  # noqa: E501
         'attack_blocked_req_body_bytes': 'attack_blocked_req_body_bytes',  # noqa: E501
-        'attack_passed_req_header_bytes': 'attack_passed_req_header_bytes',  # noqa: E501
+        'attack_blocked_req_header_bytes': 'attack_blocked_req_header_bytes',  # noqa: E501
         'attack_passed_req_body_bytes': 'attack_passed_req_body_bytes',  # noqa: E501
-        'shield_resp_header_bytes': 'shield_resp_header_bytes',  # noqa: E501
-        'shield_resp_body_bytes': 'shield_resp_body_bytes',  # noqa: E501
-        'otfp_resp_header_bytes': 'otfp_resp_header_bytes',  # noqa: E501
-        'otfp_resp_body_bytes': 'otfp_resp_body_bytes',  # noqa: E501
-        'otfp_shield_resp_header_bytes': 'otfp_shield_resp_header_bytes',  # noqa: E501
-        'otfp_shield_resp_body_bytes': 'otfp_shield_resp_body_bytes',  # noqa: E501
-        'otfp_shield_time': 'otfp_shield_time',  # noqa: E501
-        'otfp_deliver_time': 'otfp_deliver_time',  # noqa: E501
-        'imgopto_resp_header_bytes': 'imgopto_resp_header_bytes',  # noqa: E501
+        'attack_passed_req_header_bytes': 'attack_passed_req_header_bytes',  # noqa: E501
+        'attack_resp_synth_bytes': 'attack_resp_synth_bytes',  # noqa: E501
+        'imgopto': 'imgopto',  # noqa: E501
         'imgopto_resp_body_bytes': 'imgopto_resp_body_bytes',  # noqa: E501
-        'imgopto_shield_resp_header_bytes': 'imgopto_shield_resp_header_bytes',  # noqa: E501
+        'imgopto_resp_header_bytes': 'imgopto_resp_header_bytes',  # noqa: E501
         'imgopto_shield_resp_body_bytes': 'imgopto_shield_resp_body_bytes',  # noqa: E501
-        'status_1xx': 'status_1xx',  # noqa: E501
-        'status_2xx': 'status_2xx',  # noqa: E501
-        'status_3xx': 'status_3xx',  # noqa: E501
-        'status_4xx': 'status_4xx',  # noqa: E501
-        'status_5xx': 'status_5xx',  # noqa: E501
+        'imgopto_shield_resp_header_bytes': 'imgopto_shield_resp_header_bytes',  # noqa: E501
+        'imgvideo': 'imgvideo',  # noqa: E501
+        'imgvideo_frames': 'imgvideo_frames',  # noqa: E501
+        'imgvideo_resp_header_bytes': 'imgvideo_resp_header_bytes',  # noqa: E501
+        'imgvideo_resp_body_bytes': 'imgvideo_resp_body_bytes',  # noqa: E501
+        'imgvideo_shield_resp_header_bytes': 'imgvideo_shield_resp_header_bytes',  # noqa: E501
+        'imgvideo_shield_resp_body_bytes': 'imgvideo_shield_resp_body_bytes',  # noqa: E501
+        'imgvideo_shield': 'imgvideo_shield',  # noqa: E501
+        'imgvideo_shield_frames': 'imgvideo_shield_frames',  # noqa: E501
         'status_200': 'status_200',  # noqa: E501
         'status_204': 'status_204',  # noqa: E501
         'status_206': 'status_206',  # noqa: E501
@@ -390,13 +421,11 @@ class RealtimeMeasurements(ModelNormal):
         'status_503': 'status_503',  # noqa: E501
         'status_504': 'status_504',  # noqa: E501
         'status_505': 'status_505',  # noqa: E501
-        'uncacheable': 'uncacheable',  # noqa: E501
-        'pass_time': 'pass_time',  # noqa: E501
-        'tls': 'tls',  # noqa: E501
-        'tls_v10': 'tls_v10',  # noqa: E501
-        'tls_v11': 'tls_v11',  # noqa: E501
-        'tls_v12': 'tls_v12',  # noqa: E501
-        'tls_v13': 'tls_v13',  # noqa: E501
+        'status_1xx': 'status_1xx',  # noqa: E501
+        'status_2xx': 'status_2xx',  # noqa: E501
+        'status_3xx': 'status_3xx',  # noqa: E501
+        'status_4xx': 'status_4xx',  # noqa: E501
+        'status_5xx': 'status_5xx',  # noqa: E501
         'object_size_1k': 'object_size_1k',  # noqa: E501
         'object_size_10k': 'object_size_10k',  # noqa: E501
         'object_size_100k': 'object_size_100k',  # noqa: E501
@@ -404,7 +433,6 @@ class RealtimeMeasurements(ModelNormal):
         'object_size_10m': 'object_size_10m',  # noqa: E501
         'object_size_100m': 'object_size_100m',  # noqa: E501
         'object_size_1g': 'object_size_1g',  # noqa: E501
-        'object_size_other': 'object_size_other',  # noqa: E501
         'recv_sub_time': 'recv_sub_time',  # noqa: E501
         'recv_sub_count': 'recv_sub_count',  # noqa: E501
         'hash_sub_time': 'hash_sub_time',  # noqa: E501
@@ -427,52 +455,30 @@ class RealtimeMeasurements(ModelNormal):
         'prehash_sub_count': 'prehash_sub_count',  # noqa: E501
         'predeliver_sub_time': 'predeliver_sub_time',  # noqa: E501
         'predeliver_sub_count': 'predeliver_sub_count',  # noqa: E501
+        'tls_handshake_sent_bytes': 'tls_handshake_sent_bytes',  # noqa: E501
         'hit_resp_body_bytes': 'hit_resp_body_bytes',  # noqa: E501
         'miss_resp_body_bytes': 'miss_resp_body_bytes',  # noqa: E501
         'pass_resp_body_bytes': 'pass_resp_body_bytes',  # noqa: E501
+        'segblock_origin_fetches': 'segblock_origin_fetches',  # noqa: E501
+        'segblock_shield_fetches': 'segblock_shield_fetches',  # noqa: E501
+        'compute_requests': 'compute_requests',  # noqa: E501
+        'compute_request_time_ms': 'compute_request_time_ms',  # noqa: E501
+        'compute_request_time_billed_ms': 'compute_request_time_billed_ms',  # noqa: E501
+        'compute_ram_used': 'compute_ram_used',  # noqa: E501
+        'compute_execution_time_ms': 'compute_execution_time_ms',  # noqa: E501
         'compute_req_header_bytes': 'compute_req_header_bytes',  # noqa: E501
         'compute_req_body_bytes': 'compute_req_body_bytes',  # noqa: E501
         'compute_resp_header_bytes': 'compute_resp_header_bytes',  # noqa: E501
         'compute_resp_body_bytes': 'compute_resp_body_bytes',  # noqa: E501
-        'imgvideo': 'imgvideo',  # noqa: E501
-        'imgvideo_frames': 'imgvideo_frames',  # noqa: E501
-        'imgvideo_resp_header_bytes': 'imgvideo_resp_header_bytes',  # noqa: E501
-        'imgvideo_resp_body_bytes': 'imgvideo_resp_body_bytes',  # noqa: E501
-        'imgvideo_shield': 'imgvideo_shield',  # noqa: E501
-        'imgvideo_shield_frames': 'imgvideo_shield_frames',  # noqa: E501
-        'imgvideo_shield_resp_header_bytes': 'imgvideo_shield_resp_header_bytes',  # noqa: E501
-        'imgvideo_shield_resp_body_bytes': 'imgvideo_shield_resp_body_bytes',  # noqa: E501
-        'log_bytes': 'log_bytes',  # noqa: E501
-        'edge_requests': 'edge_requests',  # noqa: E501
-        'edge_resp_header_bytes': 'edge_resp_header_bytes',  # noqa: E501
-        'edge_resp_body_bytes': 'edge_resp_body_bytes',  # noqa: E501
-        'origin_revalidations': 'origin_revalidations',  # noqa: E501
-        'origin_fetches': 'origin_fetches',  # noqa: E501
-        'origin_fetch_header_bytes': 'origin_fetch_header_bytes',  # noqa: E501
-        'origin_fetch_body_bytes': 'origin_fetch_body_bytes',  # noqa: E501
-        'origin_fetch_resp_header_bytes': 'origin_fetch_resp_header_bytes',  # noqa: E501
-        'origin_fetch_resp_body_bytes': 'origin_fetch_resp_body_bytes',  # noqa: E501
-        'shield_revalidations': 'shield_revalidations',  # noqa: E501
-        'shield_fetches': 'shield_fetches',  # noqa: E501
-        'shield_fetch_header_bytes': 'shield_fetch_header_bytes',  # noqa: E501
-        'shield_fetch_body_bytes': 'shield_fetch_body_bytes',  # noqa: E501
-        'shield_fetch_resp_header_bytes': 'shield_fetch_resp_header_bytes',  # noqa: E501
-        'shield_fetch_resp_body_bytes': 'shield_fetch_resp_body_bytes',  # noqa: E501
-        'segblock_origin_fetches': 'segblock_origin_fetches',  # noqa: E501
-        'segblock_shield_fetches': 'segblock_shield_fetches',  # noqa: E501
         'compute_resp_status_1xx': 'compute_resp_status_1xx',  # noqa: E501
         'compute_resp_status_2xx': 'compute_resp_status_2xx',  # noqa: E501
         'compute_resp_status_3xx': 'compute_resp_status_3xx',  # noqa: E501
         'compute_resp_status_4xx': 'compute_resp_status_4xx',  # noqa: E501
         'compute_resp_status_5xx': 'compute_resp_status_5xx',  # noqa: E501
-        'edge_hit_requests': 'edge_hit_requests',  # noqa: E501
-        'edge_miss_requests': 'edge_miss_requests',  # noqa: E501
         'compute_bereq_header_bytes': 'compute_bereq_header_bytes',  # noqa: E501
         'compute_bereq_body_bytes': 'compute_bereq_body_bytes',  # noqa: E501
         'compute_beresp_header_bytes': 'compute_beresp_header_bytes',  # noqa: E501
         'compute_beresp_body_bytes': 'compute_beresp_body_bytes',  # noqa: E501
-        'origin_cache_fetches': 'origin_cache_fetches',  # noqa: E501
-        'shield_cache_fetches': 'shield_cache_fetches',  # noqa: E501
         'compute_bereqs': 'compute_bereqs',  # noqa: E501
         'compute_bereq_errors': 'compute_bereq_errors',  # noqa: E501
         'compute_resource_limit_exceeded': 'compute_resource_limit_exceeded',  # noqa: E501
@@ -496,12 +502,12 @@ class RealtimeMeasurements(ModelNormal):
         'websocket_req_header_bytes': 'websocket_req_header_bytes',  # noqa: E501
         'websocket_req_body_bytes': 'websocket_req_body_bytes',  # noqa: E501
         'websocket_resp_header_bytes': 'websocket_resp_header_bytes',  # noqa: E501
+        'websocket_resp_body_bytes': 'websocket_resp_body_bytes',  # noqa: E501
         'websocket_bereq_header_bytes': 'websocket_bereq_header_bytes',  # noqa: E501
         'websocket_bereq_body_bytes': 'websocket_bereq_body_bytes',  # noqa: E501
         'websocket_beresp_header_bytes': 'websocket_beresp_header_bytes',  # noqa: E501
         'websocket_beresp_body_bytes': 'websocket_beresp_body_bytes',  # noqa: E501
         'websocket_conn_time_ms': 'websocket_conn_time_ms',  # noqa: E501
-        'websocket_resp_body_bytes': 'websocket_resp_body_bytes',  # noqa: E501
         'fanout_recv_publishes': 'fanout_recv_publishes',  # noqa: E501
         'fanout_send_publishes': 'fanout_send_publishes',  # noqa: E501
         'kv_store_class_a_operations': 'kv_store_class_a_operations',  # noqa: E501
@@ -523,17 +529,18 @@ class RealtimeMeasurements(ModelNormal):
         'ddos_action_tarpit': 'ddos_action_tarpit',  # noqa: E501
         'ddos_action_close': 'ddos_action_close',  # noqa: E501
         'ddos_action_blackhole': 'ddos_action_blackhole',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
     }
 
     read_only_vars = {
+        'service_id',  # noqa: E501
     }
-
-    _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """RealtimeMeasurements - a model defined in OpenAPI
+        """HistoricalFieldResultsAttributes - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -567,71 +574,94 @@ class RealtimeMeasurements(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             requests (int): Number of requests processed.. [optional]  # noqa: E501
-            logging (int): Number of log lines sent (alias for `log`).. [optional]  # noqa: E501
-            log (int): Number of log lines sent.. [optional]  # noqa: E501
-            resp_header_bytes (int): Total header bytes delivered (edge_resp_header_bytes + shield_resp_header_bytes).. [optional]  # noqa: E501
-            header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
-            resp_body_bytes (int): Total body bytes delivered (edge_resp_body_bytes + shield_resp_body_bytes).. [optional]  # noqa: E501
-            body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
             hits (int): Number of cache hits.. [optional]  # noqa: E501
-            miss (int): Number of cache misses.. [optional]  # noqa: E501
-            _pass (int): Number of requests that passed through the CDN without being cached.. [optional]  # noqa: E501
-            synth (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement).. [optional]  # noqa: E501
-            errors (int): Number of cache errors.. [optional]  # noqa: E501
             hits_time (float): Total amount of time spent processing cache hits (in seconds).. [optional]  # noqa: E501
+            miss (int): Number of cache misses.. [optional]  # noqa: E501
             miss_time (float): Total amount of time spent processing cache misses (in seconds).. [optional]  # noqa: E501
-            miss_histogram ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): A histogram. Each key represents the upper bound of a span of 10 milliseconds and the values represent the number of requests to origin during that 10ms period. Any origin request that takes more than 60 seconds to return will be in the 60000 bucket.. [optional]  # noqa: E501
-            compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
-            compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
-            compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
-            compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
-            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            _pass (int): Number of requests that passed through the CDN without being cached.. [optional]  # noqa: E501
+            pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
+            errors (int): Number of cache errors.. [optional]  # noqa: E501
+            restarts (int): Number of restarts performed.. [optional]  # noqa: E501
+            hit_ratio (float, none_type): Ratio of cache hits to cache misses (between 0 and 1).. [optional]  # noqa: E501
+            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes` + `fanout_resp_header_bytes` + `fanout_resp_body_bytes` + `fanout_bereq_header_bytes` + `fanout_bereq_body_bytes`).. [optional]  # noqa: E501
+            body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
+            header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
+            req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
+            req_header_bytes (int): Total header bytes received.. [optional]  # noqa: E501
+            resp_body_bytes (int): Total body bytes delivered (edge_resp_body_bytes + shield_resp_body_bytes).. [optional]  # noqa: E501
+            resp_header_bytes (int): Total header bytes delivered (edge_resp_header_bytes + shield_resp_header_bytes).. [optional]  # noqa: E501
+            bereq_body_bytes (int): Total body bytes sent to origin.. [optional]  # noqa: E501
+            bereq_header_bytes (int): Total header bytes sent to origin.. [optional]  # noqa: E501
+            uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
+            pipe (int): Optional. Pipe operations performed (legacy feature).. [optional]  # noqa: E501
+            synth (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement).. [optional]  # noqa: E501
+            tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
+            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
+            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
+            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
+            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            edge_requests (int): Number of requests sent by end users to Fastly.. [optional]  # noqa: E501
+            edge_resp_header_bytes (int): Total header bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
+            edge_resp_body_bytes (int): Total body bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
+            edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
+            edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
+            origin_fetches (int): Number of requests sent to origin.. [optional]  # noqa: E501
+            origin_fetch_header_bytes (int): Total request header bytes sent to origin.. [optional]  # noqa: E501
+            origin_fetch_body_bytes (int): Total request body bytes sent to origin.. [optional]  # noqa: E501
+            origin_fetch_resp_header_bytes (int): Total header bytes received from origin.. [optional]  # noqa: E501
+            origin_fetch_resp_body_bytes (int): Total body bytes received from origin.. [optional]  # noqa: E501
+            origin_revalidations (int): Number of responses received from origin with a `304` status code in response to an `If-Modified-Since` or `If-None-Match` request. Under regular scenarios, a revalidation will imply a cache hit. However, if using Fastly Image Optimizer or segmented caching this may result in a cache miss.. [optional]  # noqa: E501
+            origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
             shield (int): Number of requests from edge to the shield POP.. [optional]  # noqa: E501
+            shield_resp_body_bytes (int): Total body bytes delivered via a shield.. [optional]  # noqa: E501
+            shield_resp_header_bytes (int): Total header bytes delivered via a shield.. [optional]  # noqa: E501
+            shield_fetches (int): Number of requests made from one Fastly POP to another, as part of shielding.. [optional]  # noqa: E501
+            shield_fetch_header_bytes (int): Total request header bytes sent to a shield.. [optional]  # noqa: E501
+            shield_fetch_body_bytes (int): Total request body bytes sent to a shield.. [optional]  # noqa: E501
+            shield_fetch_resp_header_bytes (int): Total response header bytes sent from a shield to the edge.. [optional]  # noqa: E501
+            shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
+            shield_revalidations (int): Number of responses received from origin with a `304` status code, in response to an `If-Modified-Since` or `If-None-Match` request to a shield. Under regular scenarios, a revalidation will imply a cache hit. However, if using segmented caching this may result in a cache miss.. [optional]  # noqa: E501
+            shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             ipv6 (int): Number of requests that were received over IPv6.. [optional]  # noqa: E501
-            imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
-            imgopto_shield (int): Number of responses that came from the Fastly Image Optimizer service via a shield.. [optional]  # noqa: E501
-            imgopto_transforms (int): Number of transforms performed by the Fastly Image Optimizer service.. [optional]  # noqa: E501
             otfp (int): Number of responses that came from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield (int): Number of responses that came from the Fastly On-the-Fly Packaging service for video-on-demand via a shield.. [optional]  # noqa: E501
+            otfp_resp_body_bytes (int): Total body bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_resp_header_bytes (int): Total header bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_shield_resp_header_bytes (int): Total header bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
             otfp_manifests (int): Number of responses that were manifest files from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
+            otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
             video (int): Number of responses with the video segment or video manifest MIME type (i.e., application/x-mpegurl, application/vnd.apple.mpegurl, application/f4m, application/dash+xml, application/vnd.ms-sstr+xml, ideo/mp2t, audio/aac, video/f4f, video/x-flv, video/mp4, audio/mp4).. [optional]  # noqa: E501
             pci (int): Number of responses with the PCI flag turned on.. [optional]  # noqa: E501
+            log (int): Number of log lines sent.. [optional]  # noqa: E501
+            log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
             http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
             http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
-            restarts (int): Number of restarts performed.. [optional]  # noqa: E501
-            req_header_bytes (int): Total header bytes received.. [optional]  # noqa: E501
-            req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
-            bereq_header_bytes (int): Total header bytes sent to origin.. [optional]  # noqa: E501
-            bereq_body_bytes (int): Total body bytes sent to origin.. [optional]  # noqa: E501
-            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
             waf_logged (int): Number of requests that triggered a WAF rule and were logged.. [optional]  # noqa: E501
+            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
             waf_passed (int): Number of requests that triggered a WAF rule and were passed.. [optional]  # noqa: E501
-            attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
-            attack_resp_synth_bytes (int): Total bytes delivered for requests that triggered a WAF rule and returned a synthetic response.. [optional]  # noqa: E501
-            attack_logged_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
+            attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_logged_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
-            attack_blocked_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
+            attack_logged_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
             attack_blocked_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
-            attack_passed_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
+            attack_blocked_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
             attack_passed_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
-            shield_resp_header_bytes (int): Total header bytes delivered via a shield.. [optional]  # noqa: E501
-            shield_resp_body_bytes (int): Total body bytes delivered via a shield.. [optional]  # noqa: E501
-            otfp_resp_header_bytes (int): Total header bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_resp_body_bytes (int): Total body bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_resp_header_bytes (int): Total header bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
-            otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
-            imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
+            attack_passed_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
+            attack_resp_synth_bytes (int): Total bytes delivered for requests that triggered a WAF rule and returned a synthetic response.. [optional]  # noqa: E501
+            imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
-            imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_shield_resp_body_bytes (int): Total body bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            status_1xx (int): Number of \"Informational\" category status codes delivered.. [optional]  # noqa: E501
-            status_2xx (int): Number of \"Success\" status codes delivered.. [optional]  # noqa: E501
-            status_3xx (int): Number of \"Redirection\" codes delivered.. [optional]  # noqa: E501
-            status_4xx (int): Number of \"Client Error\" codes delivered.. [optional]  # noqa: E501
-            status_5xx (int): Number of \"Server Error\" codes delivered.. [optional]  # noqa: E501
+            imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
+            imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_resp_body_bytes (int): Total body bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_resp_header_bytes (int): Total header bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_resp_body_bytes (int): Total body bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield (int): Number of video responses delivered via a shield that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_frames (int): Number of video frames delivered via a shield that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             status_200 (int): Number of responses sent with status code 200 (Success).. [optional]  # noqa: E501
             status_204 (int): Number of responses sent with status code 204 (No Content).. [optional]  # noqa: E501
             status_206 (int): Number of responses sent with status code 206 (Partial Content).. [optional]  # noqa: E501
@@ -651,13 +681,11 @@ class RealtimeMeasurements(ModelNormal):
             status_503 (int): Number of responses sent with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses sent with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses sent with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
-            uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
-            pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
-            tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
-            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
-            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
-            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
-            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            status_1xx (int): Number of \"Informational\" category status codes delivered.. [optional]  # noqa: E501
+            status_2xx (int): Number of \"Success\" status codes delivered.. [optional]  # noqa: E501
+            status_3xx (int): Number of \"Redirection\" codes delivered.. [optional]  # noqa: E501
+            status_4xx (int): Number of \"Client Error\" codes delivered.. [optional]  # noqa: E501
+            status_5xx (int): Number of \"Server Error\" codes delivered.. [optional]  # noqa: E501
             object_size_1k (int): Number of objects served that were under 1KB in size.. [optional]  # noqa: E501
             object_size_10k (int): Number of objects served that were between 1KB and 10KB in size.. [optional]  # noqa: E501
             object_size_100k (int): Number of objects served that were between 10KB and 100KB in size.. [optional]  # noqa: E501
@@ -665,75 +693,52 @@ class RealtimeMeasurements(ModelNormal):
             object_size_10m (int): Number of objects served that were between 1MB and 10MB in size.. [optional]  # noqa: E501
             object_size_100m (int): Number of objects served that were between 10MB and 100MB in size.. [optional]  # noqa: E501
             object_size_1g (int): Number of objects served that were between 100MB and 1GB in size.. [optional]  # noqa: E501
-            object_size_other (int): Number of objects served that were larger than 1GB in size.. [optional]  # noqa: E501
-            recv_sub_time (float): Time spent inside the `vcl_recv` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            recv_sub_time (float): Time spent inside the `vcl_recv` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             recv_sub_count (int): Number of executions of the `vcl_recv` Varnish subroutine.. [optional]  # noqa: E501
-            hash_sub_time (float): Time spent inside the `vcl_hash` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            hash_sub_time (float): Time spent inside the `vcl_hash` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             hash_sub_count (int): Number of executions of the `vcl_hash` Varnish subroutine.. [optional]  # noqa: E501
-            miss_sub_time (float): Time spent inside the `vcl_miss` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            miss_sub_time (float): Time spent inside the `vcl_miss` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             miss_sub_count (int): Number of executions of the `vcl_miss` Varnish subroutine.. [optional]  # noqa: E501
-            fetch_sub_time (float): Time spent inside the `vcl_fetch` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            fetch_sub_time (float): Time spent inside the `vcl_fetch` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             fetch_sub_count (int): Number of executions of the `vcl_fetch` Varnish subroutine.. [optional]  # noqa: E501
-            pass_sub_time (float): Time spent inside the `vcl_pass` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            pass_sub_time (float): Time spent inside the `vcl_pass` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             pass_sub_count (int): Number of executions of the `vcl_pass` Varnish subroutine.. [optional]  # noqa: E501
-            pipe_sub_time (float): Time spent inside the `vcl_pipe` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            pipe_sub_time (float): Time spent inside the `vcl_pipe` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             pipe_sub_count (int): Number of executions of the `vcl_pipe` Varnish subroutine.. [optional]  # noqa: E501
-            deliver_sub_time (float): Time spent inside the `vcl_deliver` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            deliver_sub_time (float): Time spent inside the `vcl_deliver` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             deliver_sub_count (int): Number of executions of the `vcl_deliver` Varnish subroutine.. [optional]  # noqa: E501
-            error_sub_time (float): Time spent inside the `vcl_error` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            error_sub_time (float): Time spent inside the `vcl_error` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             error_sub_count (int): Number of executions of the `vcl_error` Varnish subroutine.. [optional]  # noqa: E501
-            hit_sub_time (float): Time spent inside the `vcl_hit` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            hit_sub_time (float): Time spent inside the `vcl_hit` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             hit_sub_count (int): Number of executions of the `vcl_hit` Varnish subroutine.. [optional]  # noqa: E501
-            prehash_sub_time (float): Time spent inside the `vcl_prehash` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            prehash_sub_time (float): Time spent inside the `vcl_prehash` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             prehash_sub_count (int): Number of executions of the `vcl_prehash` Varnish subroutine.. [optional]  # noqa: E501
-            predeliver_sub_time (float): Time spent inside the `vcl_predeliver` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            predeliver_sub_time (float): Time spent inside the `vcl_predeliver` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             predeliver_sub_count (int): Number of executions of the `vcl_predeliver` Varnish subroutine.. [optional]  # noqa: E501
+            tls_handshake_sent_bytes (int): Number of bytes transferred during TLS handshake.. [optional]  # noqa: E501
             hit_resp_body_bytes (int): Total body bytes delivered for cache hits.. [optional]  # noqa: E501
             miss_resp_body_bytes (int): Total body bytes delivered for cache misses.. [optional]  # noqa: E501
             pass_resp_body_bytes (int): Total body bytes delivered for cache passes.. [optional]  # noqa: E501
+            segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
+            segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
+            compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
+            compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
+            compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
             compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
             compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
             compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
-            imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_resp_body_bytes (int): Total body bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield (int): Number of video responses delivered via a shield that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield_frames (int): Number of video frames delivered via a shield that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
-            imgvideo_shield_resp_header_bytes (int): Total header bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield_resp_body_bytes (int): Total body bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
-            edge_requests (int): Number of requests sent by end users to Fastly.. [optional]  # noqa: E501
-            edge_resp_header_bytes (int): Total header bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
-            edge_resp_body_bytes (int): Total body bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
-            origin_revalidations (int): Number of responses received from origin with a `304` status code in response to an `If-Modified-Since` or `If-None-Match` request. Under regular scenarios, a revalidation will imply a cache hit. However, if using Fastly Image Optimizer or segmented caching this may result in a cache miss.. [optional]  # noqa: E501
-            origin_fetches (int): Number of requests sent to origin.. [optional]  # noqa: E501
-            origin_fetch_header_bytes (int): Total request header bytes sent to origin.. [optional]  # noqa: E501
-            origin_fetch_body_bytes (int): Total request body bytes sent to origin.. [optional]  # noqa: E501
-            origin_fetch_resp_header_bytes (int): Total header bytes received from origin.. [optional]  # noqa: E501
-            origin_fetch_resp_body_bytes (int): Total body bytes received from origin.. [optional]  # noqa: E501
-            shield_revalidations (int): Number of responses received from origin with a `304` status code, in response to an `If-Modified-Since` or `If-None-Match` request to a shield. Under regular scenarios, a revalidation will imply a cache hit. However, if using segmented caching this may result in a cache miss.. [optional]  # noqa: E501
-            shield_fetches (int): Number of requests made from one Fastly POP to another, as part of shielding.. [optional]  # noqa: E501
-            shield_fetch_header_bytes (int): Total request header bytes sent to a shield.. [optional]  # noqa: E501
-            shield_fetch_body_bytes (int): Total request body bytes sent to a shield.. [optional]  # noqa: E501
-            shield_fetch_resp_header_bytes (int): Total response header bytes sent from a shield to the edge.. [optional]  # noqa: E501
-            shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
-            segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
-            segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
             compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
-            edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
             compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
-            shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501
@@ -757,12 +762,12 @@ class RealtimeMeasurements(ModelNormal):
             websocket_req_header_bytes (int): Total header bytes received from end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_req_body_bytes (int): Total message content bytes received from end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_resp_header_bytes (int): Total header bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
+            websocket_resp_body_bytes (int): Total message content bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_bereq_header_bytes (int): Total header bytes sent to backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_bereq_body_bytes (int): Total message content bytes sent to backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_beresp_header_bytes (int): Total header bytes received from backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_beresp_body_bytes (int): Total message content bytes received from backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
-            websocket_resp_body_bytes (int): Total message content bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
             kv_store_class_a_operations (int): The total number of class a operations for the KV store.. [optional]  # noqa: E501
@@ -784,6 +789,8 @@ class RealtimeMeasurements(ModelNormal):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
+            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            start_time (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -811,14 +818,29 @@ class RealtimeMeasurements(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        constant_args = {
+            '_check_type': _check_type,
+            '_path_to_item': _path_to_item,
+            '_spec_property_naming': _spec_property_naming,
+            '_configuration': _configuration,
+            '_visited_composed_classes': self._visited_composed_classes,
+        }
+        composed_info = validate_get_composed_info(
+            constant_args, kwargs, self)
+        self._composed_instances = composed_info[0]
+        self._var_name_to_model_instances = composed_info[1]
+        self._additional_properties_model_instances = composed_info[2]
+        discarded_args = composed_info[3]
+
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
+            if var_name in discarded_args and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                        self._additional_properties_model_instances:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+
         return self
 
     required_properties = set([
@@ -828,11 +850,14 @@ class RealtimeMeasurements(ModelNormal):
         '_path_to_item',
         '_configuration',
         '_visited_composed_classes',
+        '_composed_instances',
+        '_var_name_to_model_instances',
+        '_additional_properties_model_instances',
     ])
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """RealtimeMeasurements - a model defined in OpenAPI
+        """HistoricalFieldResultsAttributes - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -866,71 +891,94 @@ class RealtimeMeasurements(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             requests (int): Number of requests processed.. [optional]  # noqa: E501
-            logging (int): Number of log lines sent (alias for `log`).. [optional]  # noqa: E501
-            log (int): Number of log lines sent.. [optional]  # noqa: E501
-            resp_header_bytes (int): Total header bytes delivered (edge_resp_header_bytes + shield_resp_header_bytes).. [optional]  # noqa: E501
-            header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
-            resp_body_bytes (int): Total body bytes delivered (edge_resp_body_bytes + shield_resp_body_bytes).. [optional]  # noqa: E501
-            body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
             hits (int): Number of cache hits.. [optional]  # noqa: E501
-            miss (int): Number of cache misses.. [optional]  # noqa: E501
-            _pass (int): Number of requests that passed through the CDN without being cached.. [optional]  # noqa: E501
-            synth (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement).. [optional]  # noqa: E501
-            errors (int): Number of cache errors.. [optional]  # noqa: E501
             hits_time (float): Total amount of time spent processing cache hits (in seconds).. [optional]  # noqa: E501
+            miss (int): Number of cache misses.. [optional]  # noqa: E501
             miss_time (float): Total amount of time spent processing cache misses (in seconds).. [optional]  # noqa: E501
-            miss_histogram ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): A histogram. Each key represents the upper bound of a span of 10 milliseconds and the values represent the number of requests to origin during that 10ms period. Any origin request that takes more than 60 seconds to return will be in the 60000 bucket.. [optional]  # noqa: E501
-            compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
-            compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
-            compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
-            compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
-            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            _pass (int): Number of requests that passed through the CDN without being cached.. [optional]  # noqa: E501
+            pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
+            errors (int): Number of cache errors.. [optional]  # noqa: E501
+            restarts (int): Number of restarts performed.. [optional]  # noqa: E501
+            hit_ratio (float, none_type): Ratio of cache hits to cache misses (between 0 and 1).. [optional]  # noqa: E501
+            bandwidth (int): Total bytes delivered (`resp_header_bytes` + `resp_body_bytes` + `bereq_header_bytes` + `bereq_body_bytes` + `compute_resp_header_bytes` + `compute_resp_body_bytes` + `compute_bereq_header_bytes` + `compute_bereq_body_bytes` + `websocket_resp_header_bytes` + `websocket_resp_body_bytes` + `websocket_bereq_header_bytes` + `websocket_bereq_body_bytes` + `fanout_resp_header_bytes` + `fanout_resp_body_bytes` + `fanout_bereq_header_bytes` + `fanout_bereq_body_bytes`).. [optional]  # noqa: E501
+            body_size (int): Total body bytes delivered (alias for resp_body_bytes).. [optional]  # noqa: E501
+            header_size (int): Total header bytes delivered (alias for resp_header_bytes).. [optional]  # noqa: E501
+            req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
+            req_header_bytes (int): Total header bytes received.. [optional]  # noqa: E501
+            resp_body_bytes (int): Total body bytes delivered (edge_resp_body_bytes + shield_resp_body_bytes).. [optional]  # noqa: E501
+            resp_header_bytes (int): Total header bytes delivered (edge_resp_header_bytes + shield_resp_header_bytes).. [optional]  # noqa: E501
+            bereq_body_bytes (int): Total body bytes sent to origin.. [optional]  # noqa: E501
+            bereq_header_bytes (int): Total header bytes sent to origin.. [optional]  # noqa: E501
+            uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
+            pipe (int): Optional. Pipe operations performed (legacy feature).. [optional]  # noqa: E501
+            synth (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement).. [optional]  # noqa: E501
+            tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
+            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
+            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
+            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
+            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            edge_requests (int): Number of requests sent by end users to Fastly.. [optional]  # noqa: E501
+            edge_resp_header_bytes (int): Total header bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
+            edge_resp_body_bytes (int): Total body bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
+            edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
+            edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
+            origin_fetches (int): Number of requests sent to origin.. [optional]  # noqa: E501
+            origin_fetch_header_bytes (int): Total request header bytes sent to origin.. [optional]  # noqa: E501
+            origin_fetch_body_bytes (int): Total request body bytes sent to origin.. [optional]  # noqa: E501
+            origin_fetch_resp_header_bytes (int): Total header bytes received from origin.. [optional]  # noqa: E501
+            origin_fetch_resp_body_bytes (int): Total body bytes received from origin.. [optional]  # noqa: E501
+            origin_revalidations (int): Number of responses received from origin with a `304` status code in response to an `If-Modified-Since` or `If-None-Match` request. Under regular scenarios, a revalidation will imply a cache hit. However, if using Fastly Image Optimizer or segmented caching this may result in a cache miss.. [optional]  # noqa: E501
+            origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
             shield (int): Number of requests from edge to the shield POP.. [optional]  # noqa: E501
+            shield_resp_body_bytes (int): Total body bytes delivered via a shield.. [optional]  # noqa: E501
+            shield_resp_header_bytes (int): Total header bytes delivered via a shield.. [optional]  # noqa: E501
+            shield_fetches (int): Number of requests made from one Fastly POP to another, as part of shielding.. [optional]  # noqa: E501
+            shield_fetch_header_bytes (int): Total request header bytes sent to a shield.. [optional]  # noqa: E501
+            shield_fetch_body_bytes (int): Total request body bytes sent to a shield.. [optional]  # noqa: E501
+            shield_fetch_resp_header_bytes (int): Total response header bytes sent from a shield to the edge.. [optional]  # noqa: E501
+            shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
+            shield_revalidations (int): Number of responses received from origin with a `304` status code, in response to an `If-Modified-Since` or `If-None-Match` request to a shield. Under regular scenarios, a revalidation will imply a cache hit. However, if using segmented caching this may result in a cache miss.. [optional]  # noqa: E501
+            shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             ipv6 (int): Number of requests that were received over IPv6.. [optional]  # noqa: E501
-            imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
-            imgopto_shield (int): Number of responses that came from the Fastly Image Optimizer service via a shield.. [optional]  # noqa: E501
-            imgopto_transforms (int): Number of transforms performed by the Fastly Image Optimizer service.. [optional]  # noqa: E501
             otfp (int): Number of responses that came from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield (int): Number of responses that came from the Fastly On-the-Fly Packaging service for video-on-demand via a shield.. [optional]  # noqa: E501
+            otfp_resp_body_bytes (int): Total body bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_resp_header_bytes (int): Total header bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_shield_resp_header_bytes (int): Total header bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
             otfp_manifests (int): Number of responses that were manifest files from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
+            otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
+            otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
             video (int): Number of responses with the video segment or video manifest MIME type (i.e., application/x-mpegurl, application/vnd.apple.mpegurl, application/f4m, application/dash+xml, application/vnd.ms-sstr+xml, ideo/mp2t, audio/aac, video/f4f, video/x-flv, video/mp4, audio/mp4).. [optional]  # noqa: E501
             pci (int): Number of responses with the PCI flag turned on.. [optional]  # noqa: E501
+            log (int): Number of log lines sent.. [optional]  # noqa: E501
+            log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
             http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
             http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
-            restarts (int): Number of restarts performed.. [optional]  # noqa: E501
-            req_header_bytes (int): Total header bytes received.. [optional]  # noqa: E501
-            req_body_bytes (int): Total body bytes received.. [optional]  # noqa: E501
-            bereq_header_bytes (int): Total header bytes sent to origin.. [optional]  # noqa: E501
-            bereq_body_bytes (int): Total body bytes sent to origin.. [optional]  # noqa: E501
-            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
             waf_logged (int): Number of requests that triggered a WAF rule and were logged.. [optional]  # noqa: E501
+            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
             waf_passed (int): Number of requests that triggered a WAF rule and were passed.. [optional]  # noqa: E501
-            attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
-            attack_resp_synth_bytes (int): Total bytes delivered for requests that triggered a WAF rule and returned a synthetic response.. [optional]  # noqa: E501
-            attack_logged_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
+            attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_logged_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
-            attack_blocked_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
+            attack_logged_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
             attack_blocked_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
-            attack_passed_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
+            attack_blocked_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was blocked.. [optional]  # noqa: E501
             attack_passed_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
-            shield_resp_header_bytes (int): Total header bytes delivered via a shield.. [optional]  # noqa: E501
-            shield_resp_body_bytes (int): Total body bytes delivered via a shield.. [optional]  # noqa: E501
-            otfp_resp_header_bytes (int): Total header bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_resp_body_bytes (int): Total body bytes delivered from the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_resp_header_bytes (int): Total header bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
-            otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
-            otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
-            imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
+            attack_passed_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule that was passed.. [optional]  # noqa: E501
+            attack_resp_synth_bytes (int): Total bytes delivered for requests that triggered a WAF rule and returned a synthetic response.. [optional]  # noqa: E501
+            imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
-            imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_shield_resp_body_bytes (int): Total body bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            status_1xx (int): Number of \"Informational\" category status codes delivered.. [optional]  # noqa: E501
-            status_2xx (int): Number of \"Success\" status codes delivered.. [optional]  # noqa: E501
-            status_3xx (int): Number of \"Redirection\" codes delivered.. [optional]  # noqa: E501
-            status_4xx (int): Number of \"Client Error\" codes delivered.. [optional]  # noqa: E501
-            status_5xx (int): Number of \"Server Error\" codes delivered.. [optional]  # noqa: E501
+            imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
+            imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_resp_body_bytes (int): Total body bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_resp_header_bytes (int): Total header bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_resp_body_bytes (int): Total body bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield (int): Number of video responses delivered via a shield that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgvideo_shield_frames (int): Number of video frames delivered via a shield that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             status_200 (int): Number of responses sent with status code 200 (Success).. [optional]  # noqa: E501
             status_204 (int): Number of responses sent with status code 204 (No Content).. [optional]  # noqa: E501
             status_206 (int): Number of responses sent with status code 206 (Partial Content).. [optional]  # noqa: E501
@@ -950,13 +998,11 @@ class RealtimeMeasurements(ModelNormal):
             status_503 (int): Number of responses sent with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses sent with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses sent with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
-            uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
-            pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
-            tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
-            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
-            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
-            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
-            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            status_1xx (int): Number of \"Informational\" category status codes delivered.. [optional]  # noqa: E501
+            status_2xx (int): Number of \"Success\" status codes delivered.. [optional]  # noqa: E501
+            status_3xx (int): Number of \"Redirection\" codes delivered.. [optional]  # noqa: E501
+            status_4xx (int): Number of \"Client Error\" codes delivered.. [optional]  # noqa: E501
+            status_5xx (int): Number of \"Server Error\" codes delivered.. [optional]  # noqa: E501
             object_size_1k (int): Number of objects served that were under 1KB in size.. [optional]  # noqa: E501
             object_size_10k (int): Number of objects served that were between 1KB and 10KB in size.. [optional]  # noqa: E501
             object_size_100k (int): Number of objects served that were between 10KB and 100KB in size.. [optional]  # noqa: E501
@@ -964,75 +1010,52 @@ class RealtimeMeasurements(ModelNormal):
             object_size_10m (int): Number of objects served that were between 1MB and 10MB in size.. [optional]  # noqa: E501
             object_size_100m (int): Number of objects served that were between 10MB and 100MB in size.. [optional]  # noqa: E501
             object_size_1g (int): Number of objects served that were between 100MB and 1GB in size.. [optional]  # noqa: E501
-            object_size_other (int): Number of objects served that were larger than 1GB in size.. [optional]  # noqa: E501
-            recv_sub_time (float): Time spent inside the `vcl_recv` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            recv_sub_time (float): Time spent inside the `vcl_recv` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             recv_sub_count (int): Number of executions of the `vcl_recv` Varnish subroutine.. [optional]  # noqa: E501
-            hash_sub_time (float): Time spent inside the `vcl_hash` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            hash_sub_time (float): Time spent inside the `vcl_hash` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             hash_sub_count (int): Number of executions of the `vcl_hash` Varnish subroutine.. [optional]  # noqa: E501
-            miss_sub_time (float): Time spent inside the `vcl_miss` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            miss_sub_time (float): Time spent inside the `vcl_miss` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             miss_sub_count (int): Number of executions of the `vcl_miss` Varnish subroutine.. [optional]  # noqa: E501
-            fetch_sub_time (float): Time spent inside the `vcl_fetch` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            fetch_sub_time (float): Time spent inside the `vcl_fetch` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             fetch_sub_count (int): Number of executions of the `vcl_fetch` Varnish subroutine.. [optional]  # noqa: E501
-            pass_sub_time (float): Time spent inside the `vcl_pass` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            pass_sub_time (float): Time spent inside the `vcl_pass` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             pass_sub_count (int): Number of executions of the `vcl_pass` Varnish subroutine.. [optional]  # noqa: E501
-            pipe_sub_time (float): Time spent inside the `vcl_pipe` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            pipe_sub_time (float): Time spent inside the `vcl_pipe` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             pipe_sub_count (int): Number of executions of the `vcl_pipe` Varnish subroutine.. [optional]  # noqa: E501
-            deliver_sub_time (float): Time spent inside the `vcl_deliver` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            deliver_sub_time (float): Time spent inside the `vcl_deliver` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             deliver_sub_count (int): Number of executions of the `vcl_deliver` Varnish subroutine.. [optional]  # noqa: E501
-            error_sub_time (float): Time spent inside the `vcl_error` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            error_sub_time (float): Time spent inside the `vcl_error` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             error_sub_count (int): Number of executions of the `vcl_error` Varnish subroutine.. [optional]  # noqa: E501
-            hit_sub_time (float): Time spent inside the `vcl_hit` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            hit_sub_time (float): Time spent inside the `vcl_hit` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             hit_sub_count (int): Number of executions of the `vcl_hit` Varnish subroutine.. [optional]  # noqa: E501
-            prehash_sub_time (float): Time spent inside the `vcl_prehash` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            prehash_sub_time (float): Time spent inside the `vcl_prehash` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             prehash_sub_count (int): Number of executions of the `vcl_prehash` Varnish subroutine.. [optional]  # noqa: E501
-            predeliver_sub_time (float): Time spent inside the `vcl_predeliver` Varnish subroutine (in nanoseconds).. [optional]  # noqa: E501
+            predeliver_sub_time (float): Time spent inside the `vcl_predeliver` Varnish subroutine (in seconds).. [optional]  # noqa: E501
             predeliver_sub_count (int): Number of executions of the `vcl_predeliver` Varnish subroutine.. [optional]  # noqa: E501
+            tls_handshake_sent_bytes (int): Number of bytes transferred during TLS handshake.. [optional]  # noqa: E501
             hit_resp_body_bytes (int): Total body bytes delivered for cache hits.. [optional]  # noqa: E501
             miss_resp_body_bytes (int): Total body bytes delivered for cache misses.. [optional]  # noqa: E501
             pass_resp_body_bytes (int): Total body bytes delivered for cache passes.. [optional]  # noqa: E501
+            segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
+            segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
+            compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
+            compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
+            compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
             compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
             compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
             compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
-            imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_resp_body_bytes (int): Total body bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield (int): Number of video responses delivered via a shield that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield_frames (int): Number of video frames delivered via a shield that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
-            imgvideo_shield_resp_header_bytes (int): Total header bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            imgvideo_shield_resp_body_bytes (int): Total body bytes of video delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
-            log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
-            edge_requests (int): Number of requests sent by end users to Fastly.. [optional]  # noqa: E501
-            edge_resp_header_bytes (int): Total header bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
-            edge_resp_body_bytes (int): Total body bytes delivered from Fastly to the end user.. [optional]  # noqa: E501
-            origin_revalidations (int): Number of responses received from origin with a `304` status code in response to an `If-Modified-Since` or `If-None-Match` request. Under regular scenarios, a revalidation will imply a cache hit. However, if using Fastly Image Optimizer or segmented caching this may result in a cache miss.. [optional]  # noqa: E501
-            origin_fetches (int): Number of requests sent to origin.. [optional]  # noqa: E501
-            origin_fetch_header_bytes (int): Total request header bytes sent to origin.. [optional]  # noqa: E501
-            origin_fetch_body_bytes (int): Total request body bytes sent to origin.. [optional]  # noqa: E501
-            origin_fetch_resp_header_bytes (int): Total header bytes received from origin.. [optional]  # noqa: E501
-            origin_fetch_resp_body_bytes (int): Total body bytes received from origin.. [optional]  # noqa: E501
-            shield_revalidations (int): Number of responses received from origin with a `304` status code, in response to an `If-Modified-Since` or `If-None-Match` request to a shield. Under regular scenarios, a revalidation will imply a cache hit. However, if using segmented caching this may result in a cache miss.. [optional]  # noqa: E501
-            shield_fetches (int): Number of requests made from one Fastly POP to another, as part of shielding.. [optional]  # noqa: E501
-            shield_fetch_header_bytes (int): Total request header bytes sent to a shield.. [optional]  # noqa: E501
-            shield_fetch_body_bytes (int): Total request body bytes sent to a shield.. [optional]  # noqa: E501
-            shield_fetch_resp_header_bytes (int): Total response header bytes sent from a shield to the edge.. [optional]  # noqa: E501
-            shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
-            segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
-            segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
             compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
             compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
-            edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
             compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
             compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
-            shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501
@@ -1056,12 +1079,12 @@ class RealtimeMeasurements(ModelNormal):
             websocket_req_header_bytes (int): Total header bytes received from end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_req_body_bytes (int): Total message content bytes received from end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_resp_header_bytes (int): Total header bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
+            websocket_resp_body_bytes (int): Total message content bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_bereq_header_bytes (int): Total header bytes sent to backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_bereq_body_bytes (int): Total message content bytes sent to backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_beresp_header_bytes (int): Total header bytes received from backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_beresp_body_bytes (int): Total message content bytes received from backends over passthrough WebSocket connections.. [optional]  # noqa: E501
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
-            websocket_resp_body_bytes (int): Total message content bytes sent to end users over passthrough WebSocket connections.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
             kv_store_class_a_operations (int): The total number of class a operations for the KV store.. [optional]  # noqa: E501
@@ -1083,6 +1106,8 @@ class RealtimeMeasurements(ModelNormal):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
+            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            start_time (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1108,14 +1133,49 @@ class RealtimeMeasurements(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        constant_args = {
+            '_check_type': _check_type,
+            '_path_to_item': _path_to_item,
+            '_spec_property_naming': _spec_property_naming,
+            '_configuration': _configuration,
+            '_visited_composed_classes': self._visited_composed_classes,
+        }
+        composed_info = validate_get_composed_info(
+            constant_args, kwargs, self)
+        self._composed_instances = composed_info[0]
+        self._var_name_to_model_instances = composed_info[1]
+        self._additional_properties_model_instances = composed_info[2]
+        discarded_args = composed_info[3]
+
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
+            if var_name in discarded_args and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                        self._additional_properties_model_instances:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
+
+    @cached_property
+    def _composed_schemas():
+        # we need this here to make our import statements work
+        # we must store _composed_schemas in here so the code is only run
+        # when we invoke this method. If we kept this at the class
+        # level we would get an error because the class level
+        # code would be run when this module is imported, and these composed
+        # classes don't exist yet because their module has not finished
+        # loading
+        lazy_import()
+        return {
+          'anyOf': [
+          ],
+          'allOf': [
+              HistoricalFieldResultsAttributesAllOf,
+              Results,
+          ],
+          'oneOf': [
+          ],
+        }

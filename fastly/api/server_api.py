@@ -43,7 +43,12 @@ class ServerApi(object):
                 'endpoint_path': '/service/{service_id}/pool/{pool_id}/server',
                 'operation_id': 'create_pool_server',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +152,12 @@ class ServerApi(object):
                 'endpoint_path': '/service/{service_id}/pool/{pool_id}/server/{server_id}',
                 'operation_id': 'delete_pool_server',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -212,7 +222,12 @@ class ServerApi(object):
                 'endpoint_path': '/service/{service_id}/pool/{pool_id}/server/{server_id}',
                 'operation_id': 'get_pool_server',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -277,7 +292,12 @@ class ServerApi(object):
                 'endpoint_path': '/service/{service_id}/pool/{pool_id}/servers',
                 'operation_id': 'list_pool_servers',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -336,7 +356,12 @@ class ServerApi(object):
                 'endpoint_path': '/service/{service_id}/pool/{pool_id}/server/{server_id}',
                 'operation_id': 'update_pool_server',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

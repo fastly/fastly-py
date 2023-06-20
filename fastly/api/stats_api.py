@@ -42,7 +42,12 @@ class StatsApi(object):
                 'endpoint_path': '/service/{service_id}/stats/summary',
                 'operation_id': 'get_service_stats',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -44,7 +44,12 @@ class UserApi(object):
                 'endpoint_path': '/user',
                 'operation_id': 'create_user',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -132,7 +137,12 @@ class UserApi(object):
                 'endpoint_path': '/user/{user_id}',
                 'operation_id': 'delete_user',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -185,7 +195,12 @@ class UserApi(object):
                 'endpoint_path': '/current_user',
                 'operation_id': 'get_current_user',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -231,7 +246,12 @@ class UserApi(object):
                 'endpoint_path': '/user/{user_id}',
                 'operation_id': 'get_user',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -284,7 +304,12 @@ class UserApi(object):
                 'endpoint_path': '/user/{user_login}/password/request_reset',
                 'operation_id': 'request_password_reset',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -337,7 +362,12 @@ class UserApi(object):
                 'endpoint_path': '/user/{user_id}',
                 'operation_id': 'update_user',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -432,7 +462,12 @@ class UserApi(object):
                 'endpoint_path': '/current_user/password',
                 'operation_id': 'update_user_password',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

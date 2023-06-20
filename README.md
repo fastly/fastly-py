@@ -2,6 +2,7 @@
 
 A Python client library for interacting with most facets of the [Fastly API](https://developer.fastly.com/reference/api).
 
+
 ## Requirements
 
 Python >=3.6
@@ -428,6 +429,7 @@ Class | Method | HTTP request | Description
 *TlsSubscriptionsApi* | [**get_tls_sub**](docs/TlsSubscriptionsApi.md#get_tls_sub) | **GET** /tls/subscriptions/{tls_subscription_id} | Get a TLS subscription
 *TlsSubscriptionsApi* | [**list_tls_subs**](docs/TlsSubscriptionsApi.md#list_tls_subs) | **GET** /tls/subscriptions | List TLS subscriptions
 *TlsSubscriptionsApi* | [**patch_tls_sub**](docs/TlsSubscriptionsApi.md#patch_tls_sub) | **PATCH** /tls/subscriptions/{tls_subscription_id} | Update a TLS subscription
+*TokensApi* | [**get_token**](docs/TokensApi.md#get_token) | **GET** /tokens/{token_id} | Get a token
 *TokensApi* | [**get_token_current**](docs/TokensApi.md#get_token_current) | **GET** /tokens/self | Get the current token
 *TokensApi* | [**list_tokens_customer**](docs/TokensApi.md#list_tokens_customer) | **GET** /customer/{customer_id}/tokens | List tokens for a customer
 *TokensApi* | [**list_tokens_user**](docs/TokensApi.md#list_tokens_user) | **GET** /tokens | List tokens for the authenticated user

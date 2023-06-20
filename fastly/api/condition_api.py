@@ -44,7 +44,12 @@ class ConditionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/condition',
                 'operation_id': 'create_condition',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -149,7 +154,12 @@ class ConditionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/condition/{condition_name}',
                 'operation_id': 'delete_condition',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -214,7 +224,12 @@ class ConditionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/condition/{condition_name}',
                 'operation_id': 'get_condition',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -279,7 +294,12 @@ class ConditionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/condition',
                 'operation_id': 'list_conditions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -338,7 +358,12 @@ class ConditionApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/condition/{condition_name}',
                 'operation_id': 'update_condition',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

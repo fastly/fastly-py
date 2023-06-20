@@ -43,7 +43,12 @@ class RequestSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/request_settings/{request_settings_name}',
                 'operation_id': 'delete_request_settings',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -108,7 +113,12 @@ class RequestSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/request_settings/{request_settings_name}',
                 'operation_id': 'get_request_settings',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -173,7 +183,12 @@ class RequestSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/request_settings',
                 'operation_id': 'list_request_settings',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -232,7 +247,12 @@ class RequestSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/request_settings/{request_settings_name}',
                 'operation_id': 'update_request_settings',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

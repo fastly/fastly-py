@@ -43,7 +43,12 @@ class WafRuleRevisionsApi(object):
                 'endpoint_path': '/waf/rules/{waf_rule_id}/revisions/{waf_rule_revision_number}',
                 'operation_id': 'get_waf_rule_revision',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -107,7 +112,12 @@ class WafRuleRevisionsApi(object):
                 'endpoint_path': '/waf/rules/{waf_rule_id}/revisions',
                 'operation_id': 'list_waf_rule_revisions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

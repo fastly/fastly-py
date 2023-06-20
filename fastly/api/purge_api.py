@@ -43,7 +43,12 @@ class PurgeApi(object):
                 'endpoint_path': '/service/{service_id}/purge_all',
                 'operation_id': 'purge_all',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class PurgeApi(object):
                 'endpoint_path': '/purge/{cached_url}',
                 'operation_id': 'purge_single_url',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -155,7 +165,12 @@ class PurgeApi(object):
                 'endpoint_path': '/service/{service_id}/purge/{surrogate_key}',
                 'operation_id': 'purge_tag',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

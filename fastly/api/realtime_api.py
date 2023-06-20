@@ -42,7 +42,12 @@ class RealtimeApi(object):
                 'endpoint_path': '/v1/channel/{service_id}/ts/h',
                 'operation_id': 'get_stats_last120_seconds',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://rt.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -95,7 +100,12 @@ class RealtimeApi(object):
                 'endpoint_path': '/v1/channel/{service_id}/ts/h/limit/{max_entries}',
                 'operation_id': 'get_stats_last120_seconds_limit_entries',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://rt.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -154,7 +164,12 @@ class RealtimeApi(object):
                 'endpoint_path': '/v1/channel/{service_id}/ts/{timestamp_in_seconds}',
                 'operation_id': 'get_stats_last_second',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://rt.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

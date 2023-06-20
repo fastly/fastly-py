@@ -43,7 +43,12 @@ class WafRulesApi(object):
                 'endpoint_path': '/waf/rules/{waf_rule_id}',
                 'operation_id': 'get_waf_rule',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -101,7 +106,12 @@ class WafRulesApi(object):
                 'endpoint_path': '/waf/rules',
                 'operation_id': 'list_waf_rules',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

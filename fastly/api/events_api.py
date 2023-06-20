@@ -43,7 +43,12 @@ class EventsApi(object):
                 'endpoint_path': '/events/{event_id}',
                 'operation_id': 'get_event',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class EventsApi(object):
                 'endpoint_path': '/events',
                 'operation_id': 'list_events',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -43,7 +43,12 @@ class LoggingAzureblobApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/azureblob',
                 'operation_id': 'create_log_azure',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -222,7 +227,12 @@ class LoggingAzureblobApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/azureblob/{logging_azureblob_name}',
                 'operation_id': 'delete_log_azure',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -287,7 +297,12 @@ class LoggingAzureblobApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/azureblob/{logging_azureblob_name}',
                 'operation_id': 'get_log_azure',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -352,7 +367,12 @@ class LoggingAzureblobApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/azureblob',
                 'operation_id': 'list_log_azure',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -411,7 +431,12 @@ class LoggingAzureblobApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/azureblob/{logging_azureblob_name}',
                 'operation_id': 'update_log_azure',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

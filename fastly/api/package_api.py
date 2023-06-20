@@ -42,7 +42,12 @@ class PackageApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/package',
                 'operation_id': 'get_package',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -101,7 +106,12 @@ class PackageApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/package',
                 'operation_id': 'put_package',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -42,7 +42,12 @@ class PublicIpListApi(object):
                 'endpoint_path': '/public-ip-list',
                 'operation_id': 'list_fastly_ips',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

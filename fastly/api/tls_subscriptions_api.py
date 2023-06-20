@@ -44,7 +44,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions/{tls_subscription_id}/authorizations/{tls_authorization_id}/globalsign_email_challenges',
                 'operation_id': 'create_globalsign_email_challenge',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -109,7 +114,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions',
                 'operation_id': 'create_tls_sub',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -166,7 +176,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions/{tls_subscription_id}/authorizations/{tls_authorization_id}/globalsign_email_challenges/{globalsign_email_challenge_id}',
                 'operation_id': 'delete_globalsign_email_challenge',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -229,7 +244,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions/{tls_subscription_id}',
                 'operation_id': 'delete_tls_sub',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -280,7 +300,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions/{tls_subscription_id}',
                 'operation_id': 'get_tls_sub',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -338,7 +363,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions',
                 'operation_id': 'list_tls_subs',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -431,7 +461,12 @@ class TlsSubscriptionsApi(object):
                 'endpoint_path': '/tls/subscriptions/{tls_subscription_id}',
                 'operation_id': 'patch_tls_sub',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

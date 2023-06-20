@@ -44,7 +44,12 @@ class TlsActivationsApi(object):
                 'endpoint_path': '/tls/activations',
                 'operation_id': 'create_tls_activation',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class TlsActivationsApi(object):
                 'endpoint_path': '/tls/activations/{tls_activation_id}',
                 'operation_id': 'delete_tls_activation',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class TlsActivationsApi(object):
                 'endpoint_path': '/tls/activations/{tls_activation_id}',
                 'operation_id': 'get_tls_activation',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -205,7 +220,12 @@ class TlsActivationsApi(object):
                 'endpoint_path': '/tls/activations',
                 'operation_id': 'list_tls_activations',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -287,7 +307,12 @@ class TlsActivationsApi(object):
                 'endpoint_path': '/tls/activations/{tls_activation_id}',
                 'operation_id': 'update_tls_activation',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

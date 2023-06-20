@@ -43,7 +43,12 @@ class ContactApi(object):
                 'endpoint_path': '/customer/{customer_id}/contact/{contact_id}',
                 'operation_id': 'delete_contact',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -102,7 +107,12 @@ class ContactApi(object):
                 'endpoint_path': '/customer/{customer_id}/contacts',
                 'operation_id': 'list_contacts',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

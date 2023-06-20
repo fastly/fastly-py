@@ -49,7 +49,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats',
                 'operation_id': 'get_hist_stats',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -133,7 +138,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/aggregate',
                 'operation_id': 'get_hist_stats_aggregated',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -217,7 +227,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/field/{field}',
                 'operation_id': 'get_hist_stats_field',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -308,7 +323,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/service/{service_id}',
                 'operation_id': 'get_hist_stats_service',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -399,7 +419,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/service/{service_id}/field/{field}',
                 'operation_id': 'get_hist_stats_service_field',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -496,7 +521,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/regions',
                 'operation_id': 'get_regions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -542,7 +572,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/usage',
                 'operation_id': 'get_usage',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -598,7 +633,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/usage_by_month',
                 'operation_id': 'get_usage_month',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -659,7 +699,12 @@ class HistoricalApi(object):
                 'endpoint_path': '/stats/usage_by_service',
                 'operation_id': 'get_usage_service',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

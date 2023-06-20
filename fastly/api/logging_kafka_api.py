@@ -44,7 +44,12 @@ class LoggingKafkaApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kafka',
                 'operation_id': 'create_log_kafka',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -242,7 +247,12 @@ class LoggingKafkaApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kafka/{logging_kafka_name}',
                 'operation_id': 'delete_log_kafka',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -307,7 +317,12 @@ class LoggingKafkaApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kafka/{logging_kafka_name}',
                 'operation_id': 'get_log_kafka',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -372,7 +387,12 @@ class LoggingKafkaApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kafka',
                 'operation_id': 'list_log_kafka',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

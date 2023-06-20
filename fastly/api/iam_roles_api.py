@@ -41,7 +41,12 @@ class IamRolesApi(object):
                 'endpoint_path': '/roles/{role_id}',
                 'operation_id': 'delete_a_role',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -92,7 +97,12 @@ class IamRolesApi(object):
                 'endpoint_path': '/roles/{role_id}',
                 'operation_id': 'get_a_role',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -145,7 +155,12 @@ class IamRolesApi(object):
                 'endpoint_path': '/roles/{role_id}/permissions',
                 'operation_id': 'list_role_permissions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -198,7 +213,12 @@ class IamRolesApi(object):
                 'endpoint_path': '/roles',
                 'operation_id': 'list_roles',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

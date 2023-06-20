@@ -43,7 +43,12 @@ class LoggingPapertrailApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/papertrail',
                 'operation_id': 'create_log_papertrail',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -154,7 +159,12 @@ class LoggingPapertrailApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/papertrail/{logging_papertrail_name}',
                 'operation_id': 'delete_log_papertrail',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -219,7 +229,12 @@ class LoggingPapertrailApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/papertrail/{logging_papertrail_name}',
                 'operation_id': 'get_log_papertrail',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -284,7 +299,12 @@ class LoggingPapertrailApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/papertrail',
                 'operation_id': 'list_log_papertrail',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -343,7 +363,12 @@ class LoggingPapertrailApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/papertrail/{logging_papertrail_name}',
                 'operation_id': 'update_log_papertrail',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

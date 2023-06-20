@@ -46,7 +46,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl',
                 'operation_id': 'create_custom_vcl',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -122,7 +127,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}',
                 'operation_id': 'delete_custom_vcl',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -187,7 +197,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}',
                 'operation_id': 'get_custom_vcl',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -257,7 +272,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/boilerplate',
                 'operation_id': 'get_custom_vcl_boilerplate',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -316,7 +336,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/generated_vcl',
                 'operation_id': 'get_custom_vcl_generated',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -375,7 +400,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}/download',
                 'operation_id': 'get_custom_vcl_raw',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -440,7 +470,12 @@ class VclApi(object):
                 'endpoint_path': '/vcl_lint',
                 'operation_id': 'lint_vcl_default',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -494,7 +529,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/lint',
                 'operation_id': 'lint_vcl_for_service',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -554,7 +594,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl',
                 'operation_id': 'list_custom_vcl',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -613,7 +658,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}/main',
                 'operation_id': 'set_custom_vcl_main',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -678,7 +728,12 @@ class VclApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}',
                 'operation_id': 'update_custom_vcl',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

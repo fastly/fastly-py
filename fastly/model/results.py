@@ -229,6 +229,7 @@ class Results(ModelNormal):
             'segblock_shield_fetches': (int,),  # noqa: E501
             'compute_requests': (int,),  # noqa: E501
             'compute_request_time_ms': (float,),  # noqa: E501
+            'compute_request_time_billed_ms': (float,),  # noqa: E501
             'compute_ram_used': (int,),  # noqa: E501
             'compute_execution_time_ms': (float,),  # noqa: E501
             'compute_req_header_bytes': (int,),  # noqa: E501
@@ -275,10 +276,10 @@ class Results(ModelNormal):
             'websocket_conn_time_ms': (int,),  # noqa: E501
             'fanout_recv_publishes': (int,),  # noqa: E501
             'fanout_send_publishes': (int,),  # noqa: E501
+            'kv_store_class_a_operations': (int,),  # noqa: E501
+            'kv_store_class_b_operations': (int,),  # noqa: E501
             'object_store_class_a_operations': (int,),  # noqa: E501
             'object_store_class_b_operations': (int,),  # noqa: E501
-            'object_store_read_requests': (int,),  # noqa: E501
-            'object_store_write_requests': (int,),  # noqa: E501
             'fanout_req_header_bytes': (int,),  # noqa: E501
             'fanout_req_body_bytes': (int,),  # noqa: E501
             'fanout_resp_header_bytes': (int,),  # noqa: E501
@@ -452,6 +453,7 @@ class Results(ModelNormal):
         'segblock_shield_fetches': 'segblock_shield_fetches',  # noqa: E501
         'compute_requests': 'compute_requests',  # noqa: E501
         'compute_request_time_ms': 'compute_request_time_ms',  # noqa: E501
+        'compute_request_time_billed_ms': 'compute_request_time_billed_ms',  # noqa: E501
         'compute_ram_used': 'compute_ram_used',  # noqa: E501
         'compute_execution_time_ms': 'compute_execution_time_ms',  # noqa: E501
         'compute_req_header_bytes': 'compute_req_header_bytes',  # noqa: E501
@@ -498,10 +500,10 @@ class Results(ModelNormal):
         'websocket_conn_time_ms': 'websocket_conn_time_ms',  # noqa: E501
         'fanout_recv_publishes': 'fanout_recv_publishes',  # noqa: E501
         'fanout_send_publishes': 'fanout_send_publishes',  # noqa: E501
+        'kv_store_class_a_operations': 'kv_store_class_a_operations',  # noqa: E501
+        'kv_store_class_b_operations': 'kv_store_class_b_operations',  # noqa: E501
         'object_store_class_a_operations': 'object_store_class_a_operations',  # noqa: E501
         'object_store_class_b_operations': 'object_store_class_b_operations',  # noqa: E501
-        'object_store_read_requests': 'object_store_read_requests',  # noqa: E501
-        'object_store_write_requests': 'object_store_write_requests',  # noqa: E501
         'fanout_req_header_bytes': 'fanout_req_header_bytes',  # noqa: E501
         'fanout_req_body_bytes': 'fanout_req_body_bytes',  # noqa: E501
         'fanout_resp_header_bytes': 'fanout_resp_header_bytes',  # noqa: E501
@@ -710,6 +712,7 @@ class Results(ModelNormal):
             segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
             compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
             compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
             compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
             compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
             compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
@@ -756,10 +759,10 @@ class Results(ModelNormal):
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
-            object_store_class_a_operations (int): The total number of class a operations for the object store.. [optional]  # noqa: E501
-            object_store_class_b_operations (int): The total number of class b operations for the object store.. [optional]  # noqa: E501
-            object_store_read_requests (int): Use object_store_class_b_operations.. [optional]  # noqa: E501
-            object_store_write_requests (int): Use object_store_class_a_operations.. [optional]  # noqa: E501
+            kv_store_class_a_operations (int): The total number of class a operations for the KV store.. [optional]  # noqa: E501
+            kv_store_class_b_operations (int): The total number of class b operations for the KV store.. [optional]  # noqa: E501
+            object_store_class_a_operations (int): Use kv_store_class_a_operations.. [optional]  # noqa: E501
+            object_store_class_b_operations (int): Use kv_store_class_b_operations.. [optional]  # noqa: E501
             fanout_req_header_bytes (int): Total header bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_req_body_bytes (int): Total body or message content bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_resp_header_bytes (int): Total header bytes sent to end users over Fanout connections.. [optional]  # noqa: E501
@@ -1006,6 +1009,7 @@ class Results(ModelNormal):
             segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
             compute_requests (int): The total number of requests that were received for your service by Fastly.. [optional]  # noqa: E501
             compute_request_time_ms (float): The total, actual amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
             compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
             compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
             compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
@@ -1052,10 +1056,10 @@ class Results(ModelNormal):
             websocket_conn_time_ms (int): Total duration of passthrough WebSocket connections with end users.. [optional]  # noqa: E501
             fanout_recv_publishes (int): Total published messages received from the publish API endpoint.. [optional]  # noqa: E501
             fanout_send_publishes (int): Total published messages sent to end users.. [optional]  # noqa: E501
-            object_store_class_a_operations (int): The total number of class a operations for the object store.. [optional]  # noqa: E501
-            object_store_class_b_operations (int): The total number of class b operations for the object store.. [optional]  # noqa: E501
-            object_store_read_requests (int): Use object_store_class_b_operations.. [optional]  # noqa: E501
-            object_store_write_requests (int): Use object_store_class_a_operations.. [optional]  # noqa: E501
+            kv_store_class_a_operations (int): The total number of class a operations for the KV store.. [optional]  # noqa: E501
+            kv_store_class_b_operations (int): The total number of class b operations for the KV store.. [optional]  # noqa: E501
+            object_store_class_a_operations (int): Use kv_store_class_a_operations.. [optional]  # noqa: E501
+            object_store_class_b_operations (int): Use kv_store_class_b_operations.. [optional]  # noqa: E501
             fanout_req_header_bytes (int): Total header bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_req_body_bytes (int): Total body or message content bytes received from end users over Fanout connections.. [optional]  # noqa: E501
             fanout_resp_header_bytes (int): Total header bytes sent to end users over Fanout connections.. [optional]  # noqa: E501

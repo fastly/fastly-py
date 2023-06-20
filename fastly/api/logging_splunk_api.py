@@ -44,7 +44,12 @@ class LoggingSplunkApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/splunk',
                 'operation_id': 'create_log_splunk',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -194,7 +199,12 @@ class LoggingSplunkApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/splunk/{logging_splunk_name}',
                 'operation_id': 'delete_log_splunk',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -259,7 +269,12 @@ class LoggingSplunkApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/splunk/{logging_splunk_name}',
                 'operation_id': 'get_log_splunk',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -324,7 +339,12 @@ class LoggingSplunkApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/splunk',
                 'operation_id': 'list_log_splunk',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -383,7 +403,12 @@ class LoggingSplunkApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/splunk/{logging_splunk_name}',
                 'operation_id': 'update_log_splunk',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

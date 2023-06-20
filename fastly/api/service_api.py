@@ -47,7 +47,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service',
                 'operation_id': 'create_service',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -122,7 +127,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/{service_id}',
                 'operation_id': 'delete_service',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -175,7 +185,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/{service_id}',
                 'operation_id': 'get_service',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -228,7 +243,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/{service_id}/details',
                 'operation_id': 'get_service_detail',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -286,7 +306,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/{service_id}/domain',
                 'operation_id': 'list_service_domains',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -339,7 +364,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service',
                 'operation_id': 'list_services',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -417,7 +447,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/search',
                 'operation_id': 'search_service',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -470,7 +505,12 @@ class ServiceApi(object):
                 'endpoint_path': '/service/{service_id}',
                 'operation_id': 'update_service',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

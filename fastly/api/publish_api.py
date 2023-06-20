@@ -42,7 +42,12 @@ class PublishApi(object):
                 'endpoint_path': '/service/{service_id}/publish/',
                 'operation_id': 'publish',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

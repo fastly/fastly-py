@@ -42,7 +42,12 @@ class SettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/settings',
                 'operation_id': 'get_service_settings',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -101,7 +106,12 @@ class SettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/settings',
                 'operation_id': 'update_service_settings',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

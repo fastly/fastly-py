@@ -42,7 +42,12 @@ class VclDiffApi(object):
                 'endpoint_path': '/service/{service_id}/vcl/diff/from/{from_version_id}/to/{to_version_id}',
                 'operation_id': 'vcl_diff_service_versions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -44,7 +44,12 @@ class KvStoreApi(object):
                 'endpoint_path': '/resources/stores/kv',
                 'operation_id': 'create_store',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -101,12 +106,16 @@ class KvStoreApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}',
                 'operation_id': 'delete_store',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
                     'store_id',
-                    'force',
                 ],
                 'required': [
                     'store_id',
@@ -126,16 +135,12 @@ class KvStoreApi(object):
                 'openapi_types': {
                     'store_id':
                         (str,),
-                    'force':
-                        (bool,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
-                    'force': 'force',
                 },
                 'location_map': {
                     'store_id': 'path',
-                    'force': 'header',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -157,7 +162,12 @@ class KvStoreApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}',
                 'operation_id': 'get_store',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -210,7 +220,12 @@ class KvStoreApi(object):
                 'endpoint_path': '/resources/stores/kv',
                 'operation_id': 'get_stores',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -351,7 +366,6 @@ class KvStoreApi(object):
             store_id (str):
 
         Keyword Args:
-            force (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

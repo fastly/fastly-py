@@ -44,7 +44,12 @@ class TlsPrivateKeysApi(object):
                 'endpoint_path': '/tls/private_keys',
                 'operation_id': 'create_tls_key',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class TlsPrivateKeysApi(object):
                 'endpoint_path': '/tls/private_keys/{tls_private_key_id}',
                 'operation_id': 'delete_tls_key',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class TlsPrivateKeysApi(object):
                 'endpoint_path': '/tls/private_keys/{tls_private_key_id}',
                 'operation_id': 'get_tls_key',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -200,7 +215,12 @@ class TlsPrivateKeysApi(object):
                 'endpoint_path': '/tls/private_keys',
                 'operation_id': 'list_tls_keys',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

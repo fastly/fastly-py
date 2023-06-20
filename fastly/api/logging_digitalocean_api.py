@@ -43,7 +43,12 @@ class LoggingDigitaloceanApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/digitalocean',
                 'operation_id': 'create_log_digocean',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -217,7 +222,12 @@ class LoggingDigitaloceanApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/digitalocean/{logging_digitalocean_name}',
                 'operation_id': 'delete_log_digocean',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -282,7 +292,12 @@ class LoggingDigitaloceanApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/digitalocean/{logging_digitalocean_name}',
                 'operation_id': 'get_log_digocean',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -347,7 +362,12 @@ class LoggingDigitaloceanApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/digitalocean',
                 'operation_id': 'list_log_digocean',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -406,7 +426,12 @@ class LoggingDigitaloceanApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/digitalocean/{logging_digitalocean_name}',
                 'operation_id': 'update_log_digocean',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

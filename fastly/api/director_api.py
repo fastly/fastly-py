@@ -44,7 +44,12 @@ class DirectorApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director',
                 'operation_id': 'create_director',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -161,7 +166,12 @@ class DirectorApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director/{director_name}',
                 'operation_id': 'delete_director',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -226,7 +236,12 @@ class DirectorApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director/{director_name}',
                 'operation_id': 'get_director',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -291,7 +306,12 @@ class DirectorApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director',
                 'operation_id': 'list_directors',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

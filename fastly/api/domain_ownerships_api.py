@@ -42,7 +42,12 @@ class DomainOwnershipsApi(object):
                 'endpoint_path': '/domain-ownerships',
                 'operation_id': 'list_domain_ownerships',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

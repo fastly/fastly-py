@@ -44,7 +44,12 @@ class WafExclusionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions',
                 'operation_id': 'create_waf_rule_exclusion',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -109,7 +114,12 @@ class WafExclusionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}',
                 'operation_id': 'delete_waf_rule_exclusion',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -172,7 +182,12 @@ class WafExclusionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}',
                 'operation_id': 'get_waf_rule_exclusion',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -237,7 +252,12 @@ class WafExclusionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions',
                 'operation_id': 'list_waf_rule_exclusions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -339,7 +359,12 @@ class WafExclusionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}',
                 'operation_id': 'update_waf_rule_exclusion',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

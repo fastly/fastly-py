@@ -44,7 +44,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/clone',
                 'operation_id': 'clone_waf_firewall_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -103,7 +108,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions',
                 'operation_id': 'create_waf_firewall_version',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -162,7 +172,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/activate',
                 'operation_id': 'deploy_activate_waf_firewall_version',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -221,7 +236,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}',
                 'operation_id': 'get_waf_firewall_version',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -285,7 +305,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions',
                 'operation_id': 'list_waf_firewall_versions',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -359,7 +384,12 @@ class WafFirewallVersionsApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{firewall_version_number}',
                 'operation_id': 'update_waf_firewall_version',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

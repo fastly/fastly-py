@@ -47,7 +47,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/bulk',
                 'operation_id': 'bulk_update_waf_active_rules',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -110,7 +115,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules',
                 'operation_id': 'create_waf_active_rule',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -176,7 +186,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/tags/{waf_tag_name}/active-rules',
                 'operation_id': 'create_waf_active_rules_tag',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -245,7 +260,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}',
                 'operation_id': 'delete_waf_active_rule',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -308,7 +328,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}',
                 'operation_id': 'get_waf_active_rule',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -378,7 +403,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules',
                 'operation_id': 'list_waf_active_rules',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -478,7 +508,12 @@ class WafActiveRulesApi(object):
                 'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}',
                 'operation_id': 'update_waf_active_rule',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

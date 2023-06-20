@@ -43,7 +43,12 @@ class ResourceApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/resource',
                 'operation_id': 'create_resource',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -114,7 +119,12 @@ class ResourceApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'delete_resource',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -179,7 +189,12 @@ class ResourceApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'get_resource',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -244,7 +259,12 @@ class ResourceApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/resource',
                 'operation_id': 'list_resources',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -303,7 +323,12 @@ class ResourceApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/resource/{id}',
                 'operation_id': 'update_resource',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

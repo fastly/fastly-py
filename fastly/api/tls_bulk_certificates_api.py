@@ -44,7 +44,12 @@ class TlsBulkCertificatesApi(object):
                 'endpoint_path': '/tls/bulk/certificates/{certificate_id}',
                 'operation_id': 'delete_bulk_tls_cert',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -95,7 +100,12 @@ class TlsBulkCertificatesApi(object):
                 'endpoint_path': '/tls/bulk/certificates/{certificate_id}',
                 'operation_id': 'get_tls_bulk_cert',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -148,7 +158,12 @@ class TlsBulkCertificatesApi(object):
                 'endpoint_path': '/tls/bulk/certificates',
                 'operation_id': 'list_tls_bulk_certs',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -226,7 +241,12 @@ class TlsBulkCertificatesApi(object):
                 'endpoint_path': '/tls/bulk/certificates/{certificate_id}',
                 'operation_id': 'update_bulk_tls_cert',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -285,7 +305,12 @@ class TlsBulkCertificatesApi(object):
                 'endpoint_path': '/tls/bulk/certificates',
                 'operation_id': 'upload_tls_bulk_cert',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

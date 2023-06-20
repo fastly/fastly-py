@@ -43,7 +43,12 @@ class RateLimiterApi(object):
                 'endpoint_path': '/rate-limiters/{rate_limiter_id}',
                 'operation_id': 'delete_rate_limiter',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class RateLimiterApi(object):
                 'endpoint_path': '/rate-limiters/{rate_limiter_id}',
                 'operation_id': 'get_rate_limiter',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -149,7 +159,12 @@ class RateLimiterApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/rate-limiters',
                 'operation_id': 'list_rate_limiters',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

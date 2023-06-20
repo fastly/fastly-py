@@ -42,7 +42,12 @@ class WafTagsApi(object):
                 'endpoint_path': '/waf/tags',
                 'operation_id': 'list_waf_tags',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

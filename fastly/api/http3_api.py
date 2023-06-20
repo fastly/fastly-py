@@ -43,7 +43,12 @@ class Http3Api(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/http3',
                 'operation_id': 'create_http3',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -142,7 +147,12 @@ class Http3Api(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/http3',
                 'operation_id': 'delete_http3',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -201,7 +211,12 @@ class Http3Api(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/http3',
                 'operation_id': 'get_http3',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

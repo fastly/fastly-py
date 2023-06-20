@@ -44,7 +44,12 @@ class ServiceAuthorizationsApi(object):
                 'endpoint_path': '/service-authorizations',
                 'operation_id': 'create_service_authorization',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class ServiceAuthorizationsApi(object):
                 'endpoint_path': '/service-authorizations/{service_authorization_id}',
                 'operation_id': 'delete_service_authorization',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class ServiceAuthorizationsApi(object):
                 'endpoint_path': '/service-authorizations',
                 'operation_id': 'list_service_authorization',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -209,7 +224,12 @@ class ServiceAuthorizationsApi(object):
                 'endpoint_path': '/service-authorizations/{service_authorization_id}',
                 'operation_id': 'show_service_authorization',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -262,7 +282,12 @@ class ServiceAuthorizationsApi(object):
                 'endpoint_path': '/service-authorizations/{service_authorization_id}',
                 'operation_id': 'update_service_authorization',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

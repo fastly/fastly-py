@@ -43,7 +43,12 @@ class ResponseObjectApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/response_object/{response_object_name}',
                 'operation_id': 'delete_response_object',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -108,7 +113,12 @@ class ResponseObjectApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/response_object/{response_object_name}',
                 'operation_id': 'get_response_object',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -173,7 +183,12 @@ class ResponseObjectApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/response_object',
                 'operation_id': 'list_response_objects',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

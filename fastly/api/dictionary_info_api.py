@@ -42,7 +42,12 @@ class DictionaryInfoApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/dictionary/{dictionary_id}/info',
                 'operation_id': 'get_dictionary_info',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -44,7 +44,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config',
                 'operation_id': 'create_config_store',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -97,7 +102,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config/{config_store_id}',
                 'operation_id': 'delete_config_store',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -150,7 +160,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config/{config_store_id}',
                 'operation_id': 'get_config_store',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -203,7 +218,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config/{config_store_id}/info',
                 'operation_id': 'get_config_store_info',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -256,7 +276,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config/{config_store_id}/services',
                 'operation_id': 'list_config_store_services',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -309,7 +334,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config',
                 'operation_id': 'list_config_stores',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -355,7 +385,12 @@ class ConfigStoreApi(object):
                 'endpoint_path': '/resources/stores/config/{config_store_id}',
                 'operation_id': 'update_config_store',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

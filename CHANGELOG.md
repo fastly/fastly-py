@@ -1,5 +1,19 @@
 # Changelog
 
+## [v2.2.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.2.0) (2023-06-20)
+
+**Enhancements:**
+
+- feat(realtime_measurements): add billable request processing time.
+- feat(tokens): add support for the 'get token' endpoint.
+
+**Bug fixes:**
+
+- fix(config): add realtime hostname.
+- fix(historical_stats): generate field results model.
+- fix(kv_store): remove the 'force' property from the 'delete store' endpoint.
+- feat(realtime_measurements): rename object store to kv store.
+
 ## [v2.1.1](https://github.com/fastly/fastly-py/releases/tag/release/v2.1.1) (2023-05-22)
 
 **Bug fixes:**

@@ -44,7 +44,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/items',
                 'operation_id': 'bulk_update_dictionary_item',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -109,7 +114,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/item',
                 'operation_id': 'create_dictionary_item',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -180,7 +190,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}',
                 'operation_id': 'delete_dictionary_item',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -245,7 +260,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}',
                 'operation_id': 'get_dictionary_item',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -310,7 +330,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/items',
                 'operation_id': 'list_dictionary_items',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -401,7 +426,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}',
                 'operation_id': 'update_dictionary_item',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -478,7 +508,12 @@ class DictionaryItemApi(object):
                 'endpoint_path': '/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}',
                 'operation_id': 'upsert_dictionary_item',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

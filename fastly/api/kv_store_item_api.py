@@ -42,13 +42,17 @@ class KvStoreItemApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
                 'operation_id': 'delete_key_from_store',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
                     'store_id',
                     'key_name',
-                    'force',
                 ],
                 'required': [
                     'store_id',
@@ -71,18 +75,14 @@ class KvStoreItemApi(object):
                         (str,),
                     'key_name':
                         (str,),
-                    'force':
-                        (bool,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
                     'key_name': 'key_name',
-                    'force': 'force',
                 },
                 'location_map': {
                     'store_id': 'path',
                     'key_name': 'path',
-                    'force': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -104,7 +104,12 @@ class KvStoreItemApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}/keys',
                 'operation_id': 'get_keys',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -172,7 +177,12 @@ class KvStoreItemApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
                 'operation_id': 'get_value_for_key',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -231,7 +241,12 @@ class KvStoreItemApi(object):
                 'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
                 'operation_id': 'set_value_for_key',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -343,7 +358,6 @@ class KvStoreItemApi(object):
             key_name (str):
 
         Keyword Args:
-            force (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

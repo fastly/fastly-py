@@ -46,7 +46,12 @@ class LoggingKinesisApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kinesis',
                 'operation_id': 'create_log_kinesis',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -156,7 +161,12 @@ class LoggingKinesisApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name}',
                 'operation_id': 'delete_log_kinesis',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -221,7 +231,12 @@ class LoggingKinesisApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name}',
                 'operation_id': 'get_log_kinesis',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -286,7 +301,12 @@ class LoggingKinesisApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/kinesis',
                 'operation_id': 'list_log_kinesis',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

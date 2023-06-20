@@ -44,7 +44,12 @@ class CustomerApi(object):
                 'endpoint_path': '/customer/{customer_id}',
                 'operation_id': 'delete_customer',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -97,7 +102,12 @@ class CustomerApi(object):
                 'endpoint_path': '/customer/{customer_id}',
                 'operation_id': 'get_customer',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -150,7 +160,12 @@ class CustomerApi(object):
                 'endpoint_path': '/current_customer',
                 'operation_id': 'get_logged_in_customer',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -196,7 +211,12 @@ class CustomerApi(object):
                 'endpoint_path': '/customer/{customer_id}/users',
                 'operation_id': 'list_users',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -249,7 +269,12 @@ class CustomerApi(object):
                 'endpoint_path': '/customer/{customer_id}',
                 'operation_id': 'update_customer',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

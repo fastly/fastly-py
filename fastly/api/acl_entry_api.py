@@ -45,7 +45,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entries',
                 'operation_id': 'bulk_update_acl_entries',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -110,7 +115,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entry',
                 'operation_id': 'create_acl_entry',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -175,7 +185,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entry/{acl_entry_id}',
                 'operation_id': 'delete_acl_entry',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -240,7 +255,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entry/{acl_entry_id}',
                 'operation_id': 'get_acl_entry',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -305,7 +325,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entries',
                 'operation_id': 'list_acl_entries',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -396,7 +421,12 @@ class AclEntryApi(object):
                 'endpoint_path': '/service/{service_id}/acl/{acl_id}/entry/{acl_entry_id}',
                 'operation_id': 'update_acl_entry',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

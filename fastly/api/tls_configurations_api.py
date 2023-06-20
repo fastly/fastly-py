@@ -44,7 +44,12 @@ class TlsConfigurationsApi(object):
                 'endpoint_path': '/tls/configurations/{tls_configuration_id}',
                 'operation_id': 'get_tls_config',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -102,7 +107,12 @@ class TlsConfigurationsApi(object):
                 'endpoint_path': '/tls/configurations',
                 'operation_id': 'list_tls_configs',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -174,7 +184,12 @@ class TlsConfigurationsApi(object):
                 'endpoint_path': '/tls/configurations/{tls_configuration_id}',
                 'operation_id': 'update_tls_config',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

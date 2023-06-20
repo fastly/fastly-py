@@ -49,20 +49,11 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = kv_store_item_api.KvStoreItemApi(api_client)
     store_id = "store_id_example" # str | 
     key_name = "key_name_example" # str | 
-    force = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete kv store item.
         api_instance.delete_key_from_store(store_id, key_name)
-    except fastly.ApiException as e:
-        print("Exception when calling KvStoreItemApi->delete_key_from_store: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Delete kv store item.
-        api_instance.delete_key_from_store(store_id, key_name, force=force)
     except fastly.ApiException as e:
         print("Exception when calling KvStoreItemApi->delete_key_from_store: %s\n" % e)
 ```
@@ -74,7 +65,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **str**|  |
  **key_name** | **str**|  |
- **force** | **bool**|  | [optional]
 
 ### Return type
 

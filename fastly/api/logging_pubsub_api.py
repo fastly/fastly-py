@@ -43,7 +43,12 @@ class LoggingPubsubApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/pubsub',
                 'operation_id': 'create_log_gcp_pubsub',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -169,7 +174,12 @@ class LoggingPubsubApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/pubsub/{logging_google_pubsub_name}',
                 'operation_id': 'delete_log_gcp_pubsub',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -234,7 +244,12 @@ class LoggingPubsubApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/pubsub/{logging_google_pubsub_name}',
                 'operation_id': 'get_log_gcp_pubsub',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -299,7 +314,12 @@ class LoggingPubsubApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/pubsub',
                 'operation_id': 'list_log_gcp_pubsub',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -358,7 +378,12 @@ class LoggingPubsubApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/logging/pubsub/{logging_google_pubsub_name}',
                 'operation_id': 'update_log_gcp_pubsub',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

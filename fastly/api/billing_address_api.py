@@ -45,7 +45,12 @@ class BillingAddressApi(object):
                 'endpoint_path': '/customer/{customer_id}/billing_address',
                 'operation_id': 'add_billing_addr',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -104,7 +109,12 @@ class BillingAddressApi(object):
                 'endpoint_path': '/customer/{customer_id}/billing_address',
                 'operation_id': 'delete_billing_addr',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -155,7 +165,12 @@ class BillingAddressApi(object):
                 'endpoint_path': '/customer/{customer_id}/billing_address',
                 'operation_id': 'get_billing_addr',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -208,7 +223,12 @@ class BillingAddressApi(object):
                 'endpoint_path': '/customer/{customer_id}/billing_address',
                 'operation_id': 'update_billing_addr',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

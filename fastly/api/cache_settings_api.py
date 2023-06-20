@@ -43,7 +43,12 @@ class CacheSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/cache_settings',
                 'operation_id': 'create_cache_settings',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -138,7 +143,12 @@ class CacheSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/cache_settings/{cache_settings_name}',
                 'operation_id': 'delete_cache_settings',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -203,7 +213,12 @@ class CacheSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/cache_settings/{cache_settings_name}',
                 'operation_id': 'get_cache_settings',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -268,7 +283,12 @@ class CacheSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/cache_settings',
                 'operation_id': 'list_cache_settings',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -327,7 +347,12 @@ class CacheSettingsApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/cache_settings/{cache_settings_name}',
                 'operation_id': 'update_cache_settings',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

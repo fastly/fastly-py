@@ -43,7 +43,12 @@ class BackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/backend',
                 'operation_id': 'create_backend',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -273,7 +278,12 @@ class BackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/backend/{backend_name}',
                 'operation_id': 'delete_backend',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -338,7 +348,12 @@ class BackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/backend/{backend_name}',
                 'operation_id': 'get_backend',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -403,7 +418,12 @@ class BackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/backend',
                 'operation_id': 'list_backends',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -462,7 +482,12 @@ class BackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/backend/{backend_name}',
                 'operation_id': 'update_backend',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

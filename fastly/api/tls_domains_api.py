@@ -42,7 +42,12 @@ class TlsDomainsApi(object):
                 'endpoint_path': '/tls/domains',
                 'operation_id': 'list_tls_domains',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

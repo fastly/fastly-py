@@ -44,7 +44,12 @@ class MutualAuthenticationApi(object):
                 'endpoint_path': '/tls/mutual_authentications',
                 'operation_id': 'create_mutual_tls_authentication',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class MutualAuthenticationApi(object):
                 'endpoint_path': '/tls/mutual_authentications/{mutual_authentication_id}',
                 'operation_id': 'delete_mutual_tls',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class MutualAuthenticationApi(object):
                 'endpoint_path': '/tls/mutual_authentications/{mutual_authentication_id}',
                 'operation_id': 'get_mutual_authentication',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -205,7 +220,12 @@ class MutualAuthenticationApi(object):
                 'endpoint_path': '/tls/mutual_authentications',
                 'operation_id': 'list_mutual_authentications',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -272,7 +292,12 @@ class MutualAuthenticationApi(object):
                 'endpoint_path': '/tls/mutual_authentications/{mutual_authentication_id}',
                 'operation_id': 'patch_mutual_authentication',
                 'http_method': 'PATCH',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

@@ -43,7 +43,12 @@ class DirectorBackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director/{director_name}/backend/{backend_name}',
                 'operation_id': 'create_director_backend',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -114,7 +119,12 @@ class DirectorBackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director/{director_name}/backend/{backend_name}',
                 'operation_id': 'delete_director_backend',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -185,7 +195,12 @@ class DirectorBackendApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/director/{director_name}/backend/{backend_name}',
                 'operation_id': 'get_director_backend',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

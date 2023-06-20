@@ -46,7 +46,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain/{domain_name}/check',
                 'operation_id': 'check_domain',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -111,7 +116,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain/check_all',
                 'operation_id': 'check_domains',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -170,7 +180,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain',
                 'operation_id': 'create_domain',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -242,7 +257,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain/{domain_name}',
                 'operation_id': 'delete_domain',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -307,7 +327,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain/{domain_name}',
                 'operation_id': 'get_domain',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -372,7 +397,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain',
                 'operation_id': 'list_domains',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -431,7 +461,12 @@ class DomainApi(object):
                 'endpoint_path': '/service/{service_id}/version/{version_id}/domain/{domain_name}',
                 'operation_id': 'update_domain',
                 'http_method': 'PUT',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [

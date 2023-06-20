@@ -44,7 +44,12 @@ class InvitationsApi(object):
                 'endpoint_path': '/invitations',
                 'operation_id': 'create_invitation',
                 'http_method': 'POST',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -96,7 +101,12 @@ class InvitationsApi(object):
                 'endpoint_path': '/invitations/{invitation_id}',
                 'operation_id': 'delete_invitation',
                 'http_method': 'DELETE',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
@@ -147,7 +157,12 @@ class InvitationsApi(object):
                 'endpoint_path': '/invitations',
                 'operation_id': 'list_invitations',
                 'http_method': 'GET',
-                'servers': None,
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
             },
             params_map={
                 'all': [
