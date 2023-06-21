@@ -1,5 +1,6 @@
 # RelationshipTlsCertificate
 
+The [TLS certificate](/reference/api/tls/custom-certs/certificates/) being used to terminate TLS traffic for a domain. Required.
 
 ## Properties
 Name | Type | Description | Notes

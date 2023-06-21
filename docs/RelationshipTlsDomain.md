@@ -1,5 +1,6 @@
 # RelationshipTlsDomain
 
+The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
 
 ## Properties
 Name | Type | Description | Notes

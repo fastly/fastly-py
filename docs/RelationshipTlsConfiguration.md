@@ -1,5 +1,6 @@
 # RelationshipTlsConfiguration
 
+The [TLS configuration](/reference/api/tls/custom-certs/configuration/) being used to terminate TLS traffic. Optional.
 
 ## Properties
 Name | Type | Description | Notes

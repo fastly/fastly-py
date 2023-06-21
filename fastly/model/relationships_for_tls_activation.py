@@ -30,11 +30,21 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.relationship_tls_certificate import RelationshipTlsCertificate
     from fastly.model.relationship_tls_certificate_tls_certificate import RelationshipTlsCertificateTlsCertificate
+    from fastly.model.relationship_tls_configuration import RelationshipTlsConfiguration
+    from fastly.model.relationship_tls_configuration_tls_configuration import RelationshipTlsConfigurationTlsConfiguration
+    from fastly.model.relationship_tls_domain import RelationshipTlsDomain
+    from fastly.model.relationship_tls_domain_tls_domain import RelationshipTlsDomainTlsDomain
+    globals()['RelationshipTlsCertificate'] = RelationshipTlsCertificate
     globals()['RelationshipTlsCertificateTlsCertificate'] = RelationshipTlsCertificateTlsCertificate
+    globals()['RelationshipTlsConfiguration'] = RelationshipTlsConfiguration
+    globals()['RelationshipTlsConfigurationTlsConfiguration'] = RelationshipTlsConfigurationTlsConfiguration
+    globals()['RelationshipTlsDomain'] = RelationshipTlsDomain
+    globals()['RelationshipTlsDomainTlsDomain'] = RelationshipTlsDomainTlsDomain
 
 
-class RelationshipsForTlsActivation(ModelNormal):
+class RelationshipsForTlsActivation(ModelComposed):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -86,6 +96,8 @@ class RelationshipsForTlsActivation(ModelNormal):
         lazy_import()
         return {
             'tls_certificate': (RelationshipTlsCertificateTlsCertificate,),  # noqa: E501
+            'tls_configuration': (RelationshipTlsConfigurationTlsConfiguration,),  # noqa: E501
+            'tls_domain': (RelationshipTlsDomainTlsDomain,),  # noqa: E501
         }
 
     @cached_property
@@ -95,12 +107,12 @@ class RelationshipsForTlsActivation(ModelNormal):
 
     attribute_map = {
         'tls_certificate': 'tls_certificate',  # noqa: E501
+        'tls_configuration': 'tls_configuration',  # noqa: E501
+        'tls_domain': 'tls_domain',  # noqa: E501
     }
 
     read_only_vars = {
     }
-
-    _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
@@ -139,6 +151,8 @@ class RelationshipsForTlsActivation(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tls_certificate (RelationshipTlsCertificateTlsCertificate): [optional]  # noqa: E501
+            tls_configuration (RelationshipTlsConfigurationTlsConfiguration): [optional]  # noqa: E501
+            tls_domain (RelationshipTlsDomainTlsDomain): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,14 +180,29 @@ class RelationshipsForTlsActivation(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        constant_args = {
+            '_check_type': _check_type,
+            '_path_to_item': _path_to_item,
+            '_spec_property_naming': _spec_property_naming,
+            '_configuration': _configuration,
+            '_visited_composed_classes': self._visited_composed_classes,
+        }
+        composed_info = validate_get_composed_info(
+            constant_args, kwargs, self)
+        self._composed_instances = composed_info[0]
+        self._var_name_to_model_instances = composed_info[1]
+        self._additional_properties_model_instances = composed_info[2]
+        discarded_args = composed_info[3]
+
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
+            if var_name in discarded_args and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                        self._additional_properties_model_instances:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+
         return self
 
     required_properties = set([
@@ -183,6 +212,9 @@ class RelationshipsForTlsActivation(ModelNormal):
         '_path_to_item',
         '_configuration',
         '_visited_composed_classes',
+        '_composed_instances',
+        '_var_name_to_model_instances',
+        '_additional_properties_model_instances',
     ])
 
     @convert_js_args_to_python_args
@@ -221,6 +253,8 @@ class RelationshipsForTlsActivation(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tls_certificate (RelationshipTlsCertificateTlsCertificate): [optional]  # noqa: E501
+            tls_configuration (RelationshipTlsConfigurationTlsConfiguration): [optional]  # noqa: E501
+            tls_domain (RelationshipTlsDomainTlsDomain): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,14 +280,50 @@ class RelationshipsForTlsActivation(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        constant_args = {
+            '_check_type': _check_type,
+            '_path_to_item': _path_to_item,
+            '_spec_property_naming': _spec_property_naming,
+            '_configuration': _configuration,
+            '_visited_composed_classes': self._visited_composed_classes,
+        }
+        composed_info = validate_get_composed_info(
+            constant_args, kwargs, self)
+        self._composed_instances = composed_info[0]
+        self._var_name_to_model_instances = composed_info[1]
+        self._additional_properties_model_instances = composed_info[2]
+        discarded_args = composed_info[3]
+
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
+            if var_name in discarded_args and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                        self._additional_properties_model_instances:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
+
+    @cached_property
+    def _composed_schemas():
+        # we need this here to make our import statements work
+        # we must store _composed_schemas in here so the code is only run
+        # when we invoke this method. If we kept this at the class
+        # level we would get an error because the class level
+        # code would be run when this module is imported, and these composed
+        # classes don't exist yet because their module has not finished
+        # loading
+        lazy_import()
+        return {
+          'anyOf': [
+          ],
+          'allOf': [
+              RelationshipTlsCertificate,
+              RelationshipTlsConfiguration,
+              RelationshipTlsDomain,
+          ],
+          'oneOf': [
+          ],
+        }
