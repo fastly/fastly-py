@@ -32,11 +32,11 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.historical import Historical
     from fastly.model.historical_meta import HistoricalMeta
-    from fastly.model.historical_response_all_of import HistoricalResponseAllOf
+    from fastly.model.historical_response_data_field import HistoricalResponseDataField
     from fastly.model.historical_results import HistoricalResults
     globals()['Historical'] = Historical
     globals()['HistoricalMeta'] = HistoricalMeta
-    globals()['HistoricalResponseAllOf'] = HistoricalResponseAllOf
+    globals()['HistoricalResponseDataField'] = HistoricalResponseDataField
     globals()['HistoricalResults'] = HistoricalResults
 
 
@@ -321,7 +321,7 @@ class HistoricalResponse(ModelComposed):
           ],
           'allOf': [
               Historical,
-              HistoricalResponseAllOf,
+              HistoricalResponseDataField,
           ],
           'oneOf': [
           ],

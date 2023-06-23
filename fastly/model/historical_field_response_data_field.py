@@ -30,13 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.historical_services import HistoricalServices
-    from fastly.model.historical_usage_results import HistoricalUsageResults
-    globals()['HistoricalServices'] = HistoricalServices
-    globals()['HistoricalUsageResults'] = HistoricalUsageResults
+    from fastly.model.historical_field_results import HistoricalFieldResults
+    globals()['HistoricalFieldResults'] = HistoricalFieldResults
 
 
-class HistoricalUsageMonthResponseAllOfData(ModelNormal):
+class HistoricalFieldResponseDataField(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -87,9 +85,7 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
         """
         lazy_import()
         return {
-            'customer_id': (str,),  # noqa: E501
-            'services': (HistoricalServices,),  # noqa: E501
-            'total': (HistoricalUsageResults,),  # noqa: E501
+            'data': ({str: (HistoricalFieldResults,)},),  # noqa: E501
         }
 
     @cached_property
@@ -98,13 +94,10 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
 
 
     attribute_map = {
-        'customer_id': 'customer_id',  # noqa: E501
-        'services': 'services',  # noqa: E501
-        'total': 'total',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
-        'customer_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -112,7 +105,7 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """HistoricalUsageMonthResponseAllOfData - a model defined in OpenAPI
+        """HistoricalFieldResponseDataField - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,9 +138,7 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            customer_id (str): [optional]  # noqa: E501
-            services (HistoricalServices): [optional]  # noqa: E501
-            total (HistoricalUsageResults): [optional]  # noqa: E501
+            data ({str: (HistoricalFieldResults,)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -196,7 +187,7 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """HistoricalUsageMonthResponseAllOfData - a model defined in OpenAPI
+        """HistoricalFieldResponseDataField - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,9 +220,7 @@ class HistoricalUsageMonthResponseAllOfData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            customer_id (str): [optional]  # noqa: E501
-            services (HistoricalServices): [optional]  # noqa: E501
-            total (HistoricalUsageResults): [optional]  # noqa: E501
+            data ({str: (HistoricalFieldResults,)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

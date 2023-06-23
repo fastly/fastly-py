@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.historical_usage_month_response_all_of_data import HistoricalUsageMonthResponseAllOfData
-    globals()['HistoricalUsageMonthResponseAllOfData'] = HistoricalUsageMonthResponseAllOfData
+    from fastly.model.historical_usage_month_response_data import HistoricalUsageMonthResponseData
+    globals()['HistoricalUsageMonthResponseData'] = HistoricalUsageMonthResponseData
 
 
 class HistoricalUsageMonthResponseAllOf(ModelNormal):
@@ -85,7 +85,7 @@ class HistoricalUsageMonthResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (HistoricalUsageMonthResponseAllOfData,),  # noqa: E501
+            'data': (HistoricalUsageMonthResponseData,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class HistoricalUsageMonthResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (HistoricalUsageMonthResponseAllOfData): [optional]  # noqa: E501
+            data (HistoricalUsageMonthResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class HistoricalUsageMonthResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (HistoricalUsageMonthResponseAllOfData): [optional]  # noqa: E501
+            data (HistoricalUsageMonthResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

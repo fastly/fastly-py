@@ -33,11 +33,11 @@ def lazy_import():
     from fastly.model.historical import Historical
     from fastly.model.historical_meta import HistoricalMeta
     from fastly.model.historical_usage_month_response_all_of import HistoricalUsageMonthResponseAllOf
-    from fastly.model.historical_usage_month_response_all_of_data import HistoricalUsageMonthResponseAllOfData
+    from fastly.model.historical_usage_month_response_data import HistoricalUsageMonthResponseData
     globals()['Historical'] = Historical
     globals()['HistoricalMeta'] = HistoricalMeta
     globals()['HistoricalUsageMonthResponseAllOf'] = HistoricalUsageMonthResponseAllOf
-    globals()['HistoricalUsageMonthResponseAllOfData'] = HistoricalUsageMonthResponseAllOfData
+    globals()['HistoricalUsageMonthResponseData'] = HistoricalUsageMonthResponseData
 
 
 class HistoricalUsageMonthResponse(ModelComposed):
@@ -94,7 +94,7 @@ class HistoricalUsageMonthResponse(ModelComposed):
             'status': (str,),  # noqa: E501
             'meta': (HistoricalMeta,),  # noqa: E501
             'msg': (str, none_type,),  # noqa: E501
-            'data': (HistoricalUsageMonthResponseAllOfData,),  # noqa: E501
+            'data': (HistoricalUsageMonthResponseData,),  # noqa: E501
         }
 
     @cached_property
@@ -151,7 +151,7 @@ class HistoricalUsageMonthResponse(ModelComposed):
             status (str): Whether or not we were able to successfully execute the query.. [optional]  # noqa: E501
             meta (HistoricalMeta): [optional]  # noqa: E501
             msg (str, none_type): If the query was not successful, this will provide a string that explains why.. [optional]  # noqa: E501
-            data (HistoricalUsageMonthResponseAllOfData): [optional]  # noqa: E501
+            data (HistoricalUsageMonthResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,7 +254,7 @@ class HistoricalUsageMonthResponse(ModelComposed):
             status (str): Whether or not we were able to successfully execute the query.. [optional]  # noqa: E501
             meta (HistoricalMeta): [optional]  # noqa: E501
             msg (str, none_type): If the query was not successful, this will provide a string that explains why.. [optional]  # noqa: E501
-            data (HistoricalUsageMonthResponseAllOfData): [optional]  # noqa: E501
+            data (HistoricalUsageMonthResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

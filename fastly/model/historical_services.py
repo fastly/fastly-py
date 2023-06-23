@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.historical_usage_results import HistoricalUsageResults
-    globals()['HistoricalUsageResults'] = HistoricalUsageResults
+    from fastly.model.historical_service import HistoricalService
+    globals()['HistoricalService'] = HistoricalService
 
 
 class HistoricalServices(ModelNormal):
@@ -69,7 +69,7 @@ class HistoricalServices(ModelNormal):
         of type self, this must run after the class is loaded
         """
         lazy_import()
-        return ({str: (HistoricalUsageResults,)},)  # noqa: E501
+        return (HistoricalService,)  # noqa: E501
 
     _nullable = False
 
