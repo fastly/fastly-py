@@ -1,5 +1,15 @@
 # Changelog
 
+## [v2.3.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.3.0) (2023-06-27)
+
+**Enhancements:**
+
+- feat(rate_limiter): implement POST/PUT endpoints.
+
+**Bug fixes:**
+
+- fix(historical_stats): extract primitive into custom type.
+
 ## [v2.2.2](https://github.com/fastly/fastly-py/releases/tag/release/v2.2.2) (2023-06-23)
 
 **Bug fixes:**

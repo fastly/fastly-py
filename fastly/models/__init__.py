@@ -286,8 +286,8 @@ from fastly.model.purge_keys_response import PurgeKeysResponse
 from fastly.model.purge_response import PurgeResponse
 from fastly.model.rate_limiter import RateLimiter
 from fastly.model.rate_limiter_response import RateLimiterResponse
-from fastly.model.rate_limiter_response1 import RateLimiterResponse1
 from fastly.model.rate_limiter_response_all_of import RateLimiterResponseAllOf
+from fastly.model.read_only_id_service import ReadOnlyIdService
 from fastly.model.realtime import Realtime
 from fastly.model.realtime_entry import RealtimeEntry
 from fastly.model.realtime_measurements import RealtimeMeasurements

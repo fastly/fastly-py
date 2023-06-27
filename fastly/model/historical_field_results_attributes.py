@@ -31,8 +31,10 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.historical_field_results_attributes_all_of import HistoricalFieldResultsAttributesAllOf
+    from fastly.model.read_only_id_service import ReadOnlyIdService
     from fastly.model.results import Results
     globals()['HistoricalFieldResultsAttributesAllOf'] = HistoricalFieldResultsAttributesAllOf
+    globals()['ReadOnlyIdService'] = ReadOnlyIdService
     globals()['Results'] = Results
 
 
@@ -303,7 +305,7 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             'ddos_action_tarpit': (int,),  # noqa: E501
             'ddos_action_close': (int,),  # noqa: E501
             'ddos_action_blackhole': (int,),  # noqa: E501
-            'service_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'service_id': (ReadOnlyIdService,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
 
@@ -534,7 +536,6 @@ class HistoricalFieldResultsAttributes(ModelComposed):
     }
 
     read_only_vars = {
-        'service_id',  # noqa: E501
     }
 
     @classmethod
@@ -789,7 +790,7 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
-            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """
 
@@ -1106,7 +1107,7 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
-            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """
 

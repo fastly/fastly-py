@@ -29,6 +29,10 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.read_only_id_service import ReadOnlyIdService
+    globals()['ReadOnlyIdService'] = ReadOnlyIdService
+
 
 class HistoricalFieldResultsAttributesAllOf(ModelNormal):
     """NOTE: This class is auto generated.
@@ -64,6 +68,7 @@ class HistoricalFieldResultsAttributesAllOf(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +83,9 @@ class HistoricalFieldResultsAttributesAllOf(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'service_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'service_id': (ReadOnlyIdService,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
 
@@ -94,7 +100,6 @@ class HistoricalFieldResultsAttributesAllOf(ModelNormal):
     }
 
     read_only_vars = {
-        'service_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -135,7 +140,7 @@ class HistoricalFieldResultsAttributesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """
 
@@ -218,7 +223,7 @@ class HistoricalFieldResultsAttributesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """
 

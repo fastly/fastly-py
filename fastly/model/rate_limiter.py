@@ -29,10 +29,6 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.rate_limiter_response1 import RateLimiterResponse1
-    globals()['RateLimiterResponse1'] = RateLimiterResponse1
-
 
 class RateLimiter(ModelNormal):
     """NOTE: This class is auto generated.
@@ -148,7 +144,6 @@ class RateLimiter(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -163,7 +158,6 @@ class RateLimiter(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'name': (str,),  # noqa: E501
             'uri_dictionary_name': (str, none_type,),  # noqa: E501
@@ -173,7 +167,7 @@ class RateLimiter(ModelNormal):
             'client_key': ([str],),  # noqa: E501
             'penalty_box_duration': (int,),  # noqa: E501
             'action': (str,),  # noqa: E501
-            'response': (RateLimiterResponse1,),  # noqa: E501
+            'response': ({str: (str,)}, none_type,),  # noqa: E501
             'response_object_name': (str, none_type,),  # noqa: E501
             'logger_type': (str,),  # noqa: E501
             'feature_revision': (int,),  # noqa: E501
@@ -248,7 +242,7 @@ class RateLimiter(ModelNormal):
             client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]  # noqa: E501
             penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]  # noqa: E501
             action (str): The action to take when a rate limiter violation is detected.. [optional]  # noqa: E501
-            response (RateLimiterResponse1): [optional]  # noqa: E501
+            response ({str: (str,)}, none_type): Custom response to be sent when the rate limit is exceeded. Required if `action` is `response`.. [optional]  # noqa: E501
             response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]  # noqa: E501
             logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]  # noqa: E501
             feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]  # noqa: E501
@@ -341,7 +335,7 @@ class RateLimiter(ModelNormal):
             client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]  # noqa: E501
             penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]  # noqa: E501
             action (str): The action to take when a rate limiter violation is detected.. [optional]  # noqa: E501
-            response (RateLimiterResponse1): [optional]  # noqa: E501
+            response ({str: (str,)}, none_type): Custom response to be sent when the rate limit is exceeded. Required if `action` is `response`.. [optional]  # noqa: E501
             response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]  # noqa: E501
             logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]  # noqa: E501
             feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]  # noqa: E501
