@@ -26,6 +26,7 @@ from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.validator_result import ValidatorResult
 from fastly.model.vcl_response import VclResponse
+from fastly.model.vcl_syntax_highlighting_response import VclSyntaxHighlightingResponse
 
 
 class VclApi(object):
@@ -377,6 +378,140 @@ class VclApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_custom_vcl_generated_highlighted_endpoint = _Endpoint(
+            settings={
+                'response_type': (VclSyntaxHighlightingResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/service/{service_id}/version/{version_id}/generated_vcl/content',
+                'operation_id': 'get_custom_vcl_generated_highlighted',
+                'http_method': 'GET',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'service_id',
+                    'version_id',
+                ],
+                'required': [
+                    'service_id',
+                    'version_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'service_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'service_id': 'service_id',
+                    'version_id': 'version_id',
+                },
+                'location_map': {
+                    'service_id': 'path',
+                    'version_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_custom_vcl_highlighted_endpoint = _Endpoint(
+            settings={
+                'response_type': (VclSyntaxHighlightingResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/service/{service_id}/version/{version_id}/vcl/{vcl_name}/content',
+                'operation_id': 'get_custom_vcl_highlighted',
+                'http_method': 'GET',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'service_id',
+                    'version_id',
+                    'vcl_name',
+                ],
+                'required': [
+                    'service_id',
+                    'version_id',
+                    'vcl_name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'service_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                    'vcl_name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'service_id': 'service_id',
+                    'version_id': 'version_id',
+                    'vcl_name': 'vcl_name',
+                },
+                'location_map': {
+                    'service_id': 'path',
+                    'version_id': 'path',
+                    'vcl_name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -1228,6 +1363,174 @@ class VclApi(object):
         kwargs['version_id'] = \
             version_id
         return self.get_custom_vcl_generated_endpoint.call_with_http_info(**kwargs)
+
+    def get_custom_vcl_generated_highlighted(
+        self,
+        service_id,
+        version_id,
+        **kwargs
+    ):
+        """Get the generated VCL with syntax highlighting  # noqa: E501
+
+        Display the content of generated VCL with HTML syntax highlighting. Include line numbers by sending `lineno=true` as a request parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_custom_vcl_generated_highlighted(service_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            service_id (str): Alphanumeric string identifying the service.
+            version_id (int): Integer identifying a service version.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VclSyntaxHighlightingResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['service_id'] = \
+            service_id
+        kwargs['version_id'] = \
+            version_id
+        return self.get_custom_vcl_generated_highlighted_endpoint.call_with_http_info(**kwargs)
+
+    def get_custom_vcl_highlighted(
+        self,
+        service_id,
+        version_id,
+        vcl_name,
+        **kwargs
+    ):
+        """Get a custom VCL file with syntax highlighting  # noqa: E501
+
+        Get the uploaded VCL for a particular service and version with HTML syntax highlighting. Include line numbers by sending `lineno=true` as a request parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_custom_vcl_highlighted(service_id, version_id, vcl_name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            service_id (str): Alphanumeric string identifying the service.
+            version_id (int): Integer identifying a service version.
+            vcl_name (str): The name of this VCL.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VclSyntaxHighlightingResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['service_id'] = \
+            service_id
+        kwargs['version_id'] = \
+            version_id
+        kwargs['vcl_name'] = \
+            vcl_name
+        return self.get_custom_vcl_highlighted_endpoint.call_with_http_info(**kwargs)
 
     def get_custom_vcl_raw(
         self,

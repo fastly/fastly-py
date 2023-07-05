@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class ValidatorResultMessages(ModelNormal):
+class TokensAdditionalProps(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -66,7 +66,7 @@ class ValidatorResultMessages(ModelNormal):
         """
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -79,10 +79,6 @@ class ValidatorResultMessages(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'type': (str,),  # noqa: E501
-            'warning': (bool,),  # noqa: E501
-            'message': (str,),  # noqa: E501
-            'tokens': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
         }
 
     @cached_property
@@ -91,10 +87,6 @@ class ValidatorResultMessages(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
-        'warning': 'warning',  # noqa: E501
-        'message': 'message',  # noqa: E501
-        'tokens': 'tokens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,14 +96,8 @@ class ValidatorResultMessages(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, warning, message, tokens, *args, **kwargs):  # noqa: E501
-        """ValidatorResultMessages - a model defined in OpenAPI
-
-        Args:
-            type (str):
-            warning (bool):
-            message (str):
-            tokens ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """TokensAdditionalProps - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,10 +157,6 @@ class ValidatorResultMessages(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
-        self.warning = warning
-        self.message = message
-        self.tokens = tokens
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,14 +177,8 @@ class ValidatorResultMessages(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, warning, message, tokens, *args, **kwargs):  # noqa: E501
-        """ValidatorResultMessages - a model defined in OpenAPI
-
-        Args:
-            type (str):
-            warning (bool):
-            message (str):
-            tokens ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+    def __init__(self, *args, **kwargs):  # noqa: E501
+        """TokensAdditionalProps - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,10 +236,6 @@ class ValidatorResultMessages(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
-        self.warning = warning
-        self.message = message
-        self.tokens = tokens
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -54,8 +54,8 @@ class Snippet(ModelNormal):
 
     allowed_values = {
         ('dynamic',): {
-            '0': 0,
-            '1': 1,
+            'regular': "0",
+            'dynamic': "1",
         },
         ('type',): {
             'INIT': "init",
@@ -97,7 +97,7 @@ class Snippet(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'dynamic': (int,),  # noqa: E501
+            'dynamic': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'content': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
@@ -158,7 +158,7 @@ class Snippet(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
+            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
@@ -244,7 +244,7 @@ class Snippet(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (int): Sets the snippet version.. [optional]  # noqa: E501
+            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501

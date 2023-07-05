@@ -21,6 +21,8 @@ from fastly.model.aws_region import AwsRegion
 from fastly.model.backend import Backend
 from fastly.model.backend_response import BackendResponse
 from fastly.model.backend_response_all_of import BackendResponseAllOf
+from fastly.model.batch import Batch
+from fastly.model.batch_errors import BatchErrors
 from fastly.model.billing import Billing
 from fastly.model.billing_address_attributes import BillingAddressAttributes
 from fastly.model.billing_address_request import BillingAddressRequest
@@ -512,6 +514,8 @@ from fastly.model.token_created_response import TokenCreatedResponse
 from fastly.model.token_created_response_all_of import TokenCreatedResponseAllOf
 from fastly.model.token_response import TokenResponse
 from fastly.model.token_response_all_of import TokenResponseAllOf
+from fastly.model.tokens_additional_props import TokensAdditionalProps
+from fastly.model.tokens_data import TokensData
 from fastly.model.type_billing_address import TypeBillingAddress
 from fastly.model.type_contact import TypeContact
 from fastly.model.type_customer import TypeCustomer
@@ -545,10 +549,13 @@ from fastly.model.user import User
 from fastly.model.user_response import UserResponse
 from fastly.model.user_response_all_of import UserResponseAllOf
 from fastly.model.validator_result import ValidatorResult
-from fastly.model.validator_result_messages import ValidatorResultMessages
+from fastly.model.validator_result_data import ValidatorResultData
+from fastly.model.validator_result_data_attributes import ValidatorResultDataAttributes
+from fastly.model.validator_result_data_attributes_messages import ValidatorResultDataAttributesMessages
 from fastly.model.vcl import Vcl
 from fastly.model.vcl_diff import VclDiff
 from fastly.model.vcl_response import VclResponse
+from fastly.model.vcl_syntax_highlighting_response import VclSyntaxHighlightingResponse
 from fastly.model.version import Version
 from fastly.model.version_create_response import VersionCreateResponse
 from fastly.model.version_detail import VersionDetail

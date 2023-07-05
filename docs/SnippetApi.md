@@ -53,7 +53,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     name = "test-snippet" # str | The name for the snippet. (optional)
-    dynamic = 0 # int | Sets the snippet version. (optional)
+    dynamic = "0" # str | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| The name for the snippet. | [optional]
- **dynamic** | **int**| Sets the snippet version. | [optional]
+ **dynamic** | **str**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
@@ -476,7 +476,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     snippet_id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
     name = "test-snippet" # str | The name for the snippet. (optional)
-    dynamic = 0 # int | Sets the snippet version. (optional)
+    dynamic = "0" # str | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **snippet_id** | **str**| Alphanumeric string identifying a VCL Snippet. |
  **name** | **str**| The name for the snippet. | [optional]
- **dynamic** | **int**| Sets the snippet version. | [optional]
+ **dynamic** | **str**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"

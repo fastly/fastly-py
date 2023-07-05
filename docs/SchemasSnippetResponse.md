@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name for the snippet. | [optional] 
-**dynamic** | **int** | Sets the snippet version. | [optional] 
+**dynamic** | **str** | Sets the snippet version. | [optional] 
 **type** | **str** | The location in generated VCL where the snippet should be placed. | [optional] 
 **content** | **str** | The VCL code that specifies exactly what the snippet does. | [optional] 
 **priority** | **str** | Priority determines execution order. Lower numbers execute first. | [optional]  if omitted the server will use the default value of "100"

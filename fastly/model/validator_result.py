@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.validator_result_messages import ValidatorResultMessages
-    globals()['ValidatorResultMessages'] = ValidatorResultMessages
+    from fastly.model.validator_result_data import ValidatorResultData
+    globals()['ValidatorResultData'] = ValidatorResultData
 
 
 class ValidatorResult(ModelNormal):
@@ -57,10 +57,6 @@ class ValidatorResult(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'ERROR': "error",
-            'OK': "ok",
-        },
     }
 
     validations = {
@@ -89,11 +85,7 @@ class ValidatorResult(ModelNormal):
         """
         lazy_import()
         return {
-            'msg': (str, none_type,),  # noqa: E501
-            'status': (str,),  # noqa: E501
-            'errors': ([str],),  # noqa: E501
-            'warnings': ([str],),  # noqa: E501
-            'messages': ([ValidatorResultMessages],),  # noqa: E501
+            'data': (ValidatorResultData,),  # noqa: E501
         }
 
     @cached_property
@@ -102,11 +94,7 @@ class ValidatorResult(ModelNormal):
 
 
     attribute_map = {
-        'msg': 'msg',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'errors': 'errors',  # noqa: E501
-        'warnings': 'warnings',  # noqa: E501
-        'messages': 'messages',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,11 +138,7 @@ class ValidatorResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            msg (str, none_type): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            errors ([str]): [optional]  # noqa: E501
-            warnings ([str]): [optional]  # noqa: E501
-            messages ([ValidatorResultMessages]): [optional]  # noqa: E501
+            data (ValidatorResultData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,11 +220,7 @@ class ValidatorResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            msg (str, none_type): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            errors ([str]): [optional]  # noqa: E501
-            warnings ([str]): [optional]  # noqa: E501
-            messages ([ValidatorResultMessages]): [optional]  # noqa: E501
+            data (ValidatorResultData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

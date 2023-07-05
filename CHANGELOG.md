@@ -1,5 +1,21 @@
 # Changelog
 
+## [v2.4.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.4.0) (2023-07-05)
+
+**Enhancements:**
+
+- feat(purge): support purge of multiple surrogate keys.
+- feat(vcl): support vcl content endpoints.
+
+**Bug fixes:**
+
+- fix(snippet): dynamic field switched from int to string.
+- fix(vcl): implement correct response models.
+
+**Documentation:**
+
+- docs: remove deprecated docs endpoints from README 'issues' list.
+
 ## [v2.3.0](https://github.com/fastly/fastly-py/releases/tag/release/v2.3.0) (2023-06-27)
 
 **Enhancements:**

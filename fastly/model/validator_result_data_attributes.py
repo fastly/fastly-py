@@ -30,15 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.snippet import Snippet
-    from fastly.model.snippet_response_all_of import SnippetResponseAllOf
-    from fastly.model.timestamps import Timestamps
-    globals()['Snippet'] = Snippet
-    globals()['SnippetResponseAllOf'] = SnippetResponseAllOf
-    globals()['Timestamps'] = Timestamps
+    from fastly.model.validator_result_data_attributes_messages import ValidatorResultDataAttributesMessages
+    globals()['ValidatorResultDataAttributesMessages'] = ValidatorResultDataAttributesMessages
 
 
-class SnippetResponse(ModelComposed):
+class ValidatorResultDataAttributes(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -61,22 +57,9 @@ class SnippetResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('dynamic',): {
-            'regular': "0",
-            'dynamic': "1",
-        },
-        ('type',): {
-            'INIT': "init",
-            'RECV': "recv",
-            'HASH': "hash",
-            'HIT': "hit",
-            'MISS': "miss",
-            'PASS': "pass",
-            'FETCH': "fetch",
+        ('status',): {
             'ERROR': "error",
-            'DELIVER': "deliver",
-            'LOG': "log",
-            'NONE': "none",
+            'OK': "ok",
         },
     }
 
@@ -106,17 +89,11 @@ class SnippetResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'dynamic': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'content': (str,),  # noqa: E501
-            'priority': (str,),  # noqa: E501
-            'created_at': (datetime, none_type,),  # noqa: E501
-            'deleted_at': (datetime, none_type,),  # noqa: E501
-            'updated_at': (datetime, none_type,),  # noqa: E501
-            'service_id': (str,),  # noqa: E501
-            'version': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'msg': (str, none_type,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'errors': ([str],),  # noqa: E501
+            'warnings': ([str],),  # noqa: E501
+            'messages': ([ValidatorResultDataAttributesMessages],),  # noqa: E501
         }
 
     @cached_property
@@ -125,32 +102,22 @@ class SnippetResponse(ModelComposed):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'dynamic': 'dynamic',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'content': 'content',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'deleted_at': 'deleted_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'service_id': 'service_id',  # noqa: E501
-        'version': 'version',  # noqa: E501
-        'id': 'id',  # noqa: E501
+        'msg': 'msg',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'errors': 'errors',  # noqa: E501
+        'warnings': 'warnings',  # noqa: E501
+        'messages': 'messages',  # noqa: E501
     }
 
     read_only_vars = {
-        'created_at',  # noqa: E501
-        'deleted_at',  # noqa: E501
-        'updated_at',  # noqa: E501
-        'service_id',  # noqa: E501
-        'version',  # noqa: E501
-        'id',  # noqa: E501
     }
+
+    _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """SnippetResponse - a model defined in OpenAPI
+        """ValidatorResultDataAttributes - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,17 +150,11 @@ class SnippetResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
-            type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            msg (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            errors ([str]): [optional]  # noqa: E501
+            warnings ([str]): [optional]  # noqa: E501
+            messages ([ValidatorResultDataAttributesMessages]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,29 +182,14 @@ class SnippetResponse(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
-
         return self
 
     required_properties = set([
@@ -253,14 +199,11 @@ class SnippetResponse(ModelComposed):
         '_path_to_item',
         '_configuration',
         '_visited_composed_classes',
-        '_composed_instances',
-        '_var_name_to_model_instances',
-        '_additional_properties_model_instances',
     ])
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """SnippetResponse - a model defined in OpenAPI
+        """ValidatorResultDataAttributes - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -293,17 +236,11 @@ class SnippetResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
-            type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
-            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (str): String representing the number identifying a version of the service.. [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            msg (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            errors ([str]): [optional]  # noqa: E501
+            warnings ([str]): [optional]  # noqa: E501
+            messages ([ValidatorResultDataAttributesMessages]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -329,50 +266,14 @@ class SnippetResponse(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
-
-    @cached_property
-    def _composed_schemas():
-        # we need this here to make our import statements work
-        # we must store _composed_schemas in here so the code is only run
-        # when we invoke this method. If we kept this at the class
-        # level we would get an error because the class level
-        # code would be run when this module is imported, and these composed
-        # classes don't exist yet because their module has not finished
-        # loading
-        lazy_import()
-        return {
-          'anyOf': [
-          ],
-          'allOf': [
-              Snippet,
-              SnippetResponseAllOf,
-              Timestamps,
-          ],
-          'oneOf': [
-          ],
-        }
