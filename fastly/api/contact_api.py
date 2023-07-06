@@ -21,6 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fastly.model.contact_response import ContactResponse
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.schemas_contact_response import SchemasContactResponse
 
@@ -34,6 +35,111 @@ class ContactApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.create_contacts_endpoint = _Endpoint(
+            settings={
+                'response_type': (ContactResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/customer/{customer_id}/contacts',
+                'operation_id': 'create_contacts',
+                'http_method': 'POST',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'customer_id',
+                    'user_id',
+                    'contact_type',
+                    'name',
+                    'email',
+                    'phone',
+                    'customer_id2',
+                ],
+                'required': [
+                    'customer_id',
+                ],
+                'nullable': [
+                    'user_id',
+                    'name',
+                    'email',
+                    'phone',
+                    'customer_id2',
+                ],
+                'enum': [
+                    'contact_type',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('contact_type',): {
+
+                        "PRIMARY": "primary",
+                        "BILLING": "billing",
+                        "TECHNICAL": "technical",
+                        "SECURITY": "security",
+                        "EMERGENCY": "emergency",
+                        "GENERAL_COMPLIANCE": "general compliance"
+                    },
+                },
+                'openapi_types': {
+                    'customer_id':
+                        (str,),
+                    'user_id':
+                        (str, none_type,),
+                    'contact_type':
+                        (str,),
+                    'name':
+                        (str, none_type,),
+                    'email':
+                        (str, none_type,),
+                    'phone':
+                        (str, none_type,),
+                    'customer_id2':
+                        (str, none_type,),
+                },
+                'attribute_map': {
+                    'customer_id': 'customer_id',
+                    'user_id': 'user_id',
+                    'contact_type': 'contact_type',
+                    'name': 'name',
+                    'email': 'email',
+                    'phone': 'phone',
+                    'customer_id2': 'customer_id',
+                },
+                'location_map': {
+                    'customer_id': 'path',
+                    'user_id': 'form',
+                    'contact_type': 'form',
+                    'name': 'form',
+                    'email': 'form',
+                    'phone': 'form',
+                    'customer_id2': 'form',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/x-www-form-urlencoded'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_contact_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse200,),
@@ -156,6 +262,90 @@ class ContactApi(object):
             },
             api_client=api_client
         )
+
+    def create_contacts(
+        self,
+        customer_id,
+        **kwargs
+    ):
+        """Add a new customer contact  # noqa: E501
+
+        Create a contact.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_contacts(customer_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_id (str): Alphanumeric string identifying the customer.
+
+        Keyword Args:
+            user_id (str, none_type): The alphanumeric string representing the user for this customer contact.. [optional]
+            contact_type (str): The type of contact.. [optional]
+            name (str, none_type): The name of this contact, when user_id is not provided.. [optional]
+            email (str, none_type): The email of this contact, when a user_id is not provided.. [optional]
+            phone (str, none_type): The phone number for this contact. Required for primary, technical, and security contact types.. [optional]
+            customer_id2 (str, none_type): The alphanumeric string representing the customer for this customer contact.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ContactResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['customer_id'] = \
+            customer_id
+        return self.create_contacts_endpoint.call_with_http_info(**kwargs)
 
     def delete_contact(
         self,

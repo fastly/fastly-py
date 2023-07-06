@@ -38,6 +38,74 @@ class WafActiveRulesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.bulk_delete_waf_active_rules_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules',
+                'operation_id': 'bulk_delete_waf_active_rules',
+                'http_method': 'DELETE',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'firewall_id',
+                    'version_id',
+                    'request_body',
+                ],
+                'required': [
+                    'firewall_id',
+                    'version_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'firewall_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                    'request_body':
+                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                },
+                'attribute_map': {
+                    'firewall_id': 'firewall_id',
+                    'version_id': 'version_id',
+                },
+                'location_map': {
+                    'firewall_id': 'path',
+                    'version_id': 'path',
+                    'request_body': 'body',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/vnd.api+json; ext=bulk'
+                ]
+            },
+            api_client=api_client
+        )
         self.bulk_update_waf_active_rules_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -575,6 +643,89 @@ class WafActiveRulesApi(object):
             },
             api_client=api_client
         )
+
+    def bulk_delete_waf_active_rules(
+        self,
+        firewall_id,
+        version_id,
+        **kwargs
+    ):
+        """Delete multiple active rules from a WAF  # noqa: E501
+
+        Delete many active rules on a particular firewall version using the active rule ID. Limited to 500 rules per request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.bulk_delete_waf_active_rules(firewall_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            firewall_id (str): Alphanumeric string identifying a WAF Firewall.
+            version_id (int): Integer identifying a service version.
+
+        Keyword Args:
+            request_body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['firewall_id'] = \
+            firewall_id
+        kwargs['version_id'] = \
+            version_id
+        return self.bulk_delete_waf_active_rules_endpoint.call_with_http_info(**kwargs)
 
     def bulk_update_waf_active_rules(
         self,

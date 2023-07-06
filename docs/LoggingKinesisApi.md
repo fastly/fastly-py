@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_log_kinesis**](LoggingKinesisApi.md#delete_log_kinesis) | **DELETE** /service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name} | Delete the Amazon Kinesis log endpoint
 [**get_log_kinesis**](LoggingKinesisApi.md#get_log_kinesis) | **GET** /service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name} | Get an Amazon Kinesis log endpoint
 [**list_log_kinesis**](LoggingKinesisApi.md#list_log_kinesis) | **GET** /service/{service_id}/version/{version_id}/logging/kinesis | List Amazon Kinesis log endpoints
+[**update_log_kinesis**](LoggingKinesisApi.md#update_log_kinesis) | **PUT** /service/{service_id}/version/{version_id}/logging/kinesis/{logging_kinesis_name} | Update the Amazon Kinesis log endpoint
 
 
 # **create_log_kinesis**
@@ -353,6 +354,88 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_log_kinesis**
+> LoggingKinesisResponse update_log_kinesis(service_id, version_id, logging_kinesis_name)
+
+Update the Amazon Kinesis log endpoint
+
+Update an Amazon Kinesis Data Streams logging object for a particular service and version.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import logging_kinesis_api
+from fastly.model.logging_kinesis_response import LoggingKinesisResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = logging_kinesis_api.LoggingKinesisApi(api_client)
+    service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
+    version_id = 1 # int | Integer identifying a service version.
+    logging_kinesis_name = "test-log-endpoint" # str | The name for the real-time logging configuration.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update the Amazon Kinesis log endpoint
+        api_response = api_instance.update_log_kinesis(service_id, version_id, logging_kinesis_name)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling LoggingKinesisApi->update_log_kinesis: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| Alphanumeric string identifying the service. |
+ **version_id** | **int**| Integer identifying a service version. |
+ **logging_kinesis_name** | **str**| The name for the real-time logging configuration. |
+
+### Return type
+
+[**LoggingKinesisResponse**](LoggingKinesisResponse.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 

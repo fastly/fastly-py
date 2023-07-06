@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stores**
-> InlineResponse2002 get_stores()
+> InlineResponse2003 get_stores()
 
 List kv stores.
 
@@ -263,7 +263,7 @@ Get all stores for a given customer.
 import time
 import fastly
 from fastly.api import kv_store_api
-from fastly.model.inline_response2002 import InlineResponse2002
+from fastly.model.inline_response2003 import InlineResponse2003
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

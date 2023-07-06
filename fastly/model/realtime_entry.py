@@ -30,8 +30,12 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.realtime_measurements import RealtimeMeasurements
-    globals()['RealtimeMeasurements'] = RealtimeMeasurements
+    from fastly.model.realtime_entry_aggregated import RealtimeEntryAggregated
+    from fastly.model.realtime_entry_datacenter import RealtimeEntryDatacenter
+    from fastly.model.realtime_entry_recorded import RealtimeEntryRecorded
+    globals()['RealtimeEntryAggregated'] = RealtimeEntryAggregated
+    globals()['RealtimeEntryDatacenter'] = RealtimeEntryDatacenter
+    globals()['RealtimeEntryRecorded'] = RealtimeEntryRecorded
 
 
 class RealtimeEntry(ModelNormal):
@@ -85,9 +89,9 @@ class RealtimeEntry(ModelNormal):
         """
         lazy_import()
         return {
-            'recorded': (int,),  # noqa: E501
-            'aggregated': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'datacenter': ({str: (RealtimeMeasurements,)},),  # noqa: E501
+            'recorded': (RealtimeEntryRecorded,),  # noqa: E501
+            'aggregated': (RealtimeEntryAggregated,),  # noqa: E501
+            'datacenter': (RealtimeEntryDatacenter,),  # noqa: E501
         }
 
     @cached_property
@@ -142,9 +146,9 @@ class RealtimeEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recorded (int): The Unix timestamp at which this record's data was generated.. [optional]  # noqa: E501
-            aggregated ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Aggregates [measurements](#measurements-data-model) across all Fastly POPs.. [optional]  # noqa: E501
-            datacenter ({str: (RealtimeMeasurements,)}): Groups [measurements](#measurements-data-model) by POP. See the [POPs API](/reference/api/utils/pops/) for details of POP identifiers.. [optional]  # noqa: E501
+            recorded (RealtimeEntryRecorded): [optional]  # noqa: E501
+            aggregated (RealtimeEntryAggregated): [optional]  # noqa: E501
+            datacenter (RealtimeEntryDatacenter): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,9 +230,9 @@ class RealtimeEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recorded (int): The Unix timestamp at which this record's data was generated.. [optional]  # noqa: E501
-            aggregated ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Aggregates [measurements](#measurements-data-model) across all Fastly POPs.. [optional]  # noqa: E501
-            datacenter ({str: (RealtimeMeasurements,)}): Groups [measurements](#measurements-data-model) by POP. See the [POPs API](/reference/api/utils/pops/) for details of POP identifiers.. [optional]  # noqa: E501
+            recorded (RealtimeEntryRecorded): [optional]  # noqa: E501
+            aggregated (RealtimeEntryAggregated): [optional]  # noqa: E501
+            datacenter (RealtimeEntryDatacenter): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

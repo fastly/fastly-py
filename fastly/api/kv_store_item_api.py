@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2003 import InlineResponse2003
+from fastly.model.inline_response2004 import InlineResponse2004
 
 
 class KvStoreItemApi(object):
@@ -97,7 +97,7 @@ class KvStoreItemApi(object):
         )
         self.get_keys_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2003,),
+                'response_type': (InlineResponse2004,),
                 'auth': [
                     'token'
                 ],
@@ -469,7 +469,7 @@ class KvStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2003
+            InlineResponse2004
                 If the method is called asynchronously, returns the request
                 thread.
         """

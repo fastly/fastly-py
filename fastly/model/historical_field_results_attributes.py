@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.historical_field_results_attributes_all_of import HistoricalFieldResultsAttributesAllOf
+    from fastly.model.historical_field_results_attributes_additional import HistoricalFieldResultsAttributesAdditional
     from fastly.model.read_only_id_service import ReadOnlyIdService
     from fastly.model.results import Results
-    globals()['HistoricalFieldResultsAttributesAllOf'] = HistoricalFieldResultsAttributesAllOf
+    globals()['HistoricalFieldResultsAttributesAdditional'] = HistoricalFieldResultsAttributesAdditional
     globals()['ReadOnlyIdService'] = ReadOnlyIdService
     globals()['Results'] = Results
 
@@ -1174,7 +1174,7 @@ class HistoricalFieldResultsAttributes(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              HistoricalFieldResultsAttributesAllOf,
+              HistoricalFieldResultsAttributesAdditional,
               Results,
           ],
           'oneOf': [

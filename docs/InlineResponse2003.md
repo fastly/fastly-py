@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[str]** |  | [optional] 
+**data** | [**[StoreResponse]**](StoreResponse.md) |  | [optional] 
 **meta** | [**InlineResponse2003Meta**](InlineResponse2003Meta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

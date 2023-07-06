@@ -89,7 +89,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_keys**
-> InlineResponse2003 get_keys(store_id)
+> InlineResponse2004 get_keys(store_id)
 
 List kv store keys.
 
@@ -103,7 +103,7 @@ List the keys of all items within an kv store.
 import time
 import fastly
 from fastly.api import kv_store_item_api
-from fastly.model.inline_response2003 import InlineResponse2003
+from fastly.model.inline_response2004 import InlineResponse2004
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

@@ -4,6 +4,8 @@ All URIs are relative to *https://api.fastly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_revoke_tokens**](TokensApi.md#bulk_revoke_tokens) | **DELETE** /tokens | Revoke multiple tokens
+[**create_token**](TokensApi.md#create_token) | **POST** /tokens | Create a token
 [**get_token**](TokensApi.md#get_token) | **GET** /tokens/{token_id} | Get a token
 [**get_token_current**](TokensApi.md#get_token_current) | **GET** /tokens/self | Get the current token
 [**list_tokens_customer**](TokensApi.md#list_tokens_customer) | **GET** /customer/{customer_id}/tokens | List tokens for a customer
@@ -11,6 +13,167 @@ Method | HTTP request | Description
 [**revoke_token**](TokensApi.md#revoke_token) | **DELETE** /tokens/{token_id} | Revoke a token
 [**revoke_token_current**](TokensApi.md#revoke_token_current) | **DELETE** /tokens/self | Revoke the current token
 
+
+# **bulk_revoke_tokens**
+> bulk_revoke_tokens()
+
+Revoke multiple tokens
+
+Revoke Tokens in bulk format. Users may only revoke their own tokens. Superusers may revoke tokens of others.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import tokens_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = tokens_api.TokensApi(api_client)
+    request_body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Revoke multiple tokens
+        api_instance.bulk_revoke_tokens(request_body=request_body)
+    except fastly.ApiException as e:
+        print("Exception when calling TokensApi->bulk_revoke_tokens: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/vnd.api+json; ext=bulk
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_token**
+> TokenCreatedResponse create_token()
+
+Create a token
+
+Create an API token. If two-factor authentication is enabled for your account, review [the instructions](/reference/api/auth-tokens/user/) for including a one-time password in the request. 
+
+### Example
+
+* Api Key Authentication (token):
+* Basic Authentication (username_and_password):
+
+```python
+import time
+import fastly
+from fastly.api import tokens_api
+from fastly.model.inline_response400 import InlineResponse400
+from fastly.model.token_created_response import TokenCreatedResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Configure HTTP basic authorization: username_and_password
+configuration = fastly.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = tokens_api.TokensApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Create a token
+        api_response = api_instance.create_token()
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling TokensApi->create_token: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TokenCreatedResponse**](TokenCreatedResponse.md)
+
+### Authorization
+
+[token](../README.md#token), [username_and_password](../README.md#username_and_password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**422** | The format of the date and time supplied to the `expires_at` parameter is invalid. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_token**
 > TokenResponse get_token(token_id)

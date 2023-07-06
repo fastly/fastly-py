@@ -79,7 +79,7 @@ class InlineResponse2001(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'expires_at': (str,),  # noqa: E501
+            'data': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -88,11 +88,10 @@ class InlineResponse2001(ModelNormal):
 
 
     attribute_map = {
-        'expires_at': 'expires_at',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
-        'expires_at',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -133,7 +132,7 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            expires_at (str): Time-stamp (GMT) when the domain_ownership validation will expire.. [optional]  # noqa: E501
+            data ([str]): The service IDs of the services the token will have access to. Separate service IDs with a space.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -215,7 +214,7 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            expires_at (str): Time-stamp (GMT) when the domain_ownership validation will expire.. [optional]  # noqa: E501
+            data ([str]): The service IDs of the services the token will have access to. Separate service IDs with a space.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

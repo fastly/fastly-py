@@ -17,6 +17,7 @@
 from fastly.api.acl_api import AclApi
 from fastly.api.acl_entry_api import AclEntryApi
 from fastly.api.apex_redirect_api import ApexRedirectApi
+from fastly.api.automation_tokens_api import AutomationTokensApi
 from fastly.api.backend_api import BackendApi
 from fastly.api.billing_api import BillingApi
 from fastly.api.billing_address_api import BillingAddressApi
@@ -34,6 +35,8 @@ from fastly.api.diff_api import DiffApi
 from fastly.api.director_api import DirectorApi
 from fastly.api.director_backend_api import DirectorBackendApi
 from fastly.api.domain_api import DomainApi
+from fastly.api.domain_inspector_historical_api import DomainInspectorHistoricalApi
+from fastly.api.domain_inspector_realtime_api import DomainInspectorRealtimeApi
 from fastly.api.domain_ownerships_api import DomainOwnershipsApi
 from fastly.api.enabled_products_api import EnabledProductsApi
 from fastly.api.events_api import EventsApi
@@ -49,6 +52,14 @@ from fastly.api.iam_user_groups_api import IamUserGroupsApi
 from fastly.api.invitations_api import InvitationsApi
 from fastly.api.kv_store_api import KvStoreApi
 from fastly.api.kv_store_item_api import KvStoreItemApi
+from fastly.api.legacy_waf_configuration_sets_api import LegacyWafConfigurationSetsApi
+from fastly.api.legacy_waf_firewall_api import LegacyWafFirewallApi
+from fastly.api.legacy_waf_owasp_api import LegacyWafOwaspApi
+from fastly.api.legacy_waf_rule_api import LegacyWafRuleApi
+from fastly.api.legacy_waf_rule_status_api import LegacyWafRuleStatusApi
+from fastly.api.legacy_waf_ruleset_api import LegacyWafRulesetApi
+from fastly.api.legacy_waf_tag_api import LegacyWafTagApi
+from fastly.api.legacy_waf_update_status_api import LegacyWafUpdateStatusApi
 from fastly.api.logging_azureblob_api import LoggingAzureblobApi
 from fastly.api.logging_bigquery_api import LoggingBigqueryApi
 from fastly.api.logging_cloudfiles_api import LoggingCloudfilesApi
@@ -76,6 +87,8 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.origin_inspector_historical_api import OriginInspectorHistoricalApi
+from fastly.api.origin_inspector_realtime_api import OriginInspectorRealtimeApi
 from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi
@@ -87,6 +100,8 @@ from fastly.api.realtime_api import RealtimeApi
 from fastly.api.request_settings_api import RequestSettingsApi
 from fastly.api.resource_api import ResourceApi
 from fastly.api.response_object_api import ResponseObjectApi
+from fastly.api.secret_store_api import SecretStoreApi
+from fastly.api.secret_store_item_api import SecretStoreItemApi
 from fastly.api.server_api import ServerApi
 from fastly.api.service_api import ServiceApi
 from fastly.api.service_authorizations_api import ServiceAuthorizationsApi
@@ -94,6 +109,7 @@ from fastly.api.settings_api import SettingsApi
 from fastly.api.snippet_api import SnippetApi
 from fastly.api.star_api import StarApi
 from fastly.api.stats_api import StatsApi
+from fastly.api.sudo_api import SudoApi
 from fastly.api.tls_activations_api import TlsActivationsApi
 from fastly.api.tls_bulk_certificates_api import TlsBulkCertificatesApi
 from fastly.api.tls_certificates_api import TlsCertificatesApi

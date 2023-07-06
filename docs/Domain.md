@@ -1,5 +1,6 @@
 # Domain
 
+Domain details
 
 ## Properties
 Name | Type | Description | Notes

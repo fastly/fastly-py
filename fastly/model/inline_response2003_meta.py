@@ -134,8 +134,8 @@ class InlineResponse2003Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_cursor (str): [optional]  # noqa: E501
-            limit (int): [optional]  # noqa: E501
+            next_cursor (str): Cursor for the next page.. [optional]  # noqa: E501
+            limit (int): Entries returned.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,8 +217,8 @@ class InlineResponse2003Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_cursor (str): [optional]  # noqa: E501
-            limit (int): [optional]  # noqa: E501
+            next_cursor (str): Cursor for the next page.. [optional]  # noqa: E501
+            limit (int): Entries returned.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

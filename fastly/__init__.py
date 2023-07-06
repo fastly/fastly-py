@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "2.4.0"
+__version__ = "3.0.0"
 
 # import ApiClient
 from fastly.api_client import ApiClient

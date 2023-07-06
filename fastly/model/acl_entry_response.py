@@ -62,8 +62,8 @@ class AclEntryResponse(ModelComposed):
 
     allowed_values = {
         ('negated',): {
-            '0': 0,
-            '1': 1,
+            'disable': 0,
+            'enable': 1,
         },
     }
 

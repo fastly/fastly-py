@@ -31,7 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.inline_response2003_meta import InlineResponse2003Meta
+    from fastly.model.store_response import StoreResponse
     globals()['InlineResponse2003Meta'] = InlineResponse2003Meta
+    globals()['StoreResponse'] = StoreResponse
 
 
 class InlineResponse2003(ModelNormal):
@@ -85,7 +87,7 @@ class InlineResponse2003(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([str],),  # noqa: E501
+            'data': ([StoreResponse],),  # noqa: E501
             'meta': (InlineResponse2003Meta,),  # noqa: E501
         }
 
@@ -140,7 +142,7 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
+            data ([StoreResponse]): [optional]  # noqa: E501
             meta (InlineResponse2003Meta): [optional]  # noqa: E501
         """
 
@@ -223,7 +225,7 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
+            data ([StoreResponse]): [optional]  # noqa: E501
             meta (InlineResponse2003Meta): [optional]  # noqa: E501
         """
 

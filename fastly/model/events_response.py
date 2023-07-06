@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.event import Event
-    from fastly.model.events_response_all_of import EventsResponseAllOf
+    from fastly.model.event_data import EventData
+    from fastly.model.event_data_items import EventDataItems
     from fastly.model.pagination import Pagination
     from fastly.model.pagination_links import PaginationLinks
     from fastly.model.pagination_meta import PaginationMeta
-    globals()['Event'] = Event
-    globals()['EventsResponseAllOf'] = EventsResponseAllOf
+    globals()['EventData'] = EventData
+    globals()['EventDataItems'] = EventDataItems
     globals()['Pagination'] = Pagination
     globals()['PaginationLinks'] = PaginationLinks
     globals()['PaginationMeta'] = PaginationMeta
@@ -95,7 +95,7 @@ class EventsResponse(ModelComposed):
         return {
             'links': (PaginationLinks,),  # noqa: E501
             'meta': (PaginationMeta,),  # noqa: E501
-            'data': ([Event],),  # noqa: E501
+            'data': (EventDataItems,),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +150,7 @@ class EventsResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
             meta (PaginationMeta): [optional]  # noqa: E501
-            data ([Event]): [optional]  # noqa: E501
+            data (EventDataItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,7 +252,7 @@ class EventsResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
             meta (PaginationMeta): [optional]  # noqa: E501
-            data ([Event]): [optional]  # noqa: E501
+            data (EventDataItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class EventsResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              EventsResponseAllOf,
+              EventData,
               Pagination,
           ],
           'oneOf': [
