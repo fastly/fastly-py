@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class BillingStatus(ModelNormal):
+class BillingEstimateLinesLineItems(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -53,12 +53,6 @@ class BillingStatus(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'PENDING': "Pending",
-            'OUTSTANDING': "Outstanding",
-            'PAID': "Paid",
-            'MTD': "MTD",
-        },
     }
 
     validations = {
@@ -85,8 +79,15 @@ class BillingStatus(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'sent_at': (datetime, none_type,),  # noqa: E501
+            'plan_no': (int,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'units': (float,),  # noqa: E501
+            'per_unit_cost': (float,),  # noqa: E501
+            'service_no': (float,),  # noqa: E501
+            'service_type': (str,),  # noqa: E501
+            'amount': (float,),  # noqa: E501
+            'client_service_id': (str,),  # noqa: E501
+            'client_plan_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,12 +96,18 @@ class BillingStatus(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'sent_at': 'sent_at',  # noqa: E501
+        'plan_no': 'plan_no',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'units': 'units',  # noqa: E501
+        'per_unit_cost': 'per_unit_cost',  # noqa: E501
+        'service_no': 'service_no',  # noqa: E501
+        'service_type': 'service_type',  # noqa: E501
+        'amount': 'amount',  # noqa: E501
+        'client_service_id': 'client_service_id',  # noqa: E501
+        'client_plan_id': 'client_plan_id',  # noqa: E501
     }
 
     read_only_vars = {
-        'sent_at',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -108,7 +115,7 @@ class BillingStatus(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingStatus - a model defined in OpenAPI
+        """BillingEstimateLinesLineItems - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,8 +148,15 @@ class BillingStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): What the current status of this invoice can be.. [optional]  # noqa: E501
-            sent_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            plan_no (int): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            units (float): [optional]  # noqa: E501
+            per_unit_cost (float): [optional]  # noqa: E501
+            service_no (float): [optional]  # noqa: E501
+            service_type (str): [optional]  # noqa: E501
+            amount (float): [optional]  # noqa: E501
+            client_service_id (str): [optional]  # noqa: E501
+            client_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,7 +205,7 @@ class BillingStatus(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingStatus - a model defined in OpenAPI
+        """BillingEstimateLinesLineItems - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +238,15 @@ class BillingStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): What the current status of this invoice can be.. [optional]  # noqa: E501
-            sent_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            plan_no (int): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            units (float): [optional]  # noqa: E501
+            per_unit_cost (float): [optional]  # noqa: E501
+            service_no (float): [optional]  # noqa: E501
+            service_type (str): [optional]  # noqa: E501
+            amount (float): [optional]  # noqa: E501
+            client_service_id (str): [optional]  # noqa: E501
+            client_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class BillingStatus(ModelNormal):
+class SchemasUserResponseReadOnly(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -53,12 +53,6 @@ class BillingStatus(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'PENDING': "Pending",
-            'OUTSTANDING': "Outstanding",
-            'PAID': "Paid",
-            'MTD': "MTD",
-        },
     }
 
     validations = {
@@ -85,8 +79,9 @@ class BillingStatus(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'sent_at': (datetime, none_type,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'email_hash': (str,),  # noqa: E501
+            'customer_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,12 +90,15 @@ class BillingStatus(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'sent_at': 'sent_at',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'email_hash': 'email_hash',  # noqa: E501
+        'customer_id': 'customer_id',  # noqa: E501
     }
 
     read_only_vars = {
-        'sent_at',  # noqa: E501
+        'id',  # noqa: E501
+        'email_hash',  # noqa: E501
+        'customer_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -108,7 +106,7 @@ class BillingStatus(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingStatus - a model defined in OpenAPI
+        """SchemasUserResponseReadOnly - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,8 +139,9 @@ class BillingStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): What the current status of this invoice can be.. [optional]  # noqa: E501
-            sent_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            email_hash (str): The alphanumeric string identifying a email login.. [optional]  # noqa: E501
+            customer_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,7 +190,7 @@ class BillingStatus(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingStatus - a model defined in OpenAPI
+        """SchemasUserResponseReadOnly - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +223,9 @@ class BillingStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): What the current status of this invoice can be.. [optional]  # noqa: E501
-            sent_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            email_hash (str): The alphanumeric string identifying a email login.. [optional]  # noqa: E501
+            customer_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

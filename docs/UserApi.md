@@ -55,10 +55,10 @@ with fastly.ApiClient(configuration) as api_client:
     login = "login_example" # str |  (optional)
     name = "name_example" # str | The real life name of the user. (optional)
     limit_services = True # bool | Indicates that the user has limited access to the customer's services. (optional)
-    locked = True # bool | Indicates whether the is account is locked for editing or not. (optional)
-    require_new_password = True # bool | Indicates if a new password is required at next login. (optional)
+    locked = True # bool, none_type | Indicates whether the is account is locked for editing or not. (optional)
+    require_new_password = True # bool, none_type | Indicates if a new password is required at next login. (optional)
     role = RoleUser("user") # RoleUser |  (optional)
-    two_factor_auth_enabled = True # bool | Indicates if 2FA is enabled on the user. (optional)
+    two_factor_auth_enabled = True # bool, none_type | Indicates if 2FA is enabled on the user. (optional)
     two_factor_setup_required = True # bool | Indicates if 2FA is required by the user's customer account. (optional)
 
     # example passing only required values which don't have defaults set
@@ -79,10 +79,10 @@ Name | Type | Description  | Notes
  **login** | **str**|  | [optional]
  **name** | **str**| The real life name of the user. | [optional]
  **limit_services** | **bool**| Indicates that the user has limited access to the customer&#39;s services. | [optional]
- **locked** | **bool**| Indicates whether the is account is locked for editing or not. | [optional]
- **require_new_password** | **bool**| Indicates if a new password is required at next login. | [optional]
+ **locked** | **bool, none_type**| Indicates whether the is account is locked for editing or not. | [optional]
+ **require_new_password** | **bool, none_type**| Indicates if a new password is required at next login. | [optional]
  **role** | [**RoleUser**](RoleUser.md)|  | [optional]
- **two_factor_auth_enabled** | **bool**| Indicates if 2FA is enabled on the user. | [optional]
+ **two_factor_auth_enabled** | **bool, none_type**| Indicates if 2FA is enabled on the user. | [optional]
  **two_factor_setup_required** | **bool**| Indicates if 2FA is required by the user&#39;s customer account. | [optional]
 
 ### Return type
@@ -458,10 +458,10 @@ with fastly.ApiClient(configuration) as api_client:
     login = "login_example" # str |  (optional)
     name = "name_example" # str | The real life name of the user. (optional)
     limit_services = True # bool | Indicates that the user has limited access to the customer's services. (optional)
-    locked = True # bool | Indicates whether the is account is locked for editing or not. (optional)
-    require_new_password = True # bool | Indicates if a new password is required at next login. (optional)
+    locked = True # bool, none_type | Indicates whether the is account is locked for editing or not. (optional)
+    require_new_password = True # bool, none_type | Indicates if a new password is required at next login. (optional)
     role = RoleUser("user") # RoleUser |  (optional)
-    two_factor_auth_enabled = True # bool | Indicates if 2FA is enabled on the user. (optional)
+    two_factor_auth_enabled = True # bool, none_type | Indicates if 2FA is enabled on the user. (optional)
     two_factor_setup_required = True # bool | Indicates if 2FA is required by the user's customer account. (optional)
 
     # example passing only required values which don't have defaults set
@@ -491,10 +491,10 @@ Name | Type | Description  | Notes
  **login** | **str**|  | [optional]
  **name** | **str**| The real life name of the user. | [optional]
  **limit_services** | **bool**| Indicates that the user has limited access to the customer&#39;s services. | [optional]
- **locked** | **bool**| Indicates whether the is account is locked for editing or not. | [optional]
- **require_new_password** | **bool**| Indicates if a new password is required at next login. | [optional]
+ **locked** | **bool, none_type**| Indicates whether the is account is locked for editing or not. | [optional]
+ **require_new_password** | **bool, none_type**| Indicates if a new password is required at next login. | [optional]
  **role** | [**RoleUser**](RoleUser.md)|  | [optional]
- **two_factor_auth_enabled** | **bool**| Indicates if 2FA is enabled on the user. | [optional]
+ **two_factor_auth_enabled** | **bool, none_type**| Indicates if 2FA is enabled on the user. | [optional]
  **two_factor_setup_required** | **bool**| Indicates if 2FA is required by the user&#39;s customer account. | [optional]
 
 ### Return type

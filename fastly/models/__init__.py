@@ -38,14 +38,13 @@ from fastly.model.billing_address_response import BillingAddressResponse
 from fastly.model.billing_address_response_data import BillingAddressResponseData
 from fastly.model.billing_address_verification_error_response import BillingAddressVerificationErrorResponse
 from fastly.model.billing_address_verification_error_response_errors import BillingAddressVerificationErrorResponseErrors
+from fastly.model.billing_estimate_lines import BillingEstimateLines
+from fastly.model.billing_estimate_lines_line_items import BillingEstimateLinesLineItems
 from fastly.model.billing_estimate_response import BillingEstimateResponse
-from fastly.model.billing_estimate_response_all_of import BillingEstimateResponseAllOf
-from fastly.model.billing_estimate_response_all_of_line import BillingEstimateResponseAllOfLine
-from fastly.model.billing_estimate_response_all_of_lines import BillingEstimateResponseAllOfLines
 from fastly.model.billing_response import BillingResponse
-from fastly.model.billing_response_all_of import BillingResponseAllOf
+from fastly.model.billing_response_item_items_data import BillingResponseItemItemsData
 from fastly.model.billing_response_line_item import BillingResponseLineItem
-from fastly.model.billing_response_line_item_all_of import BillingResponseLineItemAllOf
+from fastly.model.billing_response_line_items import BillingResponseLineItems
 from fastly.model.billing_status import BillingStatus
 from fastly.model.billing_total import BillingTotal
 from fastly.model.billing_total_extras import BillingTotalExtras
@@ -205,6 +204,8 @@ from fastly.model.legacy_waf_rule_status import LegacyWafRuleStatus
 from fastly.model.legacy_waf_ruleset import LegacyWafRuleset
 from fastly.model.legacy_waf_tag import LegacyWafTag
 from fastly.model.legacy_waf_update_status import LegacyWafUpdateStatus
+from fastly.model.line_item_data import LineItemData
+from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
 from fastly.model.logging_address_and_port import LoggingAddressAndPort
 from fastly.model.logging_azureblob import LoggingAzureblob
 from fastly.model.logging_azureblob_all_of import LoggingAzureblobAllOf
@@ -456,6 +457,7 @@ from fastly.model.role_user import RoleUser
 from fastly.model.schemas_contact_response import SchemasContactResponse
 from fastly.model.schemas_snippet_response import SchemasSnippetResponse
 from fastly.model.schemas_user_response import SchemasUserResponse
+from fastly.model.schemas_user_response_read_only import SchemasUserResponseReadOnly
 from fastly.model.schemas_vcl_response import SchemasVclResponse
 from fastly.model.schemas_version import SchemasVersion
 from fastly.model.schemas_version_response import SchemasVersionResponse
@@ -616,7 +618,7 @@ from fastly.model.update_billing_address_request import UpdateBillingAddressRequ
 from fastly.model.update_billing_address_request_data import UpdateBillingAddressRequestData
 from fastly.model.user import User
 from fastly.model.user_response import UserResponse
-from fastly.model.user_response_all_of import UserResponseAllOf
+from fastly.model.user_response_read_only import UserResponseReadOnly
 from fastly.model.validator_result import ValidatorResult
 from fastly.model.validator_result_data import ValidatorResultData
 from fastly.model.validator_result_data_attributes import ValidatorResultDataAttributes

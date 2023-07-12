@@ -30,11 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.billing_estimate_response_all_of_line import BillingEstimateResponseAllOfLine
-    globals()['BillingEstimateResponseAllOfLine'] = BillingEstimateResponseAllOfLine
+    from fastly.model.billing_estimate_lines_line_items import BillingEstimateLinesLineItems
+    globals()['BillingEstimateLinesLineItems'] = BillingEstimateLinesLineItems
 
 
-class BillingEstimateResponseAllOfLines(ModelNormal):
+class BillingEstimateLines(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -85,7 +85,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
         """
         lazy_import()
         return {
-            'line': (BillingEstimateResponseAllOfLine,),  # noqa: E501
+            'line_items': ([BillingEstimateLinesLineItems],),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +94,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
 
 
     attribute_map = {
-        'line': 'line',  # noqa: E501
+        'line_items': 'line_items',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,7 +105,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingEstimateResponseAllOfLines - a model defined in OpenAPI
+        """BillingEstimateLines - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,7 +138,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            line (BillingEstimateResponseAllOfLine): [optional]  # noqa: E501
+            line_items ([BillingEstimateLinesLineItems]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,7 +187,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingEstimateResponseAllOfLines - a model defined in OpenAPI
+        """BillingEstimateLines - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,7 +220,7 @@ class BillingEstimateResponseAllOfLines(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            line (BillingEstimateResponseAllOfLine): [optional]  # noqa: E501
+            line_items ([BillingEstimateLinesLineItems]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

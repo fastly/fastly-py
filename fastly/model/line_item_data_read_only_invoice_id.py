@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class UserResponseAllOf(ModelNormal):
+class LineItemDataReadOnlyInvoiceId(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -58,13 +58,7 @@ class UserResponseAllOf(ModelNormal):
     validations = {
     }
 
-    @cached_property
-    def additional_properties_type():
-        """
-        This must be a method because a model may have properties that are
-        of type self, this must run after the class is loaded
-        """
-        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
+    additional_properties_type = None
 
     _nullable = False
 
@@ -79,9 +73,6 @@ class UserResponseAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
-            'email_hash': (str,),  # noqa: E501
-            'customer_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,15 +81,9 @@ class UserResponseAllOf(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'email_hash': 'email_hash',  # noqa: E501
-        'customer_id': 'customer_id',  # noqa: E501
     }
 
     read_only_vars = {
-        'id',  # noqa: E501
-        'email_hash',  # noqa: E501
-        'customer_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -106,7 +91,7 @@ class UserResponseAllOf(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """UserResponseAllOf - a model defined in OpenAPI
+        """LineItemDataReadOnlyInvoiceId - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,9 +124,6 @@ class UserResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            email_hash (str): The alphanumeric string identifying a email login.. [optional]  # noqa: E501
-            customer_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,7 +172,7 @@ class UserResponseAllOf(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """UserResponseAllOf - a model defined in OpenAPI
+        """LineItemDataReadOnlyInvoiceId - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,9 +205,6 @@ class UserResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            email_hash (str): The alphanumeric string identifying a email login.. [optional]  # noqa: E501
-            customer_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

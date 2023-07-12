@@ -31,13 +31,13 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.billing import Billing
-    from fastly.model.billing_response_all_of import BillingResponseAllOf
-    from fastly.model.billing_response_line_item import BillingResponseLineItem
+    from fastly.model.billing_response_item_items_data import BillingResponseItemItemsData
+    from fastly.model.billing_response_line_items import BillingResponseLineItems
     from fastly.model.billing_status import BillingStatus
     from fastly.model.billing_total import BillingTotal
     globals()['Billing'] = Billing
-    globals()['BillingResponseAllOf'] = BillingResponseAllOf
-    globals()['BillingResponseLineItem'] = BillingResponseLineItem
+    globals()['BillingResponseItemItemsData'] = BillingResponseItemItemsData
+    globals()['BillingResponseLineItems'] = BillingResponseLineItems
     globals()['BillingStatus'] = BillingStatus
     globals()['BillingTotal'] = BillingTotal
 
@@ -101,7 +101,7 @@ class BillingResponse(ModelComposed):
             'status': (BillingStatus,),  # noqa: E501
             'total': (BillingTotal,),  # noqa: E501
             'regions': ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)},),  # noqa: E501
-            'line_items': ([BillingResponseLineItem],),  # noqa: E501
+            'line_items': (BillingResponseLineItems,),  # noqa: E501
         }
 
     @cached_property
@@ -173,7 +173,7 @@ class BillingResponse(ModelComposed):
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
             regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            line_items ([BillingResponseLineItem]): [optional]  # noqa: E501
+            line_items (BillingResponseLineItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,7 +281,7 @@ class BillingResponse(ModelComposed):
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
             regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            line_items ([BillingResponseLineItem]): [optional]  # noqa: E501
+            line_items (BillingResponseLineItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -348,7 +348,7 @@ class BillingResponse(ModelComposed):
           ],
           'allOf': [
               Billing,
-              BillingResponseAllOf,
+              BillingResponseItemItemsData,
           ],
           'oneOf': [
           ],

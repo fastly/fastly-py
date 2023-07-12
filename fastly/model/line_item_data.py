@@ -30,11 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.billing_response_line_item import BillingResponseLineItem
-    globals()['BillingResponseLineItem'] = BillingResponseLineItem
+    from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
+    globals()['LineItemDataReadOnlyInvoiceId'] = LineItemDataReadOnlyInvoiceId
 
 
-class BillingResponseAllOf(ModelNormal):
+class LineItemData(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -85,7 +85,23 @@ class BillingResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'line_items': ([BillingResponseLineItem],),  # noqa: E501
+            'amount': (float,),  # noqa: E501
+            'aria_invoice_id': (LineItemDataReadOnlyInvoiceId,),  # noqa: E501
+            'client_service_id': (str,),  # noqa: E501
+            'credit_coupon_code': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'line_number': (int,),  # noqa: E501
+            'plan_name': (str,),  # noqa: E501
+            'plan_no': (float,),  # noqa: E501
+            'rate_per_unit': (float,),  # noqa: E501
+            'rate_schedule_no': (float, none_type,),  # noqa: E501
+            'rate_schedule_tier_no': (float, none_type,),  # noqa: E501
+            'service_name': (str,),  # noqa: E501
+            'service_no': (float,),  # noqa: E501
+            'units': (float,),  # noqa: E501
+            'usage_type_cd': (str, none_type,),  # noqa: E501
+            'usage_type_no': (float, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +110,23 @@ class BillingResponseAllOf(ModelNormal):
 
 
     attribute_map = {
-        'line_items': 'line_items',  # noqa: E501
+        'amount': 'amount',  # noqa: E501
+        'aria_invoice_id': 'aria_invoice_id',  # noqa: E501
+        'client_service_id': 'client_service_id',  # noqa: E501
+        'credit_coupon_code': 'credit_coupon_code',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'line_number': 'line_number',  # noqa: E501
+        'plan_name': 'plan_name',  # noqa: E501
+        'plan_no': 'plan_no',  # noqa: E501
+        'rate_per_unit': 'rate_per_unit',  # noqa: E501
+        'rate_schedule_no': 'rate_schedule_no',  # noqa: E501
+        'rate_schedule_tier_no': 'rate_schedule_tier_no',  # noqa: E501
+        'service_name': 'service_name',  # noqa: E501
+        'service_no': 'service_no',  # noqa: E501
+        'units': 'units',  # noqa: E501
+        'usage_type_cd': 'usage_type_cd',  # noqa: E501
+        'usage_type_no': 'usage_type_no',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,7 +137,7 @@ class BillingResponseAllOf(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingResponseAllOf - a model defined in OpenAPI
+        """LineItemData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,7 +170,23 @@ class BillingResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            line_items ([BillingResponseLineItem]): [optional]  # noqa: E501
+            amount (float): [optional]  # noqa: E501
+            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
+            client_service_id (str): [optional]  # noqa: E501
+            credit_coupon_code (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            line_number (int): [optional]  # noqa: E501
+            plan_name (str): [optional]  # noqa: E501
+            plan_no (float): [optional]  # noqa: E501
+            rate_per_unit (float): [optional]  # noqa: E501
+            rate_schedule_no (float, none_type): [optional]  # noqa: E501
+            rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
+            service_name (str): [optional]  # noqa: E501
+            service_no (float): [optional]  # noqa: E501
+            units (float): [optional]  # noqa: E501
+            usage_type_cd (str, none_type): [optional]  # noqa: E501
+            usage_type_no (float, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,7 +235,7 @@ class BillingResponseAllOf(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingResponseAllOf - a model defined in OpenAPI
+        """LineItemData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,7 +268,23 @@ class BillingResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            line_items ([BillingResponseLineItem]): [optional]  # noqa: E501
+            amount (float): [optional]  # noqa: E501
+            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
+            client_service_id (str): [optional]  # noqa: E501
+            credit_coupon_code (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            line_number (int): [optional]  # noqa: E501
+            plan_name (str): [optional]  # noqa: E501
+            plan_no (float): [optional]  # noqa: E501
+            rate_per_unit (float): [optional]  # noqa: E501
+            rate_schedule_no (float, none_type): [optional]  # noqa: E501
+            rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
+            service_name (str): [optional]  # noqa: E501
+            service_no (float): [optional]  # noqa: E501
+            units (float): [optional]  # noqa: E501
+            usage_type_cd (str, none_type): [optional]  # noqa: E501
+            usage_type_no (float, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

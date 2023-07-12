@@ -29,8 +29,12 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.billing_response_line_items import BillingResponseLineItems
+    globals()['BillingResponseLineItems'] = BillingResponseLineItems
 
-class BillingEstimateResponseAllOfLine(ModelNormal):
+
+class BillingResponseItemItemsData(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +68,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,16 +83,9 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'plan_no': (int,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'units': (float,),  # noqa: E501
-            'per_unit_cost': (float,),  # noqa: E501
-            'service_no': (float,),  # noqa: E501
-            'service_type': (str,),  # noqa: E501
-            'amount': (float,),  # noqa: E501
-            'client_service_id': (str,),  # noqa: E501
-            'client_plan_id': (str,),  # noqa: E501
+            'line_items': (BillingResponseLineItems,),  # noqa: E501
         }
 
     @cached_property
@@ -96,15 +94,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
 
 
     attribute_map = {
-        'plan_no': 'plan_no',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'units': 'units',  # noqa: E501
-        'per_unit_cost': 'per_unit_cost',  # noqa: E501
-        'service_no': 'service_no',  # noqa: E501
-        'service_type': 'service_type',  # noqa: E501
-        'amount': 'amount',  # noqa: E501
-        'client_service_id': 'client_service_id',  # noqa: E501
-        'client_plan_id': 'client_plan_id',  # noqa: E501
+        'line_items': 'line_items',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,7 +105,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingEstimateResponseAllOfLine - a model defined in OpenAPI
+        """BillingResponseItemItemsData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,15 +138,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan_no (int): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            units (float): [optional]  # noqa: E501
-            per_unit_cost (float): [optional]  # noqa: E501
-            service_no (float): [optional]  # noqa: E501
-            service_type (str): [optional]  # noqa: E501
-            amount (float): [optional]  # noqa: E501
-            client_service_id (str): [optional]  # noqa: E501
-            client_plan_id (str): [optional]  # noqa: E501
+            line_items (BillingResponseLineItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -205,7 +187,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingEstimateResponseAllOfLine - a model defined in OpenAPI
+        """BillingResponseItemItemsData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,15 +220,7 @@ class BillingEstimateResponseAllOfLine(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan_no (int): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            units (float): [optional]  # noqa: E501
-            per_unit_cost (float): [optional]  # noqa: E501
-            service_no (float): [optional]  # noqa: E501
-            service_type (str): [optional]  # noqa: E501
-            amount (float): [optional]  # noqa: E501
-            client_service_id (str): [optional]  # noqa: E501
-            client_plan_id (str): [optional]  # noqa: E501
+            line_items (BillingResponseLineItems): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

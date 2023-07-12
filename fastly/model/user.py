@@ -88,10 +88,10 @@ class User(ModelNormal):
             'login': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'limit_services': (bool,),  # noqa: E501
-            'locked': (bool,),  # noqa: E501
-            'require_new_password': (bool,),  # noqa: E501
+            'locked': (bool, none_type,),  # noqa: E501
+            'require_new_password': (bool, none_type,),  # noqa: E501
             'role': (RoleUser,),  # noqa: E501
-            'two_factor_auth_enabled': (bool,),  # noqa: E501
+            'two_factor_auth_enabled': (bool, none_type,),  # noqa: E501
             'two_factor_setup_required': (bool,),  # noqa: E501
         }
 
@@ -156,10 +156,10 @@ class User(ModelNormal):
             login (str): [optional]  # noqa: E501
             name (str): The real life name of the user.. [optional]  # noqa: E501
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]  # noqa: E501
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]  # noqa: E501
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
         """
 
@@ -245,10 +245,10 @@ class User(ModelNormal):
             login (str): [optional]  # noqa: E501
             name (str): The real life name of the user.. [optional]  # noqa: E501
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]  # noqa: E501
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]  # noqa: E501
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
         """
 

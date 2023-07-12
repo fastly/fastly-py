@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **status** | [**BillingStatus**](BillingStatus.md) |  | [optional] 
 **total** | [**BillingTotal**](BillingTotal.md) |  | [optional] 
 **regions** | **{str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}** | Breakdown of regional data for products that are region based. | [optional] 
-**line_items** | [**[BillingResponseLineItem]**](BillingResponseLineItem.md) |  | [optional] 
+**line_items** | [**BillingResponseLineItems**](BillingResponseLineItems.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

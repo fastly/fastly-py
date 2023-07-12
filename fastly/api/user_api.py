@@ -64,6 +64,9 @@ class UserApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'locked',
+                    'require_new_password',
+                    'two_factor_auth_enabled',
                 ],
                 'enum': [
                 ],
@@ -83,13 +86,13 @@ class UserApi(object):
                     'limit_services':
                         (bool,),
                     'locked':
-                        (bool,),
+                        (bool, none_type,),
                     'require_new_password':
-                        (bool,),
+                        (bool, none_type,),
                     'role':
                         (RoleUser,),
                     'two_factor_auth_enabled':
-                        (bool,),
+                        (bool, none_type,),
                     'two_factor_setup_required':
                         (bool,),
                 },
@@ -385,6 +388,9 @@ class UserApi(object):
                     'user_id',
                 ],
                 'nullable': [
+                    'locked',
+                    'require_new_password',
+                    'two_factor_auth_enabled',
                 ],
                 'enum': [
                 ],
@@ -406,13 +412,13 @@ class UserApi(object):
                     'limit_services':
                         (bool,),
                     'locked':
-                        (bool,),
+                        (bool, none_type,),
                     'require_new_password':
-                        (bool,),
+                        (bool, none_type,),
                     'role':
                         (RoleUser,),
                     'two_factor_auth_enabled':
-                        (bool,),
+                        (bool, none_type,),
                     'two_factor_setup_required':
                         (bool,),
                 },
@@ -535,10 +541,10 @@ class UserApi(object):
             login (str): [optional]
             name (str): The real life name of the user.. [optional]
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]
             role (RoleUser): [optional]
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -926,10 +932,10 @@ class UserApi(object):
             login (str): [optional]
             name (str): The real life name of the user.. [optional]
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]
             role (RoleUser): [optional]
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

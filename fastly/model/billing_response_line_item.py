@@ -30,9 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.billing_response_line_item_all_of import BillingResponseLineItemAllOf
+    from fastly.model.line_item_data import LineItemData
+    from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
     from fastly.model.timestamps import Timestamps
-    globals()['BillingResponseLineItemAllOf'] = BillingResponseLineItemAllOf
+    globals()['LineItemData'] = LineItemData
+    globals()['LineItemDataReadOnlyInvoiceId'] = LineItemDataReadOnlyInvoiceId
     globals()['Timestamps'] = Timestamps
 
 
@@ -91,7 +93,7 @@ class BillingResponseLineItem(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'amount': (float,),  # noqa: E501
-            'aria_invoice_id': (str,),  # noqa: E501
+            'aria_invoice_id': (LineItemDataReadOnlyInvoiceId,),  # noqa: E501
             'client_service_id': (str,),  # noqa: E501
             'credit_coupon_code': (str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -141,7 +143,6 @@ class BillingResponseLineItem(ModelComposed):
         'created_at',  # noqa: E501
         'deleted_at',  # noqa: E501
         'updated_at',  # noqa: E501
-        'aria_invoice_id',  # noqa: E501
     }
 
     @classmethod
@@ -184,7 +185,7 @@ class BillingResponseLineItem(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             amount (float): [optional]  # noqa: E501
-            aria_invoice_id (str): [optional]  # noqa: E501
+            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
             client_service_id (str): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
@@ -303,7 +304,7 @@ class BillingResponseLineItem(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             amount (float): [optional]  # noqa: E501
-            aria_invoice_id (str): [optional]  # noqa: E501
+            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
             client_service_id (str): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
@@ -384,7 +385,7 @@ class BillingResponseLineItem(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              BillingResponseLineItemAllOf,
+              LineItemData,
               Timestamps,
           ],
           'oneOf': [

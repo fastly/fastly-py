@@ -31,13 +31,13 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.billing import Billing
-    from fastly.model.billing_estimate_response_all_of import BillingEstimateResponseAllOf
-    from fastly.model.billing_estimate_response_all_of_lines import BillingEstimateResponseAllOfLines
+    from fastly.model.billing_estimate_lines import BillingEstimateLines
+    from fastly.model.billing_estimate_lines_line_items import BillingEstimateLinesLineItems
     from fastly.model.billing_status import BillingStatus
     from fastly.model.billing_total import BillingTotal
     globals()['Billing'] = Billing
-    globals()['BillingEstimateResponseAllOf'] = BillingEstimateResponseAllOf
-    globals()['BillingEstimateResponseAllOfLines'] = BillingEstimateResponseAllOfLines
+    globals()['BillingEstimateLines'] = BillingEstimateLines
+    globals()['BillingEstimateLinesLineItems'] = BillingEstimateLinesLineItems
     globals()['BillingStatus'] = BillingStatus
     globals()['BillingTotal'] = BillingTotal
 
@@ -101,7 +101,7 @@ class BillingEstimateResponse(ModelComposed):
             'status': (BillingStatus,),  # noqa: E501
             'total': (BillingTotal,),  # noqa: E501
             'regions': ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)},),  # noqa: E501
-            'lines': ([BillingEstimateResponseAllOfLines],),  # noqa: E501
+            'line_items': ([BillingEstimateLinesLineItems],),  # noqa: E501
         }
 
     @cached_property
@@ -118,7 +118,7 @@ class BillingEstimateResponse(ModelComposed):
         'status': 'status',  # noqa: E501
         'total': 'total',  # noqa: E501
         'regions': 'regions',  # noqa: E501
-        'lines': 'lines',  # noqa: E501
+        'line_items': 'line_items',  # noqa: E501
     }
 
     read_only_vars = {
@@ -173,7 +173,7 @@ class BillingEstimateResponse(ModelComposed):
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
             regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            lines ([BillingEstimateResponseAllOfLines]): [optional]  # noqa: E501
+            line_items ([BillingEstimateLinesLineItems]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,7 +281,7 @@ class BillingEstimateResponse(ModelComposed):
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
             regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            lines ([BillingEstimateResponseAllOfLines]): [optional]  # noqa: E501
+            line_items ([BillingEstimateLinesLineItems]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -348,7 +348,7 @@ class BillingEstimateResponse(ModelComposed):
           ],
           'allOf': [
               Billing,
-              BillingEstimateResponseAllOf,
+              BillingEstimateLines,
           ],
           'oneOf': [
           ],

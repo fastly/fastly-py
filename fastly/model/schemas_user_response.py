@@ -31,13 +31,13 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.role_user import RoleUser
+    from fastly.model.schemas_user_response_read_only import SchemasUserResponseReadOnly
     from fastly.model.timestamps import Timestamps
     from fastly.model.user import User
-    from fastly.model.user_response_all_of import UserResponseAllOf
     globals()['RoleUser'] = RoleUser
+    globals()['SchemasUserResponseReadOnly'] = SchemasUserResponseReadOnly
     globals()['Timestamps'] = Timestamps
     globals()['User'] = User
-    globals()['UserResponseAllOf'] = UserResponseAllOf
 
 
 class SchemasUserResponse(ModelComposed):
@@ -94,10 +94,10 @@ class SchemasUserResponse(ModelComposed):
             'login': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'limit_services': (bool,),  # noqa: E501
-            'locked': (bool,),  # noqa: E501
-            'require_new_password': (bool,),  # noqa: E501
+            'locked': (bool, none_type,),  # noqa: E501
+            'require_new_password': (bool, none_type,),  # noqa: E501
             'role': (RoleUser,),  # noqa: E501
-            'two_factor_auth_enabled': (bool,),  # noqa: E501
+            'two_factor_auth_enabled': (bool, none_type,),  # noqa: E501
             'two_factor_setup_required': (bool,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
@@ -178,10 +178,10 @@ class SchemasUserResponse(ModelComposed):
             login (str): [optional]  # noqa: E501
             name (str): The real life name of the user.. [optional]  # noqa: E501
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]  # noqa: E501
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]  # noqa: E501
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -291,10 +291,10 @@ class SchemasUserResponse(ModelComposed):
             login (str): [optional]  # noqa: E501
             name (str): The real life name of the user.. [optional]  # noqa: E501
             limit_services (bool): Indicates that the user has limited access to the customer's services.. [optional]  # noqa: E501
-            locked (bool): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
-            require_new_password (bool): Indicates if a new password is required at next login.. [optional]  # noqa: E501
+            locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
+            require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
-            two_factor_auth_enabled (bool): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
+            two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -367,9 +367,9 @@ class SchemasUserResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              SchemasUserResponseReadOnly,
               Timestamps,
               User,
-              UserResponseAllOf,
           ],
           'oneOf': [
           ],
