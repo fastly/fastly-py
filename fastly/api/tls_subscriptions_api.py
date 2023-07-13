@@ -186,13 +186,13 @@ class TlsSubscriptionsApi(object):
             params_map={
                 'all': [
                     'tls_subscription_id',
-                    'globalsign_email_challenge_id',
                     'tls_authorization_id',
+                    'globalsign_email_challenge_id',
                 ],
                 'required': [
                     'tls_subscription_id',
-                    'globalsign_email_challenge_id',
                     'tls_authorization_id',
+                    'globalsign_email_challenge_id',
                 ],
                 'nullable': [
                 ],
@@ -209,20 +209,20 @@ class TlsSubscriptionsApi(object):
                 'openapi_types': {
                     'tls_subscription_id':
                         (str,),
-                    'globalsign_email_challenge_id':
-                        (str,),
                     'tls_authorization_id':
+                        (str,),
+                    'globalsign_email_challenge_id':
                         (str,),
                 },
                 'attribute_map': {
                     'tls_subscription_id': 'tls_subscription_id',
-                    'globalsign_email_challenge_id': 'globalsign_email_challenge_id',
                     'tls_authorization_id': 'tls_authorization_id',
+                    'globalsign_email_challenge_id': 'globalsign_email_challenge_id',
                 },
                 'location_map': {
                     'tls_subscription_id': 'path',
-                    'globalsign_email_challenge_id': 'path',
                     'tls_authorization_id': 'path',
+                    'globalsign_email_challenge_id': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -683,8 +683,8 @@ class TlsSubscriptionsApi(object):
     def delete_globalsign_email_challenge(
         self,
         tls_subscription_id,
-        globalsign_email_challenge_id,
         tls_authorization_id,
+        globalsign_email_challenge_id,
         **kwargs
     ):
         """Delete a GlobalSign email challenge  # noqa: E501
@@ -693,13 +693,13 @@ class TlsSubscriptionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_globalsign_email_challenge(tls_subscription_id, globalsign_email_challenge_id, tls_authorization_id, async_req=True)
+        >>> thread = api.delete_globalsign_email_challenge(tls_subscription_id, tls_authorization_id, globalsign_email_challenge_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             tls_subscription_id (str): Alphanumeric string identifying a TLS subscription.
-            globalsign_email_challenge_id (str): Alphanumeric string identifying a GlobalSign email challenge.
             tls_authorization_id (str): Alphanumeric string identifying a TLS subscription.
+            globalsign_email_challenge_id (str): Alphanumeric string identifying a GlobalSign email challenge.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -760,10 +760,10 @@ class TlsSubscriptionsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['tls_subscription_id'] = \
             tls_subscription_id
-        kwargs['globalsign_email_challenge_id'] = \
-            globalsign_email_challenge_id
         kwargs['tls_authorization_id'] = \
             tls_authorization_id
+        kwargs['globalsign_email_challenge_id'] = \
+            globalsign_email_challenge_id
         return self.delete_globalsign_email_challenge_endpoint.call_with_http_info(**kwargs)
 
     def delete_tls_sub(

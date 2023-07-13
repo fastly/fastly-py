@@ -645,7 +645,7 @@ class LoggingGcsApi(object):
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]
             bucket_name (str): The name of the GCS bucket.. [optional]
-            path (str): The path to upload logs to.. [optional]
+            path (str): [optional] if omitted the server will use the default value of "/"
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"
             project_id (str): Your Google Cloud Platform project ID. Required. [optional]
             _return_http_data_only (bool): response data without head status
@@ -1000,7 +1000,7 @@ class LoggingGcsApi(object):
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]
             bucket_name (str): The name of the GCS bucket.. [optional]
-            path (str): The path to upload logs to.. [optional]
+            path (str): [optional] if omitted the server will use the default value of "/"
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"
             project_id (str): Your Google Cloud Platform project ID. Required. [optional]
             _return_http_data_only (bool): response data without head status

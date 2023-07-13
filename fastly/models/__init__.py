@@ -307,6 +307,7 @@ from fastly.model.number_version import NumberVersion
 from fastly.model.origin_inspector import OriginInspector
 from fastly.model.origin_inspector_dimensions import OriginInspectorDimensions
 from fastly.model.origin_inspector_entry import OriginInspectorEntry
+from fastly.model.origin_inspector_entry_values import OriginInspectorEntryValues
 from fastly.model.origin_inspector_historical import OriginInspectorHistorical
 from fastly.model.origin_inspector_historical_data import OriginInspectorHistoricalData
 from fastly.model.origin_inspector_historical_meta import OriginInspectorHistoricalMeta

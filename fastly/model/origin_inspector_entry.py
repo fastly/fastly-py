@@ -31,9 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.origin_inspector_dimensions import OriginInspectorDimensions
-    from fastly.model.origin_inspector_values import OriginInspectorValues
+    from fastly.model.origin_inspector_entry_values import OriginInspectorEntryValues
     globals()['OriginInspectorDimensions'] = OriginInspectorDimensions
-    globals()['OriginInspectorValues'] = OriginInspectorValues
+    globals()['OriginInspectorEntryValues'] = OriginInspectorEntryValues
 
 
 class OriginInspectorEntry(ModelNormal):
@@ -88,7 +88,7 @@ class OriginInspectorEntry(ModelNormal):
         lazy_import()
         return {
             'dimensions': (OriginInspectorDimensions,),  # noqa: E501
-            'values': ([OriginInspectorValues],),  # noqa: E501
+            'values': (OriginInspectorEntryValues,),  # noqa: E501
         }
 
     @cached_property
@@ -143,7 +143,7 @@ class OriginInspectorEntry(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             dimensions (OriginInspectorDimensions): [optional]  # noqa: E501
-            values ([OriginInspectorValues]): An array of values representing the metric values at each point in time. Note that this dataset is sparse: only the keys with non-zero values will be included in the record. . [optional]  # noqa: E501
+            values (OriginInspectorEntryValues): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,7 +226,7 @@ class OriginInspectorEntry(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             dimensions (OriginInspectorDimensions): [optional]  # noqa: E501
-            values ([OriginInspectorValues]): An array of values representing the metric values at each point in time. Note that this dataset is sparse: only the keys with non-zero values will be included in the record. . [optional]  # noqa: E501
+            values (OriginInspectorEntryValues): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

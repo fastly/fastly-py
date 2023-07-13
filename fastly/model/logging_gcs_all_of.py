@@ -145,7 +145,7 @@ class LoggingGcsAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): The path to upload logs to.. [optional]  # noqa: E501
+            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
         """
@@ -230,7 +230,7 @@ class LoggingGcsAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): The path to upload logs to.. [optional]  # noqa: E501
+            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
         """

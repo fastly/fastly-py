@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_globalsign_email_challenge**
-> delete_globalsign_email_challenge(tls_subscription_id, globalsign_email_challenge_id, tls_authorization_id)
+> delete_globalsign_email_challenge(tls_subscription_id, tls_authorization_id, globalsign_email_challenge_id)
 
 Delete a GlobalSign email challenge
 
@@ -231,13 +231,13 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
     tls_subscription_id = "sU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
-    globalsign_email_challenge_id = "gU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a GlobalSign email challenge.
     tls_authorization_id = "aU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
+    globalsign_email_challenge_id = "gU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a GlobalSign email challenge.
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a GlobalSign email challenge
-        api_instance.delete_globalsign_email_challenge(tls_subscription_id, globalsign_email_challenge_id, tls_authorization_id)
+        api_instance.delete_globalsign_email_challenge(tls_subscription_id, tls_authorization_id, globalsign_email_challenge_id)
     except fastly.ApiException as e:
         print("Exception when calling TlsSubscriptionsApi->delete_globalsign_email_challenge: %s\n" % e)
 ```
@@ -248,8 +248,8 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tls_subscription_id** | **str**| Alphanumeric string identifying a TLS subscription. |
- **globalsign_email_challenge_id** | **str**| Alphanumeric string identifying a GlobalSign email challenge. |
  **tls_authorization_id** | **str**| Alphanumeric string identifying a TLS subscription. |
+ **globalsign_email_challenge_id** | **str**| Alphanumeric string identifying a GlobalSign email challenge. |
 
 ### Return type
 
