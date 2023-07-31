@@ -31,11 +31,13 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.header import Header
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.header_response_additional import HeaderResponseAdditional
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.str_none_type import StrNoneType
     from fastly.model.timestamps import Timestamps
     globals()['Header'] = Header
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['HeaderResponseAdditional'] = HeaderResponseAdditional
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
     globals()['str, none_type'] = str, none_type
 
@@ -106,17 +108,17 @@ class HeaderResponse(ModelComposed):
             'action': (str,),  # noqa: E501
             'cache_condition': (str, none_type,),  # noqa: E501
             'dst': (str,),  # noqa: E501
-            'ignore_if_set': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'priority': (int,),  # noqa: E501
             'regex': (str, none_type,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'src': (str, none_type,),  # noqa: E501
             'substitution': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'ignore_if_set': (str,),  # noqa: E501
+            'priority': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -131,15 +133,15 @@ class HeaderResponse(ModelComposed):
         'action': 'action',  # noqa: E501
         'cache_condition': 'cache_condition',  # noqa: E501
         'dst': 'dst',  # noqa: E501
-        'ignore_if_set': 'ignore_if_set',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
         'regex': 'regex',  # noqa: E501
         'request_condition': 'request_condition',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'src': 'src',  # noqa: E501
         'substitution': 'substitution',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'ignore_if_set': 'ignore_if_set',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'version': 'version',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -194,17 +196,17 @@ class HeaderResponse(ModelComposed):
             action (str): Accepts a string value.. [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             dst (str): Header to set.. [optional]  # noqa: E501
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]  # noqa: E501
             name (str): A handle to refer to this Header object.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]  # noqa: E501
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]  # noqa: E501
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             type (str): Accepts a string value.. [optional]  # noqa: E501
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\"0\" = false, \"1\" = true). [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -310,17 +312,17 @@ class HeaderResponse(ModelComposed):
             action (str): Accepts a string value.. [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             dst (str): Header to set.. [optional]  # noqa: E501
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]  # noqa: E501
             name (str): A handle to refer to this Header object.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]  # noqa: E501
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]  # noqa: E501
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             type (str): Accepts a string value.. [optional]  # noqa: E501
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\"0\" = false, \"1\" = true). [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -390,7 +392,8 @@ class HeaderResponse(ModelComposed):
           ],
           'allOf': [
               Header,
-              ServiceIdAndVersion,
+              HeaderResponseAdditional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

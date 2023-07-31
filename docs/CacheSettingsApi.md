@@ -54,8 +54,8 @@ with fastly.ApiClient(configuration) as api_client:
     action = "pass" # str, none_type | If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.  (optional)
     cache_condition = "cache_condition_example" # str, none_type | Name of the cache condition controlling when this configuration applies. (optional)
     name = "test-cache-setting" # str | Name for the cache settings object. (optional)
-    stale_ttl = 1 # int | Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error'). (optional)
-    ttl = 1 # int | Maximum time to consider the object fresh in the cache (the cache 'time to live'). (optional)
+    stale_ttl = "stale_ttl_example" # str | Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error'). (optional)
+    ttl = "ttl_example" # str | Maximum time to consider the object fresh in the cache (the cache 'time to live'). (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -85,8 +85,8 @@ Name | Type | Description  | Notes
  **action** | **str, none_type**| If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.  | [optional]
  **cache_condition** | **str, none_type**| Name of the cache condition controlling when this configuration applies. | [optional]
  **name** | **str**| Name for the cache settings object. | [optional]
- **stale_ttl** | **int**| Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as &#39;stale if error&#39;). | [optional]
- **ttl** | **int**| Maximum time to consider the object fresh in the cache (the cache &#39;time to live&#39;). | [optional]
+ **stale_ttl** | **str**| Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as &#39;stale if error&#39;). | [optional]
+ **ttl** | **str**| Maximum time to consider the object fresh in the cache (the cache &#39;time to live&#39;). | [optional]
 
 ### Return type
 
@@ -398,8 +398,8 @@ with fastly.ApiClient(configuration) as api_client:
     action = "pass" # str, none_type | If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.  (optional)
     cache_condition = "cache_condition_example" # str, none_type | Name of the cache condition controlling when this configuration applies. (optional)
     name = "test-cache-setting" # str | Name for the cache settings object. (optional)
-    stale_ttl = 1 # int | Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error'). (optional)
-    ttl = 1 # int | Maximum time to consider the object fresh in the cache (the cache 'time to live'). (optional)
+    stale_ttl = "stale_ttl_example" # str | Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error'). (optional)
+    ttl = "ttl_example" # str | Maximum time to consider the object fresh in the cache (the cache 'time to live'). (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -430,8 +430,8 @@ Name | Type | Description  | Notes
  **action** | **str, none_type**| If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.  | [optional]
  **cache_condition** | **str, none_type**| Name of the cache condition controlling when this configuration applies. | [optional]
  **name** | **str**| Name for the cache settings object. | [optional]
- **stale_ttl** | **int**| Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as &#39;stale if error&#39;). | [optional]
- **ttl** | **int**| Maximum time to consider the object fresh in the cache (the cache &#39;time to live&#39;). | [optional]
+ **stale_ttl** | **str**| Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as &#39;stale if error&#39;). | [optional]
+ **ttl** | **str**| Maximum time to consider the object fresh in the cache (the cache &#39;time to live&#39;). | [optional]
 
 ### Return type
 

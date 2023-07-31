@@ -149,7 +149,7 @@ with fastly.ApiClient(configuration) as api_client:
             revision=WafRuleRevisionOrLatest(None),
             status="log",
         ),
-        relationships=RelationshipsForWafActiveRule(None),
+        relationships=RelationshipsForWafActiveRule(),
     ) # WafActiveRuleData |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -249,7 +249,7 @@ with fastly.ApiClient(configuration) as api_client:
                 revision=WafRuleRevisionOrLatest(None),
                 status="log",
             ),
-            relationships=RelationshipsForWafActiveRule(None),
+            relationships=RelationshipsForWafActiveRule(),
         ),
     ) # WafActiveRule |  (optional)
 
@@ -351,7 +351,7 @@ with fastly.ApiClient(configuration) as api_client:
                 revision=WafRuleRevisionOrLatest(None),
                 status="log",
             ),
-            relationships=RelationshipsForWafActiveRule(None),
+            relationships=RelationshipsForWafActiveRule(),
         ),
     ) # WafActiveRule |  (optional)
 
@@ -729,7 +729,7 @@ with fastly.ApiClient(configuration) as api_client:
                 revision=WafRuleRevisionOrLatest(None),
                 status="log",
             ),
-            relationships=RelationshipsForWafActiveRule(None),
+            relationships=RelationshipsForWafActiveRule(),
         ),
     ) # WafActiveRule |  (optional)
 

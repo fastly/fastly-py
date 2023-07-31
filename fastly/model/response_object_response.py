@@ -31,10 +31,10 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.response_object import ResponseObject
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['ResponseObject'] = ResponseObject
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -93,11 +93,11 @@ class ResponseObjectResponse(ModelComposed):
             'content': (str,),  # noqa: E501
             'content_type': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'response': (str,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -171,11 +171,11 @@ class ResponseObjectResponse(ModelComposed):
             content (str): The content to deliver for the response object, can be empty.. [optional]  # noqa: E501
             content_type (str, none_type): The MIME type of the content, can be empty.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
-            status (int): The HTTP status code.. [optional] if omitted the server will use the default value of 200  # noqa: E501
+            status (str): The HTTP status code.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
             response (str): The HTTP response.. [optional] if omitted the server will use the default value of "Ok"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -282,11 +282,11 @@ class ResponseObjectResponse(ModelComposed):
             content (str): The content to deliver for the response object, can be empty.. [optional]  # noqa: E501
             content_type (str, none_type): The MIME type of the content, can be empty.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
-            status (int): The HTTP status code.. [optional] if omitted the server will use the default value of 200  # noqa: E501
+            status (str): The HTTP status code.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
             response (str): The HTTP response.. [optional] if omitted the server will use the default value of "Ok"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -356,7 +356,7 @@ class ResponseObjectResponse(ModelComposed):
           ],
           'allOf': [
               ResponseObject,
-              ServiceIdAndVersion,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

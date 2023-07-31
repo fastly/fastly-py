@@ -57,15 +57,15 @@ class HeaderApi(object):
                     'action',
                     'cache_condition',
                     'dst',
-                    'ignore_if_set',
                     'name',
-                    'priority',
                     'regex',
                     'request_condition',
                     'response_condition',
                     'src',
                     'substitution',
                     'type',
+                    'ignore_if_set',
+                    'priority',
                 ],
                 'required': [
                     'service_id',
@@ -116,12 +116,8 @@ class HeaderApi(object):
                         (str, none_type,),
                     'dst':
                         (str,),
-                    'ignore_if_set':
-                        (int,),
                     'name':
                         (str,),
-                    'priority':
-                        (int,),
                     'regex':
                         (str, none_type,),
                     'request_condition':
@@ -134,6 +130,10 @@ class HeaderApi(object):
                         (str, none_type,),
                     'type':
                         (str,),
+                    'ignore_if_set':
+                        (int,),
+                    'priority':
+                        (int,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -141,15 +141,15 @@ class HeaderApi(object):
                     'action': 'action',
                     'cache_condition': 'cache_condition',
                     'dst': 'dst',
-                    'ignore_if_set': 'ignore_if_set',
                     'name': 'name',
-                    'priority': 'priority',
                     'regex': 'regex',
                     'request_condition': 'request_condition',
                     'response_condition': 'response_condition',
                     'src': 'src',
                     'substitution': 'substitution',
                     'type': 'type',
+                    'ignore_if_set': 'ignore_if_set',
+                    'priority': 'priority',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -157,15 +157,15 @@ class HeaderApi(object):
                     'action': 'form',
                     'cache_condition': 'form',
                     'dst': 'form',
-                    'ignore_if_set': 'form',
                     'name': 'form',
-                    'priority': 'form',
                     'regex': 'form',
                     'request_condition': 'form',
                     'response_condition': 'form',
                     'src': 'form',
                     'substitution': 'form',
                     'type': 'form',
+                    'ignore_if_set': 'form',
+                    'priority': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -410,15 +410,15 @@ class HeaderApi(object):
                     'action',
                     'cache_condition',
                     'dst',
-                    'ignore_if_set',
                     'name',
-                    'priority',
                     'regex',
                     'request_condition',
                     'response_condition',
                     'src',
                     'substitution',
                     'type',
+                    'ignore_if_set',
+                    'priority',
                 ],
                 'required': [
                     'service_id',
@@ -472,12 +472,8 @@ class HeaderApi(object):
                         (str, none_type,),
                     'dst':
                         (str,),
-                    'ignore_if_set':
-                        (int,),
                     'name':
                         (str,),
-                    'priority':
-                        (int,),
                     'regex':
                         (str, none_type,),
                     'request_condition':
@@ -490,6 +486,10 @@ class HeaderApi(object):
                         (str, none_type,),
                     'type':
                         (str,),
+                    'ignore_if_set':
+                        (int,),
+                    'priority':
+                        (int,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -498,15 +498,15 @@ class HeaderApi(object):
                     'action': 'action',
                     'cache_condition': 'cache_condition',
                     'dst': 'dst',
-                    'ignore_if_set': 'ignore_if_set',
                     'name': 'name',
-                    'priority': 'priority',
                     'regex': 'regex',
                     'request_condition': 'request_condition',
                     'response_condition': 'response_condition',
                     'src': 'src',
                     'substitution': 'substitution',
                     'type': 'type',
+                    'ignore_if_set': 'ignore_if_set',
+                    'priority': 'priority',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -515,15 +515,15 @@ class HeaderApi(object):
                     'action': 'form',
                     'cache_condition': 'form',
                     'dst': 'form',
-                    'ignore_if_set': 'form',
                     'name': 'form',
-                    'priority': 'form',
                     'regex': 'form',
                     'request_condition': 'form',
                     'response_condition': 'form',
                     'src': 'form',
                     'substitution': 'form',
                     'type': 'form',
+                    'ignore_if_set': 'form',
+                    'priority': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -564,15 +564,15 @@ class HeaderApi(object):
             action (str): Accepts a string value.. [optional]
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]
             dst (str): Header to set.. [optional]
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
             name (str): A handle to refer to this Header object.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]
             type (str): Accepts a string value.. [optional]
+            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
+            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -914,15 +914,15 @@ class HeaderApi(object):
             action (str): Accepts a string value.. [optional]
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]
             dst (str): Header to set.. [optional]
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
             name (str): A handle to refer to this Header object.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]
             type (str): Accepts a string value.. [optional]
+            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
+            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

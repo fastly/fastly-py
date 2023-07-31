@@ -30,14 +30,18 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.pool import Pool
+    from fastly.model.pool_additional import PoolAdditional
     from fastly.model.pool_response_all_of import PoolResponseAllOf
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.pool_response_common import PoolResponseCommon
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['Pool'] = Pool
+    from fastly.model.tls_common_response import TlsCommonResponse
+    globals()['PoolAdditional'] = PoolAdditional
     globals()['PoolResponseAllOf'] = PoolResponseAllOf
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['PoolResponseCommon'] = PoolResponseCommon
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
+    globals()['TlsCommonResponse'] = TlsCommonResponse
 
 
 class PoolResponse(ModelComposed):
@@ -64,8 +68,8 @@ class PoolResponse(ModelComposed):
 
     allowed_values = {
         ('use_tls',): {
-            'no_tls': 0,
-            'use_tls': 1,
+            'no_tls': "0",
+            'use_tls': "1",
         },
         ('type',): {
             'RANDOM': "random",
@@ -75,10 +79,6 @@ class PoolResponse(ModelComposed):
     }
 
     validations = {
-        ('quorum',): {
-            'inclusive_maximum': 100,
-            'inclusive_minimum': 0,
-        },
     }
 
     @cached_property
@@ -108,29 +108,30 @@ class PoolResponse(ModelComposed):
             'tls_client_cert': (str, none_type,),  # noqa: E501
             'tls_client_key': (str, none_type,),  # noqa: E501
             'tls_cert_hostname': (str, none_type,),  # noqa: E501
-            'use_tls': (int,),  # noqa: E501
+            'use_tls': (str,),  # noqa: E501
+            'created_at': (datetime, none_type,),  # noqa: E501
+            'deleted_at': (datetime, none_type,),  # noqa: E501
+            'updated_at': (datetime, none_type,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'shield': (str, none_type,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
-            'max_conn_default': (int,),  # noqa: E501
-            'connect_timeout': (int,),  # noqa: E501
-            'first_byte_timeout': (int,),  # noqa: E501
-            'quorum': (int,),  # noqa: E501
             'tls_ciphers': (str, none_type,),  # noqa: E501
             'tls_sni_hostname': (str, none_type,),  # noqa: E501
-            'tls_check_cert': (int, none_type,),  # noqa: E501
             'min_tls_version': (int, none_type,),  # noqa: E501
             'max_tls_version': (int, none_type,),  # noqa: E501
             'healthcheck': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'override_host': (str, none_type,),  # noqa: E501
-            'created_at': (datetime, none_type,),  # noqa: E501
-            'deleted_at': (datetime, none_type,),  # noqa: E501
-            'updated_at': (datetime, none_type,),  # noqa: E501
-            'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'between_bytes_timeout': (str,),  # noqa: E501
+            'connect_timeout': (str,),  # noqa: E501
+            'first_byte_timeout': (str,),  # noqa: E501
+            'max_conn_default': (str,),  # noqa: E501
+            'tls_check_cert': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'quorum': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -144,28 +145,29 @@ class PoolResponse(ModelComposed):
         'tls_client_key': 'tls_client_key',  # noqa: E501
         'tls_cert_hostname': 'tls_cert_hostname',  # noqa: E501
         'use_tls': 'use_tls',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'deleted_at': 'deleted_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'name': 'name',  # noqa: E501
         'shield': 'shield',  # noqa: E501
         'request_condition': 'request_condition',  # noqa: E501
-        'max_conn_default': 'max_conn_default',  # noqa: E501
-        'connect_timeout': 'connect_timeout',  # noqa: E501
-        'first_byte_timeout': 'first_byte_timeout',  # noqa: E501
-        'quorum': 'quorum',  # noqa: E501
         'tls_ciphers': 'tls_ciphers',  # noqa: E501
         'tls_sni_hostname': 'tls_sni_hostname',  # noqa: E501
-        'tls_check_cert': 'tls_check_cert',  # noqa: E501
         'min_tls_version': 'min_tls_version',  # noqa: E501
         'max_tls_version': 'max_tls_version',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'type': 'type',  # noqa: E501
         'override_host': 'override_host',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'deleted_at': 'deleted_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'service_id': 'service_id',  # noqa: E501
-        'version': 'version',  # noqa: E501
+        'between_bytes_timeout': 'between_bytes_timeout',  # noqa: E501
+        'connect_timeout': 'connect_timeout',  # noqa: E501
+        'first_byte_timeout': 'first_byte_timeout',  # noqa: E501
+        'max_conn_default': 'max_conn_default',  # noqa: E501
+        'tls_check_cert': 'tls_check_cert',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'quorum': 'quorum',  # noqa: E501
     }
 
     read_only_vars = {
@@ -217,29 +219,30 @@ class PoolResponse(ModelComposed):
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_cert_hostname (str, none_type): The hostname used to verify a server's certificate. It can either be the Common Name (CN) or a Subject Alternative Name (SAN).. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (int): Whether to use TLS.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            use_tls (str): Whether to use TLS.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             name (str): Name for the Pool.. [optional]  # noqa: E501
             shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200  # noqa: E501
-            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]  # noqa: E501
-            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]  # noqa: E501
-            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75  # noqa: E501
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]  # noqa: E501
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]  # noqa: E501
-            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]  # noqa: E501
             min_tls_version (int, none_type): Minimum allowed TLS version on connections to this server. Optional.. [optional]  # noqa: E501
             max_tls_version (int, none_type): Maximum allowed TLS version on connections to this server. Optional.. [optional]  # noqa: E501
             healthcheck (str, none_type): Name of the healthcheck to use with this pool. Can be empty and could be reused across multiple backend and pools.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             type (str): What type of load balance group to use.. [optional]  # noqa: E501
             override_host (str, none_type): The hostname to [override the Host header](https://docs.fastly.com/en/guides/specifying-an-override-host). Defaults to `null` meaning no override of the Host header will occur. This setting can also be added to a Server definition. If the field is set on a Server definition it will override the Pool setting.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            between_bytes_timeout (str): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, the response received so far will be considered complete and the fetch will end. May be set at runtime using `bereq.between_bytes_timeout`.. [optional]  # noqa: E501
+            connect_timeout (str): How long to wait for a timeout in milliseconds.. [optional]  # noqa: E501
+            first_byte_timeout (str): How long to wait for the first byte in milliseconds.. [optional]  # noqa: E501
+            max_conn_default (str): Maximum number of connections.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
+            tls_check_cert (str, none_type): Be strict on checking TLS certs.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
+            quorum (str): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of "75"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -343,29 +346,30 @@ class PoolResponse(ModelComposed):
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_cert_hostname (str, none_type): The hostname used to verify a server's certificate. It can either be the Common Name (CN) or a Subject Alternative Name (SAN).. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (int): Whether to use TLS.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            use_tls (str): Whether to use TLS.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             name (str): Name for the Pool.. [optional]  # noqa: E501
             shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200  # noqa: E501
-            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]  # noqa: E501
-            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]  # noqa: E501
-            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75  # noqa: E501
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]  # noqa: E501
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]  # noqa: E501
-            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]  # noqa: E501
             min_tls_version (int, none_type): Minimum allowed TLS version on connections to this server. Optional.. [optional]  # noqa: E501
             max_tls_version (int, none_type): Maximum allowed TLS version on connections to this server. Optional.. [optional]  # noqa: E501
             healthcheck (str, none_type): Name of the healthcheck to use with this pool. Can be empty and could be reused across multiple backend and pools.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             type (str): What type of load balance group to use.. [optional]  # noqa: E501
             override_host (str, none_type): The hostname to [override the Host header](https://docs.fastly.com/en/guides/specifying-an-override-host). Defaults to `null` meaning no override of the Host header will occur. This setting can also be added to a Server definition. If the field is set on a Server definition it will override the Pool setting.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            between_bytes_timeout (str): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, the response received so far will be considered complete and the fetch will end. May be set at runtime using `bereq.between_bytes_timeout`.. [optional]  # noqa: E501
+            connect_timeout (str): How long to wait for a timeout in milliseconds.. [optional]  # noqa: E501
+            first_byte_timeout (str): How long to wait for the first byte in milliseconds.. [optional]  # noqa: E501
+            max_conn_default (str): Maximum number of connections.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
+            tls_check_cert (str, none_type): Be strict on checking TLS certs.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
+            quorum (str): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of "75"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -431,10 +435,12 @@ class PoolResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              Pool,
+              PoolAdditional,
               PoolResponseAllOf,
-              ServiceIdAndVersion,
+              PoolResponseCommon,
+              ServiceIdAndVersionString,
               Timestamps,
+              TlsCommonResponse,
           ],
           'oneOf': [
           ],

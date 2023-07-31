@@ -79,7 +79,7 @@ class PoolResponseAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
+            'quorum': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -88,11 +88,10 @@ class PoolResponseAllOf(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
+        'quorum': 'quorum',  # noqa: E501
     }
 
     read_only_vars = {
-        'id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -133,7 +132,7 @@ class PoolResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            quorum (str): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of "75"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -215,7 +214,7 @@ class PoolResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            quorum (str): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of "75"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

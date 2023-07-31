@@ -92,8 +92,6 @@ class LoggingGenericCommon(ModelNormal):
         return {
             'message_type': (str,),  # noqa: E501
             'timestamp_format': (str, none_type,),  # noqa: E501
-            'period': (int,),  # noqa: E501
-            'gzip_level': (int,),  # noqa: E501
             'compression_codec': (str,),  # noqa: E501
         }
 
@@ -105,8 +103,6 @@ class LoggingGenericCommon(ModelNormal):
     attribute_map = {
         'message_type': 'message_type',  # noqa: E501
         'timestamp_format': 'timestamp_format',  # noqa: E501
-        'period': 'period',  # noqa: E501
-        'gzip_level': 'gzip_level',  # noqa: E501
         'compression_codec': 'compression_codec',  # noqa: E501
     }
 
@@ -154,8 +150,6 @@ class LoggingGenericCommon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
         """
 
@@ -240,8 +234,6 @@ class LoggingGenericCommon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
         """
 

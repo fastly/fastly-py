@@ -100,9 +100,7 @@ class Header(ModelNormal):
             'action': (str,),  # noqa: E501
             'cache_condition': (str, none_type,),  # noqa: E501
             'dst': (str,),  # noqa: E501
-            'ignore_if_set': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'priority': (int,),  # noqa: E501
             'regex': (str, none_type,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
@@ -120,9 +118,7 @@ class Header(ModelNormal):
         'action': 'action',  # noqa: E501
         'cache_condition': 'cache_condition',  # noqa: E501
         'dst': 'dst',  # noqa: E501
-        'ignore_if_set': 'ignore_if_set',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
         'regex': 'regex',  # noqa: E501
         'request_condition': 'request_condition',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
@@ -175,9 +171,7 @@ class Header(ModelNormal):
             action (str): Accepts a string value.. [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             dst (str): Header to set.. [optional]  # noqa: E501
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]  # noqa: E501
             name (str): A handle to refer to this Header object.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]  # noqa: E501
@@ -268,9 +262,7 @@ class Header(ModelNormal):
             action (str): Accepts a string value.. [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             dst (str): Header to set.. [optional]  # noqa: E501
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]  # noqa: E501
             name (str): A handle to refer to this Header object.. [optional]  # noqa: E501
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100  # noqa: E501
             regex (str, none_type): Regular expression to use. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             response_condition (str, none_type): Optional name of a response condition to apply.. [optional]  # noqa: E501

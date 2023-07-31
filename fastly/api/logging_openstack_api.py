@@ -56,14 +56,14 @@ class LoggingOpenstackApi(object):
                     'version_id',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'message_type',
                     'timestamp_format',
+                    'compression_codec',
                     'period',
                     'gzip_level',
-                    'compression_codec',
                     'access_key',
                     'bucket_name',
                     'path',
@@ -129,22 +129,22 @@ class LoggingOpenstackApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'message_type':
                         (str,),
                     'timestamp_format':
                         (str, none_type,),
+                    'compression_codec':
+                        (str,),
                     'period':
                         (int,),
                     'gzip_level':
                         (int,),
-                    'compression_codec':
-                        (str,),
                     'access_key':
                         (str,),
                     'bucket_name':
@@ -163,14 +163,14 @@ class LoggingOpenstackApi(object):
                     'version_id': 'version_id',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'message_type': 'message_type',
                     'timestamp_format': 'timestamp_format',
+                    'compression_codec': 'compression_codec',
                     'period': 'period',
                     'gzip_level': 'gzip_level',
-                    'compression_codec': 'compression_codec',
                     'access_key': 'access_key',
                     'bucket_name': 'bucket_name',
                     'path': 'path',
@@ -183,14 +183,14 @@ class LoggingOpenstackApi(object):
                     'version_id': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'message_type': 'form',
                     'timestamp_format': 'form',
+                    'compression_codec': 'form',
                     'period': 'form',
                     'gzip_level': 'form',
-                    'compression_codec': 'form',
                     'access_key': 'form',
                     'bucket_name': 'form',
                     'path': 'form',
@@ -440,14 +440,14 @@ class LoggingOpenstackApi(object):
                     'logging_openstack_name',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'message_type',
                     'timestamp_format',
+                    'compression_codec',
                     'period',
                     'gzip_level',
-                    'compression_codec',
                     'access_key',
                     'bucket_name',
                     'path',
@@ -516,22 +516,22 @@ class LoggingOpenstackApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'message_type':
                         (str,),
                     'timestamp_format':
                         (str, none_type,),
+                    'compression_codec':
+                        (str,),
                     'period':
                         (int,),
                     'gzip_level':
                         (int,),
-                    'compression_codec':
-                        (str,),
                     'access_key':
                         (str,),
                     'bucket_name':
@@ -551,14 +551,14 @@ class LoggingOpenstackApi(object):
                     'logging_openstack_name': 'logging_openstack_name',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'message_type': 'message_type',
                     'timestamp_format': 'timestamp_format',
+                    'compression_codec': 'compression_codec',
                     'period': 'period',
                     'gzip_level': 'gzip_level',
-                    'compression_codec': 'compression_codec',
                     'access_key': 'access_key',
                     'bucket_name': 'bucket_name',
                     'path': 'path',
@@ -572,14 +572,14 @@ class LoggingOpenstackApi(object):
                     'logging_openstack_name': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'message_type': 'form',
                     'timestamp_format': 'form',
+                    'compression_codec': 'form',
                     'period': 'form',
                     'gzip_level': 'form',
-                    'compression_codec': 'form',
                     'access_key': 'form',
                     'bucket_name': 'form',
                     'path': 'form',
@@ -625,14 +625,14 @@ class LoggingOpenstackApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"
             timestamp_format (str, none_type): A timestamp format. [optional]
+            compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]
             period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600
             gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0
-            compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]
             access_key (str): Your OpenStack account access key.. [optional]
             bucket_name (str): The name of your OpenStack container.. [optional]
             path (str, none_type): The path to upload logs to.. [optional] if omitted the server will use the default value of "null"
@@ -979,14 +979,14 @@ class LoggingOpenstackApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"
             timestamp_format (str, none_type): A timestamp format. [optional]
+            compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]
             period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600
             gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0
-            compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]
             access_key (str): Your OpenStack account access key.. [optional]
             bucket_name (str): The name of your OpenStack container.. [optional]
             path (str, none_type): The path to upload logs to.. [optional] if omitted the server will use the default value of "null"

@@ -30,11 +30,17 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_elasticsearch import LoggingElasticsearch
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_elasticsearch_additional import LoggingElasticsearchAdditional
+    from fastly.model.logging_request_caps_common import LoggingRequestCapsCommon
+    from fastly.model.logging_tls_common import LoggingTlsCommon
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingElasticsearch'] = LoggingElasticsearch
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingElasticsearchAdditional'] = LoggingElasticsearchAdditional
+    globals()['LoggingRequestCapsCommon'] = LoggingRequestCapsCommon
+    globals()['LoggingTlsCommon'] = LoggingTlsCommon
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +74,8 @@ class LoggingElasticsearchResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
     }
 
@@ -101,9 +107,9 @@ class LoggingElasticsearchResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'tls_ca_cert': (str, none_type,),  # noqa: E501
             'tls_client_cert': (str, none_type,),  # noqa: E501
             'tls_client_key': (str, none_type,),  # noqa: E501
@@ -119,7 +125,7 @@ class LoggingElasticsearchResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -130,9 +136,9 @@ class LoggingElasticsearchResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'tls_ca_cert': 'tls_ca_cert',  # noqa: E501
         'tls_client_cert': 'tls_client_cert',  # noqa: E501
         'tls_client_key': 'tls_client_key',  # noqa: E501
@@ -197,9 +203,9 @@ class LoggingElasticsearchResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
@@ -215,7 +221,7 @@ class LoggingElasticsearchResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -317,9 +323,9 @@ class LoggingElasticsearchResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
@@ -335,7 +341,7 @@ class LoggingElasticsearchResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -401,8 +407,11 @@ class LoggingElasticsearchResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingElasticsearch,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingElasticsearchAdditional,
+              LoggingRequestCapsCommon,
+              LoggingTlsCommon,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

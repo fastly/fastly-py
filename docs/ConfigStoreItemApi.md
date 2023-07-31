@@ -55,7 +55,7 @@ with fastly.ApiClient(configuration) as api_client:
     config_store_id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the config store.
     bulk_update_config_store_list_request = BulkUpdateConfigStoreListRequest(
         items=[
-            BulkUpdateConfigStoreItem(None),
+            BulkUpdateConfigStoreItem(),
         ],
     ) # BulkUpdateConfigStoreListRequest |  (optional)
 

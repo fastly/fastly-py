@@ -56,7 +56,7 @@ with fastly.ApiClient(configuration) as api_client:
                 name="name_example",
                 key="key_example",
             ),
-            relationships=RelationshipsForTlsPrivateKey(None),
+            relationships=RelationshipsForTlsPrivateKey(),
         ),
     ) # TlsPrivateKey |  (optional)
 

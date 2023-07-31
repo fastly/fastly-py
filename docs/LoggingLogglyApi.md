@@ -53,9 +53,9 @@ with fastly.ApiClient(configuration) as api_client:
     version_id = 1 # int | Integer identifying a service version.
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
-    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     token = "token_example" # str | The token to use for authentication ([https://www.loggly.com/docs/customer-token-authentication-token/](https://www.loggly.com/docs/customer-token-authentication-token/)). (optional)
 
     # example passing only required values which don't have defaults set
@@ -70,7 +70,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a Loggly log endpoint
-        api_response = api_instance.create_log_loggly(service_id, version_id, name=name, placement=placement, format_version=format_version, response_condition=response_condition, format=format, token=token)
+        api_response = api_instance.create_log_loggly(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, token=token)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingLogglyApi->create_log_loggly: %s\n" % e)
@@ -85,9 +85,9 @@ Name | Type | Description  | Notes
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
- **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+ **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **token** | **str**| The token to use for authentication ([https://www.loggly.com/docs/customer-token-authentication-token/](https://www.loggly.com/docs/customer-token-authentication-token/)). | [optional]
 
 ### Return type
@@ -399,9 +399,9 @@ with fastly.ApiClient(configuration) as api_client:
     logging_loggly_name = "test-log-endpoint" # str | The name for the real-time logging configuration.
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
-    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     token = "token_example" # str | The token to use for authentication ([https://www.loggly.com/docs/customer-token-authentication-token/](https://www.loggly.com/docs/customer-token-authentication-token/)). (optional)
 
     # example passing only required values which don't have defaults set
@@ -416,7 +416,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Loggly log endpoint
-        api_response = api_instance.update_log_loggly(service_id, version_id, logging_loggly_name, name=name, placement=placement, format_version=format_version, response_condition=response_condition, format=format, token=token)
+        api_response = api_instance.update_log_loggly(service_id, version_id, logging_loggly_name, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, token=token)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingLogglyApi->update_log_loggly: %s\n" % e)
@@ -432,9 +432,9 @@ Name | Type | Description  | Notes
  **logging_loggly_name** | **str**| The name for the real-time logging configuration. |
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
- **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+ **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **token** | **str**| The token to use for authentication ([https://www.loggly.com/docs/customer-token-authentication-token/](https://www.loggly.com/docs/customer-token-authentication-token/)). | [optional]
 
 ### Return type

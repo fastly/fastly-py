@@ -7,9 +7,7 @@ Name | Type | Description | Notes
 **action** | **str** | Accepts a string value. | [optional] 
 **cache_condition** | **str, none_type** | Name of the cache condition controlling when this configuration applies. | [optional] 
 **dst** | **str** | Header to set. | [optional] 
-**ignore_if_set** | **int** | Don&#39;t add the header if it is added already. Only applies to &#39;set&#39; action. | [optional] 
 **name** | **str** | A handle to refer to this Header object. | [optional] 
-**priority** | **int** | Priority determines execution order. Lower numbers execute first. | [optional]  if omitted the server will use the default value of 100
 **regex** | **str, none_type** | Regular expression to use. Only applies to `regex` and `regex_repeat` actions. | [optional] 
 **request_condition** | **str, none_type** | Condition which, if met, will select this configuration during a request. Optional. | [optional] 
 **response_condition** | **str, none_type** | Optional name of a response condition to apply. | [optional] 

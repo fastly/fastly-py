@@ -30,11 +30,15 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_bigquery import LoggingBigquery
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_bigquery_additional import LoggingBigqueryAdditional
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_gcs_common import LoggingGcsCommon
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingBigquery'] = LoggingBigquery
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingBigqueryAdditional'] = LoggingBigqueryAdditional
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingGcsCommon'] = LoggingGcsCommon
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +72,8 @@ class LoggingBigqueryResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
     }
 
@@ -101,9 +105,9 @@ class LoggingBigqueryResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'user': (str,),  # noqa: E501
             'secret_key': (str,),  # noqa: E501
             'account_name': (str,),  # noqa: E501
@@ -115,7 +119,7 @@ class LoggingBigqueryResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -126,9 +130,9 @@ class LoggingBigqueryResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'user': 'user',  # noqa: E501
         'secret_key': 'secret_key',  # noqa: E501
         'account_name': 'account_name',  # noqa: E501
@@ -189,9 +193,9 @@ class LoggingBigqueryResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]  # noqa: E501
@@ -203,7 +207,7 @@ class LoggingBigqueryResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -305,9 +309,9 @@ class LoggingBigqueryResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]  # noqa: E501
@@ -319,7 +323,7 @@ class LoggingBigqueryResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -385,8 +389,10 @@ class LoggingBigqueryResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingBigquery,
-              ServiceIdAndVersion,
+              LoggingBigqueryAdditional,
+              LoggingCommonResponse,
+              LoggingGcsCommon,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

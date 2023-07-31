@@ -31,16 +31,16 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.aws_region import AwsRegion
-    from fastly.model.logging_format_version import LoggingFormatVersion
-    from fastly.model.logging_kinesis import LoggingKinesis
+    from fastly.model.logging_format_version_string import LoggingFormatVersionString
+    from fastly.model.logging_kinesis_additional import LoggingKinesisAdditional
     from fastly.model.logging_placement import LoggingPlacement
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['AwsRegion'] = AwsRegion
-    globals()['LoggingFormatVersion'] = LoggingFormatVersion
-    globals()['LoggingKinesis'] = LoggingKinesis
+    globals()['LoggingFormatVersionString'] = LoggingFormatVersionString
+    globals()['LoggingKinesisAdditional'] = LoggingKinesisAdditional
     globals()['LoggingPlacement'] = LoggingPlacement
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -67,6 +67,10 @@ class LoggingKinesisResponse(ModelComposed):
     """
 
     allowed_values = {
+        ('format_version',): {
+            'v1': "1",
+            'v2': "2",
+        },
     }
 
     validations = {
@@ -97,18 +101,18 @@ class LoggingKinesisResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (LoggingPlacement,),  # noqa: E501
-            'format_version': (LoggingFormatVersion,),  # noqa: E501
             'format': (str,),  # noqa: E501
             'topic': (str,),  # noqa: E501
             'region': (AwsRegion,),  # noqa: E501
             'secret_key': (str, none_type,),  # noqa: E501
             'access_key': (str, none_type,),  # noqa: E501
             'iam_role': (str, none_type,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -119,13 +123,13 @@ class LoggingKinesisResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'format': 'format',  # noqa: E501
         'topic': 'topic',  # noqa: E501
         'region': 'region',  # noqa: E501
         'secret_key': 'secret_key',  # noqa: E501
         'access_key': 'access_key',  # noqa: E501
         'iam_role': 'iam_role',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
@@ -179,18 +183,18 @@ class LoggingKinesisResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (LoggingPlacement): [optional]  # noqa: E501
-            format_version (LoggingFormatVersion): [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Kinesis can ingest.. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
             topic (str): The Amazon Kinesis stream to send logs to. Required.. [optional]  # noqa: E501
             region (AwsRegion): [optional]  # noqa: E501
             secret_key (str, none_type): The secret key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.. [optional]  # noqa: E501
             access_key (str, none_type): The access key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.. [optional]  # noqa: E501
             iam_role (str, none_type): The ARN for an IAM role granting Fastly access to the target Amazon Kinesis stream. Not required if `access_key` and `secret_key` are provided.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -292,18 +296,18 @@ class LoggingKinesisResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (LoggingPlacement): [optional]  # noqa: E501
-            format_version (LoggingFormatVersion): [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Kinesis can ingest.. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
             topic (str): The Amazon Kinesis stream to send logs to. Required.. [optional]  # noqa: E501
             region (AwsRegion): [optional]  # noqa: E501
             secret_key (str, none_type): The secret key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.. [optional]  # noqa: E501
             access_key (str, none_type): The access key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.. [optional]  # noqa: E501
             iam_role (str, none_type): The ARN for an IAM role granting Fastly access to the target Amazon Kinesis stream. Not required if `access_key` and `secret_key` are provided.. [optional]  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -369,8 +373,9 @@ class LoggingKinesisResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingKinesis,
-              ServiceIdAndVersion,
+              LoggingFormatVersionString,
+              LoggingKinesisAdditional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

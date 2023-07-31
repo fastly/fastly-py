@@ -57,9 +57,9 @@ class LoggingHttpsApi(object):
                     'version_id',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'tls_ca_cert',
                     'tls_client_cert',
                     'tls_client_key',
@@ -134,12 +134,12 @@ class LoggingHttpsApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'tls_ca_cert':
                         (str, none_type,),
                     'tls_client_cert':
@@ -172,9 +172,9 @@ class LoggingHttpsApi(object):
                     'version_id': 'version_id',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'tls_ca_cert': 'tls_ca_cert',
                     'tls_client_cert': 'tls_client_cert',
                     'tls_client_key': 'tls_client_key',
@@ -194,9 +194,9 @@ class LoggingHttpsApi(object):
                     'version_id': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'tls_ca_cert': 'form',
                     'tls_client_cert': 'form',
                     'tls_client_key': 'form',
@@ -453,9 +453,9 @@ class LoggingHttpsApi(object):
                     'logging_https_name',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'tls_ca_cert',
                     'tls_client_cert',
                     'tls_client_key',
@@ -533,12 +533,12 @@ class LoggingHttpsApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'tls_ca_cert':
                         (str, none_type,),
                     'tls_client_cert':
@@ -572,9 +572,9 @@ class LoggingHttpsApi(object):
                     'logging_https_name': 'logging_https_name',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'tls_ca_cert': 'tls_ca_cert',
                     'tls_client_cert': 'tls_client_cert',
                     'tls_client_key': 'tls_client_key',
@@ -595,9 +595,9 @@ class LoggingHttpsApi(object):
                     'logging_https_name': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'tls_ca_cert': 'form',
                     'tls_client_cert': 'form',
                     'tls_client_key': 'form',
@@ -650,9 +650,9 @@ class LoggingHttpsApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
@@ -1006,9 +1006,9 @@ class LoggingHttpsApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"

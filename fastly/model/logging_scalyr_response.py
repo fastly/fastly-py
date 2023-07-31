@@ -30,11 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_scalyr import LoggingScalyr
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_scalyr_additional import LoggingScalyrAdditional
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingScalyr'] = LoggingScalyr
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingScalyrAdditional'] = LoggingScalyrAdditional
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +70,8 @@ class LoggingScalyrResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('region',): {
             'US': "US",
@@ -105,9 +107,9 @@ class LoggingScalyrResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
@@ -115,7 +117,7 @@ class LoggingScalyrResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -126,9 +128,9 @@ class LoggingScalyrResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'region': 'region',  # noqa: E501
         'token': 'token',  # noqa: E501
         'project_id': 'project_id',  # noqa: E501
@@ -185,9 +187,9 @@ class LoggingScalyrResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
             token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
@@ -195,7 +197,7 @@ class LoggingScalyrResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -297,9 +299,9 @@ class LoggingScalyrResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
             token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
@@ -307,7 +309,7 @@ class LoggingScalyrResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -373,8 +375,9 @@ class LoggingScalyrResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingScalyr,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingScalyrAdditional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

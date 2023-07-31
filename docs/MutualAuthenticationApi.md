@@ -58,7 +58,7 @@ with fastly.ApiClient(configuration) as api_client:
                 enforced=True,
                 name="name_example",
             ),
-            relationships=RelationshipsForMutualAuthentication(None),
+            relationships=RelationshipsForMutualAuthentication(),
         ),
     ) # MutualAuthentication |  (optional)
 
@@ -397,7 +397,7 @@ with fastly.ApiClient(configuration) as api_client:
                 enforced=True,
                 name="name_example",
             ),
-            relationships=RelationshipsForMutualAuthentication(None),
+            relationships=RelationshipsForMutualAuthentication(),
         ),
     ) # MutualAuthentication |  (optional)
 

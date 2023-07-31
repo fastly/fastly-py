@@ -63,7 +63,7 @@ with fastly.ApiClient(configuration) as api_client:
                 number=1,
                 variable="req.cookies",
             ),
-            relationships=RelationshipsForWafExclusion(None),
+            relationships=RelationshipsForWafExclusion(),
         ),
     ) # WafExclusion |  (optional)
 
@@ -432,7 +432,7 @@ with fastly.ApiClient(configuration) as api_client:
                 number=1,
                 variable="req.cookies",
             ),
-            relationships=RelationshipsForWafExclusion(None),
+            relationships=RelationshipsForWafExclusion(),
         ),
     ) # WafExclusion |  (optional)
 

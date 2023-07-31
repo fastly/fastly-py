@@ -31,10 +31,10 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.gzip import Gzip
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['Gzip'] = Gzip
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -94,7 +94,7 @@ class GzipResponse(ModelComposed):
             'extensions': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -166,7 +166,7 @@ class GzipResponse(ModelComposed):
             extensions (str, none_type): Space-separated list of file extensions to compress. If you omit this field a default list will be used.. [optional]  # noqa: E501
             name (str): Name of the gzip configuration.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -274,7 +274,7 @@ class GzipResponse(ModelComposed):
             extensions (str, none_type): Space-separated list of file extensions to compress. If you omit this field a default list will be used.. [optional]  # noqa: E501
             name (str): Name of the gzip configuration.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -344,7 +344,7 @@ class GzipResponse(ModelComposed):
           ],
           'allOf': [
               Gzip,
-              ServiceIdAndVersion,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

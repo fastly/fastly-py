@@ -53,14 +53,14 @@ with fastly.ApiClient(configuration) as api_client:
     version_id = 1 # int | Integer identifying a service version.
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
-    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     message_type = "classic" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "classic"
     timestamp_format = "%Y-%m-%dT%H:%M:%S.000" # str, none_type | A timestamp format (optional)
+    compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     period = 3600 # int | How frequently log files are finalized so they can be available for reading (in seconds). (optional) if omitted the server will use the default value of 3600
     gzip_level = 0 # int | The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional) if omitted the server will use the default value of 0
-    compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     address = "example.com" # str | A hostname or IPv4 address. (optional)
     port = 22 # int | The port number. (optional) if omitted the server will use the default value of 22
     password = "password_example" # str | The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference. (optional)
@@ -85,7 +85,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an SFTP log endpoint
-        api_response = api_instance.create_log_sftp(service_id, version_id, name=name, placement=placement, format_version=format_version, response_condition=response_condition, format=format, message_type=message_type, timestamp_format=timestamp_format, period=period, gzip_level=gzip_level, compression_codec=compression_codec, address=address, port=port, password=password, path=path, public_key=public_key, secret_key=secret_key, ssh_known_hosts=ssh_known_hosts, user=user)
+        api_response = api_instance.create_log_sftp(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, address=address, port=port, password=password, path=path, public_key=public_key, secret_key=secret_key, ssh_known_hosts=ssh_known_hosts, user=user)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingSftpApi->create_log_sftp: %s\n" % e)
@@ -100,14 +100,14 @@ Name | Type | Description  | Notes
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
- **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+ **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "classic"
  **timestamp_format** | **str, none_type**| A timestamp format | [optional]
+ **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **period** | **int**| How frequently log files are finalized so they can be available for reading (in seconds). | [optional] if omitted the server will use the default value of 3600
  **gzip_level** | **int**| The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional] if omitted the server will use the default value of 0
- **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **address** | **str**| A hostname or IPv4 address. | [optional]
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 22
  **password** | **str**| The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference. | [optional]
@@ -426,14 +426,14 @@ with fastly.ApiClient(configuration) as api_client:
     logging_sftp_name = "test-log-endpoint" # str | The name for the real-time logging configuration.
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
-    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+    format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     message_type = "classic" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "classic"
     timestamp_format = "%Y-%m-%dT%H:%M:%S.000" # str, none_type | A timestamp format (optional)
+    compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     period = 3600 # int | How frequently log files are finalized so they can be available for reading (in seconds). (optional) if omitted the server will use the default value of 3600
     gzip_level = 0 # int | The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional) if omitted the server will use the default value of 0
-    compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     address = "example.com" # str | A hostname or IPv4 address. (optional)
     port = 22 # int | The port number. (optional) if omitted the server will use the default value of 22
     password = "password_example" # str | The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference. (optional)
@@ -458,7 +458,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update an SFTP log endpoint
-        api_response = api_instance.update_log_sftp(service_id, version_id, logging_sftp_name, name=name, placement=placement, format_version=format_version, response_condition=response_condition, format=format, message_type=message_type, timestamp_format=timestamp_format, period=period, gzip_level=gzip_level, compression_codec=compression_codec, address=address, port=port, password=password, path=path, public_key=public_key, secret_key=secret_key, ssh_known_hosts=ssh_known_hosts, user=user)
+        api_response = api_instance.update_log_sftp(service_id, version_id, logging_sftp_name, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, address=address, port=port, password=password, path=path, public_key=public_key, secret_key=secret_key, ssh_known_hosts=ssh_known_hosts, user=user)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingSftpApi->update_log_sftp: %s\n" % e)
@@ -474,14 +474,14 @@ Name | Type | Description  | Notes
  **logging_sftp_name** | **str**| The name for the real-time logging configuration. |
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
- **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+ **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "classic"
  **timestamp_format** | **str, none_type**| A timestamp format | [optional]
+ **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **period** | **int**| How frequently log files are finalized so they can be available for reading (in seconds). | [optional] if omitted the server will use the default value of 3600
  **gzip_level** | **int**| The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional] if omitted the server will use the default value of 0
- **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **address** | **str**| A hostname or IPv4 address. | [optional]
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 22
  **password** | **str**| The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference. | [optional]

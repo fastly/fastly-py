@@ -30,11 +30,15 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_s3 import LoggingS3
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_generic_common_response import LoggingGenericCommonResponse
+    from fastly.model.logging_s3_additional import LoggingS3Additional
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingS3'] = LoggingS3
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingGenericCommonResponse'] = LoggingGenericCommonResponse
+    globals()['LoggingS3Additional'] = LoggingS3Additional
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +72,8 @@ class LoggingS3Response(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('message_type',): {
             'CLASSIC': "classic",
@@ -112,14 +116,19 @@ class LoggingS3Response(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'message_type': (str,),  # noqa: E501
             'timestamp_format': (str, none_type,),  # noqa: E501
-            'period': (int,),  # noqa: E501
-            'gzip_level': (int,),  # noqa: E501
             'compression_codec': (str,),  # noqa: E501
+            'period': (str,),  # noqa: E501
+            'gzip_level': (str,),  # noqa: E501
+            'created_at': (datetime, none_type,),  # noqa: E501
+            'deleted_at': (datetime, none_type,),  # noqa: E501
+            'updated_at': (datetime, none_type,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'access_key': (str, none_type,),  # noqa: E501
             'acl': (str,),  # noqa: E501
             'bucket_name': (str,),  # noqa: E501
@@ -131,11 +140,6 @@ class LoggingS3Response(ModelComposed):
             'secret_key': (str, none_type,),  # noqa: E501
             'server_side_encryption_kms_key_id': (str, none_type,),  # noqa: E501
             'server_side_encryption': (str, none_type,),  # noqa: E501
-            'created_at': (datetime, none_type,),  # noqa: E501
-            'deleted_at': (datetime, none_type,),  # noqa: E501
-            'updated_at': (datetime, none_type,),  # noqa: E501
-            'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -146,14 +150,19 @@ class LoggingS3Response(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'message_type': 'message_type',  # noqa: E501
         'timestamp_format': 'timestamp_format',  # noqa: E501
+        'compression_codec': 'compression_codec',  # noqa: E501
         'period': 'period',  # noqa: E501
         'gzip_level': 'gzip_level',  # noqa: E501
-        'compression_codec': 'compression_codec',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'deleted_at': 'deleted_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'access_key': 'access_key',  # noqa: E501
         'acl': 'acl',  # noqa: E501
         'bucket_name': 'bucket_name',  # noqa: E501
@@ -165,11 +174,6 @@ class LoggingS3Response(ModelComposed):
         'secret_key': 'secret_key',  # noqa: E501
         'server_side_encryption_kms_key_id': 'server_side_encryption_kms_key_id',  # noqa: E501
         'server_side_encryption': 'server_side_encryption',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'deleted_at': 'deleted_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'service_id': 'service_id',  # noqa: E501
-        'version': 'version',  # noqa: E501
     }
 
     read_only_vars = {
@@ -219,14 +223,19 @@ class LoggingS3Response(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (str): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             access_key (str, none_type): The access key for your S3 account. Not required if `iam_role` is provided.. [optional]  # noqa: E501
             acl (str): The access control list (ACL) specific request header. See the AWS documentation for [Access Control List (ACL) Specific Request Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html#initiate-mpu-acl-specific-request-headers) for more information.. [optional]  # noqa: E501
             bucket_name (str): The bucket name for S3 account.. [optional]  # noqa: E501
@@ -238,11 +247,6 @@ class LoggingS3Response(ModelComposed):
             secret_key (str, none_type): The secret key for your S3 account. Not required if `iam_role` is provided.. [optional]  # noqa: E501
             server_side_encryption_kms_key_id (str, none_type): Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             server_side_encryption (str, none_type): Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -344,14 +348,19 @@ class LoggingS3Response(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (str): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             access_key (str, none_type): The access key for your S3 account. Not required if `iam_role` is provided.. [optional]  # noqa: E501
             acl (str): The access control list (ACL) specific request header. See the AWS documentation for [Access Control List (ACL) Specific Request Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html#initiate-mpu-acl-specific-request-headers) for more information.. [optional]  # noqa: E501
             bucket_name (str): The bucket name for S3 account.. [optional]  # noqa: E501
@@ -363,11 +372,6 @@ class LoggingS3Response(ModelComposed):
             secret_key (str, none_type): The secret key for your S3 account. Not required if `iam_role` is provided.. [optional]  # noqa: E501
             server_side_encryption_kms_key_id (str, none_type): Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             server_side_encryption (str, none_type): Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -433,8 +437,10 @@ class LoggingS3Response(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingS3,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingGenericCommonResponse,
+              LoggingS3Additional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

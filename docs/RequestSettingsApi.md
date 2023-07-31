@@ -377,17 +377,17 @@ with fastly.ApiClient(configuration) as api_client:
     version_id = 1 # int | Integer identifying a service version.
     request_settings_name = "test-request-setting" # str | Name for the request settings.
     action = "lookup" # str, none_type | Allows you to terminate request handling and immediately perform an action. (optional)
-    bypass_busy_wait = 1 # int | Disable collapsed forwarding, so you don't wait for other objects to origin. (optional)
     default_host = "default_host_example" # str, none_type | Sets the host header. (optional)
+    hash_keys = "hash_keys_example" # str, none_type | Comma separated list of varnish request object fields that should be in the hash key. (optional)
+    name = "test-request-setting" # str | Name for the request settings. (optional)
+    request_condition = "request_condition_example" # str, none_type | Condition which, if met, will select this configuration during a request. Optional. (optional)
+    xff = "clear" # str | Short for X-Forwarded-For. (optional)
+    bypass_busy_wait = 1 # int | Disable collapsed forwarding, so you don't wait for other objects to origin. (optional)
     force_miss = 1 # int | Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable. (optional)
     force_ssl = 1 # int | Forces the request use SSL (redirects a non-SSL to SSL). (optional)
     geo_headers = 1 # int | Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers. (optional)
-    hash_keys = "hash_keys_example" # str, none_type | Comma separated list of varnish request object fields that should be in the hash key. (optional)
     max_stale_age = 1 # int | How old an object is allowed to be to serve stale-if-error or stale-while-revalidate. (optional)
-    name = "test-request-setting" # str | Name for the request settings. (optional)
-    request_condition = "request_condition_example" # str, none_type | Condition which, if met, will select this configuration during a request. Optional. (optional)
     timer_support = 1 # int | Injects the X-Timer info into the request for viewing origin fetch durations. (optional)
-    xff = "clear" # str | Short for X-Forwarded-For. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -401,7 +401,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Request Settings object
-        api_response = api_instance.update_request_settings(service_id, version_id, request_settings_name, action=action, bypass_busy_wait=bypass_busy_wait, default_host=default_host, force_miss=force_miss, force_ssl=force_ssl, geo_headers=geo_headers, hash_keys=hash_keys, max_stale_age=max_stale_age, name=name, request_condition=request_condition, timer_support=timer_support, xff=xff)
+        api_response = api_instance.update_request_settings(service_id, version_id, request_settings_name, action=action, default_host=default_host, hash_keys=hash_keys, name=name, request_condition=request_condition, xff=xff, bypass_busy_wait=bypass_busy_wait, force_miss=force_miss, force_ssl=force_ssl, geo_headers=geo_headers, max_stale_age=max_stale_age, timer_support=timer_support)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling RequestSettingsApi->update_request_settings: %s\n" % e)
@@ -416,17 +416,17 @@ Name | Type | Description  | Notes
  **version_id** | **int**| Integer identifying a service version. |
  **request_settings_name** | **str**| Name for the request settings. |
  **action** | **str, none_type**| Allows you to terminate request handling and immediately perform an action. | [optional]
- **bypass_busy_wait** | **int**| Disable collapsed forwarding, so you don&#39;t wait for other objects to origin. | [optional]
  **default_host** | **str, none_type**| Sets the host header. | [optional]
+ **hash_keys** | **str, none_type**| Comma separated list of varnish request object fields that should be in the hash key. | [optional]
+ **name** | **str**| Name for the request settings. | [optional]
+ **request_condition** | **str, none_type**| Condition which, if met, will select this configuration during a request. Optional. | [optional]
+ **xff** | **str**| Short for X-Forwarded-For. | [optional]
+ **bypass_busy_wait** | **int**| Disable collapsed forwarding, so you don&#39;t wait for other objects to origin. | [optional]
  **force_miss** | **int**| Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable. | [optional]
  **force_ssl** | **int**| Forces the request use SSL (redirects a non-SSL to SSL). | [optional]
  **geo_headers** | **int**| Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers. | [optional]
- **hash_keys** | **str, none_type**| Comma separated list of varnish request object fields that should be in the hash key. | [optional]
  **max_stale_age** | **int**| How old an object is allowed to be to serve stale-if-error or stale-while-revalidate. | [optional]
- **name** | **str**| Name for the request settings. | [optional]
- **request_condition** | **str, none_type**| Condition which, if met, will select this configuration during a request. Optional. | [optional]
  **timer_support** | **int**| Injects the X-Timer info into the request for viewing origin fetch durations. | [optional]
- **xff** | **str**| Short for X-Forwarded-For. | [optional]
 
 ### Return type
 

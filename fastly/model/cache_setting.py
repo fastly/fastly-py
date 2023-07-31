@@ -88,8 +88,8 @@ class CacheSetting(ModelNormal):
             'action': (str, none_type,),  # noqa: E501
             'cache_condition': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'stale_ttl': (int,),  # noqa: E501
-            'ttl': (int,),  # noqa: E501
+            'stale_ttl': (str,),  # noqa: E501
+            'ttl': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -149,8 +149,8 @@ class CacheSetting(ModelNormal):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             name (str): Name for the cache settings object.. [optional]  # noqa: E501
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,8 +235,8 @@ class CacheSetting(ModelNormal):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             name (str): Name for the cache settings object.. [optional]  # noqa: E501
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

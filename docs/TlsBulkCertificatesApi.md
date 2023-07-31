@@ -298,7 +298,7 @@ with fastly.ApiClient(configuration) as api_client:
                 cert_blob="cert_blob_example",
                 intermediates_blob="intermediates_blob_example",
             ),
-            relationships=RelationshipsForTlsBulkCertificate(None),
+            relationships=RelationshipsForTlsBulkCertificate(),
         ),
     ) # TlsBulkCertificate |  (optional)
 
@@ -397,7 +397,7 @@ with fastly.ApiClient(configuration) as api_client:
                 cert_blob="cert_blob_example",
                 intermediates_blob="intermediates_blob_example",
             ),
-            relationships=RelationshipsForTlsBulkCertificate(None),
+            relationships=RelationshipsForTlsBulkCertificate(),
         ),
     ) # TlsBulkCertificate |  (optional)
 

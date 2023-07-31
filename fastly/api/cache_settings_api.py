@@ -97,9 +97,9 @@ class CacheSettingsApi(object):
                     'name':
                         (str,),
                     'stale_ttl':
-                        (int,),
+                        (str,),
                     'ttl':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -405,9 +405,9 @@ class CacheSettingsApi(object):
                     'name':
                         (str,),
                     'stale_ttl':
-                        (int,),
+                        (str,),
                     'ttl':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -468,8 +468,8 @@ class CacheSettingsApi(object):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]
             name (str): Name for the cache settings object.. [optional]
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -811,8 +811,8 @@ class CacheSettingsApi(object):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]
             name (str): Name for the cache settings object.. [optional]
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

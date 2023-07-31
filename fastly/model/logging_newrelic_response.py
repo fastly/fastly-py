@@ -30,11 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_newrelic import LoggingNewrelic
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_newrelic_additional import LoggingNewrelicAdditional
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingNewrelic'] = LoggingNewrelic
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingNewrelicAdditional'] = LoggingNewrelicAdditional
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +70,8 @@ class LoggingNewrelicResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('region',): {
             'US': "US",
@@ -105,16 +107,16 @@ class LoggingNewrelicResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -125,9 +127,9 @@ class LoggingNewrelicResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'token': 'token',  # noqa: E501
         'region': 'region',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -183,16 +185,16 @@ class LoggingNewrelicResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that New Relic Logs can ingest.. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -294,16 +296,16 @@ class LoggingNewrelicResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that New Relic Logs can ingest.. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -369,8 +371,9 @@ class LoggingNewrelicResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingNewrelic,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingNewrelicAdditional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

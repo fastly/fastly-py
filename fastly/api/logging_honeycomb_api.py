@@ -22,7 +22,6 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.inline_response200 import InlineResponse200
-from fastly.model.logging_honeycomb import LoggingHoneycomb
 from fastly.model.logging_honeycomb_response import LoggingHoneycombResponse
 
 
@@ -37,7 +36,7 @@ class LoggingHoneycombApi(object):
         self.api_client = api_client
         self.create_log_honeycomb_endpoint = _Endpoint(
             settings={
-                'response_type': (LoggingHoneycomb,),
+                'response_type': (LoggingHoneycombResponse,),
                 'auth': [
                     'token'
                 ],
@@ -57,9 +56,9 @@ class LoggingHoneycombApi(object):
                     'version_id',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'dataset',
                     'token',
                 ],
@@ -103,12 +102,12 @@ class LoggingHoneycombApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'dataset':
                         (str,),
                     'token':
@@ -119,9 +118,9 @@ class LoggingHoneycombApi(object):
                     'version_id': 'version_id',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'dataset': 'dataset',
                     'token': 'token',
                 },
@@ -130,9 +129,9 @@ class LoggingHoneycombApi(object):
                     'version_id': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'dataset': 'form',
                     'token': 'form',
                 },
@@ -223,7 +222,7 @@ class LoggingHoneycombApi(object):
         )
         self.get_log_honeycomb_endpoint = _Endpoint(
             settings={
-                'response_type': (LoggingHoneycomb,),
+                'response_type': (LoggingHoneycombResponse,),
                 'auth': [
                     'token'
                 ],
@@ -378,9 +377,9 @@ class LoggingHoneycombApi(object):
                     'logging_honeycomb_name',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'dataset',
                     'token',
                 ],
@@ -427,12 +426,12 @@ class LoggingHoneycombApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'dataset':
                         (str,),
                     'token':
@@ -444,9 +443,9 @@ class LoggingHoneycombApi(object):
                     'logging_honeycomb_name': 'logging_honeycomb_name',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'dataset': 'dataset',
                     'token': 'token',
                 },
@@ -456,9 +455,9 @@ class LoggingHoneycombApi(object):
                     'logging_honeycomb_name': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'dataset': 'form',
                     'token': 'form',
                 },
@@ -500,9 +499,9 @@ class LoggingHoneycombApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Honeycomb can ingest.. [optional]
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             dataset (str): The Honeycomb Dataset you want to log to.. [optional]
             token (str): The Write Key from the Account page of your Honeycomb account.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -533,7 +532,7 @@ class LoggingHoneycombApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LoggingHoneycomb
+            LoggingHoneycombResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -703,7 +702,7 @@ class LoggingHoneycombApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LoggingHoneycomb
+            LoggingHoneycombResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -845,9 +844,9 @@ class LoggingHoneycombApi(object):
         Keyword Args:
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Honeycomb can ingest.. [optional]
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             dataset (str): The Honeycomb Dataset you want to log to.. [optional]
             token (str): The Write Key from the Account page of your Honeycomb account.. [optional]
             _return_http_data_only (bool): response data without head status

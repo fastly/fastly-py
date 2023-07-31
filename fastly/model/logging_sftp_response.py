@@ -30,11 +30,17 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_sftp import LoggingSftp
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_generic_common import LoggingGenericCommon
+    from fastly.model.logging_sftp_additional import LoggingSftpAdditional
+    from fastly.model.logging_sftp_response_all_of import LoggingSftpResponseAllOf
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingSftp'] = LoggingSftp
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingGenericCommon'] = LoggingGenericCommon
+    globals()['LoggingSftpAdditional'] = LoggingSftpAdditional
+    globals()['LoggingSftpResponseAllOf'] = LoggingSftpResponseAllOf
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -68,8 +74,8 @@ class LoggingSftpResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('message_type',): {
             'CLASSIC': "classic",
@@ -112,27 +118,27 @@ class LoggingSftpResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'message_type': (str,),  # noqa: E501
             'timestamp_format': (str, none_type,),  # noqa: E501
-            'period': (int,),  # noqa: E501
-            'gzip_level': (int,),  # noqa: E501
             'compression_codec': (str,),  # noqa: E501
-            'address': (str,),  # noqa: E501
-            'port': (int,),  # noqa: E501
+            'created_at': (datetime, none_type,),  # noqa: E501
+            'deleted_at': (datetime, none_type,),  # noqa: E501
+            'updated_at': (datetime, none_type,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
             'path': (str, none_type,),  # noqa: E501
             'public_key': (str, none_type,),  # noqa: E501
             'secret_key': (str, none_type,),  # noqa: E501
             'ssh_known_hosts': (str,),  # noqa: E501
             'user': (str,),  # noqa: E501
-            'created_at': (datetime, none_type,),  # noqa: E501
-            'deleted_at': (datetime, none_type,),  # noqa: E501
-            'updated_at': (datetime, none_type,),  # noqa: E501
-            'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'address': (str,),  # noqa: E501
+            'port': (str,),  # noqa: E501
+            'period': (str,),  # noqa: E501
+            'gzip_level': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -143,27 +149,27 @@ class LoggingSftpResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'message_type': 'message_type',  # noqa: E501
         'timestamp_format': 'timestamp_format',  # noqa: E501
-        'period': 'period',  # noqa: E501
-        'gzip_level': 'gzip_level',  # noqa: E501
         'compression_codec': 'compression_codec',  # noqa: E501
-        'address': 'address',  # noqa: E501
-        'port': 'port',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'deleted_at': 'deleted_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'password': 'password',  # noqa: E501
         'path': 'path',  # noqa: E501
         'public_key': 'public_key',  # noqa: E501
         'secret_key': 'secret_key',  # noqa: E501
         'ssh_known_hosts': 'ssh_known_hosts',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'deleted_at': 'deleted_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'service_id': 'service_id',  # noqa: E501
-        'version': 'version',  # noqa: E501
+        'address': 'address',  # noqa: E501
+        'port': 'port',  # noqa: E501
+        'period': 'period',  # noqa: E501
+        'gzip_level': 'gzip_level',  # noqa: E501
     }
 
     read_only_vars = {
@@ -213,27 +219,27 @@ class LoggingSftpResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
-            address (str): A hostname or IPv4 address.. [optional]  # noqa: E501
-            port (int): The port number.. [optional] if omitted the server will use the default value of 22  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             password (str): The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.. [optional]  # noqa: E501
             path (str, none_type): The path to upload logs to.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             secret_key (str, none_type): The SSH private key for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             ssh_known_hosts (str): A list of host keys for all hosts we can connect to over SFTP.. [optional]  # noqa: E501
             user (str): The username for the server.. [optional]  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            address (str): A hostname or IPv4 address.. [optional]  # noqa: E501
+            port (str): The port number.. [optional] if omitted the server will use the default value of "22"  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -335,27 +341,27 @@ class LoggingSftpResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
-            address (str): A hostname or IPv4 address.. [optional]  # noqa: E501
-            port (int): The port number.. [optional] if omitted the server will use the default value of 22  # noqa: E501
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             password (str): The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.. [optional]  # noqa: E501
             path (str, none_type): The path to upload logs to.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             secret_key (str, none_type): The SSH private key for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             ssh_known_hosts (str): A list of host keys for all hosts we can connect to over SFTP.. [optional]  # noqa: E501
             user (str): The username for the server.. [optional]  # noqa: E501
-            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            address (str): A hostname or IPv4 address.. [optional]  # noqa: E501
+            port (str): The port number.. [optional] if omitted the server will use the default value of "22"  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -421,8 +427,11 @@ class LoggingSftpResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingSftp,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingGenericCommon,
+              LoggingSftpAdditional,
+              LoggingSftpResponseAllOf,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

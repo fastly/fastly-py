@@ -31,10 +31,10 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.cache_setting import CacheSetting
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['CacheSetting'] = CacheSetting
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -98,10 +98,10 @@ class CacheSettingResponse(ModelComposed):
             'action': (str, none_type,),  # noqa: E501
             'cache_condition': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'stale_ttl': (int,),  # noqa: E501
-            'ttl': (int,),  # noqa: E501
+            'stale_ttl': (str,),  # noqa: E501
+            'ttl': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -172,10 +172,10 @@ class CacheSettingResponse(ModelComposed):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             name (str): Name for the cache settings object.. [optional]  # noqa: E501
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -281,10 +281,10 @@ class CacheSettingResponse(ModelComposed):
             action (str, none_type): If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule. . [optional]  # noqa: E501
             cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
             name (str): Name for the cache settings object.. [optional]  # noqa: E501
-            stale_ttl (int): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
-            ttl (int): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
+            stale_ttl (str): Maximum time in seconds to continue to use a stale version of the object if future requests to your backend server fail (also known as 'stale if error').. [optional]  # noqa: E501
+            ttl (str): Maximum time to consider the object fresh in the cache (the cache 'time to live').. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -354,7 +354,7 @@ class CacheSettingResponse(ModelComposed):
           ],
           'allOf': [
               CacheSetting,
-              ServiceIdAndVersion,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

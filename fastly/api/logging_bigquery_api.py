@@ -56,9 +56,9 @@ class LoggingBigqueryApi(object):
                     'version_id',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'user',
                     'secret_key',
                     'account_name',
@@ -108,12 +108,12 @@ class LoggingBigqueryApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'user':
                         (str,),
                     'secret_key':
@@ -134,9 +134,9 @@ class LoggingBigqueryApi(object):
                     'version_id': 'version_id',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'user': 'user',
                     'secret_key': 'secret_key',
                     'account_name': 'account_name',
@@ -150,9 +150,9 @@ class LoggingBigqueryApi(object):
                     'version_id': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'user': 'form',
                     'secret_key': 'form',
                     'account_name': 'form',
@@ -403,9 +403,9 @@ class LoggingBigqueryApi(object):
                     'logging_bigquery_name',
                     'name',
                     'placement',
-                    'format_version',
                     'response_condition',
                     'format',
+                    'format_version',
                     'user',
                     'secret_key',
                     'account_name',
@@ -458,12 +458,12 @@ class LoggingBigqueryApi(object):
                         (str,),
                     'placement':
                         (str, none_type,),
-                    'format_version':
-                        (int,),
                     'response_condition':
                         (str, none_type,),
                     'format':
                         (str,),
+                    'format_version':
+                        (int,),
                     'user':
                         (str,),
                     'secret_key':
@@ -485,9 +485,9 @@ class LoggingBigqueryApi(object):
                     'logging_bigquery_name': 'logging_bigquery_name',
                     'name': 'name',
                     'placement': 'placement',
-                    'format_version': 'format_version',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'format_version': 'format_version',
                     'user': 'user',
                     'secret_key': 'secret_key',
                     'account_name': 'account_name',
@@ -502,9 +502,9 @@ class LoggingBigqueryApi(object):
                     'logging_bigquery_name': 'path',
                     'name': 'form',
                     'placement': 'form',
-                    'format_version': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'format_version': 'form',
                     'user': 'form',
                     'secret_key': 'form',
                     'account_name': 'form',
@@ -551,9 +551,9 @@ class LoggingBigqueryApi(object):
         Keyword Args:
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]
@@ -901,9 +901,9 @@ class LoggingBigqueryApi(object):
         Keyword Args:
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]

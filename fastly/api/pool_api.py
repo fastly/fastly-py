@@ -23,6 +23,7 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.pool_response import PoolResponse
+from fastly.model.pool_response_post import PoolResponsePost
 
 
 class PoolApi(object):
@@ -36,7 +37,7 @@ class PoolApi(object):
         self.api_client = api_client
         self.create_server_pool_endpoint = _Endpoint(
             settings={
-                'response_type': (PoolResponse,),
+                'response_type': (PoolResponsePost,),
                 'auth': [
                     'token'
                 ],
@@ -59,22 +60,28 @@ class PoolApi(object):
                     'tls_client_key',
                     'tls_cert_hostname',
                     'use_tls',
+                    'created_at',
+                    'deleted_at',
+                    'updated_at',
+                    'service_id2',
+                    'version',
                     'name',
                     'shield',
                     'request_condition',
-                    'max_conn_default',
-                    'connect_timeout',
-                    'first_byte_timeout',
-                    'quorum',
                     'tls_ciphers',
                     'tls_sni_hostname',
-                    'tls_check_cert',
                     'min_tls_version',
                     'max_tls_version',
                     'healthcheck',
                     'comment',
                     'type',
                     'override_host',
+                    'between_bytes_timeout',
+                    'connect_timeout',
+                    'first_byte_timeout',
+                    'max_conn_default',
+                    'quorum',
+                    'tls_check_cert',
                 ],
                 'required': [
                     'service_id',
@@ -85,16 +92,19 @@ class PoolApi(object):
                     'tls_client_cert',
                     'tls_client_key',
                     'tls_cert_hostname',
+                    'created_at',
+                    'deleted_at',
+                    'updated_at',
                     'shield',
                     'request_condition',
                     'tls_ciphers',
                     'tls_sni_hostname',
-                    'tls_check_cert',
                     'min_tls_version',
                     'max_tls_version',
                     'healthcheck',
                     'comment',
                     'override_host',
+                    'tls_check_cert',
                 ],
                 'enum': [
                     'use_tls',
@@ -140,26 +150,26 @@ class PoolApi(object):
                         (str, none_type,),
                     'use_tls':
                         (int,),
+                    'created_at':
+                        (datetime, none_type,),
+                    'deleted_at':
+                        (datetime, none_type,),
+                    'updated_at':
+                        (datetime, none_type,),
+                    'service_id2':
+                        (str,),
+                    'version':
+                        (str,),
                     'name':
                         (str,),
                     'shield':
                         (str, none_type,),
                     'request_condition':
                         (str, none_type,),
-                    'max_conn_default':
-                        (int,),
-                    'connect_timeout':
-                        (int,),
-                    'first_byte_timeout':
-                        (int,),
-                    'quorum':
-                        (int,),
                     'tls_ciphers':
                         (str, none_type,),
                     'tls_sni_hostname':
                         (str, none_type,),
-                    'tls_check_cert':
-                        (int, none_type,),
                     'min_tls_version':
                         (int, none_type,),
                     'max_tls_version':
@@ -172,6 +182,18 @@ class PoolApi(object):
                         (str,),
                     'override_host':
                         (str, none_type,),
+                    'between_bytes_timeout':
+                        (int,),
+                    'connect_timeout':
+                        (int,),
+                    'first_byte_timeout':
+                        (int,),
+                    'max_conn_default':
+                        (int,),
+                    'quorum':
+                        (int,),
+                    'tls_check_cert':
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -181,22 +203,28 @@ class PoolApi(object):
                     'tls_client_key': 'tls_client_key',
                     'tls_cert_hostname': 'tls_cert_hostname',
                     'use_tls': 'use_tls',
+                    'created_at': 'created_at',
+                    'deleted_at': 'deleted_at',
+                    'updated_at': 'updated_at',
+                    'service_id2': 'service_id',
+                    'version': 'version',
                     'name': 'name',
                     'shield': 'shield',
                     'request_condition': 'request_condition',
-                    'max_conn_default': 'max_conn_default',
-                    'connect_timeout': 'connect_timeout',
-                    'first_byte_timeout': 'first_byte_timeout',
-                    'quorum': 'quorum',
                     'tls_ciphers': 'tls_ciphers',
                     'tls_sni_hostname': 'tls_sni_hostname',
-                    'tls_check_cert': 'tls_check_cert',
                     'min_tls_version': 'min_tls_version',
                     'max_tls_version': 'max_tls_version',
                     'healthcheck': 'healthcheck',
                     'comment': 'comment',
                     'type': 'type',
                     'override_host': 'override_host',
+                    'between_bytes_timeout': 'between_bytes_timeout',
+                    'connect_timeout': 'connect_timeout',
+                    'first_byte_timeout': 'first_byte_timeout',
+                    'max_conn_default': 'max_conn_default',
+                    'quorum': 'quorum',
+                    'tls_check_cert': 'tls_check_cert',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -206,22 +234,28 @@ class PoolApi(object):
                     'tls_client_key': 'form',
                     'tls_cert_hostname': 'form',
                     'use_tls': 'form',
+                    'created_at': 'form',
+                    'deleted_at': 'form',
+                    'updated_at': 'form',
+                    'service_id2': 'form',
+                    'version': 'form',
                     'name': 'form',
                     'shield': 'form',
                     'request_condition': 'form',
-                    'max_conn_default': 'form',
-                    'connect_timeout': 'form',
-                    'first_byte_timeout': 'form',
-                    'quorum': 'form',
                     'tls_ciphers': 'form',
                     'tls_sni_hostname': 'form',
-                    'tls_check_cert': 'form',
                     'min_tls_version': 'form',
                     'max_tls_version': 'form',
                     'healthcheck': 'form',
                     'comment': 'form',
                     'type': 'form',
                     'override_host': 'form',
+                    'between_bytes_timeout': 'form',
+                    'connect_timeout': 'form',
+                    'first_byte_timeout': 'form',
+                    'max_conn_default': 'form',
+                    'quorum': 'form',
+                    'tls_check_cert': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -468,22 +502,28 @@ class PoolApi(object):
                     'tls_client_key',
                     'tls_cert_hostname',
                     'use_tls',
+                    'created_at',
+                    'deleted_at',
+                    'updated_at',
+                    'service_id2',
+                    'version',
                     'name',
                     'shield',
                     'request_condition',
-                    'max_conn_default',
-                    'connect_timeout',
-                    'first_byte_timeout',
-                    'quorum',
                     'tls_ciphers',
                     'tls_sni_hostname',
-                    'tls_check_cert',
                     'min_tls_version',
                     'max_tls_version',
                     'healthcheck',
                     'comment',
                     'type',
                     'override_host',
+                    'between_bytes_timeout',
+                    'connect_timeout',
+                    'first_byte_timeout',
+                    'max_conn_default',
+                    'quorum',
+                    'tls_check_cert',
                 ],
                 'required': [
                     'service_id',
@@ -495,16 +535,19 @@ class PoolApi(object):
                     'tls_client_cert',
                     'tls_client_key',
                     'tls_cert_hostname',
+                    'created_at',
+                    'deleted_at',
+                    'updated_at',
                     'shield',
                     'request_condition',
                     'tls_ciphers',
                     'tls_sni_hostname',
-                    'tls_check_cert',
                     'min_tls_version',
                     'max_tls_version',
                     'healthcheck',
                     'comment',
                     'override_host',
+                    'tls_check_cert',
                 ],
                 'enum': [
                     'use_tls',
@@ -552,26 +595,26 @@ class PoolApi(object):
                         (str, none_type,),
                     'use_tls':
                         (int,),
+                    'created_at':
+                        (datetime, none_type,),
+                    'deleted_at':
+                        (datetime, none_type,),
+                    'updated_at':
+                        (datetime, none_type,),
+                    'service_id2':
+                        (str,),
+                    'version':
+                        (str,),
                     'name':
                         (str,),
                     'shield':
                         (str, none_type,),
                     'request_condition':
                         (str, none_type,),
-                    'max_conn_default':
-                        (int,),
-                    'connect_timeout':
-                        (int,),
-                    'first_byte_timeout':
-                        (int,),
-                    'quorum':
-                        (int,),
                     'tls_ciphers':
                         (str, none_type,),
                     'tls_sni_hostname':
                         (str, none_type,),
-                    'tls_check_cert':
-                        (int, none_type,),
                     'min_tls_version':
                         (int, none_type,),
                     'max_tls_version':
@@ -584,6 +627,18 @@ class PoolApi(object):
                         (str,),
                     'override_host':
                         (str, none_type,),
+                    'between_bytes_timeout':
+                        (int,),
+                    'connect_timeout':
+                        (int,),
+                    'first_byte_timeout':
+                        (int,),
+                    'max_conn_default':
+                        (int,),
+                    'quorum':
+                        (int,),
+                    'tls_check_cert':
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -594,22 +649,28 @@ class PoolApi(object):
                     'tls_client_key': 'tls_client_key',
                     'tls_cert_hostname': 'tls_cert_hostname',
                     'use_tls': 'use_tls',
+                    'created_at': 'created_at',
+                    'deleted_at': 'deleted_at',
+                    'updated_at': 'updated_at',
+                    'service_id2': 'service_id',
+                    'version': 'version',
                     'name': 'name',
                     'shield': 'shield',
                     'request_condition': 'request_condition',
-                    'max_conn_default': 'max_conn_default',
-                    'connect_timeout': 'connect_timeout',
-                    'first_byte_timeout': 'first_byte_timeout',
-                    'quorum': 'quorum',
                     'tls_ciphers': 'tls_ciphers',
                     'tls_sni_hostname': 'tls_sni_hostname',
-                    'tls_check_cert': 'tls_check_cert',
                     'min_tls_version': 'min_tls_version',
                     'max_tls_version': 'max_tls_version',
                     'healthcheck': 'healthcheck',
                     'comment': 'comment',
                     'type': 'type',
                     'override_host': 'override_host',
+                    'between_bytes_timeout': 'between_bytes_timeout',
+                    'connect_timeout': 'connect_timeout',
+                    'first_byte_timeout': 'first_byte_timeout',
+                    'max_conn_default': 'max_conn_default',
+                    'quorum': 'quorum',
+                    'tls_check_cert': 'tls_check_cert',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -620,22 +681,28 @@ class PoolApi(object):
                     'tls_client_key': 'form',
                     'tls_cert_hostname': 'form',
                     'use_tls': 'form',
+                    'created_at': 'form',
+                    'deleted_at': 'form',
+                    'updated_at': 'form',
+                    'service_id2': 'form',
+                    'version': 'form',
                     'name': 'form',
                     'shield': 'form',
                     'request_condition': 'form',
-                    'max_conn_default': 'form',
-                    'connect_timeout': 'form',
-                    'first_byte_timeout': 'form',
-                    'quorum': 'form',
                     'tls_ciphers': 'form',
                     'tls_sni_hostname': 'form',
-                    'tls_check_cert': 'form',
                     'min_tls_version': 'form',
                     'max_tls_version': 'form',
                     'healthcheck': 'form',
                     'comment': 'form',
                     'type': 'form',
                     'override_host': 'form',
+                    'between_bytes_timeout': 'form',
+                    'connect_timeout': 'form',
+                    'first_byte_timeout': 'form',
+                    'max_conn_default': 'form',
+                    'quorum': 'form',
+                    'tls_check_cert': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -678,22 +745,28 @@ class PoolApi(object):
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_cert_hostname (str, none_type): The hostname used to verify a server's certificate. It can either be the Common Name (CN) or a Subject Alternative Name (SAN).. [optional] if omitted the server will use the default value of "null"
             use_tls (int): Whether to use TLS.. [optional] if omitted the server will use the default value of 0
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            service_id2 (str): [optional]
+            version (str): [optional]
             name (str): Name for the Pool.. [optional]
             shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]
-            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200
-            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]
-            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]
-            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]
-            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]
             min_tls_version (int, none_type): Minimum allowed TLS version on connections to this server. Optional.. [optional]
             max_tls_version (int, none_type): Maximum allowed TLS version on connections to this server. Optional.. [optional]
             healthcheck (str, none_type): Name of the healthcheck to use with this pool. Can be empty and could be reused across multiple backend and pools.. [optional]
             comment (str, none_type): A freeform descriptive note.. [optional]
             type (str): What type of load balance group to use.. [optional]
             override_host (str, none_type): The hostname to [override the Host header](https://docs.fastly.com/en/guides/specifying-an-override-host). Defaults to `null` meaning no override of the Host header will occur. This setting can also be added to a Server definition. If the field is set on a Server definition it will override the Pool setting.. [optional] if omitted the server will use the default value of "null"
+            between_bytes_timeout (int): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, the response received so far will be considered complete and the fetch will end. May be set at runtime using `bereq.between_bytes_timeout`.. [optional] if omitted the server will use the default value of 10000
+            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]
+            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]
+            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200
+            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75
+            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -722,7 +795,7 @@ class PoolApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            PoolResponse
+            PoolResponsePost
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1037,22 +1110,28 @@ class PoolApi(object):
             tls_client_key (str, none_type): The client private key used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"
             tls_cert_hostname (str, none_type): The hostname used to verify a server's certificate. It can either be the Common Name (CN) or a Subject Alternative Name (SAN).. [optional] if omitted the server will use the default value of "null"
             use_tls (int): Whether to use TLS.. [optional] if omitted the server will use the default value of 0
+            created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]
+            service_id2 (str): [optional]
+            version (str): [optional]
             name (str): Name for the Pool.. [optional]
             shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]
-            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200
-            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]
-            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]
-            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]
-            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]
             min_tls_version (int, none_type): Minimum allowed TLS version on connections to this server. Optional.. [optional]
             max_tls_version (int, none_type): Maximum allowed TLS version on connections to this server. Optional.. [optional]
             healthcheck (str, none_type): Name of the healthcheck to use with this pool. Can be empty and could be reused across multiple backend and pools.. [optional]
             comment (str, none_type): A freeform descriptive note.. [optional]
             type (str): What type of load balance group to use.. [optional]
             override_host (str, none_type): The hostname to [override the Host header](https://docs.fastly.com/en/guides/specifying-an-override-host). Defaults to `null` meaning no override of the Host header will occur. This setting can also be added to a Server definition. If the field is set on a Server definition it will override the Pool setting.. [optional] if omitted the server will use the default value of "null"
+            between_bytes_timeout (int): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, the response received so far will be considered complete and the fetch will end. May be set at runtime using `bereq.between_bytes_timeout`.. [optional] if omitted the server will use the default value of 10000
+            connect_timeout (int): How long to wait for a timeout in milliseconds. Optional.. [optional]
+            first_byte_timeout (int): How long to wait for the first byte in milliseconds. Optional.. [optional]
+            max_conn_default (int): Maximum number of connections. Optional.. [optional] if omitted the server will use the default value of 200
+            quorum (int): Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.. [optional] if omitted the server will use the default value of 75
+            tls_check_cert (int, none_type): Be strict on checking TLS certs. Optional.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

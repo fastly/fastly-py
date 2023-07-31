@@ -53,7 +53,7 @@ with fastly.ApiClient(configuration) as api_client:
     tls_activation = TlsActivation(
         data=TlsActivationData(
             type=TypeTlsActivation("tls_activation"),
-            relationships=RelationshipsForTlsActivation(None),
+            relationships=RelationshipsForTlsActivation(),
         ),
     ) # TlsActivation |  (optional)
 
@@ -393,7 +393,7 @@ with fastly.ApiClient(configuration) as api_client:
     tls_activation = TlsActivation(
         data=TlsActivationData(
             type=TypeTlsActivation("tls_activation"),
-            relationships=RelationshipsForTlsActivation(None),
+            relationships=RelationshipsForTlsActivation(),
         ),
     ) # TlsActivation |  (optional)
 

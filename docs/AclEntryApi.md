@@ -55,7 +55,7 @@ with fastly.ApiClient(configuration) as api_client:
     acl_id = "6tUXdegLTf5BCig0zGFrU3" # str | Alphanumeric string identifying a ACL.
     bulk_update_acl_entries_request = BulkUpdateAclEntriesRequest(
         entries=[
-            BulkUpdateAclEntry(None),
+            BulkUpdateAclEntry(),
         ],
     ) # BulkUpdateAclEntriesRequest |  (optional)
 

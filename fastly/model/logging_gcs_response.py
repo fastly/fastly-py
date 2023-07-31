@@ -30,12 +30,18 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_gcs import LoggingGcs
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_gcs_additional import LoggingGcsAdditional
+    from fastly.model.logging_gcs_common import LoggingGcsCommon
+    from fastly.model.logging_generic_common_response import LoggingGenericCommonResponse
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.str_none_type import StrNoneType
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingGcs'] = LoggingGcs
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingGcsAdditional'] = LoggingGcsAdditional
+    globals()['LoggingGcsCommon'] = LoggingGcsCommon
+    globals()['LoggingGenericCommonResponse'] = LoggingGenericCommonResponse
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
     globals()['str, none_type'] = str, none_type
 
@@ -70,8 +76,8 @@ class LoggingGcsResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('message_type',): {
             'CLASSIC': "classic",
@@ -114,26 +120,26 @@ class LoggingGcsResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'message_type': (str,),  # noqa: E501
             'timestamp_format': (str, none_type,),  # noqa: E501
-            'period': (int,),  # noqa: E501
-            'gzip_level': (int,),  # noqa: E501
             'compression_codec': (str,),  # noqa: E501
+            'period': (str,),  # noqa: E501
+            'gzip_level': (str,),  # noqa: E501
             'user': (str,),  # noqa: E501
             'secret_key': (str,),  # noqa: E501
             'account_name': (str,),  # noqa: E501
-            'bucket_name': (str,),  # noqa: E501
-            'path': (str,),  # noqa: E501
-            'public_key': (str, none_type,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
+            'bucket_name': (str,),  # noqa: E501
+            'path': (str,),  # noqa: E501
+            'public_key': (str, none_type,),  # noqa: E501
+            'project_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -144,26 +150,26 @@ class LoggingGcsResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'message_type': 'message_type',  # noqa: E501
         'timestamp_format': 'timestamp_format',  # noqa: E501
+        'compression_codec': 'compression_codec',  # noqa: E501
         'period': 'period',  # noqa: E501
         'gzip_level': 'gzip_level',  # noqa: E501
-        'compression_codec': 'compression_codec',  # noqa: E501
         'user': 'user',  # noqa: E501
         'secret_key': 'secret_key',  # noqa: E501
         'account_name': 'account_name',  # noqa: E501
-        'bucket_name': 'bucket_name',  # noqa: E501
-        'path': 'path',  # noqa: E501
-        'public_key': 'public_key',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'version': 'version',  # noqa: E501
+        'bucket_name': 'bucket_name',  # noqa: E501
+        'path': 'path',  # noqa: E501
+        'public_key': 'public_key',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -213,26 +219,26 @@ class LoggingGcsResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (str): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]  # noqa: E501
-            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
+            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -334,26 +340,26 @@ class LoggingGcsResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
-            period (int): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            gzip_level (int): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
+            period (str): How frequently log files are finalized so they can be available for reading (in seconds).. [optional] if omitted the server will use the default value of "3600"  # noqa: E501
+            gzip_level (str): The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional] if omitted the server will use the default value of "0"  # noqa: E501
             user (str): Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             secret_key (str): Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.. [optional]  # noqa: E501
             account_name (str): The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.. [optional]  # noqa: E501
-            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
+            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -419,8 +425,11 @@ class LoggingGcsResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingGcs,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingGcsAdditional,
+              LoggingGcsCommon,
+              LoggingGenericCommonResponse,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

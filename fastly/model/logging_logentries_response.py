@@ -30,13 +30,15 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_logentries import LoggingLogentries
+    from fastly.model.logging_common_response import LoggingCommonResponse
+    from fastly.model.logging_logentries_additional import LoggingLogentriesAdditional
     from fastly.model.logging_use_tls import LoggingUseTls
-    from fastly.model.service_id_and_version import ServiceIdAndVersion
+    from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
-    globals()['LoggingLogentries'] = LoggingLogentries
+    globals()['LoggingCommonResponse'] = LoggingCommonResponse
+    globals()['LoggingLogentriesAdditional'] = LoggingLogentriesAdditional
     globals()['LoggingUseTls'] = LoggingUseTls
-    globals()['ServiceIdAndVersion'] = ServiceIdAndVersion
+    globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
 
@@ -70,8 +72,8 @@ class LoggingLogentriesResponse(ModelComposed):
             'NULL': "null",
         },
         ('format_version',): {
-            'v1': 1,
-            'v2': 2,
+            'v1': "1",
+            'v2': "2",
         },
         ('region',): {
             'US': "US",
@@ -112,9 +114,9 @@ class LoggingLogentriesResponse(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'placement': (str, none_type,),  # noqa: E501
-            'format_version': (int,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'format_version': (str,),  # noqa: E501
             'port': (int,),  # noqa: E501
             'token': (str,),  # noqa: E501
             'use_tls': (LoggingUseTls,),  # noqa: E501
@@ -123,7 +125,7 @@ class LoggingLogentriesResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -134,9 +136,9 @@ class LoggingLogentriesResponse(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'placement': 'placement',  # noqa: E501
-        'format_version': 'format_version',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'format_version': 'format_version',  # noqa: E501
         'port': 'port',  # noqa: E501
         'token': 'token',  # noqa: E501
         'use_tls': 'use_tls',  # noqa: E501
@@ -194,9 +196,9 @@ class LoggingLogentriesResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
@@ -205,7 +207,7 @@ class LoggingLogentriesResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,9 +309,9 @@ class LoggingLogentriesResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
-            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
@@ -318,7 +320,7 @@ class LoggingLogentriesResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
-            version (int): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -384,8 +386,9 @@ class LoggingLogentriesResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              LoggingLogentries,
-              ServiceIdAndVersion,
+              LoggingCommonResponse,
+              LoggingLogentriesAdditional,
+              ServiceIdAndVersionString,
               Timestamps,
           ],
           'oneOf': [

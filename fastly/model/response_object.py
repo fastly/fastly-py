@@ -83,7 +83,7 @@ class ResponseObject(ModelNormal):
             'content': (str,),  # noqa: E501
             'content_type': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'response': (str,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
         }
@@ -148,7 +148,7 @@ class ResponseObject(ModelNormal):
             content (str): The content to deliver for the response object, can be empty.. [optional]  # noqa: E501
             content_type (str, none_type): The MIME type of the content, can be empty.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
-            status (int): The HTTP status code.. [optional] if omitted the server will use the default value of 200  # noqa: E501
+            status (str): The HTTP status code.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
             response (str): The HTTP response.. [optional] if omitted the server will use the default value of "Ok"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
         """
@@ -236,7 +236,7 @@ class ResponseObject(ModelNormal):
             content (str): The content to deliver for the response object, can be empty.. [optional]  # noqa: E501
             content_type (str, none_type): The MIME type of the content, can be empty.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
-            status (int): The HTTP status code.. [optional] if omitted the server will use the default value of 200  # noqa: E501
+            status (str): The HTTP status code.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
             response (str): The HTTP response.. [optional] if omitted the server will use the default value of "Ok"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
         """

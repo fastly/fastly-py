@@ -56,7 +56,7 @@ with fastly.ApiClient(configuration) as api_client:
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
     bulk_update_dictionary_list_request = BulkUpdateDictionaryListRequest(
         items=[
-            BulkUpdateDictionaryItem(None),
+            BulkUpdateDictionaryItem(),
         ],
     ) # BulkUpdateDictionaryListRequest |  (optional)
 
