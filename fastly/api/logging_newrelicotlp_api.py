@@ -22,10 +22,10 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.inline_response200 import InlineResponse200
-from fastly.model.rate_limiter_response import RateLimiterResponse
+from fastly.model.logging_newrelicotlp_response import LoggingNewrelicotlpResponse
 
 
-class RateLimiterApi(object):
+class LoggingNewrelicotlpApi(object):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
     """
@@ -34,14 +34,14 @@ class RateLimiterApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_rate_limiter_endpoint = _Endpoint(
+        self.create_log_newrelicotlp_endpoint = _Endpoint(
             settings={
-                'response_type': (RateLimiterResponse,),
+                'response_type': (LoggingNewrelicotlpResponse,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/rate-limiters',
-                'operation_id': 'create_rate_limiter',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/logging/newrelicotlp',
+                'operation_id': 'create_log_newrelicotlp',
                 'http_method': 'POST',
                 'servers': [
                     {
@@ -55,135 +55,50 @@ class RateLimiterApi(object):
                     'service_id',
                     'version_id',
                     'name',
-                    'uri_dictionary_name',
-                    'http_methods',
-                    'rps_limit',
-                    'window_size',
-                    'client_key',
-                    'penalty_box_duration',
-                    'action',
-                    'response_object_name',
-                    'logger_type',
-                    'feature_revision',
+                    'placement',
+                    'response_condition',
+                    'format',
+                    'format_version',
+                    'token',
+                    'region',
+                    'url',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
                 ],
                 'nullable': [
-                    'uri_dictionary_name',
-                    'response_object_name',
+                    'placement',
+                    'response_condition',
+                    'url',
                 ],
                 'enum': [
-                    'http_methods',
-                    'window_size',
-                    'action',
-                    'logger_type',
+                    'placement',
+                    'format_version',
+                    'region',
                 ],
                 'validation': [
-                    'name',
-                    'uri_dictionary_name',
-                    'http_methods',
-                    'rps_limit',
-                    'client_key',
-                    'penalty_box_duration',
-                    'action',
-                    'response_object_name',
                 ]
             },
             root_map={
                 'validations': {
-                    ('name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
-                    ('uri_dictionary_name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
-                    ('http_methods',): {
-
-                        'min_items': 1,
-                    },
-                    ('rps_limit',): {
-
-                        'inclusive_maximum': 10000,
-                        'inclusive_minimum': 10,
-                    },
-                    ('client_key',): {
-
-                        'min_items': 1,
-                    },
-                    ('penalty_box_duration',): {
-
-                        'inclusive_maximum': 60,
-                        'inclusive_minimum': 1,
-                    },
-                    ('action',): {
-
-                        'min_length': 1,
-                    },
-                    ('response_object_name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
                 },
                 'allowed_values': {
-                    ('http_methods',): {
-
-                        "HEAD": "HEAD",
-                        "OPTIONS": "OPTIONS",
-                        "GET": "GET",
-                        "POST": "POST",
-                        "PUT": "PUT",
-                        "PATCH": "PATCH",
-                        "DELETE": "DELETE",
-                        "TRACE": "TRACE"
+                    ('placement',): {
+                        'None': None,
+                        "NONE": "none",
+                        "WAF_DEBUG": "waf_debug",
+                        "NULL": "null"
                     },
-                    ('window_size',): {
+                    ('format_version',): {
 
-                        "one_second": 1,
-                        "ten_seconds": 10,
-                        "one_minute": 60
+                        "v1": 1,
+                        "v2": 2
                     },
-                    ('action',): {
+                    ('region',): {
 
-                        "RESPONSE": "response",
-                        "RESPONSE_OBJECT": "response_object",
-                        "LOG_ONLY": "log_only"
-                    },
-                    ('logger_type',): {
-
-                        "AZUREBLOB": "azureblob",
-                        "BIGQUERY": "bigquery",
-                        "CLOUDFILES": "cloudfiles",
-                        "DATADOG": "datadog",
-                        "DIGITALOCEAN": "digitalocean",
-                        "ELASTICSEARCH": "elasticsearch",
-                        "FTP": "ftp",
-                        "GCS": "gcs",
-                        "GOOGLEANALYTICS": "googleanalytics",
-                        "HEROKU": "heroku",
-                        "HONEYCOMB": "honeycomb",
-                        "HTTP": "http",
-                        "HTTPS": "https",
-                        "KAFKA": "kafka",
-                        "KINESIS": "kinesis",
-                        "LOGENTRIES": "logentries",
-                        "LOGGLY": "loggly",
-                        "LOGSHUTTLE": "logshuttle",
-                        "NEWRELIC": "newrelic",
-                        "NEWRELICOTLP": "newrelicotlp",
-                        "OPENSTACK": "openstack",
-                        "PAPERTRAIL": "papertrail",
-                        "PUBSUB": "pubsub",
-                        "S3": "s3",
-                        "SCALYR": "scalyr",
-                        "SFTP": "sftp",
-                        "SPLUNK": "splunk",
-                        "STACKDRIVER": "stackdriver",
-                        "SUMOLOGIC": "sumologic",
-                        "SYSLOG": "syslog"
+                        "US": "US",
+                        "EU": "EU"
                     },
                 },
                 'openapi_types': {
@@ -193,62 +108,48 @@ class RateLimiterApi(object):
                         (int,),
                     'name':
                         (str,),
-                    'uri_dictionary_name':
+                    'placement':
                         (str, none_type,),
-                    'http_methods':
-                        ([str],),
-                    'rps_limit':
-                        (int,),
-                    'window_size':
-                        (int,),
-                    'client_key':
-                        ([str],),
-                    'penalty_box_duration':
-                        (int,),
-                    'action':
-                        (str,),
-                    'response_object_name':
+                    'response_condition':
                         (str, none_type,),
-                    'logger_type':
+                    'format':
                         (str,),
-                    'feature_revision':
+                    'format_version':
                         (int,),
+                    'token':
+                        (str,),
+                    'region':
+                        (str,),
+                    'url':
+                        (str, none_type,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
                     'name': 'name',
-                    'uri_dictionary_name': 'uri_dictionary_name',
-                    'http_methods': 'http_methods',
-                    'rps_limit': 'rps_limit',
-                    'window_size': 'window_size',
-                    'client_key': 'client_key',
-                    'penalty_box_duration': 'penalty_box_duration',
-                    'action': 'action',
-                    'response_object_name': 'response_object_name',
-                    'logger_type': 'logger_type',
-                    'feature_revision': 'feature_revision',
+                    'placement': 'placement',
+                    'response_condition': 'response_condition',
+                    'format': 'format',
+                    'format_version': 'format_version',
+                    'token': 'token',
+                    'region': 'region',
+                    'url': 'url',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
                     'name': 'form',
-                    'uri_dictionary_name': 'form',
-                    'http_methods': 'form',
-                    'rps_limit': 'form',
-                    'window_size': 'form',
-                    'client_key': 'form',
-                    'penalty_box_duration': 'form',
-                    'action': 'form',
-                    'response_object_name': 'form',
-                    'logger_type': 'form',
-                    'feature_revision': 'form',
+                    'placement': 'form',
+                    'response_condition': 'form',
+                    'format': 'form',
+                    'format_version': 'form',
+                    'token': 'form',
+                    'region': 'form',
+                    'url': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
-                    'http_methods': 'csv',
-                    'client_key': 'csv',
                 }
             },
             headers_map={
@@ -261,14 +162,14 @@ class RateLimiterApi(object):
             },
             api_client=api_client
         )
-        self.delete_rate_limiter_endpoint = _Endpoint(
+        self.delete_log_newrelicotlp_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse200,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/rate-limiters/{rate_limiter_id}',
-                'operation_id': 'delete_rate_limiter',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name}',
+                'operation_id': 'delete_log_newrelicotlp',
                 'http_method': 'DELETE',
                 'servers': [
                     {
@@ -279,10 +180,14 @@ class RateLimiterApi(object):
             },
             params_map={
                 'all': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                 ],
                 'required': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                 ],
                 'nullable': [
                 ],
@@ -297,14 +202,22 @@ class RateLimiterApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'rate_limiter_id':
+                    'service_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                    'logging_newrelicotlp_name':
                         (str,),
                 },
                 'attribute_map': {
-                    'rate_limiter_id': 'rate_limiter_id',
+                    'service_id': 'service_id',
+                    'version_id': 'version_id',
+                    'logging_newrelicotlp_name': 'logging_newrelicotlp_name',
                 },
                 'location_map': {
-                    'rate_limiter_id': 'path',
+                    'service_id': 'path',
+                    'version_id': 'path',
+                    'logging_newrelicotlp_name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -319,14 +232,14 @@ class RateLimiterApi(object):
             },
             api_client=api_client
         )
-        self.get_rate_limiter_endpoint = _Endpoint(
+        self.get_log_newrelicotlp_endpoint = _Endpoint(
             settings={
-                'response_type': (RateLimiterResponse,),
+                'response_type': (LoggingNewrelicotlpResponse,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/rate-limiters/{rate_limiter_id}',
-                'operation_id': 'get_rate_limiter',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name}',
+                'operation_id': 'get_log_newrelicotlp',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -337,10 +250,14 @@ class RateLimiterApi(object):
             },
             params_map={
                 'all': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                 ],
                 'required': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                 ],
                 'nullable': [
                 ],
@@ -355,14 +272,22 @@ class RateLimiterApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'rate_limiter_id':
+                    'service_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                    'logging_newrelicotlp_name':
                         (str,),
                 },
                 'attribute_map': {
-                    'rate_limiter_id': 'rate_limiter_id',
+                    'service_id': 'service_id',
+                    'version_id': 'version_id',
+                    'logging_newrelicotlp_name': 'logging_newrelicotlp_name',
                 },
                 'location_map': {
-                    'rate_limiter_id': 'path',
+                    'service_id': 'path',
+                    'version_id': 'path',
+                    'logging_newrelicotlp_name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -377,14 +302,14 @@ class RateLimiterApi(object):
             },
             api_client=api_client
         )
-        self.list_rate_limiters_endpoint = _Endpoint(
+        self.list_log_newrelicotlp_endpoint = _Endpoint(
             settings={
-                'response_type': ([RateLimiterResponse],),
+                'response_type': ([LoggingNewrelicotlpResponse],),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/rate-limiters',
-                'operation_id': 'list_rate_limiters',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/logging/newrelicotlp',
+                'operation_id': 'list_log_newrelicotlp',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -441,14 +366,14 @@ class RateLimiterApi(object):
             },
             api_client=api_client
         )
-        self.update_rate_limiter_endpoint = _Endpoint(
+        self.update_log_newrelicotlp_endpoint = _Endpoint(
             settings={
-                'response_type': (RateLimiterResponse,),
+                'response_type': (LoggingNewrelicotlpResponse,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/rate-limiters/{rate_limiter_id}',
-                'operation_id': 'update_rate_limiter',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name}',
+                'operation_id': 'update_log_newrelicotlp',
                 'http_method': 'PUT',
                 'servers': [
                     {
@@ -459,197 +384,110 @@ class RateLimiterApi(object):
             },
             params_map={
                 'all': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                     'name',
-                    'uri_dictionary_name',
-                    'http_methods',
-                    'rps_limit',
-                    'window_size',
-                    'client_key',
-                    'penalty_box_duration',
-                    'action',
-                    'response_object_name',
-                    'logger_type',
-                    'feature_revision',
+                    'placement',
+                    'response_condition',
+                    'format',
+                    'format_version',
+                    'token',
+                    'region',
+                    'url',
                 ],
                 'required': [
-                    'rate_limiter_id',
+                    'service_id',
+                    'version_id',
+                    'logging_newrelicotlp_name',
                 ],
                 'nullable': [
-                    'uri_dictionary_name',
-                    'response_object_name',
+                    'placement',
+                    'response_condition',
+                    'url',
                 ],
                 'enum': [
-                    'http_methods',
-                    'window_size',
-                    'action',
-                    'logger_type',
+                    'placement',
+                    'format_version',
+                    'region',
                 ],
                 'validation': [
-                    'name',
-                    'uri_dictionary_name',
-                    'http_methods',
-                    'rps_limit',
-                    'client_key',
-                    'penalty_box_duration',
-                    'action',
-                    'response_object_name',
                 ]
             },
             root_map={
                 'validations': {
-                    ('name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
-                    ('uri_dictionary_name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
-                    ('http_methods',): {
-
-                        'min_items': 1,
-                    },
-                    ('rps_limit',): {
-
-                        'inclusive_maximum': 10000,
-                        'inclusive_minimum': 10,
-                    },
-                    ('client_key',): {
-
-                        'min_items': 1,
-                    },
-                    ('penalty_box_duration',): {
-
-                        'inclusive_maximum': 60,
-                        'inclusive_minimum': 1,
-                    },
-                    ('action',): {
-
-                        'min_length': 1,
-                    },
-                    ('response_object_name',): {
-                        'max_length': 255,
-                        'min_length': 1,
-                    },
                 },
                 'allowed_values': {
-                    ('http_methods',): {
-
-                        "HEAD": "HEAD",
-                        "OPTIONS": "OPTIONS",
-                        "GET": "GET",
-                        "POST": "POST",
-                        "PUT": "PUT",
-                        "PATCH": "PATCH",
-                        "DELETE": "DELETE",
-                        "TRACE": "TRACE"
+                    ('placement',): {
+                        'None': None,
+                        "NONE": "none",
+                        "WAF_DEBUG": "waf_debug",
+                        "NULL": "null"
                     },
-                    ('window_size',): {
+                    ('format_version',): {
 
-                        "one_second": 1,
-                        "ten_seconds": 10,
-                        "one_minute": 60
+                        "v1": 1,
+                        "v2": 2
                     },
-                    ('action',): {
+                    ('region',): {
 
-                        "RESPONSE": "response",
-                        "RESPONSE_OBJECT": "response_object",
-                        "LOG_ONLY": "log_only"
-                    },
-                    ('logger_type',): {
-
-                        "AZUREBLOB": "azureblob",
-                        "BIGQUERY": "bigquery",
-                        "CLOUDFILES": "cloudfiles",
-                        "DATADOG": "datadog",
-                        "DIGITALOCEAN": "digitalocean",
-                        "ELASTICSEARCH": "elasticsearch",
-                        "FTP": "ftp",
-                        "GCS": "gcs",
-                        "GOOGLEANALYTICS": "googleanalytics",
-                        "HEROKU": "heroku",
-                        "HONEYCOMB": "honeycomb",
-                        "HTTP": "http",
-                        "HTTPS": "https",
-                        "KAFKA": "kafka",
-                        "KINESIS": "kinesis",
-                        "LOGENTRIES": "logentries",
-                        "LOGGLY": "loggly",
-                        "LOGSHUTTLE": "logshuttle",
-                        "NEWRELIC": "newrelic",
-                        "NEWRELICOTLP": "newrelicotlp",
-                        "OPENSTACK": "openstack",
-                        "PAPERTRAIL": "papertrail",
-                        "PUBSUB": "pubsub",
-                        "S3": "s3",
-                        "SCALYR": "scalyr",
-                        "SFTP": "sftp",
-                        "SPLUNK": "splunk",
-                        "STACKDRIVER": "stackdriver",
-                        "SUMOLOGIC": "sumologic",
-                        "SYSLOG": "syslog"
+                        "US": "US",
+                        "EU": "EU"
                     },
                 },
                 'openapi_types': {
-                    'rate_limiter_id':
+                    'service_id':
+                        (str,),
+                    'version_id':
+                        (int,),
+                    'logging_newrelicotlp_name':
                         (str,),
                     'name':
                         (str,),
-                    'uri_dictionary_name':
+                    'placement':
                         (str, none_type,),
-                    'http_methods':
-                        ([str],),
-                    'rps_limit':
-                        (int,),
-                    'window_size':
-                        (int,),
-                    'client_key':
-                        ([str],),
-                    'penalty_box_duration':
-                        (int,),
-                    'action':
-                        (str,),
-                    'response_object_name':
+                    'response_condition':
                         (str, none_type,),
-                    'logger_type':
+                    'format':
                         (str,),
-                    'feature_revision':
+                    'format_version':
                         (int,),
+                    'token':
+                        (str,),
+                    'region':
+                        (str,),
+                    'url':
+                        (str, none_type,),
                 },
                 'attribute_map': {
-                    'rate_limiter_id': 'rate_limiter_id',
+                    'service_id': 'service_id',
+                    'version_id': 'version_id',
+                    'logging_newrelicotlp_name': 'logging_newrelicotlp_name',
                     'name': 'name',
-                    'uri_dictionary_name': 'uri_dictionary_name',
-                    'http_methods': 'http_methods',
-                    'rps_limit': 'rps_limit',
-                    'window_size': 'window_size',
-                    'client_key': 'client_key',
-                    'penalty_box_duration': 'penalty_box_duration',
-                    'action': 'action',
-                    'response_object_name': 'response_object_name',
-                    'logger_type': 'logger_type',
-                    'feature_revision': 'feature_revision',
+                    'placement': 'placement',
+                    'response_condition': 'response_condition',
+                    'format': 'format',
+                    'format_version': 'format_version',
+                    'token': 'token',
+                    'region': 'region',
+                    'url': 'url',
                 },
                 'location_map': {
-                    'rate_limiter_id': 'path',
+                    'service_id': 'path',
+                    'version_id': 'path',
+                    'logging_newrelicotlp_name': 'path',
                     'name': 'form',
-                    'uri_dictionary_name': 'form',
-                    'http_methods': 'form',
-                    'rps_limit': 'form',
-                    'window_size': 'form',
-                    'client_key': 'form',
-                    'penalty_box_duration': 'form',
-                    'action': 'form',
-                    'response_object_name': 'form',
-                    'logger_type': 'form',
-                    'feature_revision': 'form',
+                    'placement': 'form',
+                    'response_condition': 'form',
+                    'format': 'form',
+                    'format_version': 'form',
+                    'token': 'form',
+                    'region': 'form',
+                    'url': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
-                    'http_methods': 'csv',
-                    'client_key': 'csv',
                 }
             },
             headers_map={
@@ -663,19 +501,19 @@ class RateLimiterApi(object):
             api_client=api_client
         )
 
-    def create_rate_limiter(
+    def create_log_newrelicotlp(
         self,
         service_id,
         version_id,
         **kwargs
     ):
-        """Create a rate limiter  # noqa: E501
+        """Create a New Relic OTLP endpoint  # noqa: E501
 
-        Create a rate limiter for a particular service and version.  # noqa: E501
+        Create a New Relic OTLP logging object for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_rate_limiter(service_id, version_id, async_req=True)
+        >>> thread = api.create_log_newrelicotlp(service_id, version_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -683,17 +521,14 @@ class RateLimiterApi(object):
             version_id (int): Integer identifying a service version.
 
         Keyword Args:
-            name (str): A human readable name for the rate limiting rule.. [optional]
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]
-            http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]
-            rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]
-            window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]
-            client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]
-            penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]
-            action (str): The action to take when a rate limiter violation is detected.. [optional]
-            response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]
-            logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]
-            feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]
+            name (str): The name for the real-time logging configuration.. [optional]
+            placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
+            response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
+            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
+            token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]
+            region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"
+            url (str, none_type): (Optional) URL of the New Relic Trace Observer, if you are using New Relic Infinite Tracing.. [optional] if omitted the server will use the default value of "null"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -722,7 +557,7 @@ class RateLimiterApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            RateLimiterResponse
+            LoggingNewrelicotlpResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -754,24 +589,28 @@ class RateLimiterApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        return self.create_rate_limiter_endpoint.call_with_http_info(**kwargs)
+        return self.create_log_newrelicotlp_endpoint.call_with_http_info(**kwargs)
 
-    def delete_rate_limiter(
+    def delete_log_newrelicotlp(
         self,
-        rate_limiter_id,
+        service_id,
+        version_id,
+        logging_newrelicotlp_name,
         **kwargs
     ):
-        """Delete a rate limiter  # noqa: E501
+        """Delete a New Relic OTLP endpoint  # noqa: E501
 
-        Delete a rate limiter by its ID.  # noqa: E501
+        Delete the New Relic OTLP logging object for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_rate_limiter(rate_limiter_id, async_req=True)
+        >>> thread = api.delete_log_newrelicotlp(service_id, version_id, logging_newrelicotlp_name, async_req=True)
         >>> result = thread.get()
 
         Args:
-            rate_limiter_id (str): Alphanumeric string identifying the rate limiter.
+            service_id (str): Alphanumeric string identifying the service.
+            version_id (int): Integer identifying a service version.
+            logging_newrelicotlp_name (str): The name for the real-time logging configuration.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -830,26 +669,34 @@ class RateLimiterApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['rate_limiter_id'] = \
-            rate_limiter_id
-        return self.delete_rate_limiter_endpoint.call_with_http_info(**kwargs)
+        kwargs['service_id'] = \
+            service_id
+        kwargs['version_id'] = \
+            version_id
+        kwargs['logging_newrelicotlp_name'] = \
+            logging_newrelicotlp_name
+        return self.delete_log_newrelicotlp_endpoint.call_with_http_info(**kwargs)
 
-    def get_rate_limiter(
+    def get_log_newrelicotlp(
         self,
-        rate_limiter_id,
+        service_id,
+        version_id,
+        logging_newrelicotlp_name,
         **kwargs
     ):
-        """Get a rate limiter  # noqa: E501
+        """Get a New Relic OTLP endpoint  # noqa: E501
 
-        Get a rate limiter by its ID.  # noqa: E501
+        Get the details of a New Relic OTLP logging object for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_rate_limiter(rate_limiter_id, async_req=True)
+        >>> thread = api.get_log_newrelicotlp(service_id, version_id, logging_newrelicotlp_name, async_req=True)
         >>> result = thread.get()
 
         Args:
-            rate_limiter_id (str): Alphanumeric string identifying the rate limiter.
+            service_id (str): Alphanumeric string identifying the service.
+            version_id (int): Integer identifying a service version.
+            logging_newrelicotlp_name (str): The name for the real-time logging configuration.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -880,7 +727,7 @@ class RateLimiterApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            RateLimiterResponse
+            LoggingNewrelicotlpResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -908,23 +755,27 @@ class RateLimiterApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['rate_limiter_id'] = \
-            rate_limiter_id
-        return self.get_rate_limiter_endpoint.call_with_http_info(**kwargs)
+        kwargs['service_id'] = \
+            service_id
+        kwargs['version_id'] = \
+            version_id
+        kwargs['logging_newrelicotlp_name'] = \
+            logging_newrelicotlp_name
+        return self.get_log_newrelicotlp_endpoint.call_with_http_info(**kwargs)
 
-    def list_rate_limiters(
+    def list_log_newrelicotlp(
         self,
         service_id,
         version_id,
         **kwargs
     ):
-        """List rate limiters  # noqa: E501
+        """List New Relic OTLP endpoints  # noqa: E501
 
-        List all rate limiters for a particular service and version.  # noqa: E501
+        List all of the New Relic OTLP logging objects for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_rate_limiters(service_id, version_id, async_req=True)
+        >>> thread = api.list_log_newrelicotlp(service_id, version_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -960,7 +811,7 @@ class RateLimiterApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [RateLimiterResponse]
+            [LoggingNewrelicotlpResponse]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -992,37 +843,38 @@ class RateLimiterApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        return self.list_rate_limiters_endpoint.call_with_http_info(**kwargs)
+        return self.list_log_newrelicotlp_endpoint.call_with_http_info(**kwargs)
 
-    def update_rate_limiter(
+    def update_log_newrelicotlp(
         self,
-        rate_limiter_id,
+        service_id,
+        version_id,
+        logging_newrelicotlp_name,
         **kwargs
     ):
-        """Update a rate limiter  # noqa: E501
+        """Update a New Relic log endpoint  # noqa: E501
 
-        Update a rate limiter by its ID.  # noqa: E501
+        Update a New Relic OTLP logging object for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_rate_limiter(rate_limiter_id, async_req=True)
+        >>> thread = api.update_log_newrelicotlp(service_id, version_id, logging_newrelicotlp_name, async_req=True)
         >>> result = thread.get()
 
         Args:
-            rate_limiter_id (str): Alphanumeric string identifying the rate limiter.
+            service_id (str): Alphanumeric string identifying the service.
+            version_id (int): Integer identifying a service version.
+            logging_newrelicotlp_name (str): The name for the real-time logging configuration.
 
         Keyword Args:
-            name (str): A human readable name for the rate limiting rule.. [optional]
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]
-            http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]
-            rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]
-            window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]
-            client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]
-            penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]
-            action (str): The action to take when a rate limiter violation is detected.. [optional]
-            response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]
-            logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]
-            feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]
+            name (str): The name for the real-time logging configuration.. [optional]
+            placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
+            response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
+            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"
+            format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
+            token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]
+            region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"
+            url (str, none_type): (Optional) URL of the New Relic Trace Observer, if you are using New Relic Infinite Tracing.. [optional] if omitted the server will use the default value of "null"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1051,7 +903,7 @@ class RateLimiterApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            RateLimiterResponse
+            LoggingNewrelicotlpResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1079,7 +931,11 @@ class RateLimiterApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['rate_limiter_id'] = \
-            rate_limiter_id
-        return self.update_rate_limiter_endpoint.call_with_http_info(**kwargs)
+        kwargs['service_id'] = \
+            service_id
+        kwargs['version_id'] = \
+            version_id
+        kwargs['logging_newrelicotlp_name'] = \
+            logging_newrelicotlp_name
+        return self.update_log_newrelicotlp_endpoint.call_with_http_info(**kwargs)
 

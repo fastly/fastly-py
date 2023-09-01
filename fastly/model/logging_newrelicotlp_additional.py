@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class RateLimiter(ModelNormal):
+class LoggingNewrelicotlpAdditional(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -53,90 +53,13 @@ class RateLimiter(ModelNormal):
     """
 
     allowed_values = {
-        ('http_methods',): {
-            'HEAD': "HEAD",
-            'OPTIONS': "OPTIONS",
-            'GET': "GET",
-            'POST': "POST",
-            'PUT': "PUT",
-            'PATCH': "PATCH",
-            'DELETE': "DELETE",
-            'TRACE': "TRACE",
-        },
-        ('window_size',): {
-            'one_second': 1,
-            'ten_seconds': 10,
-            'one_minute': 60,
-        },
-        ('action',): {
-            'RESPONSE': "response",
-            'RESPONSE_OBJECT': "response_object",
-            'LOG_ONLY': "log_only",
-        },
-        ('logger_type',): {
-            'AZUREBLOB': "azureblob",
-            'BIGQUERY': "bigquery",
-            'CLOUDFILES': "cloudfiles",
-            'DATADOG': "datadog",
-            'DIGITALOCEAN': "digitalocean",
-            'ELASTICSEARCH': "elasticsearch",
-            'FTP': "ftp",
-            'GCS': "gcs",
-            'GOOGLEANALYTICS': "googleanalytics",
-            'HEROKU': "heroku",
-            'HONEYCOMB': "honeycomb",
-            'HTTP': "http",
-            'HTTPS': "https",
-            'KAFKA': "kafka",
-            'KINESIS': "kinesis",
-            'LOGENTRIES': "logentries",
-            'LOGGLY': "loggly",
-            'LOGSHUTTLE': "logshuttle",
-            'NEWRELIC': "newrelic",
-            'NEWRELICOTLP': "newrelicotlp",
-            'OPENSTACK': "openstack",
-            'PAPERTRAIL': "papertrail",
-            'PUBSUB': "pubsub",
-            'S3': "s3",
-            'SCALYR': "scalyr",
-            'SFTP': "sftp",
-            'SPLUNK': "splunk",
-            'STACKDRIVER': "stackdriver",
-            'SUMOLOGIC': "sumologic",
-            'SYSLOG': "syslog",
+        ('region',): {
+            'US': "US",
+            'EU': "EU",
         },
     }
 
     validations = {
-        ('name',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
-        ('uri_dictionary_name',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
-        ('http_methods',): {
-            'min_items': 1,
-        },
-        ('rps_limit',): {
-            'inclusive_maximum': 10000,
-            'inclusive_minimum': 10,
-        },
-        ('client_key',): {
-            'min_items': 1,
-        },
-        ('penalty_box_duration',): {
-            'inclusive_maximum': 60,
-            'inclusive_minimum': 1,
-        },
-        ('action',): {
-            'min_length': 1,
-        },
-        ('response_object_name',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -160,18 +83,10 @@ class RateLimiter(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'uri_dictionary_name': (str, none_type,),  # noqa: E501
-            'http_methods': ([str],),  # noqa: E501
-            'rps_limit': (int,),  # noqa: E501
-            'window_size': (int,),  # noqa: E501
-            'client_key': ([str],),  # noqa: E501
-            'penalty_box_duration': (int,),  # noqa: E501
-            'action': (str,),  # noqa: E501
-            'response': ({str: (str,)}, none_type,),  # noqa: E501
-            'response_object_name': (str, none_type,),  # noqa: E501
-            'logger_type': (str,),  # noqa: E501
-            'feature_revision': (int,),  # noqa: E501
+            'format': (str,),  # noqa: E501
+            'token': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -180,18 +95,10 @@ class RateLimiter(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'uri_dictionary_name': 'uri_dictionary_name',  # noqa: E501
-        'http_methods': 'http_methods',  # noqa: E501
-        'rps_limit': 'rps_limit',  # noqa: E501
-        'window_size': 'window_size',  # noqa: E501
-        'client_key': 'client_key',  # noqa: E501
-        'penalty_box_duration': 'penalty_box_duration',  # noqa: E501
-        'action': 'action',  # noqa: E501
-        'response': 'response',  # noqa: E501
-        'response_object_name': 'response_object_name',  # noqa: E501
-        'logger_type': 'logger_type',  # noqa: E501
-        'feature_revision': 'feature_revision',  # noqa: E501
+        'format': 'format',  # noqa: E501
+        'token': 'token',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'url': 'url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -202,7 +109,7 @@ class RateLimiter(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """RateLimiter - a model defined in OpenAPI
+        """LoggingNewrelicotlpAdditional - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,18 +142,10 @@ class RateLimiter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): A human readable name for the rate limiting rule.. [optional]  # noqa: E501
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
-            http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]  # noqa: E501
-            rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]  # noqa: E501
-            window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]  # noqa: E501
-            client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]  # noqa: E501
-            penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]  # noqa: E501
-            action (str): The action to take when a rate limiter violation is detected.. [optional]  # noqa: E501
-            response ({str: (str,)}, none_type): Custom response to be sent when the rate limit is exceeded. Required if `action` is `response`.. [optional]  # noqa: E501
-            response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]  # noqa: E501
-            logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]  # noqa: E501
-            feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
+            token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]  # noqa: E501
+            region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
+            url (str, none_type): (Optional) URL of the New Relic Trace Observer, if you are using New Relic Infinite Tracing.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,7 +194,7 @@ class RateLimiter(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """RateLimiter - a model defined in OpenAPI
+        """LoggingNewrelicotlpAdditional - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -328,18 +227,10 @@ class RateLimiter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): A human readable name for the rate limiting rule.. [optional]  # noqa: E501
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
-            http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]  # noqa: E501
-            rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]  # noqa: E501
-            window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]  # noqa: E501
-            client_key ([str]): Array of VCL variables used to generate a counter key to identify a client. Example variables include `req.http.Fastly-Client-IP`, `req.http.User-Agent`, or a custom header like `req.http.API-Key`.. [optional]  # noqa: E501
-            penalty_box_duration (int): Length of time in minutes that the rate limiter is in effect after the initial violation is detected.. [optional]  # noqa: E501
-            action (str): The action to take when a rate limiter violation is detected.. [optional]  # noqa: E501
-            response ({str: (str,)}, none_type): Custom response to be sent when the rate limit is exceeded. Required if `action` is `response`.. [optional]  # noqa: E501
-            response_object_name (str, none_type): Name of existing response object. Required if `action` is `response_object`. Note that the rate limiter response is only updated to reflect the response object content when saving the rate limiter configuration.. [optional]  # noqa: E501
-            logger_type (str): Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.. [optional]  # noqa: E501
-            feature_revision (int): Revision number of the rate limiting feature implementation. Defaults to the most recent revision.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}"  # noqa: E501
+            token (str): The Insert API key from the Account page of your New Relic account. Required.. [optional]  # noqa: E501
+            region (str): The region to which to stream logs.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
+            url (str, none_type): (Optional) URL of the New Relic Trace Observer, if you are using New Relic Infinite Tracing.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

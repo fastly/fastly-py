@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**client_key**](SecretStoreApi.md#client_key) | **POST** /resources/stores/secret/client-key | Create new client key
 [**create_secret_store**](SecretStoreApi.md#create_secret_store) | **POST** /resources/stores/secret | Create new secret store
 [**delete_secret_store**](SecretStoreApi.md#delete_secret_store) | **DELETE** /resources/stores/secret/{store_id} | Delete secret store
-[**get_secret_store**](SecretStoreApi.md#get_secret_store) | **GET** /resources/stores/secret/{store_id} | Create secret store by ID
+[**get_secret_store**](SecretStoreApi.md#get_secret_store) | **GET** /resources/stores/secret/{store_id} | Get secret store by ID
 [**get_secret_stores**](SecretStoreApi.md#get_secret_stores) | **GET** /resources/stores/secret | Get all secret stores
 [**signing_key**](SecretStoreApi.md#signing_key) | **GET** /resources/stores/secret/signing-key | Get public key
 
@@ -247,7 +247,7 @@ void (empty response body)
 # **get_secret_store**
 > SecretStoreResponse get_secret_store(store_id)
 
-Create secret store by ID
+Get secret store by ID
 
 Get a secret store by ID.
 
@@ -286,7 +286,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create secret store by ID
+        # Get secret store by ID
         api_response = api_instance.get_secret_store(store_id)
         pprint(api_response)
     except fastly.ApiException as e:

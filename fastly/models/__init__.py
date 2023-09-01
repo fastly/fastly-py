@@ -257,6 +257,8 @@ from fastly.model.logging_logshuttle_response import LoggingLogshuttleResponse
 from fastly.model.logging_message_type import LoggingMessageType
 from fastly.model.logging_newrelic_additional import LoggingNewrelicAdditional
 from fastly.model.logging_newrelic_response import LoggingNewrelicResponse
+from fastly.model.logging_newrelicotlp_additional import LoggingNewrelicotlpAdditional
+from fastly.model.logging_newrelicotlp_response import LoggingNewrelicotlpResponse
 from fastly.model.logging_openstack_additional import LoggingOpenstackAdditional
 from fastly.model.logging_openstack_response import LoggingOpenstackResponse
 from fastly.model.logging_papertrail_response import LoggingPapertrailResponse

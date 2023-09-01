@@ -602,7 +602,7 @@ class SecretStoreApi(object):
         store_id,
         **kwargs
     ):
-        """Create secret store by ID  # noqa: E501
+        """Get secret store by ID  # noqa: E501
 
         Get a secret store by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

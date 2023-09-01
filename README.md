@@ -345,6 +345,11 @@ Class | Method | HTTP request | Description
 *LoggingNewrelicApi* | [**get_log_newrelic**](docs/LoggingNewrelicApi.md#get_log_newrelic) | **GET** /service/{service_id}/version/{version_id}/logging/newrelic/{logging_newrelic_name} | Get a New Relic log endpoint
 *LoggingNewrelicApi* | [**list_log_newrelic**](docs/LoggingNewrelicApi.md#list_log_newrelic) | **GET** /service/{service_id}/version/{version_id}/logging/newrelic | List New Relic log endpoints
 *LoggingNewrelicApi* | [**update_log_newrelic**](docs/LoggingNewrelicApi.md#update_log_newrelic) | **PUT** /service/{service_id}/version/{version_id}/logging/newrelic/{logging_newrelic_name} | Update a New Relic log endpoint
+*LoggingNewrelicotlpApi* | [**create_log_newrelicotlp**](docs/LoggingNewrelicotlpApi.md#create_log_newrelicotlp) | **POST** /service/{service_id}/version/{version_id}/logging/newrelicotlp | Create a New Relic OTLP endpoint
+*LoggingNewrelicotlpApi* | [**delete_log_newrelicotlp**](docs/LoggingNewrelicotlpApi.md#delete_log_newrelicotlp) | **DELETE** /service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name} | Delete a New Relic OTLP endpoint
+*LoggingNewrelicotlpApi* | [**get_log_newrelicotlp**](docs/LoggingNewrelicotlpApi.md#get_log_newrelicotlp) | **GET** /service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name} | Get a New Relic OTLP endpoint
+*LoggingNewrelicotlpApi* | [**list_log_newrelicotlp**](docs/LoggingNewrelicotlpApi.md#list_log_newrelicotlp) | **GET** /service/{service_id}/version/{version_id}/logging/newrelicotlp | List New Relic OTLP endpoints
+*LoggingNewrelicotlpApi* | [**update_log_newrelicotlp**](docs/LoggingNewrelicotlpApi.md#update_log_newrelicotlp) | **PUT** /service/{service_id}/version/{version_id}/logging/newrelicotlp/{logging_newrelicotlp_name} | Update a New Relic log endpoint
 *LoggingOpenstackApi* | [**create_log_openstack**](docs/LoggingOpenstackApi.md#create_log_openstack) | **POST** /service/{service_id}/version/{version_id}/logging/openstack | Create an OpenStack log endpoint
 *LoggingOpenstackApi* | [**delete_log_openstack**](docs/LoggingOpenstackApi.md#delete_log_openstack) | **DELETE** /service/{service_id}/version/{version_id}/logging/openstack/{logging_openstack_name} | Delete an OpenStack log endpoint
 *LoggingOpenstackApi* | [**get_log_openstack**](docs/LoggingOpenstackApi.md#get_log_openstack) | **GET** /service/{service_id}/version/{version_id}/logging/openstack/{logging_openstack_name} | Get an OpenStack log endpoint
@@ -439,7 +444,7 @@ Class | Method | HTTP request | Description
 *SecretStoreApi* | [**client_key**](docs/SecretStoreApi.md#client_key) | **POST** /resources/stores/secret/client-key | Create new client key
 *SecretStoreApi* | [**create_secret_store**](docs/SecretStoreApi.md#create_secret_store) | **POST** /resources/stores/secret | Create new secret store
 *SecretStoreApi* | [**delete_secret_store**](docs/SecretStoreApi.md#delete_secret_store) | **DELETE** /resources/stores/secret/{store_id} | Delete secret store
-*SecretStoreApi* | [**get_secret_store**](docs/SecretStoreApi.md#get_secret_store) | **GET** /resources/stores/secret/{store_id} | Create secret store by ID
+*SecretStoreApi* | [**get_secret_store**](docs/SecretStoreApi.md#get_secret_store) | **GET** /resources/stores/secret/{store_id} | Get secret store by ID
 *SecretStoreApi* | [**get_secret_stores**](docs/SecretStoreApi.md#get_secret_stores) | **GET** /resources/stores/secret | Get all secret stores
 *SecretStoreApi* | [**signing_key**](docs/SecretStoreApi.md#signing_key) | **GET** /resources/stores/secret/signing-key | Get public key
 *SecretStoreItemApi* | [**create_secret**](docs/SecretStoreItemApi.md#create_secret) | **POST** /resources/stores/secret/{store_id}/secrets | Create a new secret in a store.

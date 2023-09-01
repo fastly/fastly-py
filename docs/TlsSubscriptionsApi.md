@@ -388,7 +388,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
     tls_subscription_id = "sU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
-    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  (optional)
+    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -414,7 +414,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tls_subscription_id** | **str**| Alphanumeric string identifying a TLS subscription. |
- **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  | [optional]
+ **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
 
 ### Return type
 
@@ -479,7 +479,7 @@ with fastly.ApiClient(configuration) as api_client:
     filter_state = "filter[state]_example" # str | Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`).  (optional)
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned subscriptions to those that include the specific domain. (optional)
     filter_has_active_order = True # bool | Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  (optional)
-    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  (optional)
+    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
     sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
  **filter_state** | **str**| Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]&#x3D;renewing`).  | [optional]
  **filter_tls_domains_id** | **str**| Limit the returned subscriptions to those that include the specific domain. | [optional]
  **filter_has_active_order** | **bool**| Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  | [optional]
- **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.  | [optional]
+ **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
  **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"

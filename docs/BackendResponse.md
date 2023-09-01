@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **override_host** | **str, none_type** | If set, will replace the client-supplied HTTP `Host` header on connections to this backend. Applied after VCL has been processed, so this setting will take precedence over changing `bereq.http.Host` in VCL. | [optional] 
 **port** | **int** | Port on which the backend server is listening for connections from Fastly. Setting `port` to 80 or 443 will also set `use_ssl` automatically (to false and true respectively), unless explicitly overridden by setting `use_ssl` in the same request. | [optional] 
 **request_condition** | **str** | Name of a Condition, which if satisfied, will select this backend during a request. If set, will override any `auto_loadbalance` setting. By default, the first backend added to a service is selected for all requests. | [optional] 
+**share_key** | **str, none_type** | Value that when shared across backends will enable those backends to share the same health check. | [optional] 
 **shield** | **str, none_type** | Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding). | [optional] 
 **ssl_ca_cert** | **str, none_type** | CA certificate attached to origin. | [optional] 
 **ssl_cert_hostname** | **str, none_type** | Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all. | [optional] 

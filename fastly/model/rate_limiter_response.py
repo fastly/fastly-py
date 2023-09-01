@@ -103,6 +103,7 @@ class RateLimiterResponse(ModelComposed):
             'LOGGLY': "loggly",
             'LOGSHUTTLE': "logshuttle",
             'NEWRELIC': "newrelic",
+            'NEWRELICOTLP': "newrelicotlp",
             'OPENSTACK': "openstack",
             'PAPERTRAIL': "papertrail",
             'PUBSUB': "pubsub",

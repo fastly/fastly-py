@@ -48,7 +48,7 @@ with fastly.ApiClient(configuration) as api_client:
     filter_in_use = "filter[in_use]_example" # str | Optional. Limit the returned domains to those currently using Fastly to terminate TLS with SNI (that is, domains considered \"in use\") Permitted values: true, false. (optional)
     filter_tls_certificates_id = "filter[tls_certificates.id]_example" # str | Optional. Limit the returned domains to those listed in the given TLS certificate's SAN list. (optional)
     filter_tls_subscriptions_id = "filter[tls_subscriptions.id]_example" # str | Optional. Limit the returned domains to those for a given TLS subscription. (optional)
-    include = "include_example" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, and `tls_authorizations.globalsign_email_challenge`.  (optional)
+    include = "include_example" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
     sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
  **filter_in_use** | **str**| Optional. Limit the returned domains to those currently using Fastly to terminate TLS with SNI (that is, domains considered \&quot;in use\&quot;) Permitted values: true, false. | [optional]
  **filter_tls_certificates_id** | **str**| Optional. Limit the returned domains to those listed in the given TLS certificate&#39;s SAN list. | [optional]
  **filter_tls_subscriptions_id** | **str**| Optional. Limit the returned domains to those for a given TLS subscription. | [optional]
- **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, and `tls_authorizations.globalsign_email_challenge`.  | [optional]
+ **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
  **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"

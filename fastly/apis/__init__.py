@@ -77,6 +77,7 @@ from fastly.api.logging_logentries_api import LoggingLogentriesApi
 from fastly.api.logging_loggly_api import LoggingLogglyApi
 from fastly.api.logging_logshuttle_api import LoggingLogshuttleApi
 from fastly.api.logging_newrelic_api import LoggingNewrelicApi
+from fastly.api.logging_newrelicotlp_api import LoggingNewrelicotlpApi
 from fastly.api.logging_openstack_api import LoggingOpenstackApi
 from fastly.api.logging_papertrail_api import LoggingPapertrailApi
 from fastly.api.logging_pubsub_api import LoggingPubsubApi

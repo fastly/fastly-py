@@ -73,6 +73,7 @@ with fastly.ApiClient(configuration) as api_client:
             override_host="override_host_example",
             port=1,
             request_condition="request_condition_example",
+            share_key="C",
             shield="shield_example",
             ssl_ca_cert="ssl_ca_cert_example",
             ssl_cert_hostname="ssl_cert_hostname_example",
