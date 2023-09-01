@@ -116,6 +116,10 @@ class EventsApi(object):
                     'filter_user_id',
                     'filter_token_id',
                     'filter_created_at',
+                    'filter_created_at_lte',
+                    'filter_created_at_lt',
+                    'filter_created_at_gte',
+                    'filter_created_at_gt',
                     'page_number',
                     'page_size',
                     'sort',
@@ -158,6 +162,14 @@ class EventsApi(object):
                         (str,),
                     'filter_created_at':
                         (str,),
+                    'filter_created_at_lte':
+                        (str,),
+                    'filter_created_at_lt':
+                        (str,),
+                    'filter_created_at_gte':
+                        (str,),
+                    'filter_created_at_gt':
+                        (str,),
                     'page_number':
                         (int,),
                     'page_size':
@@ -172,6 +184,10 @@ class EventsApi(object):
                     'filter_user_id': 'filter[user_id]',
                     'filter_token_id': 'filter[token_id]',
                     'filter_created_at': 'filter[created_at]',
+                    'filter_created_at_lte': 'filter[created_at][lte]',
+                    'filter_created_at_lt': 'filter[created_at][lt]',
+                    'filter_created_at_gte': 'filter[created_at][gte]',
+                    'filter_created_at_gt': 'filter[created_at][gt]',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
                     'sort': 'sort',
@@ -183,6 +199,10 @@ class EventsApi(object):
                     'filter_user_id': 'query',
                     'filter_token_id': 'query',
                     'filter_created_at': 'query',
+                    'filter_created_at_lte': 'query',
+                    'filter_created_at_lt': 'query',
+                    'filter_created_at_gte': 'query',
+                    'filter_created_at_gt': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
                     'sort': 'query',
@@ -300,6 +320,10 @@ class EventsApi(object):
             filter_user_id (str): Limit the results returned to a specific user.. [optional]
             filter_token_id (str): Limit the returned events to a specific token.. [optional]
             filter_created_at (str): Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]=2022-01-12). . [optional]
+            filter_created_at_lte (str): Return events on and before a date and time in ISO 8601 format. . [optional]
+            filter_created_at_lt (str): Return events before a date and time in ISO 8601 format. . [optional]
+            filter_created_at_gte (str): Return events on and after a date and time in ISO 8601 format. . [optional]
+            filter_created_at_gt (str): Return events after a date and time in ISO 8601 format. . [optional]
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
             sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"
