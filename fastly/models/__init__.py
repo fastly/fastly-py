@@ -123,6 +123,8 @@ from fastly.model.healthcheck_response import HealthcheckResponse
 from fastly.model.historical import Historical
 from fastly.model.historical_aggregate_response import HistoricalAggregateResponse
 from fastly.model.historical_aggregate_response_all_of import HistoricalAggregateResponseAllOf
+from fastly.model.historical_ddos import HistoricalDdos
+from fastly.model.historical_ddos_meta import HistoricalDdosMeta
 from fastly.model.historical_domains import HistoricalDomains
 from fastly.model.historical_domains_data import HistoricalDomainsData
 from fastly.model.historical_domains_meta import HistoricalDomainsMeta
@@ -312,6 +314,11 @@ from fastly.model.pagination_cursor_meta import PaginationCursorMeta
 from fastly.model.pagination_links import PaginationLinks
 from fastly.model.pagination_meta import PaginationMeta
 from fastly.model.permission import Permission
+from fastly.model.platform_ddos_data_items import PlatformDdosDataItems
+from fastly.model.platform_ddos_entry import PlatformDdosEntry
+from fastly.model.platform_ddos_response import PlatformDdosResponse
+from fastly.model.platform_ddos_response_all_of import PlatformDdosResponseAllOf
+from fastly.model.platform_ddos_response_data import PlatformDdosResponseData
 from fastly.model.pool_additional import PoolAdditional
 from fastly.model.pool_response import PoolResponse
 from fastly.model.pool_response_all_of import PoolResponseAllOf
@@ -446,6 +453,7 @@ from fastly.model.results import Results
 from fastly.model.role_user import RoleUser
 from fastly.model.schemas_contact_response import SchemasContactResponse
 from fastly.model.schemas_snippet_response import SchemasSnippetResponse
+from fastly.model.schemas_snippet_response_common import SchemasSnippetResponseCommon
 from fastly.model.schemas_user_response import SchemasUserResponse
 from fastly.model.schemas_user_response_read_only import SchemasUserResponseReadOnly
 from fastly.model.schemas_vcl_response import SchemasVclResponse
@@ -495,8 +503,14 @@ from fastly.model.settings import Settings
 from fastly.model.settings_response import SettingsResponse
 from fastly.model.signing_key import SigningKey
 from fastly.model.snippet import Snippet
+from fastly.model.snippet_all_of import SnippetAllOf
+from fastly.model.snippet_common import SnippetCommon
 from fastly.model.snippet_response import SnippetResponse
-from fastly.model.snippet_response_all_of import SnippetResponseAllOf
+from fastly.model.snippet_response_common import SnippetResponseCommon
+from fastly.model.snippet_response_common_all_of import SnippetResponseCommonAllOf
+from fastly.model.snippet_response_post import SnippetResponsePost
+from fastly.model.snippet_with_dynamic_number import SnippetWithDynamicNumber
+from fastly.model.snippet_with_dynamic_number_all_of import SnippetWithDynamicNumberAllOf
 from fastly.model.star import Star
 from fastly.model.star_data import StarData
 from fastly.model.star_response import StarResponse
@@ -616,6 +630,7 @@ from fastly.model.validator_result_data import ValidatorResultData
 from fastly.model.validator_result_data_attributes import ValidatorResultDataAttributes
 from fastly.model.validator_result_data_attributes_messages import ValidatorResultDataAttributesMessages
 from fastly.model.values import Values
+from fastly.model.values_ddos import ValuesDdos
 from fastly.model.vcl import Vcl
 from fastly.model.vcl_diff import VclDiff
 from fastly.model.vcl_response import VclResponse

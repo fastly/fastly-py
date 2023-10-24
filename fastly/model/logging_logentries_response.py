@@ -200,7 +200,7 @@ class LoggingLogentriesResponse(ModelComposed):
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
-            token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
+            token (str): Use token based authentication.. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -313,7 +313,7 @@ class LoggingLogentriesResponse(ModelComposed):
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
-            token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
+            token (str): Use token based authentication.. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

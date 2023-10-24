@@ -31,11 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.snippet import Snippet
-    from fastly.model.snippet_response_all_of import SnippetResponseAllOf
-    from fastly.model.timestamps import Timestamps
+    from fastly.model.snippet_response_common import SnippetResponseCommon
     globals()['Snippet'] = Snippet
-    globals()['SnippetResponseAllOf'] = SnippetResponseAllOf
-    globals()['Timestamps'] = Timestamps
+    globals()['SnippetResponseCommon'] = SnippetResponseCommon
 
 
 class SnippetResponse(ModelComposed):
@@ -61,10 +59,6 @@ class SnippetResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('dynamic',): {
-            'regular': "0",
-            'dynamic': "1",
-        },
         ('type',): {
             'INIT': "init",
             'RECV': "recv",
@@ -77,6 +71,10 @@ class SnippetResponse(ModelComposed):
             'DELIVER': "deliver",
             'LOG': "log",
             'NONE': "none",
+        },
+        ('dynamic',): {
+            'regular': "0",
+            'dynamic': "1",
         },
     }
 
@@ -107,10 +105,10 @@ class SnippetResponse(ModelComposed):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'dynamic': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'content': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
+            'dynamic': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -126,10 +124,10 @@ class SnippetResponse(ModelComposed):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'dynamic': 'dynamic',  # noqa: E501
         'type': 'type',  # noqa: E501
         'content': 'content',  # noqa: E501
         'priority': 'priority',  # noqa: E501
+        'dynamic': 'dynamic',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
@@ -184,10 +182,10 @@ class SnippetResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
+            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -294,10 +292,10 @@ class SnippetResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
-            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
+            dynamic (str): Sets the snippet version.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -370,8 +368,7 @@ class SnippetResponse(ModelComposed):
           ],
           'allOf': [
               Snippet,
-              SnippetResponseAllOf,
-              Timestamps,
+              SnippetResponseCommon,
           ],
           'oneOf': [
           ],

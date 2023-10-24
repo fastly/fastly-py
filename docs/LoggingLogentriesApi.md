@@ -58,7 +58,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     port = 20000 # int | The port number. (optional) if omitted the server will use the default value of 20000
-    token = "token_example" # str | Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)). (optional)
+    token = "token_example" # str | Use token based authentication. (optional)
     use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
     region = "US" # str | The region to which to stream logs. (optional)
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 20000
- **token** | **str**| Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)). | [optional]
+ **token** | **str**| Use token based authentication. | [optional]
  **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
  **region** | **str**| The region to which to stream logs. | [optional]
 
@@ -411,7 +411,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     port = 20000 # int | The port number. (optional) if omitted the server will use the default value of 20000
-    token = "token_example" # str | Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)). (optional)
+    token = "token_example" # str | Use token based authentication. (optional)
     use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
     region = "US" # str | The region to which to stream logs. (optional)
 
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 20000
- **token** | **str**| Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)). | [optional]
+ **token** | **str**| Use token based authentication. | [optional]
  **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
  **region** | **str**| The region to which to stream logs. | [optional]
 

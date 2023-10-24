@@ -23,6 +23,7 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.snippet_response import SnippetResponse
+from fastly.model.snippet_response_post import SnippetResponsePost
 
 
 class SnippetApi(object):
@@ -36,7 +37,7 @@ class SnippetApi(object):
         self.api_client = api_client
         self.create_snippet_endpoint = _Endpoint(
             settings={
-                'response_type': (SnippetResponse,),
+                'response_type': (SnippetResponsePost,),
                 'auth': [
                     'token'
                 ],
@@ -55,10 +56,10 @@ class SnippetApi(object):
                     'service_id',
                     'version_id',
                     'name',
-                    'dynamic',
                     'type',
                     'content',
                     'priority',
+                    'dynamic',
                 ],
                 'required': [
                     'service_id',
@@ -67,8 +68,8 @@ class SnippetApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'dynamic',
                     'type',
+                    'dynamic',
                 ],
                 'validation': [
                 ]
@@ -77,11 +78,6 @@ class SnippetApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('dynamic',): {
-
-                        "regular": "0",
-                        "dynamic": "1"
-                    },
                     ('type',): {
 
                         "INIT": "init",
@@ -96,6 +92,11 @@ class SnippetApi(object):
                         "LOG": "log",
                         "NONE": "none"
                     },
+                    ('dynamic',): {
+
+                        "regular": "0",
+                        "dynamic": "1"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
@@ -104,32 +105,32 @@ class SnippetApi(object):
                         (int,),
                     'name':
                         (str,),
-                    'dynamic':
-                        (str,),
                     'type':
                         (str,),
                     'content':
                         (str,),
                     'priority':
                         (str,),
+                    'dynamic':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
                     'name': 'name',
-                    'dynamic': 'dynamic',
                     'type': 'type',
                     'content': 'content',
                     'priority': 'priority',
+                    'dynamic': 'dynamic',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
                     'name': 'form',
-                    'dynamic': 'form',
                     'type': 'form',
                     'content': 'form',
                     'priority': 'form',
+                    'dynamic': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -507,10 +508,10 @@ class SnippetApi(object):
                     'service_id',
                     'snippet_id',
                     'name',
-                    'dynamic',
                     'type',
                     'content',
                     'priority',
+                    'dynamic',
                 ],
                 'required': [
                     'service_id',
@@ -519,8 +520,8 @@ class SnippetApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'dynamic',
                     'type',
+                    'dynamic',
                 ],
                 'validation': [
                 ]
@@ -529,11 +530,6 @@ class SnippetApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('dynamic',): {
-
-                        "regular": "0",
-                        "dynamic": "1"
-                    },
                     ('type',): {
 
                         "INIT": "init",
@@ -548,6 +544,11 @@ class SnippetApi(object):
                         "LOG": "log",
                         "NONE": "none"
                     },
+                    ('dynamic',): {
+
+                        "regular": "0",
+                        "dynamic": "1"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
@@ -556,32 +557,32 @@ class SnippetApi(object):
                         (str,),
                     'name':
                         (str,),
-                    'dynamic':
-                        (str,),
                     'type':
                         (str,),
                     'content':
                         (str,),
                     'priority':
                         (str,),
+                    'dynamic':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'snippet_id': 'snippet_id',
                     'name': 'name',
-                    'dynamic': 'dynamic',
                     'type': 'type',
                     'content': 'content',
                     'priority': 'priority',
+                    'dynamic': 'dynamic',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'snippet_id': 'path',
                     'name': 'form',
-                    'dynamic': 'form',
                     'type': 'form',
                     'content': 'form',
                     'priority': 'form',
+                    'dynamic': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -620,10 +621,10 @@ class SnippetApi(object):
 
         Keyword Args:
             name (str): The name for the snippet.. [optional]
-            dynamic (str): Sets the snippet version.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
+            dynamic (str): Sets the snippet version.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -652,7 +653,7 @@ class SnippetApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SnippetResponse
+            SnippetResponsePost
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1129,10 +1130,10 @@ class SnippetApi(object):
 
         Keyword Args:
             name (str): The name for the snippet.. [optional]
-            dynamic (str): Sets the snippet version.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
             content (str): The VCL code that specifies exactly what the snippet does.. [optional]
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
+            dynamic (str): Sets the snippet version.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

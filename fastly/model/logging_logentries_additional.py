@@ -154,7 +154,7 @@ class LoggingLogentriesAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
-            token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
+            token (str): Use token based authentication.. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
         """
@@ -239,7 +239,7 @@ class LoggingLogentriesAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
-            token (str): Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).. [optional]  # noqa: E501
+            token (str): Use token based authentication.. [optional]  # noqa: E501
             use_tls (LoggingUseTls): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
         """

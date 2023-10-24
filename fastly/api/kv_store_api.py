@@ -277,9 +277,9 @@ class KvStoreApi(object):
         self,
         **kwargs
     ):
-        """Create an kv store.  # noqa: E501
+        """Create a KV store.  # noqa: E501
 
-        Create a new kv store.  # noqa: E501
+        Create a new KV store.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -353,9 +353,9 @@ class KvStoreApi(object):
         store_id,
         **kwargs
     ):
-        """Delete an kv store.  # noqa: E501
+        """Delete a KV store.  # noqa: E501
 
-        An kv store must be empty before it can be deleted.  Deleting an kv store that still contains keys will result in a `409` (Conflict).  # noqa: E501
+        A KV store must be empty before it can be deleted.  Deleting a KV store that still contains keys will result in a `409` (Conflict).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -431,9 +431,9 @@ class KvStoreApi(object):
         store_id,
         **kwargs
     ):
-        """Describe an kv store.  # noqa: E501
+        """Describe a KV store.  # noqa: E501
 
-        Get an kv store by ID.  # noqa: E501
+        Get a KV store by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -508,7 +508,7 @@ class KvStoreApi(object):
         self,
         **kwargs
     ):
-        """List kv stores.  # noqa: E501
+        """List KV stores.  # noqa: E501
 
         Get all stores for a given customer.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

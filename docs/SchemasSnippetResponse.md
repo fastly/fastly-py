@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name for the snippet. | [optional] 
-**dynamic** | **str** | Sets the snippet version. | [optional] 
 **type** | **str** | The location in generated VCL where the snippet should be placed. | [optional] 
 **content** | **str** | The VCL code that specifies exactly what the snippet does. | [optional] 
 **priority** | **str** | Priority determines execution order. Lower numbers execute first. | [optional]  if omitted the server will use the default value of "100"
+**dynamic** | **str** | Sets the snippet version. | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

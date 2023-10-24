@@ -305,6 +305,15 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             'ddos_action_tarpit': (int,),  # noqa: E501
             'ddos_action_close': (int,),  # noqa: E501
             'ddos_action_blackhole': (int,),  # noqa: E501
+            'bot_challenge_starts': (int,),  # noqa: E501
+            'bot_challenge_complete_tokens_passed': (int,),  # noqa: E501
+            'bot_challenge_complete_tokens_failed': (int,),  # noqa: E501
+            'bot_challenge_complete_tokens_checked': (int,),  # noqa: E501
+            'bot_challenge_complete_tokens_disabled': (int,),  # noqa: E501
+            'bot_challenge_complete_tokens_issued': (int,),  # noqa: E501
+            'bot_challenges_issued': (int,),  # noqa: E501
+            'bot_challenges_succeeded': (int,),  # noqa: E501
+            'bot_challenges_failed': (int,),  # noqa: E501
             'service_id': (ReadOnlyIdService,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -531,6 +540,15 @@ class HistoricalFieldResultsAttributes(ModelComposed):
         'ddos_action_tarpit': 'ddos_action_tarpit',  # noqa: E501
         'ddos_action_close': 'ddos_action_close',  # noqa: E501
         'ddos_action_blackhole': 'ddos_action_blackhole',  # noqa: E501
+        'bot_challenge_starts': 'bot_challenge_starts',  # noqa: E501
+        'bot_challenge_complete_tokens_passed': 'bot_challenge_complete_tokens_passed',  # noqa: E501
+        'bot_challenge_complete_tokens_failed': 'bot_challenge_complete_tokens_failed',  # noqa: E501
+        'bot_challenge_complete_tokens_checked': 'bot_challenge_complete_tokens_checked',  # noqa: E501
+        'bot_challenge_complete_tokens_disabled': 'bot_challenge_complete_tokens_disabled',  # noqa: E501
+        'bot_challenge_complete_tokens_issued': 'bot_challenge_complete_tokens_issued',  # noqa: E501
+        'bot_challenges_issued': 'bot_challenges_issued',  # noqa: E501
+        'bot_challenges_succeeded': 'bot_challenges_succeeded',  # noqa: E501
+        'bot_challenges_failed': 'bot_challenges_failed',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -790,6 +808,15 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
+            bot_challenge_starts (int): The number of challenge-start tokens created.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_passed (int): The number of challenge-complete tokens that passed validation.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_failed (int): The number of challenge-complete tokens that failed validation.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_checked (int): The number of challenge-complete tokens checked.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_disabled (int): The number of challenge-complete tokens not checked because the feature was disabled.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_issued (int): The number of challenge-complete tokens issued. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
+            bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
+            bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
+            bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
             service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """
@@ -1107,6 +1134,15 @@ class HistoricalFieldResultsAttributes(ModelComposed):
             ddos_action_tarpit (int): The number of times the tarpit action was taken. The tarpit action delays writing the response to the client.. [optional]  # noqa: E501
             ddos_action_close (int): The number of times the close action was taken. The close action aborts the connection as soon as possible. The close action takes effect either right after accept, right after the client hello, or right after the response was sent.. [optional]  # noqa: E501
             ddos_action_blackhole (int): The number of times the blackhole action was taken. The blackhole action quietly closes a TCP connection without sending a reset. The blackhole action quietly closes a TCP connection without notifying its peer (all TCP state is dropped).. [optional]  # noqa: E501
+            bot_challenge_starts (int): The number of challenge-start tokens created.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_passed (int): The number of challenge-complete tokens that passed validation.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_failed (int): The number of challenge-complete tokens that failed validation.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_checked (int): The number of challenge-complete tokens checked.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_disabled (int): The number of challenge-complete tokens not checked because the feature was disabled.. [optional]  # noqa: E501
+            bot_challenge_complete_tokens_issued (int): The number of challenge-complete tokens issued. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
+            bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
+            bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
+            bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
             service_id (ReadOnlyIdService): [optional]  # noqa: E501
             start_time (int): [optional]  # noqa: E501
         """

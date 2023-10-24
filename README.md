@@ -224,10 +224,10 @@ Class | Method | HTTP request | Description
 *InvitationsApi* | [**create_invitation**](docs/InvitationsApi.md#create_invitation) | **POST** /invitations | Create an invitation
 *InvitationsApi* | [**delete_invitation**](docs/InvitationsApi.md#delete_invitation) | **DELETE** /invitations/{invitation_id} | Delete an invitation
 *InvitationsApi* | [**list_invitations**](docs/InvitationsApi.md#list_invitations) | **GET** /invitations | List invitations
-*KvStoreApi* | [**create_store**](docs/KvStoreApi.md#create_store) | **POST** /resources/stores/kv | Create an kv store.
-*KvStoreApi* | [**delete_store**](docs/KvStoreApi.md#delete_store) | **DELETE** /resources/stores/kv/{store_id} | Delete an kv store.
-*KvStoreApi* | [**get_store**](docs/KvStoreApi.md#get_store) | **GET** /resources/stores/kv/{store_id} | Describe an kv store.
-*KvStoreApi* | [**get_stores**](docs/KvStoreApi.md#get_stores) | **GET** /resources/stores/kv | List kv stores.
+*KvStoreApi* | [**create_store**](docs/KvStoreApi.md#create_store) | **POST** /resources/stores/kv | Create a KV store.
+*KvStoreApi* | [**delete_store**](docs/KvStoreApi.md#delete_store) | **DELETE** /resources/stores/kv/{store_id} | Delete a KV store.
+*KvStoreApi* | [**get_store**](docs/KvStoreApi.md#get_store) | **GET** /resources/stores/kv/{store_id} | Describe a KV store.
+*KvStoreApi* | [**get_stores**](docs/KvStoreApi.md#get_stores) | **GET** /resources/stores/kv | List KV stores.
 *KvStoreItemApi* | [**delete_key_from_store**](docs/KvStoreItemApi.md#delete_key_from_store) | **DELETE** /resources/stores/kv/{store_id}/keys/{key_name} | Delete kv store item.
 *KvStoreItemApi* | [**get_keys**](docs/KvStoreItemApi.md#get_keys) | **GET** /resources/stores/kv/{store_id}/keys | List kv store keys.
 *KvStoreItemApi* | [**get_value_for_key**](docs/KvStoreItemApi.md#get_value_for_key) | **GET** /resources/stores/kv/{store_id}/keys/{key_name} | Get the value of an kv store item
@@ -585,6 +585,7 @@ Class | Method | HTTP request | Description
 *WafRulesApi* | [**get_waf_rule**](docs/WafRulesApi.md#get_waf_rule) | **GET** /waf/rules/{waf_rule_id} | Get a rule
 *WafRulesApi* | [**list_waf_rules**](docs/WafRulesApi.md#list_waf_rules) | **GET** /waf/rules | List available WAF rules
 *WafTagsApi* | [**list_waf_tags**](docs/WafTagsApi.md#list_waf_tags) | **GET** /waf/tags | List tags
+*WholePlatformDdosHistoricalApi* | [**get_platform_ddos_historical**](docs/WholePlatformDdosHistoricalApi.md#get_platform_ddos_historical) | **GET** /metrics/platform/ddos | Get historical DDoS metrics for the entire Fastly platform
 
 
 ## Issues

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_snippet**
-> SnippetResponse create_snippet(service_id, version_id)
+> SnippetResponsePost create_snippet(service_id, version_id)
 
 Create a snippet
 
@@ -28,7 +28,7 @@ Create a snippet for a particular service and version.
 import time
 import fastly
 from fastly.api import snippet_api
-from fastly.model.snippet_response import SnippetResponse
+from fastly.model.snippet_response_post import SnippetResponsePost
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,10 +54,10 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     name = "test-snippet" # str | The name for the snippet. (optional)
-    dynamic = "0" # str | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
+    dynamic = "0" # str | Sets the snippet version. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -71,7 +71,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a snippet
-        api_response = api_instance.create_snippet(service_id, version_id, name=name, dynamic=dynamic, type=type, content=content, priority=priority)
+        api_response = api_instance.create_snippet(service_id, version_id, name=name, type=type, content=content, priority=priority, dynamic=dynamic)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->create_snippet: %s\n" % e)
@@ -85,14 +85,14 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| The name for the snippet. | [optional]
- **dynamic** | **str**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
+ **dynamic** | **str**| Sets the snippet version. | [optional]
 
 ### Return type
 
-[**SnippetResponse**](SnippetResponse.md)
+[**SnippetResponsePost**](SnippetResponsePost.md)
 
 ### Authorization
 
@@ -559,10 +559,10 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     snippet_id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
     name = "test-snippet" # str | The name for the snippet. (optional)
-    dynamic = "0" # str | Sets the snippet version. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
     content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
+    dynamic = "0" # str | Sets the snippet version. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -576,7 +576,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a dynamic snippet
-        api_response = api_instance.update_snippet_dynamic(service_id, snippet_id, name=name, dynamic=dynamic, type=type, content=content, priority=priority)
+        api_response = api_instance.update_snippet_dynamic(service_id, snippet_id, name=name, type=type, content=content, priority=priority, dynamic=dynamic)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->update_snippet_dynamic: %s\n" % e)
@@ -590,10 +590,10 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **snippet_id** | **str**| Alphanumeric string identifying a VCL Snippet. |
  **name** | **str**| The name for the snippet. | [optional]
- **dynamic** | **str**| Sets the snippet version. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
  **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
+ **dynamic** | **str**| Sets the snippet version. | [optional]
 
 ### Return type
 

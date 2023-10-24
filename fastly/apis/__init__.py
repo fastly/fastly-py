@@ -130,3 +130,4 @@ from fastly.api.waf_firewalls_api import WafFirewallsApi
 from fastly.api.waf_rule_revisions_api import WafRuleRevisionsApi
 from fastly.api.waf_rules_api import WafRulesApi
 from fastly.api.waf_tags_api import WafTagsApi
+from fastly.api.whole_platform_ddos_historical_api import WholePlatformDdosHistoricalApi
