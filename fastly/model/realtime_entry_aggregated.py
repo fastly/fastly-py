@@ -713,10 +713,10 @@ class RealtimeEntryAggregated(ModelComposed):
             hit_resp_body_bytes (int): Total body bytes delivered for cache hits.. [optional]  # noqa: E501
             miss_resp_body_bytes (int): Total body bytes delivered for cache misses.. [optional]  # noqa: E501
             pass_resp_body_bytes (int): Total body bytes delivered for cache passes.. [optional]  # noqa: E501
-            compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to end user.. [optional]  # noqa: E501
             imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
@@ -743,17 +743,17 @@ class RealtimeEntryAggregated(ModelComposed):
             shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
             segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
             segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
-            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
             edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
             edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
-            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
             origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
             shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
@@ -1039,10 +1039,10 @@ class RealtimeEntryAggregated(ModelComposed):
             hit_resp_body_bytes (int): Total body bytes delivered for cache hits.. [optional]  # noqa: E501
             miss_resp_body_bytes (int): Total body bytes delivered for cache misses.. [optional]  # noqa: E501
             pass_resp_body_bytes (int): Total body bytes delivered for cache passes.. [optional]  # noqa: E501
-            compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to end user.. [optional]  # noqa: E501
             imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
@@ -1069,17 +1069,17 @@ class RealtimeEntryAggregated(ModelComposed):
             shield_fetch_resp_body_bytes (int): Total response body bytes sent from a shield to the edge.. [optional]  # noqa: E501
             segblock_origin_fetches (int): Number of `Range` requests to origin for segments of resources when using segmented caching.. [optional]  # noqa: E501
             segblock_shield_fetches (int): Number of `Range` requests to a shield for segments of resources when using segmented caching.. [optional]  # noqa: E501
-            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
             edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge.. [optional]  # noqa: E501
             edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge.. [optional]  # noqa: E501
-            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
             origin_cache_fetches (int): The total number of completed requests made to backends (origins) that returned cacheable content.. [optional]  # noqa: E501
             shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501

@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.2.1](https://github.com/fastly/fastly-py/releases/tag/release/v4.2.1) (2023-10-27)
+
+**Documentation:**
+
+- docs: rename Compute@Edge to Compute.
+
 ## [v4.2.0](https://github.com/fastly/fastly-py/releases/tag/release/v4.2.0) (2023-10-24)
 
 **Enhancements:**

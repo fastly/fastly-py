@@ -144,13 +144,13 @@ class PackageMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Name of the Compute@Edge package.. [optional]  # noqa: E501
-            description (str): Description of the Compute@Edge package.. [optional]  # noqa: E501
+            name (str): Name of the Compute package.. [optional]  # noqa: E501
+            description (str): Description of the Compute package.. [optional]  # noqa: E501
             authors ([str]): A list of package authors' email addresses.. [optional]  # noqa: E501
-            language (str): The language of the Compute@Edge package.. [optional]  # noqa: E501
-            size (int): Size of the Compute@Edge package in bytes.. [optional]  # noqa: E501
-            hashsum (str): Hash of the Compute@Edge package.. [optional]  # noqa: E501
-            files_hash (str): Hash of the files within the Compute@Edge package.. [optional]  # noqa: E501
+            language (str): The language of the Compute package.. [optional]  # noqa: E501
+            size (int): Size of the Compute package in bytes.. [optional]  # noqa: E501
+            hashsum (str): Hash of the Compute package.. [optional]  # noqa: E501
+            files_hash (str): Hash of the files within the Compute package.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,13 +232,13 @@ class PackageMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Name of the Compute@Edge package.. [optional]  # noqa: E501
-            description (str): Description of the Compute@Edge package.. [optional]  # noqa: E501
+            name (str): Name of the Compute package.. [optional]  # noqa: E501
+            description (str): Description of the Compute package.. [optional]  # noqa: E501
             authors ([str]): A list of package authors' email addresses.. [optional]  # noqa: E501
-            language (str): The language of the Compute@Edge package.. [optional]  # noqa: E501
-            size (int): Size of the Compute@Edge package in bytes.. [optional]  # noqa: E501
-            hashsum (str): Hash of the Compute@Edge package.. [optional]  # noqa: E501
-            files_hash (str): Hash of the files within the Compute@Edge package.. [optional]  # noqa: E501
+            language (str): The language of the Compute package.. [optional]  # noqa: E501
+            size (int): Size of the Compute package in bytes.. [optional]  # noqa: E501
+            hashsum (str): Hash of the Compute package.. [optional]  # noqa: E501
+            files_hash (str): Hash of the files within the Compute package.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

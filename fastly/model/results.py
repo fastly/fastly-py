@@ -733,19 +733,19 @@ class Results(ModelNormal):
             compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
             compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
             compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
-            compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501
@@ -1039,19 +1039,19 @@ class Results(ModelNormal):
             compute_request_time_billed_ms (float): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
             compute_ram_used (int): The amount of RAM used for your service by Fastly (in bytes).. [optional]  # noqa: E501
             compute_execution_time_ms (float): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
-            compute_req_header_bytes (int): Total header bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_req_body_bytes (int): Total body bytes received by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_header_bytes (int): Total header bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_body_bytes (int): Total body bytes sent from Compute@Edge to end user.. [optional]  # noqa: E501
-            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
-            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by Compute@Edge.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to end user.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of \"Success\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of \"Redirection\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of \"Client Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501

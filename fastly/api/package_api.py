@@ -180,9 +180,9 @@ class PackageApi(object):
         version_id,
         **kwargs
     ):
-        """Get details of the service's Compute@Edge package.  # noqa: E501
+        """Get details of the service's Compute package.  # noqa: E501
 
-        List detailed information about the Compute@Edge package for the specified service.  # noqa: E501
+        List detailed information about the Compute package for the specified service.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -262,9 +262,9 @@ class PackageApi(object):
         version_id,
         **kwargs
     ):
-        """Upload a Compute@Edge package.  # noqa: E501
+        """Upload a Compute package.  # noqa: E501
 
-        Upload a Compute@Edge package associated with the specified service version.  # noqa: E501
+        Upload a Compute package associated with the specified service version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

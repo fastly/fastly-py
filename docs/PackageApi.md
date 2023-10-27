@@ -4,16 +4,16 @@ All URIs are relative to *https://api.fastly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_package**](PackageApi.md#get_package) | **GET** /service/{service_id}/version/{version_id}/package | Get details of the service&#39;s Compute@Edge package.
-[**put_package**](PackageApi.md#put_package) | **PUT** /service/{service_id}/version/{version_id}/package | Upload a Compute@Edge package.
+[**get_package**](PackageApi.md#get_package) | **GET** /service/{service_id}/version/{version_id}/package | Get details of the service&#39;s Compute package.
+[**put_package**](PackageApi.md#put_package) | **PUT** /service/{service_id}/version/{version_id}/package | Upload a Compute package.
 
 
 # **get_package**
 > PackageResponse get_package(service_id, version_id)
 
-Get details of the service's Compute@Edge package.
+Get details of the service's Compute package.
 
-List detailed information about the Compute@Edge package for the specified service.
+List detailed information about the Compute package for the specified service.
 
 ### Example
 
@@ -51,7 +51,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get details of the service's Compute@Edge package.
+        # Get details of the service's Compute package.
         api_response = api_instance.get_package(service_id, version_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 # **put_package**
 > PackageResponse put_package(service_id, version_id)
 
-Upload a Compute@Edge package.
+Upload a Compute package.
 
-Upload a Compute@Edge package associated with the specified service version.
+Upload a Compute package associated with the specified service version.
 
 ### Example
 
@@ -133,7 +133,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Upload a Compute@Edge package.
+        # Upload a Compute package.
         api_response = api_instance.put_package(service_id, version_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -142,7 +142,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Upload a Compute@Edge package.
+        # Upload a Compute package.
         api_response = api_instance.put_package(service_id, version_id, expect=expect, package=package)
         pprint(api_response)
     except fastly.ApiException as e:
