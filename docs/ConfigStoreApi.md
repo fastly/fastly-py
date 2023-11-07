@@ -441,11 +441,13 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = config_store_api.ConfigStoreApi(api_client)
+    name = "name_example" # str | Returns a one-element array containing the details for the named config store. (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # List config stores
-        api_response = api_instance.list_config_stores()
+        api_response = api_instance.list_config_stores(name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ConfigStoreApi->list_config_stores: %s\n" % e)
@@ -453,7 +455,10 @@ with fastly.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Returns a one-element array containing the details for the named config store. | [optional]
 
 ### Return type
 

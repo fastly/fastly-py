@@ -343,6 +343,7 @@ class ConfigStoreApi(object):
             },
             params_map={
                 'all': [
+                    'name',
                 ],
                 'required': [],
                 'nullable': [
@@ -358,10 +359,14 @@ class ConfigStoreApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'name':
+                        (str,),
                 },
                 'attribute_map': {
+                    'name': 'name',
                 },
                 'location_map': {
+                    'name': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -843,6 +848,7 @@ class ConfigStoreApi(object):
 
 
         Keyword Args:
+            name (str): Returns a one-element array containing the details for the named config store.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -12,7 +12,7 @@ from setuptools import setup, find_packages  # noqa: H301
 from pathlib import Path
 
 NAME = "fastly"
-VERSION = "4.2.1"
+VERSION = "4.2.2"
 # To install the library, run the following
 #
 # python setup.py install
