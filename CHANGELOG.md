@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.2.2](https://github.com/fastly/fastly-py/releases/tag/release/v4.2.2) (2023-11-07)
+
+**Enhancements:**
+
+- feat(config_store): add `name` query param to list endpoint.
+
 ## [v4.2.1](https://github.com/fastly/fastly-py/releases/tag/release/v4.2.1) (2023-10-27)
 
 **Documentation:**
