@@ -1,6 +1,6 @@
 # RelationshipMutualAuthentication
 
-The [Mutual Authentication](/reference/api/tls/mutual-tls/authentication/) for client-to-server authentication. Optional.
+The Mutual Authentication for client-to-server authentication. Optional.
 
 ## Properties
 Name | Type | Description | Notes

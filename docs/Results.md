@@ -1,6 +1,6 @@
 # Results
 
-The [results](#results-data-model) of the query, grouped by service (and optionally, region), and aggregated over the appropriate time span.
+The results of stats queries, may be grouped by service depending on endpoint, and aggregated over the appropriate time span.
 
 ## Properties
 Name | Type | Description | Notes
@@ -230,6 +230,8 @@ Name | Type | Description | Notes
 **bot_challenges_issued** | **int** | The number of challenges issued. For example, the issuance of a CAPTCHA challenge. | [optional] 
 **bot_challenges_succeeded** | **int** | The number of successful challenge solutions processed. For example, a correct CAPTCHA solution. | [optional] 
 **bot_challenges_failed** | **int** | The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution. | [optional] 
+**service_id** | **str** |  | [optional] [readonly] 
+**start_time** | **int** | Timestamp for the start of the time period being reported | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,5 +1,19 @@
 # Changelog
 
+## [v5.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v5.0.0) (2023-11-29)
+
+**Breaking:**
+
+- breaking(historical): restructure OpenAPI schema to avoid duplicated data rendering.
+
+**Bug fixes:**
+
+- fix: no longer display Markdown syntax in code comments.
+
+**Enhancements:**
+
+- feat(stats): expose new `service_id` and `start_time` fields.
+
 ## [v4.2.2](https://github.com/fastly/fastly-py/releases/tag/release/v4.2.2) (2023-11-07)
 
 **Enhancements:**

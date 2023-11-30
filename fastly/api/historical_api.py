@@ -21,12 +21,10 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.historical_aggregate_response import HistoricalAggregateResponse
-from fastly.model.historical_field_aggregate_response import HistoricalFieldAggregateResponse
-from fastly.model.historical_field_response import HistoricalFieldResponse
 from fastly.model.historical_regions_response import HistoricalRegionsResponse
-from fastly.model.historical_response import HistoricalResponse
-from fastly.model.historical_usage_aggregate_response import HistoricalUsageAggregateResponse
+from fastly.model.historical_stats_aggregated_response import HistoricalStatsAggregatedResponse
+from fastly.model.historical_stats_by_service_response import HistoricalStatsByServiceResponse
+from fastly.model.historical_usage_aggregated_response import HistoricalUsageAggregatedResponse
 from fastly.model.historical_usage_month_response import HistoricalUsageMonthResponse
 from fastly.model.historical_usage_service_response import HistoricalUsageServiceResponse
 
@@ -42,7 +40,7 @@ class HistoricalApi(object):
         self.api_client = api_client
         self.get_hist_stats_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalResponse,),
+                'response_type': (HistoricalStatsByServiceResponse,),
                 'auth': [
                     'token'
                 ],
@@ -131,7 +129,7 @@ class HistoricalApi(object):
         )
         self.get_hist_stats_aggregated_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalAggregateResponse,),
+                'response_type': (HistoricalStatsAggregatedResponse,),
                 'auth': [
                     'token'
                 ],
@@ -220,7 +218,7 @@ class HistoricalApi(object):
         )
         self.get_hist_stats_field_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalFieldResponse,),
+                'response_type': (HistoricalStatsByServiceResponse,),
                 'auth': [
                     'token'
                 ],
@@ -316,7 +314,7 @@ class HistoricalApi(object):
         )
         self.get_hist_stats_service_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalAggregateResponse,),
+                'response_type': (HistoricalStatsAggregatedResponse,),
                 'auth': [
                     'token'
                 ],
@@ -412,7 +410,7 @@ class HistoricalApi(object):
         )
         self.get_hist_stats_service_field_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalFieldAggregateResponse,),
+                'response_type': (HistoricalStatsAggregatedResponse,),
                 'auth': [
                     'token'
                 ],
@@ -565,7 +563,7 @@ class HistoricalApi(object):
         )
         self.get_usage_endpoint = _Endpoint(
             settings={
-                'response_type': (HistoricalUsageAggregateResponse,),
+                'response_type': (HistoricalUsageAggregatedResponse,),
                 'auth': [
                     'token'
                 ],
@@ -799,7 +797,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalResponse
+            HistoricalStatsByServiceResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -876,7 +874,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalAggregateResponse
+            HistoricalStatsAggregatedResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -956,7 +954,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalFieldResponse
+            HistoricalStatsByServiceResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1038,7 +1036,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalAggregateResponse
+            HistoricalStatsAggregatedResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1122,7 +1120,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalFieldAggregateResponse
+            HistoricalStatsAggregatedResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1274,7 +1272,7 @@ class HistoricalApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            HistoricalUsageAggregateResponse
+            HistoricalUsageAggregatedResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

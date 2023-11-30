@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.historical_services import HistoricalServices
-    from fastly.model.historical_usage_results import HistoricalUsageResults
-    globals()['HistoricalServices'] = HistoricalServices
-    globals()['HistoricalUsageResults'] = HistoricalUsageResults
+    from fastly.model.historical_usage_data import HistoricalUsageData
+    from fastly.model.historical_usage_service import HistoricalUsageService
+    globals()['HistoricalUsageData'] = HistoricalUsageData
+    globals()['HistoricalUsageService'] = HistoricalUsageService
 
 
 class HistoricalUsageMonthResponseData(ModelNormal):
@@ -88,8 +88,8 @@ class HistoricalUsageMonthResponseData(ModelNormal):
         lazy_import()
         return {
             'customer_id': (str,),  # noqa: E501
-            'services': (HistoricalServices,),  # noqa: E501
-            'total': (HistoricalUsageResults,),  # noqa: E501
+            'services': ({str: (HistoricalUsageService,)},),  # noqa: E501
+            'total': ({str: (HistoricalUsageData,)},),  # noqa: E501
         }
 
     @cached_property
@@ -146,8 +146,8 @@ class HistoricalUsageMonthResponseData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             customer_id (str): [optional]  # noqa: E501
-            services (HistoricalServices): [optional]  # noqa: E501
-            total (HistoricalUsageResults): [optional]  # noqa: E501
+            services ({str: (HistoricalUsageService,)}): Organized by *service id*.. [optional]  # noqa: E501
+            total ({str: (HistoricalUsageData,)}): Organized by *region*.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class HistoricalUsageMonthResponseData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             customer_id (str): [optional]  # noqa: E501
-            services (HistoricalServices): [optional]  # noqa: E501
-            total (HistoricalUsageResults): [optional]  # noqa: E501
+            services ({str: (HistoricalUsageService,)}): Organized by *service id*.. [optional]  # noqa: E501
+            total ({str: (HistoricalUsageData,)}): Organized by *region*.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

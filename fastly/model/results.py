@@ -304,6 +304,8 @@ class Results(ModelNormal):
             'bot_challenges_issued': (int,),  # noqa: E501
             'bot_challenges_succeeded': (int,),  # noqa: E501
             'bot_challenges_failed': (int,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'start_time': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -537,9 +539,12 @@ class Results(ModelNormal):
         'bot_challenges_issued': 'bot_challenges_issued',  # noqa: E501
         'bot_challenges_succeeded': 'bot_challenges_succeeded',  # noqa: E501
         'bot_challenges_failed': 'bot_challenges_failed',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
     }
 
     read_only_vars = {
+        'service_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -805,6 +810,8 @@ class Results(ModelNormal):
             bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
             bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
             bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1111,6 +1118,8 @@ class Results(ModelNormal):
             bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
             bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
             bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -32,11 +32,11 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.historical import Historical
     from fastly.model.historical_meta import HistoricalMeta
-    from fastly.model.historical_usage_results import HistoricalUsageResults
+    from fastly.model.historical_usage_data import HistoricalUsageData
     from fastly.model.historical_usage_service_response_all_of import HistoricalUsageServiceResponseAllOf
     globals()['Historical'] = Historical
     globals()['HistoricalMeta'] = HistoricalMeta
-    globals()['HistoricalUsageResults'] = HistoricalUsageResults
+    globals()['HistoricalUsageData'] = HistoricalUsageData
     globals()['HistoricalUsageServiceResponseAllOf'] = HistoricalUsageServiceResponseAllOf
 
 
@@ -94,7 +94,7 @@ class HistoricalUsageServiceResponse(ModelComposed):
             'status': (str,),  # noqa: E501
             'meta': (HistoricalMeta,),  # noqa: E501
             'msg': (str, none_type,),  # noqa: E501
-            'data': (HistoricalUsageResults,),  # noqa: E501
+            'data': ({str: ({str: (HistoricalUsageData,)},)},),  # noqa: E501
         }
 
     @cached_property
@@ -151,7 +151,7 @@ class HistoricalUsageServiceResponse(ModelComposed):
             status (str): Whether or not we were able to successfully execute the query.. [optional]  # noqa: E501
             meta (HistoricalMeta): [optional]  # noqa: E501
             msg (str, none_type): If the query was not successful, this will provide a string that explains why.. [optional]  # noqa: E501
-            data (HistoricalUsageResults): [optional]  # noqa: E501
+            data ({str: ({str: (HistoricalUsageData,)},)}): Organized by *region*.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,7 +254,7 @@ class HistoricalUsageServiceResponse(ModelComposed):
             status (str): Whether or not we were able to successfully execute the query.. [optional]  # noqa: E501
             meta (HistoricalMeta): [optional]  # noqa: E501
             msg (str, none_type): If the query was not successful, this will provide a string that explains why.. [optional]  # noqa: E501
-            data (HistoricalUsageResults): [optional]  # noqa: E501
+            data ({str: ({str: (HistoricalUsageData,)},)}): Organized by *region*.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

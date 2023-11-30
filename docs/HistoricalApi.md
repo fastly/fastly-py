@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **get_hist_stats**
-> HistoricalResponse get_hist_stats()
+> HistoricalStatsByServiceResponse get_hist_stats()
 
 Get historical stats
 
@@ -30,7 +30,7 @@ Fetches historical stats for each of your Fastly services and groups the results
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_response import HistoricalResponse
+from fastly.model.historical_stats_by_service_response import HistoricalStatsByServiceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalResponse**](HistoricalResponse.md)
+[**HistoricalStatsByServiceResponse**](HistoricalStatsByServiceResponse.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hist_stats_aggregated**
-> HistoricalAggregateResponse get_hist_stats_aggregated()
+> HistoricalStatsAggregatedResponse get_hist_stats_aggregated()
 
 Get aggregated historical stats
 
@@ -115,7 +115,7 @@ Fetches historical stats information aggregated across all of your Fastly servic
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_aggregate_response import HistoricalAggregateResponse
+from fastly.model.historical_stats_aggregated_response import HistoricalStatsAggregatedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalAggregateResponse**](HistoricalAggregateResponse.md)
+[**HistoricalStatsAggregatedResponse**](HistoricalStatsAggregatedResponse.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hist_stats_field**
-> HistoricalFieldResponse get_hist_stats_field(field)
+> HistoricalStatsByServiceResponse get_hist_stats_field(field)
 
 Get historical stats for a single field
 
@@ -200,7 +200,7 @@ Fetches the specified field from the historical stats for each of your services 
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_field_response import HistoricalFieldResponse
+from fastly.model.historical_stats_by_service_response import HistoricalStatsByServiceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalFieldResponse**](HistoricalFieldResponse.md)
+[**HistoricalStatsByServiceResponse**](HistoricalStatsByServiceResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hist_stats_service**
-> HistoricalAggregateResponse get_hist_stats_service(service_id)
+> HistoricalStatsAggregatedResponse get_hist_stats_service(service_id)
 
 Get historical stats for a single service
 
@@ -295,7 +295,7 @@ Fetches historical stats for a given service.
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_aggregate_response import HistoricalAggregateResponse
+from fastly.model.historical_stats_aggregated_response import HistoricalStatsAggregatedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalAggregateResponse**](HistoricalAggregateResponse.md)
+[**HistoricalStatsAggregatedResponse**](HistoricalStatsAggregatedResponse.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hist_stats_service_field**
-> HistoricalFieldAggregateResponse get_hist_stats_service_field(service_id, field)
+> HistoricalStatsAggregatedResponse get_hist_stats_service_field(service_id, field)
 
 Get historical stats for a single service/field combination
 
@@ -390,7 +390,7 @@ Fetches the specified field from the historical stats for a given service.
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_field_aggregate_response import HistoricalFieldAggregateResponse
+from fastly.model.historical_stats_aggregated_response import HistoricalStatsAggregatedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalFieldAggregateResponse**](HistoricalFieldAggregateResponse.md)
+[**HistoricalStatsAggregatedResponse**](HistoricalStatsAggregatedResponse.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_usage**
-> HistoricalUsageAggregateResponse get_usage()
+> HistoricalUsageAggregatedResponse get_usage()
 
 Get usage statistics
 
@@ -561,7 +561,7 @@ Returns usage information aggregated across all Fastly services and grouped by r
 import time
 import fastly
 from fastly.api import historical_api
-from fastly.model.historical_usage_aggregate_response import HistoricalUsageAggregateResponse
+from fastly.model.historical_usage_aggregated_response import HistoricalUsageAggregatedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -607,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HistoricalUsageAggregateResponse**](HistoricalUsageAggregateResponse.md)
+[**HistoricalUsageAggregatedResponse**](HistoricalUsageAggregatedResponse.md)
 
 ### Authorization
 
