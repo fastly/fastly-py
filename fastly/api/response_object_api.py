@@ -21,6 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fastly.model.create_response_object_request import CreateResponseObjectRequest
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.response_object_response import ResponseObjectResponse
 
@@ -54,6 +55,7 @@ class ResponseObjectApi(object):
                 'all': [
                     'service_id',
                     'version_id',
+                    'create_response_object_request',
                 ],
                 'required': [
                     'service_id',
@@ -76,6 +78,8 @@ class ResponseObjectApi(object):
                         (str,),
                     'version_id':
                         (int,),
+                    'create_response_object_request':
+                        (CreateResponseObjectRequest,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -84,6 +88,7 @@ class ResponseObjectApi(object):
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
+                    'create_response_object_request': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -95,7 +100,7 @@ class ResponseObjectApi(object):
                     'application/json'
                 ],
                 'content_type': [
-                    'application/x-www-form-urlencoded'
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -325,6 +330,7 @@ class ResponseObjectApi(object):
                     'service_id',
                     'version_id',
                     'response_object_name',
+                    'create_response_object_request',
                 ],
                 'required': [
                     'service_id',
@@ -350,6 +356,8 @@ class ResponseObjectApi(object):
                         (int,),
                     'response_object_name':
                         (str,),
+                    'create_response_object_request':
+                        (CreateResponseObjectRequest,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -360,6 +368,7 @@ class ResponseObjectApi(object):
                     'service_id': 'path',
                     'version_id': 'path',
                     'response_object_name': 'path',
+                    'create_response_object_request': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -371,7 +380,7 @@ class ResponseObjectApi(object):
                     'application/json'
                 ],
                 'content_type': [
-                    'application/x-www-form-urlencoded'
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -397,6 +406,7 @@ class ResponseObjectApi(object):
             version_id (int): Integer identifying a service version.
 
         Keyword Args:
+            create_response_object_request (CreateResponseObjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -735,6 +745,7 @@ class ResponseObjectApi(object):
             response_object_name (str): Name for the request settings.
 
         Keyword Args:
+            create_response_object_request (CreateResponseObjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

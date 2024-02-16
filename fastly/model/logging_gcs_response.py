@@ -35,7 +35,6 @@ def lazy_import():
     from fastly.model.logging_gcs_common import LoggingGcsCommon
     from fastly.model.logging_generic_common_response import LoggingGenericCommonResponse
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
-    from fastly.model.str_none_type import StrNoneType
     from fastly.model.timestamps import Timestamps
     globals()['LoggingCommonResponse'] = LoggingCommonResponse
     globals()['LoggingGcsAdditional'] = LoggingGcsAdditional
@@ -43,7 +42,6 @@ def lazy_import():
     globals()['LoggingGenericCommonResponse'] = LoggingGenericCommonResponse
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
-    globals()['str, none_type'] = str, none_type
 
 
 class LoggingGcsResponse(ModelComposed):

@@ -29,11 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    pass
 
-
-class LoggingGcsAdditional(ModelNormal):
+class CreateResponseObjectRequest(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -67,7 +64,6 @@ class LoggingGcsAdditional(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -82,12 +78,14 @@ class LoggingGcsAdditional(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'bucket_name': (str,),  # noqa: E501
-            'path': (str,),  # noqa: E501
-            'public_key': (str, none_type,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'response': (str,),  # noqa: E501
+            'content': (str,),  # noqa: E501
+            'content_type': (str, none_type,),  # noqa: E501
+            'request_condition': (str, none_type,),  # noqa: E501
+            'cache_condition': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -96,10 +94,13 @@ class LoggingGcsAdditional(ModelNormal):
 
 
     attribute_map = {
-        'bucket_name': 'bucket_name',  # noqa: E501
-        'path': 'path',  # noqa: E501
-        'public_key': 'public_key',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'response': 'response',  # noqa: E501
+        'content': 'content',  # noqa: E501
+        'content_type': 'content_type',  # noqa: E501
+        'request_condition': 'request_condition',  # noqa: E501
+        'cache_condition': 'cache_condition',  # noqa: E501
     }
 
     read_only_vars = {
@@ -110,7 +111,7 @@ class LoggingGcsAdditional(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LoggingGcsAdditional - a model defined in OpenAPI
+        """CreateResponseObjectRequest - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,10 +144,13 @@ class LoggingGcsAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
+            name (str): The name of the response object to create.. [optional]  # noqa: E501
+            status (str): The status code the response will have. Defaults to 200.. [optional]  # noqa: E501
+            response (str): The status text the response will have. Defaults to 'OK'.. [optional]  # noqa: E501
+            content (str): The content the response will deliver.. [optional]  # noqa: E501
+            content_type (str, none_type): The MIME type of your response content.. [optional]  # noqa: E501
+            request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
+            cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -195,7 +199,7 @@ class LoggingGcsAdditional(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LoggingGcsAdditional - a model defined in OpenAPI
+        """CreateResponseObjectRequest - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,10 +232,13 @@ class LoggingGcsAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bucket_name (str): The name of the GCS bucket.. [optional]  # noqa: E501
-            path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            public_key (str, none_type): A PGP public key that Fastly will use to encrypt your log files before writing them to disk.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
+            name (str): The name of the response object to create.. [optional]  # noqa: E501
+            status (str): The status code the response will have. Defaults to 200.. [optional]  # noqa: E501
+            response (str): The status text the response will have. Defaults to 'OK'.. [optional]  # noqa: E501
+            content (str): The content the response will deliver.. [optional]  # noqa: E501
+            content_type (str, none_type): The MIME type of your response content.. [optional]  # noqa: E501
+            request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
+            cache_condition (str, none_type): Name of the cache condition controlling when this configuration applies.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

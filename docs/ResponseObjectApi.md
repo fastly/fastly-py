@@ -27,6 +27,7 @@ import time
 import fastly
 from fastly.api import response_object_api
 from fastly.model.response_object_response import ResponseObjectResponse
+from fastly.model.create_response_object_request import CreateResponseObjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -51,11 +52,29 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = response_object_api.ResponseObjectApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
+    create_response_object_request = CreateResponseObjectRequest(
+        name="name_example",
+        status="status_example",
+        response="response_example",
+        content="content_example",
+        content_type="content_type_example",
+        request_condition="request_condition_example",
+        cache_condition="cache_condition_example",
+    ) # CreateResponseObjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create a Response object
         api_response = api_instance.create_response_object(service_id, version_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling ResponseObjectApi->create_response_object: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create a Response object
+        api_response = api_instance.create_response_object(service_id, version_id, create_response_object_request=create_response_object_request)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResponseObjectApi->create_response_object: %s\n" % e)
@@ -68,6 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
+ **create_response_object_request** | [**CreateResponseObjectRequest**](CreateResponseObjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -79,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -88,6 +108,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**400** | Bad Request |  -  |
+**404** | Service or version not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -351,6 +373,7 @@ import time
 import fastly
 from fastly.api import response_object_api
 from fastly.model.response_object_response import ResponseObjectResponse
+from fastly.model.create_response_object_request import CreateResponseObjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -376,11 +399,29 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     response_object_name = "test-response" # str | Name for the request settings.
+    create_response_object_request = CreateResponseObjectRequest(
+        name="name_example",
+        status="status_example",
+        response="response_example",
+        content="content_example",
+        content_type="content_type_example",
+        request_condition="request_condition_example",
+        cache_condition="cache_condition_example",
+    ) # CreateResponseObjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update a Response object
         api_response = api_instance.update_response_object(service_id, version_id, response_object_name)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling ResponseObjectApi->update_response_object: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update a Response object
+        api_response = api_instance.update_response_object(service_id, version_id, response_object_name, create_response_object_request=create_response_object_request)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ResponseObjectApi->update_response_object: %s\n" % e)
@@ -394,6 +435,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **response_object_name** | **str**| Name for the request settings. |
+ **create_response_object_request** | [**CreateResponseObjectRequest**](CreateResponseObjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -405,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -414,6 +456,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**400** | Bad Request |  -  |
+**404** | Service, version, or response object not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

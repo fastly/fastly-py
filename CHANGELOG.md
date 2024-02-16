@@ -1,5 +1,13 @@
 # Changelog
 
+## [v5.0.1](https://github.com/fastly/fastly-py/releases/tag/release/v5.0.1) (2024-02-16)
+
+**Bug fixes:**
+
+- fix(response_object): strongly type response_object create_update requests
+- fix(tls_configurations): fix `tls_protocols` field to be a string array type
+- fix(generator): fix `str, none_type` in generated code
+
 ## [v5.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v5.0.0) (2023-11-29)
 
 **Breaking:**

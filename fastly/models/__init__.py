@@ -75,6 +75,7 @@ from fastly.model.contact import Contact
 from fastly.model.contact_response import ContactResponse
 from fastly.model.contact_response_all_of import ContactResponseAllOf
 from fastly.model.content import Content
+from fastly.model.create_response_object_request import CreateResponseObjectRequest
 from fastly.model.customer import Customer
 from fastly.model.customer_response import CustomerResponse
 from fastly.model.customer_response_all_of import CustomerResponseAllOf

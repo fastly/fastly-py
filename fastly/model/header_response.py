@@ -33,13 +33,11 @@ def lazy_import():
     from fastly.model.header import Header
     from fastly.model.header_response_additional import HeaderResponseAdditional
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
-    from fastly.model.str_none_type import StrNoneType
     from fastly.model.timestamps import Timestamps
     globals()['Header'] = Header
     globals()['HeaderResponseAdditional'] = HeaderResponseAdditional
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
-    globals()['str, none_type'] = str, none_type
 
 
 class HeaderResponse(ModelComposed):

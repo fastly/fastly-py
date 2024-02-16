@@ -30,8 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.str_none_type import StrNoneType
-    globals()['str, none_type'] = str, none_type
+    pass
 
 
 class Header(ModelNormal):
