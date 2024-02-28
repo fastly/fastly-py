@@ -303,7 +303,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = secret_store_item_api.SecretStoreItemApi(api_client)
     store_id = "store_id_example" # str | 
-    cursor = "cursor_example" # str | Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. (optional)
+    cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
     limit = "100" # str | Number of results per page. The maximum is 200. (optional) if omitted the server will use the default value of "100"
 
     # example passing only required values which don't have defaults set
@@ -330,7 +330,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **str**|  |
- **cursor** | **str**| Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. | [optional]
+ **cursor** | **str**| Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. | [optional]
  **limit** | **str**| Number of results per page. The maximum is 200. | [optional] if omitted the server will use the default value of "100"
 
 ### Return type

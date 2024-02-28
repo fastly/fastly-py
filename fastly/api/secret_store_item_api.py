@@ -683,7 +683,7 @@ class SecretStoreItemApi(object):
             store_id (str):
 
         Keyword Args:
-            cursor (str): Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty.. [optional]
+            cursor (str): Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty.. [optional]
             limit (str): Number of results per page. The maximum is 200.. [optional] if omitted the server will use the default value of "100"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

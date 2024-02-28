@@ -120,7 +120,7 @@ import time
 import fastly
 from fastly.api import automation_tokens_api
 from fastly.model.automation_token_response import AutomationTokenResponse
-from fastly.model.error_response import ErrorResponse
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -200,7 +200,7 @@ List of services associated with the automation token.
 import time
 import fastly
 from fastly.api import automation_tokens_api
-from fastly.model.error_response import ErrorResponse
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from fastly.model.inline_response2001 import InlineResponse2001
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
@@ -295,7 +295,7 @@ import time
 import fastly
 from fastly.api import automation_tokens_api
 from fastly.model.automation_token_response import AutomationTokenResponse
-from fastly.model.error_response import ErrorResponse
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_automation_token_id**
-> ErrorResponse revoke_automation_token_id(id)
+> AutomationTokenErrorResponse revoke_automation_token_id(id)
 
 Revoke an Automation Token by ID
 
@@ -378,7 +378,7 @@ Revoke an automation token by ID.
 import time
 import fastly
 from fastly.api import automation_tokens_api
-from fastly.model.error_response import ErrorResponse
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ErrorResponse**](ErrorResponse.md)
+[**AutomationTokenErrorResponse**](AutomationTokenErrorResponse.md)
 
 ### Authorization
 

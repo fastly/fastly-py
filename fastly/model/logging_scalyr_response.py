@@ -191,7 +191,7 @@ class LoggingScalyrResponse(ModelComposed):
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
-            token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
+            token (str): The token to use for authentication.. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -303,7 +303,7 @@ class LoggingScalyrResponse(ModelComposed):
             format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
-            token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
+            token (str): The token to use for authentication.. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

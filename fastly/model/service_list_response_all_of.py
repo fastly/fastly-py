@@ -144,8 +144,8 @@ class ServiceListResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            version (int): Current [version](/reference/api/services/version/) of the service.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class ServiceListResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            version (int): Current [version](/reference/api/services/version/) of the service.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

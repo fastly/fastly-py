@@ -22,6 +22,7 @@ from fastly.model.automation_token_create_request import AutomationTokenCreateRe
 from fastly.model.automation_token_create_request_attributes import AutomationTokenCreateRequestAttributes
 from fastly.model.automation_token_create_response import AutomationTokenCreateResponse
 from fastly.model.automation_token_create_response_all_of import AutomationTokenCreateResponseAllOf
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from fastly.model.automation_token_response import AutomationTokenResponse
 from fastly.model.automation_token_response_all_of import AutomationTokenResponseAllOf
 from fastly.model.aws_region import AwsRegion
@@ -106,7 +107,8 @@ from fastly.model.enabled_product_response import EnabledProductResponse
 from fastly.model.enabled_product_response_links import EnabledProductResponseLinks
 from fastly.model.enabled_product_response_product import EnabledProductResponseProduct
 from fastly.model.enabled_product_response_service import EnabledProductResponseService
-from fastly.model.error_response import ErrorResponse
+from fastly.model.error import Error
+from fastly.model.error_response_data import ErrorResponseData
 from fastly.model.event import Event
 from fastly.model.event_attributes import EventAttributes
 from fastly.model.event_data import EventData
@@ -192,6 +194,9 @@ from fastly.model.invitation_response_data import InvitationResponseData
 from fastly.model.invitation_response_data_all_of import InvitationResponseDataAllOf
 from fastly.model.invitations_response import InvitationsResponse
 from fastly.model.invitations_response_all_of import InvitationsResponseAllOf
+from fastly.model.invoice import Invoice
+from fastly.model.invoice_response import InvoiceResponse
+from fastly.model.invoicelineitems import Invoicelineitems
 from fastly.model.legacy_waf_configuration_set import LegacyWafConfigurationSet
 from fastly.model.legacy_waf_firewall import LegacyWafFirewall
 from fastly.model.legacy_waf_owasp import LegacyWafOwasp
@@ -202,6 +207,8 @@ from fastly.model.legacy_waf_tag import LegacyWafTag
 from fastly.model.legacy_waf_update_status import LegacyWafUpdateStatus
 from fastly.model.line_item_data import LineItemData
 from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
+from fastly.model.list_invoices_response import ListInvoicesResponse
+from fastly.model.listinvoices import Listinvoices
 from fastly.model.logging_address_and_port import LoggingAddressAndPort
 from fastly.model.logging_azureblob_additional import LoggingAzureblobAdditional
 from fastly.model.logging_azureblob_response import LoggingAzureblobResponse
@@ -275,6 +282,7 @@ from fastly.model.logging_syslog_additional import LoggingSyslogAdditional
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from fastly.model.logging_tls_common import LoggingTlsCommon
 from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.metadata import Metadata
 from fastly.model.mutual_authentication import MutualAuthentication
 from fastly.model.mutual_authentication_data import MutualAuthenticationData
 from fastly.model.mutual_authentication_data_attributes import MutualAuthenticationDataAttributes
@@ -557,6 +565,13 @@ from fastly.model.tls_configuration_response_data import TlsConfigurationRespons
 from fastly.model.tls_configuration_response_data_all_of import TlsConfigurationResponseDataAllOf
 from fastly.model.tls_configurations_response import TlsConfigurationsResponse
 from fastly.model.tls_configurations_response_all_of import TlsConfigurationsResponseAllOf
+from fastly.model.tls_csr import TlsCsr
+from fastly.model.tls_csr_data import TlsCsrData
+from fastly.model.tls_csr_data_attributes import TlsCsrDataAttributes
+from fastly.model.tls_csr_error_response import TlsCsrErrorResponse
+from fastly.model.tls_csr_response import TlsCsrResponse
+from fastly.model.tls_csr_response_attributes import TlsCsrResponseAttributes
+from fastly.model.tls_csr_response_data import TlsCsrResponseData
 from fastly.model.tls_dns_record import TlsDnsRecord
 from fastly.model.tls_domain_data import TlsDomainData
 from fastly.model.tls_domains_response import TlsDomainsResponse
@@ -601,6 +616,7 @@ from fastly.model.type_tls_activation import TypeTlsActivation
 from fastly.model.type_tls_bulk_certificate import TypeTlsBulkCertificate
 from fastly.model.type_tls_certificate import TypeTlsCertificate
 from fastly.model.type_tls_configuration import TypeTlsConfiguration
+from fastly.model.type_tls_csr import TypeTlsCsr
 from fastly.model.type_tls_dns_record import TypeTlsDnsRecord
 from fastly.model.type_tls_domain import TypeTlsDomain
 from fastly.model.type_tls_private_key import TypeTlsPrivateKey

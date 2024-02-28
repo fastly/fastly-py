@@ -75,7 +75,7 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_ca_cert = "ssl_ca_cert_example" # str, none_type | CA certificate attached to origin. (optional)
     ssl_cert_hostname = "ssl_cert_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all. (optional)
     ssl_check_cert = True # bool, none_type | Be strict on checking SSL certs. (optional) if omitted the server will use the default value of True
-    ssl_ciphers = "ssl_ciphers_example" # str, none_type | List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
+    ssl_ciphers = "ssl_ciphers_example" # str, none_type | List of [OpenSSL ciphers](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
     ssl_client_cert = "ssl_client_cert_example" # str, none_type | Client certificate attached to origin. (optional)
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
  **ssl_ca_cert** | **str, none_type**| CA certificate attached to origin. | [optional]
  **ssl_cert_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all. | [optional]
  **ssl_check_cert** | **bool, none_type**| Be strict on checking SSL certs. | [optional] if omitted the server will use the default value of True
- **ssl_ciphers** | **str, none_type**| List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
+ **ssl_ciphers** | **str, none_type**| List of [OpenSSL ciphers](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
  **ssl_client_cert** | **str, none_type**| Client certificate attached to origin. | [optional]
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]
@@ -471,7 +471,7 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_ca_cert = "ssl_ca_cert_example" # str, none_type | CA certificate attached to origin. (optional)
     ssl_cert_hostname = "ssl_cert_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all. (optional)
     ssl_check_cert = True # bool, none_type | Be strict on checking SSL certs. (optional) if omitted the server will use the default value of True
-    ssl_ciphers = "ssl_ciphers_example" # str, none_type | List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
+    ssl_ciphers = "ssl_ciphers_example" # str, none_type | List of [OpenSSL ciphers](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
     ssl_client_cert = "ssl_client_cert_example" # str, none_type | Client certificate attached to origin. (optional)
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
  **ssl_ca_cert** | **str, none_type**| CA certificate attached to origin. | [optional]
  **ssl_cert_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all. | [optional]
  **ssl_check_cert** | **bool, none_type**| Be strict on checking SSL certs. | [optional] if omitted the server will use the default value of True
- **ssl_ciphers** | **str, none_type**| List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
+ **ssl_ciphers** | **str, none_type**| List of [OpenSSL ciphers](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
  **ssl_client_cert** | **str, none_type**| Client certificate attached to origin. | [optional]
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]

@@ -226,7 +226,7 @@ class PoolResponse(ModelComposed):
             service_id (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             name (str): Name for the Pool.. [optional]  # noqa: E501
-            shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]  # noqa: E501
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]  # noqa: E501
@@ -353,7 +353,7 @@ class PoolResponse(ModelComposed):
             service_id (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             name (str): Name for the Pool.. [optional]  # noqa: E501
-            shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            shield (str, none_type): Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
             tls_ciphers (str, none_type): List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.. [optional]  # noqa: E501
             tls_sni_hostname (str, none_type): SNI hostname. Optional.. [optional]  # noqa: E501

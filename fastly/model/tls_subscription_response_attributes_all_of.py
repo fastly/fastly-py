@@ -87,6 +87,7 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
         """
         return {
             'state': (str,),  # noqa: E501
+            'has_active_order': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
 
     attribute_map = {
         'state': 'state',  # noqa: E501
+        'has_active_order': 'has_active_order',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,6 +142,7 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             state (str): The current state of your subscription.. [optional]  # noqa: E501
+            has_active_order (bool): Subscription has an active order. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +225,7 @@ class TlsSubscriptionResponseAttributesAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             state (str): The current state of your subscription.. [optional]  # noqa: E501
+            has_active_order (bool): Subscription has an active order. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

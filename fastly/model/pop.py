@@ -162,7 +162,7 @@ class Pop(ModelNormal):
         """Pop - a model defined in OpenAPI
 
         Args:
-            code (str): the three-letter code for the [POP](https://developer.fastly.com/learning/concepts/pop/)
+            code (str): the three-letter code for the [POP](https://www.fastly.com/documentation/learning/concepts/pop/)
             name (str): the name of the POP
             group (str):
             region (str):
@@ -201,7 +201,7 @@ class Pop(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             coordinates (PopCoordinates): [optional]  # noqa: E501
-            shield (str): the name of the [shield code](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
+            shield (str): the name of the [shield code](https://www.fastly.com/documentation/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +259,7 @@ class Pop(ModelNormal):
         """Pop - a model defined in OpenAPI
 
         Args:
-            code (str): the three-letter code for the [POP](https://developer.fastly.com/learning/concepts/pop/)
+            code (str): the three-letter code for the [POP](https://www.fastly.com/documentation/learning/concepts/pop/)
             name (str): the name of the POP
             group (str):
             region (str):
@@ -298,7 +298,7 @@ class Pop(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             coordinates (PopCoordinates): [optional]  # noqa: E501
-            shield (str): the name of the [shield code](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
+            shield (str): the name of the [shield code](https://www.fastly.com/documentation/learning/concepts/shielding/#choosing-a-shield-location) if this POP is suitable for shielding. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

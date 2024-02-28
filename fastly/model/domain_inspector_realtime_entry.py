@@ -146,7 +146,7 @@ class DomainInspectorRealtimeEntry(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recorded (RecordedTimestamp): [optional]  # noqa: E501
             aggregated ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Groups [measurements](#measurements-data-model) by backend name and then by IP address.. [optional]  # noqa: E501
-            datacenter ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
+            datacenter ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,7 +230,7 @@ class DomainInspectorRealtimeEntry(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recorded (RecordedTimestamp): [optional]  # noqa: E501
             aggregated ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Groups [measurements](#measurements-data-model) by backend name and then by IP address.. [optional]  # noqa: E501
-            datacenter ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
+            datacenter ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

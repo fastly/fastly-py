@@ -158,8 +158,10 @@ class Results(ModelNormal):
             'imgopto': (int,),  # noqa: E501
             'imgopto_resp_body_bytes': (int,),  # noqa: E501
             'imgopto_resp_header_bytes': (int,),  # noqa: E501
+            'imgopto_shield': (int,),  # noqa: E501
             'imgopto_shield_resp_body_bytes': (int,),  # noqa: E501
             'imgopto_shield_resp_header_bytes': (int,),  # noqa: E501
+            'imgopto_transforms': (int,),  # noqa: E501
             'imgvideo': (int,),  # noqa: E501
             'imgvideo_frames': (int,),  # noqa: E501
             'imgvideo_resp_header_bytes': (int,),  # noqa: E501
@@ -393,8 +395,10 @@ class Results(ModelNormal):
         'imgopto': 'imgopto',  # noqa: E501
         'imgopto_resp_body_bytes': 'imgopto_resp_body_bytes',  # noqa: E501
         'imgopto_resp_header_bytes': 'imgopto_resp_header_bytes',  # noqa: E501
+        'imgopto_shield': 'imgopto_shield',  # noqa: E501
         'imgopto_shield_resp_body_bytes': 'imgopto_shield_resp_body_bytes',  # noqa: E501
         'imgopto_shield_resp_header_bytes': 'imgopto_shield_resp_header_bytes',  # noqa: E501
+        'imgopto_transforms': 'imgopto_transforms',  # noqa: E501
         'imgvideo': 'imgvideo',  # noqa: E501
         'imgvideo_frames': 'imgvideo_frames',  # noqa: E501
         'imgvideo_resp_header_bytes': 'imgvideo_resp_header_bytes',  # noqa: E501
@@ -664,8 +668,10 @@ class Results(ModelNormal):
             imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
+            imgopto_shield (int): Number of responses that came from the Fastly Image Optimizer service via a shield.. [optional]  # noqa: E501
             imgopto_shield_resp_body_bytes (int): Total body bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgopto_transforms (int): Number of transforms performed by the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501
@@ -972,8 +978,10 @@ class Results(ModelNormal):
             imgopto (int): Number of responses that came from the Fastly Image Optimizer service. If the service receives 10 requests for an image, this stat will be 10 regardless of how many times the image was transformed.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
+            imgopto_shield (int): Number of responses that came from the Fastly Image Optimizer service via a shield.. [optional]  # noqa: E501
             imgopto_shield_resp_body_bytes (int): Total body bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
+            imgopto_transforms (int): Number of transforms performed by the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo (int): Number of video responses that came from the Fastly Image Optimizer service.. [optional]  # noqa: E501
             imgvideo_frames (int): Number of video frames that came from the Fastly Image Optimizer service. A video frame is an individual image within a sequence of video.. [optional]  # noqa: E501
             imgvideo_resp_header_bytes (int): Total header bytes of video delivered from the Fastly Image Optimizer service.. [optional]  # noqa: E501

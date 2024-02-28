@@ -98,6 +98,7 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'state': (str,),  # noqa: E501
+            'has_active_order': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'state': 'state',  # noqa: E501
+        'has_active_order': 'has_active_order',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +160,7 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             state (str): The current state of your subscription.. [optional]  # noqa: E501
+            has_active_order (bool): Subscription has an active order. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +264,7 @@ class TlsSubscriptionResponseAttributes(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             state (str): The current state of your subscription.. [optional]  # noqa: E501
+            has_active_order (bool): Subscription has an active order. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

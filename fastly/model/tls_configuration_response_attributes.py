@@ -160,7 +160,7 @@ class TlsConfigurationResponseAttributes(ModelComposed):
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
+            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](https://www.fastly.com/documentation/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
             http_protocols ([str]): HTTP protocols available on your configuration.. [optional]  # noqa: E501
             tls_protocols ([str]): TLS protocols available on your configuration.. [optional]  # noqa: E501
             bulk (bool): Signifies whether the configuration is used for Platform TLS or not.. [optional]  # noqa: E501
@@ -266,7 +266,7 @@ class TlsConfigurationResponseAttributes(ModelComposed):
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
+            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](https://www.fastly.com/documentation/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
             http_protocols ([str]): HTTP protocols available on your configuration.. [optional]  # noqa: E501
             tls_protocols ([str]): TLS protocols available on your configuration.. [optional]  # noqa: E501
             bulk (bool): Signifies whether the configuration is used for Platform TLS or not.. [optional]  # noqa: E501

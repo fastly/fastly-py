@@ -287,7 +287,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = kv_store_api.KvStoreApi(api_client)
     cursor = "cursor_example" # str |  (optional)
-    limit = 100 # int |  (optional) if omitted the server will use the default value of 100
+    limit = 1000 # int |  (optional) if omitted the server will use the default value of 1000
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -305,7 +305,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cursor** | **str**|  | [optional]
- **limit** | **int**|  | [optional] if omitted the server will use the default value of 100
+ **limit** | **int**|  | [optional] if omitted the server will use the default value of 1000
 
 ### Return type
 

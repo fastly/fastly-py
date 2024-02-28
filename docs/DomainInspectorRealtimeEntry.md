@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recorded** | [**RecordedTimestamp**](RecordedTimestamp.md) |  | [optional] 
 **aggregated** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | Groups [measurements](#measurements-data-model) by backend name and then by IP address. | [optional] 
-**datacenter** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** | Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](/reference/api/utils/pops/) for details about POP identifiers. | [optional] 
+**datacenter** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** | Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

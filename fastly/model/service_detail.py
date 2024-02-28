@@ -186,7 +186,7 @@ class ServiceDetail(ModelComposed):
             id (str): [optional]  # noqa: E501
             publish_key (str): Unused at this time.. [optional]  # noqa: E501
             paused (bool): Whether the service is paused. Services are paused due to a lack of traffic for an extended period of time. Services are resumed either when a draft version is activated or a locked version is cloned and reactivated.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
             active_version (ServiceVersionDetailOrNull): [optional]  # noqa: E501
             version (ServiceVersionDetail): [optional]  # noqa: E501
         """
@@ -298,7 +298,7 @@ class ServiceDetail(ModelComposed):
             id (str): [optional]  # noqa: E501
             publish_key (str): Unused at this time.. [optional]  # noqa: E501
             paused (bool): Whether the service is paused. Services are paused due to a lack of traffic for an extended period of time. Services are resumed either when a draft version is activated or a locked version is cloned and reactivated.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
             active_version (ServiceVersionDetailOrNull): [optional]  # noqa: E501
             version (ServiceVersionDetail): [optional]  # noqa: E501
         """

@@ -23,8 +23,8 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.automation_token_create_request import AutomationTokenCreateRequest
 from fastly.model.automation_token_create_response import AutomationTokenCreateResponse
+from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from fastly.model.automation_token_response import AutomationTokenResponse
-from fastly.model.error_response import ErrorResponse
 from fastly.model.inline_response2001 import InlineResponse2001
 
 
@@ -286,7 +286,7 @@ class AutomationTokensApi(object):
         )
         self.revoke_automation_token_id_endpoint = _Endpoint(
             settings={
-                'response_type': (ErrorResponse,),
+                'response_type': (AutomationTokenErrorResponse,),
                 'auth': [
                     'token'
                 ],
@@ -697,7 +697,7 @@ class AutomationTokensApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ErrorResponse
+            AutomationTokenErrorResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

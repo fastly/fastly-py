@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 Get boilerplate VCL
 
-Return boilerplate VCL with the service's TTL from the [settings](/reference/api/vcl-services/settings/).
+Return boilerplate VCL with the service's TTL from the [settings](https://www.fastly.com/documentation/reference/api/vcl-services/settings/).
 
 ### Example
 

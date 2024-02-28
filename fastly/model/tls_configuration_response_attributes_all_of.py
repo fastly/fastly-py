@@ -142,7 +142,7 @@ class TlsConfigurationResponseAttributesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
+            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](https://www.fastly.com/documentation/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
             http_protocols ([str]): HTTP protocols available on your configuration.. [optional]  # noqa: E501
             tls_protocols ([str]): TLS protocols available on your configuration.. [optional]  # noqa: E501
             bulk (bool): Signifies whether the configuration is used for Platform TLS or not.. [optional]  # noqa: E501
@@ -227,7 +227,7 @@ class TlsConfigurationResponseAttributesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
+            default (bool): Signifies whether or not Fastly will use this configuration as a default when creating a new [TLS Activation](https://www.fastly.com/documentation/reference/api/tls/custom-certs/activations/).. [optional]  # noqa: E501
             http_protocols ([str]): HTTP protocols available on your configuration.. [optional]  # noqa: E501
             tls_protocols ([str]): TLS protocols available on your configuration.. [optional]  # noqa: E501
             bulk (bool): Signifies whether the configuration is used for Platform TLS or not.. [optional]  # noqa: E501

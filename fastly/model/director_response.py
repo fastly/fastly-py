@@ -185,7 +185,7 @@ class DirectorResponse(ModelComposed):
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             name (str): Name for the Director.. [optional]  # noqa: E501
             quorum (int): The percentage of capacity that needs to be up for a director to be considered up. `0` to `100`.. [optional] if omitted the server will use the default value of 75  # noqa: E501
-            shield (str, none_type): Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            shield (str, none_type): Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             type (int): What type of load balance group to use.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             retries (int): How many backends to search if it fails.. [optional] if omitted the server will use the default value of 5  # noqa: E501
             service_id (str): [optional]  # noqa: E501
@@ -297,7 +297,7 @@ class DirectorResponse(ModelComposed):
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             name (str): Name for the Director.. [optional]  # noqa: E501
             quorum (int): The percentage of capacity that needs to be up for a director to be considered up. `0` to `100`.. [optional] if omitted the server will use the default value of 75  # noqa: E501
-            shield (str, none_type): Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            shield (str, none_type): Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             type (int): What type of load balance group to use.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             retries (int): How many backends to search if it fails.. [optional] if omitted the server will use the default value of 5  # noqa: E501
             service_id (str): [optional]  # noqa: E501

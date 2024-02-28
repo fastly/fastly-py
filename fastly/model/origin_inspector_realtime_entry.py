@@ -146,7 +146,7 @@ class OriginInspectorRealtimeEntry(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recorded (OriginInspectorRealtimeEntryRecorded): [optional]  # noqa: E501
             aggregated ({str: (OriginInspectorMeasurements,)}): Groups [measurements](#measurements-data-model) by backend name.. [optional]  # noqa: E501
-            datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
+            datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,7 +230,7 @@ class OriginInspectorRealtimeEntry(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recorded (OriginInspectorRealtimeEntryRecorded): [optional]  # noqa: E501
             aggregated ({str: (OriginInspectorMeasurements,)}): Groups [measurements](#measurements-data-model) by backend name.. [optional]  # noqa: E501
-            datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
+            datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

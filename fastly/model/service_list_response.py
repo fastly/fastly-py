@@ -176,8 +176,8 @@ class ServiceListResponse(ModelComposed):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             type (str): The type of this service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            version (int): Current [version](/reference/api/services/version/) of the service.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,8 +285,8 @@ class ServiceListResponse(ModelComposed):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             type (str): The type of this service.. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            version (int): Current [version](/reference/api/services/version/) of the service.. [optional]  # noqa: E501
-            versions ([SchemasVersionResponse]): A list of [versions](/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
+            versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

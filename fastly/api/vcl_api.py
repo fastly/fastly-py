@@ -1208,7 +1208,7 @@ class VclApi(object):
     ):
         """Get boilerplate VCL  # noqa: E501
 
-        Return boilerplate VCL with the service's TTL from the [settings](/reference/api/vcl-services/settings/).  # noqa: E501
+        Return boilerplate VCL with the service's TTL from the [settings](https://www.fastly.com/documentation/reference/api/vcl-services/settings/).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

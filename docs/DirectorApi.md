@@ -91,7 +91,7 @@ with fastly.ApiClient(configuration) as api_client:
     comment = "" # str, none_type | A freeform descriptive note. (optional)
     name = "test-director" # str | Name for the Director. (optional)
     quorum = 75 # int | The percentage of capacity that needs to be up for a director to be considered up. `0` to `100`. (optional) if omitted the server will use the default value of 75
-    shield = "null" # str, none_type | Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding. (optional) if omitted the server will use the default value of "null"
+    shield = "null" # str, none_type | Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding. (optional) if omitted the server will use the default value of "null"
     type = 1 # int | What type of load balance group to use. (optional) if omitted the server will use the default value of 1
     retries = 5 # int | How many backends to search if it fails. (optional) if omitted the server will use the default value of 5
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
  **comment** | **str, none_type**| A freeform descriptive note. | [optional]
  **name** | **str**| Name for the Director. | [optional]
  **quorum** | **int**| The percentage of capacity that needs to be up for a director to be considered up. `0` to `100`. | [optional] if omitted the server will use the default value of 75
- **shield** | **str, none_type**| Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding. | [optional] if omitted the server will use the default value of "null"
+ **shield** | **str, none_type**| Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/) to get a list of available POPs used for shielding. | [optional] if omitted the server will use the default value of "null"
  **type** | **int**| What type of load balance group to use. | [optional] if omitted the server will use the default value of 1
  **retries** | **int**| How many backends to search if it fails. | [optional] if omitted the server will use the default value of 5
 

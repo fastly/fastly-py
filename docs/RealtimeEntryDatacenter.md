@@ -1,6 +1,6 @@
 # RealtimeEntryDatacenter
 
-Groups [measurements](#measurements-data-model) by POP. See the [POPs API](/reference/api/utils/pops/) for details of POP identifiers.
+Groups [measurements](#measurements-data-model) by POP. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details of POP identifiers.
 
 ## Properties
 Name | Type | Description | Notes

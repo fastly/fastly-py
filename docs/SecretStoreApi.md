@@ -360,14 +360,15 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = secret_store_api.SecretStoreApi(api_client)
-    cursor = "cursor_example" # str | Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. (optional)
+    cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
     limit = "100" # str | Number of results per page. The maximum is 200. (optional) if omitted the server will use the default value of "100"
+    name = "name_example" # str | Returns a one-element array containing the details for the named secret store. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get all secret stores
-        api_response = api_instance.get_secret_stores(cursor=cursor, limit=limit)
+        api_response = api_instance.get_secret_stores(cursor=cursor, limit=limit, name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SecretStoreApi->get_secret_stores: %s\n" % e)
@@ -378,8 +379,9 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cursor** | **str**| Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. | [optional]
+ **cursor** | **str**| Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. | [optional]
  **limit** | **str**| Number of results per page. The maximum is 200. | [optional] if omitted the server will use the default value of "100"
+ **name** | **str**| Returns a one-element array containing the details for the named secret store. | [optional]
 
 ### Return type
 

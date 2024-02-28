@@ -57,7 +57,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     region = "US" # str | The region that log data will be sent to. (optional) if omitted the server will use the default value of "US"
-    token = "token_example" # str | The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)). (optional)
+    token = "token_example" # str | The token to use for authentication. (optional)
     project_id = "logplex" # str | The name of the logfile within Scalyr. (optional) if omitted the server will use the default value of "logplex"
 
     # example passing only required values which don't have defaults set
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **region** | **str**| The region that log data will be sent to. | [optional] if omitted the server will use the default value of "US"
- **token** | **str**| The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)). | [optional]
+ **token** | **str**| The token to use for authentication. | [optional]
  **project_id** | **str**| The name of the logfile within Scalyr. | [optional] if omitted the server will use the default value of "logplex"
 
 ### Return type
@@ -407,7 +407,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     region = "US" # str | The region that log data will be sent to. (optional) if omitted the server will use the default value of "US"
-    token = "token_example" # str | The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)). (optional)
+    token = "token_example" # str | The token to use for authentication. (optional)
     project_id = "logplex" # str | The name of the logfile within Scalyr. (optional) if omitted the server will use the default value of "logplex"
 
     # example passing only required values which don't have defaults set
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **region** | **str**| The region that log data will be sent to. | [optional] if omitted the server will use the default value of "US"
- **token** | **str**| The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)). | [optional]
+ **token** | **str**| The token to use for authentication. | [optional]
  **project_id** | **str**| The name of the logfile within Scalyr. | [optional] if omitted the server will use the default value of "logplex"
 
 ### Return type

@@ -49,10 +49,10 @@ with fastly.ApiClient(configuration) as api_client:
     start = "2021-08-01T00:00:00.000Z" # str | A valid ISO-8601-formatted date and time, or UNIX timestamp, indicating the inclusive start of the query time range. If not provided, a default is chosen based on the provided `downsample` value. (optional)
     end = "2020-08-02T00:00:00.000Z" # str | A valid ISO-8601-formatted date and time, or UNIX timestamp, indicating the exclusive end of the query time range. If not provided, a default is chosen based on the provided `downsample` value. (optional)
     downsample = "hour" # str | Duration of sample windows. (optional) if omitted the server will use the default value of "hour"
-    metric = "resp_body_bytes,status_2xx" # str | The metric to retrieve. Up to ten comma-separated metrics are accepted. (optional) if omitted the server will use the default value of "responses"
+    metric = "resp_body_bytes,status_2xx" # str | The metrics to retrieve. Multiple values should be comma-separated. (optional) if omitted the server will use the default value of "responses"
     group_by = "host" # str | Dimensions to return in the query. Multiple dimensions may be separated by commas. For example, `group_by=host` will return one timeseries for every origin host, as a total across all POPs.  (optional)
     limit = "100" # str | Number of results per page. The maximum is 200. (optional) if omitted the server will use the default value of "100"
-    cursor = "cursor_example" # str | Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. (optional)
+    cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
     region = "usa" # str | Limit query to one or more specific geographic regions. Values should be comma-separated.  (optional)
     datacenter = "SJC,STP" # str | Limit query to one or more specific POPs. Values should be comma-separated. (optional)
     host = "origin_1,origin_2" # str | Limit query to one or more specific origin hosts. Values should be comma-separated. (optional)
@@ -84,10 +84,10 @@ Name | Type | Description  | Notes
  **start** | **str**| A valid ISO-8601-formatted date and time, or UNIX timestamp, indicating the inclusive start of the query time range. If not provided, a default is chosen based on the provided `downsample` value. | [optional]
  **end** | **str**| A valid ISO-8601-formatted date and time, or UNIX timestamp, indicating the exclusive end of the query time range. If not provided, a default is chosen based on the provided `downsample` value. | [optional]
  **downsample** | **str**| Duration of sample windows. | [optional] if omitted the server will use the default value of "hour"
- **metric** | **str**| The metric to retrieve. Up to ten comma-separated metrics are accepted. | [optional] if omitted the server will use the default value of "responses"
+ **metric** | **str**| The metrics to retrieve. Multiple values should be comma-separated. | [optional] if omitted the server will use the default value of "responses"
  **group_by** | **str**| Dimensions to return in the query. Multiple dimensions may be separated by commas. For example, `group_by&#x3D;host` will return one timeseries for every origin host, as a total across all POPs.  | [optional]
  **limit** | **str**| Number of results per page. The maximum is 200. | [optional] if omitted the server will use the default value of "100"
- **cursor** | **str**| Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty. | [optional]
+ **cursor** | **str**| Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. | [optional]
  **region** | **str**| Limit query to one or more specific geographic regions. Values should be comma-separated.  | [optional]
  **datacenter** | **str**| Limit query to one or more specific POPs. Values should be comma-separated. | [optional]
  **host** | **str**| Limit query to one or more specific origin hosts. Values should be comma-separated. | [optional]

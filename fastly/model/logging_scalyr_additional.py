@@ -141,7 +141,7 @@ class LoggingScalyrAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
-            token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
+            token (str): The token to use for authentication.. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
         """
 
@@ -225,7 +225,7 @@ class LoggingScalyrAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             region (str): The region that log data will be sent to.. [optional] if omitted the server will use the default value of "US"  # noqa: E501
-            token (str): The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).. [optional]  # noqa: E501
+            token (str): The token to use for authentication.. [optional]  # noqa: E501
             project_id (str): The name of the logfile within Scalyr.. [optional] if omitted the server will use the default value of "logplex"  # noqa: E501
         """
 

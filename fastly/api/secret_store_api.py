@@ -279,6 +279,7 @@ class SecretStoreApi(object):
                 'all': [
                     'cursor',
                     'limit',
+                    'name',
                 ],
                 'required': [],
                 'nullable': [
@@ -298,14 +299,18 @@ class SecretStoreApi(object):
                         (str,),
                     'limit':
                         (str,),
+                    'name':
+                        (str,),
                 },
                 'attribute_map': {
                     'cursor': 'cursor',
                     'limit': 'limit',
+                    'name': 'name',
                 },
                 'location_map': {
                     'cursor': 'query',
                     'limit': 'query',
+                    'name': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -690,8 +695,9 @@ class SecretStoreApi(object):
 
 
         Keyword Args:
-            cursor (str): Cursor value from a previous response to retrieve the next page. To request the first page, this should be empty.. [optional]
+            cursor (str): Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty.. [optional]
             limit (str): Number of results per page. The maximum is 200.. [optional] if omitted the server will use the default value of "100"
+            name (str): Returns a one-element array containing the details for the named secret store.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
