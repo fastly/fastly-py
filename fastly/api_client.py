@@ -242,7 +242,8 @@ class ApiClient(object):
             return_data = None
 
         if method != "GET" and method != "HEAD":
-            self.rate_limit_remaining = int(response_data.getheader("Fastly-RateLimit-Remaining", default=DEFAULT_RATELIMIT))
+            rate_limit = str(response_data.getheader("Fastly-RateLimit-Remaining", default=str(DEFAULT_RATELIMIT)))
+            self.rate_limit_remaining = int(rate_limit.split(',')[0])
             self.rate_limit_reset = response_data.getheader("Fastly-RateLimit-Reset", default=0)
 
         if _return_http_data_only:
