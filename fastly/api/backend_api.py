@@ -83,6 +83,10 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_enable',
+                    'tcp_keepalive_interval',
+                    'tcp_keepalive_probes',
+                    'tcp_keepalive_time',
                     'use_ssl',
                     'weight',
                 ],
@@ -111,6 +115,9 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_interval',
+                    'tcp_keepalive_probes',
+                    'tcp_keepalive_time',
                 ],
                 'enum': [
                 ],
@@ -192,6 +199,14 @@ class BackendApi(object):
                         (str, none_type,),
                     'ssl_sni_hostname':
                         (str, none_type,),
+                    'tcp_keepalive_enable':
+                        (bool,),
+                    'tcp_keepalive_interval':
+                        (int, none_type,),
+                    'tcp_keepalive_probes':
+                        (int, none_type,),
+                    'tcp_keepalive_time':
+                        (int, none_type,),
                     'use_ssl':
                         (bool,),
                     'weight':
@@ -229,6 +244,10 @@ class BackendApi(object):
                     'ssl_client_key': 'ssl_client_key',
                     'ssl_hostname': 'ssl_hostname',
                     'ssl_sni_hostname': 'ssl_sni_hostname',
+                    'tcp_keepalive_enable': 'tcp_keepalive_enable',
+                    'tcp_keepalive_interval': 'tcp_keepalive_interval',
+                    'tcp_keepalive_probes': 'tcp_keepalive_probes',
+                    'tcp_keepalive_time': 'tcp_keepalive_time',
                     'use_ssl': 'use_ssl',
                     'weight': 'weight',
                 },
@@ -264,6 +283,10 @@ class BackendApi(object):
                     'ssl_client_key': 'form',
                     'ssl_hostname': 'form',
                     'ssl_sni_hostname': 'form',
+                    'tcp_keepalive_enable': 'form',
+                    'tcp_keepalive_interval': 'form',
+                    'tcp_keepalive_probes': 'form',
+                    'tcp_keepalive_time': 'form',
                     'use_ssl': 'form',
                     'weight': 'form',
                 },
@@ -536,6 +559,10 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_enable',
+                    'tcp_keepalive_interval',
+                    'tcp_keepalive_probes',
+                    'tcp_keepalive_time',
                     'use_ssl',
                     'weight',
                 ],
@@ -565,6 +592,9 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_interval',
+                    'tcp_keepalive_probes',
+                    'tcp_keepalive_time',
                 ],
                 'enum': [
                 ],
@@ -648,6 +678,14 @@ class BackendApi(object):
                         (str, none_type,),
                     'ssl_sni_hostname':
                         (str, none_type,),
+                    'tcp_keepalive_enable':
+                        (bool,),
+                    'tcp_keepalive_interval':
+                        (int, none_type,),
+                    'tcp_keepalive_probes':
+                        (int, none_type,),
+                    'tcp_keepalive_time':
+                        (int, none_type,),
                     'use_ssl':
                         (bool,),
                     'weight':
@@ -686,6 +724,10 @@ class BackendApi(object):
                     'ssl_client_key': 'ssl_client_key',
                     'ssl_hostname': 'ssl_hostname',
                     'ssl_sni_hostname': 'ssl_sni_hostname',
+                    'tcp_keepalive_enable': 'tcp_keepalive_enable',
+                    'tcp_keepalive_interval': 'tcp_keepalive_interval',
+                    'tcp_keepalive_probes': 'tcp_keepalive_probes',
+                    'tcp_keepalive_time': 'tcp_keepalive_time',
                     'use_ssl': 'use_ssl',
                     'weight': 'weight',
                 },
@@ -722,6 +764,10 @@ class BackendApi(object):
                     'ssl_client_key': 'form',
                     'ssl_hostname': 'form',
                     'ssl_sni_hostname': 'form',
+                    'tcp_keepalive_enable': 'form',
+                    'tcp_keepalive_interval': 'form',
+                    'tcp_keepalive_probes': 'form',
+                    'tcp_keepalive_time': 'form',
                     'use_ssl': 'form',
                     'weight': 'form',
                 },
@@ -790,6 +836,10 @@ class BackendApi(object):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]
+            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
+            tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]
+            tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]
+            tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]
             use_ssl (bool): Whether or not to require TLS for connections to this backend.. [optional]
             weight (int): Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -1159,6 +1209,10 @@ class BackendApi(object):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]
+            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
+            tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]
+            tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]
+            tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]
             use_ssl (bool): Whether or not to require TLS for connections to this backend.. [optional]
             weight (int): Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.. [optional]
             _return_http_data_only (bool): response data without head status

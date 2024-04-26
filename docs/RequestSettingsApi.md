@@ -381,7 +381,7 @@ with fastly.ApiClient(configuration) as api_client:
     hash_keys = "hash_keys_example" # str, none_type | Comma separated list of varnish request object fields that should be in the hash key. (optional)
     name = "test-request-setting" # str | Name for the request settings. (optional)
     request_condition = "request_condition_example" # str, none_type | Condition which, if met, will select this configuration during a request. Optional. (optional)
-    xff = "clear" # str | Short for X-Forwarded-For. (optional)
+    xff = "clear" # str, none_type | Short for X-Forwarded-For. (optional)
     bypass_busy_wait = 1 # int | Disable collapsed forwarding, so you don't wait for other objects to origin. (optional)
     force_miss = 1 # int | Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable. (optional)
     force_ssl = 1 # int | Forces the request use SSL (redirects a non-SSL to SSL). (optional)
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
  **hash_keys** | **str, none_type**| Comma separated list of varnish request object fields that should be in the hash key. | [optional]
  **name** | **str**| Name for the request settings. | [optional]
  **request_condition** | **str, none_type**| Condition which, if met, will select this configuration during a request. Optional. | [optional]
- **xff** | **str**| Short for X-Forwarded-For. | [optional]
+ **xff** | **str, none_type**| Short for X-Forwarded-For. | [optional]
  **bypass_busy_wait** | **int**| Disable collapsed forwarding, so you don&#39;t wait for other objects to origin. | [optional]
  **force_miss** | **int**| Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable. | [optional]
  **force_ssl** | **int**| Forces the request use SSL (redirects a non-SSL to SSL). | [optional]

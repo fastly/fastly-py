@@ -69,6 +69,7 @@ class RequestSettingsResponse(ModelComposed):
             'PASS': "pass",
         },
         ('xff',): {
+            'None': None,
             'CLEAR': "clear",
             'LEAVE': "leave",
             'APPEND': "append",
@@ -113,13 +114,13 @@ class RequestSettingsResponse(ModelComposed):
             'hash_keys': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
-            'xff': (str,),  # noqa: E501
-            'bypass_busy_wait': (str,),  # noqa: E501
-            'force_miss': (str,),  # noqa: E501
+            'xff': (str, none_type,),  # noqa: E501
+            'bypass_busy_wait': (str, none_type,),  # noqa: E501
+            'force_miss': (str, none_type,),  # noqa: E501
             'force_ssl': (str,),  # noqa: E501
-            'geo_headers': (str,),  # noqa: E501
-            'max_stale_age': (str,),  # noqa: E501
-            'timer_support': (str,),  # noqa: E501
+            'geo_headers': (str, none_type,),  # noqa: E501
+            'max_stale_age': (str, none_type,),  # noqa: E501
+            'timer_support': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -201,13 +202,13 @@ class RequestSettingsResponse(ModelComposed):
             hash_keys (str, none_type): Comma separated list of varnish request object fields that should be in the hash key.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            xff (str): Short for X-Forwarded-For.. [optional]  # noqa: E501
-            bypass_busy_wait (str): Disable collapsed forwarding, so you don't wait for other objects to origin.. [optional]  # noqa: E501
-            force_miss (str): Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable.. [optional]  # noqa: E501
+            xff (str, none_type): Short for X-Forwarded-For.. [optional]  # noqa: E501
+            bypass_busy_wait (str, none_type): Disable collapsed forwarding, so you don't wait for other objects to origin.. [optional]  # noqa: E501
+            force_miss (str, none_type): Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable.. [optional]  # noqa: E501
             force_ssl (str): Forces the request use SSL (redirects a non-SSL to SSL).. [optional]  # noqa: E501
-            geo_headers (str): Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers.. [optional]  # noqa: E501
-            max_stale_age (str): How old an object is allowed to be to serve stale-if-error or stale-while-revalidate.. [optional]  # noqa: E501
-            timer_support (str): Injects the X-Timer info into the request for viewing origin fetch durations.. [optional]  # noqa: E501
+            geo_headers (str, none_type): Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers.. [optional]  # noqa: E501
+            max_stale_age (str, none_type): How old an object is allowed to be to serve stale-if-error or stale-while-revalidate.. [optional]  # noqa: E501
+            timer_support (str, none_type): Injects the X-Timer info into the request for viewing origin fetch durations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -317,13 +318,13 @@ class RequestSettingsResponse(ModelComposed):
             hash_keys (str, none_type): Comma separated list of varnish request object fields that should be in the hash key.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            xff (str): Short for X-Forwarded-For.. [optional]  # noqa: E501
-            bypass_busy_wait (str): Disable collapsed forwarding, so you don't wait for other objects to origin.. [optional]  # noqa: E501
-            force_miss (str): Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable.. [optional]  # noqa: E501
+            xff (str, none_type): Short for X-Forwarded-For.. [optional]  # noqa: E501
+            bypass_busy_wait (str, none_type): Disable collapsed forwarding, so you don't wait for other objects to origin.. [optional]  # noqa: E501
+            force_miss (str, none_type): Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable.. [optional]  # noqa: E501
             force_ssl (str): Forces the request use SSL (redirects a non-SSL to SSL).. [optional]  # noqa: E501
-            geo_headers (str): Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers.. [optional]  # noqa: E501
-            max_stale_age (str): How old an object is allowed to be to serve stale-if-error or stale-while-revalidate.. [optional]  # noqa: E501
-            timer_support (str): Injects the X-Timer info into the request for viewing origin fetch durations.. [optional]  # noqa: E501
+            geo_headers (str, none_type): Injects Fastly-Geo-Country, Fastly-Geo-City, and Fastly-Geo-Region into the request headers.. [optional]  # noqa: E501
+            max_stale_age (str, none_type): How old an object is allowed to be to serve stale-if-error or stale-while-revalidate.. [optional]  # noqa: E501
+            timer_support (str, none_type): Injects the X-Timer info into the request for viewing origin fetch durations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

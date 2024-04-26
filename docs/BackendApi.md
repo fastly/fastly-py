@@ -80,6 +80,10 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
     ssl_sni_hostname = "ssl_sni_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. (optional)
+    tcp_keepalive_enable = True # bool | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
+    tcp_keepalive_interval = 1 # int, none_type | Interval in seconds between subsequent keepalive probes. (optional)
+    tcp_keepalive_probes = 1 # int, none_type | Number of unacknowledged probes to send before considering the connection dead. (optional)
+    tcp_keepalive_time = 1 # int, none_type | Interval in seconds between the last data packet sent and the first keepalive probe. (optional)
     use_ssl = True # bool | Whether or not to require TLS for connections to this backend. (optional)
     weight = 1 # int | Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true. (optional)
 
@@ -95,7 +99,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a backend
-        api_response = api_instance.create_backend(service_id, version_id, address=address, auto_loadbalance=auto_loadbalance, between_bytes_timeout=between_bytes_timeout, client_cert=client_cert, comment=comment, connect_timeout=connect_timeout, first_byte_timeout=first_byte_timeout, healthcheck=healthcheck, hostname=hostname, ipv4=ipv4, ipv6=ipv6, keepalive_time=keepalive_time, max_conn=max_conn, max_tls_version=max_tls_version, min_tls_version=min_tls_version, name=name, override_host=override_host, port=port, request_condition=request_condition, share_key=share_key, shield=shield, ssl_ca_cert=ssl_ca_cert, ssl_cert_hostname=ssl_cert_hostname, ssl_check_cert=ssl_check_cert, ssl_ciphers=ssl_ciphers, ssl_client_cert=ssl_client_cert, ssl_client_key=ssl_client_key, ssl_hostname=ssl_hostname, ssl_sni_hostname=ssl_sni_hostname, use_ssl=use_ssl, weight=weight)
+        api_response = api_instance.create_backend(service_id, version_id, address=address, auto_loadbalance=auto_loadbalance, between_bytes_timeout=between_bytes_timeout, client_cert=client_cert, comment=comment, connect_timeout=connect_timeout, first_byte_timeout=first_byte_timeout, healthcheck=healthcheck, hostname=hostname, ipv4=ipv4, ipv6=ipv6, keepalive_time=keepalive_time, max_conn=max_conn, max_tls_version=max_tls_version, min_tls_version=min_tls_version, name=name, override_host=override_host, port=port, request_condition=request_condition, share_key=share_key, shield=shield, ssl_ca_cert=ssl_ca_cert, ssl_cert_hostname=ssl_cert_hostname, ssl_check_cert=ssl_check_cert, ssl_ciphers=ssl_ciphers, ssl_client_cert=ssl_client_cert, ssl_client_key=ssl_client_key, ssl_hostname=ssl_hostname, ssl_sni_hostname=ssl_sni_hostname, tcp_keepalive_enable=tcp_keepalive_enable, tcp_keepalive_interval=tcp_keepalive_interval, tcp_keepalive_probes=tcp_keepalive_probes, tcp_keepalive_time=tcp_keepalive_time, use_ssl=use_ssl, weight=weight)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BackendApi->create_backend: %s\n" % e)
@@ -137,6 +141,10 @@ Name | Type | Description  | Notes
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]
  **ssl_sni_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. | [optional]
+ **tcp_keepalive_enable** | **bool**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
+ **tcp_keepalive_interval** | **int, none_type**| Interval in seconds between subsequent keepalive probes. | [optional]
+ **tcp_keepalive_probes** | **int, none_type**| Number of unacknowledged probes to send before considering the connection dead. | [optional]
+ **tcp_keepalive_time** | **int, none_type**| Interval in seconds between the last data packet sent and the first keepalive probe. | [optional]
  **use_ssl** | **bool**| Whether or not to require TLS for connections to this backend. | [optional]
  **weight** | **int**| Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true. | [optional]
 
@@ -476,6 +484,10 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
     ssl_sni_hostname = "ssl_sni_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. (optional)
+    tcp_keepalive_enable = True # bool | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
+    tcp_keepalive_interval = 1 # int, none_type | Interval in seconds between subsequent keepalive probes. (optional)
+    tcp_keepalive_probes = 1 # int, none_type | Number of unacknowledged probes to send before considering the connection dead. (optional)
+    tcp_keepalive_time = 1 # int, none_type | Interval in seconds between the last data packet sent and the first keepalive probe. (optional)
     use_ssl = True # bool | Whether or not to require TLS for connections to this backend. (optional)
     weight = 1 # int | Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true. (optional)
 
@@ -491,7 +503,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a backend
-        api_response = api_instance.update_backend(service_id, version_id, backend_name, address=address, auto_loadbalance=auto_loadbalance, between_bytes_timeout=between_bytes_timeout, client_cert=client_cert, comment=comment, connect_timeout=connect_timeout, first_byte_timeout=first_byte_timeout, healthcheck=healthcheck, hostname=hostname, ipv4=ipv4, ipv6=ipv6, keepalive_time=keepalive_time, max_conn=max_conn, max_tls_version=max_tls_version, min_tls_version=min_tls_version, name=name, override_host=override_host, port=port, request_condition=request_condition, share_key=share_key, shield=shield, ssl_ca_cert=ssl_ca_cert, ssl_cert_hostname=ssl_cert_hostname, ssl_check_cert=ssl_check_cert, ssl_ciphers=ssl_ciphers, ssl_client_cert=ssl_client_cert, ssl_client_key=ssl_client_key, ssl_hostname=ssl_hostname, ssl_sni_hostname=ssl_sni_hostname, use_ssl=use_ssl, weight=weight)
+        api_response = api_instance.update_backend(service_id, version_id, backend_name, address=address, auto_loadbalance=auto_loadbalance, between_bytes_timeout=between_bytes_timeout, client_cert=client_cert, comment=comment, connect_timeout=connect_timeout, first_byte_timeout=first_byte_timeout, healthcheck=healthcheck, hostname=hostname, ipv4=ipv4, ipv6=ipv6, keepalive_time=keepalive_time, max_conn=max_conn, max_tls_version=max_tls_version, min_tls_version=min_tls_version, name=name, override_host=override_host, port=port, request_condition=request_condition, share_key=share_key, shield=shield, ssl_ca_cert=ssl_ca_cert, ssl_cert_hostname=ssl_cert_hostname, ssl_check_cert=ssl_check_cert, ssl_ciphers=ssl_ciphers, ssl_client_cert=ssl_client_cert, ssl_client_key=ssl_client_key, ssl_hostname=ssl_hostname, ssl_sni_hostname=ssl_sni_hostname, tcp_keepalive_enable=tcp_keepalive_enable, tcp_keepalive_interval=tcp_keepalive_interval, tcp_keepalive_probes=tcp_keepalive_probes, tcp_keepalive_time=tcp_keepalive_time, use_ssl=use_ssl, weight=weight)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BackendApi->update_backend: %s\n" % e)
@@ -534,6 +546,10 @@ Name | Type | Description  | Notes
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]
  **ssl_sni_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. | [optional]
+ **tcp_keepalive_enable** | **bool**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
+ **tcp_keepalive_interval** | **int, none_type**| Interval in seconds between subsequent keepalive probes. | [optional]
+ **tcp_keepalive_probes** | **int, none_type**| Number of unacknowledged probes to send before considering the connection dead. | [optional]
+ **tcp_keepalive_time** | **int, none_type**| Interval in seconds between the last data packet sent and the first keepalive probe. | [optional]
  **use_ssl** | **bool**| Whether or not to require TLS for connections to this backend. | [optional]
  **weight** | **int**| Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true. | [optional]
 

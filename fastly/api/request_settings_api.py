@@ -348,6 +348,7 @@ class RequestSettingsApi(object):
                     'default_host',
                     'hash_keys',
                     'request_condition',
+                    'xff',
                 ],
                 'enum': [
                     'action',
@@ -366,7 +367,7 @@ class RequestSettingsApi(object):
                         "PASS": "pass"
                     },
                     ('xff',): {
-
+                        'None': None,
                         "CLEAR": "clear",
                         "LEAVE": "leave",
                         "APPEND": "append",
@@ -392,7 +393,7 @@ class RequestSettingsApi(object):
                     'request_condition':
                         (str, none_type,),
                     'xff':
-                        (str,),
+                        (str, none_type,),
                     'bypass_busy_wait':
                         (int,),
                     'force_miss':
@@ -819,7 +820,7 @@ class RequestSettingsApi(object):
             hash_keys (str, none_type): Comma separated list of varnish request object fields that should be in the hash key.. [optional]
             name (str): Name for the request settings.. [optional]
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]
-            xff (str): Short for X-Forwarded-For.. [optional]
+            xff (str, none_type): Short for X-Forwarded-For.. [optional]
             bypass_busy_wait (int): Disable collapsed forwarding, so you don't wait for other objects to origin.. [optional]
             force_miss (int): Allows you to force a cache miss for the request. Replaces the item in the cache if the content is cacheable.. [optional]
             force_ssl (int): Forces the request use SSL (redirects a non-SSL to SSL).. [optional]

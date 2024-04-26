@@ -59,6 +59,7 @@ class RequestSettingsAdditional(ModelNormal):
             'PASS': "pass",
         },
         ('xff',): {
+            'None': None,
             'CLEAR': "clear",
             'LEAVE': "leave",
             'APPEND': "append",
@@ -96,7 +97,7 @@ class RequestSettingsAdditional(ModelNormal):
             'hash_keys': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'request_condition': (str, none_type,),  # noqa: E501
-            'xff': (str,),  # noqa: E501
+            'xff': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -159,7 +160,7 @@ class RequestSettingsAdditional(ModelNormal):
             hash_keys (str, none_type): Comma separated list of varnish request object fields that should be in the hash key.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            xff (str): Short for X-Forwarded-For.. [optional]  # noqa: E501
+            xff (str, none_type): Short for X-Forwarded-For.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,7 +247,7 @@ class RequestSettingsAdditional(ModelNormal):
             hash_keys (str, none_type): Comma separated list of varnish request object fields that should be in the hash key.. [optional]  # noqa: E501
             name (str): Name for the request settings.. [optional]  # noqa: E501
             request_condition (str, none_type): Condition which, if met, will select this configuration during a request. Optional.. [optional]  # noqa: E501
-            xff (str): Short for X-Forwarded-For.. [optional]  # noqa: E501
+            xff (str, none_type): Short for X-Forwarded-For.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

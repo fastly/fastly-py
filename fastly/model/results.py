@@ -306,6 +306,27 @@ class Results(ModelNormal):
             'bot_challenges_issued': (int,),  # noqa: E501
             'bot_challenges_succeeded': (int,),  # noqa: E501
             'bot_challenges_failed': (int,),  # noqa: E501
+            'ddos_action_downgrade': (int,),  # noqa: E501
+            'ddos_action_downgraded_connections': (int,),  # noqa: E501
+            'vcl_on_compute_hit_requests': (int,),  # noqa: E501
+            'vcl_on_compute_miss_requests': (int,),  # noqa: E501
+            'vcl_on_compute_pass_requests': (int,),  # noqa: E501
+            'vcl_on_compute_error_requests': (int,),  # noqa: E501
+            'vcl_on_compute_synth_requests': (int,),  # noqa: E501
+            'vcl_on_compute_edge_hit_requests': (int,),  # noqa: E501
+            'vcl_on_compute_edge_miss_requests': (int,),  # noqa: E501
+            'all_hit_requests': (int,),  # noqa: E501
+            'all_miss_requests': (int,),  # noqa: E501
+            'all_pass_requests': (int,),  # noqa: E501
+            'all_error_requests': (int,),  # noqa: E501
+            'all_synth_requests': (int,),  # noqa: E501
+            'all_edge_hit_requests': (int,),  # noqa: E501
+            'all_edge_miss_requests': (int,),  # noqa: E501
+            'all_status_1xx': (int,),  # noqa: E501
+            'all_status_2xx': (int,),  # noqa: E501
+            'all_status_3xx': (int,),  # noqa: E501
+            'all_status_4xx': (int,),  # noqa: E501
+            'all_status_5xx': (int,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -543,6 +564,27 @@ class Results(ModelNormal):
         'bot_challenges_issued': 'bot_challenges_issued',  # noqa: E501
         'bot_challenges_succeeded': 'bot_challenges_succeeded',  # noqa: E501
         'bot_challenges_failed': 'bot_challenges_failed',  # noqa: E501
+        'ddos_action_downgrade': 'ddos_action_downgrade',  # noqa: E501
+        'ddos_action_downgraded_connections': 'ddos_action_downgraded_connections',  # noqa: E501
+        'vcl_on_compute_hit_requests': 'vcl_on_compute_hit_requests',  # noqa: E501
+        'vcl_on_compute_miss_requests': 'vcl_on_compute_miss_requests',  # noqa: E501
+        'vcl_on_compute_pass_requests': 'vcl_on_compute_pass_requests',  # noqa: E501
+        'vcl_on_compute_error_requests': 'vcl_on_compute_error_requests',  # noqa: E501
+        'vcl_on_compute_synth_requests': 'vcl_on_compute_synth_requests',  # noqa: E501
+        'vcl_on_compute_edge_hit_requests': 'vcl_on_compute_edge_hit_requests',  # noqa: E501
+        'vcl_on_compute_edge_miss_requests': 'vcl_on_compute_edge_miss_requests',  # noqa: E501
+        'all_hit_requests': 'all_hit_requests',  # noqa: E501
+        'all_miss_requests': 'all_miss_requests',  # noqa: E501
+        'all_pass_requests': 'all_pass_requests',  # noqa: E501
+        'all_error_requests': 'all_error_requests',  # noqa: E501
+        'all_synth_requests': 'all_synth_requests',  # noqa: E501
+        'all_edge_hit_requests': 'all_edge_hit_requests',  # noqa: E501
+        'all_edge_miss_requests': 'all_edge_miss_requests',  # noqa: E501
+        'all_status_1xx': 'all_status_1xx',  # noqa: E501
+        'all_status_2xx': 'all_status_2xx',  # noqa: E501
+        'all_status_3xx': 'all_status_3xx',  # noqa: E501
+        'all_status_4xx': 'all_status_4xx',  # noqa: E501
+        'all_status_5xx': 'all_status_5xx',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -816,6 +858,27 @@ class Results(ModelNormal):
             bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
             bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
             bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_action_downgrade (int): The number of times the downgrade action was taken. The downgrade action restricts the client to http1.. [optional]  # noqa: E501
+            ddos_action_downgraded_connections (int): The number of connections the downgrade action was applied to. The downgrade action restricts the connection to http1.. [optional]  # noqa: E501
+            vcl_on_compute_hit_requests (int): Number of cache hits for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_miss_requests (int): Number of cache misses for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_error_requests (int): Number of cache errors for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
+            all_hit_requests (int): Number of cache hits for a VCL service.. [optional]  # noqa: E501
+            all_miss_requests (int): Number of cache misses for a VCL service.. [optional]  # noqa: E501
+            all_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service.. [optional]  # noqa: E501
+            all_error_requests (int): Number of cache errors for a VCL service.. [optional]  # noqa: E501
+            all_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service.. [optional]  # noqa: E501
+            all_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service.. [optional]  # noqa: E501
+            all_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service.. [optional]  # noqa: E501
+            all_status_1xx (int): Number of \"Informational\" category status codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_2xx (int): Number of \"Success\" status codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_3xx (int): Number of \"Redirection\" codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_4xx (int): Number of \"Client Error\" codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
@@ -1126,6 +1189,27 @@ class Results(ModelNormal):
             bot_challenges_issued (int): The number of challenges issued. For example, the issuance of a CAPTCHA challenge.. [optional]  # noqa: E501
             bot_challenges_succeeded (int): The number of successful challenge solutions processed. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
             bot_challenges_failed (int): The number of failed challenge solutions processed. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_action_downgrade (int): The number of times the downgrade action was taken. The downgrade action restricts the client to http1.. [optional]  # noqa: E501
+            ddos_action_downgraded_connections (int): The number of connections the downgrade action was applied to. The downgrade action restricts the connection to http1.. [optional]  # noqa: E501
+            vcl_on_compute_hit_requests (int): Number of cache hits for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_miss_requests (int): Number of cache misses for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_error_requests (int): Number of cache errors for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
+            vcl_on_compute_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
+            all_hit_requests (int): Number of cache hits for a VCL service.. [optional]  # noqa: E501
+            all_miss_requests (int): Number of cache misses for a VCL service.. [optional]  # noqa: E501
+            all_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service.. [optional]  # noqa: E501
+            all_error_requests (int): Number of cache errors for a VCL service.. [optional]  # noqa: E501
+            all_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service.. [optional]  # noqa: E501
+            all_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service.. [optional]  # noqa: E501
+            all_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service.. [optional]  # noqa: E501
+            all_status_1xx (int): Number of \"Informational\" category status codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_2xx (int): Number of \"Success\" status codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_3xx (int): Number of \"Redirection\" codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_4xx (int): Number of \"Client Error\" codes delivered for all sources.. [optional]  # noqa: E501
+            all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """

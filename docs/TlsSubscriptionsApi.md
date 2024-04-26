@@ -147,7 +147,7 @@ with fastly.ApiClient(configuration) as api_client:
         data=TlsSubscriptionData(
             type=TypeTlsSubscription("tls_subscription"),
             attributes=TlsSubscriptionDataAttributes(
-                certificate_authority="lets-encrypt",
+                certificate_authority="certainly",
             ),
             relationships=RelationshipsForTlsSubscription(),
         ),
@@ -574,7 +574,7 @@ with fastly.ApiClient(configuration) as api_client:
         data=TlsSubscriptionData(
             type=TypeTlsSubscription("tls_subscription"),
             attributes=TlsSubscriptionDataAttributes(
-                certificate_authority="lets-encrypt",
+                certificate_authority="certainly",
             ),
             relationships=RelationshipsForTlsSubscription(),
         ),

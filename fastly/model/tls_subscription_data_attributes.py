@@ -54,8 +54,8 @@ class TlsSubscriptionDataAttributes(ModelNormal):
 
     allowed_values = {
         ('certificate_authority',): {
-            'LETS-ENCRYPT': "lets-encrypt",
             'CERTAINLY': "certainly",
+            'LETS-ENCRYPT': "lets-encrypt",
             'GLOBALSIGN': "globalsign",
         },
     }

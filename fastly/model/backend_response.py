@@ -125,6 +125,10 @@ class BackendResponse(ModelComposed):
             'ssl_client_key': (str, none_type,),  # noqa: E501
             'ssl_hostname': (str, none_type,),  # noqa: E501
             'ssl_sni_hostname': (str, none_type,),  # noqa: E501
+            'tcp_keepalive_enable': (bool,),  # noqa: E501
+            'tcp_keepalive_interval': (int, none_type,),  # noqa: E501
+            'tcp_keepalive_probes': (int, none_type,),  # noqa: E501
+            'tcp_keepalive_time': (int, none_type,),  # noqa: E501
             'use_ssl': (bool,),  # noqa: E501
             'weight': (int,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
@@ -170,6 +174,10 @@ class BackendResponse(ModelComposed):
         'ssl_client_key': 'ssl_client_key',  # noqa: E501
         'ssl_hostname': 'ssl_hostname',  # noqa: E501
         'ssl_sni_hostname': 'ssl_sni_hostname',  # noqa: E501
+        'tcp_keepalive_enable': 'tcp_keepalive_enable',  # noqa: E501
+        'tcp_keepalive_interval': 'tcp_keepalive_interval',  # noqa: E501
+        'tcp_keepalive_probes': 'tcp_keepalive_probes',  # noqa: E501
+        'tcp_keepalive_time': 'tcp_keepalive_time',  # noqa: E501
         'use_ssl': 'use_ssl',  # noqa: E501
         'weight': 'weight',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -254,6 +262,10 @@ class BackendResponse(ModelComposed):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]  # noqa: E501
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]  # noqa: E501
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]  # noqa: E501
+            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]  # noqa: E501
+            tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]  # noqa: E501
+            tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]  # noqa: E501
+            tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]  # noqa: E501
             use_ssl (bool): Whether or not to require TLS for connections to this backend.. [optional]  # noqa: E501
             weight (int): Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -390,6 +402,10 @@ class BackendResponse(ModelComposed):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]  # noqa: E501
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]  # noqa: E501
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]  # noqa: E501
+            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]  # noqa: E501
+            tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]  # noqa: E501
+            tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]  # noqa: E501
+            tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]  # noqa: E501
             use_ssl (bool): Whether or not to require TLS for connections to this backend.. [optional]  # noqa: E501
             weight (int): Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
