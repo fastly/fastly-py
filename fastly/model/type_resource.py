@@ -1,7 +1,7 @@
 """
     Fastly API
 
-    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://developer.fastly.com/reference/api/)   # noqa: E501
+    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://www.fastly.com/documentation/reference/api/)   # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: oss@fastly.com
@@ -50,9 +50,9 @@ class TypeResource(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'OBJECT-STORE': "object-store",
+            'KV-STORE': "kv-store",
             'SECRET-STORE': "secret-store",
-            'CONFIG-STORE': "config-store",
+            'CONFIG': "config",
         },
     }
 
@@ -104,10 +104,10 @@ class TypeResource(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Resource type. if omitted defaults to "object-store", must be one of ["object-store", "secret-store", "config-store", ]  # noqa: E501
+            args[0] (str): Resource type., must be one of ["kv-store", "secret-store", "config", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Resource type. if omitted defaults to "object-store", must be one of ["object-store", "secret-store", "config-store", ]  # noqa: E501
+            value (str): Resource type., must be one of ["kv-store", "secret-store", "config", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -148,7 +148,11 @@ class TypeResource(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "object-store"
+            raise ApiTypeError(
+                "value is required, but not passed in args or kwargs and doesn't have default",
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -190,10 +194,10 @@ class TypeResource(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Resource type. if omitted defaults to "object-store", must be one of ["object-store", "secret-store", "config-store", ]  # noqa: E501
+            args[0] (str): Resource type., must be one of ["kv-store", "secret-store", "config", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Resource type. if omitted defaults to "object-store", must be one of ["object-store", "secret-store", "config-store", ]  # noqa: E501
+            value (str): Resource type., must be one of ["kv-store", "secret-store", "config", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -236,7 +240,11 @@ class TypeResource(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "object-store"
+            raise ApiTypeError(
+                "value is required, but not passed in args or kwargs and doesn't have default",
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)

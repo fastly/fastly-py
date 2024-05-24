@@ -1,7 +1,7 @@
 """
     Fastly API
 
-    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://developer.fastly.com/reference/api/)   # noqa: E501
+    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://www.fastly.com/documentation/reference/api/)   # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: oss@fastly.com
@@ -115,6 +115,7 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_enable',
                     'tcp_keepalive_interval',
                     'tcp_keepalive_probes',
                     'tcp_keepalive_time',
@@ -200,7 +201,7 @@ class BackendApi(object):
                     'ssl_sni_hostname':
                         (str, none_type,),
                     'tcp_keepalive_enable':
-                        (bool,),
+                        (bool, none_type,),
                     'tcp_keepalive_interval':
                         (int, none_type,),
                     'tcp_keepalive_probes':
@@ -592,6 +593,7 @@ class BackendApi(object):
                     'ssl_client_key',
                     'ssl_hostname',
                     'ssl_sni_hostname',
+                    'tcp_keepalive_enable',
                     'tcp_keepalive_interval',
                     'tcp_keepalive_probes',
                     'tcp_keepalive_time',
@@ -679,7 +681,7 @@ class BackendApi(object):
                     'ssl_sni_hostname':
                         (str, none_type,),
                     'tcp_keepalive_enable':
-                        (bool,),
+                        (bool, none_type,),
                     'tcp_keepalive_interval':
                         (int, none_type,),
                     'tcp_keepalive_probes':
@@ -836,7 +838,7 @@ class BackendApi(object):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]
-            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
+            tcp_keepalive_enable (bool, none_type): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
             tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]
             tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]
             tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]
@@ -1209,7 +1211,7 @@ class BackendApi(object):
             ssl_client_key (str, none_type): Client key attached to origin.. [optional]
             ssl_hostname (str, none_type): Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.. [optional]
             ssl_sni_hostname (str, none_type): Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.. [optional]
-            tcp_keepalive_enable (bool): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
+            tcp_keepalive_enable (bool, none_type): Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified.. [optional]
             tcp_keepalive_interval (int, none_type): Interval in seconds between subsequent keepalive probes.. [optional]
             tcp_keepalive_probes (int, none_type): Number of unacknowledged probes to send before considering the connection dead.. [optional]
             tcp_keepalive_time (int, none_type): Interval in seconds between the last data packet sent and the first keepalive probe.. [optional]

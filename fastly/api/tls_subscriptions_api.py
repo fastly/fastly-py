@@ -1,7 +1,7 @@
 """
     Fastly API
 
-    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://developer.fastly.com/reference/api/)   # noqa: E501
+    Via the Fastly API you can perform any of the operations that are possible within the management console,  including creating services, domains, and backends, configuring rules or uploading your own application code, as well as account operations such as user administration and billing reports. The API is organized into collections of endpoints that allow manipulation of objects related to Fastly services and accounts. For the most accurate and up-to-date API reference content, visit our [Developer Hub](https://www.fastly.com/documentation/reference/api/)   # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: oss@fastly.com
@@ -375,6 +375,7 @@ class TlsSubscriptionsApi(object):
                     'filter_state',
                     'filter_tls_domains_id',
                     'filter_has_active_order',
+                    'filter_certificate_authority',
                     'include',
                     'page_number',
                     'page_size',
@@ -412,6 +413,8 @@ class TlsSubscriptionsApi(object):
                         (str,),
                     'filter_has_active_order':
                         (bool,),
+                    'filter_certificate_authority':
+                        (str,),
                     'include':
                         (str,),
                     'page_number':
@@ -425,6 +428,7 @@ class TlsSubscriptionsApi(object):
                     'filter_state': 'filter[state]',
                     'filter_tls_domains_id': 'filter[tls_domains.id]',
                     'filter_has_active_order': 'filter[has_active_order]',
+                    'filter_certificate_authority': 'filter[certificate_authority]',
                     'include': 'include',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
@@ -434,6 +438,7 @@ class TlsSubscriptionsApi(object):
                     'filter_state': 'query',
                     'filter_tls_domains_id': 'query',
                     'filter_has_active_order': 'query',
+                    'filter_certificate_authority': 'query',
                     'include': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
@@ -862,7 +867,7 @@ class TlsSubscriptionsApi(object):
             tls_subscription_id (str): Alphanumeric string identifying a TLS subscription.
 
         Keyword Args:
-            include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`. . [optional]
+            include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -941,7 +946,8 @@ class TlsSubscriptionsApi(object):
             filter_state (str): Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`). . [optional]
             filter_tls_domains_id (str): Limit the returned subscriptions to those that include the specific domain.. [optional]
             filter_has_active_order (bool): Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`. . [optional]
-            include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`. . [optional]
+            filter_certificate_authority (str): Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`. . [optional]
+            include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`. . [optional]
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
             sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"

@@ -80,6 +80,9 @@ from fastly.model.create_response_object_request import CreateResponseObjectRequ
 from fastly.model.customer import Customer
 from fastly.model.customer_response import CustomerResponse
 from fastly.model.customer_response_all_of import CustomerResponseAllOf
+from fastly.model.default_settings import DefaultSettings
+from fastly.model.default_settings_error import DefaultSettingsError
+from fastly.model.default_settings_response import DefaultSettingsResponse
 from fastly.model.dictionary import Dictionary
 from fastly.model.dictionary_info_response import DictionaryInfoResponse
 from fastly.model.dictionary_item import DictionaryItem

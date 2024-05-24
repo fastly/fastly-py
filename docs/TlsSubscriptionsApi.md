@@ -1,6 +1,7 @@
 # fastly.TlsSubscriptionsApi
 
-All URIs are relative to *https://api.fastly.com*
+> [!NOTE]
+> All URIs are relative to `https://api.fastly.com`
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -388,7 +389,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
     tls_subscription_id = "sU3guUGZzb2W9Euo4Mo0r" # str | Alphanumeric string identifying a TLS subscription.
-    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
+    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -414,7 +415,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tls_subscription_id** | **str**| Alphanumeric string identifying a TLS subscription. |
- **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
+ **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  | [optional]
 
 ### Return type
 
@@ -479,7 +480,8 @@ with fastly.ApiClient(configuration) as api_client:
     filter_state = "filter[state]_example" # str | Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]=renewing`).  (optional)
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned subscriptions to those that include the specific domain. (optional)
     filter_has_active_order = True # bool | Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  (optional)
-    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
+    filter_certificate_authority = "filter[certificate_authority]_example" # str | Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`.  (optional)
+    include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
     sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
@@ -488,7 +490,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List TLS subscriptions
-        api_response = api_instance.list_tls_subs(filter_state=filter_state, filter_tls_domains_id=filter_tls_domains_id, filter_has_active_order=filter_has_active_order, include=include, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_subs(filter_state=filter_state, filter_tls_domains_id=filter_tls_domains_id, filter_has_active_order=filter_has_active_order, filter_certificate_authority=filter_certificate_authority, include=include, page_number=page_number, page_size=page_size, sort=sort)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsSubscriptionsApi->list_tls_subs: %s\n" % e)
@@ -502,7 +504,8 @@ Name | Type | Description  | Notes
  **filter_state** | **str**| Limit the returned subscriptions by state. Valid values are `pending`, `processing`, `issued`, `renewing`, and `failed`. Accepts parameters: `not` (e.g., `filter[state][not]&#x3D;renewing`).  | [optional]
  **filter_tls_domains_id** | **str**| Limit the returned subscriptions to those that include the specific domain. | [optional]
  **filter_has_active_order** | **bool**| Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  | [optional]
- **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
+ **filter_certificate_authority** | **str**| Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`.  | [optional]
+ **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
  **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"

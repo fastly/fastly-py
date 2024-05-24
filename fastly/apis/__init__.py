@@ -50,6 +50,7 @@ from fastly.api.iam_permissions_api import IamPermissionsApi
 from fastly.api.iam_roles_api import IamRolesApi
 from fastly.api.iam_service_groups_api import IamServiceGroupsApi
 from fastly.api.iam_user_groups_api import IamUserGroupsApi
+from fastly.api.image_optimizer_default_settings_api import ImageOptimizerDefaultSettingsApi
 from fastly.api.invitations_api import InvitationsApi
 from fastly.api.kv_store_api import KvStoreApi
 from fastly.api.kv_store_item_api import KvStoreItemApi

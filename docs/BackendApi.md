@@ -1,6 +1,7 @@
 # fastly.BackendApi
 
-All URIs are relative to *https://api.fastly.com*
+> [!NOTE]
+> All URIs are relative to `https://api.fastly.com`
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -80,7 +81,7 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
     ssl_sni_hostname = "ssl_sni_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. (optional)
-    tcp_keepalive_enable = True # bool | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
+    tcp_keepalive_enable = True # bool, none_type | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
     tcp_keepalive_interval = 1 # int, none_type | Interval in seconds between subsequent keepalive probes. (optional)
     tcp_keepalive_probes = 1 # int, none_type | Number of unacknowledged probes to send before considering the connection dead. (optional)
     tcp_keepalive_time = 1 # int, none_type | Interval in seconds between the last data packet sent and the first keepalive probe. (optional)
@@ -141,7 +142,7 @@ Name | Type | Description  | Notes
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]
  **ssl_sni_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. | [optional]
- **tcp_keepalive_enable** | **bool**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
+ **tcp_keepalive_enable** | **bool, none_type**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
  **tcp_keepalive_interval** | **int, none_type**| Interval in seconds between subsequent keepalive probes. | [optional]
  **tcp_keepalive_probes** | **int, none_type**| Number of unacknowledged probes to send before considering the connection dead. | [optional]
  **tcp_keepalive_time** | **int, none_type**| Interval in seconds between the last data packet sent and the first keepalive probe. | [optional]
@@ -484,7 +485,7 @@ with fastly.ApiClient(configuration) as api_client:
     ssl_client_key = "ssl_client_key_example" # str, none_type | Client key attached to origin. (optional)
     ssl_hostname = "ssl_hostname_example" # str, none_type | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. (optional)
     ssl_sni_hostname = "ssl_sni_hostname_example" # str, none_type | Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. (optional)
-    tcp_keepalive_enable = True # bool | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
+    tcp_keepalive_enable = True # bool, none_type | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. (optional)
     tcp_keepalive_interval = 1 # int, none_type | Interval in seconds between subsequent keepalive probes. (optional)
     tcp_keepalive_probes = 1 # int, none_type | Number of unacknowledged probes to send before considering the connection dead. (optional)
     tcp_keepalive_time = 1 # int, none_type | Interval in seconds between the last data packet sent and the first keepalive probe. (optional)
@@ -546,7 +547,7 @@ Name | Type | Description  | Notes
  **ssl_client_key** | **str, none_type**| Client key attached to origin. | [optional]
  **ssl_hostname** | **str, none_type**| Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional]
  **ssl_sni_hostname** | **str, none_type**| Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. | [optional]
- **tcp_keepalive_enable** | **bool**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
+ **tcp_keepalive_enable** | **bool, none_type**| Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional]
  **tcp_keepalive_interval** | **int, none_type**| Interval in seconds between subsequent keepalive probes. | [optional]
  **tcp_keepalive_probes** | **int, none_type**| Number of unacknowledged probes to send before considering the connection dead. | [optional]
  **tcp_keepalive_time** | **int, none_type**| Interval in seconds between the last data packet sent and the first keepalive probe. | [optional]
