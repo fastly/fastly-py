@@ -86,6 +86,7 @@ class Invoicelineitems(ModelNormal):
             'units': (float,),  # noqa: E501
             'product_name': (str,),  # noqa: E501
             'product_group': (str,),  # noqa: E501
+            'product_line': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'usage_type': (str,),  # noqa: E501
         }
@@ -103,6 +104,7 @@ class Invoicelineitems(ModelNormal):
         'units': 'units',  # noqa: E501
         'product_name': 'ProductName',  # noqa: E501
         'product_group': 'ProductGroup',  # noqa: E501
+        'product_line': 'ProductLine',  # noqa: E501
         'region': 'Region',  # noqa: E501
         'usage_type': 'UsageType',  # noqa: E501
     }
@@ -155,6 +157,7 @@ class Invoicelineitems(ModelNormal):
             units (float): Total number of units of usage.. [optional]  # noqa: E501
             product_name (str): The name of the product.. [optional]  # noqa: E501
             product_group (str): The broader classification of the product (e.g., `Compute` or `Full-Site Delivery`).. [optional]  # noqa: E501
+            product_line (str): The broader classification of the product (e.g., `Network Services` or `Security`).. [optional]  # noqa: E501
             region (str): The geographical area applicable for regionally based products.. [optional]  # noqa: E501
             usage_type (str): The unit of measure (e.g., `requests` or `bandwidth`).. [optional]  # noqa: E501
         """
@@ -245,6 +248,7 @@ class Invoicelineitems(ModelNormal):
             units (float): Total number of units of usage.. [optional]  # noqa: E501
             product_name (str): The name of the product.. [optional]  # noqa: E501
             product_group (str): The broader classification of the product (e.g., `Compute` or `Full-Site Delivery`).. [optional]  # noqa: E501
+            product_line (str): The broader classification of the product (e.g., `Network Services` or `Security`).. [optional]  # noqa: E501
             region (str): The geographical area applicable for regionally based products.. [optional]  # noqa: E501
             usage_type (str): The unit of measure (e.g., `requests` or `bandwidth`).. [optional]  # noqa: E501
         """

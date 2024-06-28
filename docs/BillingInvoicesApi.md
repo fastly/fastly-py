@@ -130,8 +130,8 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_invoices_api.BillingInvoicesApi(api_client)
-    billing_start_date = "2023-01-01T00:00:00Z" # str |  (optional)
-    billing_end_date = "2023-01-31T00:00:00Z" # str |  (optional)
+    billing_start_date = "2023-01-01" # str |  (optional)
+    billing_end_date = "2023-01-31" # str |  (optional)
     limit = "100" # str | Number of results per page. The maximum is 200. (optional) if omitted the server will use the default value of "100"
     cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
 

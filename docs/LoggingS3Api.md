@@ -76,6 +76,7 @@ with fastly.ApiClient(configuration) as api_client:
     secret_key = "secret_key_example" # str, none_type | The secret key for your S3 account. Not required if `iam_role` is provided. (optional)
     server_side_encryption_kms_key_id = "null" # str, none_type | Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`. (optional) if omitted the server will use the default value of "null"
     server_side_encryption = "null" # str, none_type | Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption. (optional) if omitted the server will use the default value of "null"
+    file_max_bytes = 1048576 # int | The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.) (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -89,7 +90,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an AWS S3 log endpoint
-        api_response = api_instance.create_log_aws_s3(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, access_key=access_key, acl=acl, bucket_name=bucket_name, domain=domain, iam_role=iam_role, path=path, public_key=public_key, redundancy=redundancy, secret_key=secret_key, server_side_encryption_kms_key_id=server_side_encryption_kms_key_id, server_side_encryption=server_side_encryption)
+        api_response = api_instance.create_log_aws_s3(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, access_key=access_key, acl=acl, bucket_name=bucket_name, domain=domain, iam_role=iam_role, path=path, public_key=public_key, redundancy=redundancy, secret_key=secret_key, server_side_encryption_kms_key_id=server_side_encryption_kms_key_id, server_side_encryption=server_side_encryption, file_max_bytes=file_max_bytes)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingS3Api->create_log_aws_s3: %s\n" % e)
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **secret_key** | **str, none_type**| The secret key for your S3 account. Not required if `iam_role` is provided. | [optional]
  **server_side_encryption_kms_key_id** | **str, none_type**| Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`. | [optional] if omitted the server will use the default value of "null"
  **server_side_encryption** | **str, none_type**| Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption. | [optional] if omitted the server will use the default value of "null"
+ **file_max_bytes** | **int**| The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.) | [optional]
 
 ### Return type
 
@@ -455,6 +457,7 @@ with fastly.ApiClient(configuration) as api_client:
     secret_key = "secret_key_example" # str, none_type | The secret key for your S3 account. Not required if `iam_role` is provided. (optional)
     server_side_encryption_kms_key_id = "null" # str, none_type | Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`. (optional) if omitted the server will use the default value of "null"
     server_side_encryption = "null" # str, none_type | Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption. (optional) if omitted the server will use the default value of "null"
+    file_max_bytes = 1048576 # int | The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.) (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -468,7 +471,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update an AWS S3 log endpoint
-        api_response = api_instance.update_log_aws_s3(service_id, version_id, logging_s3_name, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, access_key=access_key, acl=acl, bucket_name=bucket_name, domain=domain, iam_role=iam_role, path=path, public_key=public_key, redundancy=redundancy, secret_key=secret_key, server_side_encryption_kms_key_id=server_side_encryption_kms_key_id, server_side_encryption=server_side_encryption)
+        api_response = api_instance.update_log_aws_s3(service_id, version_id, logging_s3_name, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, message_type=message_type, timestamp_format=timestamp_format, compression_codec=compression_codec, period=period, gzip_level=gzip_level, access_key=access_key, acl=acl, bucket_name=bucket_name, domain=domain, iam_role=iam_role, path=path, public_key=public_key, redundancy=redundancy, secret_key=secret_key, server_side_encryption_kms_key_id=server_side_encryption_kms_key_id, server_side_encryption=server_side_encryption, file_max_bytes=file_max_bytes)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingS3Api->update_log_aws_s3: %s\n" % e)
@@ -503,6 +506,7 @@ Name | Type | Description  | Notes
  **secret_key** | **str, none_type**| The secret key for your S3 account. Not required if `iam_role` is provided. | [optional]
  **server_side_encryption_kms_key_id** | **str, none_type**| Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`. | [optional] if omitted the server will use the default value of "null"
  **server_side_encryption** | **str, none_type**| Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption. | [optional] if omitted the server will use the default value of "null"
+ **file_max_bytes** | **int**| The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.) | [optional]
 
 ### Return type
 
