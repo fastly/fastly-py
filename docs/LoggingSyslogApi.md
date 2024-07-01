@@ -27,8 +27,8 @@ Create a Syslog for a particular service and version.
 import time
 import fastly
 from fastly.api import logging_syslog_api
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from fastly.model.logging_message_type import LoggingMessageType
-from fastly.model.logging_use_tls import LoggingUseTls
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
@@ -69,7 +69,7 @@ with fastly.ApiClient(configuration) as api_client:
     hostname = "hostname_example" # str | The hostname used for the syslog endpoint. (optional)
     ipv4 = "ipv4_example" # str, none_type | The IPv4 address used for the syslog endpoint. (optional)
     token = "null" # str, none_type | Whether to prepend each message with a specific token. (optional) if omitted the server will use the default value of "null"
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
  **hostname** | **str**| The hostname used for the syslog endpoint. | [optional]
  **ipv4** | **str, none_type**| The IPv4 address used for the syslog endpoint. | [optional]
  **token** | **str, none_type**| Whether to prepend each message with a specific token. | [optional] if omitted the server will use the default value of "null"
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
 
 ### Return type
 
@@ -394,8 +394,8 @@ Update the Syslog for a particular service and version.
 import time
 import fastly
 from fastly.api import logging_syslog_api
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from fastly.model.logging_message_type import LoggingMessageType
-from fastly.model.logging_use_tls import LoggingUseTls
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
@@ -437,7 +437,7 @@ with fastly.ApiClient(configuration) as api_client:
     hostname = "hostname_example" # str | The hostname used for the syslog endpoint. (optional)
     ipv4 = "ipv4_example" # str, none_type | The IPv4 address used for the syslog endpoint. (optional)
     token = "null" # str, none_type | Whether to prepend each message with a specific token. (optional) if omitted the server will use the default value of "null"
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
  **hostname** | **str**| The hostname used for the syslog endpoint. | [optional]
  **ipv4** | **str, none_type**| The IPv4 address used for the syslog endpoint. | [optional]
  **token** | **str, none_type**| Whether to prepend each message with a specific token. | [optional] if omitted the server will use the default value of "null"
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
 
 ### Return type
 

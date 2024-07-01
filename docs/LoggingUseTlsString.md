@@ -1,11 +1,11 @@
-# LoggingUseTls
+# LoggingUseTlsString
 
 Whether to use TLS.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **int** | Whether to use TLS. | defaults to 0,  must be one of [0, 1, ]
+**value** | **str** | Whether to use TLS. | defaults to "0",  must be one of ["0", "1", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **request_max_bytes** | **int** | The maximum number of bytes sent in one request. Defaults `0` for unbounded. | [optional]  if omitted the server will use the default value of 0
 **url** | **str** | The URL to post logs to. | [optional] 
 **token** | **str** | A Splunk token for use in posting logs over HTTP to your collector. | [optional] 
-**use_tls** | [**LoggingUseTls**](LoggingUseTls.md) |  | [optional] 
+**use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md) |  | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

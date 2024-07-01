@@ -32,12 +32,12 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.logging_common_response import LoggingCommonResponse
     from fastly.model.logging_logentries_additional import LoggingLogentriesAdditional
-    from fastly.model.logging_use_tls import LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['LoggingCommonResponse'] = LoggingCommonResponse
     globals()['LoggingLogentriesAdditional'] = LoggingLogentriesAdditional
-    globals()['LoggingUseTls'] = LoggingUseTls
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
@@ -119,7 +119,7 @@ class LoggingLogentriesResponse(ModelComposed):
             'format_version': (str,),  # noqa: E501
             'port': (int,),  # noqa: E501
             'token': (str,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
@@ -201,7 +201,7 @@ class LoggingLogentriesResponse(ModelComposed):
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -314,7 +314,7 @@ class LoggingLogentriesResponse(ModelComposed):
             format_version (str): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of "2"  # noqa: E501
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

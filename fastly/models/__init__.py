@@ -284,7 +284,7 @@ from fastly.model.logging_sumologic_response import LoggingSumologicResponse
 from fastly.model.logging_syslog_additional import LoggingSyslogAdditional
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from fastly.model.logging_tls_common import LoggingTlsCommon
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from fastly.model.metadata import Metadata
 from fastly.model.mutual_authentication import MutualAuthentication
 from fastly.model.mutual_authentication_data import MutualAuthenticationData

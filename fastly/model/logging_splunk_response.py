@@ -34,14 +34,14 @@ def lazy_import():
     from fastly.model.logging_request_caps_common import LoggingRequestCapsCommon
     from fastly.model.logging_splunk_additional import LoggingSplunkAdditional
     from fastly.model.logging_tls_common import LoggingTlsCommon
-    from fastly.model.logging_use_tls import LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['LoggingCommonResponse'] = LoggingCommonResponse
     globals()['LoggingRequestCapsCommon'] = LoggingRequestCapsCommon
     globals()['LoggingSplunkAdditional'] = LoggingSplunkAdditional
     globals()['LoggingTlsCommon'] = LoggingTlsCommon
-    globals()['LoggingUseTls'] = LoggingUseTls
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
@@ -120,7 +120,7 @@ class LoggingSplunkResponse(ModelComposed):
             'request_max_bytes': (int,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -212,7 +212,7 @@ class LoggingSplunkResponse(ModelComposed):
             request_max_bytes (int): The maximum number of bytes sent in one request. Defaults `0` for unbounded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             url (str): The URL to post logs to.. [optional]  # noqa: E501
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -330,7 +330,7 @@ class LoggingSplunkResponse(ModelComposed):
             request_max_bytes (int): The maximum number of bytes sent in one request. Defaults `0` for unbounded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             url (str): The URL to post logs to.. [optional]  # noqa: E501
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

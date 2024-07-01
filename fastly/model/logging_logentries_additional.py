@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_use_tls import LoggingUseTls
-    globals()['LoggingUseTls'] = LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
 
 
 class LoggingLogentriesAdditional(ModelNormal):
@@ -96,7 +96,7 @@ class LoggingLogentriesAdditional(ModelNormal):
         return {
             'port': (int,),  # noqa: E501
             'token': (str,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
             'region': (str,),  # noqa: E501
         }
 
@@ -155,7 +155,7 @@ class LoggingLogentriesAdditional(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
         """
 
@@ -240,7 +240,7 @@ class LoggingLogentriesAdditional(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000  # noqa: E501
             token (str): Use token based authentication.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             region (str): The region to which to stream logs.. [optional]  # noqa: E501
         """
 

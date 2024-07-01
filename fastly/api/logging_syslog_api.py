@@ -24,7 +24,7 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.logging_message_type import LoggingMessageType
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 
 
 class LoggingSyslogApi(object):
@@ -146,7 +146,7 @@ class LoggingSyslogApi(object):
                     'token':
                         (str, none_type,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -521,7 +521,7 @@ class LoggingSyslogApi(object):
                     'token':
                         (str, none_type,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -616,7 +616,7 @@ class LoggingSyslogApi(object):
             hostname (str): The hostname used for the syslog endpoint.. [optional]
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -970,7 +970,7 @@ class LoggingSyslogApi(object):
             hostname (str): The hostname used for the syslog endpoint.. [optional]
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

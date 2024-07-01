@@ -33,13 +33,13 @@ def lazy_import():
     from fastly.model.logging_common_response import LoggingCommonResponse
     from fastly.model.logging_kafka_additional import LoggingKafkaAdditional
     from fastly.model.logging_tls_common import LoggingTlsCommon
-    from fastly.model.logging_use_tls import LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['LoggingCommonResponse'] = LoggingCommonResponse
     globals()['LoggingKafkaAdditional'] = LoggingKafkaAdditional
     globals()['LoggingTlsCommon'] = LoggingTlsCommon
-    globals()['LoggingUseTls'] = LoggingUseTls
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
@@ -145,7 +145,7 @@ class LoggingKafkaResponse(ModelComposed):
             'auth_method': (str,),  # noqa: E501
             'user': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
         }
 
     @cached_property
@@ -247,7 +247,7 @@ class LoggingKafkaResponse(ModelComposed):
             auth_method (str): SASL authentication method.. [optional]  # noqa: E501
             user (str): SASL user.. [optional]  # noqa: E501
             password (str): SASL password.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -370,7 +370,7 @@ class LoggingKafkaResponse(ModelComposed):
             auth_method (str): SASL authentication method.. [optional]  # noqa: E501
             user (str): SASL user.. [optional]  # noqa: E501
             password (str): SASL password.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

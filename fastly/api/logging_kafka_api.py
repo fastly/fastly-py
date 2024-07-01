@@ -24,7 +24,7 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.logging_kafka_response import LoggingKafkaResponse
 from fastly.model.logging_kafka_response_post import LoggingKafkaResponsePost
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 
 
 class LoggingKafkaApi(object):
@@ -176,7 +176,7 @@ class LoggingKafkaApi(object):
                     'password':
                         (str,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -554,7 +554,7 @@ class LoggingKafkaApi(object):
             auth_method (str): SASL authentication method.. [optional]
             user (str): SASL user.. [optional]
             password (str): SASL password.. [optional]
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

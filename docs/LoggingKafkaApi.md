@@ -28,7 +28,7 @@ import time
 import fastly
 from fastly.api import logging_kafka_api
 from fastly.model.logging_kafka_response_post import LoggingKafkaResponsePost
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -71,7 +71,7 @@ with fastly.ApiClient(configuration) as api_client:
     auth_method = "plain" # str | SASL authentication method. (optional)
     user = "user_example" # str | SASL user. (optional)
     password = "password_example" # str | SASL password. (optional)
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
  **auth_method** | **str**| SASL authentication method. | [optional]
  **user** | **str**| SASL user. | [optional]
  **password** | **str**| SASL password. | [optional]
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
 
 ### Return type
 

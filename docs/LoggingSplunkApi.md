@@ -27,8 +27,8 @@ Create a Splunk logging object for a particular service and version.
 import time
 import fastly
 from fastly.api import logging_splunk_api
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from fastly.model.logging_splunk_response import LoggingSplunkResponse
-from fastly.model.logging_use_tls import LoggingUseTls
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -66,7 +66,7 @@ with fastly.ApiClient(configuration) as api_client:
     request_max_bytes = 0 # int | The maximum number of bytes sent in one request. Defaults `0` for unbounded. (optional) if omitted the server will use the default value of 0
     url = "url_example" # str | The URL to post logs to. (optional)
     token = "token_example" # str | A Splunk token for use in posting logs over HTTP to your collector. (optional)
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
  **request_max_bytes** | **int**| The maximum number of bytes sent in one request. Defaults `0` for unbounded. | [optional] if omitted the server will use the default value of 0
  **url** | **str**| The URL to post logs to. | [optional]
  **token** | **str**| A Splunk token for use in posting logs over HTTP to your collector. | [optional]
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
 
 ### Return type
 
@@ -389,8 +389,8 @@ Update the Splunk logging object for a particular service and version.
 import time
 import fastly
 from fastly.api import logging_splunk_api
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from fastly.model.logging_splunk_response import LoggingSplunkResponse
-from fastly.model.logging_use_tls import LoggingUseTls
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -429,7 +429,7 @@ with fastly.ApiClient(configuration) as api_client:
     request_max_bytes = 0 # int | The maximum number of bytes sent in one request. Defaults `0` for unbounded. (optional) if omitted the server will use the default value of 0
     url = "url_example" # str | The URL to post logs to. (optional)
     token = "token_example" # str | A Splunk token for use in posting logs over HTTP to your collector. (optional)
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
  **request_max_bytes** | **int**| The maximum number of bytes sent in one request. Defaults `0` for unbounded. | [optional] if omitted the server will use the default value of 0
  **url** | **str**| The URL to post logs to. | [optional]
  **token** | **str**| A Splunk token for use in posting logs over HTTP to your collector. | [optional]
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
 
 ### Return type
 

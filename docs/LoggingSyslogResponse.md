@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **hostname** | **str** | The hostname used for the syslog endpoint. | [optional] 
 **ipv4** | **str, none_type** | The IPv4 address used for the syslog endpoint. | [optional] 
 **token** | **str, none_type** | Whether to prepend each message with a specific token. | [optional]  if omitted the server will use the default value of "null"
-**use_tls** | [**LoggingUseTls**](LoggingUseTls.md) |  | [optional] 
+**use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md) |  | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

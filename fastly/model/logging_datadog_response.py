@@ -75,7 +75,11 @@ class LoggingDatadogResponse(ModelComposed):
         },
         ('region',): {
             'US': "US",
-            'EU': "EU",
+            'US3': "US3",
+            'US5': "US5",
+            'EU_(LEGACY,_SAME_AS_EU1)': "EU (legacy, same as EU1)",
+            'EU1': "EU1",
+            'AP1': "AP1",
         },
     }
 

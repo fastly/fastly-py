@@ -31,9 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.logging_message_type import LoggingMessageType
-    from fastly.model.logging_use_tls import LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
     globals()['LoggingMessageType'] = LoggingMessageType
-    globals()['LoggingUseTls'] = LoggingUseTls
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
 
 
 class LoggingSyslogAdditional(ModelNormal):
@@ -91,7 +91,7 @@ class LoggingSyslogAdditional(ModelNormal):
             'hostname': (str,),  # noqa: E501
             'ipv4': (str, none_type,),  # noqa: E501
             'token': (str, none_type,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
         }
 
     @cached_property
@@ -152,7 +152,7 @@ class LoggingSyslogAdditional(ModelNormal):
             hostname (str): The hostname used for the syslog endpoint.. [optional]  # noqa: E501
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]  # noqa: E501
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,7 +238,7 @@ class LoggingSyslogAdditional(ModelNormal):
             hostname (str): The hostname used for the syslog endpoint.. [optional]  # noqa: E501
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]  # noqa: E501
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

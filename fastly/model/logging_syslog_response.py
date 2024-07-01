@@ -35,7 +35,7 @@ def lazy_import():
     from fastly.model.logging_message_type import LoggingMessageType
     from fastly.model.logging_syslog_additional import LoggingSyslogAdditional
     from fastly.model.logging_tls_common import LoggingTlsCommon
-    from fastly.model.logging_use_tls import LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['LoggingAddressAndPort'] = LoggingAddressAndPort
@@ -43,7 +43,7 @@ def lazy_import():
     globals()['LoggingMessageType'] = LoggingMessageType
     globals()['LoggingSyslogAdditional'] = LoggingSyslogAdditional
     globals()['LoggingTlsCommon'] = LoggingTlsCommon
-    globals()['LoggingUseTls'] = LoggingUseTls
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
@@ -124,7 +124,7 @@ class LoggingSyslogResponse(ModelComposed):
             'hostname': (str,),  # noqa: E501
             'ipv4': (str, none_type,),  # noqa: E501
             'token': (str, none_type,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -220,7 +220,7 @@ class LoggingSyslogResponse(ModelComposed):
             hostname (str): The hostname used for the syslog endpoint.. [optional]  # noqa: E501
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]  # noqa: E501
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -340,7 +340,7 @@ class LoggingSyslogResponse(ModelComposed):
             hostname (str): The hostname used for the syslog endpoint.. [optional]  # noqa: E501
             ipv4 (str, none_type): The IPv4 address used for the syslog endpoint.. [optional]  # noqa: E501
             token (str, none_type): Whether to prepend each message with a specific token.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

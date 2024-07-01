@@ -28,7 +28,7 @@ import time
 import fastly
 from fastly.api import logging_logentries_api
 from fastly.model.logging_logentries_response import LoggingLogentriesResponse
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,7 +60,7 @@ with fastly.ApiClient(configuration) as api_client:
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     port = 20000 # int | The port number. (optional) if omitted the server will use the default value of 20000
     token = "token_example" # str | Use token based authentication. (optional)
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
     region = "US" # str | The region to which to stream logs. (optional)
 
     # example passing only required values which don't have defaults set
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 20000
  **token** | **str**| Use token based authentication. | [optional]
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
  **region** | **str**| The region to which to stream logs. | [optional]
 
 ### Return type
@@ -380,7 +380,7 @@ import time
 import fastly
 from fastly.api import logging_logentries_api
 from fastly.model.logging_logentries_response import LoggingLogentriesResponse
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -413,7 +413,7 @@ with fastly.ApiClient(configuration) as api_client:
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     port = 20000 # int | The port number. (optional) if omitted the server will use the default value of 20000
     token = "token_example" # str | Use token based authentication. (optional)
-    use_tls = LoggingUseTls(0) # LoggingUseTls |  (optional)
+    use_tls = LoggingUseTlsString("0") # LoggingUseTlsString |  (optional)
     region = "US" # str | The region to which to stream logs. (optional)
 
     # example passing only required values which don't have defaults set
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **port** | **int**| The port number. | [optional] if omitted the server will use the default value of 20000
  **token** | **str**| Use token based authentication. | [optional]
- **use_tls** | [**LoggingUseTls**](LoggingUseTls.md)|  | [optional]
+ **use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md)|  | [optional]
  **region** | **str**| The region to which to stream logs. | [optional]
 
 ### Return type

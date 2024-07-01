@@ -23,7 +23,7 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.logging_splunk_response import LoggingSplunkResponse
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 
 
 class LoggingSplunkApi(object):
@@ -137,7 +137,7 @@ class LoggingSplunkApi(object):
                     'token':
                         (str,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -500,7 +500,7 @@ class LoggingSplunkApi(object):
                     'token':
                         (str,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -589,7 +589,7 @@ class LoggingSplunkApi(object):
             request_max_bytes (int): The maximum number of bytes sent in one request. Defaults `0` for unbounded.. [optional] if omitted the server will use the default value of 0
             url (str): The URL to post logs to.. [optional]
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -941,7 +941,7 @@ class LoggingSplunkApi(object):
             request_max_bytes (int): The maximum number of bytes sent in one request. Defaults `0` for unbounded.. [optional] if omitted the server will use the default value of 0
             url (str): The URL to post logs to.. [optional]
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

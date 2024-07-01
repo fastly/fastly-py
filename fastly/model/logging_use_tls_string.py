@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class LoggingUseTls(ModelSimple):
+class LoggingUseTlsString(ModelSimple):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -50,8 +50,8 @@ class LoggingUseTls(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'no_tls': 0,
-            'use_tls': 1,
+            'no_tls': "0",
+            'use_tls': "1",
         },
     }
 
@@ -73,7 +73,7 @@ class LoggingUseTls(ModelSimple):
                 and the value is attribute type.
         """
         return {
-            'value': (int,),
+            'value': (str,),
         }
 
     @cached_property
@@ -98,15 +98,15 @@ class LoggingUseTls(ModelSimple):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):
-        """LoggingUseTls - a model defined in OpenAPI
+        """LoggingUseTlsString - a model defined in OpenAPI
 
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (int): Whether to use TLS.. if omitted defaults to 0, must be one of [0, 1, ]  # noqa: E501
+            args[0] (str): Whether to use TLS.. if omitted defaults to "0", must be one of ["0", "1", ]  # noqa: E501
 
         Keyword Args:
-            value (int): Whether to use TLS.. if omitted defaults to 0, must be one of [0, 1, ]  # noqa: E501
+            value (str): Whether to use TLS.. if omitted defaults to "0", must be one of ["0", "1", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -147,7 +147,7 @@ class LoggingUseTls(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = 0
+            value = "0"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -184,15 +184,15 @@ class LoggingUseTls(ModelSimple):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):
-        """LoggingUseTls - a model defined in OpenAPI
+        """LoggingUseTlsString - a model defined in OpenAPI
 
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (int): Whether to use TLS.. if omitted defaults to 0, must be one of [0, 1, ]  # noqa: E501
+            args[0] (str): Whether to use TLS.. if omitted defaults to "0", must be one of ["0", "1", ]  # noqa: E501
 
         Keyword Args:
-            value (int): Whether to use TLS.. if omitted defaults to 0, must be one of [0, 1, ]  # noqa: E501
+            value (str): Whether to use TLS.. if omitted defaults to "0", must be one of ["0", "1", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -235,7 +235,7 @@ class LoggingUseTls(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = 0
+            value = "0"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)

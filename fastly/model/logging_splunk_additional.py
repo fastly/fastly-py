@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.logging_use_tls import LoggingUseTls
-    globals()['LoggingUseTls'] = LoggingUseTls
+    from fastly.model.logging_use_tls_string import LoggingUseTlsString
+    globals()['LoggingUseTlsString'] = LoggingUseTlsString
 
 
 class LoggingSplunkAdditional(ModelNormal):
@@ -87,7 +87,7 @@ class LoggingSplunkAdditional(ModelNormal):
         return {
             'url': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
-            'use_tls': (LoggingUseTls,),  # noqa: E501
+            'use_tls': (LoggingUseTlsString,),  # noqa: E501
         }
 
     @cached_property
@@ -144,7 +144,7 @@ class LoggingSplunkAdditional(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             url (str): The URL to post logs to.. [optional]  # noqa: E501
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class LoggingSplunkAdditional(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             url (str): The URL to post logs to.. [optional]  # noqa: E501
             token (str): A Splunk token for use in posting logs over HTTP to your collector.. [optional]  # noqa: E501
-            use_tls (LoggingUseTls): [optional]  # noqa: E501
+            use_tls (LoggingUseTlsString): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

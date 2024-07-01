@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **format_version** | **str** | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional]  if omitted the server will use the default value of "2"
 **port** | **int** | The port number. | [optional]  if omitted the server will use the default value of 20000
 **token** | **str** | Use token based authentication. | [optional] 
-**use_tls** | [**LoggingUseTls**](LoggingUseTls.md) |  | [optional] 
+**use_tls** | [**LoggingUseTlsString**](LoggingUseTlsString.md) |  | [optional] 
 **region** | **str** | The region to which to stream logs. | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

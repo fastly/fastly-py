@@ -23,7 +23,7 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.logging_logentries_response import LoggingLogentriesResponse
-from fastly.model.logging_use_tls import LoggingUseTls
+from fastly.model.logging_use_tls_string import LoggingUseTlsString
 
 
 class LoggingLogentriesApi(object):
@@ -127,7 +127,7 @@ class LoggingLogentriesApi(object):
                     'token':
                         (str,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                     'region':
                         (str,),
                 },
@@ -472,7 +472,7 @@ class LoggingLogentriesApi(object):
                     'token':
                         (str,),
                     'use_tls':
-                        (LoggingUseTls,),
+                        (LoggingUseTlsString,),
                     'region':
                         (str,),
                 },
@@ -547,7 +547,7 @@ class LoggingLogentriesApi(object):
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000
             token (str): Use token based authentication.. [optional]
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             region (str): The region to which to stream logs.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -894,7 +894,7 @@ class LoggingLogentriesApi(object):
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             port (int): The port number.. [optional] if omitted the server will use the default value of 20000
             token (str): Use token based authentication.. [optional]
-            use_tls (LoggingUseTls): [optional]
+            use_tls (LoggingUseTlsString): [optional]
             region (str): The region to which to stream logs.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
