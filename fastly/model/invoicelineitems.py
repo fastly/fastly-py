@@ -102,11 +102,11 @@ class Invoicelineitems(ModelNormal):
         'credit_coupon_code': 'credit_coupon_code',  # noqa: E501
         'rate': 'rate',  # noqa: E501
         'units': 'units',  # noqa: E501
-        'product_name': 'ProductName',  # noqa: E501
-        'product_group': 'ProductGroup',  # noqa: E501
-        'product_line': 'ProductLine',  # noqa: E501
-        'region': 'Region',  # noqa: E501
-        'usage_type': 'UsageType',  # noqa: E501
+        'product_name': 'product_name',  # noqa: E501
+        'product_group': 'product_group',  # noqa: E501
+        'product_line': 'product_line',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'usage_type': 'usage_type',  # noqa: E501
     }
 
     read_only_vars = {

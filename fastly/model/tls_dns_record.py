@@ -53,6 +53,16 @@ class TlsDnsRecord(ModelNormal):
     """
 
     allowed_values = {
+        ('region',): {
+            'CUSTOM': "custom",
+            'GLOBAL': "global",
+            'NA/EU': "na/eu",
+        },
+        ('record_type',): {
+            'CNAME': "CNAME",
+            'A': "A",
+            'AAAA': "AAAA",
+        },
     }
 
     validations = {
@@ -79,7 +89,6 @@ class TlsDnsRecord(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'record_type': (str,),  # noqa: E501
         }
@@ -90,7 +99,6 @@ class TlsDnsRecord(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'region': 'region',  # noqa: E501
         'record_type': 'record_type',  # noqa: E501
     }
@@ -136,8 +144,7 @@ class TlsDnsRecord(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): The IP address or hostname of the DNS record.. [optional]  # noqa: E501
-            region (str): Specifies the regions that will be used to route traffic. Select DNS Records with a `global` region to route traffic to the most performant point of presence (POP) worldwide (global pricing will apply). Select DNS records with a `us-eu` region to exclusively land traffic on North American and European POPs.. [optional]  # noqa: E501
+            region (str): Specifies the regions that will be used to route traffic. Select DNS records with a `global` region to route traffic to the most performant point of presence (POP) worldwide (global pricing will apply). Select DNS records with a `na/eu` region to exclusively land traffic on North American and European POPs.. [optional]  # noqa: E501
             record_type (str): The type of the DNS record. `A` specifies an IPv4 address to be used for an A record to be used for apex domains (e.g., `example.com`). `AAAA` specifies an IPv6 address for use in an A record for apex domains. `CNAME` specifies the hostname to be used for a CNAME record for subdomains or wildcard domains (e.g., `www.example.com` or `*.example.com`).. [optional]  # noqa: E501
         """
 
@@ -220,8 +227,7 @@ class TlsDnsRecord(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): The IP address or hostname of the DNS record.. [optional]  # noqa: E501
-            region (str): Specifies the regions that will be used to route traffic. Select DNS Records with a `global` region to route traffic to the most performant point of presence (POP) worldwide (global pricing will apply). Select DNS records with a `us-eu` region to exclusively land traffic on North American and European POPs.. [optional]  # noqa: E501
+            region (str): Specifies the regions that will be used to route traffic. Select DNS records with a `global` region to route traffic to the most performant point of presence (POP) worldwide (global pricing will apply). Select DNS records with a `na/eu` region to exclusively land traffic on North American and European POPs.. [optional]  # noqa: E501
             record_type (str): The type of the DNS record. `A` specifies an IPv4 address to be used for an A record to be used for apex domains (e.g., `example.com`). `AAAA` specifies an IPv6 address for use in an A record for apex domains. `CNAME` specifies the hostname to be used for a CNAME record for subdomains or wildcard domains (e.g., `www.example.com` or `*.example.com`).. [optional]  # noqa: E501
         """
 

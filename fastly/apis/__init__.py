@@ -22,6 +22,7 @@ from fastly.api.backend_api import BackendApi
 from fastly.api.billing_api import BillingApi
 from fastly.api.billing_address_api import BillingAddressApi
 from fastly.api.billing_invoices_api import BillingInvoicesApi
+from fastly.api.billing_usage_metrics_api import BillingUsageMetricsApi
 from fastly.api.cache_settings_api import CacheSettingsApi
 from fastly.api.condition_api import ConditionApi
 from fastly.api.config_store_api import ConfigStoreApi
@@ -90,6 +91,7 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.observability_custom_dashboards_api import ObservabilityCustomDashboardsApi
 from fastly.api.origin_inspector_historical_api import OriginInspectorHistoricalApi
 from fastly.api.origin_inspector_realtime_api import OriginInspectorRealtimeApi
 from fastly.api.package_api import PackageApi

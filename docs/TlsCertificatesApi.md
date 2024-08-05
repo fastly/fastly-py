@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create_tls_cert**](TlsCertificatesApi.md#create_tls_cert) | **POST** /tls/certificates | Create a TLS certificate
 [**delete_tls_cert**](TlsCertificatesApi.md#delete_tls_cert) | **DELETE** /tls/certificates/{tls_certificate_id} | Delete a TLS certificate
 [**get_tls_cert**](TlsCertificatesApi.md#get_tls_cert) | **GET** /tls/certificates/{tls_certificate_id} | Get a TLS certificate
+[**get_tls_cert_blob**](TlsCertificatesApi.md#get_tls_cert_blob) | **GET** /tls/certificates/{tls_certificate_id}/blob | Get a TLS certificate blob (Limited Availability)
 [**list_tls_certs**](TlsCertificatesApi.md#list_tls_certs) | **GET** /tls/certificates | List TLS certificates
 [**update_tls_cert**](TlsCertificatesApi.md#update_tls_cert) | **PATCH** /tls/certificates/{tls_certificate_id} | Update a TLS certificate
 
@@ -252,6 +253,84 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/vnd.api+json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tls_cert_blob**
+> TlsCertificateBlobResponse get_tls_cert_blob(tls_certificate_id)
+
+Get a TLS certificate blob (Limited Availability)
+
+Retrieve a TLS certificate blob. This feature is part of a [limited availability](https://docs.fastly.com/products/fastly-product-lifecycle#limited-availability) release.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import tls_certificates_api
+from fastly.model.tls_certificate_blob_response import TlsCertificateBlobResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = tls_certificates_api.TlsCertificatesApi(api_client)
+    tls_certificate_id = "cRTguUGZzb2W9Euo4moOr" # str | Alphanumeric string identifying a TLS certificate.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a TLS certificate blob (Limited Availability)
+        api_response = api_instance.get_tls_cert_blob(tls_certificate_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling TlsCertificatesApi->get_tls_cert_blob: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tls_certificate_id** | **str**| Alphanumeric string identifying a TLS certificate. |
+
+### Return type
+
+[**TlsCertificateBlobResponse**](TlsCertificateBlobResponse.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
