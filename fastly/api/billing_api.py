@@ -141,7 +141,7 @@ class BillingApi(object):
                     'customer_id':
                         (str,),
                     'invoice_id':
-                        (str,),
+                        (int,),
                 },
                 'attribute_map': {
                     'customer_id': 'customer_id',
@@ -334,7 +334,7 @@ class BillingApi(object):
 
         Args:
             customer_id (str): Alphanumeric string identifying the customer.
-            invoice_id (str): Alphanumeric string identifying the invoice.
+            invoice_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

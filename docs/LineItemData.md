@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **float** |  | [optional] 
-**aria_invoice_id** | [**LineItemDataReadOnlyInvoiceId**](LineItemDataReadOnlyInvoiceId.md) |  | [optional] 
+**aria_invoice_id** | **str** | An alphanumeric string identifying the invoice. | [optional] [readonly] 
 **client_service_id** | **str** |  | [optional] 
 **credit_coupon_code** | **str, none_type** |  | [optional] 
 **description** | **str** |  | [optional] 

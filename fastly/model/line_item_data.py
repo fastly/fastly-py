@@ -29,10 +29,6 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
-    globals()['LineItemDataReadOnlyInvoiceId'] = LineItemDataReadOnlyInvoiceId
-
 
 class LineItemData(ModelNormal):
     """NOTE: This class is auto generated.
@@ -68,7 +64,6 @@ class LineItemData(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -83,10 +78,9 @@ class LineItemData(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'amount': (float,),  # noqa: E501
-            'aria_invoice_id': (LineItemDataReadOnlyInvoiceId,),  # noqa: E501
+            'aria_invoice_id': (str,),  # noqa: E501
             'client_service_id': (str,),  # noqa: E501
             'credit_coupon_code': (str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -130,6 +124,7 @@ class LineItemData(ModelNormal):
     }
 
     read_only_vars = {
+        'aria_invoice_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -171,7 +166,7 @@ class LineItemData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             amount (float): [optional]  # noqa: E501
-            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
+            aria_invoice_id (str): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
             client_service_id (str): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
@@ -269,7 +264,7 @@ class LineItemData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             amount (float): [optional]  # noqa: E501
-            aria_invoice_id (LineItemDataReadOnlyInvoiceId): [optional]  # noqa: E501
+            aria_invoice_id (str): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
             client_service_id (str): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501

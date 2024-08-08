@@ -40,9 +40,14 @@ from fastly.model.billing_address_response import BillingAddressResponse
 from fastly.model.billing_address_response_data import BillingAddressResponseData
 from fastly.model.billing_address_verification_error_response import BillingAddressVerificationErrorResponse
 from fastly.model.billing_address_verification_error_response_errors import BillingAddressVerificationErrorResponseErrors
+from fastly.model.billing_bandwidth import BillingBandwidth
+from fastly.model.billing_bandwidth_tiers import BillingBandwidthTiers
+from fastly.model.billing_estimate_invoice_id import BillingEstimateInvoiceId
 from fastly.model.billing_estimate_lines import BillingEstimateLines
 from fastly.model.billing_estimate_lines_line_items import BillingEstimateLinesLineItems
 from fastly.model.billing_estimate_response import BillingEstimateResponse
+from fastly.model.billing_invoice_id import BillingInvoiceId
+from fastly.model.billing_regions import BillingRegions
 from fastly.model.billing_response import BillingResponse
 from fastly.model.billing_response_item_items_data import BillingResponseItemItemsData
 from fastly.model.billing_response_line_item import BillingResponseLineItem
@@ -227,7 +232,6 @@ from fastly.model.legacy_waf_ruleset import LegacyWafRuleset
 from fastly.model.legacy_waf_tag import LegacyWafTag
 from fastly.model.legacy_waf_update_status import LegacyWafUpdateStatus
 from fastly.model.line_item_data import LineItemData
-from fastly.model.line_item_data_read_only_invoice_id import LineItemDataReadOnlyInvoiceId
 from fastly.model.list_dashboards_response import ListDashboardsResponse
 from fastly.model.list_eom_invoices_response import ListEomInvoicesResponse
 from fastly.model.listinvoices import Listinvoices

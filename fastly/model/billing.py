@@ -30,8 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.billing_regions import BillingRegions
     from fastly.model.billing_status import BillingStatus
     from fastly.model.billing_total import BillingTotal
+    globals()['BillingRegions'] = BillingRegions
     globals()['BillingStatus'] = BillingStatus
     globals()['BillingTotal'] = BillingTotal
 
@@ -89,12 +91,11 @@ class Billing(ModelNormal):
         return {
             'end_time': (datetime, none_type,),  # noqa: E501
             'start_time': (datetime, none_type,),  # noqa: E501
-            'invoice_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
             'vendor_state': (str,),  # noqa: E501
             'status': (BillingStatus,),  # noqa: E501
             'total': (BillingTotal,),  # noqa: E501
-            'regions': ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)},),  # noqa: E501
+            'regions': ({str: (BillingRegions,)},),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +106,6 @@ class Billing(ModelNormal):
     attribute_map = {
         'end_time': 'end_time',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
-        'invoice_id': 'invoice_id',  # noqa: E501
         'customer_id': 'customer_id',  # noqa: E501
         'vendor_state': 'vendor_state',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -116,7 +116,6 @@ class Billing(ModelNormal):
     read_only_vars = {
         'end_time',  # noqa: E501
         'start_time',  # noqa: E501
-        'invoice_id',  # noqa: E501
         'customer_id',  # noqa: E501
         'vendor_state',  # noqa: E501
     }
@@ -161,12 +160,11 @@ class Billing(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             end_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             start_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            invoice_id (str): [optional]  # noqa: E501
             customer_id (str): [optional]  # noqa: E501
             vendor_state (str): The current state of our third-party billing vendor. One of `up` or `down`.. [optional]  # noqa: E501
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
-            regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
+            regions ({str: (BillingRegions,)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,12 +248,11 @@ class Billing(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             end_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             start_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            invoice_id (str): [optional]  # noqa: E501
             customer_id (str): [optional]  # noqa: E501
             vendor_state (str): The current state of our third-party billing vendor. One of `up` or `down`.. [optional]  # noqa: E501
             status (BillingStatus): [optional]  # noqa: E501
             total (BillingTotal): [optional]  # noqa: E501
-            regions ({str: ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
+            regions ({str: (BillingRegions,)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -129,7 +129,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_api.BillingApi(api_client)
     customer_id = "x4xCwxxJxGCx123Rx5xTx" # str | Alphanumeric string identifying the customer.
-    invoice_id = "7SlAESxcJ2zxHOV4gQ9y9X" # str | Alphanumeric string identifying the invoice.
+    invoice_id = 4183280 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -146,7 +146,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_id** | **str**| Alphanumeric string identifying the customer. |
- **invoice_id** | **str**| Alphanumeric string identifying the invoice. |
+ **invoice_id** | **int**|  |
 
 ### Return type
 

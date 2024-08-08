@@ -74,7 +74,7 @@ class BillingInvoicesApi(object):
                 },
                 'openapi_types': {
                     'invoice_id':
-                        (str,),
+                        (int,),
                 },
                 'attribute_map': {
                     'invoice_id': 'invoice_id',
@@ -233,7 +233,7 @@ class BillingInvoicesApi(object):
         >>> result = thread.get()
 
         Args:
-            invoice_id (str): Alphanumeric string identifying the invoice.
+            invoice_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

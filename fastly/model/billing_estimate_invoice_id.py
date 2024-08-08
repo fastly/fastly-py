@@ -29,24 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.billing import Billing
-    from fastly.model.billing_invoice_id import BillingInvoiceId
-    from fastly.model.billing_regions import BillingRegions
-    from fastly.model.billing_response_item_items_data import BillingResponseItemItemsData
-    from fastly.model.billing_response_line_items import BillingResponseLineItems
-    from fastly.model.billing_status import BillingStatus
-    from fastly.model.billing_total import BillingTotal
-    globals()['Billing'] = Billing
-    globals()['BillingInvoiceId'] = BillingInvoiceId
-    globals()['BillingRegions'] = BillingRegions
-    globals()['BillingResponseItemItemsData'] = BillingResponseItemItemsData
-    globals()['BillingResponseLineItems'] = BillingResponseLineItems
-    globals()['BillingStatus'] = BillingStatus
-    globals()['BillingTotal'] = BillingTotal
 
-
-class BillingResponse(ModelComposed):
+class BillingEstimateInvoiceId(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -80,7 +64,6 @@ class BillingResponse(ModelComposed):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -95,17 +78,8 @@ class BillingResponse(ModelComposed):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'end_time': (datetime, none_type,),  # noqa: E501
-            'start_time': (datetime, none_type,),  # noqa: E501
-            'customer_id': (str,),  # noqa: E501
-            'vendor_state': (str,),  # noqa: E501
-            'status': (BillingStatus,),  # noqa: E501
-            'total': (BillingTotal,),  # noqa: E501
-            'regions': ({str: (BillingRegions,)},),  # noqa: E501
-            'invoice_id': (int,),  # noqa: E501
-            'line_items': (BillingResponseLineItems,),  # noqa: E501
+            'invoice_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,29 +88,19 @@ class BillingResponse(ModelComposed):
 
 
     attribute_map = {
-        'end_time': 'end_time',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'customer_id': 'customer_id',  # noqa: E501
-        'vendor_state': 'vendor_state',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'total': 'total',  # noqa: E501
-        'regions': 'regions',  # noqa: E501
         'invoice_id': 'invoice_id',  # noqa: E501
-        'line_items': 'line_items',  # noqa: E501
     }
 
     read_only_vars = {
-        'end_time',  # noqa: E501
-        'start_time',  # noqa: E501
-        'customer_id',  # noqa: E501
-        'vendor_state',  # noqa: E501
         'invoice_id',  # noqa: E501
     }
+
+    _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BillingResponse - a model defined in OpenAPI
+        """BillingEstimateInvoiceId - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,15 +133,7 @@ class BillingResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            end_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            start_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            customer_id (str): [optional]  # noqa: E501
-            vendor_state (str): The current state of our third-party billing vendor. One of `up` or `down`.. [optional]  # noqa: E501
-            status (BillingStatus): [optional]  # noqa: E501
-            total (BillingTotal): [optional]  # noqa: E501
-            regions ({str: (BillingRegions,)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            invoice_id (int): [optional]  # noqa: E501
-            line_items (BillingResponseLineItems): [optional]  # noqa: E501
+            invoice_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -205,29 +161,14 @@ class BillingResponse(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
-
         return self
 
     required_properties = set([
@@ -237,14 +178,11 @@ class BillingResponse(ModelComposed):
         '_path_to_item',
         '_configuration',
         '_visited_composed_classes',
-        '_composed_instances',
-        '_var_name_to_model_instances',
-        '_additional_properties_model_instances',
     ])
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BillingResponse - a model defined in OpenAPI
+        """BillingEstimateInvoiceId - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,15 +215,7 @@ class BillingResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            end_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            start_time (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            customer_id (str): [optional]  # noqa: E501
-            vendor_state (str): The current state of our third-party billing vendor. One of `up` or `down`.. [optional]  # noqa: E501
-            status (BillingStatus): [optional]  # noqa: E501
-            total (BillingTotal): [optional]  # noqa: E501
-            regions ({str: (BillingRegions,)}): Breakdown of regional data for products that are region based.. [optional]  # noqa: E501
-            invoice_id (int): [optional]  # noqa: E501
-            line_items (BillingResponseLineItems): [optional]  # noqa: E501
+            invoice_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -311,50 +241,14 @@ class BillingResponse(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
-
-    @cached_property
-    def _composed_schemas():
-        # we need this here to make our import statements work
-        # we must store _composed_schemas in here so the code is only run
-        # when we invoke this method. If we kept this at the class
-        # level we would get an error because the class level
-        # code would be run when this module is imported, and these composed
-        # classes don't exist yet because their module has not finished
-        # loading
-        lazy_import()
-        return {
-          'anyOf': [
-          ],
-          'allOf': [
-              Billing,
-              BillingInvoiceId,
-              BillingResponseItemItemsData,
-          ],
-          'oneOf': [
-          ],
-        }

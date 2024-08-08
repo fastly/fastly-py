@@ -1,5 +1,12 @@
 # Changelog
 
+## [v5.7.0](https://github.com/fastly/fastly-py/releases/tag/release/v5.7.0) (2024-08-08)
+
+**Bug fixes:**
+
+- fix(billing): Adjust type of regional data to help the generator
+- fix(billing): Correct type of invoice_id field
+
 ## [v5.6.0](https://github.com/fastly/fastly-py/releases/tag/release/v5.6.0) (2024-08-04)
 
 **Enhancements:**
