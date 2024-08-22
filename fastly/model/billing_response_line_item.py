@@ -99,7 +99,7 @@ class BillingResponseLineItem(ModelComposed):
             'line_number': (int,),  # noqa: E501
             'plan_name': (str,),  # noqa: E501
             'plan_no': (float,),  # noqa: E501
-            'rate_per_unit': (float,),  # noqa: E501
+            'rate_per_unit': (float, none_type,),  # noqa: E501
             'rate_schedule_no': (float, none_type,),  # noqa: E501
             'rate_schedule_tier_no': (float, none_type,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
@@ -192,7 +192,7 @@ class BillingResponseLineItem(ModelComposed):
             line_number (int): [optional]  # noqa: E501
             plan_name (str): [optional]  # noqa: E501
             plan_no (float): [optional]  # noqa: E501
-            rate_per_unit (float): [optional]  # noqa: E501
+            rate_per_unit (float, none_type): [optional]  # noqa: E501
             rate_schedule_no (float, none_type): [optional]  # noqa: E501
             rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
             service_name (str): [optional]  # noqa: E501
@@ -311,7 +311,7 @@ class BillingResponseLineItem(ModelComposed):
             line_number (int): [optional]  # noqa: E501
             plan_name (str): [optional]  # noqa: E501
             plan_no (float): [optional]  # noqa: E501
-            rate_per_unit (float): [optional]  # noqa: E501
+            rate_per_unit (float, none_type): [optional]  # noqa: E501
             rate_schedule_no (float, none_type): [optional]  # noqa: E501
             rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
             service_name (str): [optional]  # noqa: E501

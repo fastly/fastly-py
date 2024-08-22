@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **line_number** | **int** |  | [optional] 
 **plan_name** | **str** |  | [optional] 
 **plan_no** | **float** |  | [optional] 
-**rate_per_unit** | **float** |  | [optional] 
+**rate_per_unit** | **float, none_type** |  | [optional] 
 **rate_schedule_no** | **float, none_type** |  | [optional] 
 **rate_schedule_tier_no** | **float, none_type** |  | [optional] 
 **service_name** | **str** |  | [optional] 
