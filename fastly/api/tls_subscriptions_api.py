@@ -376,10 +376,10 @@ class TlsSubscriptionsApi(object):
                     'filter_tls_domains_id',
                     'filter_has_active_order',
                     'filter_certificate_authority',
+                    'sort',
                     'include',
                     'page_number',
                     'page_size',
-                    'sort',
                 ],
                 'required': [],
                 'nullable': [
@@ -402,8 +402,10 @@ class TlsSubscriptionsApi(object):
                 'allowed_values': {
                     ('sort',): {
 
-                        "asc": "created_at",
-                        "desc": "-created_at"
+                        "created_at_asc": "created_at",
+                        "created_at_desc": "-created_at",
+                        "tls_certificates_not_after_asc": "tls_certificates.not_after",
+                        "tls_certificates_not_after_desc": "-tls_certificates.not_after"
                     },
                 },
                 'openapi_types': {
@@ -415,34 +417,34 @@ class TlsSubscriptionsApi(object):
                         (bool,),
                     'filter_certificate_authority':
                         (str,),
+                    'sort':
+                        (str,),
                     'include':
                         (str,),
                     'page_number':
                         (int,),
                     'page_size':
                         (int,),
-                    'sort':
-                        (str,),
                 },
                 'attribute_map': {
                     'filter_state': 'filter[state]',
                     'filter_tls_domains_id': 'filter[tls_domains.id]',
                     'filter_has_active_order': 'filter[has_active_order]',
                     'filter_certificate_authority': 'filter[certificate_authority]',
+                    'sort': 'sort',
                     'include': 'include',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
-                    'sort': 'sort',
                 },
                 'location_map': {
                     'filter_state': 'query',
                     'filter_tls_domains_id': 'query',
                     'filter_has_active_order': 'query',
                     'filter_certificate_authority': 'query',
+                    'sort': 'query',
                     'include': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
-                    'sort': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -947,10 +949,10 @@ class TlsSubscriptionsApi(object):
             filter_tls_domains_id (str): Limit the returned subscriptions to those that include the specific domain.. [optional]
             filter_has_active_order (bool): Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`. . [optional]
             filter_certificate_authority (str): Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`. . [optional]
+            sort (str): The order in which to list the results.. [optional] if omitted the server will use the default value of "-created_at"
             include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`. . [optional]
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
-            sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

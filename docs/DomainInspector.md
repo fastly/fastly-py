@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timestamp** | [**SubsequentRequestTimestamp**](SubsequentRequestTimestamp.md) |  | [optional] 
+**timestamp** | **int** | Value to use for subsequent requests. | [optional] 
 **aggregate_delay** | **int** | Offset of entry timestamps from the current time due to processing time. | [optional] 
 **data** | [**[DomainInspectorRealtimeEntry]**](DomainInspectorRealtimeEntry.md) | A list of report [entries](#entry-data-model), each representing one second of time. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

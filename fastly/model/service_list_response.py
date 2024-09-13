@@ -30,10 +30,12 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.environment import Environment
     from fastly.model.schemas_version_response import SchemasVersionResponse
     from fastly.model.service_create import ServiceCreate
     from fastly.model.service_list_response_all_of import ServiceListResponseAllOf
     from fastly.model.timestamps import Timestamps
+    globals()['Environment'] = Environment
     globals()['SchemasVersionResponse'] = SchemasVersionResponse
     globals()['ServiceCreate'] = ServiceCreate
     globals()['ServiceListResponseAllOf'] = ServiceListResponseAllOf
@@ -105,6 +107,7 @@ class ServiceListResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'versions': ([SchemasVersionResponse],),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
         }
 
     @cached_property
@@ -123,6 +126,7 @@ class ServiceListResponse(ModelComposed):
         'id': 'id',  # noqa: E501
         'version': 'version',  # noqa: E501
         'versions': 'versions',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,6 +182,7 @@ class ServiceListResponse(ModelComposed):
             id (str): [optional]  # noqa: E501
             version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,6 +292,7 @@ class ServiceListResponse(ModelComposed):
             id (str): [optional]  # noqa: E501
             version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

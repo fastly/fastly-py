@@ -328,6 +328,7 @@ class RealtimeMeasurements(ModelNormal):
             'all_status_4xx': (int,),  # noqa: E501
             'all_status_5xx': (int,),  # noqa: E501
             'origin_offload': (float,),  # noqa: E501
+            'request_denied_get_head_body': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -585,6 +586,7 @@ class RealtimeMeasurements(ModelNormal):
         'all_status_4xx': 'all_status_4xx',  # noqa: E501
         'all_status_5xx': 'all_status_5xx',  # noqa: E501
         'origin_offload': 'origin_offload',  # noqa: E501
+        'request_denied_get_head_body': 'request_denied_get_head_body',  # noqa: E501
     }
 
     read_only_vars = {
@@ -877,6 +879,7 @@ class RealtimeMeasurements(ModelNormal):
             all_status_4xx (int): Number of \"Client Error\" codes delivered for all sources.. [optional]  # noqa: E501
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
+            request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1207,6 +1210,7 @@ class RealtimeMeasurements(ModelNormal):
             all_status_4xx (int): Number of \"Client Error\" codes delivered for all sources.. [optional]  # noqa: E501
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
+            request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

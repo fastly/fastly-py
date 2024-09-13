@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class SubsequentRequestTimestamp(ModelNormal):
+class ComputeAclUpdateEntry(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -58,7 +58,13 @@ class SubsequentRequestTimestamp(ModelNormal):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -73,6 +79,9 @@ class SubsequentRequestTimestamp(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'op': (str,),  # noqa: E501
+            'prefix': (str,),  # noqa: E501
+            'action': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -81,6 +90,9 @@ class SubsequentRequestTimestamp(ModelNormal):
 
 
     attribute_map = {
+        'op': 'op',  # noqa: E501
+        'prefix': 'prefix',  # noqa: E501
+        'action': 'action',  # noqa: E501
     }
 
     read_only_vars = {
@@ -91,7 +103,7 @@ class SubsequentRequestTimestamp(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """SubsequentRequestTimestamp - a model defined in OpenAPI
+        """ComputeAclUpdateEntry - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -124,6 +136,9 @@ class SubsequentRequestTimestamp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            op (str): One of \"create\" or \"update\", indicating that the rest of this entry is to be added to/updated in the ACL.. [optional]  # noqa: E501
+            prefix (str): An IP prefix defined in Classless Inter-Domain Routing (CIDR) format, i.e. a valid IP address (v4 or v6) followed by a forward slash (/) and a prefix length (0-32 or 0-128, depending on address family).. [optional]  # noqa: E501
+            action (str): The action taken on the IP address, either \"block\" or \"allow\".. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,7 +187,7 @@ class SubsequentRequestTimestamp(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """SubsequentRequestTimestamp - a model defined in OpenAPI
+        """ComputeAclUpdateEntry - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,6 +220,9 @@ class SubsequentRequestTimestamp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            op (str): One of \"create\" or \"update\", indicating that the rest of this entry is to be added to/updated in the ACL.. [optional]  # noqa: E501
+            prefix (str): An IP prefix defined in Classless Inter-Domain Routing (CIDR) format, i.e. a valid IP address (v4 or v6) followed by a forward slash (/) and a prefix length (0-32 or 0-128, depending on address family).. [optional]  # noqa: E501
+            action (str): The action taken on the IP address, either \"block\" or \"allow\".. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

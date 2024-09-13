@@ -383,15 +383,15 @@ with fastly.ApiClient(configuration) as api_client:
     filter_not_after = "filter[not_after]_example" # str | Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]=2020-05-05).  (optional)
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned certificates to those that include the specific domain. (optional)
     include = "include_example" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`.  (optional)
+    sort = "-created_at" # str | The order in which to list the results. (optional) if omitted the server will use the default value of "-created_at"
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
-    sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List TLS certificates
-        api_response = api_instance.list_tls_certs(filter_in_use=filter_in_use, filter_not_after=filter_not_after, filter_tls_domains_id=filter_tls_domains_id, include=include, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_certs(filter_in_use=filter_in_use, filter_not_after=filter_not_after, filter_tls_domains_id=filter_tls_domains_id, include=include, sort=sort, page_number=page_number, page_size=page_size)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsCertificatesApi->list_tls_certs: %s\n" % e)
@@ -406,9 +406,9 @@ Name | Type | Description  | Notes
  **filter_not_after** | **str**| Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]&#x3D;2020-05-05).  | [optional]
  **filter_tls_domains_id** | **str**| Limit the returned certificates to those that include the specific domain. | [optional]
  **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`.  | [optional]
+ **sort** | **str**| The order in which to list the results. | [optional] if omitted the server will use the default value of "-created_at"
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
- **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"
 
 ### Return type
 

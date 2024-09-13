@@ -5,7 +5,7 @@ Each reporting period is represented by an entry in the `Data` property of the t
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recorded** | [**RecordedTimestamp**](RecordedTimestamp.md) |  | [optional] 
+**recorded** | **int** | The Unix timestamp at which this record&#39;s data was generated. | [optional] 
 **aggregated** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | Groups [measurements](#measurements-data-model) by backend name and then by IP address. | [optional] 
 **datacenter** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** | Groups [measurements](#measurements-data-model) by POP, then backend name, and then IP address. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -16,6 +16,7 @@
 # Import APIs into API package:
 from fastly.api.acl_api import AclApi
 from fastly.api.acl_entry_api import AclEntryApi
+from fastly.api.acls_in_compute_api import AclsInComputeApi
 from fastly.api.apex_redirect_api import ApexRedirectApi
 from fastly.api.automation_tokens_api import AutomationTokensApi
 from fastly.api.backend_api import BackendApi
@@ -30,6 +31,7 @@ from fastly.api.config_store_item_api import ConfigStoreItemApi
 from fastly.api.contact_api import ContactApi
 from fastly.api.content_api import ContentApi
 from fastly.api.customer_api import CustomerApi
+from fastly.api.customer_addresses_api import CustomerAddressesApi
 from fastly.api.dictionary_api import DictionaryApi
 from fastly.api.dictionary_info_api import DictionaryInfoApi
 from fastly.api.dictionary_item_api import DictionaryItemApi

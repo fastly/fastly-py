@@ -29,6 +29,10 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.environment import Environment
+    globals()['Environment'] = Environment
+
 
 class VersionResponseAllOf(ModelNormal):
     """NOTE: This class is auto generated.
@@ -64,6 +68,7 @@ class VersionResponseAllOf(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +83,10 @@ class VersionResponseAllOf(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'service_id': (str,),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +96,7 @@ class VersionResponseAllOf(ModelNormal):
 
     attribute_map = {
         'service_id': 'service_id',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,6 +142,7 @@ class VersionResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,6 +225,7 @@ class VersionResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

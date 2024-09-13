@@ -31,9 +31,7 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.domain_inspector_realtime_entry import DomainInspectorRealtimeEntry
-    from fastly.model.subsequent_request_timestamp import SubsequentRequestTimestamp
     globals()['DomainInspectorRealtimeEntry'] = DomainInspectorRealtimeEntry
-    globals()['SubsequentRequestTimestamp'] = SubsequentRequestTimestamp
 
 
 class DomainInspector(ModelNormal):
@@ -87,7 +85,7 @@ class DomainInspector(ModelNormal):
         """
         lazy_import()
         return {
-            'timestamp': (SubsequentRequestTimestamp,),  # noqa: E501
+            'timestamp': (int,),  # noqa: E501
             'aggregate_delay': (int,),  # noqa: E501
             'data': ([DomainInspectorRealtimeEntry],),  # noqa: E501
         }
@@ -144,7 +142,7 @@ class DomainInspector(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            timestamp (SubsequentRequestTimestamp): [optional]  # noqa: E501
+            timestamp (int): Value to use for subsequent requests.. [optional]  # noqa: E501
             aggregate_delay (int): Offset of entry timestamps from the current time due to processing time.. [optional]  # noqa: E501
             data ([DomainInspectorRealtimeEntry]): A list of report [entries](#entry-data-model), each representing one second of time.. [optional]  # noqa: E501
         """
@@ -228,7 +226,7 @@ class DomainInspector(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            timestamp (SubsequentRequestTimestamp): [optional]  # noqa: E501
+            timestamp (int): Value to use for subsequent requests.. [optional]  # noqa: E501
             aggregate_delay (int): Offset of entry timestamps from the current time due to processing time.. [optional]  # noqa: E501
             data ([DomainInspectorRealtimeEntry]): A list of report [entries](#entry-data-model), each representing one second of time.. [optional]  # noqa: E501
         """

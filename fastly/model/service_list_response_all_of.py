@@ -30,7 +30,9 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.environment import Environment
     from fastly.model.schemas_version_response import SchemasVersionResponse
+    globals()['Environment'] = Environment
     globals()['SchemasVersionResponse'] = SchemasVersionResponse
 
 
@@ -88,6 +90,7 @@ class ServiceListResponseAllOf(ModelNormal):
             'id': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'versions': ([SchemasVersionResponse],),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +102,7 @@ class ServiceListResponseAllOf(ModelNormal):
         'id': 'id',  # noqa: E501
         'version': 'version',  # noqa: E501
         'versions': 'versions',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,6 +150,7 @@ class ServiceListResponseAllOf(ModelNormal):
             id (str): [optional]  # noqa: E501
             version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +235,7 @@ class ServiceListResponseAllOf(ModelNormal):
             id (str): [optional]  # noqa: E501
             version (int): Current [version](https://www.fastly.com/documentation/reference/api/services/version/) of the service.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

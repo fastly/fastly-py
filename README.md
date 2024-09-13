@@ -74,6 +74,13 @@ Class | Method | Description
 *AclEntryApi* | [**get_acl_entry**](docs/AclEntryApi.md#get_acl_entry) | Describe an ACL entry
 *AclEntryApi* | [**list_acl_entries**](docs/AclEntryApi.md#list_acl_entries) | List ACL entries
 *AclEntryApi* | [**update_acl_entry**](docs/AclEntryApi.md#update_acl_entry) | Update an ACL entry
+*AclsInComputeApi* | [**compute_acl_create_acls**](docs/AclsInComputeApi.md#compute_acl_create_acls) | Create a new ACL
+*AclsInComputeApi* | [**compute_acl_delete_s_acl_id**](docs/AclsInComputeApi.md#compute_acl_delete_s_acl_id) | Delete an ACL
+*AclsInComputeApi* | [**compute_acl_list_acl_entries**](docs/AclsInComputeApi.md#compute_acl_list_acl_entries) | List an ACL
+*AclsInComputeApi* | [**compute_acl_list_acls**](docs/AclsInComputeApi.md#compute_acl_list_acls) | List ACLs
+*AclsInComputeApi* | [**compute_acl_list_acls_s_acl_id**](docs/AclsInComputeApi.md#compute_acl_list_acls_s_acl_id) | Describe an ACL
+*AclsInComputeApi* | [**compute_acl_lookup_acls**](docs/AclsInComputeApi.md#compute_acl_lookup_acls) | Lookup an ACL
+*AclsInComputeApi* | [**compute_acl_update_acls**](docs/AclsInComputeApi.md#compute_acl_update_acls) | Update an ACL
 *ApexRedirectApi* | [**create_apex_redirect**](docs/ApexRedirectApi.md#create_apex_redirect) | Create an apex redirect
 *ApexRedirectApi* | [**delete_apex_redirect**](docs/ApexRedirectApi.md#delete_apex_redirect) | Delete an apex redirect
 *ApexRedirectApi* | [**get_apex_redirect**](docs/ApexRedirectApi.md#get_apex_redirect) | Get an apex redirect
@@ -134,6 +141,9 @@ Class | Method | Description
 *CustomerApi* | [**get_logged_in_customer**](docs/CustomerApi.md#get_logged_in_customer) | Get the logged in customer
 *CustomerApi* | [**list_users**](docs/CustomerApi.md#list_users) | List users
 *CustomerApi* | [**update_customer**](docs/CustomerApi.md#update_customer) | Update a customer
+*CustomerAddressesApi* | [**create_customer_address**](docs/CustomerAddressesApi.md#create_customer_address) | Creates an address associated with a customer account.
+*CustomerAddressesApi* | [**list_customer_addresses**](docs/CustomerAddressesApi.md#list_customer_addresses) | Return the list of addresses associated with a customer account.
+*CustomerAddressesApi* | [**update_customer_address**](docs/CustomerAddressesApi.md#update_customer_address) | Updates an address associated with a customer account.
 *DictionaryApi* | [**create_dictionary**](docs/DictionaryApi.md#create_dictionary) | Create an edge dictionary
 *DictionaryApi* | [**delete_dictionary**](docs/DictionaryApi.md#delete_dictionary) | Delete an edge dictionary
 *DictionaryApi* | [**get_dictionary**](docs/DictionaryApi.md#get_dictionary) | Get an edge dictionary
@@ -171,6 +181,8 @@ Class | Method | Description
 *EnabledProductsApi* | [**disable_product**](docs/EnabledProductsApi.md#disable_product) | Disable a product
 *EnabledProductsApi* | [**enable_product**](docs/EnabledProductsApi.md#enable_product) | Enable a product
 *EnabledProductsApi* | [**get_enabled_product**](docs/EnabledProductsApi.md#get_enabled_product) | Get enabled product
+*EnabledProductsApi* | [**get_product_configuration**](docs/EnabledProductsApi.md#get_product_configuration) | Get configuration for a product
+*EnabledProductsApi* | [**set_product_configuration**](docs/EnabledProductsApi.md#set_product_configuration) | Update configuration for a product
 *EventsApi* | [**get_event**](docs/EventsApi.md#get_event) | Get an event
 *EventsApi* | [**list_events**](docs/EventsApi.md#list_events) | List events
 *GzipApi* | [**create_gzip_config**](docs/GzipApi.md#create_gzip_config) | Create a gzip configuration
@@ -567,9 +579,11 @@ Class | Method | Description
 *VclApi* | [**update_custom_vcl**](docs/VclApi.md#update_custom_vcl) | Update a custom VCL file
 *VclDiffApi* | [**vcl_diff_service_versions**](docs/VclDiffApi.md#vcl_diff_service_versions) | Get a comparison of the VCL changes between two service versions
 *VersionApi* | [**activate_service_version**](docs/VersionApi.md#activate_service_version) | Activate a service version
+*VersionApi* | [**activate_service_version_environment**](docs/VersionApi.md#activate_service_version_environment) | Activate a service version on the specified environment
 *VersionApi* | [**clone_service_version**](docs/VersionApi.md#clone_service_version) | Clone a service version
 *VersionApi* | [**create_service_version**](docs/VersionApi.md#create_service_version) | Create a service version
 *VersionApi* | [**deactivate_service_version**](docs/VersionApi.md#deactivate_service_version) | Deactivate a service version
+*VersionApi* | [**deactivate_service_version_environment**](docs/VersionApi.md#deactivate_service_version_environment) | Deactivate a service version on an environment
 *VersionApi* | [**get_service_version**](docs/VersionApi.md#get_service_version) | Get a version of a service
 *VersionApi* | [**list_service_versions**](docs/VersionApi.md#list_service_versions) | List versions of a service
 *VersionApi* | [**lock_service_version**](docs/VersionApi.md#lock_service_version) | Lock a service version
@@ -618,6 +632,8 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/alerts/history`](https://www.fastly.com/documentation/reference/api/observability/alerts/history) (GET)
 - [`/dns/configurations/{dns_configuration_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/dns/configurations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/domains/{domain_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
+- [`/domains`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
 - [`/notifications/integration-types`](https://developer.fastly.com/reference/api/observability/notification) (GET)
 - [`/notifications/integrations/{integration_id}/rotateSigningKey`](https://developer.fastly.com/reference/api/observability/notification) (POST)
 - [`/notifications/integrations/{integration_id}/signingKey`](https://developer.fastly.com/reference/api/observability/notification) (GET)
@@ -625,12 +641,23 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/notifications/integrations`](https://developer.fastly.com/reference/api/observability/notification) (GET, POST)
 - [`/notifications/mailinglist-confirmations`](https://developer.fastly.com/reference/api/observability/notification) (POST)
 - [`/resources/stores/kv/{store_id}/batch`](https://www.fastly.com/documentation/reference/api/services/resources/kv-store-item) (PUT)
+- [`/security/workspaces/{workspace_id}/events/{event_id}`](https://docs.fastly.com/en/ngwaf/) (GET, PATCH)
+- [`/security/workspaces/{workspace_id}/events`](https://docs.fastly.com/en/ngwaf/) (GET)
+- [`/security/workspaces/{workspace_id}/redactions/{redaction_id}`](https://docs.fastly.com/en/ngwaf/) (DELETE, GET, PATCH)
+- [`/security/workspaces/{workspace_id}/redactions`](https://docs.fastly.com/en/ngwaf/) (GET, POST)
+- [`/security/workspaces/{workspace_id}/requests/{request_id}`](https://docs.fastly.com/en/ngwaf/) (GET)
+- [`/security/workspaces/{workspace_id}/requests`](https://docs.fastly.com/en/ngwaf/) (GET)
+- [`/security/workspaces/{workspace_id}/rules/{rule_id}`](https://docs.fastly.com/en/ngwaf/) (DELETE, GET, PATCH)
+- [`/security/workspaces/{workspace_id}/rules`](https://docs.fastly.com/en/ngwaf/) (GET, POST)
+- [`/security/workspaces/{workspace_id}/timeseries`](https://docs.fastly.com/en/ngwaf/) (GET)
+- [`/security/workspaces/{workspace_id}/virtual-patches/{virtual_patch_id}`](https://docs.fastly.com/en/ngwaf/) (GET, PATCH)
+- [`/security/workspaces/{workspace_id}/virtual-patches`](https://docs.fastly.com/en/ngwaf/) (GET)
+- [`/security/workspaces/{workspace_id}`](https://docs.fastly.com/en/ngwaf/) (DELETE, GET, PATCH)
+- [`/security/workspaces`](https://docs.fastly.com/en/ngwaf/) (GET, POST)
 - [`/tls/activations/{tls_activation_id}`](https://www.fastly.com/documentation/reference/api/tls/mutual-tls/activations) (GET, PATCH)
 - [`/tls/activations`](https://www.fastly.com/documentation/reference/api/tls/mutual-tls/activations) (GET)
 - [`/tls/configurations/{tls_configuration_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/tls/configurations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
-- [`/tls/preview/domains/{domain_id}`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
-- [`/tls/preview/domains`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
 - [`/v1/channel/{service_id}/ts/h/limit/{max_entries}`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)
 - [`/v1/channel/{service_id}/ts/h`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)
 - [`/v1/channel/{service_id}/ts/{start_timestamp}`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)

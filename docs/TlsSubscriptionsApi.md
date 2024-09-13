@@ -481,16 +481,16 @@ with fastly.ApiClient(configuration) as api_client:
     filter_tls_domains_id = "filter[tls_domains.id]_example" # str | Limit the returned subscriptions to those that include the specific domain. (optional)
     filter_has_active_order = True # bool | Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  (optional)
     filter_certificate_authority = "filter[certificate_authority]_example" # str | Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`.  (optional)
+    sort = "-created_at" # str | The order in which to list the results. (optional) if omitted the server will use the default value of "-created_at"
     include = "tls_authorizations" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
-    sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List TLS subscriptions
-        api_response = api_instance.list_tls_subs(filter_state=filter_state, filter_tls_domains_id=filter_tls_domains_id, filter_has_active_order=filter_has_active_order, filter_certificate_authority=filter_certificate_authority, include=include, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_subs(filter_state=filter_state, filter_tls_domains_id=filter_tls_domains_id, filter_has_active_order=filter_has_active_order, filter_certificate_authority=filter_certificate_authority, sort=sort, include=include, page_number=page_number, page_size=page_size)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsSubscriptionsApi->list_tls_subs: %s\n" % e)
@@ -505,10 +505,10 @@ Name | Type | Description  | Notes
  **filter_tls_domains_id** | **str**| Limit the returned subscriptions to those that include the specific domain. | [optional]
  **filter_has_active_order** | **bool**| Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.  | [optional]
  **filter_certificate_authority** | **str**| Limit the returned subscriptions to a specific certification authority. Values may include `certainly`, `lets-encrypt`, or `globalsign`.  | [optional]
+ **sort** | **str**| The order in which to list the results. | [optional] if omitted the server will use the default value of "-created_at"
  **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, `tls_authorizations.self_managed_http_challenge`, and `tls_certificates`.  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
- **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"
 
 ### Return type
 

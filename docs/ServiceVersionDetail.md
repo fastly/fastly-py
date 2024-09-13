@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **service_id** | **str** |  | [optional] [readonly] 
+**environments** | [**[Environment]**](Environment.md) | A list of environments where the service has been deployed. | [optional] 
 **backends** | [**[BackendResponse]**](BackendResponse.md) | List of backends associated to this service. | [optional] 
 **cache_settings** | [**[CacheSettingResponse]**](CacheSettingResponse.md) | List of cache settings associated to this service. | [optional] 
 **conditions** | [**[ConditionResponse]**](ConditionResponse.md) | List of conditions associated to this service. | [optional] 

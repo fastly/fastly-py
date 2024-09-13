@@ -35,6 +35,7 @@ def lazy_import():
     from fastly.model.condition_response import ConditionResponse
     from fastly.model.director import Director
     from fastly.model.domain_response import DomainResponse
+    from fastly.model.environment import Environment
     from fastly.model.gzip_response import GzipResponse
     from fastly.model.header_response import HeaderResponse
     from fastly.model.healthcheck_response import HealthcheckResponse
@@ -50,6 +51,7 @@ def lazy_import():
     globals()['ConditionResponse'] = ConditionResponse
     globals()['Director'] = Director
     globals()['DomainResponse'] = DomainResponse
+    globals()['Environment'] = Environment
     globals()['GzipResponse'] = GzipResponse
     globals()['HeaderResponse'] = HeaderResponse
     globals()['HealthcheckResponse'] = HealthcheckResponse
@@ -124,6 +126,7 @@ class ServiceVersionDetailOrNull(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
             'backends': ([BackendResponse],),  # noqa: E501
             'cache_settings': ([CacheSettingResponse],),  # noqa: E501
             'conditions': ([ConditionResponse],),  # noqa: E501
@@ -157,6 +160,7 @@ class ServiceVersionDetailOrNull(ModelComposed):
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
         'backends': 'backends',  # noqa: E501
         'cache_settings': 'cache_settings',  # noqa: E501
         'conditions': 'conditions',  # noqa: E501
@@ -228,6 +232,7 @@ class ServiceVersionDetailOrNull(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
             backends ([BackendResponse]): List of backends associated to this service.. [optional]  # noqa: E501
             cache_settings ([CacheSettingResponse]): List of cache settings associated to this service.. [optional]  # noqa: E501
             conditions ([ConditionResponse]): List of conditions associated to this service.. [optional]  # noqa: E501
@@ -352,6 +357,7 @@ class ServiceVersionDetailOrNull(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
             backends ([BackendResponse]): List of backends associated to this service.. [optional]  # noqa: E501
             cache_settings ([CacheSettingResponse]): List of cache settings associated to this service.. [optional]  # noqa: E501
             conditions ([ConditionResponse]): List of conditions associated to this service.. [optional]  # noqa: E501

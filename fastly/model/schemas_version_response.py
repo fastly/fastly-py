@@ -30,9 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.environment import Environment
     from fastly.model.schemas_version import SchemasVersion
     from fastly.model.timestamps import Timestamps
     from fastly.model.version_response_all_of import VersionResponseAllOf
+    globals()['Environment'] = Environment
     globals()['SchemasVersion'] = SchemasVersion
     globals()['Timestamps'] = Timestamps
     globals()['VersionResponseAllOf'] = VersionResponseAllOf
@@ -100,6 +102,7 @@ class SchemasVersionResponse(ModelComposed):
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
         }
 
     @cached_property
@@ -119,6 +122,7 @@ class SchemasVersionResponse(ModelComposed):
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,6 +180,7 @@ class SchemasVersionResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,6 +291,7 @@ class SchemasVersionResponse(ModelComposed):
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

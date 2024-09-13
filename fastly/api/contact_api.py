@@ -146,7 +146,7 @@ class ContactApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/customer/{customer_id}/contact/{contact_id}',
+                'endpoint_path': '/customer/{customer_id}/contacts/{contact_id}',
                 'operation_id': 'delete_contact',
                 'http_method': 'DELETE',
                 'servers': [

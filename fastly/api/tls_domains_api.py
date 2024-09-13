@@ -55,9 +55,9 @@ class TlsDomainsApi(object):
                     'filter_tls_certificates_id',
                     'filter_tls_subscriptions_id',
                     'include',
+                    'sort',
                     'page_number',
                     'page_size',
-                    'sort',
                 ],
                 'required': [],
                 'nullable': [
@@ -80,8 +80,10 @@ class TlsDomainsApi(object):
                 'allowed_values': {
                     ('sort',): {
 
-                        "asc": "created_at",
-                        "desc": "-created_at"
+                        "activations_created_at_asc": "tls_activations.created_at",
+                        "activations_created_at_desc": "-tls_activations.created_at",
+                        "id_asc": "id",
+                        "id_desc": "-id"
                     },
                 },
                 'openapi_types': {
@@ -93,30 +95,30 @@ class TlsDomainsApi(object):
                         (str,),
                     'include':
                         (str,),
+                    'sort':
+                        (str,),
                     'page_number':
                         (int,),
                     'page_size':
                         (int,),
-                    'sort':
-                        (str,),
                 },
                 'attribute_map': {
                     'filter_in_use': 'filter[in_use]',
                     'filter_tls_certificates_id': 'filter[tls_certificates.id]',
                     'filter_tls_subscriptions_id': 'filter[tls_subscriptions.id]',
                     'include': 'include',
+                    'sort': 'sort',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
-                    'sort': 'sort',
                 },
                 'location_map': {
                     'filter_in_use': 'query',
                     'filter_tls_certificates_id': 'query',
                     'filter_tls_subscriptions_id': 'query',
                     'include': 'query',
+                    'sort': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
-                    'sort': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -151,9 +153,9 @@ class TlsDomainsApi(object):
             filter_tls_certificates_id (str): Optional. Limit the returned domains to those listed in the given TLS certificate's SAN list.. [optional]
             filter_tls_subscriptions_id (str): Optional. Limit the returned domains to those for a given TLS subscription.. [optional]
             include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`. . [optional]
+            sort (str): The order in which to list the results.. [optional] if omitted the server will use the default value of "id"
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
-            sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

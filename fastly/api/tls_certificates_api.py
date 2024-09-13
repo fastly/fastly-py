@@ -287,9 +287,9 @@ class TlsCertificatesApi(object):
                     'filter_not_after',
                     'filter_tls_domains_id',
                     'include',
+                    'sort',
                     'page_number',
                     'page_size',
-                    'sort',
                 ],
                 'required': [],
                 'nullable': [
@@ -312,8 +312,14 @@ class TlsCertificatesApi(object):
                 'allowed_values': {
                     ('sort',): {
 
-                        "asc": "created_at",
-                        "desc": "-created_at"
+                        "created_at_asc": "created_at",
+                        "created_at_desc": "-created_at",
+                        "not_before_asc": "not_before",
+                        "not_before_desc": "-not_before",
+                        "not_after_asc": "not_after",
+                        "not_after_desc": "-not_after",
+                        "tls_activations_created_at_asc": "tls_activations.created_at",
+                        "tls_activations_created_at_desc": "-tls_activations.created_at"
                     },
                 },
                 'openapi_types': {
@@ -325,30 +331,30 @@ class TlsCertificatesApi(object):
                         (str,),
                     'include':
                         (str,),
+                    'sort':
+                        (str,),
                     'page_number':
                         (int,),
                     'page_size':
                         (int,),
-                    'sort':
-                        (str,),
                 },
                 'attribute_map': {
                     'filter_in_use': 'filter[in_use]',
                     'filter_not_after': 'filter[not_after]',
                     'filter_tls_domains_id': 'filter[tls_domains.id]',
                     'include': 'include',
+                    'sort': 'sort',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
-                    'sort': 'sort',
                 },
                 'location_map': {
                     'filter_in_use': 'query',
                     'filter_not_after': 'query',
                     'filter_tls_domains_id': 'query',
                     'include': 'query',
+                    'sort': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
-                    'sort': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -755,9 +761,9 @@ class TlsCertificatesApi(object):
             filter_not_after (str): Limit the returned certificates to those that expire prior to the specified date in UTC. Accepts parameters: lte (e.g., filter[not_after][lte]=2020-05-05). . [optional]
             filter_tls_domains_id (str): Limit the returned certificates to those that include the specific domain.. [optional]
             include (str): Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`. . [optional]
+            sort (str): The order in which to list the results.. [optional] if omitted the server will use the default value of "-created_at"
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
-            sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

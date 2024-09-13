@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class RecordedTimestamp(ModelNormal):
+class ConfiguredProductResponseProduct(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -58,7 +58,13 @@ class RecordedTimestamp(ModelNormal):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -73,6 +79,8 @@ class RecordedTimestamp(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (str,),  # noqa: E501
+            'object': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -81,6 +89,8 @@ class RecordedTimestamp(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'object': 'object',  # noqa: E501
     }
 
     read_only_vars = {
@@ -91,7 +101,7 @@ class RecordedTimestamp(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """RecordedTimestamp - a model defined in OpenAPI
+        """ConfiguredProductResponseProduct - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -124,6 +134,8 @@ class RecordedTimestamp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): Product identifier. [optional]  # noqa: E501
+            object (str): Name of the object. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,7 +184,7 @@ class RecordedTimestamp(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """RecordedTimestamp - a model defined in OpenAPI
+        """ConfiguredProductResponseProduct - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,6 +217,8 @@ class RecordedTimestamp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): Product identifier. [optional]  # noqa: E501
+            object (str): Name of the object. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

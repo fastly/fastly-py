@@ -31,9 +31,7 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.origin_inspector_realtime_entry import OriginInspectorRealtimeEntry
-    from fastly.model.origin_inspector_subsequent_request_timestamp import OriginInspectorSubsequentRequestTimestamp
     globals()['OriginInspectorRealtimeEntry'] = OriginInspectorRealtimeEntry
-    globals()['OriginInspectorSubsequentRequestTimestamp'] = OriginInspectorSubsequentRequestTimestamp
 
 
 class OriginInspector(ModelNormal):
@@ -87,7 +85,7 @@ class OriginInspector(ModelNormal):
         """
         lazy_import()
         return {
-            'timestamp': (OriginInspectorSubsequentRequestTimestamp,),  # noqa: E501
+            'timestamp': (int,),  # noqa: E501
             'aggregate_delay': (int,),  # noqa: E501
             'data': ([OriginInspectorRealtimeEntry],),  # noqa: E501
         }
@@ -144,7 +142,7 @@ class OriginInspector(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            timestamp (OriginInspectorSubsequentRequestTimestamp): [optional]  # noqa: E501
+            timestamp (int): Value to use for subsequent requests.. [optional]  # noqa: E501
             aggregate_delay (int): Offset of entry timestamps from the current time due to processing time.. [optional]  # noqa: E501
             data ([OriginInspectorRealtimeEntry]): A list of report [entries](#entry-data-model), each representing one second of time.. [optional]  # noqa: E501
         """
@@ -228,7 +226,7 @@ class OriginInspector(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            timestamp (OriginInspectorSubsequentRequestTimestamp): [optional]  # noqa: E501
+            timestamp (int): Value to use for subsequent requests.. [optional]  # noqa: E501
             aggregate_delay (int): Offset of entry timestamps from the current time due to processing time.. [optional]  # noqa: E501
             data ([OriginInspectorRealtimeEntry]): A list of report [entries](#entry-data-model), each representing one second of time.. [optional]  # noqa: E501
         """

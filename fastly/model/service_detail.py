@@ -30,11 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.environment import Environment
     from fastly.model.schemas_version_response import SchemasVersionResponse
     from fastly.model.service_detail_all_of import ServiceDetailAllOf
     from fastly.model.service_response import ServiceResponse
     from fastly.model.service_version_detail import ServiceVersionDetail
     from fastly.model.service_version_detail_or_null import ServiceVersionDetailOrNull
+    globals()['Environment'] = Environment
     globals()['SchemasVersionResponse'] = SchemasVersionResponse
     globals()['ServiceDetailAllOf'] = ServiceDetailAllOf
     globals()['ServiceResponse'] = ServiceResponse
@@ -108,6 +110,7 @@ class ServiceDetail(ModelComposed):
             'publish_key': (str,),  # noqa: E501
             'paused': (bool,),  # noqa: E501
             'versions': ([SchemasVersionResponse],),  # noqa: E501
+            'environments': ([Environment],),  # noqa: E501
             'active_version': (ServiceVersionDetailOrNull,),  # noqa: E501
             'version': (ServiceVersionDetail,),  # noqa: E501
         }
@@ -129,6 +132,7 @@ class ServiceDetail(ModelComposed):
         'publish_key': 'publish_key',  # noqa: E501
         'paused': 'paused',  # noqa: E501
         'versions': 'versions',  # noqa: E501
+        'environments': 'environments',  # noqa: E501
         'active_version': 'active_version',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
@@ -187,6 +191,7 @@ class ServiceDetail(ModelComposed):
             publish_key (str): Unused at this time.. [optional]  # noqa: E501
             paused (bool): Whether the service is paused. Services are paused due to a lack of traffic for an extended period of time. Services are resumed either when a draft version is activated or a locked version is cloned and reactivated.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
             active_version (ServiceVersionDetailOrNull): [optional]  # noqa: E501
             version (ServiceVersionDetail): [optional]  # noqa: E501
         """
@@ -299,6 +304,7 @@ class ServiceDetail(ModelComposed):
             publish_key (str): Unused at this time.. [optional]  # noqa: E501
             paused (bool): Whether the service is paused. Services are paused due to a lack of traffic for an extended period of time. Services are resumed either when a draft version is activated or a locked version is cloned and reactivated.. [optional]  # noqa: E501
             versions ([SchemasVersionResponse]): A list of [versions](https://www.fastly.com/documentation/reference/api/services/version/) associated with the service.. [optional]  # noqa: E501
+            environments ([Environment]): A list of environments where the service has been deployed.. [optional]  # noqa: E501
             active_version (ServiceVersionDetailOrNull): [optional]  # noqa: E501
             version (ServiceVersionDetail): [optional]  # noqa: E501
         """

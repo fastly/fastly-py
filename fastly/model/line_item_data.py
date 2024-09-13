@@ -79,21 +79,21 @@ class LineItemData(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'amount': (float,),  # noqa: E501
-            'aria_invoice_id': (str,),  # noqa: E501
-            'client_service_id': (str,),  # noqa: E501
+            'amount': (float, none_type,),  # noqa: E501
+            'aria_invoice_id': (str, none_type,),  # noqa: E501
+            'client_service_id': (str, none_type,),  # noqa: E501
             'credit_coupon_code': (str, none_type,),  # noqa: E501
-            'description': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'line_number': (int,),  # noqa: E501
-            'plan_name': (str,),  # noqa: E501
-            'plan_no': (float,),  # noqa: E501
+            'line_number': (int, none_type,),  # noqa: E501
+            'plan_name': (str, none_type,),  # noqa: E501
+            'plan_no': (float, none_type,),  # noqa: E501
             'rate_per_unit': (float, none_type,),  # noqa: E501
             'rate_schedule_no': (float, none_type,),  # noqa: E501
             'rate_schedule_tier_no': (float, none_type,),  # noqa: E501
-            'service_name': (str,),  # noqa: E501
-            'service_no': (float,),  # noqa: E501
-            'units': (float,),  # noqa: E501
+            'service_name': (str, none_type,),  # noqa: E501
+            'service_no': (float, none_type,),  # noqa: E501
+            'units': (float, none_type,),  # noqa: E501
             'usage_type_cd': (str, none_type,),  # noqa: E501
             'usage_type_no': (float, none_type,),  # noqa: E501
         }
@@ -165,21 +165,21 @@ class LineItemData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (float): [optional]  # noqa: E501
-            aria_invoice_id (str): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
-            client_service_id (str): [optional]  # noqa: E501
+            amount (float, none_type): [optional]  # noqa: E501
+            aria_invoice_id (str, none_type): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
+            client_service_id (str, none_type): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            line_number (int): [optional]  # noqa: E501
-            plan_name (str): [optional]  # noqa: E501
-            plan_no (float): [optional]  # noqa: E501
+            line_number (int, none_type): [optional]  # noqa: E501
+            plan_name (str, none_type): [optional]  # noqa: E501
+            plan_no (float, none_type): [optional]  # noqa: E501
             rate_per_unit (float, none_type): [optional]  # noqa: E501
             rate_schedule_no (float, none_type): [optional]  # noqa: E501
             rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
-            service_name (str): [optional]  # noqa: E501
-            service_no (float): [optional]  # noqa: E501
-            units (float): [optional]  # noqa: E501
+            service_name (str, none_type): [optional]  # noqa: E501
+            service_no (float, none_type): [optional]  # noqa: E501
+            units (float, none_type): [optional]  # noqa: E501
             usage_type_cd (str, none_type): [optional]  # noqa: E501
             usage_type_no (float, none_type): [optional]  # noqa: E501
         """
@@ -263,21 +263,21 @@ class LineItemData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (float): [optional]  # noqa: E501
-            aria_invoice_id (str): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
-            client_service_id (str): [optional]  # noqa: E501
+            amount (float, none_type): [optional]  # noqa: E501
+            aria_invoice_id (str, none_type): An alphanumeric string identifying the invoice.. [optional]  # noqa: E501
+            client_service_id (str, none_type): [optional]  # noqa: E501
             credit_coupon_code (str, none_type): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            line_number (int): [optional]  # noqa: E501
-            plan_name (str): [optional]  # noqa: E501
-            plan_no (float): [optional]  # noqa: E501
+            line_number (int, none_type): [optional]  # noqa: E501
+            plan_name (str, none_type): [optional]  # noqa: E501
+            plan_no (float, none_type): [optional]  # noqa: E501
             rate_per_unit (float, none_type): [optional]  # noqa: E501
             rate_schedule_no (float, none_type): [optional]  # noqa: E501
             rate_schedule_tier_no (float, none_type): [optional]  # noqa: E501
-            service_name (str): [optional]  # noqa: E501
-            service_no (float): [optional]  # noqa: E501
-            units (float): [optional]  # noqa: E501
+            service_name (str, none_type): [optional]  # noqa: E501
+            service_no (float, none_type): [optional]  # noqa: E501
+            units (float, none_type): [optional]  # noqa: E501
             usage_type_cd (str, none_type): [optional]  # noqa: E501
             usage_type_no (float, none_type): [optional]  # noqa: E501
         """

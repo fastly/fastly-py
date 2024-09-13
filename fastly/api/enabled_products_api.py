@@ -21,7 +21,10 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fastly.model.configured_product_response import ConfiguredProductResponse
 from fastly.model.enabled_product_response import EnabledProductResponse
+from fastly.model.set_configuration import SetConfiguration
+from fastly.model.set_workspace_id import SetWorkspaceId
 
 
 class EnabledProductsApi(object):
@@ -39,7 +42,7 @@ class EnabledProductsApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
+                'endpoint_path': '/enabled-products/v1/{product_id}/services/{service_id}',
                 'operation_id': 'disable_product',
                 'http_method': 'DELETE',
                 'servers': [
@@ -101,7 +104,7 @@ class EnabledProductsApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
+                'endpoint_path': '/enabled-products/v1/{product_id}/services/{service_id}',
                 'operation_id': 'enable_product',
                 'http_method': 'PUT',
                 'servers': [
@@ -115,6 +118,7 @@ class EnabledProductsApi(object):
                 'all': [
                     'product_id',
                     'service_id',
+                    'set_workspace_id',
                 ],
                 'required': [
                     'product_id',
@@ -137,6 +141,8 @@ class EnabledProductsApi(object):
                         (str,),
                     'service_id':
                         (str,),
+                    'set_workspace_id':
+                        (SetWorkspaceId,),
                 },
                 'attribute_map': {
                     'product_id': 'product_id',
@@ -145,6 +151,7 @@ class EnabledProductsApi(object):
                 'location_map': {
                     'product_id': 'path',
                     'service_id': 'path',
+                    'set_workspace_id': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -155,7 +162,9 @@ class EnabledProductsApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -165,7 +174,7 @@ class EnabledProductsApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/enabled-products/{product_id}/services/{service_id}',
+                'endpoint_path': '/enabled-products/v1/{product_id}/services/{service_id}',
                 'operation_id': 'get_enabled_product',
                 'http_method': 'GET',
                 'servers': [
@@ -223,6 +232,140 @@ class EnabledProductsApi(object):
             },
             api_client=api_client
         )
+        self.get_product_configuration_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConfiguredProductResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/enabled-products/v1/{product_id}/services/{service_id}/configuration',
+                'operation_id': 'get_product_configuration',
+                'http_method': 'GET',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'product_id',
+                    'service_id',
+                ],
+                'required': [
+                    'product_id',
+                    'service_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'product_id':
+                        (str,),
+                    'service_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'product_id': 'product_id',
+                    'service_id': 'service_id',
+                },
+                'location_map': {
+                    'product_id': 'path',
+                    'service_id': 'path',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.set_product_configuration_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConfiguredProductResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/enabled-products/v1/{product_id}/services/{service_id}/configuration',
+                'operation_id': 'set_product_configuration',
+                'http_method': 'PATCH',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'product_id',
+                    'service_id',
+                    'set_configuration',
+                ],
+                'required': [
+                    'product_id',
+                    'service_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'product_id':
+                        (str,),
+                    'service_id':
+                        (str,),
+                    'set_configuration':
+                        (SetConfiguration,),
+                },
+                'attribute_map': {
+                    'product_id': 'product_id',
+                    'service_id': 'service_id',
+                },
+                'location_map': {
+                    'product_id': 'path',
+                    'service_id': 'path',
+                    'set_configuration': 'body',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def disable_product(
         self,
@@ -232,7 +375,7 @@ class EnabledProductsApi(object):
     ):
         """Disable a product  # noqa: E501
 
-        Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
+        Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -314,7 +457,7 @@ class EnabledProductsApi(object):
     ):
         """Enable a product  # noqa: E501
 
-        Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
+        Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -326,6 +469,7 @@ class EnabledProductsApi(object):
             service_id (str): Alphanumeric string identifying the service.
 
         Keyword Args:
+            set_workspace_id (SetWorkspaceId): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -396,7 +540,7 @@ class EnabledProductsApi(object):
     ):
         """Get enabled product  # noqa: E501
 
-        Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.  # noqa: E501
+        Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -469,4 +613,169 @@ class EnabledProductsApi(object):
         kwargs['service_id'] = \
             service_id
         return self.get_enabled_product_endpoint.call_with_http_info(**kwargs)
+
+    def get_product_configuration(
+        self,
+        product_id,
+        service_id,
+        **kwargs
+    ):
+        """Get configuration for a product  # noqa: E501
+
+        Get configuration for an enabled product on a service. Supported product IDs: `ngwaf`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_product_configuration(product_id, service_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            product_id (str):
+            service_id (str): Alphanumeric string identifying the service.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConfiguredProductResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['product_id'] = \
+            product_id
+        kwargs['service_id'] = \
+            service_id
+        return self.get_product_configuration_endpoint.call_with_http_info(**kwargs)
+
+    def set_product_configuration(
+        self,
+        product_id,
+        service_id,
+        **kwargs
+    ):
+        """Update configuration for a product  # noqa: E501
+
+        Update configuration for an enabled product on a service. Supported product IDs: `ngwaf`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.set_product_configuration(product_id, service_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            product_id (str):
+            service_id (str): Alphanumeric string identifying the service.
+
+        Keyword Args:
+            set_configuration (SetConfiguration): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConfiguredProductResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['product_id'] = \
+            product_id
+        kwargs['service_id'] = \
+            service_id
+        return self.set_product_configuration_endpoint.call_with_http_info(**kwargs)
 

@@ -31,9 +31,7 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.origin_inspector_measurements import OriginInspectorMeasurements
-    from fastly.model.origin_inspector_realtime_entry_recorded import OriginInspectorRealtimeEntryRecorded
     globals()['OriginInspectorMeasurements'] = OriginInspectorMeasurements
-    globals()['OriginInspectorRealtimeEntryRecorded'] = OriginInspectorRealtimeEntryRecorded
 
 
 class OriginInspectorRealtimeEntry(ModelNormal):
@@ -87,7 +85,7 @@ class OriginInspectorRealtimeEntry(ModelNormal):
         """
         lazy_import()
         return {
-            'recorded': (OriginInspectorRealtimeEntryRecorded,),  # noqa: E501
+            'recorded': (int,),  # noqa: E501
             'aggregated': ({str: (OriginInspectorMeasurements,)},),  # noqa: E501
             'datacenter': ({str: ({str: (OriginInspectorMeasurements,)},)},),  # noqa: E501
         }
@@ -144,7 +142,7 @@ class OriginInspectorRealtimeEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recorded (OriginInspectorRealtimeEntryRecorded): [optional]  # noqa: E501
+            recorded (int): The Unix timestamp at which this record's data was generated.. [optional]  # noqa: E501
             aggregated ({str: (OriginInspectorMeasurements,)}): Groups [measurements](#measurements-data-model) by backend name.. [optional]  # noqa: E501
             datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """
@@ -228,7 +226,7 @@ class OriginInspectorRealtimeEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recorded (OriginInspectorRealtimeEntryRecorded): [optional]  # noqa: E501
+            recorded (int): The Unix timestamp at which this record's data was generated.. [optional]  # noqa: E501
             aggregated ({str: (OriginInspectorMeasurements,)}): Groups [measurements](#measurements-data-model) by backend name.. [optional]  # noqa: E501
             datacenter ({str: ({str: (OriginInspectorMeasurements,)},)}): Groups [measurements](#measurements-data-model) by POP, then backend name. See the [POPs API](https://www.fastly.com/documentation/reference/api/utils/pops/) for details about POP identifiers.. [optional]  # noqa: E501
         """

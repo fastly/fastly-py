@@ -50,15 +50,15 @@ with fastly.ApiClient(configuration) as api_client:
     filter_tls_certificates_id = "filter[tls_certificates.id]_example" # str | Optional. Limit the returned domains to those listed in the given TLS certificate's SAN list. (optional)
     filter_tls_subscriptions_id = "filter[tls_subscriptions.id]_example" # str | Optional. Limit the returned domains to those for a given TLS subscription. (optional)
     include = "include_example" # str | Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  (optional)
+    sort = "id" # str | The order in which to list the results. (optional) if omitted the server will use the default value of "id"
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
-    sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List TLS domains
-        api_response = api_instance.list_tls_domains(filter_in_use=filter_in_use, filter_tls_certificates_id=filter_tls_certificates_id, filter_tls_subscriptions_id=filter_tls_subscriptions_id, include=include, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_domains(filter_in_use=filter_in_use, filter_tls_certificates_id=filter_tls_certificates_id, filter_tls_subscriptions_id=filter_tls_subscriptions_id, include=include, sort=sort, page_number=page_number, page_size=page_size)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsDomainsApi->list_tls_domains: %s\n" % e)
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
  **filter_tls_certificates_id** | **str**| Optional. Limit the returned domains to those listed in the given TLS certificate&#39;s SAN list. | [optional]
  **filter_tls_subscriptions_id** | **str**| Optional. Limit the returned domains to those for a given TLS subscription. | [optional]
  **include** | **str**| Include related objects. Optional, comma-separated values. Permitted values: `tls_activations`, `tls_certificates`, `tls_subscriptions`, `tls_subscriptions.tls_authorizations`, `tls_authorizations.globalsign_email_challenge`, and `tls_authorizations.self_managed_http_challenge`.  | [optional]
+ **sort** | **str**| The order in which to list the results. | [optional] if omitted the server will use the default value of "id"
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
- **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"
 
 ### Return type
 
