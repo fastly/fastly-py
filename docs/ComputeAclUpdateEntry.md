@@ -1,6 +1,6 @@
 # ComputeAclUpdateEntry
 
-An example of an ACL update request entry.
+Defines the structure of an ACL update request entry.
 
 ## Properties
 Name | Type | Description | Notes

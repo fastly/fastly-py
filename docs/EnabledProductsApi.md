@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Disable a product
 
-Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.
+Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.
 
 ### Example
 
@@ -95,7 +95,7 @@ void (empty response body)
 
 Enable a product
 
-Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.
+Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.
 
 ### Example
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 Get enabled product
 
-Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.
+Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.
 
 ### Example
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 Get configuration for a product
 
-Get configuration for an enabled product on a service. Supported product IDs: `ngwaf`.
+Get configuration for an enabled product on a service. Supported product IDs: `ngwaf` and `ddos_protection`.
 
 ### Example
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 Update configuration for a product
 
-Update configuration for an enabled product on a service. Supported product IDs: `ngwaf`.
+Update configuration for an enabled product on a service. Supported product IDs: `ngwaf` and `ddos_protection`.
 
 ### Example
 
@@ -388,6 +388,7 @@ with fastly.ApiClient(configuration) as api_client:
     set_configuration = SetConfiguration(
         workspace_id="workspace_id_example",
         traffic_ramp="traffic_ramp_example",
+        mode="mode_example",
     ) # SetConfiguration |  (optional)
 
     # example passing only required values which don't have defaults set

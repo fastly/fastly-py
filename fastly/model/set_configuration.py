@@ -81,6 +81,7 @@ class SetConfiguration(ModelNormal):
         return {
             'workspace_id': (str,),  # noqa: E501
             'traffic_ramp': (str,),  # noqa: E501
+            'mode': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +92,7 @@ class SetConfiguration(ModelNormal):
     attribute_map = {
         'workspace_id': 'workspace_id',  # noqa: E501
         'traffic_ramp': 'traffic_ramp',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class SetConfiguration(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             workspace_id (str): The new workspace_id. Required in the `PUT` request body when `product_id` is `ngwaf`. Optional in the `PATCH` request body for `ngwaf`.. [optional]  # noqa: E501
             traffic_ramp (str): The new traffic ramp. Optional in the `PATCH` request body for `ngwaf`.. [optional]  # noqa: E501
+            mode (str): The new mode to run the product in. One of `block`, `log`, or `off`. Optional in the `PATCH` request body for `ddos_protection`.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +222,7 @@ class SetConfiguration(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             workspace_id (str): The new workspace_id. Required in the `PUT` request body when `product_id` is `ngwaf`. Optional in the `PATCH` request body for `ngwaf`.. [optional]  # noqa: E501
             traffic_ramp (str): The new traffic ramp. Optional in the `PATCH` request body for `ngwaf`.. [optional]  # noqa: E501
+            mode (str): The new mode to run the product in. One of `block`, `log`, or `off`. Optional in the `PATCH` request body for `ddos_protection`.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

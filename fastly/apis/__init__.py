@@ -54,6 +54,7 @@ from fastly.api.iam_roles_api import IamRolesApi
 from fastly.api.iam_service_groups_api import IamServiceGroupsApi
 from fastly.api.iam_user_groups_api import IamUserGroupsApi
 from fastly.api.image_optimizer_default_settings_api import ImageOptimizerDefaultSettingsApi
+from fastly.api.insights_api import InsightsApi
 from fastly.api.invitations_api import InvitationsApi
 from fastly.api.kv_store_api import KvStoreApi
 from fastly.api.kv_store_item_api import KvStoreItemApi
@@ -65,6 +66,7 @@ from fastly.api.legacy_waf_rule_status_api import LegacyWafRuleStatusApi
 from fastly.api.legacy_waf_ruleset_api import LegacyWafRulesetApi
 from fastly.api.legacy_waf_tag_api import LegacyWafTagApi
 from fastly.api.legacy_waf_update_status_api import LegacyWafUpdateStatusApi
+from fastly.api.log_explorer_api import LogExplorerApi
 from fastly.api.logging_azureblob_api import LoggingAzureblobApi
 from fastly.api.logging_bigquery_api import LoggingBigqueryApi
 from fastly.api.logging_cloudfiles_api import LoggingCloudfilesApi
@@ -73,6 +75,7 @@ from fastly.api.logging_digitalocean_api import LoggingDigitaloceanApi
 from fastly.api.logging_elasticsearch_api import LoggingElasticsearchApi
 from fastly.api.logging_ftp_api import LoggingFtpApi
 from fastly.api.logging_gcs_api import LoggingGcsApi
+from fastly.api.logging_grafanacloudlogs_api import LoggingGrafanacloudlogsApi
 from fastly.api.logging_heroku_api import LoggingHerokuApi
 from fastly.api.logging_honeycomb_api import LoggingHoneycombApi
 from fastly.api.logging_https_api import LoggingHttpsApi
@@ -93,6 +96,7 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.object_storage_access_keys_api import ObjectStorageAccessKeysApi
 from fastly.api.observability_custom_dashboards_api import ObservabilityCustomDashboardsApi
 from fastly.api.origin_inspector_historical_api import OriginInspectorHistoricalApi
 from fastly.api.origin_inspector_realtime_api import OriginInspectorRealtimeApi

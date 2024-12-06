@@ -375,7 +375,7 @@ class EnabledProductsApi(object):
     ):
         """Disable a product  # noqa: E501
 
-        Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
+        Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -457,7 +457,7 @@ class EnabledProductsApi(object):
     ):
         """Enable a product  # noqa: E501
 
-        Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
+        Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -540,7 +540,7 @@ class EnabledProductsApi(object):
     ):
         """Get enabled product  # noqa: E501
 
-        Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, and `ngwaf`.  # noqa: E501
+        Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, `websockets`, `bot_management`, `ngwaf`, `ddos_protection`, and `log_explorer_insights`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -622,7 +622,7 @@ class EnabledProductsApi(object):
     ):
         """Get configuration for a product  # noqa: E501
 
-        Get configuration for an enabled product on a service. Supported product IDs: `ngwaf`.  # noqa: E501
+        Get configuration for an enabled product on a service. Supported product IDs: `ngwaf` and `ddos_protection`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -704,7 +704,7 @@ class EnabledProductsApi(object):
     ):
         """Update configuration for a product  # noqa: E501
 
-        Update configuration for an enabled product on a service. Supported product IDs: `ngwaf`.  # noqa: E501
+        Update configuration for an enabled product on a service. Supported product IDs: `ngwaf` and `ddos_protection`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

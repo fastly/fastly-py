@@ -23,7 +23,7 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.error import Error
 from fastly.model.serviceusagemetrics import Serviceusagemetrics
-from fastly.model.serviceusagetypes import Serviceusagetypes
+from fastly.model.usagemetric import Usagemetric
 
 
 class BillingUsageMetricsApi(object):
@@ -41,7 +41,7 @@ class BillingUsageMetricsApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/billing/v2/account_customers/{customer_id}/service-usage-metrics',
+                'endpoint_path': '/billing/v3/service-usage-metrics',
                 'operation_id': 'get_service_level_usage',
                 'http_method': 'GET',
                 'servers': [
@@ -53,55 +53,28 @@ class BillingUsageMetricsApi(object):
             },
             params_map={
                 'all': [
-                    'customer_id',
                     'product_id',
                     'usage_type_name',
-                    'time_granularity',
-                    'start_date',
-                    'end_date',
                     'start_month',
                     'end_month',
                     'limit',
                     'cursor',
                 ],
                 'required': [
-                    'customer_id',
                     'product_id',
                     'usage_type_name',
-                    'time_granularity',
                 ],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
-                    'time_granularity',
-                    'start_date',
-                    'end_date',
                     'start_month',
                     'end_month',
                 ]
             },
             root_map={
                 'validations': {
-                    ('time_granularity',): {
-
-                        'regex': {
-                            'pattern': r'^day$|^month$',  # noqa: E501
-                        },
-                    },
-                    ('start_date',): {
-
-                        'regex': {
-                            'pattern': r'^[0-9]{4}-[0-9]{2}-[0-9]{2}$',  # noqa: E501
-                        },
-                    },
-                    ('end_date',): {
-
-                        'regex': {
-                            'pattern': r'^[0-9]{4}-[0-9]{2}-[0-9]{2}$',  # noqa: E501
-                        },
-                    },
                     ('start_month',): {
 
                         'regex': {
@@ -118,17 +91,9 @@ class BillingUsageMetricsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'customer_id':
-                        (str,),
                     'product_id':
                         (str,),
                     'usage_type_name':
-                        (str,),
-                    'time_granularity':
-                        (str,),
-                    'start_date':
-                        (str,),
-                    'end_date':
                         (str,),
                     'start_month':
                         (str,),
@@ -140,24 +105,16 @@ class BillingUsageMetricsApi(object):
                         (str,),
                 },
                 'attribute_map': {
-                    'customer_id': 'customer_id',
                     'product_id': 'product_id',
                     'usage_type_name': 'usage_type_name',
-                    'time_granularity': 'time_granularity',
-                    'start_date': 'start_date',
-                    'end_date': 'end_date',
                     'start_month': 'start_month',
                     'end_month': 'end_month',
                     'limit': 'limit',
                     'cursor': 'cursor',
                 },
                 'location_map': {
-                    'customer_id': 'path',
                     'product_id': 'query',
                     'usage_type_name': 'query',
-                    'time_granularity': 'query',
-                    'start_date': 'query',
-                    'end_date': 'query',
                     'start_month': 'query',
                     'end_month': 'query',
                     'limit': 'query',
@@ -176,14 +133,14 @@ class BillingUsageMetricsApi(object):
             },
             api_client=api_client
         )
-        self.get_service_level_usage_types_endpoint = _Endpoint(
+        self.get_usage_metrics_endpoint = _Endpoint(
             settings={
-                'response_type': (Serviceusagetypes,),
+                'response_type': (Usagemetric,),
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/billing/v2/account_customers/{customer_id}/service-usage-types',
-                'operation_id': 'get_service_level_usage_types',
+                'endpoint_path': '/billing/v3/usage-metrics',
+                'operation_id': 'get_usage_metrics',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -194,32 +151,49 @@ class BillingUsageMetricsApi(object):
             },
             params_map={
                 'all': [
-                    'customer_id',
+                    'start_month',
+                    'end_month',
                 ],
-                'required': [
-                    'customer_id',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'start_month',
+                    'end_month',
                 ]
             },
             root_map={
                 'validations': {
+                    ('start_month',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9]{4}-[0-9]{2}$',  # noqa: E501
+                        },
+                    },
+                    ('end_month',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9]{4}-[0-9]{2}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'customer_id':
+                    'start_month':
+                        (str,),
+                    'end_month':
                         (str,),
                 },
                 'attribute_map': {
-                    'customer_id': 'customer_id',
+                    'start_month': 'start_month',
+                    'end_month': 'end_month',
                 },
                 'location_map': {
-                    'customer_id': 'path',
+                    'start_month': 'query',
+                    'end_month': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -237,10 +211,8 @@ class BillingUsageMetricsApi(object):
 
     def get_service_level_usage(
         self,
-        customer_id,
         product_id,
         usage_type_name,
-        time_granularity,
         **kwargs
     ):
         """Retrieve service-level usage metrics for a product.  # noqa: E501
@@ -249,18 +221,14 @@ class BillingUsageMetricsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_service_level_usage(customer_id, product_id, usage_type_name, time_granularity, async_req=True)
+        >>> thread = api.get_service_level_usage(product_id, usage_type_name, async_req=True)
         >>> result = thread.get()
 
         Args:
-            customer_id (str): Alphanumeric string identifying the customer.
             product_id (str): The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests.
             usage_type_name (str): The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests.
-            time_granularity (str):
 
         Keyword Args:
-            start_date (str): [optional]
-            end_date (str): [optional]
             start_month (str): [optional]
             end_month (str): [optional]
             limit (str): Number of results per page. The maximum is 100.. [optional] if omitted the server will use the default value of "5"
@@ -321,34 +289,29 @@ class BillingUsageMetricsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['customer_id'] = \
-            customer_id
         kwargs['product_id'] = \
             product_id
         kwargs['usage_type_name'] = \
             usage_type_name
-        kwargs['time_granularity'] = \
-            time_granularity
         return self.get_service_level_usage_endpoint.call_with_http_info(**kwargs)
 
-    def get_service_level_usage_types(
+    def get_usage_metrics(
         self,
-        customer_id,
         **kwargs
     ):
-        """Retrieve product usage types for a customer.  # noqa: E501
+        """Get monthly usage metrics  # noqa: E501
 
-        Returns product usage types reported by the customer's services.  # noqa: E501
+        Returns monthly usage metrics for customer by product.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_service_level_usage_types(customer_id, async_req=True)
+        >>> thread = api.get_usage_metrics(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            customer_id (str): Alphanumeric string identifying the customer.
 
         Keyword Args:
+            start_month (str): [optional]
+            end_month (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -377,7 +340,7 @@ class BillingUsageMetricsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Serviceusagetypes
+            Usagemetric
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -405,7 +368,5 @@ class BillingUsageMetricsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['customer_id'] = \
-            customer_id
-        return self.get_service_level_usage_types_endpoint.call_with_http_info(**kwargs)
+        return self.get_usage_metrics_endpoint.call_with_http_info(**kwargs)
 

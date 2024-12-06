@@ -107,7 +107,7 @@ Class | Method | Description
 *BillingInvoicesApi* | [**get_month_to_date_invoice**](docs/BillingInvoicesApi.md#get_month_to_date_invoice) | Get month-to-date invoice.
 *BillingInvoicesApi* | [**list_invoices**](docs/BillingInvoicesApi.md#list_invoices) | List of invoices.
 *BillingUsageMetricsApi* | [**get_service_level_usage**](docs/BillingUsageMetricsApi.md#get_service_level_usage) | Retrieve service-level usage metrics for a product.
-*BillingUsageMetricsApi* | [**get_service_level_usage_types**](docs/BillingUsageMetricsApi.md#get_service_level_usage_types) | Retrieve product usage types for a customer.
+*BillingUsageMetricsApi* | [**get_usage_metrics**](docs/BillingUsageMetricsApi.md#get_usage_metrics) | Get monthly usage metrics
 *CacheSettingsApi* | [**create_cache_settings**](docs/CacheSettingsApi.md#create_cache_settings) | Create a cache settings object
 *CacheSettingsApi* | [**delete_cache_settings**](docs/CacheSettingsApi.md#delete_cache_settings) | Delete a cache settings object
 *CacheSettingsApi* | [**get_cache_settings**](docs/CacheSettingsApi.md#get_cache_settings) | Get a cache settings object
@@ -245,6 +245,7 @@ Class | Method | Description
 *IamUserGroupsApi* | [**update_a_user_group**](docs/IamUserGroupsApi.md#update_a_user_group) | Update a user group
 *ImageOptimizerDefaultSettingsApi* | [**get_default_settings**](docs/ImageOptimizerDefaultSettingsApi.md#get_default_settings) | Get current Image Optimizer Default Settings
 *ImageOptimizerDefaultSettingsApi* | [**update_default_settings**](docs/ImageOptimizerDefaultSettingsApi.md#update_default_settings) | Update Image Optimizer Default Settings
+*InsightsApi* | [**get_log_insights**](docs/InsightsApi.md#get_log_insights) | Retrieve log insights
 *InvitationsApi* | [**create_invitation**](docs/InvitationsApi.md#create_invitation) | Create an invitation
 *InvitationsApi* | [**delete_invitation**](docs/InvitationsApi.md#delete_invitation) | Delete an invitation
 *InvitationsApi* | [**list_invitations**](docs/InvitationsApi.md#list_invitations) | List invitations
@@ -284,6 +285,7 @@ Class | Method | Description
 *LegacyWafTagApi* | [**list_legacy_waf_tags**](docs/LegacyWafTagApi.md#list_legacy_waf_tags) | List WAF tags
 *LegacyWafUpdateStatusApi* | [**get_waf_update_status**](docs/LegacyWafUpdateStatusApi.md#get_waf_update_status) | Get the status of a WAF update
 *LegacyWafUpdateStatusApi* | [**list_waf_update_statuses**](docs/LegacyWafUpdateStatusApi.md#list_waf_update_statuses) | List update statuses
+*LogExplorerApi* | [**get_log_records**](docs/LogExplorerApi.md#get_log_records) | Retrieve log records
 *LoggingAzureblobApi* | [**create_log_azure**](docs/LoggingAzureblobApi.md#create_log_azure) | Create an Azure Blob Storage log endpoint
 *LoggingAzureblobApi* | [**delete_log_azure**](docs/LoggingAzureblobApi.md#delete_log_azure) | Delete the Azure Blob Storage log endpoint
 *LoggingAzureblobApi* | [**get_log_azure**](docs/LoggingAzureblobApi.md#get_log_azure) | Get an Azure Blob Storage log endpoint
@@ -324,6 +326,11 @@ Class | Method | Description
 *LoggingGcsApi* | [**get_log_gcs**](docs/LoggingGcsApi.md#get_log_gcs) | Get a GCS log endpoint
 *LoggingGcsApi* | [**list_log_gcs**](docs/LoggingGcsApi.md#list_log_gcs) | List GCS log endpoints
 *LoggingGcsApi* | [**update_log_gcs**](docs/LoggingGcsApi.md#update_log_gcs) | Update a GCS log endpoint
+*LoggingGrafanacloudlogsApi* | [**create_log_grafanacloudlogs**](docs/LoggingGrafanacloudlogsApi.md#create_log_grafanacloudlogs) | Create a Grafana Cloud Logs log endpoint
+*LoggingGrafanacloudlogsApi* | [**delete_log_grafanacloudlogs**](docs/LoggingGrafanacloudlogsApi.md#delete_log_grafanacloudlogs) | Delete the Grafana Cloud Logs log endpoint
+*LoggingGrafanacloudlogsApi* | [**get_log_grafanacloudlogs**](docs/LoggingGrafanacloudlogsApi.md#get_log_grafanacloudlogs) | Get a Grafana Cloud Logs log endpoint
+*LoggingGrafanacloudlogsApi* | [**list_log_grafanacloudlogs**](docs/LoggingGrafanacloudlogsApi.md#list_log_grafanacloudlogs) | List Grafana Cloud Logs log endpoints
+*LoggingGrafanacloudlogsApi* | [**update_log_grafanacloudlogs**](docs/LoggingGrafanacloudlogsApi.md#update_log_grafanacloudlogs) | Update a Grafana Cloud Logs log endpoint
 *LoggingHerokuApi* | [**create_log_heroku**](docs/LoggingHerokuApi.md#create_log_heroku) | Create a Heroku log endpoint
 *LoggingHerokuApi* | [**delete_log_heroku**](docs/LoggingHerokuApi.md#delete_log_heroku) | Delete the Heroku log endpoint
 *LoggingHerokuApi* | [**get_log_heroku**](docs/LoggingHerokuApi.md#get_log_heroku) | Get a Heroku log endpoint
@@ -424,6 +431,10 @@ Class | Method | Description
 *MutualAuthenticationApi* | [**get_mutual_authentication**](docs/MutualAuthenticationApi.md#get_mutual_authentication) | Get a Mutual Authentication
 *MutualAuthenticationApi* | [**list_mutual_authentications**](docs/MutualAuthenticationApi.md#list_mutual_authentications) | List Mutual Authentications
 *MutualAuthenticationApi* | [**patch_mutual_authentication**](docs/MutualAuthenticationApi.md#patch_mutual_authentication) | Update a Mutual Authentication
+*ObjectStorageAccessKeysApi* | [**create_access_key**](docs/ObjectStorageAccessKeysApi.md#create_access_key) | Create an access key
+*ObjectStorageAccessKeysApi* | [**delete_access_key**](docs/ObjectStorageAccessKeysApi.md#delete_access_key) | Delete an access key
+*ObjectStorageAccessKeysApi* | [**get_access_key**](docs/ObjectStorageAccessKeysApi.md#get_access_key) | Get an access key
+*ObjectStorageAccessKeysApi* | [**list_access_keys**](docs/ObjectStorageAccessKeysApi.md#list_access_keys) | List access keys
 *ObservabilityCustomDashboardsApi* | [**create_dashboard**](docs/ObservabilityCustomDashboardsApi.md#create_dashboard) | Create a new dashboard
 *ObservabilityCustomDashboardsApi* | [**delete_dashboard**](docs/ObservabilityCustomDashboardsApi.md#delete_dashboard) | Delete an existing dashboard
 *ObservabilityCustomDashboardsApi* | [**get_dashboard**](docs/ObservabilityCustomDashboardsApi.md#get_dashboard) | Retrieve a dashboard by ID
@@ -632,8 +643,8 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/alerts/history`](https://www.fastly.com/documentation/reference/api/observability/alerts/history) (GET)
 - [`/dns/configurations/{dns_configuration_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/dns/configurations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
-- [`/domains/{domain_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
-- [`/domains`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/domains/v1/{domain_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
+- [`/domains/v1`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
 - [`/notifications/integration-types`](https://developer.fastly.com/reference/api/observability/notification) (GET)
 - [`/notifications/integrations/{integration_id}/rotateSigningKey`](https://developer.fastly.com/reference/api/observability/notification) (POST)
 - [`/notifications/integrations/{integration_id}/signingKey`](https://developer.fastly.com/reference/api/observability/notification) (GET)

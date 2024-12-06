@@ -5,12 +5,12 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_service_level_usage**](BillingUsageMetricsApi.md#get_service_level_usage) | **GET** /billing/v2/account_customers/{customer_id}/service-usage-metrics | Retrieve service-level usage metrics for a product.
-[**get_service_level_usage_types**](BillingUsageMetricsApi.md#get_service_level_usage_types) | **GET** /billing/v2/account_customers/{customer_id}/service-usage-types | Retrieve product usage types for a customer.
+[**get_service_level_usage**](BillingUsageMetricsApi.md#get_service_level_usage) | **GET** /billing/v3/service-usage-metrics | Retrieve service-level usage metrics for a product.
+[**get_usage_metrics**](BillingUsageMetricsApi.md#get_usage_metrics) | **GET** /billing/v3/usage-metrics | Get monthly usage metrics
 
 
 # **get_service_level_usage**
-> Serviceusagemetrics get_service_level_usage(customer_id, product_id, usage_type_name, time_granularity)
+> Serviceusagemetrics get_service_level_usage(product_id, usage_type_name)
 
 Retrieve service-level usage metrics for a product.
 
@@ -48,12 +48,8 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_usage_metrics_api.BillingUsageMetricsApi(api_client)
-    customer_id = "x4xCwxxJxGCx123Rx5xTx" # str | Alphanumeric string identifying the customer.
     product_id = "product_id_example" # str | The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests.
     usage_type_name = "usage_type_name_example" # str | The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests.
-    time_granularity = "month" # str | 
-    start_date = "2023-01-01" # str |  (optional)
-    end_date = "2023-01-31" # str |  (optional)
     start_month = "2023-01" # str |  (optional)
     end_month = "2023-03" # str |  (optional)
     limit = "5" # str | Number of results per page. The maximum is 100. (optional) if omitted the server will use the default value of "5"
@@ -62,7 +58,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Retrieve service-level usage metrics for a product.
-        api_response = api_instance.get_service_level_usage(customer_id, product_id, usage_type_name, time_granularity)
+        api_response = api_instance.get_service_level_usage(product_id, usage_type_name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BillingUsageMetricsApi->get_service_level_usage: %s\n" % e)
@@ -71,7 +67,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve service-level usage metrics for a product.
-        api_response = api_instance.get_service_level_usage(customer_id, product_id, usage_type_name, time_granularity, start_date=start_date, end_date=end_date, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
+        api_response = api_instance.get_service_level_usage(product_id, usage_type_name, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BillingUsageMetricsApi->get_service_level_usage: %s\n" % e)
@@ -82,12 +78,8 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **str**| Alphanumeric string identifying the customer. |
  **product_id** | **str**| The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests. |
  **usage_type_name** | **str**| The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests. |
- **time_granularity** | **str**|  |
- **start_date** | **str**|  | [optional]
- **end_date** | **str**|  | [optional]
  **start_month** | **str**|  | [optional]
  **end_month** | **str**|  | [optional]
  **limit** | **str**| Number of results per page. The maximum is 100. | [optional] if omitted the server will use the default value of "5"
@@ -118,12 +110,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_service_level_usage_types**
-> Serviceusagetypes get_service_level_usage_types(customer_id)
+# **get_usage_metrics**
+> Usagemetric get_usage_metrics()
 
-Retrieve product usage types for a customer.
+Get monthly usage metrics
 
-Returns product usage types reported by the customer's services.
+Returns monthly usage metrics for customer by product.
 
 ### Example
 
@@ -134,7 +126,7 @@ import time
 import fastly
 from fastly.api import billing_usage_metrics_api
 from fastly.model.error import Error
-from fastly.model.serviceusagetypes import Serviceusagetypes
+from fastly.model.usagemetric import Usagemetric
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,15 +149,17 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_usage_metrics_api.BillingUsageMetricsApi(api_client)
-    customer_id = "x4xCwxxJxGCx123Rx5xTx" # str | Alphanumeric string identifying the customer.
+    start_month = "2023-01" # str |  (optional)
+    end_month = "2023-03" # str |  (optional)
 
     # example passing only required values which don't have defaults set
+    # and optional values
     try:
-        # Retrieve product usage types for a customer.
-        api_response = api_instance.get_service_level_usage_types(customer_id)
+        # Get monthly usage metrics
+        api_response = api_instance.get_usage_metrics(start_month=start_month, end_month=end_month)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling BillingUsageMetricsApi->get_service_level_usage_types: %s\n" % e)
+        print("Exception when calling BillingUsageMetricsApi->get_usage_metrics: %s\n" % e)
 ```
 
 
@@ -173,11 +167,12 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **str**| Alphanumeric string identifying the customer. |
+ **start_month** | **str**|  | [optional]
+ **end_month** | **str**|  | [optional]
 
 ### Return type
 
-[**Serviceusagetypes**](Serviceusagetypes.md)
+[**Usagemetric**](Usagemetric.md)
 
 ### Authorization
 
@@ -193,7 +188,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A response containing usage elements. |  -  |
+**200** | A response containing usage metric elements. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

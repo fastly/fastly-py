@@ -117,6 +117,7 @@ class KvStoreItemApi(object):
                     'cursor',
                     'limit',
                     'prefix',
+                    'consistency',
                 ],
                 'required': [
                     'store_id',
@@ -142,18 +143,22 @@ class KvStoreItemApi(object):
                         (int,),
                     'prefix':
                         (str,),
+                    'consistency':
+                        (str,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
                     'cursor': 'cursor',
                     'limit': 'limit',
                     'prefix': 'prefix',
+                    'consistency': 'consistency',
                 },
                 'location_map': {
                     'store_id': 'path',
                     'cursor': 'query',
                     'limit': 'query',
                     'prefix': 'query',
+                    'consistency': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -441,6 +446,7 @@ class KvStoreItemApi(object):
             cursor (str): [optional]
             limit (int): [optional] if omitted the server will use the default value of 100
             prefix (str): [optional]
+            consistency (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

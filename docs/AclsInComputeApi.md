@@ -536,13 +536,15 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = acls_in_compute_api.AclsInComputeApi(api_client)
     acl_id = "acl_id_example" # str | 
-    compute_acl_update = ComputeAclUpdate([
-        ComputeAclUpdateEntry(
-            op="op_example",
-            prefix="prefix_example",
-            action="action_example",
-        ),
-    ]) # ComputeAclUpdate |  (optional)
+    compute_acl_update = ComputeAclUpdate(
+        entries=[
+            ComputeAclUpdateEntry(
+                op="op_example",
+                prefix="prefix_example",
+                action="action_example",
+            ),
+        ],
+    ) # ComputeAclUpdate |  (optional)
 
     # example passing only required values which don't have defaults set
     try:

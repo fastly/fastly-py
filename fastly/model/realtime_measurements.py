@@ -308,13 +308,6 @@ class RealtimeMeasurements(ModelNormal):
             'bot_challenge_complete_tokens_issued': (int,),  # noqa: E501
             'ddos_action_downgrade': (int,),  # noqa: E501
             'ddos_action_downgraded_connections': (int,),  # noqa: E501
-            'vcl_on_compute_hit_requests': (int,),  # noqa: E501
-            'vcl_on_compute_miss_requests': (int,),  # noqa: E501
-            'vcl_on_compute_pass_requests': (int,),  # noqa: E501
-            'vcl_on_compute_error_requests': (int,),  # noqa: E501
-            'vcl_on_compute_synth_requests': (int,),  # noqa: E501
-            'vcl_on_compute_edge_hit_requests': (int,),  # noqa: E501
-            'vcl_on_compute_edge_miss_requests': (int,),  # noqa: E501
             'all_hit_requests': (int,),  # noqa: E501
             'all_miss_requests': (int,),  # noqa: E501
             'all_pass_requests': (int,),  # noqa: E501
@@ -329,6 +322,9 @@ class RealtimeMeasurements(ModelNormal):
             'all_status_5xx': (int,),  # noqa: E501
             'origin_offload': (float,),  # noqa: E501
             'request_denied_get_head_body': (int,),  # noqa: E501
+            'service_ddos_requests_detected': (int,),  # noqa: E501
+            'service_ddos_requests_mitigated': (int,),  # noqa: E501
+            'service_ddos_requests_allowed': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -566,13 +562,6 @@ class RealtimeMeasurements(ModelNormal):
         'bot_challenge_complete_tokens_issued': 'bot_challenge_complete_tokens_issued',  # noqa: E501
         'ddos_action_downgrade': 'ddos_action_downgrade',  # noqa: E501
         'ddos_action_downgraded_connections': 'ddos_action_downgraded_connections',  # noqa: E501
-        'vcl_on_compute_hit_requests': 'vcl_on_compute_hit_requests',  # noqa: E501
-        'vcl_on_compute_miss_requests': 'vcl_on_compute_miss_requests',  # noqa: E501
-        'vcl_on_compute_pass_requests': 'vcl_on_compute_pass_requests',  # noqa: E501
-        'vcl_on_compute_error_requests': 'vcl_on_compute_error_requests',  # noqa: E501
-        'vcl_on_compute_synth_requests': 'vcl_on_compute_synth_requests',  # noqa: E501
-        'vcl_on_compute_edge_hit_requests': 'vcl_on_compute_edge_hit_requests',  # noqa: E501
-        'vcl_on_compute_edge_miss_requests': 'vcl_on_compute_edge_miss_requests',  # noqa: E501
         'all_hit_requests': 'all_hit_requests',  # noqa: E501
         'all_miss_requests': 'all_miss_requests',  # noqa: E501
         'all_pass_requests': 'all_pass_requests',  # noqa: E501
@@ -587,6 +576,9 @@ class RealtimeMeasurements(ModelNormal):
         'all_status_5xx': 'all_status_5xx',  # noqa: E501
         'origin_offload': 'origin_offload',  # noqa: E501
         'request_denied_get_head_body': 'request_denied_get_head_body',  # noqa: E501
+        'service_ddos_requests_detected': 'service_ddos_requests_detected',  # noqa: E501
+        'service_ddos_requests_mitigated': 'service_ddos_requests_mitigated',  # noqa: E501
+        'service_ddos_requests_allowed': 'service_ddos_requests_allowed',  # noqa: E501
     }
 
     read_only_vars = {
@@ -859,13 +851,6 @@ class RealtimeMeasurements(ModelNormal):
             bot_challenge_complete_tokens_issued (int): The number of challenge-complete tokens issued. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
             ddos_action_downgrade (int): The number of times the downgrade action was taken. The downgrade action restricts the client to http1.. [optional]  # noqa: E501
             ddos_action_downgraded_connections (int): The number of connections the downgrade action was applied to. The downgrade action restricts the connection to http1.. [optional]  # noqa: E501
-            vcl_on_compute_hit_requests (int): Number of cache hits for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_miss_requests (int): Number of cache misses for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_error_requests (int): Number of cache errors for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
             all_hit_requests (int): Number of cache hits for a VCL service.. [optional]  # noqa: E501
             all_miss_requests (int): Number of cache misses for a VCL service.. [optional]  # noqa: E501
             all_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service.. [optional]  # noqa: E501
@@ -880,6 +865,9 @@ class RealtimeMeasurements(ModelNormal):
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
             request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
+            service_ddos_requests_detected (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
+            service_ddos_requests_mitigated (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
+            service_ddos_requests_allowed (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1190,13 +1178,6 @@ class RealtimeMeasurements(ModelNormal):
             bot_challenge_complete_tokens_issued (int): The number of challenge-complete tokens issued. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
             ddos_action_downgrade (int): The number of times the downgrade action was taken. The downgrade action restricts the client to http1.. [optional]  # noqa: E501
             ddos_action_downgraded_connections (int): The number of connections the downgrade action was applied to. The downgrade action restricts the connection to http1.. [optional]  # noqa: E501
-            vcl_on_compute_hit_requests (int): Number of cache hits for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_miss_requests (int): Number of cache misses for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_error_requests (int): Number of cache errors for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_synth_requests (int): Number of requests that returned a synthetic response (i.e., response objects created with the `synthetic` VCL statement) for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_edge_hit_requests (int): Number of requests sent by end users to Fastly that resulted in a hit at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
-            vcl_on_compute_edge_miss_requests (int): Number of requests sent by end users to Fastly that resulted in a miss at the edge for a VCL service running on Compute.. [optional]  # noqa: E501
             all_hit_requests (int): Number of cache hits for a VCL service.. [optional]  # noqa: E501
             all_miss_requests (int): Number of cache misses for a VCL service.. [optional]  # noqa: E501
             all_pass_requests (int): Number of requests that passed through the CDN without being cached for a VCL service.. [optional]  # noqa: E501
@@ -1211,6 +1192,9 @@ class RealtimeMeasurements(ModelNormal):
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
             request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
+            service_ddos_requests_detected (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
+            service_ddos_requests_mitigated (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
+            service_ddos_requests_allowed (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

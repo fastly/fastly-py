@@ -1,6 +1,6 @@
 # ComputeAclListEntries
 
-An example of an ACL List Response.
+Defines the structure of what the ACL List endpoint returns.
 
 ## Properties
 Name | Type | Description | Notes

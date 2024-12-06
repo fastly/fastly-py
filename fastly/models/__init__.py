@@ -9,6 +9,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fastly.model.access_key import AccessKey
+from fastly.model.access_key_response import AccessKeyResponse
 from fastly.model.acl import Acl
 from fastly.model.acl_entry import AclEntry
 from fastly.model.acl_entry_response import AclEntryResponse
@@ -124,6 +126,16 @@ from fastly.model.dictionary_item_response_all_of import DictionaryItemResponseA
 from fastly.model.dictionary_response import DictionaryResponse
 from fastly.model.dictionary_response_all_of import DictionaryResponseAllOf
 from fastly.model.diff_response import DiffResponse
+from fastly.model.dimension_attributes_country_stats import DimensionAttributesCountryStats
+from fastly.model.dimension_attributes_rate import DimensionAttributesRate
+from fastly.model.dimension_browser import DimensionBrowser
+from fastly.model.dimension_content_type import DimensionContentType
+from fastly.model.dimension_country import DimensionCountry
+from fastly.model.dimension_device import DimensionDevice
+from fastly.model.dimension_os import DimensionOs
+from fastly.model.dimension_response import DimensionResponse
+from fastly.model.dimension_status_code import DimensionStatusCode
+from fastly.model.dimension_url import DimensionUrl
 from fastly.model.director import Director
 from fastly.model.director_backend import DirectorBackend
 from fastly.model.director_backend_all_of import DirectorBackendAllOf
@@ -154,7 +166,12 @@ from fastly.model.event_data import EventData
 from fastly.model.event_data_items import EventDataItems
 from fastly.model.event_response import EventResponse
 from fastly.model.events_response import EventsResponse
+from fastly.model.filter_field_item import FilterFieldItem
 from fastly.model.generic_token_error import GenericTokenError
+from fastly.model.get_log_insights_response import GetLogInsightsResponse
+from fastly.model.get_log_records_response import GetLogRecordsResponse
+from fastly.model.get_log_records_response_meta import GetLogRecordsResponseMeta
+from fastly.model.get_log_records_response_meta_filters import GetLogRecordsResponseMetaFilters
 from fastly.model.get_service_level_usage_response import GetServiceLevelUsageResponse
 from fastly.model.get_service_level_usage_types_response import GetServiceLevelUsageTypesResponse
 from fastly.model.gzip import Gzip
@@ -253,6 +270,14 @@ from fastly.model.list_customer_addresses_response import ListCustomerAddressesR
 from fastly.model.list_dashboards_response import ListDashboardsResponse
 from fastly.model.list_eom_invoices_response import ListEomInvoicesResponse
 from fastly.model.listinvoices import Listinvoices
+from fastly.model.log_insights import LogInsights
+from fastly.model.log_insights_dimension_attributes import LogInsightsDimensionAttributes
+from fastly.model.log_insights_dimensions import LogInsightsDimensions
+from fastly.model.log_insights_meta import LogInsightsMeta
+from fastly.model.log_insights_meta_filter import LogInsightsMetaFilter
+from fastly.model.log_insights_values import LogInsightsValues
+from fastly.model.log_property_service_id import LogPropertyServiceId
+from fastly.model.log_record import LogRecord
 from fastly.model.logging_address_and_port import LoggingAddressAndPort
 from fastly.model.logging_azureblob_additional import LoggingAzureblobAdditional
 from fastly.model.logging_azureblob_response import LoggingAzureblobResponse
@@ -284,6 +309,8 @@ from fastly.model.logging_generic_common_response_all_of import LoggingGenericCo
 from fastly.model.logging_generic_common_response_all_of1 import LoggingGenericCommonResponseAllOf1
 from fastly.model.logging_google_pubsub_additional import LoggingGooglePubsubAdditional
 from fastly.model.logging_google_pubsub_response import LoggingGooglePubsubResponse
+from fastly.model.logging_grafanacloudlogs_additional import LoggingGrafanacloudlogsAdditional
+from fastly.model.logging_grafanacloudlogs_response import LoggingGrafanacloudlogsResponse
 from fastly.model.logging_heroku_additional import LoggingHerokuAdditional
 from fastly.model.logging_heroku_response import LoggingHerokuResponse
 from fastly.model.logging_honeycomb_additional import LoggingHoneycombAdditional
@@ -692,6 +719,8 @@ from fastly.model.type_waf_tag import TypeWafTag
 from fastly.model.update_billing_address_request import UpdateBillingAddressRequest
 from fastly.model.update_billing_address_request_data import UpdateBillingAddressRequestData
 from fastly.model.update_dashboard_request import UpdateDashboardRequest
+from fastly.model.usagemetric import Usagemetric
+from fastly.model.usagemetrics import Usagemetrics
 from fastly.model.user import User
 from fastly.model.user_response import UserResponse
 from fastly.model.user_response_read_only import UserResponseReadOnly
@@ -699,8 +728,22 @@ from fastly.model.validator_result import ValidatorResult
 from fastly.model.validator_result_data import ValidatorResultData
 from fastly.model.validator_result_data_attributes import ValidatorResultDataAttributes
 from fastly.model.validator_result_data_attributes_messages import ValidatorResultDataAttributesMessages
+from fastly.model.value_field import ValueField
+from fastly.model.value_float_array import ValueFloatArray
+from fastly.model.value_integer_array import ValueIntegerArray
+from fastly.model.value_string_array import ValueStringArray
 from fastly.model.values import Values
+from fastly.model.values503_responses import Values503Responses
+from fastly.model.values_bandwidth import ValuesBandwidth
+from fastly.model.values_browser import ValuesBrowser
+from fastly.model.values_cache_hit_ratio import ValuesCacheHitRatio
+from fastly.model.values_country_stats import ValuesCountryStats
 from fastly.model.values_ddos import ValuesDdos
+from fastly.model.values_duration import ValuesDuration
+from fastly.model.values_misses import ValuesMisses
+from fastly.model.values_rate import ValuesRate
+from fastly.model.values_requests import ValuesRequests
+from fastly.model.values_status_codes import ValuesStatusCodes
 from fastly.model.vcl import Vcl
 from fastly.model.vcl_diff import VclDiff
 from fastly.model.vcl_response import VclResponse

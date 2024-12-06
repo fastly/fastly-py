@@ -131,6 +131,7 @@ with fastly.ApiClient(configuration) as api_client:
     cursor = "cursor_example" # str |  (optional)
     limit = 100 # int |  (optional) if omitted the server will use the default value of 100
     prefix = "prefix_example" # str |  (optional)
+    consistency = "consistency_example" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -144,7 +145,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List kv store keys.
-        api_response = api_instance.get_keys(store_id, cursor=cursor, limit=limit, prefix=prefix)
+        api_response = api_instance.get_keys(store_id, cursor=cursor, limit=limit, prefix=prefix, consistency=consistency)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling KvStoreItemApi->get_keys: %s\n" % e)
@@ -159,6 +160,7 @@ Name | Type | Description  | Notes
  **cursor** | **str**|  | [optional]
  **limit** | **int**|  | [optional] if omitted the server will use the default value of 100
  **prefix** | **str**|  | [optional]
+ **consistency** | **str**|  | [optional]
 
 ### Return type
 

@@ -1,6 +1,6 @@
 # ComputeAclLookup
 
-An example of an ACL Lookup response.
+Defines the structure of an ACL Lookup response.
 
 ## Properties
 Name | Type | Description | Notes
