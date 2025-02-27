@@ -66,6 +66,7 @@ class SnippetApi(object):
                     'version_id',
                 ],
                 'nullable': [
+                    'content',
                 ],
                 'enum': [
                     'type',
@@ -108,7 +109,7 @@ class SnippetApi(object):
                     'type':
                         (str,),
                     'content':
-                        (str,),
+                        (str, none_type,),
                     'priority':
                         (str,),
                     'dynamic':
@@ -153,7 +154,7 @@ class SnippetApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{snippet_name}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{name}',
                 'operation_id': 'delete_snippet',
                 'http_method': 'DELETE',
                 'servers': [
@@ -167,12 +168,12 @@ class SnippetApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'nullable': [
                 ],
@@ -191,18 +192,18 @@ class SnippetApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'snippet_name':
+                    'name':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'snippet_name': 'snippet_name',
+                    'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'snippet_name': 'path',
+                    'name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -223,7 +224,7 @@ class SnippetApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{snippet_name}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{name}',
                 'operation_id': 'get_snippet',
                 'http_method': 'GET',
                 'servers': [
@@ -237,12 +238,12 @@ class SnippetApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'nullable': [
                 ],
@@ -261,18 +262,18 @@ class SnippetApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'snippet_name':
+                    'name':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'snippet_name': 'snippet_name',
+                    'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'snippet_name': 'path',
+                    'name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -293,7 +294,7 @@ class SnippetApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/snippet/{snippet_id}',
+                'endpoint_path': '/service/{service_id}/snippet/{id}',
                 'operation_id': 'get_snippet_dynamic',
                 'http_method': 'GET',
                 'servers': [
@@ -306,11 +307,11 @@ class SnippetApi(object):
             params_map={
                 'all': [
                     'service_id',
-                    'snippet_id',
+                    'id',
                 ],
                 'required': [
                     'service_id',
-                    'snippet_id',
+                    'id',
                 ],
                 'nullable': [
                 ],
@@ -327,16 +328,16 @@ class SnippetApi(object):
                 'openapi_types': {
                     'service_id':
                         (str,),
-                    'snippet_id':
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
-                    'snippet_id': 'snippet_id',
+                    'id': 'id',
                 },
                 'location_map': {
                     'service_id': 'path',
-                    'snippet_id': 'path',
+                    'id': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -421,7 +422,7 @@ class SnippetApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{snippet_name}',
+                'endpoint_path': '/service/{service_id}/version/{version_id}/snippet/{name}',
                 'operation_id': 'update_snippet',
                 'http_method': 'PUT',
                 'servers': [
@@ -435,12 +436,12 @@ class SnippetApi(object):
                 'all': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'required': [
                     'service_id',
                     'version_id',
-                    'snippet_name',
+                    'name',
                 ],
                 'nullable': [
                 ],
@@ -459,18 +460,18 @@ class SnippetApi(object):
                         (str,),
                     'version_id':
                         (int,),
-                    'snippet_name':
+                    'name':
                         (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version_id': 'version_id',
-                    'snippet_name': 'snippet_name',
+                    'name': 'name',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version_id': 'path',
-                    'snippet_name': 'path',
+                    'name': 'path',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -493,7 +494,7 @@ class SnippetApi(object):
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/service/{service_id}/snippet/{snippet_id}',
+                'endpoint_path': '/service/{service_id}/snippet/{id}',
                 'operation_id': 'update_snippet_dynamic',
                 'http_method': 'PUT',
                 'servers': [
@@ -506,7 +507,7 @@ class SnippetApi(object):
             params_map={
                 'all': [
                     'service_id',
-                    'snippet_id',
+                    'id',
                     'name',
                     'type',
                     'content',
@@ -515,9 +516,10 @@ class SnippetApi(object):
                 ],
                 'required': [
                     'service_id',
-                    'snippet_id',
+                    'id',
                 ],
                 'nullable': [
+                    'content',
                 ],
                 'enum': [
                     'type',
@@ -553,14 +555,14 @@ class SnippetApi(object):
                 'openapi_types': {
                     'service_id':
                         (str,),
-                    'snippet_id':
+                    'id':
                         (str,),
                     'name':
                         (str,),
                     'type':
                         (str,),
                     'content':
-                        (str,),
+                        (str, none_type,),
                     'priority':
                         (str,),
                     'dynamic':
@@ -568,7 +570,7 @@ class SnippetApi(object):
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
-                    'snippet_id': 'snippet_id',
+                    'id': 'id',
                     'name': 'name',
                     'type': 'type',
                     'content': 'content',
@@ -577,7 +579,7 @@ class SnippetApi(object):
                 },
                 'location_map': {
                     'service_id': 'path',
-                    'snippet_id': 'path',
+                    'id': 'path',
                     'name': 'form',
                     'type': 'form',
                     'content': 'form',
@@ -622,7 +624,7 @@ class SnippetApi(object):
         Keyword Args:
             name (str): The name for the snippet.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]
+            content (str, none_type): The VCL code that specifies exactly what the snippet does.. [optional]
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             dynamic (str): Sets the snippet version.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -691,7 +693,7 @@ class SnippetApi(object):
         self,
         service_id,
         version_id,
-        snippet_name,
+        name,
         **kwargs
     ):
         """Delete a snippet  # noqa: E501
@@ -700,13 +702,13 @@ class SnippetApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_snippet(service_id, version_id, snippet_name, async_req=True)
+        >>> thread = api.delete_snippet(service_id, version_id, name, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            snippet_name (str): The name for the snippet.
+            name (str): The name for the snippet.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -769,15 +771,15 @@ class SnippetApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['snippet_name'] = \
-            snippet_name
+        kwargs['name'] = \
+            name
         return self.delete_snippet_endpoint.call_with_http_info(**kwargs)
 
     def get_snippet(
         self,
         service_id,
         version_id,
-        snippet_name,
+        name,
         **kwargs
     ):
         """Get a versioned snippet  # noqa: E501
@@ -786,13 +788,13 @@ class SnippetApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_snippet(service_id, version_id, snippet_name, async_req=True)
+        >>> thread = api.get_snippet(service_id, version_id, name, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            snippet_name (str): The name for the snippet.
+            name (str): The name for the snippet.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -855,14 +857,14 @@ class SnippetApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['snippet_name'] = \
-            snippet_name
+        kwargs['name'] = \
+            name
         return self.get_snippet_endpoint.call_with_http_info(**kwargs)
 
     def get_snippet_dynamic(
         self,
         service_id,
-        snippet_id,
+        id,
         **kwargs
     ):
         """Get a dynamic snippet  # noqa: E501
@@ -871,12 +873,12 @@ class SnippetApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_snippet_dynamic(service_id, snippet_id, async_req=True)
+        >>> thread = api.get_snippet_dynamic(service_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
-            snippet_id (str): Alphanumeric string identifying a VCL Snippet.
+            id (str): Alphanumeric string identifying a VCL Snippet.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -937,8 +939,8 @@ class SnippetApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['service_id'] = \
             service_id
-        kwargs['snippet_id'] = \
-            snippet_id
+        kwargs['id'] = \
+            id
         return self.get_snippet_dynamic_endpoint.call_with_http_info(**kwargs)
 
     def list_snippets(
@@ -1027,7 +1029,7 @@ class SnippetApi(object):
         self,
         service_id,
         version_id,
-        snippet_name,
+        name,
         **kwargs
     ):
         """Update a versioned snippet  # noqa: E501
@@ -1036,13 +1038,13 @@ class SnippetApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_snippet(service_id, version_id, snippet_name, async_req=True)
+        >>> thread = api.update_snippet(service_id, version_id, name, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
             version_id (int): Integer identifying a service version.
-            snippet_name (str): The name for the snippet.
+            name (str): The name for the snippet.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1105,14 +1107,14 @@ class SnippetApi(object):
             service_id
         kwargs['version_id'] = \
             version_id
-        kwargs['snippet_name'] = \
-            snippet_name
+        kwargs['name'] = \
+            name
         return self.update_snippet_endpoint.call_with_http_info(**kwargs)
 
     def update_snippet_dynamic(
         self,
         service_id,
-        snippet_id,
+        id,
         **kwargs
     ):
         """Update a dynamic snippet  # noqa: E501
@@ -1121,17 +1123,17 @@ class SnippetApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_snippet_dynamic(service_id, snippet_id, async_req=True)
+        >>> thread = api.update_snippet_dynamic(service_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): Alphanumeric string identifying the service.
-            snippet_id (str): Alphanumeric string identifying a VCL Snippet.
+            id (str): Alphanumeric string identifying a VCL Snippet.
 
         Keyword Args:
             name (str): The name for the snippet.. [optional]
             type (str): The location in generated VCL where the snippet should be placed.. [optional]
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]
+            content (str, none_type): The VCL code that specifies exactly what the snippet does.. [optional]
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             dynamic (str): Sets the snippet version.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -1192,7 +1194,7 @@ class SnippetApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['service_id'] = \
             service_id
-        kwargs['snippet_id'] = \
-            snippet_id
+        kwargs['id'] = \
+            id
         return self.update_snippet_dynamic_endpoint.call_with_http_info(**kwargs)
 

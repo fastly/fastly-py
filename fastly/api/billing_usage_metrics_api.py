@@ -60,10 +60,7 @@ class BillingUsageMetricsApi(object):
                     'limit',
                     'cursor',
                 ],
-                'required': [
-                    'product_id',
-                    'usage_type_name',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
@@ -154,7 +151,10 @@ class BillingUsageMetricsApi(object):
                     'start_month',
                     'end_month',
                 ],
-                'required': [],
+                'required': [
+                    'start_month',
+                    'end_month',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -211,8 +211,6 @@ class BillingUsageMetricsApi(object):
 
     def get_service_level_usage(
         self,
-        product_id,
-        usage_type_name,
         **kwargs
     ):
         """Retrieve service-level usage metrics for a product.  # noqa: E501
@@ -221,14 +219,13 @@ class BillingUsageMetricsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_service_level_usage(product_id, usage_type_name, async_req=True)
+        >>> thread = api.get_service_level_usage(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            product_id (str): The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests.
-            usage_type_name (str): The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests.
 
         Keyword Args:
+            product_id (str): The product identifier for the metrics returned (e.g., `cdn_usage`).. [optional]
+            usage_type_name (str): The usage type name for the metrics returned (e.g., `North America Requests`).. [optional]
             start_month (str): [optional]
             end_month (str): [optional]
             limit (str): Number of results per page. The maximum is 100.. [optional] if omitted the server will use the default value of "5"
@@ -289,14 +286,12 @@ class BillingUsageMetricsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['product_id'] = \
-            product_id
-        kwargs['usage_type_name'] = \
-            usage_type_name
         return self.get_service_level_usage_endpoint.call_with_http_info(**kwargs)
 
     def get_usage_metrics(
         self,
+        start_month,
+        end_month,
         **kwargs
     ):
         """Get monthly usage metrics  # noqa: E501
@@ -305,13 +300,14 @@ class BillingUsageMetricsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_usage_metrics(async_req=True)
+        >>> thread = api.get_usage_metrics(start_month, end_month, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            start_month (str):
+            end_month (str):
 
         Keyword Args:
-            start_month (str): [optional]
-            end_month (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -368,5 +364,9 @@ class BillingUsageMetricsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['start_month'] = \
+            start_month
+        kwargs['end_month'] = \
+            end_month
         return self.get_usage_metrics_endpoint.call_with_http_info(**kwargs)
 

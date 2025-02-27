@@ -33,14 +33,14 @@ class KvStoreItemApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.delete_key_from_store_endpoint = _Endpoint(
+        self.kv_store_delete_item_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
-                'operation_id': 'delete_key_from_store',
+                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key}',
+                'operation_id': 'kv_store_delete_item',
                 'http_method': 'DELETE',
                 'servers': [
                     {
@@ -52,11 +52,13 @@ class KvStoreItemApi(object):
             params_map={
                 'all': [
                     'store_id',
-                    'key_name',
+                    'key',
+                    'if_generation_match',
+                    'force',
                 ],
                 'required': [
                     'store_id',
-                    'key_name',
+                    'key',
                 ],
                 'nullable': [
                 ],
@@ -73,16 +75,24 @@ class KvStoreItemApi(object):
                 'openapi_types': {
                     'store_id':
                         (str,),
-                    'key_name':
+                    'key':
                         (str,),
+                    'if_generation_match':
+                        (int,),
+                    'force':
+                        (bool,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
-                    'key_name': 'key_name',
+                    'key': 'key',
+                    'if_generation_match': 'if-generation-match',
+                    'force': 'force',
                 },
                 'location_map': {
                     'store_id': 'path',
-                    'key_name': 'path',
+                    'key': 'path',
+                    'if_generation_match': 'header',
+                    'force': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -95,14 +105,78 @@ class KvStoreItemApi(object):
             },
             api_client=api_client
         )
-        self.get_keys_endpoint = _Endpoint(
+        self.kv_store_get_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key}',
+                'operation_id': 'kv_store_get_item',
+                'http_method': 'GET',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'store_id',
+                    'key',
+                ],
+                'required': [
+                    'store_id',
+                    'key',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'store_id':
+                        (str,),
+                    'key':
+                        (str,),
+                },
+                'attribute_map': {
+                    'store_id': 'store_id',
+                    'key': 'key',
+                },
+                'location_map': {
+                    'store_id': 'path',
+                    'key': 'path',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/octet-stream'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.kv_store_list_item_keys_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2004,),
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/resources/stores/kv/{store_id}/keys',
-                'operation_id': 'get_keys',
+                'operation_id': 'kv_store_list_item_keys',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -125,14 +199,25 @@ class KvStoreItemApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'consistency',
                 ],
                 'validation': [
+                    'limit',
                 ]
             },
             root_map={
                 'validations': {
+                    ('limit',): {
+
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
+                    ('consistency',): {
+
+                        "STRONG": "strong",
+                        "EVENTUAL": "eventual"
+                    },
                 },
                 'openapi_types': {
                     'store_id':
@@ -173,78 +258,14 @@ class KvStoreItemApi(object):
             },
             api_client=api_client
         )
-        self.get_value_for_key_endpoint = _Endpoint(
+        self.kv_store_upsert_item_endpoint = _Endpoint(
             settings={
-                'response_type': (str,),
+                'response_type': None,
                 'auth': [
                     'token'
                 ],
-                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
-                'operation_id': 'get_value_for_key',
-                'http_method': 'GET',
-                'servers': [
-                    {
-                        'url': "https://api.fastly.com",
-                        'description': "No description provided",
-                    },
-                ]
-            },
-            params_map={
-                'all': [
-                    'store_id',
-                    'key_name',
-                ],
-                'required': [
-                    'store_id',
-                    'key_name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'store_id':
-                        (str,),
-                    'key_name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'store_id': 'store_id',
-                    'key_name': 'key_name',
-                },
-                'location_map': {
-                    'store_id': 'path',
-                    'key_name': 'path',
-                },
-                'path_params_allow_reserved_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/octet-stream'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.set_value_for_key_endpoint = _Endpoint(
-            settings={
-                'response_type': (str,),
-                'auth': [
-                    'token'
-                ],
-                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key_name}',
-                'operation_id': 'set_value_for_key',
+                'endpoint_path': '/resources/stores/kv/{store_id}/keys/{key}',
+                'operation_id': 'kv_store_upsert_item',
                 'http_method': 'PUT',
                 'servers': [
                     {
@@ -256,7 +277,7 @@ class KvStoreItemApi(object):
             params_map={
                 'all': [
                     'store_id',
-                    'key_name',
+                    'key',
                     'if_generation_match',
                     'time_to_live_sec',
                     'metadata',
@@ -268,7 +289,7 @@ class KvStoreItemApi(object):
                 ],
                 'required': [
                     'store_id',
-                    'key_name',
+                    'key',
                 ],
                 'nullable': [
                 ],
@@ -285,7 +306,7 @@ class KvStoreItemApi(object):
                 'openapi_types': {
                     'store_id':
                         (str,),
-                    'key_name':
+                    'key':
                         (str,),
                     'if_generation_match':
                         (int,),
@@ -302,11 +323,11 @@ class KvStoreItemApi(object):
                     'background_fetch':
                         (bool,),
                     'body':
-                        (str,),
+                        (file_type,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
-                    'key_name': 'key_name',
+                    'key': 'key',
                     'if_generation_match': 'if-generation-match',
                     'time_to_live_sec': 'time_to_live_sec',
                     'metadata': 'metadata',
@@ -317,7 +338,7 @@ class KvStoreItemApi(object):
                 },
                 'location_map': {
                     'store_id': 'path',
-                    'key_name': 'path',
+                    'key': 'path',
                     'if_generation_match': 'header',
                     'time_to_live_sec': 'header',
                     'metadata': 'header',
@@ -333,9 +354,7 @@ class KvStoreItemApi(object):
                 }
             },
             headers_map={
-                'accept': [
-                    'application/octet-stream'
-                ],
+                'accept': [],
                 'content_type': [
                     'application/octet-stream'
                 ]
@@ -343,26 +362,28 @@ class KvStoreItemApi(object):
             api_client=api_client
         )
 
-    def delete_key_from_store(
+    def kv_store_delete_item(
         self,
         store_id,
-        key_name,
+        key,
         **kwargs
     ):
-        """Delete kv store item.  # noqa: E501
+        """Delete an item.  # noqa: E501
 
-        Delete an item from an kv store  # noqa: E501
+        Delete an item.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_key_from_store(store_id, key_name, async_req=True)
+        >>> thread = api.kv_store_delete_item(store_id, key, async_req=True)
         >>> result = thread.get()
 
         Args:
             store_id (str):
-            key_name (str):
+            key (str):
 
         Keyword Args:
+            if_generation_match (int): [optional]
+            force (bool): [optional] if omitted the server will use the default value of False
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -421,22 +442,104 @@ class KvStoreItemApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['store_id'] = \
             store_id
-        kwargs['key_name'] = \
-            key_name
-        return self.delete_key_from_store_endpoint.call_with_http_info(**kwargs)
+        kwargs['key'] = \
+            key
+        return self.kv_store_delete_item_endpoint.call_with_http_info(**kwargs)
 
-    def get_keys(
+    def kv_store_get_item(
+        self,
+        store_id,
+        key,
+        **kwargs
+    ):
+        """Get an item.  # noqa: E501
+
+        Get an item, including its value, metadata (if any), and generation marker.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.kv_store_get_item(store_id, key, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            store_id (str):
+            key (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            file_type
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['store_id'] = \
+            store_id
+        kwargs['key'] = \
+            key
+        return self.kv_store_get_item_endpoint.call_with_http_info(**kwargs)
+
+    def kv_store_list_item_keys(
         self,
         store_id,
         **kwargs
     ):
-        """List kv store keys.  # noqa: E501
+        """List item keys.  # noqa: E501
 
-        List the keys of all items within an kv store.  # noqa: E501
+        Lists the matching item keys (or all item keys, if no prefix is supplied).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_keys(store_id, async_req=True)
+        >>> thread = api.kv_store_list_item_keys(store_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -446,7 +549,7 @@ class KvStoreItemApi(object):
             cursor (str): [optional]
             limit (int): [optional] if omitted the server will use the default value of 100
             prefix (str): [optional]
-            consistency (str): [optional]
+            consistency (str): [optional] if omitted the server will use the default value of "strong"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -505,118 +608,36 @@ class KvStoreItemApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['store_id'] = \
             store_id
-        return self.get_keys_endpoint.call_with_http_info(**kwargs)
+        return self.kv_store_list_item_keys_endpoint.call_with_http_info(**kwargs)
 
-    def get_value_for_key(
+    def kv_store_upsert_item(
         self,
         store_id,
-        key_name,
+        key,
         **kwargs
     ):
-        """Get the value of an kv store item  # noqa: E501
+        """Insert or update an item.  # noqa: E501
 
-        Get the value associated with a key.  # noqa: E501
+        Inserts or updates an item's value and metadata.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_value_for_key(store_id, key_name, async_req=True)
+        >>> thread = api.kv_store_upsert_item(store_id, key, async_req=True)
         >>> result = thread.get()
 
         Args:
             store_id (str):
-            key_name (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            str
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['store_id'] = \
-            store_id
-        kwargs['key_name'] = \
-            key_name
-        return self.get_value_for_key_endpoint.call_with_http_info(**kwargs)
-
-    def set_value_for_key(
-        self,
-        store_id,
-        key_name,
-        **kwargs
-    ):
-        """Insert an item into an kv store  # noqa: E501
-
-        Set a new value for a new or existing key in an kv store.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.set_value_for_key(store_id, key_name, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            store_id (str):
-            key_name (str):
+            key (str):
 
         Keyword Args:
             if_generation_match (int): [optional]
             time_to_live_sec (int): [optional]
             metadata (str): [optional]
-            add (bool): [optional]
-            append (bool): [optional]
-            prepend (bool): [optional]
-            background_fetch (bool): [optional]
-            body (str): [optional]
+            add (bool): [optional] if omitted the server will use the default value of False
+            append (bool): [optional] if omitted the server will use the default value of False
+            prepend (bool): [optional] if omitted the server will use the default value of False
+            background_fetch (bool): [optional] if omitted the server will use the default value of False
+            body (file_type): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -645,7 +666,7 @@ class KvStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            str
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -675,7 +696,7 @@ class KvStoreItemApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['store_id'] = \
             store_id
-        kwargs['key_name'] = \
-            key_name
-        return self.set_value_for_key_endpoint.call_with_http_info(**kwargs)
+        kwargs['key'] = \
+            key
+        return self.kv_store_upsert_item_endpoint.call_with_http_info(**kwargs)
 

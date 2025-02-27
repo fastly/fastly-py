@@ -22,8 +22,8 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.inline_response2003 import InlineResponse2003
-from fastly.model.store import Store
-from fastly.model.store_response import StoreResponse
+from fastly.model.kv_store_details import KvStoreDetails
+from fastly.model.kv_store_request_create import KvStoreRequestCreate
 
 
 class KvStoreApi(object):
@@ -35,14 +35,14 @@ class KvStoreApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_store_endpoint = _Endpoint(
+        self.kv_store_create_endpoint = _Endpoint(
             settings={
-                'response_type': (StoreResponse,),
+                'response_type': (KvStoreDetails,),
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/resources/stores/kv',
-                'operation_id': 'create_store',
+                'operation_id': 'kv_store_create',
                 'http_method': 'POST',
                 'servers': [
                     {
@@ -54,12 +54,13 @@ class KvStoreApi(object):
             params_map={
                 'all': [
                     'location',
-                    'store',
+                    'kv_store_request_create',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'location',
                 ],
                 'validation': [
                 ]
@@ -68,19 +69,26 @@ class KvStoreApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('location',): {
+
+                        "US": "US",
+                        "EU": "EU",
+                        "ASIA": "ASIA",
+                        "AUS": "AUS"
+                    },
                 },
                 'openapi_types': {
                     'location':
                         (str,),
-                    'store':
-                        (Store,),
+                    'kv_store_request_create':
+                        (KvStoreRequestCreate,),
                 },
                 'attribute_map': {
                     'location': 'location',
                 },
                 'location_map': {
                     'location': 'query',
-                    'store': 'body',
+                    'kv_store_request_create': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -97,14 +105,14 @@ class KvStoreApi(object):
             },
             api_client=api_client
         )
-        self.delete_store_endpoint = _Endpoint(
+        self.kv_store_delete_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/resources/stores/kv/{store_id}',
-                'operation_id': 'delete_store',
+                'operation_id': 'kv_store_delete',
                 'http_method': 'DELETE',
                 'servers': [
                     {
@@ -153,14 +161,14 @@ class KvStoreApi(object):
             },
             api_client=api_client
         )
-        self.get_store_endpoint = _Endpoint(
+        self.kv_store_get_endpoint = _Endpoint(
             settings={
-                'response_type': (StoreResponse,),
+                'response_type': (KvStoreDetails,),
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/resources/stores/kv/{store_id}',
-                'operation_id': 'get_store',
+                'operation_id': 'kv_store_get',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -211,14 +219,14 @@ class KvStoreApi(object):
             },
             api_client=api_client
         )
-        self.get_stores_endpoint = _Endpoint(
+        self.kv_store_list_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2003,),
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/resources/stores/kv',
-                'operation_id': 'get_stores',
+                'operation_id': 'kv_store_list',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -238,10 +246,15 @@ class KvStoreApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'limit',
                 ]
             },
             root_map={
                 'validations': {
+                    ('limit',): {
+
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -273,23 +286,23 @@ class KvStoreApi(object):
             api_client=api_client
         )
 
-    def create_store(
+    def kv_store_create(
         self,
         **kwargs
     ):
         """Create a KV store.  # noqa: E501
 
-        Create a new KV store.  # noqa: E501
+        Create a KV store.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_store(async_req=True)
+        >>> thread = api.kv_store_create(async_req=True)
         >>> result = thread.get()
 
 
         Keyword Args:
             location (str): [optional]
-            store (Store): [optional]
+            kv_store_request_create (KvStoreRequestCreate): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -318,7 +331,7 @@ class KvStoreApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            StoreResponse
+            KvStoreDetails
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -346,20 +359,20 @@ class KvStoreApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.create_store_endpoint.call_with_http_info(**kwargs)
+        return self.kv_store_create_endpoint.call_with_http_info(**kwargs)
 
-    def delete_store(
+    def kv_store_delete(
         self,
         store_id,
         **kwargs
     ):
         """Delete a KV store.  # noqa: E501
 
-        A KV store must be empty before it can be deleted.  Deleting a KV store that still contains keys will result in a `409` (Conflict).  # noqa: E501
+        A KV store must be empty before it can be deleted. Attempting to delete a KV store that contains items will result in a response with a `409` status code.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_store(store_id, async_req=True)
+        >>> thread = api.kv_store_delete(store_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -424,20 +437,20 @@ class KvStoreApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['store_id'] = \
             store_id
-        return self.delete_store_endpoint.call_with_http_info(**kwargs)
+        return self.kv_store_delete_endpoint.call_with_http_info(**kwargs)
 
-    def get_store(
+    def kv_store_get(
         self,
         store_id,
         **kwargs
     ):
         """Describe a KV store.  # noqa: E501
 
-        Get a KV store by ID.  # noqa: E501
+        Get details of a KV store.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_store(store_id, async_req=True)
+        >>> thread = api.kv_store_get(store_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -472,7 +485,7 @@ class KvStoreApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            StoreResponse
+            KvStoreDetails
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -502,19 +515,19 @@ class KvStoreApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['store_id'] = \
             store_id
-        return self.get_store_endpoint.call_with_http_info(**kwargs)
+        return self.kv_store_get_endpoint.call_with_http_info(**kwargs)
 
-    def get_stores(
+    def kv_store_list(
         self,
         **kwargs
     ):
-        """List KV stores.  # noqa: E501
+        """List all KV stores.  # noqa: E501
 
-        Get all stores for a given customer.  # noqa: E501
+        List all KV stores.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_stores(async_req=True)
+        >>> thread = api.kv_store_list(async_req=True)
         >>> result = thread.get()
 
 
@@ -577,5 +590,5 @@ class KvStoreApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_stores_endpoint.call_with_http_info(**kwargs)
+        return self.kv_store_list_endpoint.call_with_http_info(**kwargs)
 

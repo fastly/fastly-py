@@ -164,6 +164,7 @@ class RealtimeMeasurements(ModelNormal):
             'status_503': (int,),  # noqa: E501
             'status_504': (int,),  # noqa: E501
             'status_505': (int,),  # noqa: E501
+            'status_530': (int,),  # noqa: E501
             'uncacheable': (int,),  # noqa: E501
             'pass_time': (float,),  # noqa: E501
             'tls': (int,),  # noqa: E501
@@ -322,9 +323,23 @@ class RealtimeMeasurements(ModelNormal):
             'all_status_5xx': (int,),  # noqa: E501
             'origin_offload': (float,),  # noqa: E501
             'request_denied_get_head_body': (int,),  # noqa: E501
-            'service_ddos_requests_detected': (int,),  # noqa: E501
-            'service_ddos_requests_mitigated': (int,),  # noqa: E501
-            'service_ddos_requests_allowed': (int,),  # noqa: E501
+            'ddos_protection_requests_detect_count': (int,),  # noqa: E501
+            'ddos_protection_requests_mitigate_count': (int,),  # noqa: E501
+            'ddos_protection_requests_allow_count': (int,),  # noqa: E501
+            'object_storage_class_a_operations_count': (int,),  # noqa: E501
+            'object_storage_class_b_operations_count': (int,),  # noqa: E501
+            'aia_requests': (int,),  # noqa: E501
+            'aia_status_1xx': (int,),  # noqa: E501
+            'aia_status_2xx': (int,),  # noqa: E501
+            'aia_status_3xx': (int,),  # noqa: E501
+            'aia_status_4xx': (int,),  # noqa: E501
+            'aia_status_5xx': (int,),  # noqa: E501
+            'aia_response_usage_tokens': (int,),  # noqa: E501
+            'aia_origin_usage_tokens': (int,),  # noqa: E501
+            'aia_estimated_time_saved_ms': (int,),  # noqa: E501
+            'request_collapse_usable_count': (int,),  # noqa: E501
+            'request_collapse_unusable_count': (int,),  # noqa: E501
+            'compute_cache_operations_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -418,6 +433,7 @@ class RealtimeMeasurements(ModelNormal):
         'status_503': 'status_503',  # noqa: E501
         'status_504': 'status_504',  # noqa: E501
         'status_505': 'status_505',  # noqa: E501
+        'status_530': 'status_530',  # noqa: E501
         'uncacheable': 'uncacheable',  # noqa: E501
         'pass_time': 'pass_time',  # noqa: E501
         'tls': 'tls',  # noqa: E501
@@ -576,9 +592,23 @@ class RealtimeMeasurements(ModelNormal):
         'all_status_5xx': 'all_status_5xx',  # noqa: E501
         'origin_offload': 'origin_offload',  # noqa: E501
         'request_denied_get_head_body': 'request_denied_get_head_body',  # noqa: E501
-        'service_ddos_requests_detected': 'service_ddos_requests_detected',  # noqa: E501
-        'service_ddos_requests_mitigated': 'service_ddos_requests_mitigated',  # noqa: E501
-        'service_ddos_requests_allowed': 'service_ddos_requests_allowed',  # noqa: E501
+        'ddos_protection_requests_detect_count': 'ddos_protection_requests_detect_count',  # noqa: E501
+        'ddos_protection_requests_mitigate_count': 'ddos_protection_requests_mitigate_count',  # noqa: E501
+        'ddos_protection_requests_allow_count': 'ddos_protection_requests_allow_count',  # noqa: E501
+        'object_storage_class_a_operations_count': 'object_storage_class_a_operations_count',  # noqa: E501
+        'object_storage_class_b_operations_count': 'object_storage_class_b_operations_count',  # noqa: E501
+        'aia_requests': 'aia_requests',  # noqa: E501
+        'aia_status_1xx': 'aia_status_1xx',  # noqa: E501
+        'aia_status_2xx': 'aia_status_2xx',  # noqa: E501
+        'aia_status_3xx': 'aia_status_3xx',  # noqa: E501
+        'aia_status_4xx': 'aia_status_4xx',  # noqa: E501
+        'aia_status_5xx': 'aia_status_5xx',  # noqa: E501
+        'aia_response_usage_tokens': 'aia_response_usage_tokens',  # noqa: E501
+        'aia_origin_usage_tokens': 'aia_origin_usage_tokens',  # noqa: E501
+        'aia_estimated_time_saved_ms': 'aia_estimated_time_saved_ms',  # noqa: E501
+        'request_collapse_usable_count': 'request_collapse_usable_count',  # noqa: E501
+        'request_collapse_unusable_count': 'request_collapse_unusable_count',  # noqa: E501
+        'compute_cache_operations_count': 'compute_cache_operations_count',  # noqa: E501
     }
 
     read_only_vars = {
@@ -707,6 +737,7 @@ class RealtimeMeasurements(ModelNormal):
             status_503 (int): Number of responses sent with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses sent with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses sent with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            status_530 (int): Number of responses sent with status code 530.. [optional]  # noqa: E501
             uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
             pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
             tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
@@ -865,9 +896,23 @@ class RealtimeMeasurements(ModelNormal):
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
             request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
-            service_ddos_requests_detected (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
-            service_ddos_requests_mitigated (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
-            service_ddos_requests_allowed (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
+            ddos_protection_requests_detect_count (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
+            ddos_protection_requests_mitigate_count (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
+            ddos_protection_requests_allow_count (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
+            object_storage_class_a_operations_count (int): A count of the number of Class A Object Storage operations.. [optional]  # noqa: E501
+            object_storage_class_b_operations_count (int): A count of the number of Class B Object Storage operations.. [optional]  # noqa: E501
+            aia_requests (int): Number of requests received by AI Accelerator.. [optional]  # noqa: E501
+            aia_status_1xx (int): Number of \"Informational\" category status codes received from AI provider.. [optional]  # noqa: E501
+            aia_status_2xx (int): Number of \"Success\" status codes received from AI provider.. [optional]  # noqa: E501
+            aia_status_3xx (int): Number of \"Redirection\" received from AI provider.. [optional]  # noqa: E501
+            aia_status_4xx (int): Number of \"Client Error\" received from AI provider.. [optional]  # noqa: E501
+            aia_status_5xx (int): Number of \"Server Error\" received from AI provider.. [optional]  # noqa: E501
+            aia_response_usage_tokens (int): The usage tokens associated with the response returned from the AI Accelerator cache.. [optional]  # noqa: E501
+            aia_origin_usage_tokens (int): The number of usage tokens reported by the request to the origin from AI Accelerator.. [optional]  # noqa: E501
+            aia_estimated_time_saved_ms (int): The estimated amount of time saved by responses served from the AI Accelerator semantic cache.. [optional]  # noqa: E501
+            request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
+            request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
+            compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1034,6 +1079,7 @@ class RealtimeMeasurements(ModelNormal):
             status_503 (int): Number of responses sent with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses sent with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses sent with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            status_530 (int): Number of responses sent with status code 530.. [optional]  # noqa: E501
             uncacheable (int): Number of requests that were designated uncachable.. [optional]  # noqa: E501
             pass_time (float): Total amount of time spent processing cache passes (in seconds).. [optional]  # noqa: E501
             tls (int): Number of requests that were received over TLS.. [optional]  # noqa: E501
@@ -1192,9 +1238,23 @@ class RealtimeMeasurements(ModelNormal):
             all_status_5xx (int): Number of \"Server Error\" codes delivered for all sources.. [optional]  # noqa: E501
             origin_offload (float): Origin Offload measures the ratio of bytes served to end users that were cached by Fastly, over the bytes served to end users, between 0 and 1. ((`edge_resp_body_bytes` + `edge_resp_header_bytes`) - (`origin_fetch_resp_body_bytes` + `origin_fetch_resp_header_bytes`)) / (`edge_resp_body_bytes` + `edge_resp_header_bytes`).. [optional]  # noqa: E501
             request_denied_get_head_body (int): Number of requests where Fastly responded with 400 due to the request being a GET or HEAD request containing a body.. [optional]  # noqa: E501
-            service_ddos_requests_detected (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
-            service_ddos_requests_mitigated (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
-            service_ddos_requests_allowed (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
+            ddos_protection_requests_detect_count (int): Number of requests classified as a DDoS attack against a customer origin or service.. [optional]  # noqa: E501
+            ddos_protection_requests_mitigate_count (int): Number of requests classified as a DDoS attack against a customer origin or service that were mitigated by the Fastly platform.. [optional]  # noqa: E501
+            ddos_protection_requests_allow_count (int): Number of requests analyzed for DDoS attacks against a customer origin or service, but with no DDoS detected.. [optional]  # noqa: E501
+            object_storage_class_a_operations_count (int): A count of the number of Class A Object Storage operations.. [optional]  # noqa: E501
+            object_storage_class_b_operations_count (int): A count of the number of Class B Object Storage operations.. [optional]  # noqa: E501
+            aia_requests (int): Number of requests received by AI Accelerator.. [optional]  # noqa: E501
+            aia_status_1xx (int): Number of \"Informational\" category status codes received from AI provider.. [optional]  # noqa: E501
+            aia_status_2xx (int): Number of \"Success\" status codes received from AI provider.. [optional]  # noqa: E501
+            aia_status_3xx (int): Number of \"Redirection\" received from AI provider.. [optional]  # noqa: E501
+            aia_status_4xx (int): Number of \"Client Error\" received from AI provider.. [optional]  # noqa: E501
+            aia_status_5xx (int): Number of \"Server Error\" received from AI provider.. [optional]  # noqa: E501
+            aia_response_usage_tokens (int): The usage tokens associated with the response returned from the AI Accelerator cache.. [optional]  # noqa: E501
+            aia_origin_usage_tokens (int): The number of usage tokens reported by the request to the origin from AI Accelerator.. [optional]  # noqa: E501
+            aia_estimated_time_saved_ms (int): The estimated amount of time saved by responses served from the AI Accelerator semantic cache.. [optional]  # noqa: E501
+            request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
+            request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
+            compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

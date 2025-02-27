@@ -105,6 +105,7 @@ class OriginInspectorValues(ModelNormal):
             'status_503': (int,),  # noqa: E501
             'status_504': (int,),  # noqa: E501
             'status_505': (int,),  # noqa: E501
+            'status_530': (int,),  # noqa: E501
             'latency_0_to_1ms': (int,),  # noqa: E501
             'latency_1_to_5ms': (int,),  # noqa: E501
             'latency_5_to_10ms': (int,),  # noqa: E501
@@ -143,6 +144,7 @@ class OriginInspectorValues(ModelNormal):
             'waf_status_503': (int,),  # noqa: E501
             'waf_status_504': (int,),  # noqa: E501
             'waf_status_505': (int,),  # noqa: E501
+            'waf_status_530': (int,),  # noqa: E501
             'waf_latency_0_to_1ms': (int,),  # noqa: E501
             'waf_latency_1_to_5ms': (int,),  # noqa: E501
             'waf_latency_5_to_10ms': (int,),  # noqa: E501
@@ -181,6 +183,7 @@ class OriginInspectorValues(ModelNormal):
             'compute_status_503': (int,),  # noqa: E501
             'compute_status_504': (int,),  # noqa: E501
             'compute_status_505': (int,),  # noqa: E501
+            'compute_status_530': (int,),  # noqa: E501
             'compute_latency_0_to_1ms': (int,),  # noqa: E501
             'compute_latency_1_to_5ms': (int,),  # noqa: E501
             'compute_latency_5_to_10ms': (int,),  # noqa: E501
@@ -219,6 +222,7 @@ class OriginInspectorValues(ModelNormal):
             'all_status_503': (int,),  # noqa: E501
             'all_status_504': (int,),  # noqa: E501
             'all_status_505': (int,),  # noqa: E501
+            'all_status_530': (int,),  # noqa: E501
             'all_latency_0_to_1ms': (int,),  # noqa: E501
             'all_latency_1_to_5ms': (int,),  # noqa: E501
             'all_latency_5_to_10ms': (int,),  # noqa: E501
@@ -265,6 +269,7 @@ class OriginInspectorValues(ModelNormal):
         'status_503': 'status_503',  # noqa: E501
         'status_504': 'status_504',  # noqa: E501
         'status_505': 'status_505',  # noqa: E501
+        'status_530': 'status_530',  # noqa: E501
         'latency_0_to_1ms': 'latency_0_to_1ms',  # noqa: E501
         'latency_1_to_5ms': 'latency_1_to_5ms',  # noqa: E501
         'latency_5_to_10ms': 'latency_5_to_10ms',  # noqa: E501
@@ -303,6 +308,7 @@ class OriginInspectorValues(ModelNormal):
         'waf_status_503': 'waf_status_503',  # noqa: E501
         'waf_status_504': 'waf_status_504',  # noqa: E501
         'waf_status_505': 'waf_status_505',  # noqa: E501
+        'waf_status_530': 'waf_status_530',  # noqa: E501
         'waf_latency_0_to_1ms': 'waf_latency_0_to_1ms',  # noqa: E501
         'waf_latency_1_to_5ms': 'waf_latency_1_to_5ms',  # noqa: E501
         'waf_latency_5_to_10ms': 'waf_latency_5_to_10ms',  # noqa: E501
@@ -341,6 +347,7 @@ class OriginInspectorValues(ModelNormal):
         'compute_status_503': 'compute_status_503',  # noqa: E501
         'compute_status_504': 'compute_status_504',  # noqa: E501
         'compute_status_505': 'compute_status_505',  # noqa: E501
+        'compute_status_530': 'compute_status_530',  # noqa: E501
         'compute_latency_0_to_1ms': 'compute_latency_0_to_1ms',  # noqa: E501
         'compute_latency_1_to_5ms': 'compute_latency_1_to_5ms',  # noqa: E501
         'compute_latency_5_to_10ms': 'compute_latency_5_to_10ms',  # noqa: E501
@@ -379,6 +386,7 @@ class OriginInspectorValues(ModelNormal):
         'all_status_503': 'all_status_503',  # noqa: E501
         'all_status_504': 'all_status_504',  # noqa: E501
         'all_status_505': 'all_status_505',  # noqa: E501
+        'all_status_530': 'all_status_530',  # noqa: E501
         'all_latency_0_to_1ms': 'all_latency_0_to_1ms',  # noqa: E501
         'all_latency_1_to_5ms': 'all_latency_1_to_5ms',  # noqa: E501
         'all_latency_5_to_10ms': 'all_latency_5_to_10ms',  # noqa: E501
@@ -460,6 +468,7 @@ class OriginInspectorValues(ModelNormal):
             status_503 (int): Number of responses received with status code 503 (Service Unavailable) from origin.. [optional]  # noqa: E501
             status_504 (int): Number of responses received with status code 504 (Gateway Timeout) from origin.. [optional]  # noqa: E501
             status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) from origin.. [optional]  # noqa: E501
+            status_530 (int): Number of responses received from origin with status code 530.. [optional]  # noqa: E501
             latency_0_to_1ms (int): Number of responses from origin with latency between 0 and 1 millisecond.. [optional]  # noqa: E501
             latency_1_to_5ms (int): Number of responses from origin with latency between 1 and 5 milliseconds.. [optional]  # noqa: E501
             latency_5_to_10ms (int): Number of responses from origin with latency between 5 and 10 milliseconds.. [optional]  # noqa: E501
@@ -498,6 +507,7 @@ class OriginInspectorValues(ModelNormal):
             waf_status_503 (int): Number of responses received with status code 503 (Service Unavailable) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
+            waf_status_530 (int): Number of responses received with status code 530 received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
@@ -536,6 +546,7 @@ class OriginInspectorValues(ModelNormal):
             compute_status_503 (int): Number of responses received with status code 503 (Service Unavailable) for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) for origin received by the Compute platform.. [optional]  # noqa: E501
+            compute_status_530 (int): Number of responses received with status code 530 for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds for origin received by the Compute platform.. [optional]  # noqa: E501
@@ -574,6 +585,7 @@ class OriginInspectorValues(ModelNormal):
             all_status_503 (int): Number of responses received with status code 503 (Service Unavailable) received for origin requests made by all sources.. [optional]  # noqa: E501
             all_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) received for origin requests made by all sources.. [optional]  # noqa: E501
             all_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) received for origin requests made by all sources.. [optional]  # noqa: E501
+            all_status_530 (int): Number of responses received with status code 530 received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds received for origin requests made by all sources.. [optional]  # noqa: E501
@@ -693,6 +705,7 @@ class OriginInspectorValues(ModelNormal):
             status_503 (int): Number of responses received with status code 503 (Service Unavailable) from origin.. [optional]  # noqa: E501
             status_504 (int): Number of responses received with status code 504 (Gateway Timeout) from origin.. [optional]  # noqa: E501
             status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) from origin.. [optional]  # noqa: E501
+            status_530 (int): Number of responses received from origin with status code 530.. [optional]  # noqa: E501
             latency_0_to_1ms (int): Number of responses from origin with latency between 0 and 1 millisecond.. [optional]  # noqa: E501
             latency_1_to_5ms (int): Number of responses from origin with latency between 1 and 5 milliseconds.. [optional]  # noqa: E501
             latency_5_to_10ms (int): Number of responses from origin with latency between 5 and 10 milliseconds.. [optional]  # noqa: E501
@@ -731,6 +744,7 @@ class OriginInspectorValues(ModelNormal):
             waf_status_503 (int): Number of responses received with status code 503 (Service Unavailable) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
+            waf_status_530 (int): Number of responses received with status code 530 received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
             waf_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds received for origin requests made by the Fastly WAF.. [optional]  # noqa: E501
@@ -769,6 +783,7 @@ class OriginInspectorValues(ModelNormal):
             compute_status_503 (int): Number of responses received with status code 503 (Service Unavailable) for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) for origin received by the Compute platform.. [optional]  # noqa: E501
+            compute_status_530 (int): Number of responses received with status code 530 for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds for origin received by the Compute platform.. [optional]  # noqa: E501
             compute_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds for origin received by the Compute platform.. [optional]  # noqa: E501
@@ -807,6 +822,7 @@ class OriginInspectorValues(ModelNormal):
             all_status_503 (int): Number of responses received with status code 503 (Service Unavailable) received for origin requests made by all sources.. [optional]  # noqa: E501
             all_status_504 (int): Number of responses received with status code 504 (Gateway Timeout) received for origin requests made by all sources.. [optional]  # noqa: E501
             all_status_505 (int): Number of responses received with status code 505 (HTTP Version Not Supported) received for origin requests made by all sources.. [optional]  # noqa: E501
+            all_status_530 (int): Number of responses received with status code 530 received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_0_to_1ms (int): Number of responses with latency between 0 and 1 millisecond received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_1_to_5ms (int): Number of responses with latency between 1 and 5 milliseconds received for origin requests made by all sources.. [optional]  # noqa: E501
             all_latency_5_to_10ms (int): Number of responses with latency between 5 and 10 milliseconds received for origin requests made by all sources.. [optional]  # noqa: E501

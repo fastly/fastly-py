@@ -105,6 +105,7 @@ class Values(ModelNormal):
             'status_503': (int,),  # noqa: E501
             'status_504': (int,),  # noqa: E501
             'status_505': (int,),  # noqa: E501
+            'status_530': (int,),  # noqa: E501
             'requests': (int,),  # noqa: E501
             'resp_header_bytes': (int,),  # noqa: E501
             'resp_body_bytes': (int,),  # noqa: E501
@@ -136,6 +137,7 @@ class Values(ModelNormal):
             'origin_status_503': (int,),  # noqa: E501
             'origin_status_504': (int,),  # noqa: E501
             'origin_status_505': (int,),  # noqa: E501
+            'origin_status_530': (int,),  # noqa: E501
             'origin_status_1xx': (int,),  # noqa: E501
             'origin_status_2xx': (int,),  # noqa: E501
             'origin_status_3xx': (int,),  # noqa: E501
@@ -175,6 +177,7 @@ class Values(ModelNormal):
         'status_503': 'status_503',  # noqa: E501
         'status_504': 'status_504',  # noqa: E501
         'status_505': 'status_505',  # noqa: E501
+        'status_530': 'status_530',  # noqa: E501
         'requests': 'requests',  # noqa: E501
         'resp_header_bytes': 'resp_header_bytes',  # noqa: E501
         'resp_body_bytes': 'resp_body_bytes',  # noqa: E501
@@ -206,6 +209,7 @@ class Values(ModelNormal):
         'origin_status_503': 'origin_status_503',  # noqa: E501
         'origin_status_504': 'origin_status_504',  # noqa: E501
         'origin_status_505': 'origin_status_505',  # noqa: E501
+        'origin_status_530': 'origin_status_530',  # noqa: E501
         'origin_status_1xx': 'origin_status_1xx',  # noqa: E501
         'origin_status_2xx': 'origin_status_2xx',  # noqa: E501
         'origin_status_3xx': 'origin_status_3xx',  # noqa: E501
@@ -280,6 +284,7 @@ class Values(ModelNormal):
             status_503 (int): Number of responses delivered with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses delivered with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            status_530 (int): Number of responses delivered with status code 530.. [optional]  # noqa: E501
             requests (int): Number of requests processed.. [optional]  # noqa: E501
             resp_header_bytes (int): Total header bytes delivered.. [optional]  # noqa: E501
             resp_body_bytes (int): Total body bytes delivered.. [optional]  # noqa: E501
@@ -311,6 +316,7 @@ class Values(ModelNormal):
             origin_status_503 (int): Number of responses received from origin with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             origin_status_504 (int): Number of responses received from origin with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             origin_status_505 (int): Number of responses received from origin with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            origin_status_530 (int): Number of responses received from origin with status code 530.. [optional]  # noqa: E501
             origin_status_1xx (int): Number of \"Informational\" category status codes received from origin.. [optional]  # noqa: E501
             origin_status_2xx (int): Number of \"Success\" status codes received from origin.. [optional]  # noqa: E501
             origin_status_3xx (int): Number of \"Redirection\" codes received from origin.. [optional]  # noqa: E501
@@ -423,6 +429,7 @@ class Values(ModelNormal):
             status_503 (int): Number of responses delivered with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             status_504 (int): Number of responses delivered with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            status_530 (int): Number of responses delivered with status code 530.. [optional]  # noqa: E501
             requests (int): Number of requests processed.. [optional]  # noqa: E501
             resp_header_bytes (int): Total header bytes delivered.. [optional]  # noqa: E501
             resp_body_bytes (int): Total body bytes delivered.. [optional]  # noqa: E501
@@ -454,6 +461,7 @@ class Values(ModelNormal):
             origin_status_503 (int): Number of responses received from origin with status code 503 (Service Unavailable).. [optional]  # noqa: E501
             origin_status_504 (int): Number of responses received from origin with status code 504 (Gateway Timeout).. [optional]  # noqa: E501
             origin_status_505 (int): Number of responses received from origin with status code 505 (HTTP Version Not Supported).. [optional]  # noqa: E501
+            origin_status_530 (int): Number of responses received from origin with status code 530.. [optional]  # noqa: E501
             origin_status_1xx (int): Number of \"Informational\" category status codes received from origin.. [optional]  # noqa: E501
             origin_status_2xx (int): Number of \"Success\" status codes received from origin.. [optional]  # noqa: E501
             origin_status_3xx (int): Number of \"Redirection\" codes received from origin.. [optional]  # noqa: E501

@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.inline_response2004_meta import InlineResponse2004Meta
-    globals()['InlineResponse2004Meta'] = InlineResponse2004Meta
+    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
+    globals()['PaginationCursorMeta'] = PaginationCursorMeta
 
 
 class InlineResponse2004(ModelNormal):
@@ -86,7 +86,7 @@ class InlineResponse2004(ModelNormal):
         lazy_import()
         return {
             'data': ([str],),  # noqa: E501
-            'meta': (InlineResponse2004Meta,),  # noqa: E501
+            'meta': (PaginationCursorMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class InlineResponse2004(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data ([str]): [optional]  # noqa: E501
-            meta (InlineResponse2004Meta): [optional]  # noqa: E501
+            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,7 +224,7 @@ class InlineResponse2004(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data ([str]): [optional]  # noqa: E501
-            meta (InlineResponse2004Meta): [optional]  # noqa: E501
+            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

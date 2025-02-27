@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_service_level_usage**
-> Serviceusagemetrics get_service_level_usage(product_id, usage_type_name)
+> Serviceusagemetrics get_service_level_usage()
 
 Retrieve service-level usage metrics for a product.
 
@@ -48,26 +48,18 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_usage_metrics_api.BillingUsageMetricsApi(api_client)
-    product_id = "product_id_example" # str | The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests.
-    usage_type_name = "usage_type_name_example" # str | The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests.
+    product_id = "product_id_example" # str | The product identifier for the metrics returned (e.g., `cdn_usage`). (optional)
+    usage_type_name = "usage_type_name_example" # str | The usage type name for the metrics returned (e.g., `North America Requests`). (optional)
     start_month = "2023-01" # str |  (optional)
     end_month = "2023-03" # str |  (optional)
     limit = "5" # str | Number of results per page. The maximum is 100. (optional) if omitted the server will use the default value of "5"
     cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
 
     # example passing only required values which don't have defaults set
-    try:
-        # Retrieve service-level usage metrics for a product.
-        api_response = api_instance.get_service_level_usage(product_id, usage_type_name)
-        pprint(api_response)
-    except fastly.ApiException as e:
-        print("Exception when calling BillingUsageMetricsApi->get_service_level_usage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Retrieve service-level usage metrics for a product.
-        api_response = api_instance.get_service_level_usage(product_id, usage_type_name, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
+        api_response = api_instance.get_service_level_usage(product_id=product_id, usage_type_name=usage_type_name, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BillingUsageMetricsApi->get_service_level_usage: %s\n" % e)
@@ -78,8 +70,8 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_id** | **str**| The product identifier for the metrics returned (e.g., `cdn_usage`). This field is not required for CSV requests. |
- **usage_type_name** | **str**| The usage type name for the metrics returned (e.g., `North America Requests`). This field is not required for CSV requests. |
+ **product_id** | **str**| The product identifier for the metrics returned (e.g., `cdn_usage`). | [optional]
+ **usage_type_name** | **str**| The usage type name for the metrics returned (e.g., `North America Requests`). | [optional]
  **start_month** | **str**|  | [optional]
  **end_month** | **str**|  | [optional]
  **limit** | **str**| Number of results per page. The maximum is 100. | [optional] if omitted the server will use the default value of "5"
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_usage_metrics**
-> Usagemetric get_usage_metrics()
+> Usagemetric get_usage_metrics(start_month, end_month)
 
 Get monthly usage metrics
 
@@ -149,14 +141,13 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_usage_metrics_api.BillingUsageMetricsApi(api_client)
-    start_month = "2023-01" # str |  (optional)
-    end_month = "2023-03" # str |  (optional)
+    start_month = "2024-05" # str | 
+    end_month = "2024-06" # str | 
 
     # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get monthly usage metrics
-        api_response = api_instance.get_usage_metrics(start_month=start_month, end_month=end_month)
+        api_response = api_instance.get_usage_metrics(start_month, end_month)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BillingUsageMetricsApi->get_usage_metrics: %s\n" % e)
@@ -167,8 +158,8 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_month** | **str**|  | [optional]
- **end_month** | **str**|  | [optional]
+ **start_month** | **str**|  |
+ **end_month** | **str**|  |
 
 ### Return type
 

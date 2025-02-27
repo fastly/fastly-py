@@ -63,7 +63,7 @@ with fastly.ApiClient(configuration) as api_client:
     hostname = "hostname_example" # str, none_type | The hostname of the backend. May be used as an alternative to `address` to set the backend location. (optional)
     ipv4 = "ipv4_example" # str, none_type | IPv4 address of the backend. May be used as an alternative to `address` to set the backend location. (optional)
     ipv6 = "ipv6_example" # str, none_type | IPv6 address of the backend. May be used as an alternative to `address` to set the backend location. (optional)
-    keepalive_time = 1 # int, none_type | How long in seconds to keep a persistent connection to the backend between requests. (optional)
+    keepalive_time = 1 # int, none_type | How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can. (optional)
     max_conn = 1 # int | Maximum number of concurrent connections this backend will accept. (optional)
     max_tls_version = "max_tls_version_example" # str, none_type | Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
     min_tls_version = "min_tls_version_example" # str, none_type | Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
  **hostname** | **str, none_type**| The hostname of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
  **ipv4** | **str, none_type**| IPv4 address of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
  **ipv6** | **str, none_type**| IPv6 address of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
- **keepalive_time** | **int, none_type**| How long in seconds to keep a persistent connection to the backend between requests. | [optional]
+ **keepalive_time** | **int, none_type**| How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can. | [optional]
  **max_conn** | **int**| Maximum number of concurrent connections this backend will accept. | [optional]
  **max_tls_version** | **str, none_type**| Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
  **min_tls_version** | **str, none_type**| Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
@@ -467,7 +467,7 @@ with fastly.ApiClient(configuration) as api_client:
     hostname = "hostname_example" # str, none_type | The hostname of the backend. May be used as an alternative to `address` to set the backend location. (optional)
     ipv4 = "ipv4_example" # str, none_type | IPv4 address of the backend. May be used as an alternative to `address` to set the backend location. (optional)
     ipv6 = "ipv6_example" # str, none_type | IPv6 address of the backend. May be used as an alternative to `address` to set the backend location. (optional)
-    keepalive_time = 1 # int, none_type | How long in seconds to keep a persistent connection to the backend between requests. (optional)
+    keepalive_time = 1 # int, none_type | How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can. (optional)
     max_conn = 1 # int | Maximum number of concurrent connections this backend will accept. (optional)
     max_tls_version = "max_tls_version_example" # str, none_type | Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
     min_tls_version = "min_tls_version_example" # str, none_type | Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. (optional)
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
  **hostname** | **str, none_type**| The hostname of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
  **ipv4** | **str, none_type**| IPv4 address of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
  **ipv6** | **str, none_type**| IPv6 address of the backend. May be used as an alternative to `address` to set the backend location. | [optional]
- **keepalive_time** | **int, none_type**| How long in seconds to keep a persistent connection to the backend between requests. | [optional]
+ **keepalive_time** | **int, none_type**| How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can. | [optional]
  **max_conn** | **int**| Maximum number of concurrent connections this backend will accept. | [optional]
  **max_tls_version** | **str, none_type**| Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]
  **min_tls_version** | **str, none_type**| Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated. | [optional]

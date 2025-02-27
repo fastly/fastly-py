@@ -244,7 +244,7 @@ class BackendResponse(ModelComposed):
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
-            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests.. [optional]  # noqa: E501
+            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can.. [optional]  # noqa: E501
             max_conn (int): Maximum number of concurrent connections this backend will accept.. [optional]  # noqa: E501
             max_tls_version (str, none_type): Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             min_tls_version (str, none_type): Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
@@ -384,7 +384,7 @@ class BackendResponse(ModelComposed):
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
-            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests.. [optional]  # noqa: E501
+            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can.. [optional]  # noqa: E501
             max_conn (int): Maximum number of concurrent connections this backend will accept.. [optional]  # noqa: E501
             max_tls_version (str, none_type): Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             min_tls_version (str, none_type): Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501

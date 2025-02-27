@@ -80,7 +80,6 @@ class ComputeAclLookup(ModelNormal):
         """
         return {
             'prefix': (str,),  # noqa: E501
-            'length': (int,),  # noqa: E501
             'action': (str,),  # noqa: E501
         }
 
@@ -91,7 +90,6 @@ class ComputeAclLookup(ModelNormal):
 
     attribute_map = {
         'prefix': 'prefix',  # noqa: E501
-        'length': 'length',  # noqa: E501
         'action': 'action',  # noqa: E501
     }
 
@@ -136,8 +134,7 @@ class ComputeAclLookup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            prefix (str): A valid IPv4 or IPv6 address.. [optional]  # noqa: E501
-            length (int): The length of address in the IP addressing space.. [optional]  # noqa: E501
+            prefix (str): A valid IPv4 or IPv6 address and prefix in CIDR notation.. [optional]  # noqa: E501
             action (str): One of \"ALLOW\" or \"BLOCK\".. [optional]  # noqa: E501
         """
 
@@ -220,8 +217,7 @@ class ComputeAclLookup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            prefix (str): A valid IPv4 or IPv6 address.. [optional]  # noqa: E501
-            length (int): The length of address in the IP addressing space.. [optional]  # noqa: E501
+            prefix (str): A valid IPv4 or IPv6 address and prefix in CIDR notation.. [optional]  # noqa: E501
             action (str): One of \"ALLOW\" or \"BLOCK\".. [optional]  # noqa: E501
         """
 

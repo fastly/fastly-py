@@ -6,12 +6,12 @@
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_snippet**](SnippetApi.md#create_snippet) | **POST** /service/{service_id}/version/{version_id}/snippet | Create a snippet
-[**delete_snippet**](SnippetApi.md#delete_snippet) | **DELETE** /service/{service_id}/version/{version_id}/snippet/{snippet_name} | Delete a snippet
-[**get_snippet**](SnippetApi.md#get_snippet) | **GET** /service/{service_id}/version/{version_id}/snippet/{snippet_name} | Get a versioned snippet
-[**get_snippet_dynamic**](SnippetApi.md#get_snippet_dynamic) | **GET** /service/{service_id}/snippet/{snippet_id} | Get a dynamic snippet
+[**delete_snippet**](SnippetApi.md#delete_snippet) | **DELETE** /service/{service_id}/version/{version_id}/snippet/{name} | Delete a snippet
+[**get_snippet**](SnippetApi.md#get_snippet) | **GET** /service/{service_id}/version/{version_id}/snippet/{name} | Get a versioned snippet
+[**get_snippet_dynamic**](SnippetApi.md#get_snippet_dynamic) | **GET** /service/{service_id}/snippet/{id} | Get a dynamic snippet
 [**list_snippets**](SnippetApi.md#list_snippets) | **GET** /service/{service_id}/version/{version_id}/snippet | List snippets
-[**update_snippet**](SnippetApi.md#update_snippet) | **PUT** /service/{service_id}/version/{version_id}/snippet/{snippet_name} | Update a versioned snippet
-[**update_snippet_dynamic**](SnippetApi.md#update_snippet_dynamic) | **PUT** /service/{service_id}/snippet/{snippet_id} | Update a dynamic snippet
+[**update_snippet**](SnippetApi.md#update_snippet) | **PUT** /service/{service_id}/version/{version_id}/snippet/{name} | Update a versioned snippet
+[**update_snippet_dynamic**](SnippetApi.md#update_snippet_dynamic) | **PUT** /service/{service_id}/snippet/{id} | Update a dynamic snippet
 
 
 # **create_snippet**
@@ -56,7 +56,7 @@ with fastly.ApiClient(configuration) as api_client:
     version_id = 1 # int | Integer identifying a service version.
     name = "test-snippet" # str | The name for the snippet. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
-    content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
+    content = "content_example" # str, none_type | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
     dynamic = "0" # str | Sets the snippet version. (optional)
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| The name for the snippet. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
- **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
+ **content** | **str, none_type**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
  **dynamic** | **str**| Sets the snippet version. | [optional]
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_snippet**
-> InlineResponse200 delete_snippet(service_id, version_id, snippet_name)
+> InlineResponse200 delete_snippet(service_id, version_id, name)
 
 Delete a snippet
 
@@ -153,12 +153,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = snippet_api.SnippetApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    snippet_name = "test-snippet" # str | The name for the snippet.
+    name = "test-snippet" # str | The name for the snippet.
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a snippet
-        api_response = api_instance.delete_snippet(service_id, version_id, snippet_name)
+        api_response = api_instance.delete_snippet(service_id, version_id, name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->delete_snippet: %s\n" % e)
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **snippet_name** | **str**| The name for the snippet. |
+ **name** | **str**| The name for the snippet. |
 
 ### Return type
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_snippet**
-> SnippetResponse get_snippet(service_id, version_id, snippet_name)
+> SnippetResponse get_snippet(service_id, version_id, name)
 
 Get a versioned snippet
 
@@ -235,12 +235,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = snippet_api.SnippetApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    snippet_name = "test-snippet" # str | The name for the snippet.
+    name = "test-snippet" # str | The name for the snippet.
 
     # example passing only required values which don't have defaults set
     try:
         # Get a versioned snippet
-        api_response = api_instance.get_snippet(service_id, version_id, snippet_name)
+        api_response = api_instance.get_snippet(service_id, version_id, name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->get_snippet: %s\n" % e)
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **snippet_name** | **str**| The name for the snippet. |
+ **name** | **str**| The name for the snippet. |
 
 ### Return type
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_snippet_dynamic**
-> SnippetResponse get_snippet_dynamic(service_id, snippet_id)
+> SnippetResponse get_snippet_dynamic(service_id, id)
 
 Get a dynamic snippet
 
@@ -316,12 +316,12 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snippet_api.SnippetApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
-    snippet_id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
+    id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
 
     # example passing only required values which don't have defaults set
     try:
         # Get a dynamic snippet
-        api_response = api_instance.get_snippet_dynamic(service_id, snippet_id)
+        api_response = api_instance.get_snippet_dynamic(service_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->get_snippet_dynamic: %s\n" % e)
@@ -333,7 +333,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
- **snippet_id** | **str**| Alphanumeric string identifying a VCL Snippet. |
+ **id** | **str**| Alphanumeric string identifying a VCL Snippet. |
 
 ### Return type
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_snippet**
-> SnippetResponse update_snippet(service_id, version_id, snippet_name)
+> SnippetResponse update_snippet(service_id, version_id, name)
 
 Update a versioned snippet
 
@@ -477,12 +477,12 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = snippet_api.SnippetApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    snippet_name = "test-snippet" # str | The name for the snippet.
+    name = "test-snippet" # str | The name for the snippet.
 
     # example passing only required values which don't have defaults set
     try:
         # Update a versioned snippet
-        api_response = api_instance.update_snippet(service_id, version_id, snippet_name)
+        api_response = api_instance.update_snippet(service_id, version_id, name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->update_snippet: %s\n" % e)
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **snippet_name** | **str**| The name for the snippet. |
+ **name** | **str**| The name for the snippet. |
 
 ### Return type
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_snippet_dynamic**
-> SnippetResponse update_snippet_dynamic(service_id, snippet_id)
+> SnippetResponse update_snippet_dynamic(service_id, id)
 
 Update a dynamic snippet
 
@@ -558,17 +558,17 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snippet_api.SnippetApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
-    snippet_id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
+    id = "62Yd1WfiCBPENLloXfXmlO" # str | Alphanumeric string identifying a VCL Snippet.
     name = "test-snippet" # str | The name for the snippet. (optional)
     type = "init" # str | The location in generated VCL where the snippet should be placed. (optional)
-    content = "content_example" # str | The VCL code that specifies exactly what the snippet does. (optional)
+    content = "content_example" # str, none_type | The VCL code that specifies exactly what the snippet does. (optional)
     priority = "10" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
     dynamic = "0" # str | Sets the snippet version. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update a dynamic snippet
-        api_response = api_instance.update_snippet_dynamic(service_id, snippet_id)
+        api_response = api_instance.update_snippet_dynamic(service_id, id)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->update_snippet_dynamic: %s\n" % e)
@@ -577,7 +577,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a dynamic snippet
-        api_response = api_instance.update_snippet_dynamic(service_id, snippet_id, name=name, type=type, content=content, priority=priority, dynamic=dynamic)
+        api_response = api_instance.update_snippet_dynamic(service_id, id, name=name, type=type, content=content, priority=priority, dynamic=dynamic)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling SnippetApi->update_snippet_dynamic: %s\n" % e)
@@ -589,10 +589,10 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
- **snippet_id** | **str**| Alphanumeric string identifying a VCL Snippet. |
+ **id** | **str**| Alphanumeric string identifying a VCL Snippet. |
  **name** | **str**| The name for the snippet. | [optional]
  **type** | **str**| The location in generated VCL where the snippet should be placed. | [optional]
- **content** | **str**| The VCL code that specifies exactly what the snippet does. | [optional]
+ **content** | **str, none_type**| The VCL code that specifies exactly what the snippet does. | [optional]
  **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
  **dynamic** | **str**| Sets the snippet version. | [optional]
 

@@ -5,18 +5,18 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_store**](KvStoreApi.md#create_store) | **POST** /resources/stores/kv | Create a KV store.
-[**delete_store**](KvStoreApi.md#delete_store) | **DELETE** /resources/stores/kv/{store_id} | Delete a KV store.
-[**get_store**](KvStoreApi.md#get_store) | **GET** /resources/stores/kv/{store_id} | Describe a KV store.
-[**get_stores**](KvStoreApi.md#get_stores) | **GET** /resources/stores/kv | List KV stores.
+[**kv_store_create**](KvStoreApi.md#kv_store_create) | **POST** /resources/stores/kv | Create a KV store.
+[**kv_store_delete**](KvStoreApi.md#kv_store_delete) | **DELETE** /resources/stores/kv/{store_id} | Delete a KV store.
+[**kv_store_get**](KvStoreApi.md#kv_store_get) | **GET** /resources/stores/kv/{store_id} | Describe a KV store.
+[**kv_store_list**](KvStoreApi.md#kv_store_list) | **GET** /resources/stores/kv | List all KV stores.
 
 
-# **create_store**
-> StoreResponse create_store()
+# **kv_store_create**
+> KvStoreDetails kv_store_create()
 
 Create a KV store.
 
-Create a new KV store.
+Create a KV store.
 
 ### Example
 
@@ -26,8 +26,8 @@ Create a new KV store.
 import time
 import fastly
 from fastly.api import kv_store_api
-from fastly.model.store_response import StoreResponse
-from fastly.model.store import Store
+from fastly.model.kv_store_request_create import KvStoreRequestCreate
+from fastly.model.kv_store_details import KvStoreDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -50,19 +50,19 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = kv_store_api.KvStoreApi(api_client)
-    location = "location_example" # str |  (optional)
-    store = Store(
+    location = "US" # str |  (optional)
+    kv_store_request_create = KvStoreRequestCreate(
         name="name_example",
-    ) # Store |  (optional)
+    ) # KvStoreRequestCreate |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create a KV store.
-        api_response = api_instance.create_store(location=location, store=store)
+        api_response = api_instance.kv_store_create(location=location, kv_store_request_create=kv_store_request_create)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling KvStoreApi->create_store: %s\n" % e)
+        print("Exception when calling KvStoreApi->kv_store_create: %s\n" % e)
 ```
 
 
@@ -71,11 +71,11 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **location** | **str**|  | [optional]
- **store** | [**Store**](Store.md)|  | [optional]
+ **kv_store_request_create** | [**KvStoreRequestCreate**](KvStoreRequestCreate.md)|  | [optional]
 
 ### Return type
 
-[**StoreResponse**](StoreResponse.md)
+[**KvStoreDetails**](KvStoreDetails.md)
 
 ### Authorization
 
@@ -91,16 +91,17 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  -  |
+**201** | Store created. |  -  |
+**400** | Provided name is not valid or already exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_store**
-> delete_store(store_id)
+# **kv_store_delete**
+> kv_store_delete(store_id)
 
 Delete a KV store.
 
-A KV store must be empty before it can be deleted.  Deleting a KV store that still contains keys will result in a `409` (Conflict).
+A KV store must be empty before it can be deleted. Attempting to delete a KV store that contains items will result in a response with a `409` status code.
 
 ### Example
 
@@ -137,9 +138,9 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete a KV store.
-        api_instance.delete_store(store_id)
+        api_instance.kv_store_delete(store_id)
     except fastly.ApiException as e:
-        print("Exception when calling KvStoreApi->delete_store: %s\n" % e)
+        print("Exception when calling KvStoreApi->kv_store_delete: %s\n" % e)
 ```
 
 
@@ -167,16 +168,18 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+**204** | Deletion succeeded |  -  |
+**404** | KV store was not found |  -  |
+**409** | Deletion failed because the store contains items |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_store**
-> StoreResponse get_store(store_id)
+# **kv_store_get**
+> KvStoreDetails kv_store_get(store_id)
 
 Describe a KV store.
 
-Get a KV store by ID.
+Get details of a KV store.
 
 ### Example
 
@@ -186,7 +189,7 @@ Get a KV store by ID.
 import time
 import fastly
 from fastly.api import kv_store_api
-from fastly.model.store_response import StoreResponse
+from fastly.model.kv_store_details import KvStoreDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -214,10 +217,10 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Describe a KV store.
-        api_response = api_instance.get_store(store_id)
+        api_response = api_instance.kv_store_get(store_id)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling KvStoreApi->get_store: %s\n" % e)
+        print("Exception when calling KvStoreApi->kv_store_get: %s\n" % e)
 ```
 
 
@@ -229,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StoreResponse**](StoreResponse.md)
+[**KvStoreDetails**](KvStoreDetails.md)
 
 ### Authorization
 
@@ -245,16 +248,17 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Store was found. |  -  |
+**404** | KV store was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_stores**
-> InlineResponse2003 get_stores()
+# **kv_store_list**
+> InlineResponse2003 kv_store_list()
 
-List KV stores.
+List all KV stores.
 
-Get all stores for a given customer.
+List all KV stores.
 
 ### Example
 
@@ -293,11 +297,11 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List KV stores.
-        api_response = api_instance.get_stores(cursor=cursor, limit=limit)
+        # List all KV stores.
+        api_response = api_instance.kv_store_list(cursor=cursor, limit=limit)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling KvStoreApi->get_stores: %s\n" % e)
+        print("Exception when calling KvStoreApi->kv_store_list: %s\n" % e)
 ```
 
 
@@ -326,7 +330,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Stores listed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

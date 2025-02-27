@@ -94,7 +94,7 @@ class SnippetCommon(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'content': (str,),  # noqa: E501
+            'content': (str, none_type,),  # noqa: E501
             'priority': (str,),  # noqa: E501
         }
 
@@ -153,7 +153,7 @@ class SnippetCommon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
+            content (str, none_type): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
@@ -238,7 +238,7 @@ class SnippetCommon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name for the snippet.. [optional]  # noqa: E501
             type (str): The location in generated VCL where the snippet should be placed.. [optional]  # noqa: E501
-            content (str): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
+            content (str, none_type): The VCL code that specifies exactly what the snippet does.. [optional]  # noqa: E501
             priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
