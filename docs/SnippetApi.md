@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create_snippet**
-> SnippetResponsePost create_snippet(service_id, version_id)
+> SnippetResponse create_snippet(service_id, version_id)
 
 Create a snippet
 
@@ -29,7 +29,7 @@ Create a snippet for a particular service and version.
 import time
 import fastly
 from fastly.api import snippet_api
-from fastly.model.snippet_response_post import SnippetResponsePost
+from fastly.model.snippet_response import SnippetResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SnippetResponsePost**](SnippetResponsePost.md)
+[**SnippetResponse**](SnippetResponse.md)
 
 ### Authorization
 

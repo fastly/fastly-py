@@ -104,7 +104,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **kv_store_get_item**
-> file_type kv_store_get_item(store_id, key)
+> str kv_store_get_item(store_id, key)
 
 Get an item.
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+**str**
 
 ### Authorization
 
@@ -325,7 +325,7 @@ with fastly.ApiClient(configuration) as api_client:
     append = False # bool |  (optional) if omitted the server will use the default value of False
     prepend = False # bool |  (optional) if omitted the server will use the default value of False
     background_fetch = False # bool |  (optional) if omitted the server will use the default value of False
-    body = open('/path/to/file', 'rb') # file_type |  (optional)
+    body = 'YQ==' # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
  **append** | **bool**|  | [optional] if omitted the server will use the default value of False
  **prepend** | **bool**|  | [optional] if omitted the server will use the default value of False
  **background_fetch** | **bool**|  | [optional] if omitted the server will use the default value of False
- **body** | **file_type**|  | [optional]
+ **body** | **str**|  | [optional]
 
 ### Return type
 

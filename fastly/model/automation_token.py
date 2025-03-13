@@ -155,7 +155,7 @@ class AutomationToken(ModelNormal):
             role (str): The role on the token.. [optional]  # noqa: E501
             services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (str): A UTC time-stamp of when the token expires.. [optional]  # noqa: E501
+            expires_at (str): A UTC timestamp of when the token expires.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class AutomationToken(ModelNormal):
             role (str): The role on the token.. [optional]  # noqa: E501
             services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (str): A UTC time-stamp of when the token expires.. [optional]  # noqa: E501
+            expires_at (str): A UTC timestamp of when the token expires.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

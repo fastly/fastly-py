@@ -157,7 +157,7 @@ class AutomationTokenCreateRequestAttributes(ModelNormal):
             role (str): [optional]  # noqa: E501
             services ([str]): List of service ids to limit the token. [optional]  # noqa: E501
             scope (str): [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (datetime, none_type): A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
+            expires_at (datetime, none_type): A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
             tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
         """
 
@@ -244,7 +244,7 @@ class AutomationTokenCreateRequestAttributes(ModelNormal):
             role (str): [optional]  # noqa: E501
             services ([str]): List of service ids to limit the token. [optional]  # noqa: E501
             scope (str): [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (datetime, none_type): A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
+            expires_at (datetime, none_type): A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
             tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
         """
 

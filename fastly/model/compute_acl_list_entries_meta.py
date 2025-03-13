@@ -79,7 +79,7 @@ class ComputeAclListEntriesMeta(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'limit': (str,),  # noqa: E501
+            'limit': (int,),  # noqa: E501
             'next_cursor': (str,),  # noqa: E501
         }
 
@@ -134,7 +134,7 @@ class ComputeAclListEntriesMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            limit (str): The maximum number of results shown in this response.. [optional]  # noqa: E501
+            limit (int): The maximum number of results shown in this response.. [optional]  # noqa: E501
             next_cursor (str): Used for pagination, supply to the next request to get the next block of results.. [optional]  # noqa: E501
         """
 
@@ -217,7 +217,7 @@ class ComputeAclListEntriesMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            limit (str): The maximum number of results shown in this response.. [optional]  # noqa: E501
+            limit (int): The maximum number of results shown in this response.. [optional]  # noqa: E501
             next_cursor (str): Used for pagination, supply to the next request to get the next block of results.. [optional]  # noqa: E501
         """
 

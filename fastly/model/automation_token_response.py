@@ -34,12 +34,10 @@ def lazy_import():
     from fastly.model.automation_token_response_all_of import AutomationTokenResponseAllOf
     from fastly.model.read_only_customer_id import ReadOnlyCustomerId
     from fastly.model.read_only_id import ReadOnlyId
-    from fastly.model.timestamps import Timestamps
     globals()['AutomationToken'] = AutomationToken
     globals()['AutomationTokenResponseAllOf'] = AutomationTokenResponseAllOf
     globals()['ReadOnlyCustomerId'] = ReadOnlyCustomerId
     globals()['ReadOnlyId'] = ReadOnlyId
-    globals()['Timestamps'] = Timestamps
 
 
 class AutomationTokenResponse(ModelComposed):
@@ -104,15 +102,13 @@ class AutomationTokenResponse(ModelComposed):
             'services': ([str],),  # noqa: E501
             'scope': (str,),  # noqa: E501
             'expires_at': (str,),  # noqa: E501
-            'created_at': (str,),  # noqa: E501
-            'deleted_at': (datetime, none_type,),  # noqa: E501
-            'updated_at': (datetime, none_type,),  # noqa: E501
             'id': (ReadOnlyId,),  # noqa: E501
             'customer_id': (ReadOnlyCustomerId,),  # noqa: E501
             'ip': (str,),  # noqa: E501
             'user_agent': (str,),  # noqa: E501
-            'sudo_expires_at': (str,),  # noqa: E501
+            'tls_access': (bool,),  # noqa: E501
             'last_used_at': (datetime,),  # noqa: E501
+            'created_at': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -126,21 +122,16 @@ class AutomationTokenResponse(ModelComposed):
         'services': 'services',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'deleted_at': 'deleted_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
         'id': 'id',  # noqa: E501
         'customer_id': 'customer_id',  # noqa: E501
         'ip': 'ip',  # noqa: E501
         'user_agent': 'user_agent',  # noqa: E501
-        'sudo_expires_at': 'sudo_expires_at',  # noqa: E501
+        'tls_access': 'tls_access',  # noqa: E501
         'last_used_at': 'last_used_at',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
     }
 
     read_only_vars = {
-        'deleted_at',  # noqa: E501
-        'updated_at',  # noqa: E501
-        'sudo_expires_at',  # noqa: E501
         'last_used_at',  # noqa: E501
     }
 
@@ -184,16 +175,14 @@ class AutomationTokenResponse(ModelComposed):
             role (str): [optional]  # noqa: E501
             services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (str): (optional) A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
-            created_at (str): A UTC time-stamp of when the token was created.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            expires_at (str): (optional) A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
             id (ReadOnlyId): [optional]  # noqa: E501
             customer_id (ReadOnlyCustomerId): [optional]  # noqa: E501
             ip (str): The IP address of the client that last used the token.. [optional]  # noqa: E501
             user_agent (str): The User-Agent header of the client that last used the token.. [optional]  # noqa: E501
-            sudo_expires_at (str): [optional]  # noqa: E501
-            last_used_at (datetime): A UTC time-stamp of when the token was last used.. [optional]  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
+            last_used_at (datetime): A UTC timestamp of when the token was last used.. [optional]  # noqa: E501
+            created_at (str): A UTC timestamp of when the token was created.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -297,16 +286,14 @@ class AutomationTokenResponse(ModelComposed):
             role (str): [optional]  # noqa: E501
             services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
-            expires_at (str): (optional) A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
-            created_at (str): A UTC time-stamp of when the token was created.. [optional]  # noqa: E501
-            deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
-            updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
+            expires_at (str): (optional) A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
             id (ReadOnlyId): [optional]  # noqa: E501
             customer_id (ReadOnlyCustomerId): [optional]  # noqa: E501
             ip (str): The IP address of the client that last used the token.. [optional]  # noqa: E501
             user_agent (str): The User-Agent header of the client that last used the token.. [optional]  # noqa: E501
-            sudo_expires_at (str): [optional]  # noqa: E501
-            last_used_at (datetime): A UTC time-stamp of when the token was last used.. [optional]  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
+            last_used_at (datetime): A UTC timestamp of when the token was last used.. [optional]  # noqa: E501
+            created_at (str): A UTC timestamp of when the token was created.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -374,7 +361,6 @@ class AutomationTokenResponse(ModelComposed):
           'allOf': [
               AutomationToken,
               AutomationTokenResponseAllOf,
-              Timestamps,
           ],
           'oneOf': [
           ],

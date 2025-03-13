@@ -168,6 +168,8 @@ class TlsBulkCertificatesApi(object):
             params_map={
                 'all': [
                     'filter_tls_domain_id',
+                    'filter_not_before',
+                    'filter_not_after',
                     'page_number',
                     'page_size',
                     'sort',
@@ -200,6 +202,10 @@ class TlsBulkCertificatesApi(object):
                 'openapi_types': {
                     'filter_tls_domain_id':
                         (str,),
+                    'filter_not_before':
+                        (str,),
+                    'filter_not_after':
+                        (str,),
                     'page_number':
                         (int,),
                     'page_size':
@@ -209,12 +215,16 @@ class TlsBulkCertificatesApi(object):
                 },
                 'attribute_map': {
                     'filter_tls_domain_id': 'filter[tls_domain.id]',
+                    'filter_not_before': 'filter[not_before]',
+                    'filter_not_after': 'filter[not_after]',
                     'page_number': 'page[number]',
                     'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
                     'filter_tls_domain_id': 'query',
+                    'filter_not_before': 'query',
+                    'filter_not_after': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
                     'sort': 'query',
@@ -526,6 +536,8 @@ class TlsBulkCertificatesApi(object):
 
         Keyword Args:
             filter_tls_domain_id (str): Filter certificates by their matching, fully-qualified domain name.. [optional]
+            filter_not_before (str): Filter the returned certificates by not_before date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_before][gte]=2020-05-05). . [optional]
+            filter_not_after (str): Filter the returned certificates by expiry date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_after][lte]=2020-05-05). . [optional]
             page_number (int): Current page.. [optional]
             page_size (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
             sort (str): The order in which to list the results by creation date.. [optional] if omitted the server will use the default value of "created_at"

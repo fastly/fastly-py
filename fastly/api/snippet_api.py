@@ -23,7 +23,6 @@ from fastly.model_utils import (  # noqa: F401
 )
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.snippet_response import SnippetResponse
-from fastly.model.snippet_response_post import SnippetResponsePost
 
 
 class SnippetApi(object):
@@ -37,7 +36,7 @@ class SnippetApi(object):
         self.api_client = api_client
         self.create_snippet_endpoint = _Endpoint(
             settings={
-                'response_type': (SnippetResponsePost,),
+                'response_type': (SnippetResponse,),
                 'auth': [
                     'token'
                 ],
@@ -655,7 +654,7 @@ class SnippetApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SnippetResponsePost
+            SnippetResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

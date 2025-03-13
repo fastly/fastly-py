@@ -107,7 +107,7 @@ class KvStoreItemApi(object):
         )
         self.kv_store_get_item_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': (str,),
                 'auth': [
                     'token'
                 ],
@@ -323,7 +323,7 @@ class KvStoreItemApi(object):
                     'background_fetch':
                         (bool,),
                     'body':
-                        (file_type,),
+                        (str,),
                 },
                 'attribute_map': {
                     'store_id': 'store_id',
@@ -494,7 +494,7 @@ class KvStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            str
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -637,7 +637,7 @@ class KvStoreItemApi(object):
             append (bool): [optional] if omitted the server will use the default value of False
             prepend (bool): [optional] if omitted the server will use the default value of False
             background_fetch (bool): [optional] if omitted the server will use the default value of False
-            body (file_type): [optional]
+            body (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

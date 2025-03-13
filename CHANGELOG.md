@@ -1,5 +1,40 @@
 # Changelog
 
+## [v8.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v8.0.0) (2025-03-13)
+
+**Breaking Changes:**
+
+- fix(automation_tokens): Response content types corrected.
+- fix(automation_tokens): Removed timestamp fields.
+- removed(billing): Billing v2 API has been removed.
+
+- fix(acls_in_compute): Corrected `meta.limit` field type from string to integer.
+
+- fix(condition): Condition responses now always have a string value for the priority field.
+- fix(header): Header responses now always have a string value for the priority field.
+- fix(snippet): Snippet responses now always have string values for the priority and dynamic fields.
+
+- fix(kv_store_item): `kv-store-get-item` returns an inline object instead of a File object.
+
+
+**Enhancements:**
+
+- fix(automation_tokens): Added tls_access, creator_id fields to responses.
+- feat(billing_usage_metrics): Added filter by service identifier for service-usage-metrics endpoint.
+- feat(historical): Added new metrics: `ngwaf_requests_total_count`, `ngwaf_requests_unknown_count`,
+                    `ngwaf_requests_allowed_count`, `ngwaf_requests_logged_count`, `ngwaf_requests_blocked_count`,
+                    `ngwaf_requests_timeout_count`, and `ngwaf_requests_challenged_count`.
+- feat(tls_bulk_certificates): Added `not_before` and `not_after` filter parameters to allow for filtering of bulk TLS
+                               certificates by expiry.
+
+
+**Documentation:**
+
+- doc(billing_usage_metrics): Correct documentation of pagination limits.
+- doc(billing_usage_metrics): Correct documentation of api conditions for product_id and usage_type_name filters.
+- doc(logging_azureblob): Mention Azure Block size limits.
+
+
 ## [v7.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v7.0.0) (2025-02-26)
 
 **Breaking Changes:**

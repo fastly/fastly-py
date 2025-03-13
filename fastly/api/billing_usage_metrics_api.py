@@ -54,6 +54,7 @@ class BillingUsageMetricsApi(object):
             params_map={
                 'all': [
                     'product_id',
+                    'service',
                     'usage_type_name',
                     'start_month',
                     'end_month',
@@ -90,6 +91,8 @@ class BillingUsageMetricsApi(object):
                 'openapi_types': {
                     'product_id':
                         (str,),
+                    'service':
+                        (str,),
                     'usage_type_name':
                         (str,),
                     'start_month':
@@ -103,6 +106,7 @@ class BillingUsageMetricsApi(object):
                 },
                 'attribute_map': {
                     'product_id': 'product_id',
+                    'service': 'service',
                     'usage_type_name': 'usage_type_name',
                     'start_month': 'start_month',
                     'end_month': 'end_month',
@@ -111,6 +115,7 @@ class BillingUsageMetricsApi(object):
                 },
                 'location_map': {
                     'product_id': 'query',
+                    'service': 'query',
                     'usage_type_name': 'query',
                     'start_month': 'query',
                     'end_month': 'query',
@@ -213,7 +218,7 @@ class BillingUsageMetricsApi(object):
         self,
         **kwargs
     ):
-        """Retrieve service-level usage metrics for a product.  # noqa: E501
+        """Retrieve service-level usage metrics for services with non-zero usage units.  # noqa: E501
 
         Returns product usage, broken down by service.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -224,11 +229,12 @@ class BillingUsageMetricsApi(object):
 
 
         Keyword Args:
-            product_id (str): The product identifier for the metrics returned (e.g., `cdn_usage`).. [optional]
-            usage_type_name (str): The usage type name for the metrics returned (e.g., `North America Requests`).. [optional]
+            product_id (str): The product identifier for the metrics returned (e.g., `cdn_usage`). This should be used along with `usage_type_name`.. [optional]
+            service (str): The service identifier for the metrics being requested.. [optional]
+            usage_type_name (str): The usage type name for the metrics returned (e.g., `North America Requests`). This should be used along with `product_id`.. [optional]
             start_month (str): [optional]
             end_month (str): [optional]
-            limit (str): Number of results per page. The maximum is 100.. [optional] if omitted the server will use the default value of "5"
+            limit (str): Number of results per page. The maximum is 10000.. [optional] if omitted the server will use the default value of "1000"
             cursor (str): Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

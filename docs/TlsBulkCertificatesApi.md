@@ -205,6 +205,8 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_bulk_certificates_api.TlsBulkCertificatesApi(api_client)
     filter_tls_domain_id = "filter[tls_domain.id]_example" # str | Filter certificates by their matching, fully-qualified domain name. (optional)
+    filter_not_before = "filter[not_before]_example" # str | Filter the returned certificates by not_before date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_before][gte]=2020-05-05).  (optional)
+    filter_not_after = "filter[not_after]_example" # str | Filter the returned certificates by expiry date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_after][lte]=2020-05-05).  (optional)
     page_number = 1 # int | Current page. (optional)
     page_size = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
     sort = "created_at" # str | The order in which to list the results by creation date. (optional) if omitted the server will use the default value of "created_at"
@@ -213,7 +215,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List certificates
-        api_response = api_instance.list_tls_bulk_certs(filter_tls_domain_id=filter_tls_domain_id, page_number=page_number, page_size=page_size, sort=sort)
+        api_response = api_instance.list_tls_bulk_certs(filter_tls_domain_id=filter_tls_domain_id, filter_not_before=filter_not_before, filter_not_after=filter_not_after, page_number=page_number, page_size=page_size, sort=sort)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsBulkCertificatesApi->list_tls_bulk_certs: %s\n" % e)
@@ -225,6 +227,8 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_tls_domain_id** | **str**| Filter certificates by their matching, fully-qualified domain name. | [optional]
+ **filter_not_before** | **str**| Filter the returned certificates by not_before date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_before][gte]&#x3D;2020-05-05).  | [optional]
+ **filter_not_after** | **str**| Filter the returned certificates by expiry date in UTC.  Accepts parameters: lt, lte, gt, gte (e.g., filter[not_after][lte]&#x3D;2020-05-05).  | [optional]
  **page_number** | **int**| Current page. | [optional]
  **page_size** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
  **sort** | **str**| The order in which to list the results by creation date. | [optional] if omitted the server will use the default value of "created_at"

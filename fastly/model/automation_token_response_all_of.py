@@ -92,7 +92,7 @@ class AutomationTokenResponseAllOf(ModelNormal):
             'role': (str,),  # noqa: E501
             'ip': (str,),  # noqa: E501
             'user_agent': (str,),  # noqa: E501
-            'sudo_expires_at': (str,),  # noqa: E501
+            'tls_access': (bool,),  # noqa: E501
             'last_used_at': (datetime,),  # noqa: E501
             'created_at': (str,),  # noqa: E501
             'expires_at': (str,),  # noqa: E501
@@ -109,14 +109,13 @@ class AutomationTokenResponseAllOf(ModelNormal):
         'role': 'role',  # noqa: E501
         'ip': 'ip',  # noqa: E501
         'user_agent': 'user_agent',  # noqa: E501
-        'sudo_expires_at': 'sudo_expires_at',  # noqa: E501
+        'tls_access': 'tls_access',  # noqa: E501
         'last_used_at': 'last_used_at',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
     }
 
     read_only_vars = {
-        'sudo_expires_at',  # noqa: E501
         'last_used_at',  # noqa: E501
     }
 
@@ -163,10 +162,10 @@ class AutomationTokenResponseAllOf(ModelNormal):
             role (str): [optional]  # noqa: E501
             ip (str): The IP address of the client that last used the token.. [optional]  # noqa: E501
             user_agent (str): The User-Agent header of the client that last used the token.. [optional]  # noqa: E501
-            sudo_expires_at (str): [optional]  # noqa: E501
-            last_used_at (datetime): A UTC time-stamp of when the token was last used.. [optional]  # noqa: E501
-            created_at (str): A UTC time-stamp of when the token was created.. [optional]  # noqa: E501
-            expires_at (str): (optional) A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
+            last_used_at (datetime): A UTC timestamp of when the token was last used.. [optional]  # noqa: E501
+            created_at (str): A UTC timestamp of when the token was created.. [optional]  # noqa: E501
+            expires_at (str): (optional) A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,10 +252,10 @@ class AutomationTokenResponseAllOf(ModelNormal):
             role (str): [optional]  # noqa: E501
             ip (str): The IP address of the client that last used the token.. [optional]  # noqa: E501
             user_agent (str): The User-Agent header of the client that last used the token.. [optional]  # noqa: E501
-            sudo_expires_at (str): [optional]  # noqa: E501
-            last_used_at (datetime): A UTC time-stamp of when the token was last used.. [optional]  # noqa: E501
-            created_at (str): A UTC time-stamp of when the token was created.. [optional]  # noqa: E501
-            expires_at (str): (optional) A UTC time-stamp of when the token will expire.. [optional]  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token.. [optional]  # noqa: E501
+            last_used_at (datetime): A UTC timestamp of when the token was last used.. [optional]  # noqa: E501
+            created_at (str): A UTC timestamp of when the token was created.. [optional]  # noqa: E501
+            expires_at (str): (optional) A UTC timestamp of when the token will expire.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

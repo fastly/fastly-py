@@ -340,6 +340,13 @@ class Results(ModelNormal):
             'request_collapse_usable_count': (int,),  # noqa: E501
             'request_collapse_unusable_count': (int,),  # noqa: E501
             'compute_cache_operations_count': (int,),  # noqa: E501
+            'ngwaf_requests_total_count': (int,),  # noqa: E501
+            'ngwaf_requests_unknown_count': (int,),  # noqa: E501
+            'ngwaf_requests_allowed_count': (int,),  # noqa: E501
+            'ngwaf_requests_logged_count': (int,),  # noqa: E501
+            'ngwaf_requests_blocked_count': (int,),  # noqa: E501
+            'ngwaf_requests_timeout_count': (int,),  # noqa: E501
+            'ngwaf_requests_challenged_count': (int,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -611,6 +618,13 @@ class Results(ModelNormal):
         'request_collapse_usable_count': 'request_collapse_usable_count',  # noqa: E501
         'request_collapse_unusable_count': 'request_collapse_unusable_count',  # noqa: E501
         'compute_cache_operations_count': 'compute_cache_operations_count',  # noqa: E501
+        'ngwaf_requests_total_count': 'ngwaf_requests_total_count',  # noqa: E501
+        'ngwaf_requests_unknown_count': 'ngwaf_requests_unknown_count',  # noqa: E501
+        'ngwaf_requests_allowed_count': 'ngwaf_requests_allowed_count',  # noqa: E501
+        'ngwaf_requests_logged_count': 'ngwaf_requests_logged_count',  # noqa: E501
+        'ngwaf_requests_blocked_count': 'ngwaf_requests_blocked_count',  # noqa: E501
+        'ngwaf_requests_timeout_count': 'ngwaf_requests_timeout_count',  # noqa: E501
+        'ngwaf_requests_challenged_count': 'ngwaf_requests_challenged_count',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -918,6 +932,13 @@ class Results(ModelNormal):
             request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
+            ngwaf_requests_total_count (int): Total number of Next-Gen WAF (Edge WAF & Core WAF) requests.. [optional]  # noqa: E501
+            ngwaf_requests_unknown_count (int): Count of Edge WAF requests with an unknown outcome.. [optional]  # noqa: E501
+            ngwaf_requests_allowed_count (int): Count of Edge WAF requests allowed.. [optional]  # noqa: E501
+            ngwaf_requests_logged_count (int): Count of Edge WAF requests logged.. [optional]  # noqa: E501
+            ngwaf_requests_blocked_count (int): Count of Edge WAF requests blocked.. [optional]  # noqa: E501
+            ngwaf_requests_timeout_count (int): Count of Edge WAF requests timed outcome.. [optional]  # noqa: E501
+            ngwaf_requests_challenged_count (int): Count of Edge WAF requests challenged.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
@@ -1262,6 +1283,13 @@ class Results(ModelNormal):
             request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
+            ngwaf_requests_total_count (int): Total number of Next-Gen WAF (Edge WAF & Core WAF) requests.. [optional]  # noqa: E501
+            ngwaf_requests_unknown_count (int): Count of Edge WAF requests with an unknown outcome.. [optional]  # noqa: E501
+            ngwaf_requests_allowed_count (int): Count of Edge WAF requests allowed.. [optional]  # noqa: E501
+            ngwaf_requests_logged_count (int): Count of Edge WAF requests logged.. [optional]  # noqa: E501
+            ngwaf_requests_blocked_count (int): Count of Edge WAF requests blocked.. [optional]  # noqa: E501
+            ngwaf_requests_timeout_count (int): Count of Edge WAF requests timed outcome.. [optional]  # noqa: E501
+            ngwaf_requests_challenged_count (int): Count of Edge WAF requests challenged.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """

@@ -31,11 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.header import Header
-    from fastly.model.header_response_additional import HeaderResponseAdditional
     from fastly.model.service_id_and_version_string import ServiceIdAndVersionString
     from fastly.model.timestamps import Timestamps
     globals()['Header'] = Header
-    globals()['HeaderResponseAdditional'] = HeaderResponseAdditional
     globals()['ServiceIdAndVersionString'] = ServiceIdAndVersionString
     globals()['Timestamps'] = Timestamps
 
@@ -390,7 +388,6 @@ class HeaderResponse(ModelComposed):
           ],
           'allOf': [
               Header,
-              HeaderResponseAdditional,
               ServiceIdAndVersionString,
               Timestamps,
           ],

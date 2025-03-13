@@ -62,8 +62,8 @@ with fastly.ApiClient(configuration) as api_client:
     src = "src_example" # str, none_type | Variable to be used as a source for the header content. Does not apply to `delete` action. (optional)
     substitution = "substitution_example" # str, none_type | Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions. (optional)
     type = "request" # str | Accepts a string value. (optional)
-    ignore_if_set = 1 # int | Don't add the header if it is added already. Only applies to 'set' action. (optional)
-    priority = 100 # int | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of 100
+    ignore_if_set = "ignore_if_set_example" # str | Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\\\"0\\\" = false, \\\"1\\\" = true) (optional)
+    priority = "100" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
 
     # example passing only required values which don't have defaults set
     try:
@@ -100,8 +100,8 @@ Name | Type | Description  | Notes
  **src** | **str, none_type**| Variable to be used as a source for the header content. Does not apply to `delete` action. | [optional]
  **substitution** | **str, none_type**| Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions. | [optional]
  **type** | **str**| Accepts a string value. | [optional]
- **ignore_if_set** | **int**| Don&#39;t add the header if it is added already. Only applies to &#39;set&#39; action. | [optional]
- **priority** | **int**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of 100
+ **ignore_if_set** | **str**| Don&#39;t add the header if it is added already. Only applies to &#39;set&#39; action. Numerical value (\\\&quot;0\\\&quot; &#x3D; false, \\\&quot;1\\\&quot; &#x3D; true) | [optional]
+ **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
 
 ### Return type
 
@@ -420,8 +420,8 @@ with fastly.ApiClient(configuration) as api_client:
     src = "src_example" # str, none_type | Variable to be used as a source for the header content. Does not apply to `delete` action. (optional)
     substitution = "substitution_example" # str, none_type | Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions. (optional)
     type = "request" # str | Accepts a string value. (optional)
-    ignore_if_set = 1 # int | Don't add the header if it is added already. Only applies to 'set' action. (optional)
-    priority = 100 # int | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of 100
+    ignore_if_set = "ignore_if_set_example" # str | Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\\\"0\\\" = false, \\\"1\\\" = true) (optional)
+    priority = "100" # str | Priority determines execution order. Lower numbers execute first. (optional) if omitted the server will use the default value of "100"
 
     # example passing only required values which don't have defaults set
     try:
@@ -459,8 +459,8 @@ Name | Type | Description  | Notes
  **src** | **str, none_type**| Variable to be used as a source for the header content. Does not apply to `delete` action. | [optional]
  **substitution** | **str, none_type**| Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions. | [optional]
  **type** | **str**| Accepts a string value. | [optional]
- **ignore_if_set** | **int**| Don&#39;t add the header if it is added already. Only applies to &#39;set&#39; action. | [optional]
- **priority** | **int**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of 100
+ **ignore_if_set** | **str**| Don&#39;t add the header if it is added already. Only applies to &#39;set&#39; action. Numerical value (\\\&quot;0\\\&quot; &#x3D; false, \\\&quot;1\\\&quot; &#x3D; true) | [optional]
+ **priority** | **str**| Priority determines execution order. Lower numbers execute first. | [optional] if omitted the server will use the default value of "100"
 
 ### Return type
 

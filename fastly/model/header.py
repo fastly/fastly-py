@@ -106,6 +106,8 @@ class Header(ModelNormal):
             'src': (str, none_type,),  # noqa: E501
             'substitution': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'ignore_if_set': (str,),  # noqa: E501
+            'priority': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -124,6 +126,8 @@ class Header(ModelNormal):
         'src': 'src',  # noqa: E501
         'substitution': 'substitution',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'ignore_if_set': 'ignore_if_set',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
     }
 
     read_only_vars = {
@@ -177,6 +181,8 @@ class Header(ModelNormal):
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]  # noqa: E501
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             type (str): Accepts a string value.. [optional]  # noqa: E501
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\"0\" = false, \"1\" = true). [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +274,8 @@ class Header(ModelNormal):
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]  # noqa: E501
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]  # noqa: E501
             type (str): Accepts a string value.. [optional]  # noqa: E501
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\"0\" = false, \"1\" = true). [optional]  # noqa: E501
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

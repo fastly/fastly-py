@@ -96,9 +96,6 @@ Class | Method | Description
 *BackendApi* | [**get_backend**](docs/BackendApi.md#get_backend) | Describe a backend
 *BackendApi* | [**list_backends**](docs/BackendApi.md#list_backends) | List backends
 *BackendApi* | [**update_backend**](docs/BackendApi.md#update_backend) | Update a backend
-*BillingApi* | [**get_invoice**](docs/BillingApi.md#get_invoice) | Get an invoice
-*BillingApi* | [**get_invoice_by_id**](docs/BillingApi.md#get_invoice_by_id) | Get an invoice
-*BillingApi* | [**get_invoice_mtd**](docs/BillingApi.md#get_invoice_mtd) | Get month-to-date billing estimate
 *BillingAddressApi* | [**add_billing_addr**](docs/BillingAddressApi.md#add_billing_addr) | Add a billing address to a customer
 *BillingAddressApi* | [**delete_billing_addr**](docs/BillingAddressApi.md#delete_billing_addr) | Delete a billing address
 *BillingAddressApi* | [**get_billing_addr**](docs/BillingAddressApi.md#get_billing_addr) | Get a billing address
@@ -106,7 +103,7 @@ Class | Method | Description
 *BillingInvoicesApi* | [**get_invoice_by_invoice_id**](docs/BillingInvoicesApi.md#get_invoice_by_invoice_id) | Get invoice by ID.
 *BillingInvoicesApi* | [**get_month_to_date_invoice**](docs/BillingInvoicesApi.md#get_month_to_date_invoice) | Get month-to-date invoice.
 *BillingInvoicesApi* | [**list_invoices**](docs/BillingInvoicesApi.md#list_invoices) | List of invoices.
-*BillingUsageMetricsApi* | [**get_service_level_usage**](docs/BillingUsageMetricsApi.md#get_service_level_usage) | Retrieve service-level usage metrics for a product.
+*BillingUsageMetricsApi* | [**get_service_level_usage**](docs/BillingUsageMetricsApi.md#get_service_level_usage) | Retrieve service-level usage metrics for services with non-zero usage units.
 *BillingUsageMetricsApi* | [**get_usage_metrics**](docs/BillingUsageMetricsApi.md#get_usage_metrics) | Get monthly usage metrics
 *CacheSettingsApi* | [**create_cache_settings**](docs/CacheSettingsApi.md#create_cache_settings) | Create a cache settings object
 *CacheSettingsApi* | [**delete_cache_settings**](docs/CacheSettingsApi.md#delete_cache_settings) | Delete a cache settings object

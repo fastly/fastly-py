@@ -30,10 +30,12 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.schemas_snippet_response_common import SchemasSnippetResponseCommon
     from fastly.model.snippet import Snippet
-    globals()['SchemasSnippetResponseCommon'] = SchemasSnippetResponseCommon
+    from fastly.model.snippet_response_all_of import SnippetResponseAllOf
+    from fastly.model.timestamps import Timestamps
     globals()['Snippet'] = Snippet
+    globals()['SnippetResponseAllOf'] = SnippetResponseAllOf
+    globals()['Timestamps'] = Timestamps
 
 
 class SchemasSnippetResponse(ModelComposed):
@@ -367,8 +369,9 @@ class SchemasSnippetResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              SchemasSnippetResponseCommon,
               Snippet,
+              SnippetResponseAllOf,
+              Timestamps,
           ],
           'oneOf': [
           ],

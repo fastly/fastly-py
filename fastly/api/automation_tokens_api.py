@@ -86,10 +86,10 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/vnd.api+json'
+                    'application/json'
                 ],
                 'content_type': [
-                    'application/vnd.api+json'
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -146,7 +146,7 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/vnd.api+json',
+                    'application/json',
                     'application/problem+json'
                 ],
                 'content_type': [],
@@ -215,7 +215,7 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/vnd.api+json',
+                    'application/json',
                     'application/problem+json'
                 ],
                 'content_type': [],
@@ -277,7 +277,7 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/vnd.api+json',
+                    'application/json',
                     'application/problem+json'
                 ],
                 'content_type': [],
@@ -336,7 +336,7 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/vnd.api+json',
+                    'application/json',
                     'application/problem+json'
                 ],
                 'content_type': [],

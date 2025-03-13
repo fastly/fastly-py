@@ -5,14 +5,14 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_service_level_usage**](BillingUsageMetricsApi.md#get_service_level_usage) | **GET** /billing/v3/service-usage-metrics | Retrieve service-level usage metrics for a product.
+[**get_service_level_usage**](BillingUsageMetricsApi.md#get_service_level_usage) | **GET** /billing/v3/service-usage-metrics | Retrieve service-level usage metrics for services with non-zero usage units.
 [**get_usage_metrics**](BillingUsageMetricsApi.md#get_usage_metrics) | **GET** /billing/v3/usage-metrics | Get monthly usage metrics
 
 
 # **get_service_level_usage**
 > Serviceusagemetrics get_service_level_usage()
 
-Retrieve service-level usage metrics for a product.
+Retrieve service-level usage metrics for services with non-zero usage units.
 
 Returns product usage, broken down by service.
 
@@ -48,18 +48,19 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_usage_metrics_api.BillingUsageMetricsApi(api_client)
-    product_id = "product_id_example" # str | The product identifier for the metrics returned (e.g., `cdn_usage`). (optional)
-    usage_type_name = "usage_type_name_example" # str | The usage type name for the metrics returned (e.g., `North America Requests`). (optional)
+    product_id = "product_id_example" # str | The product identifier for the metrics returned (e.g., `cdn_usage`). This should be used along with `usage_type_name`. (optional)
+    service = "service_example" # str | The service identifier for the metrics being requested. (optional)
+    usage_type_name = "usage_type_name_example" # str | The usage type name for the metrics returned (e.g., `North America Requests`). This should be used along with `product_id`. (optional)
     start_month = "2023-01" # str |  (optional)
     end_month = "2023-03" # str |  (optional)
-    limit = "5" # str | Number of results per page. The maximum is 100. (optional) if omitted the server will use the default value of "5"
+    limit = "1000" # str | Number of results per page. The maximum is 10000. (optional) if omitted the server will use the default value of "1000"
     cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Retrieve service-level usage metrics for a product.
-        api_response = api_instance.get_service_level_usage(product_id=product_id, usage_type_name=usage_type_name, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
+        # Retrieve service-level usage metrics for services with non-zero usage units.
+        api_response = api_instance.get_service_level_usage(product_id=product_id, service=service, usage_type_name=usage_type_name, start_month=start_month, end_month=end_month, limit=limit, cursor=cursor)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling BillingUsageMetricsApi->get_service_level_usage: %s\n" % e)
@@ -70,11 +71,12 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_id** | **str**| The product identifier for the metrics returned (e.g., `cdn_usage`). | [optional]
- **usage_type_name** | **str**| The usage type name for the metrics returned (e.g., `North America Requests`). | [optional]
+ **product_id** | **str**| The product identifier for the metrics returned (e.g., `cdn_usage`). This should be used along with `usage_type_name`. | [optional]
+ **service** | **str**| The service identifier for the metrics being requested. | [optional]
+ **usage_type_name** | **str**| The usage type name for the metrics returned (e.g., `North America Requests`). This should be used along with `product_id`. | [optional]
  **start_month** | **str**|  | [optional]
  **end_month** | **str**|  | [optional]
- **limit** | **str**| Number of results per page. The maximum is 100. | [optional] if omitted the server will use the default value of "5"
+ **limit** | **str**| Number of results per page. The maximum is 10000. | [optional] if omitted the server will use the default value of "1000"
  **cursor** | **str**| Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. | [optional]
 
 ### Return type

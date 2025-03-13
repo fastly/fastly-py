@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.api+json
- - **Accept**: application/vnd.api+json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.api+json, application/problem+json
+ - **Accept**: application/json, application/problem+json
 
 
 ### HTTP response details
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.api+json, application/problem+json
+ - **Accept**: application/json, application/problem+json
 
 
 ### HTTP response details
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.api+json, application/problem+json
+ - **Accept**: application/json, application/problem+json
 
 
 ### HTTP response details
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.api+json, application/problem+json
+ - **Accept**: application/json, application/problem+json
 
 
 ### HTTP response details

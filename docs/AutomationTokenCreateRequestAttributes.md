@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **role** | **str** |  | [optional] 
 **services** | **[str]** | List of service ids to limit the token | [optional] 
 **scope** | **str** |  | [optional]  if omitted the server will use the default value of "global"
-**expires_at** | **datetime, none_type** | A UTC time-stamp of when the token will expire. | [optional] 
+**expires_at** | **datetime, none_type** | A UTC timestamp of when the token will expire. | [optional] 
 **tls_access** | **bool** | Indicates whether TLS access is enabled for the token. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

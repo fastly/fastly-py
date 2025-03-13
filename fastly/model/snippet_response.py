@@ -31,9 +31,11 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.snippet import Snippet
-    from fastly.model.snippet_response_common import SnippetResponseCommon
+    from fastly.model.snippet_response_all_of import SnippetResponseAllOf
+    from fastly.model.timestamps import Timestamps
     globals()['Snippet'] = Snippet
-    globals()['SnippetResponseCommon'] = SnippetResponseCommon
+    globals()['SnippetResponseAllOf'] = SnippetResponseAllOf
+    globals()['Timestamps'] = Timestamps
 
 
 class SnippetResponse(ModelComposed):
@@ -368,7 +370,8 @@ class SnippetResponse(ModelComposed):
           ],
           'allOf': [
               Snippet,
-              SnippetResponseCommon,
+              SnippetResponseAllOf,
+              Timestamps,
           ],
           'oneOf': [
           ],

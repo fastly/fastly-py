@@ -131,9 +131,9 @@ class HeaderApi(object):
                     'type':
                         (str,),
                     'ignore_if_set':
-                        (int,),
+                        (str,),
                     'priority':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -487,9 +487,9 @@ class HeaderApi(object):
                     'type':
                         (str,),
                     'ignore_if_set':
-                        (int,),
+                        (str,),
                     'priority':
-                        (int,),
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -571,8 +571,8 @@ class HeaderApi(object):
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]
             type (str): Accepts a string value.. [optional]
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\\\"0\\\" = false, \\\"1\\\" = true). [optional]
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -921,8 +921,8 @@ class HeaderApi(object):
             src (str, none_type): Variable to be used as a source for the header content. Does not apply to `delete` action.. [optional]
             substitution (str, none_type): Value to substitute in place of regular expression. Only applies to `regex` and `regex_repeat` actions.. [optional]
             type (str): Accepts a string value.. [optional]
-            ignore_if_set (int): Don't add the header if it is added already. Only applies to 'set' action.. [optional]
-            priority (int): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of 100
+            ignore_if_set (str): Don't add the header if it is added already. Only applies to 'set' action. Numerical value (\\\"0\\\" = false, \\\"1\\\" = true). [optional]
+            priority (str): Priority determines execution order. Lower numbers execute first.. [optional] if omitted the server will use the default value of "100"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
