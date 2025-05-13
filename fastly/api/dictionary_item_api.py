@@ -363,7 +363,7 @@ class DictionaryItemApi(object):
                 'validations': {
                     ('per_page',): {
 
-                        'inclusive_maximum': 100,
+                        'inclusive_maximum': 1000,
                         'inclusive_minimum': 1,
                     },
                 },
@@ -588,7 +588,7 @@ class DictionaryItemApi(object):
         dictionary_id,
         **kwargs
     ):
-        """Update multiple entries in an edge dictionary  # noqa: E501
+        """Update multiple entries in a dictionary  # noqa: E501
 
         Update multiple items in the same dictionary. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 items. [Contact support](https://support.fastly.com/) to discuss raising this limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -671,7 +671,7 @@ class DictionaryItemApi(object):
         dictionary_id,
         **kwargs
     ):
-        """Create an entry in an edge dictionary  # noqa: E501
+        """Create an entry in a dictionary  # noqa: E501
 
         Create DictionaryItem given service, dictionary ID, item key, and item value.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -756,7 +756,7 @@ class DictionaryItemApi(object):
         dictionary_item_key,
         **kwargs
     ):
-        """Delete an item from an edge dictionary  # noqa: E501
+        """Delete an item from a dictionary  # noqa: E501
 
         Delete DictionaryItem given service, dictionary ID, and item key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -842,7 +842,7 @@ class DictionaryItemApi(object):
         dictionary_item_key,
         **kwargs
     ):
-        """Get an item from an edge dictionary  # noqa: E501
+        """Get an item from a dictionary  # noqa: E501
 
         Retrieve a single DictionaryItem given service, dictionary ID and item key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -927,7 +927,7 @@ class DictionaryItemApi(object):
         dictionary_id,
         **kwargs
     ):
-        """List items in an edge dictionary  # noqa: E501
+        """List items in a dictionary  # noqa: E501
 
         List of DictionaryItems given service and dictionary ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -942,7 +942,7 @@ class DictionaryItemApi(object):
 
         Keyword Args:
             page (int): Current page.. [optional]
-            per_page (int): Number of records per page.. [optional] if omitted the server will use the default value of 20
+            per_page (int): Number of records per page.. [optional] if omitted the server will use the default value of 100
             sort (str): Field on which to sort.. [optional] if omitted the server will use the default value of "created"
             direction (str): Direction in which to sort results.. [optional] if omitted the server will use the default value of "ascend"
             _return_http_data_only (bool): response data without head status
@@ -1014,7 +1014,7 @@ class DictionaryItemApi(object):
         dictionary_item_key,
         **kwargs
     ):
-        """Update an entry in an edge dictionary  # noqa: E501
+        """Update an entry in a dictionary  # noqa: E501
 
         Update DictionaryItem given service, dictionary ID, item key, and item value.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1102,7 +1102,7 @@ class DictionaryItemApi(object):
         dictionary_item_key,
         **kwargs
     ):
-        """Insert or update an entry in an edge dictionary  # noqa: E501
+        """Insert or update an entry in a dictionary  # noqa: E501
 
         Upsert DictionaryItem given service, dictionary ID, item key, and item value.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

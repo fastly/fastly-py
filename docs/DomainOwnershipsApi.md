@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_domain_ownerships**
-> InlineResponse2002 list_domain_ownerships()
+> InlineResponse2004 list_domain_ownerships()
 
 List domain-ownerships
 
@@ -23,7 +23,7 @@ List all domain-ownerships.
 import time
 import fastly
 from fastly.api import domain_ownerships_api
-from fastly.model.inline_response2002 import InlineResponse2002
+from fastly.model.inline_response2004 import InlineResponse2004
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

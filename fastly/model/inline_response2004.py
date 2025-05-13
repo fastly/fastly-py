@@ -29,10 +29,6 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
-
 
 class InlineResponse2004(ModelNormal):
     """NOTE: This class is auto generated.
@@ -68,7 +64,6 @@ class InlineResponse2004(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -83,10 +78,8 @@ class InlineResponse2004(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'data': ([str],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'expires_at': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,11 +88,11 @@ class InlineResponse2004(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
     }
 
     read_only_vars = {
+        'expires_at',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -140,8 +133,7 @@ class InlineResponse2004(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            expires_at (str): Time-stamp (GMT) when the domain_ownership validation will expire.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +215,7 @@ class InlineResponse2004(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            expires_at (str): Time-stamp (GMT) when the domain_ownership validation will expire.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

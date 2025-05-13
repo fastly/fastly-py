@@ -31,6 +31,7 @@ from fastly.api.contact_api import ContactApi
 from fastly.api.content_api import ContentApi
 from fastly.api.customer_api import CustomerApi
 from fastly.api.customer_addresses_api import CustomerAddressesApi
+from fastly.api.ddos_protection_api import DdosProtectionApi
 from fastly.api.dictionary_api import DictionaryApi
 from fastly.api.dictionary_info_api import DictionaryInfoApi
 from fastly.api.dictionary_item_api import DictionaryItemApi
@@ -87,7 +88,9 @@ from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
 from fastly.api.object_storage_access_keys_api import ObjectStorageAccessKeysApi
+from fastly.api.observability_aggregations_for_logs_api import ObservabilityAggregationsForLogsApi
 from fastly.api.observability_custom_dashboards_api import ObservabilityCustomDashboardsApi
+from fastly.api.observability_timeseries_for_logs_api import ObservabilityTimeseriesForLogsApi
 from fastly.api.origin_inspector_historical_api import OriginInspectorHistoricalApi
 from fastly.api.origin_inspector_realtime_api import OriginInspectorRealtimeApi
 from fastly.api.package_api import PackageApi
@@ -136,11 +139,4 @@ from fastly.api.user_api import UserApi
 from fastly.api.vcl_api import VclApi
 from fastly.api.vcl_diff_api import VclDiffApi
 from fastly.api.version_api import VersionApi
-from fastly.api.waf_active_rules_api import WafActiveRulesApi
-from fastly.api.waf_exclusions_api import WafExclusionsApi
-from fastly.api.waf_firewall_versions_api import WafFirewallVersionsApi
-from fastly.api.waf_firewalls_api import WafFirewallsApi
-from fastly.api.waf_rule_revisions_api import WafRuleRevisionsApi
-from fastly.api.waf_rules_api import WafRulesApi
-from fastly.api.waf_tags_api import WafTagsApi
 from fastly.api.whole_platform_ddos_historical_api import WholePlatformDdosHistoricalApi

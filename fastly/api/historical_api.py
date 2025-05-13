@@ -89,6 +89,7 @@ class HistoricalApi(object):
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
                 },
@@ -178,6 +179,7 @@ class HistoricalApi(object):
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
                 },
@@ -270,6 +272,7 @@ class HistoricalApi(object):
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
                 },
@@ -366,6 +369,7 @@ class HistoricalApi(object):
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
                 },
@@ -464,6 +468,7 @@ class HistoricalApi(object):
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
                 },
@@ -768,7 +773,7 @@ class HistoricalApi(object):
             _from (str): Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`. . [optional]
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
-            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `southamerica_std` - South America. . [optional]
+            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -845,7 +850,7 @@ class HistoricalApi(object):
             _from (str): Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`. . [optional]
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
-            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `southamerica_std` - South America. . [optional]
+            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -925,7 +930,7 @@ class HistoricalApi(object):
             _from (str): Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`. . [optional]
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
-            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `southamerica_std` - South America. . [optional]
+            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1007,7 +1012,7 @@ class HistoricalApi(object):
             _from (str): Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`. . [optional]
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
-            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `southamerica_std` - South America. . [optional]
+            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1091,7 +1096,7 @@ class HistoricalApi(object):
             _from (str): Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`. . [optional]
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
-            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `southamerica_std` - South America. . [optional]
+            region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

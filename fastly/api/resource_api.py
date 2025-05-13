@@ -418,7 +418,7 @@ class ResourceApi(object):
 
         Keyword Args:
             resource_id (str): The ID of the underlying linked resource.. [optional]
-            name (str): The name of the resource link.. [optional]
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -758,7 +758,7 @@ class ResourceApi(object):
 
         Keyword Args:
             resource_id (str): The ID of the underlying linked resource.. [optional]
-            name (str): The name of the resource link.. [optional]
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

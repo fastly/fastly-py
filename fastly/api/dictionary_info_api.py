@@ -111,7 +111,7 @@ class DictionaryInfoApi(object):
         dictionary_id,
         **kwargs
     ):
-        """Get edge dictionary metadata  # noqa: E501
+        """Get dictionary metadata  # noqa: E501
 
         Retrieve metadata for a single dictionary by ID for a version and service.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

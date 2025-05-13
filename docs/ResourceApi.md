@@ -53,7 +53,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     resource_id = "3vjTN8v1O7nOAY7aNDGOL" # str | The ID of the underlying linked resource. (optional)
-    name = "test-resource" # str | The name of the resource link. (optional)
+    name = "test-resource" # str | The name of the resource link. Note this is separate from the resource store name and might not match the store name. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **resource_id** | **str**| The ID of the underlying linked resource. | [optional]
- **name** | **str**| The name of the resource link. | [optional]
+ **name** | **str**| The name of the resource link. Note this is separate from the resource store name and might not match the store name. | [optional]
 
 ### Return type
 
@@ -391,7 +391,7 @@ with fastly.ApiClient(configuration) as api_client:
     version_id = 1 # int | Integer identifying a service version.
     id = "7Lsb7Y76rChV9hSrv3KgFl" # str | An alphanumeric string identifying the resource link.
     resource_id = "3vjTN8v1O7nOAY7aNDGOL" # str | The ID of the underlying linked resource. (optional)
-    name = "test-resource" # str | The name of the resource link. (optional)
+    name = "test-resource" # str | The name of the resource link. Note this is separate from the resource store name and might not match the store name. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
  **version_id** | **int**| Integer identifying a service version. |
  **id** | **str**| An alphanumeric string identifying the resource link. |
  **resource_id** | **str**| The ID of the underlying linked resource. | [optional]
- **name** | **str**| The name of the resource link. | [optional]
+ **name** | **str**| The name of the resource link. Note this is separate from the resource store name and might not match the store name. | [optional]
 
 ### Return type
 

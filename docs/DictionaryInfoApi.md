@@ -5,13 +5,13 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_dictionary_info**](DictionaryInfoApi.md#get_dictionary_info) | **GET** /service/{service_id}/version/{version_id}/dictionary/{dictionary_id}/info | Get edge dictionary metadata
+[**get_dictionary_info**](DictionaryInfoApi.md#get_dictionary_info) | **GET** /service/{service_id}/version/{version_id}/dictionary/{dictionary_id}/info | Get dictionary metadata
 
 
 # **get_dictionary_info**
 > DictionaryInfoResponse get_dictionary_info(service_id, version_id, dictionary_id)
 
-Get edge dictionary metadata
+Get dictionary metadata
 
 Retrieve metadata for a single dictionary by ID for a version and service.
 
@@ -52,7 +52,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get edge dictionary metadata
+        # Get dictionary metadata
         api_response = api_instance.get_dictionary_info(service_id, version_id, dictionary_id)
         pprint(api_response)
     except fastly.ApiException as e:

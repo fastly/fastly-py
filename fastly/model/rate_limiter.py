@@ -236,7 +236,7 @@ class RateLimiter(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): A human readable name for the rate limiting rule.. [optional]  # noqa: E501
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
+            uri_dictionary_name (str, none_type): The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
             http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]  # noqa: E501
             rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]  # noqa: E501
             window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]  # noqa: E501
@@ -329,7 +329,7 @@ class RateLimiter(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): A human readable name for the rate limiting rule.. [optional]  # noqa: E501
-            uri_dictionary_name (str, none_type): The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
+            uri_dictionary_name (str, none_type): The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited.. [optional]  # noqa: E501
             http_methods ([str]): Array of HTTP methods to apply rate limiting to.. [optional]  # noqa: E501
             rps_limit (int): Upper limit of requests per second allowed by the rate limiter.. [optional]  # noqa: E501
             window_size (int): Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.. [optional]  # noqa: E501

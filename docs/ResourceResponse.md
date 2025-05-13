@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resource_id** | **str** | The ID of the underlying linked resource. | [optional] 
-**name** | **str** | The name of the resource link. | [optional] 
+**name** | **str** | The name of the resource link. Note this is separate from the resource store name and might not match the store name. | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

@@ -5,19 +5,19 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulk_update_dictionary_item**](DictionaryItemApi.md#bulk_update_dictionary_item) | **PATCH** /service/{service_id}/dictionary/{dictionary_id}/items | Update multiple entries in an edge dictionary
-[**create_dictionary_item**](DictionaryItemApi.md#create_dictionary_item) | **POST** /service/{service_id}/dictionary/{dictionary_id}/item | Create an entry in an edge dictionary
-[**delete_dictionary_item**](DictionaryItemApi.md#delete_dictionary_item) | **DELETE** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Delete an item from an edge dictionary
-[**get_dictionary_item**](DictionaryItemApi.md#get_dictionary_item) | **GET** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Get an item from an edge dictionary
-[**list_dictionary_items**](DictionaryItemApi.md#list_dictionary_items) | **GET** /service/{service_id}/dictionary/{dictionary_id}/items | List items in an edge dictionary
-[**update_dictionary_item**](DictionaryItemApi.md#update_dictionary_item) | **PATCH** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Update an entry in an edge dictionary
-[**upsert_dictionary_item**](DictionaryItemApi.md#upsert_dictionary_item) | **PUT** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Insert or update an entry in an edge dictionary
+[**bulk_update_dictionary_item**](DictionaryItemApi.md#bulk_update_dictionary_item) | **PATCH** /service/{service_id}/dictionary/{dictionary_id}/items | Update multiple entries in a dictionary
+[**create_dictionary_item**](DictionaryItemApi.md#create_dictionary_item) | **POST** /service/{service_id}/dictionary/{dictionary_id}/item | Create an entry in a dictionary
+[**delete_dictionary_item**](DictionaryItemApi.md#delete_dictionary_item) | **DELETE** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Delete an item from a dictionary
+[**get_dictionary_item**](DictionaryItemApi.md#get_dictionary_item) | **GET** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Get an item from a dictionary
+[**list_dictionary_items**](DictionaryItemApi.md#list_dictionary_items) | **GET** /service/{service_id}/dictionary/{dictionary_id}/items | List items in a dictionary
+[**update_dictionary_item**](DictionaryItemApi.md#update_dictionary_item) | **PATCH** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Update an entry in a dictionary
+[**upsert_dictionary_item**](DictionaryItemApi.md#upsert_dictionary_item) | **PUT** /service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key} | Insert or update an entry in a dictionary
 
 
 # **bulk_update_dictionary_item**
 > InlineResponse200 bulk_update_dictionary_item(service_id, dictionary_id)
 
-Update multiple entries in an edge dictionary
+Update multiple entries in a dictionary
 
 Update multiple items in the same dictionary. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 items. [Contact support](https://support.fastly.com/) to discuss raising this limit.
 
@@ -63,7 +63,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Update multiple entries in an edge dictionary
+        # Update multiple entries in a dictionary
         api_response = api_instance.bulk_update_dictionary_item(service_id, dictionary_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -72,7 +72,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update multiple entries in an edge dictionary
+        # Update multiple entries in a dictionary
         api_response = api_instance.bulk_update_dictionary_item(service_id, dictionary_id, bulk_update_dictionary_list_request=bulk_update_dictionary_list_request)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 # **create_dictionary_item**
 > DictionaryItemResponse create_dictionary_item(service_id, dictionary_id)
 
-Create an entry in an edge dictionary
+Create an entry in a dictionary
 
 Create DictionaryItem given service, dictionary ID, item key, and item value.
 
@@ -155,7 +155,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create an entry in an edge dictionary
+        # Create an entry in a dictionary
         api_response = api_instance.create_dictionary_item(service_id, dictionary_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -164,7 +164,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create an entry in an edge dictionary
+        # Create an entry in a dictionary
         api_response = api_instance.create_dictionary_item(service_id, dictionary_id, item_key=item_key, item_value=item_value)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 # **delete_dictionary_item**
 > InlineResponse200 delete_dictionary_item(service_id, dictionary_id, dictionary_item_key)
 
-Delete an item from an edge dictionary
+Delete an item from a dictionary
 
 Delete DictionaryItem given service, dictionary ID, and item key.
 
@@ -247,7 +247,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete an item from an edge dictionary
+        # Delete an item from a dictionary
         api_response = api_instance.delete_dictionary_item(service_id, dictionary_id, dictionary_item_key)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 # **get_dictionary_item**
 > DictionaryItemResponse get_dictionary_item(service_id, dictionary_id, dictionary_item_key)
 
-Get an item from an edge dictionary
+Get an item from a dictionary
 
 Retrieve a single DictionaryItem given service, dictionary ID and item key.
 
@@ -329,7 +329,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get an item from an edge dictionary
+        # Get an item from a dictionary
         api_response = api_instance.get_dictionary_item(service_id, dictionary_id, dictionary_item_key)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 # **list_dictionary_items**
 > [DictionaryItemResponse] list_dictionary_items(service_id, dictionary_id)
 
-List items in an edge dictionary
+List items in a dictionary
 
 List of DictionaryItems given service and dictionary ID.
 
@@ -408,13 +408,13 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
     page = 1 # int | Current page. (optional)
-    per_page = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 20
+    per_page = 20 # int | Number of records per page. (optional) if omitted the server will use the default value of 100
     sort = "created" # str | Field on which to sort. (optional) if omitted the server will use the default value of "created"
     direction = "ascend" # str | Direction in which to sort results. (optional) if omitted the server will use the default value of "ascend"
 
     # example passing only required values which don't have defaults set
     try:
-        # List items in an edge dictionary
+        # List items in a dictionary
         api_response = api_instance.list_dictionary_items(service_id, dictionary_id)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -423,7 +423,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List items in an edge dictionary
+        # List items in a dictionary
         api_response = api_instance.list_dictionary_items(service_id, dictionary_id, page=page, per_page=per_page, sort=sort, direction=direction)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
  **page** | **int**| Current page. | [optional]
- **per_page** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 20
+ **per_page** | **int**| Number of records per page. | [optional] if omitted the server will use the default value of 100
  **sort** | **str**| Field on which to sort. | [optional] if omitted the server will use the default value of "created"
  **direction** | **str**| Direction in which to sort results. | [optional] if omitted the server will use the default value of "ascend"
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 # **update_dictionary_item**
 > DictionaryItemResponse update_dictionary_item(service_id, dictionary_id, dictionary_item_key)
 
-Update an entry in an edge dictionary
+Update an entry in a dictionary
 
 Update DictionaryItem given service, dictionary ID, item key, and item value.
 
@@ -510,7 +510,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Update an entry in an edge dictionary
+        # Update an entry in a dictionary
         api_response = api_instance.update_dictionary_item(service_id, dictionary_id, dictionary_item_key)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -519,7 +519,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update an entry in an edge dictionary
+        # Update an entry in a dictionary
         api_response = api_instance.update_dictionary_item(service_id, dictionary_id, dictionary_item_key, item_key=item_key, item_value=item_value)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 # **upsert_dictionary_item**
 > DictionaryItemResponse upsert_dictionary_item(service_id, dictionary_id, dictionary_item_key)
 
-Insert or update an entry in an edge dictionary
+Insert or update an entry in a dictionary
 
 Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 
@@ -605,7 +605,7 @@ with fastly.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Insert or update an entry in an edge dictionary
+        # Insert or update an entry in a dictionary
         api_response = api_instance.upsert_dictionary_item(service_id, dictionary_id, dictionary_item_key)
         pprint(api_response)
     except fastly.ApiException as e:
@@ -614,7 +614,7 @@ with fastly.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Insert or update an entry in an edge dictionary
+        # Insert or update an entry in a dictionary
         api_response = api_instance.upsert_dictionary_item(service_id, dictionary_id, dictionary_item_key, item_key=item_key, item_value=item_value)
         pprint(api_response)
     except fastly.ApiException as e:

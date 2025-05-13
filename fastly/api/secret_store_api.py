@@ -22,7 +22,7 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.client_key import ClientKey
-from fastly.model.inline_response2005 import InlineResponse2005
+from fastly.model.inline_response2007 import InlineResponse2007
 from fastly.model.secret_store import SecretStore
 from fastly.model.secret_store_response import SecretStoreResponse
 from fastly.model.signing_key import SigningKey
@@ -261,7 +261,7 @@ class SecretStoreApi(object):
         )
         self.get_secret_stores_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2005,),
+                'response_type': (InlineResponse2007,),
                 'auth': [
                     'token'
                 ],
@@ -726,7 +726,7 @@ class SecretStoreApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2005
+            InlineResponse2007
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -135,7 +135,7 @@ class Resource(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
-            name (str): The name of the resource link.. [optional]  # noqa: E501
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,7 +218,7 @@ class Resource(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
-            name (str): The name of the resource link.. [optional]  # noqa: E501
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2006 import InlineResponse2006
+from fastly.model.inline_response2008 import InlineResponse2008
 from fastly.model.secret import Secret
 from fastly.model.secret_response import SecretResponse
 
@@ -227,7 +227,7 @@ class SecretStoreItemApi(object):
         )
         self.get_secrets_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2006,),
+                'response_type': (InlineResponse2008,),
                 'auth': [
                     'token'
                 ],
@@ -713,7 +713,7 @@ class SecretStoreItemApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2006
+            InlineResponse2008
                 If the method is called asynchronously, returns the request
                 thread.
         """

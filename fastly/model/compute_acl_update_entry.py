@@ -136,9 +136,9 @@ class ComputeAclUpdateEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): One of \"create\" or \"update\", indicating that the rest of this entry is to be added to/updated in the ACL.. [optional]  # noqa: E501
+            op (str): One of \"create\", \"update\", or \"delete\" indicating the operation to perform on the update.. [optional]  # noqa: E501
             prefix (str): An IP prefix defined in Classless Inter-Domain Routing (CIDR) format, i.e. a valid IP address (v4 or v6) followed by a forward slash (/) and a prefix length (0-32 or 0-128, depending on address family).. [optional]  # noqa: E501
-            action (str): The action taken on the IP address, either \"block\" or \"allow\".. [optional]  # noqa: E501
+            action (str): The action taken on the IP address, one of \"BLOCK\" or \"ALLOW\". If using the \"delete\" operation, no action should be specified.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,9 +220,9 @@ class ComputeAclUpdateEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): One of \"create\" or \"update\", indicating that the rest of this entry is to be added to/updated in the ACL.. [optional]  # noqa: E501
+            op (str): One of \"create\", \"update\", or \"delete\" indicating the operation to perform on the update.. [optional]  # noqa: E501
             prefix (str): An IP prefix defined in Classless Inter-Domain Routing (CIDR) format, i.e. a valid IP address (v4 or v6) followed by a forward slash (/) and a prefix length (0-32 or 0-128, depending on address family).. [optional]  # noqa: E501
-            action (str): The action taken on the IP address, either \"block\" or \"allow\".. [optional]  # noqa: E501
+            action (str): The action taken on the IP address, one of \"BLOCK\" or \"ALLOW\". If using the \"delete\" operation, no action should be specified.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

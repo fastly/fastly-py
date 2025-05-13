@@ -164,7 +164,7 @@ class ResourceResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
-            name (str): The name of the resource link.. [optional]  # noqa: E501
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -273,7 +273,7 @@ class ResourceResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resource_id (str): The ID of the underlying linked resource.. [optional]  # noqa: E501
-            name (str): The name of the resource link.. [optional]  # noqa: E501
+            name (str): The name of the resource link. Note this is separate from the resource store name and might not match the store name.. [optional]  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

@@ -927,7 +927,7 @@ class AclsInComputeApi(object):
     ):
         """Update an ACL  # noqa: E501
 
-        Update an ACL.  # noqa: E501
+        Update an ACL entry with a new operation or action, this allows you to modify an existing entry or delete it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

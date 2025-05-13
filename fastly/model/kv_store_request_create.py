@@ -102,7 +102,7 @@ class KvStoreRequestCreate(ModelNormal):
         """KvStoreRequestCreate - a model defined in OpenAPI
 
         Args:
-            name (str): A human-readable name for the store. Refer to https://www.fastly.com/documentation/guides/concepts/edge-state/data-stores/#limitations-and-constraints for constraints on the KV store name.
+            name (str): A human-readable name for the store. Refer to https://docs.fastly.com/products/compute-resource-limits#kv-store for limitations on the KV store name.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,7 +187,7 @@ class KvStoreRequestCreate(ModelNormal):
         """KvStoreRequestCreate - a model defined in OpenAPI
 
         Args:
-            name (str): A human-readable name for the store. Refer to https://www.fastly.com/documentation/guides/concepts/edge-state/data-stores/#limitations-and-constraints for constraints on the KV store name.
+            name (str): A human-readable name for the store. Refer to https://docs.fastly.com/products/compute-resource-limits#kv-store for limitations on the KV store name.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

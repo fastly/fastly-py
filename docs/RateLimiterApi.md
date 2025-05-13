@@ -53,7 +53,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     name = "name_example" # str | A human readable name for the rate limiting rule. (optional)
-    uri_dictionary_name = "uri_dictionary_name_example" # str, none_type | The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. (optional)
+    uri_dictionary_name = "uri_dictionary_name_example" # str, none_type | The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. (optional)
     http_methods = [
         "HEAD",
     ] # [str] | Array of HTTP methods to apply rate limiting to. (optional)
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **name** | **str**| A human readable name for the rate limiting rule. | [optional]
- **uri_dictionary_name** | **str, none_type**| The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. | [optional]
+ **uri_dictionary_name** | **str, none_type**| The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. | [optional]
  **http_methods** | **[str]**| Array of HTTP methods to apply rate limiting to. | [optional]
  **rps_limit** | **int**| Upper limit of requests per second allowed by the rate limiter. | [optional]
  **window_size** | **int**| Number of seconds during which the RPS limit must be exceeded in order to trigger a violation. | [optional]
@@ -403,7 +403,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = rate_limiter_api.RateLimiterApi(api_client)
     rate_limiter_id = "s7aqgcJjqqKhwiTRMaP11" # str | Alphanumeric string identifying the rate limiter.
     name = "name_example" # str | A human readable name for the rate limiting rule. (optional)
-    uri_dictionary_name = "uri_dictionary_name_example" # str, none_type | The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. (optional)
+    uri_dictionary_name = "uri_dictionary_name_example" # str, none_type | The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. (optional)
     http_methods = [
         "HEAD",
     ] # [str] | Array of HTTP methods to apply rate limiting to. (optional)
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **rate_limiter_id** | **str**| Alphanumeric string identifying the rate limiter. |
  **name** | **str**| A human readable name for the rate limiting rule. | [optional]
- **uri_dictionary_name** | **str, none_type**| The name of an Edge Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. | [optional]
+ **uri_dictionary_name** | **str, none_type**| The name of a Dictionary containing URIs as keys. If not defined or `null`, all origin URIs will be rate limited. | [optional]
  **http_methods** | **[str]**| Array of HTTP methods to apply rate limiting to. | [optional]
  **rps_limit** | **int**| Upper limit of requests per second allowed by the rate limiter. | [optional]
  **window_size** | **int**| Number of seconds during which the RPS limit must be exceeded in order to trigger a violation. | [optional]

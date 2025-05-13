@@ -403,7 +403,7 @@ class DictionaryApi(object):
         version_id,
         **kwargs
     ):
-        """Create an edge dictionary  # noqa: E501
+        """Create a dictionary  # noqa: E501
 
         Create named dictionary for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -488,7 +488,7 @@ class DictionaryApi(object):
         dictionary_name,
         **kwargs
     ):
-        """Delete an edge dictionary  # noqa: E501
+        """Delete a dictionary  # noqa: E501
 
         Delete named dictionary for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -574,7 +574,7 @@ class DictionaryApi(object):
         dictionary_name,
         **kwargs
     ):
-        """Get an edge dictionary  # noqa: E501
+        """Get a dictionary  # noqa: E501
 
         Retrieve a single dictionary by name for the version and service.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -659,7 +659,7 @@ class DictionaryApi(object):
         version_id,
         **kwargs
     ):
-        """List edge dictionaries  # noqa: E501
+        """List dictionaries  # noqa: E501
 
         List all dictionaries for the version of the service.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -742,7 +742,7 @@ class DictionaryApi(object):
         dictionary_name,
         **kwargs
     ):
-        """Update an edge dictionary  # noqa: E501
+        """Update a dictionary  # noqa: E501
 
         Update named dictionary for a particular service and version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

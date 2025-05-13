@@ -73,6 +73,7 @@ with fastly.ApiClient(configuration) as api_client:
             name="test-backend",
             override_host="override_host_example",
             port=1,
+            prefer_ipv6=True,
             request_condition="request_condition_example",
             share_key="C",
             shield="shield_example",
