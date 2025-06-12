@@ -56,7 +56,6 @@ class LoggingCommon(ModelNormal):
         ('placement',): {
             'None': None,
             'NONE': "none",
-            'WAF_DEBUG': "waf_debug",
             'NULL': "null",
         },
     }

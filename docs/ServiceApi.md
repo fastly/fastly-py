@@ -297,6 +297,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = service_api.ServiceApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version = NumberVersion(1) # NumberVersion | Number identifying a version of the service. (optional)
+    filter_versions_active = True # bool | Limits the versions array to the active versions. Accepts `true` or `false` (defaults to false). (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -310,7 +311,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get service details
-        api_response = api_instance.get_service_detail(service_id, version=version)
+        api_response = api_instance.get_service_detail(service_id, version=version, filter_versions_active=filter_versions_active)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ServiceApi->get_service_detail: %s\n" % e)
@@ -323,6 +324,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version** | **NumberVersion**| Number identifying a version of the service. | [optional]
+ **filter_versions_active** | **bool**| Limits the versions array to the active versions. Accepts `true` or `false` (defaults to false). | [optional]
 
 ### Return type
 

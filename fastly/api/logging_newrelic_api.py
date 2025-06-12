@@ -85,7 +85,6 @@ class LoggingNewrelicApi(object):
                     ('placement',): {
                         'None': None,
                         "NONE": "none",
-                        "WAF_DEBUG": "waf_debug",
                         "NULL": "null"
                     },
                     ('format_version',): {
@@ -413,7 +412,6 @@ class LoggingNewrelicApi(object):
                     ('placement',): {
                         'None': None,
                         "NONE": "none",
-                        "WAF_DEBUG": "waf_debug",
                         "NULL": "null"
                     },
                     ('format_version',): {

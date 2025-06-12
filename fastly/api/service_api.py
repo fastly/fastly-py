@@ -254,6 +254,7 @@ class ServiceApi(object):
                 'all': [
                     'service_id',
                     'version',
+                    'filter_versions_active',
                 ],
                 'required': [
                     'service_id',
@@ -275,14 +276,18 @@ class ServiceApi(object):
                         (str,),
                     'version':
                         (NumberVersion,),
+                    'filter_versions_active':
+                        (bool,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'version': 'version',
+                    'filter_versions_active': 'filter[versions.active]',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'version': 'query',
+                    'filter_versions_active': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -825,6 +830,7 @@ class ServiceApi(object):
 
         Keyword Args:
             version (NumberVersion): Number identifying a version of the service.. [optional]
+            filter_versions_active (bool): Limits the versions array to the active versions. Accepts `true` or `false` (defaults to false).. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

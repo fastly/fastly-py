@@ -934,9 +934,9 @@ class Results(ModelNormal):
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
             ngwaf_requests_total_count (int): Total number of Next-Gen WAF (Edge WAF & Core WAF) requests.. [optional]  # noqa: E501
             ngwaf_requests_unknown_count (int): Count of Edge WAF requests with an unknown outcome.. [optional]  # noqa: E501
-            ngwaf_requests_allowed_count (int): Count of Edge WAF requests allowed.. [optional]  # noqa: E501
+            ngwaf_requests_allowed_count (int): Count of Next-Gen WAF (Edge WAF & Core WAF) requests allowed.. [optional]  # noqa: E501
             ngwaf_requests_logged_count (int): Count of Edge WAF requests logged.. [optional]  # noqa: E501
-            ngwaf_requests_blocked_count (int): Count of Edge WAF requests blocked.. [optional]  # noqa: E501
+            ngwaf_requests_blocked_count (int): Count of Next-Gen WAF (Edge WAF & Core WAF) requests blocked.. [optional]  # noqa: E501
             ngwaf_requests_timeout_count (int): Count of Edge WAF requests timed outcome.. [optional]  # noqa: E501
             ngwaf_requests_challenged_count (int): Count of Edge WAF requests challenged.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
@@ -1285,9 +1285,9 @@ class Results(ModelNormal):
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
             ngwaf_requests_total_count (int): Total number of Next-Gen WAF (Edge WAF & Core WAF) requests.. [optional]  # noqa: E501
             ngwaf_requests_unknown_count (int): Count of Edge WAF requests with an unknown outcome.. [optional]  # noqa: E501
-            ngwaf_requests_allowed_count (int): Count of Edge WAF requests allowed.. [optional]  # noqa: E501
+            ngwaf_requests_allowed_count (int): Count of Next-Gen WAF (Edge WAF & Core WAF) requests allowed.. [optional]  # noqa: E501
             ngwaf_requests_logged_count (int): Count of Edge WAF requests logged.. [optional]  # noqa: E501
-            ngwaf_requests_blocked_count (int): Count of Edge WAF requests blocked.. [optional]  # noqa: E501
+            ngwaf_requests_blocked_count (int): Count of Next-Gen WAF (Edge WAF & Core WAF) requests blocked.. [optional]  # noqa: E501
             ngwaf_requests_timeout_count (int): Count of Edge WAF requests timed outcome.. [optional]  # noqa: E501
             ngwaf_requests_challenged_count (int): Count of Edge WAF requests challenged.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501

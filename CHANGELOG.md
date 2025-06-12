@@ -1,5 +1,33 @@
 # Changelog
 
+## [v10.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v10.0.0) (2025-06-11)
+
+**Breaking Changes:**
+
+- removed(properties): Remove logging placement value `waf_debug`.
+
+
+**Bug fixes:**
+
+- fix(backend): Marked `prefer_ipv6` as nullable.
+
+
+**Enhancements:**
+
+- feat(historical): The following Next-Gen WAF metrics have been updated to include both Edge WAF and
+-                   Core WAF counts:`ngwaf_requests_total_count`, `ngwaf_requests_blocked_count`,
+
+
+**Documentation:**
+
+- doc(domain-discovery): Correct documentation of valid values of `scope` query parameter.
+- doc(observability-aggregations-for-logs): Correct documentation of valid values of `log-aggregations-filter` query
+                                            parameter.
+- doc(backend): Tweak language of `prefer_ipv6` description.
+- doc(service): Add documentation for `filter[versions.active]` query parameter when getting detailed information on
+                a specified service.
+
+
 ## [v9.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v9.0.0) (2025-05-12)
 
 **Breaking Changes:**

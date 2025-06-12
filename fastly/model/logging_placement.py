@@ -52,7 +52,6 @@ class LoggingPlacement(ModelSimple):
         ('value',): {
             'None': None,
             'NONE': "none",
-            'WAF_DEBUG': "waf_debug",
             'NULL': "null",
         },
     }
@@ -105,10 +104,10 @@ class LoggingPlacement(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "waf_debug", "null", ]  # noqa: E501
+            args[0] (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "null", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "waf_debug", "null", ]  # noqa: E501
+            value (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "null", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -195,10 +194,10 @@ class LoggingPlacement(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "waf_debug", "null", ]  # noqa: E501
+            args[0] (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "null", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "waf_debug", "null", ]  # noqa: E501
+            value (str): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. ., must be one of ["none", "null", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

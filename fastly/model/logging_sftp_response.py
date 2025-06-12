@@ -70,7 +70,6 @@ class LoggingSftpResponse(ModelComposed):
         ('placement',): {
             'None': None,
             'NONE': "none",
-            'WAF_DEBUG': "waf_debug",
             'NULL': "null",
         },
         ('format_version',): {
