@@ -136,7 +136,7 @@ class LoggingHoneycombAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Honeycomb can ingest.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce valid JSON that Honeycomb can ingest.. [optional]  # noqa: E501
             dataset (str): The Honeycomb Dataset you want to log to.. [optional]  # noqa: E501
             token (str): The Write Key from the Account page of your Honeycomb account.. [optional]  # noqa: E501
         """
@@ -220,7 +220,7 @@ class LoggingHoneycombAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Honeycomb can ingest.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce valid JSON that Honeycomb can ingest.. [optional]  # noqa: E501
             dataset (str): The Honeycomb Dataset you want to log to.. [optional]  # noqa: E501
             token (str): The Write Key from the Account page of your Honeycomb account.. [optional]  # noqa: E501
         """

@@ -55,7 +55,8 @@ with fastly.ApiClient(configuration) as api_client:
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
-    format = "format_example" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional)
+    format = "format_example" # str | A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). (optional)
+    log_processing_region = "eu" # str | The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. (optional) if omitted the server will use the default value of "none"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     user = "user_example" # str | The Grafana Cloud Logs Dataset you want to log to. (optional)
     url = "url_example" # str | The URL of the Loki instance in your Grafana stack. (optional)
@@ -74,7 +75,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a Grafana Cloud Logs log endpoint
-        api_response = api_instance.create_log_grafanacloudlogs(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, user=user, url=url, token=token, index=index)
+        api_response = api_instance.create_log_grafanacloudlogs(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, user=user, url=url, token=token, index=index)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingGrafanacloudlogsApi->create_log_grafanacloudlogs: %s\n" % e)
@@ -90,7 +91,8 @@ Name | Type | Description  | Notes
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
- **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional]
+ **format** | **str**| A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). | [optional]
+ **log_processing_region** | **str**| The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. | [optional] if omitted the server will use the default value of "none"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **user** | **str**| The Grafana Cloud Logs Dataset you want to log to. | [optional]
  **url** | **str**| The URL of the Loki instance in your Grafana stack. | [optional]
@@ -407,7 +409,8 @@ with fastly.ApiClient(configuration) as api_client:
     name = "test-log-endpoint" # str | The name for the real-time logging configuration. (optional)
     placement = "none" # str, none_type | Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  (optional)
     response_condition = "response_condition_example" # str, none_type | The name of an existing condition in the configured endpoint, or leave blank to always execute. (optional)
-    format = "format_example" # str | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). (optional)
+    format = "format_example" # str | A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). (optional)
+    log_processing_region = "eu" # str | The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. (optional) if omitted the server will use the default value of "none"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
     user = "user_example" # str | The Grafana Cloud Logs Dataset you want to log to. (optional)
     url = "url_example" # str | The URL of the Loki instance in your Grafana stack. (optional)
@@ -426,7 +429,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Grafana Cloud Logs log endpoint
-        api_response = api_instance.update_log_grafanacloudlogs(service_id, version_id, logging_grafanacloudlogs_name, name=name, placement=placement, response_condition=response_condition, format=format, format_version=format_version, user=user, url=url, token=token, index=index)
+        api_response = api_instance.update_log_grafanacloudlogs(service_id, version_id, logging_grafanacloudlogs_name, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, user=user, url=url, token=token, index=index)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingGrafanacloudlogsApi->update_log_grafanacloudlogs: %s\n" % e)
@@ -443,7 +446,8 @@ Name | Type | Description  | Notes
  **name** | **str**| The name for the real-time logging configuration. | [optional]
  **placement** | **str, none_type**| Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.  | [optional]
  **response_condition** | **str, none_type**| The name of an existing condition in the configured endpoint, or leave blank to always execute. | [optional]
- **format** | **str**| A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional]
+ **format** | **str**| A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). | [optional]
+ **log_processing_region** | **str**| The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. | [optional] if omitted the server will use the default value of "none"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
  **user** | **str**| The Grafana Cloud Logs Dataset you want to log to. | [optional]
  **url** | **str**| The URL of the Loki instance in your Grafana stack. | [optional]

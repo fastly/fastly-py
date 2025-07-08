@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **header_value** | **str, none_type** | Value of the custom header sent with the request. | [optional]  if omitted the server will use the default value of "null"
 **method** | **str** | HTTP method used for request. | [optional]  if omitted the server will use the default value of "POST"
 **json_format** | **str** | Enforces valid JSON formatting for log entries. | [optional] 
-**format** | **str** | A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). | [optional]  if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
+**format** | **str** | A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). | [optional]  if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -31,10 +31,8 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.invitation_data_attributes import InvitationDataAttributes
-    from fastly.model.relationship_service_invitations_create import RelationshipServiceInvitationsCreate
     from fastly.model.type_invitation import TypeInvitation
     globals()['InvitationDataAttributes'] = InvitationDataAttributes
-    globals()['RelationshipServiceInvitationsCreate'] = RelationshipServiceInvitationsCreate
     globals()['TypeInvitation'] = TypeInvitation
 
 
@@ -91,7 +89,6 @@ class InvitationData(ModelNormal):
         return {
             'type': (TypeInvitation,),  # noqa: E501
             'attributes': (InvitationDataAttributes,),  # noqa: E501
-            'relationships': (RelationshipServiceInvitationsCreate,),  # noqa: E501
         }
 
     @cached_property
@@ -102,7 +99,6 @@ class InvitationData(ModelNormal):
     attribute_map = {
         'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
-        'relationships': 'relationships',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,7 +144,6 @@ class InvitationData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (TypeInvitation): [optional]  # noqa: E501
             attributes (InvitationDataAttributes): [optional]  # noqa: E501
-            relationships (RelationshipServiceInvitationsCreate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +227,6 @@ class InvitationData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (TypeInvitation): [optional]  # noqa: E501
             attributes (InvitationDataAttributes): [optional]  # noqa: E501
-            relationships (RelationshipServiceInvitationsCreate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

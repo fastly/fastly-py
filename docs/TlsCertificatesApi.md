@@ -57,6 +57,7 @@ with fastly.ApiClient(configuration) as api_client:
             attributes=TlsCertificateDataAttributes(
                 cert_blob="cert_blob_example",
                 name="name_example",
+                allow_untrusted_root=True,
             ),
             relationships=RelationshipTlsDomains(
                 tls_domains=RelationshipTlsDomainsTlsDomains(
@@ -478,6 +479,7 @@ with fastly.ApiClient(configuration) as api_client:
             attributes=TlsCertificateDataAttributes(
                 cert_blob="cert_blob_example",
                 name="name_example",
+                allow_untrusted_root=True,
             ),
             relationships=RelationshipTlsDomains(
                 tls_domains=RelationshipTlsDomainsTlsDomains(

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_invitation**
-> InvitationResponse create_invitation()
+> InvitationCreateResponse create_invitation()
 
 Create an invitation
 
@@ -25,8 +25,8 @@ Create an invitation.
 import time
 import fastly
 from fastly.api import invitations_api
-from fastly.model.invitation_response import InvitationResponse
 from fastly.model.invitation import Invitation
+from fastly.model.invitation_create_response import InvitationCreateResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -50,34 +50,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = invitations_api.InvitationsApi(api_client)
     invitation = Invitation(
-        data=InvitationData(
-            type=TypeInvitation("invitation"),
-            attributes=InvitationDataAttributes(
-                email="email_example",
-                limit_services=True,
-                role=RoleUser("user"),
-                status_code=0,
-            ),
-            relationships=RelationshipServiceInvitationsCreate(
-                service_invitations=RelationshipServiceInvitationsCreateServiceInvitations(
-                    data=[
-                        ServiceInvitation(
-                            data=ServiceInvitationData(
-                                type=TypeServiceInvitation("service_invitation"),
-                                attributes=ServiceInvitationDataAttributes(
-                                    permission="full",
-                                ),
-                                relationships=ServiceInvitationDataRelationships(
-                                    service=RelationshipMemberService(
-                                        type=TypeService("service"),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                ),
-            ),
-        ),
+        data=InvitationCreateData(),
     ) # Invitation |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -99,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvitationResponse**](InvitationResponse.md)
+[**InvitationCreateResponse**](InvitationCreateResponse.md)
 
 ### Authorization
 

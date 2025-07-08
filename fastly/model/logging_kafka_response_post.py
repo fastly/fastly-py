@@ -74,6 +74,11 @@ class LoggingKafkaResponsePost(ModelComposed):
             'NONE': "none",
             'NULL': "null",
         },
+        ('log_processing_region',): {
+            'NONE': "none",
+            'EU': "eu",
+            'US': "us",
+        },
         ('format_version',): {
             'v1': 1,
             'v2': 2,
@@ -127,6 +132,7 @@ class LoggingKafkaResponsePost(ModelComposed):
             'placement': (str, none_type,),  # noqa: E501
             'response_condition': (str, none_type,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'log_processing_region': (str,),  # noqa: E501
             'format_version': (int,),  # noqa: E501
             'tls_ca_cert': (str, none_type,),  # noqa: E501
             'tls_client_cert': (str, none_type,),  # noqa: E501
@@ -159,6 +165,7 @@ class LoggingKafkaResponsePost(ModelComposed):
         'placement': 'placement',  # noqa: E501
         'response_condition': 'response_condition',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'log_processing_region': 'log_processing_region',  # noqa: E501
         'format_version': 'format_version',  # noqa: E501
         'tls_ca_cert': 'tls_ca_cert',  # noqa: E501
         'tls_client_cert': 'tls_client_cert',  # noqa: E501
@@ -228,7 +235,8 @@ class LoggingKafkaResponsePost(ModelComposed):
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            log_processing_region (str): The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global.. [optional] if omitted the server will use the default value of "none"  # noqa: E501
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
@@ -351,7 +359,8 @@ class LoggingKafkaResponsePost(ModelComposed):
             name (str): The name for the real-time logging configuration.. [optional]  # noqa: E501
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]  # noqa: E501
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            log_processing_region (str): The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global.. [optional] if omitted the server will use the default value of "none"  # noqa: E501
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2  # noqa: E501
             tls_ca_cert (str, none_type): A secure certificate to authenticate a server with. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             tls_client_cert (str, none_type): The client certificate used to make authenticated requests. Must be in PEM format.. [optional] if omitted the server will use the default value of "null"  # noqa: E501

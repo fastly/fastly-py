@@ -29,8 +29,12 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.invitation_response_data import InvitationResponseData
+    globals()['InvitationResponseData'] = InvitationResponseData
 
-class LoggingGooglePubsubAdditional(ModelNormal):
+
+class InvitationCreateResponseAllOf(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +68,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,10 +83,9 @@ class LoggingGooglePubsubAdditional(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'topic': (str,),  # noqa: E501
-            'format': (str,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
+            'data': (InvitationResponseData,),  # noqa: E501
         }
 
     @cached_property
@@ -90,9 +94,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
 
 
     attribute_map = {
-        'topic': 'topic',  # noqa: E501
-        'format': 'format',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,7 +105,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LoggingGooglePubsubAdditional - a model defined in OpenAPI
+        """InvitationCreateResponseAllOf - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -136,9 +138,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): The Google Cloud Pub/Sub topic to which logs will be published. Required.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
+            data (InvitationResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,7 +187,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LoggingGooglePubsubAdditional - a model defined in OpenAPI
+        """InvitationCreateResponseAllOf - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,9 +220,7 @@ class LoggingGooglePubsubAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): The Google Cloud Pub/Sub topic to which logs will be published. Required.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
-            project_id (str): Your Google Cloud Platform project ID. Required. [optional]  # noqa: E501
+            data (InvitationResponseData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

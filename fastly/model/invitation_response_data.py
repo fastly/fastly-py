@@ -95,8 +95,8 @@ class InvitationResponseData(ModelComposed):
         return {
             'type': (TypeInvitation,),  # noqa: E501
             'attributes': (Timestamps,),  # noqa: E501
-            'relationships': (RelationshipsForInvitation,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'relationships': (RelationshipsForInvitation,),  # noqa: E501
         }
 
     @cached_property
@@ -107,8 +107,8 @@ class InvitationResponseData(ModelComposed):
     attribute_map = {
         'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
-        'relationships': 'relationships',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'relationships': 'relationships',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,8 +153,8 @@ class InvitationResponseData(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             type (TypeInvitation): [optional]  # noqa: E501
             attributes (Timestamps): [optional]  # noqa: E501
-            relationships (RelationshipsForInvitation): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
+            relationships (RelationshipsForInvitation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,8 +256,8 @@ class InvitationResponseData(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             type (TypeInvitation): [optional]  # noqa: E501
             attributes (Timestamps): [optional]  # noqa: E501
-            relationships (RelationshipsForInvitation): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
+            relationships (RelationshipsForInvitation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

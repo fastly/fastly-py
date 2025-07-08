@@ -140,7 +140,7 @@ class LoggingGrafanacloudlogsAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional]  # noqa: E501
             user (str): The Grafana Cloud Logs Dataset you want to log to.. [optional]  # noqa: E501
             url (str): The URL of the Loki instance in your Grafana stack.. [optional]  # noqa: E501
             token (str): The Grafana Access Policy token with `logs:write` access scoped to your Loki instance.. [optional]  # noqa: E501
@@ -226,7 +226,7 @@ class LoggingGrafanacloudlogsAdditional(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional]  # noqa: E501
             user (str): The Grafana Cloud Logs Dataset you want to log to.. [optional]  # noqa: E501
             url (str): The URL of the Loki instance in your Grafana stack.. [optional]  # noqa: E501
             token (str): The Grafana Access Policy token with `logs:write` access scoped to your Loki instance.. [optional]  # noqa: E501

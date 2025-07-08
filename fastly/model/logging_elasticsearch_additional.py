@@ -147,7 +147,7 @@ class LoggingElasticsearchAdditional(ModelNormal):
             pipeline (str, none_type): The ID of the Elasticsearch ingest pipeline to apply pre-process transformations to before indexing. Learn more about creating a pipeline in the [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html).. [optional]  # noqa: E501
             user (str, none_type): Basic Auth username.. [optional]  # noqa: E501
             password (str, none_type): Basic Auth password.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class LoggingElasticsearchAdditional(ModelNormal):
             pipeline (str, none_type): The ID of the Elasticsearch ingest pipeline to apply pre-process transformations to before indexing. Learn more about creating a pipeline in the [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html).. [optional]  # noqa: E501
             user (str, none_type): Basic Auth username.. [optional]  # noqa: E501
             password (str, none_type): Basic Auth password.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce valid JSON that Elasticsearch can ingest.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

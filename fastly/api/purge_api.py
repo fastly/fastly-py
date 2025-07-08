@@ -390,7 +390,7 @@ class PurgeApi(object):
     ):
         """Purge everything from a service  # noqa: E501
 
-        Instant Purge everything from a service.  Purge-all requests cannot be done in soft mode and will always immediately invalidate all cached content associated with the service. To do a soft-purge-all, consider applying a constant [surrogate key](https://docs.fastly.com/en/guides/getting-started-with-surrogate-keys) tag (e.g., `\"all\"`) to all objects.   # noqa: E501
+        Instant Purge everything from a service.  Purge-all requests cannot be done in soft mode and will always immediately invalidate all cached content associated with the service. To do a soft-purge-all, consider applying a constant [surrogate key](https://www.fastly.com/documentation/guides/full-site-delivery/purging/working-with-surrogate-keys/) tag (e.g., `\"all\"`) to all objects.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

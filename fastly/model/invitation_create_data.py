@@ -30,15 +30,19 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.invitation import Invitation
-    from fastly.model.invitation_response_all_of import InvitationResponseAllOf
-    from fastly.model.invitation_response_data import InvitationResponseData
-    globals()['Invitation'] = Invitation
-    globals()['InvitationResponseAllOf'] = InvitationResponseAllOf
-    globals()['InvitationResponseData'] = InvitationResponseData
+    from fastly.model.invitation_create_data_all_of import InvitationCreateDataAllOf
+    from fastly.model.invitation_data import InvitationData
+    from fastly.model.invitation_data_attributes import InvitationDataAttributes
+    from fastly.model.relationship_service_invitations_create import RelationshipServiceInvitationsCreate
+    from fastly.model.type_invitation import TypeInvitation
+    globals()['InvitationCreateDataAllOf'] = InvitationCreateDataAllOf
+    globals()['InvitationData'] = InvitationData
+    globals()['InvitationDataAttributes'] = InvitationDataAttributes
+    globals()['RelationshipServiceInvitationsCreate'] = RelationshipServiceInvitationsCreate
+    globals()['TypeInvitation'] = TypeInvitation
 
 
-class InvitationResponse(ModelComposed):
+class InvitationCreateData(ModelComposed):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -89,7 +93,9 @@ class InvitationResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'data': (InvitationResponseData,),  # noqa: E501
+            'type': (TypeInvitation,),  # noqa: E501
+            'attributes': (InvitationDataAttributes,),  # noqa: E501
+            'relationships': (RelationshipServiceInvitationsCreate,),  # noqa: E501
         }
 
     @cached_property
@@ -98,7 +104,9 @@ class InvitationResponse(ModelComposed):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
+        'relationships': 'relationships',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,7 +115,7 @@ class InvitationResponse(ModelComposed):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """InvitationResponse - a model defined in OpenAPI
+        """InvitationCreateData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +148,9 @@ class InvitationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InvitationResponseData): [optional]  # noqa: E501
+            type (TypeInvitation): [optional]  # noqa: E501
+            attributes (InvitationDataAttributes): [optional]  # noqa: E501
+            relationships (RelationshipServiceInvitationsCreate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -207,7 +217,7 @@ class InvitationResponse(ModelComposed):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """InvitationResponse - a model defined in OpenAPI
+        """InvitationCreateData - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -240,7 +250,9 @@ class InvitationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InvitationResponseData): [optional]  # noqa: E501
+            type (TypeInvitation): [optional]  # noqa: E501
+            attributes (InvitationDataAttributes): [optional]  # noqa: E501
+            relationships (RelationshipServiceInvitationsCreate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -306,8 +318,8 @@ class InvitationResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              Invitation,
-              InvitationResponseAllOf,
+              InvitationCreateDataAllOf,
+              InvitationData,
           ],
           'oneOf': [
           ],

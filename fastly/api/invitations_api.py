@@ -22,7 +22,7 @@ from fastly.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fastly.model.invitation import Invitation
-from fastly.model.invitation_response import InvitationResponse
+from fastly.model.invitation_create_response import InvitationCreateResponse
 from fastly.model.invitations_response import InvitationsResponse
 
 
@@ -37,7 +37,7 @@ class InvitationsApi(object):
         self.api_client = api_client
         self.create_invitation_endpoint = _Endpoint(
             settings={
-                'response_type': (InvitationResponse,),
+                'response_type': (InvitationCreateResponse,),
                 'auth': [
                     'token'
                 ],
@@ -260,7 +260,7 @@ class InvitationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InvitationResponse
+            InvitationCreateResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

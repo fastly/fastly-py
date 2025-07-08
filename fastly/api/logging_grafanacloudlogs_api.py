@@ -58,6 +58,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement',
                     'response_condition',
                     'format',
+                    'log_processing_region',
                     'format_version',
                     'user',
                     'url',
@@ -74,6 +75,7 @@ class LoggingGrafanacloudlogsApi(object):
                 ],
                 'enum': [
                     'placement',
+                    'log_processing_region',
                     'format_version',
                 ],
                 'validation': [
@@ -87,6 +89,12 @@ class LoggingGrafanacloudlogsApi(object):
                         'None': None,
                         "NONE": "none",
                         "NULL": "null"
+                    },
+                    ('log_processing_region',): {
+
+                        "NONE": "none",
+                        "EU": "eu",
+                        "US": "us"
                     },
                     ('format_version',): {
 
@@ -107,6 +115,8 @@ class LoggingGrafanacloudlogsApi(object):
                         (str, none_type,),
                     'format':
                         (str,),
+                    'log_processing_region':
+                        (str,),
                     'format_version':
                         (int,),
                     'user':
@@ -125,6 +135,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement': 'placement',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'log_processing_region': 'log_processing_region',
                     'format_version': 'format_version',
                     'user': 'user',
                     'url': 'url',
@@ -138,6 +149,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'log_processing_region': 'form',
                     'format_version': 'form',
                     'user': 'form',
                     'url': 'form',
@@ -388,6 +400,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement',
                     'response_condition',
                     'format',
+                    'log_processing_region',
                     'format_version',
                     'user',
                     'url',
@@ -405,6 +418,7 @@ class LoggingGrafanacloudlogsApi(object):
                 ],
                 'enum': [
                     'placement',
+                    'log_processing_region',
                     'format_version',
                 ],
                 'validation': [
@@ -418,6 +432,12 @@ class LoggingGrafanacloudlogsApi(object):
                         'None': None,
                         "NONE": "none",
                         "NULL": "null"
+                    },
+                    ('log_processing_region',): {
+
+                        "NONE": "none",
+                        "EU": "eu",
+                        "US": "us"
                     },
                     ('format_version',): {
 
@@ -440,6 +460,8 @@ class LoggingGrafanacloudlogsApi(object):
                         (str, none_type,),
                     'format':
                         (str,),
+                    'log_processing_region':
+                        (str,),
                     'format_version':
                         (int,),
                     'user':
@@ -459,6 +481,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement': 'placement',
                     'response_condition': 'response_condition',
                     'format': 'format',
+                    'log_processing_region': 'log_processing_region',
                     'format_version': 'format_version',
                     'user': 'user',
                     'url': 'url',
@@ -473,6 +496,7 @@ class LoggingGrafanacloudlogsApi(object):
                     'placement': 'form',
                     'response_condition': 'form',
                     'format': 'form',
+                    'log_processing_region': 'form',
                     'format_version': 'form',
                     'user': 'form',
                     'url': 'form',
@@ -518,7 +542,8 @@ class LoggingGrafanacloudlogsApi(object):
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional]
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional]
+            log_processing_region (str): The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global.. [optional] if omitted the server will use the default value of "none"
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             user (str): The Grafana Cloud Logs Dataset you want to log to.. [optional]
             url (str): The URL of the Loki instance in your Grafana stack.. [optional]
@@ -865,7 +890,8 @@ class LoggingGrafanacloudlogsApi(object):
             name (str): The name for the real-time logging configuration.. [optional]
             placement (str, none_type): Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`. . [optional]
             response_condition (str, none_type): The name of an existing condition in the configured endpoint, or leave blank to always execute.. [optional]
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional]
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional]
+            log_processing_region (str): The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global.. [optional] if omitted the server will use the default value of "none"
             format_version (int): The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`. . [optional] if omitted the server will use the default value of 2
             user (str): The Grafana Cloud Logs Dataset you want to log to.. [optional]
             url (str): The URL of the Loki instance in your Grafana stack.. [optional]

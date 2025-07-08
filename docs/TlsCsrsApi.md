@@ -64,13 +64,7 @@ with fastly.ApiClient(configuration) as api_client:
                 organizational_unit="organizational_unit_example",
                 email="email_example",
                 key_type="RSA2048",
-            ),
-            relationships=RelationshipTlsPrivateKey(
-                tls_private_key=RelationshipTlsPrivateKeyTlsPrivateKey(
-                    data=RelationshipMemberTlsPrivateKey(
-                        type=TypeTlsPrivateKey("tls_private_key"),
-                    ),
-                ),
+                relationships_tls_private_key_id="relationships_tls_private_key_id_example",
             ),
         ),
     ) # TlsCsr |  (optional)

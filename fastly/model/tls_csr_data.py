@@ -30,10 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.relationship_tls_private_key import RelationshipTlsPrivateKey
     from fastly.model.tls_csr_data_attributes import TlsCsrDataAttributes
     from fastly.model.type_tls_csr import TypeTlsCsr
-    globals()['RelationshipTlsPrivateKey'] = RelationshipTlsPrivateKey
     globals()['TlsCsrDataAttributes'] = TlsCsrDataAttributes
     globals()['TypeTlsCsr'] = TypeTlsCsr
 
@@ -91,7 +89,6 @@ class TlsCsrData(ModelNormal):
         return {
             'type': (TypeTlsCsr,),  # noqa: E501
             'attributes': (TlsCsrDataAttributes,),  # noqa: E501
-            'relationships': (RelationshipTlsPrivateKey,),  # noqa: E501
         }
 
     @cached_property
@@ -102,7 +99,6 @@ class TlsCsrData(ModelNormal):
     attribute_map = {
         'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
-        'relationships': 'relationships',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,7 +144,6 @@ class TlsCsrData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (TypeTlsCsr): [optional]  # noqa: E501
             attributes (TlsCsrDataAttributes): [optional]  # noqa: E501
-            relationships (RelationshipTlsPrivateKey): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +227,6 @@ class TlsCsrData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (TypeTlsCsr): [optional]  # noqa: E501
             attributes (TlsCsrDataAttributes): [optional]  # noqa: E501
-            relationships (RelationshipTlsPrivateKey): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -114,7 +114,7 @@ class BackendResponse(ModelComposed):
             'name': (str,),  # noqa: E501
             'override_host': (str, none_type,),  # noqa: E501
             'port': (int,),  # noqa: E501
-            'prefer_ipv6': (bool, none_type,),  # noqa: E501
+            'prefer_ipv6': (bool,),  # noqa: E501
             'request_condition': (str,),  # noqa: E501
             'share_key': (str, none_type,),  # noqa: E501
             'shield': (str, none_type,),  # noqa: E501
@@ -253,10 +253,10 @@ class BackendResponse(ModelComposed):
             name (str): The name of the backend.. [optional]  # noqa: E501
             override_host (str, none_type): If set, will replace the client-supplied HTTP `Host` header on connections to this backend. Applied after VCL has been processed, so this setting will take precedence over changing `bereq.http.Host` in VCL.. [optional]  # noqa: E501
             port (int): Port on which the backend server is listening for connections from Fastly. Setting `port` to 80 or 443 will also set `use_ssl` automatically (to false and true respectively), unless explicitly overridden by setting `use_ssl` in the same request.. [optional]  # noqa: E501
-            prefer_ipv6 (bool, none_type): Prefer IPv6 connections to origins for hostname backends.. [optional]  # noqa: E501
+            prefer_ipv6 (bool): Prefer IPv6 connections to origins for hostname backends. Default is 'false' for Delivery services and 'true' for Compute services.. [optional]  # noqa: E501
             request_condition (str): Name of a Condition, which if satisfied, will select this backend during a request. If set, will override any `auto_loadbalance` setting. By default, the first backend added to a service is selected for all requests.. [optional]  # noqa: E501
             share_key (str, none_type): Value that when shared across backends will enable those backends to share the same health check.. [optional]  # noqa: E501
-            shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]  # noqa: E501
+            shield (str, none_type): Identifier of the POP to use as a [shield](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/).. [optional]  # noqa: E501
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]  # noqa: E501
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]  # noqa: E501
             ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501
@@ -394,10 +394,10 @@ class BackendResponse(ModelComposed):
             name (str): The name of the backend.. [optional]  # noqa: E501
             override_host (str, none_type): If set, will replace the client-supplied HTTP `Host` header on connections to this backend. Applied after VCL has been processed, so this setting will take precedence over changing `bereq.http.Host` in VCL.. [optional]  # noqa: E501
             port (int): Port on which the backend server is listening for connections from Fastly. Setting `port` to 80 or 443 will also set `use_ssl` automatically (to false and true respectively), unless explicitly overridden by setting `use_ssl` in the same request.. [optional]  # noqa: E501
-            prefer_ipv6 (bool, none_type): Prefer IPv6 connections to origins for hostname backends.. [optional]  # noqa: E501
+            prefer_ipv6 (bool): Prefer IPv6 connections to origins for hostname backends. Default is 'false' for Delivery services and 'true' for Compute services.. [optional]  # noqa: E501
             request_condition (str): Name of a Condition, which if satisfied, will select this backend during a request. If set, will override any `auto_loadbalance` setting. By default, the first backend added to a service is selected for all requests.. [optional]  # noqa: E501
             share_key (str, none_type): Value that when shared across backends will enable those backends to share the same health check.. [optional]  # noqa: E501
-            shield (str, none_type): Identifier of the POP to use as a [shield](https://docs.fastly.com/en/guides/shielding).. [optional]  # noqa: E501
+            shield (str, none_type): Identifier of the POP to use as a [shield](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/).. [optional]  # noqa: E501
             ssl_ca_cert (str, none_type): CA certificate attached to origin.. [optional]  # noqa: E501
             ssl_cert_hostname (str, none_type): Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.. [optional]  # noqa: E501
             ssl_check_cert (bool, none_type): Be strict on checking SSL certs.. [optional] if omitted the server will use the default value of True  # noqa: E501

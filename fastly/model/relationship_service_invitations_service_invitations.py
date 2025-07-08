@@ -71,7 +71,7 @@ class RelationshipServiceInvitationsServiceInvitations(ModelNormal):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -85,7 +85,7 @@ class RelationshipServiceInvitationsServiceInvitations(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([RelationshipMemberServiceInvitation],),  # noqa: E501
+            'data': ([RelationshipMemberServiceInvitation], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class RelationshipServiceInvitationsServiceInvitations(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([RelationshipMemberServiceInvitation]): [optional]  # noqa: E501
+            data ([RelationshipMemberServiceInvitation], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class RelationshipServiceInvitationsServiceInvitations(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([RelationshipMemberServiceInvitation]): [optional]  # noqa: E501
+            data ([RelationshipMemberServiceInvitation], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

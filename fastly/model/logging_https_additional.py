@@ -174,7 +174,7 @@ class LoggingHttpsAdditional(ModelNormal):
             header_value (str, none_type): Value of the custom header sent with the request.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,7 +265,7 @@ class LoggingHttpsAdditional(ModelNormal):
             header_value (str, none_type): Value of the custom header sent with the request.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

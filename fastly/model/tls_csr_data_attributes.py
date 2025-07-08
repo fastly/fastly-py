@@ -94,6 +94,7 @@ class TlsCsrDataAttributes(ModelNormal):
             'organizational_unit': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'key_type': (str,),  # noqa: E501
+            'relationships_tls_private_key_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -113,6 +114,7 @@ class TlsCsrDataAttributes(ModelNormal):
         'organizational_unit': 'organizational_unit',  # noqa: E501
         'email': 'email',  # noqa: E501
         'key_type': 'key_type',  # noqa: E501
+        'relationships_tls_private_key_id': 'relationships.tls_private_key.id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,6 +171,7 @@ class TlsCsrDataAttributes(ModelNormal):
             organizational_unit (str): Organizational Unit (OU) - The internal division of the organization managing the certificate.. [optional]  # noqa: E501
             email (str): Email Address (EMAIL) - The organizational contact for this.. [optional]  # noqa: E501
             key_type (str): CSR Key Type.. [optional]  # noqa: E501
+            relationships_tls_private_key_id (str): Optional. An alphanumeric string identifying the private key you've uploaded for use with your TLS certificate. If left blank, Fastly will create and manage a key for you.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,6 +267,7 @@ class TlsCsrDataAttributes(ModelNormal):
             organizational_unit (str): Organizational Unit (OU) - The internal division of the organization managing the certificate.. [optional]  # noqa: E501
             email (str): Email Address (EMAIL) - The organizational contact for this.. [optional]  # noqa: E501
             key_type (str): CSR Key Type.. [optional]  # noqa: E501
+            relationships_tls_private_key_id (str): Optional. An alphanumeric string identifying the private key you've uploaded for use with your TLS certificate. If left blank, Fastly will create and manage a key for you.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

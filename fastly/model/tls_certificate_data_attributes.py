@@ -81,6 +81,7 @@ class TlsCertificateDataAttributes(ModelNormal):
         return {
             'cert_blob': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'allow_untrusted_root': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +92,7 @@ class TlsCertificateDataAttributes(ModelNormal):
     attribute_map = {
         'cert_blob': 'cert_blob',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'allow_untrusted_root': 'allow_untrusted_root',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class TlsCertificateDataAttributes(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cert_blob (str): The PEM-formatted certificate blob. Required.. [optional]  # noqa: E501
             name (str): A customizable name for your certificate. Defaults to the certificate's Common Name or first Subject Alternative Names (SAN) entry. Optional.. [optional]  # noqa: E501
+            allow_untrusted_root (bool): Indicates that the supplied certificate was not signed by a trusted CA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +222,7 @@ class TlsCertificateDataAttributes(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cert_blob (str): The PEM-formatted certificate blob. Required.. [optional]  # noqa: E501
             name (str): A customizable name for your certificate. Defaults to the certificate's Common Name or first Subject Alternative Names (SAN) entry. Optional.. [optional]  # noqa: E501
+            allow_untrusted_root (bool): Indicates that the supplied certificate was not signed by a trusted CA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

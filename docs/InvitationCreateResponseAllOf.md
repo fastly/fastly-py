@@ -1,4 +1,4 @@
-# InvitationResponse
+# InvitationCreateResponseAllOf
 
 
 ## Properties

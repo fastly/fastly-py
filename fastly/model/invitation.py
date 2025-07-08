@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.invitation_data import InvitationData
-    globals()['InvitationData'] = InvitationData
+    from fastly.model.invitation_create_data import InvitationCreateData
+    globals()['InvitationCreateData'] = InvitationCreateData
 
 
 class Invitation(ModelNormal):
@@ -85,7 +85,7 @@ class Invitation(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (InvitationData,),  # noqa: E501
+            'data': (InvitationCreateData,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class Invitation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InvitationData): [optional]  # noqa: E501
+            data (InvitationCreateData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class Invitation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InvitationData): [optional]  # noqa: E501
+            data (InvitationCreateData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

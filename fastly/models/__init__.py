@@ -302,10 +302,12 @@ from fastly.model.inline_response2009 import InlineResponse2009
 from fastly.model.inline_response201 import InlineResponse201
 from fastly.model.inline_response400 import InlineResponse400
 from fastly.model.invitation import Invitation
+from fastly.model.invitation_create_data import InvitationCreateData
+from fastly.model.invitation_create_data_all_of import InvitationCreateDataAllOf
+from fastly.model.invitation_create_response import InvitationCreateResponse
+from fastly.model.invitation_create_response_all_of import InvitationCreateResponseAllOf
 from fastly.model.invitation_data import InvitationData
 from fastly.model.invitation_data_attributes import InvitationDataAttributes
-from fastly.model.invitation_response import InvitationResponse
-from fastly.model.invitation_response_all_of import InvitationResponseAllOf
 from fastly.model.invitation_response_data import InvitationResponseData
 from fastly.model.invitation_response_data_all_of import InvitationResponseDataAllOf
 from fastly.model.invitations_response import InvitationsResponse

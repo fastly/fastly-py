@@ -143,7 +143,7 @@ class LoggingBigqueryAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
             dataset (str): Your BigQuery dataset.. [optional]  # noqa: E501
             table (str): Your BigQuery table.. [optional]  # noqa: E501
             template_suffix (str, none_type): BigQuery table name suffix template. Optional.. [optional]  # noqa: E501
@@ -230,7 +230,7 @@ class LoggingBigqueryAdditional(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the BigQuery logging object. Used as a primary key for API access.. [optional]  # noqa: E501
-            format (str): A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
+            format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). Must produce JSON that matches the schema of your BigQuery table.. [optional]  # noqa: E501
             dataset (str): Your BigQuery dataset.. [optional]  # noqa: E501
             table (str): Your BigQuery table.. [optional]  # noqa: E501
             template_suffix (str, none_type): BigQuery table name suffix template. Optional.. [optional]  # noqa: E501
