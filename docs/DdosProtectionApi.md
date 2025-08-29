@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ddos_protection_event_list**](DdosProtectionApi.md#ddos_protection_event_list) | **GET** /ddos-protection/v1/events | Get events
 [**ddos_protection_event_rule_list**](DdosProtectionApi.md#ddos_protection_event_rule_list) | **GET** /ddos-protection/v1/events/{event_id}/rules | Get all rules for an event
 [**ddos_protection_rule_get**](DdosProtectionApi.md#ddos_protection_rule_get) | **GET** /ddos-protection/v1/rules/{rule_id} | Get a rule by ID
+[**ddos_protection_rule_patch**](DdosProtectionApi.md#ddos_protection_rule_patch) | **PATCH** /ddos-protection/v1/rules/{rule_id} | Update rule
 [**ddos_protection_traffic_stats_rule_get**](DdosProtectionApi.md#ddos_protection_traffic_stats_rule_get) | **GET** /ddos-protection/v1/events/{event_id}/rules/{rule_id}/traffic-stats | Get traffic stats for a rule
 
 
@@ -364,6 +365,107 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | User is not authenticated. |  -  |
+**404** | Not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ddos_protection_rule_patch**
+> DdosProtectionRule ddos_protection_rule_patch(rule_id)
+
+Update rule
+
+Update rule.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import ddos_protection_api
+from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
+from fastly.model.ddos_protection_not_authorized import DdosProtectionNotAuthorized
+from fastly.model.ddos_protection_not_authenticated import DdosProtectionNotAuthenticated
+from fastly.model.ddos_protection_invalid_request import DdosProtectionInvalidRequest
+from fastly.model.ddos_protection_error import DdosProtectionError
+from fastly.model.ddos_protection_rule import DdosProtectionRule
+from fastly.model.ddos_protection_rule_patch import DdosProtectionRulePatch
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ddos_protection_api.DdosProtectionApi(api_client)
+    rule_id = "54de69dcba53b02fbf000018" # str | Unique ID of the rule.
+    ddos_protection_rule_patch = DdosProtectionRulePatch(
+        action="default",
+    ) # DdosProtectionRulePatch |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update rule
+        api_response = api_instance.ddos_protection_rule_patch(rule_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling DdosProtectionApi->ddos_protection_rule_patch: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update rule
+        api_response = api_instance.ddos_protection_rule_patch(rule_id, ddos_protection_rule_patch=ddos_protection_rule_patch)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling DdosProtectionApi->ddos_protection_rule_patch: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule_id** | **str**| Unique ID of the rule. |
+ **ddos_protection_rule_patch** | [**DdosProtectionRulePatch**](DdosProtectionRulePatch.md)|  | [optional]
+
+### Return type
+
+[**DdosProtectionRule**](DdosProtectionRule.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request parameters are invalid. |  -  |
+**401** | User is not authenticated. |  -  |
+**403** | User is not authorized. |  -  |
 **404** | Not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -29,12 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.log_timeseries_result_dimensions import LogTimeseriesResultDimensions
-    globals()['LogTimeseriesResultDimensions'] = LogTimeseriesResultDimensions
 
-
-class LogTimeseriesResult(ModelNormal):
+class TimeseriesMeta(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -68,7 +64,6 @@ class LogTimeseriesResult(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -83,10 +78,11 @@ class LogTimeseriesResult(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'dimensions': (LogTimeseriesResultDimensions,),  # noqa: E501
-            'values': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            '_from': (str,),  # noqa: E501
+            'to': (str,),  # noqa: E501
+            'granularity': (str,),  # noqa: E501
+            'limit': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,8 +91,10 @@ class LogTimeseriesResult(ModelNormal):
 
 
     attribute_map = {
-        'dimensions': 'dimensions',  # noqa: E501
-        'values': 'values',  # noqa: E501
+        '_from': 'from',  # noqa: E501
+        'to': 'to',  # noqa: E501
+        'granularity': 'granularity',  # noqa: E501
+        'limit': 'limit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,7 +105,7 @@ class LogTimeseriesResult(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesResult - a model defined in OpenAPI
+        """TimeseriesMeta - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,8 +138,10 @@ class LogTimeseriesResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dimensions (LogTimeseriesResultDimensions): [optional]  # noqa: E501
-            values ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            _from (str): Start time for the query as supplied in the request.. [optional]  # noqa: E501
+            to (str): End time for the query as supplied in the request.. [optional]  # noqa: E501
+            granularity (str): The granularity of the time buckets in the response.. [optional]  # noqa: E501
+            limit (str): Maximum number of results returned in the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,7 +190,7 @@ class LogTimeseriesResult(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesResult - a model defined in OpenAPI
+        """TimeseriesMeta - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,8 +223,10 @@ class LogTimeseriesResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dimensions (LogTimeseriesResultDimensions): [optional]  # noqa: E501
-            values ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            _from (str): Start time for the query as supplied in the request.. [optional]  # noqa: E501
+            to (str): End time for the query as supplied in the request.. [optional]  # noqa: E501
+            granularity (str): The granularity of the time buckets in the response.. [optional]  # noqa: E501
+            limit (str): Maximum number of results returned in the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

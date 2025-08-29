@@ -1,19 +1,19 @@
-# fastly.ObservabilityTimeseriesForLogsApi
+# fastly.ObservabilityTimeseriesApi
 
 > [!NOTE]
 > All URIs are relative to `https://api.fastly.com`
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**log_timeseries_get**](ObservabilityTimeseriesForLogsApi.md#log_timeseries_get) | **GET** /observability/timeseries | Retrieve log data as time series
+[**timeseries_get**](ObservabilityTimeseriesApi.md#timeseries_get) | **GET** /observability/timeseries | Retrieve observability data as a time series
 
 
-# **log_timeseries_get**
-> LogTimeseriesGetResponse log_timeseries_get(source, service_id, start, end, granularity, series)
+# **timeseries_get**
+> TimeseriesGetResponse timeseries_get(source, _from, to, granularity, series)
 
-Retrieve log data as time series
+Retrieve observability data as a time series
 
-Retrieves log data as time series.
+Retrieves observability data as a time series.
 
 ### Example
 
@@ -22,8 +22,8 @@ Retrieves log data as time series.
 ```python
 import time
 import fastly
-from fastly.api import observability_timeseries_for_logs_api
-from fastly.model.log_timeseries_get_response import LogTimeseriesGetResponse
+from fastly.api import observability_timeseries_api
+from fastly.model.timeseries_get_response import TimeseriesGetResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,31 +45,31 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = observability_timeseries_for_logs_api.ObservabilityTimeseriesForLogsApi(api_client)
-    source = "source_example" # str | 
-    service_id = "service_id_example" # str | 
-    start = "start_example" # str | 
-    end = "end_example" # str | 
-    granularity = "second" # str | 
-    series = "series_example" # str | 
-    filter = "filter_example" # str |  (optional)
+    api_instance = observability_timeseries_api.ObservabilityTimeseriesApi(api_client)
+    source = "logs" # str | 
+    _from = "2024-01-03T16:00:00Z" # str | 
+    to = "2024-01-03T18:00:00Z" # str | 
+    granularity = "hour" # str | 
+    series = "avg[response_time],p99[response_time]" # str | 
+    dimensions = "dimensions_example" # str |  (optional)
+    filter = "filter[response_status]=200" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Retrieve log data as time series
-        api_response = api_instance.log_timeseries_get(source, service_id, start, end, granularity, series)
+        # Retrieve observability data as a time series
+        api_response = api_instance.timeseries_get(source, _from, to, granularity, series)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling ObservabilityTimeseriesForLogsApi->log_timeseries_get: %s\n" % e)
+        print("Exception when calling ObservabilityTimeseriesApi->timeseries_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Retrieve log data as time series
-        api_response = api_instance.log_timeseries_get(source, service_id, start, end, granularity, series, filter=filter)
+        # Retrieve observability data as a time series
+        api_response = api_instance.timeseries_get(source, _from, to, granularity, series, dimensions=dimensions, filter=filter)
         pprint(api_response)
     except fastly.ApiException as e:
-        print("Exception when calling ObservabilityTimeseriesForLogsApi->log_timeseries_get: %s\n" % e)
+        print("Exception when calling ObservabilityTimeseriesApi->timeseries_get: %s\n" % e)
 ```
 
 
@@ -78,16 +78,16 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source** | **str**|  |
- **service_id** | **str**|  |
- **start** | **str**|  |
- **end** | **str**|  |
+ **_from** | **str**|  |
+ **to** | **str**|  |
  **granularity** | **str**|  |
  **series** | **str**|  |
+ **dimensions** | **str**|  | [optional]
  **filter** | **str**|  | [optional]
 
 ### Return type
 
-[**LogTimeseriesGetResponse**](LogTimeseriesGetResponse.md)
+[**TimeseriesGetResponse**](TimeseriesGetResponse.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Retrieves time series results based on log data. |  -  |
+**200** | Retrieves the time series results based on observability data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

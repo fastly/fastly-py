@@ -30,15 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.log_timeseries_value_float_array import LogTimeseriesValueFloatArray
-    from fastly.model.log_timeseries_value_integer_array import LogTimeseriesValueIntegerArray
-    from fastly.model.log_timeseries_value_string_array import LogTimeseriesValueStringArray
-    globals()['LogTimeseriesValueFloatArray'] = LogTimeseriesValueFloatArray
-    globals()['LogTimeseriesValueIntegerArray'] = LogTimeseriesValueIntegerArray
-    globals()['LogTimeseriesValueStringArray'] = LogTimeseriesValueStringArray
+    from fastly.model.attack_signal import AttackSignal
+    from fastly.model.attack_source import AttackSource
+    globals()['AttackSignal'] = AttackSignal
+    globals()['AttackSource'] = AttackSource
 
 
-class LogTimeseriesValueField(ModelComposed):
+class AttackReport(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -89,6 +87,16 @@ class LogTimeseriesValueField(ModelComposed):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'total_count': (int,),  # noqa: E501
+            'blocked_count': (int,),  # noqa: E501
+            'flagged_count': (int,),  # noqa: E501
+            'attack_count': (int,),  # noqa: E501
+            'all_flagged_ip_count': (int,),  # noqa: E501
+            'flagged_ip_count': (int,),  # noqa: E501
+            'top_attack_signals': ([AttackSignal],),  # noqa: E501
+            'top_attack_sources': ([AttackSource],),  # noqa: E501
         }
 
     @cached_property
@@ -97,15 +105,39 @@ class LogTimeseriesValueField(ModelComposed):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'total_count': 'total_count',  # noqa: E501
+        'blocked_count': 'blocked_count',  # noqa: E501
+        'flagged_count': 'flagged_count',  # noqa: E501
+        'attack_count': 'attack_count',  # noqa: E501
+        'all_flagged_ip_count': 'all_flagged_ip_count',  # noqa: E501
+        'flagged_ip_count': 'flagged_ip_count',  # noqa: E501
+        'top_attack_signals': 'top_attack_signals',  # noqa: E501
+        'top_attack_sources': 'top_attack_sources',  # noqa: E501
     }
 
     read_only_vars = {
     }
 
+    _composed_schemas = {}
+
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesValueField - a model defined in OpenAPI
+    def _from_openapi_data(cls, id, name, total_count, blocked_count, flagged_count, attack_count, all_flagged_ip_count, flagged_ip_count, top_attack_signals, top_attack_sources, *args, **kwargs):  # noqa: E501
+        """AttackReport - a model defined in OpenAPI
+
+        Args:
+            id (str): ID of the workspace.
+            name (str): Name of the workspace.
+            total_count (int): Total request count
+            blocked_count (int): Blocked request count
+            flagged_count (int): Flagged request count
+            attack_count (int): Attack request count
+            all_flagged_ip_count (int): Count of IPs that have been flagged
+            flagged_ip_count (int): Count of currently flagged IPs
+            top_attack_signals ([AttackSignal]):
+            top_attack_sources ([AttackSource]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -165,29 +197,24 @@ class LogTimeseriesValueField(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
+        self.id = id
+        self.name = name
+        self.total_count = total_count
+        self.blocked_count = blocked_count
+        self.flagged_count = flagged_count
+        self.attack_count = attack_count
+        self.all_flagged_ip_count = all_flagged_ip_count
+        self.flagged_ip_count = flagged_ip_count
+        self.top_attack_signals = top_attack_signals
+        self.top_attack_sources = top_attack_sources
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
-
         return self
 
     required_properties = set([
@@ -197,14 +224,23 @@ class LogTimeseriesValueField(ModelComposed):
         '_path_to_item',
         '_configuration',
         '_visited_composed_classes',
-        '_composed_instances',
-        '_var_name_to_model_instances',
-        '_additional_properties_model_instances',
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesValueField - a model defined in OpenAPI
+    def __init__(self, id, name, total_count, blocked_count, flagged_count, attack_count, all_flagged_ip_count, flagged_ip_count, top_attack_signals, top_attack_sources, *args, **kwargs):  # noqa: E501
+        """AttackReport - a model defined in OpenAPI
+
+        Args:
+            id (str): ID of the workspace.
+            name (str): Name of the workspace.
+            total_count (int): Total request count
+            blocked_count (int): Blocked request count
+            flagged_count (int): Flagged request count
+            attack_count (int): Attack request count
+            all_flagged_ip_count (int): Count of IPs that have been flagged
+            flagged_ip_count (int): Count of currently flagged IPs
+            top_attack_signals ([AttackSignal]):
+            top_attack_sources ([AttackSource]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,54 +298,24 @@ class LogTimeseriesValueField(ModelComposed):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        constant_args = {
-            '_check_type': _check_type,
-            '_path_to_item': _path_to_item,
-            '_spec_property_naming': _spec_property_naming,
-            '_configuration': _configuration,
-            '_visited_composed_classes': self._visited_composed_classes,
-        }
-        composed_info = validate_get_composed_info(
-            constant_args, kwargs, self)
-        self._composed_instances = composed_info[0]
-        self._var_name_to_model_instances = composed_info[1]
-        self._additional_properties_model_instances = composed_info[2]
-        discarded_args = composed_info[3]
-
+        self.id = id
+        self.name = name
+        self.total_count = total_count
+        self.blocked_count = blocked_count
+        self.flagged_count = flagged_count
+        self.attack_count = attack_count
+        self.all_flagged_ip_count = all_flagged_ip_count
+        self.flagged_ip_count = flagged_ip_count
+        self.top_attack_signals = top_attack_signals
+        self.top_attack_sources = top_attack_sources
         for var_name, var_value in kwargs.items():
-            if var_name in discarded_args and \
+            if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self._additional_properties_model_instances:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
-
-    @cached_property
-    def _composed_schemas():
-        # we need this here to make our import statements work
-        # we must store _composed_schemas in here so the code is only run
-        # when we invoke this method. If we kept this at the class
-        # level we would get an error because the class level
-        # code would be run when this module is imported, and these composed
-        # classes don't exist yet because their module has not finished
-        # loading
-        lazy_import()
-        return {
-          'anyOf': [
-          ],
-          'allOf': [
-          ],
-          'oneOf': [
-              LogTimeseriesValueFloatArray,
-              LogTimeseriesValueIntegerArray,
-              LogTimeseriesValueStringArray,
-              bool,
-              float,
-              int,
-              str,
-          ],
-        }

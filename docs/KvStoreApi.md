@@ -293,12 +293,13 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = kv_store_api.KvStoreApi(api_client)
     cursor = "cursor_example" # str |  (optional)
     limit = 1000 # int |  (optional) if omitted the server will use the default value of 1000
+    name = "name_example" # str | Returns a one-element array containing the details for the named KV store. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List all KV stores.
-        api_response = api_instance.kv_store_list(cursor=cursor, limit=limit)
+        api_response = api_instance.kv_store_list(cursor=cursor, limit=limit, name=name)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling KvStoreApi->kv_store_list: %s\n" % e)
@@ -311,6 +312,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cursor** | **str**|  | [optional]
  **limit** | **int**|  | [optional] if omitted the server will use the default value of 1000
+ **name** | **str**| Returns a one-element array containing the details for the named KV store. | [optional]
 
 ### Return type
 

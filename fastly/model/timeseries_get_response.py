@@ -29,8 +29,14 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.timeseries_meta import TimeseriesMeta
+    from fastly.model.timeseries_result import TimeseriesResult
+    globals()['TimeseriesMeta'] = TimeseriesMeta
+    globals()['TimeseriesResult'] = TimeseriesResult
 
-class LogTimeseriesResultDimensions(ModelNormal):
+
+class TimeseriesGetResponse(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +70,7 @@ class LogTimeseriesResultDimensions(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +85,10 @@ class LogTimeseriesResultDimensions(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'time': (str,),  # noqa: E501
+            'data': ([TimeseriesResult],),  # noqa: E501
+            'meta': (TimeseriesMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -88,7 +97,8 @@ class LogTimeseriesResultDimensions(ModelNormal):
 
 
     attribute_map = {
-        'time': 'time',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -99,7 +109,7 @@ class LogTimeseriesResultDimensions(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesResultDimensions - a model defined in OpenAPI
+        """TimeseriesGetResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -132,7 +142,8 @@ class LogTimeseriesResultDimensions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            time (str): [optional]  # noqa: E501
+            data ([TimeseriesResult]): [optional]  # noqa: E501
+            meta (TimeseriesMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,7 +192,7 @@ class LogTimeseriesResultDimensions(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesResultDimensions - a model defined in OpenAPI
+        """TimeseriesGetResponse - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,7 +225,8 @@ class LogTimeseriesResultDimensions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            time (str): [optional]  # noqa: E501
+            data ([TimeseriesResult]): [optional]  # noqa: E501
+            meta (TimeseriesMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

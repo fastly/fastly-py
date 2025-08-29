@@ -29,12 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.log_timeseries_value_field import LogTimeseriesValueField
-    globals()['LogTimeseriesValueField'] = LogTimeseriesValueField
 
-
-class LogTimeseriesFilterFieldItem(ModelNormal):
+class TopWorkspace(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -57,16 +53,6 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
     """
 
     allowed_values = {
-        ('operator',): {
-            'EQ': "eq",
-            'ENDS-WITH': "ends-with",
-            'IN': "in",
-            'NOT_IN': "not_in",
-            'GT': "gt",
-            'GTE': "gte",
-            'LT': "lt",
-            'LTE': "lte",
-        },
     }
 
     validations = {
@@ -78,7 +64,6 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -93,11 +78,10 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'field': (str,),  # noqa: E501
-            'operator': (str,),  # noqa: E501
-            'value': (LogTimeseriesValueField,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -106,9 +90,9 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
 
 
     attribute_map = {
-        'field': 'field',  # noqa: E501
-        'operator': 'operator',  # noqa: E501
-        'value': 'value',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'count': 'count',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,7 +103,7 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesFilterFieldItem - a model defined in OpenAPI
+        """TopWorkspace - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,9 +136,9 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field (str): The log field to which this filter should be applied.. [optional]  # noqa: E501
-            operator (str): The comparison operator used for this filter.. [optional]  # noqa: E501
-            value (LogTimeseriesValueField): [optional]  # noqa: E501
+            id (str): ID of the workspace.. [optional]  # noqa: E501
+            name (str): Name of the workspace.. [optional]  # noqa: E501
+            count (int): Count of attacks on this workspace for the specific attack type.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -203,7 +187,7 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesFilterFieldItem - a model defined in OpenAPI
+        """TopWorkspace - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,9 +220,9 @@ class LogTimeseriesFilterFieldItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field (str): The log field to which this filter should be applied.. [optional]  # noqa: E501
-            operator (str): The comparison operator used for this filter.. [optional]  # noqa: E501
-            value (LogTimeseriesValueField): [optional]  # noqa: E501
+            id (str): ID of the workspace.. [optional]  # noqa: E501
+            name (str): Name of the workspace.. [optional]  # noqa: E501
+            count (int): Count of attacks on this workspace for the specific attack type.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

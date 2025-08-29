@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class PoolResponseCommon(ModelNormal):
+class DdosProtectionNotAuthorized(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -53,6 +53,9 @@ class PoolResponseCommon(ModelNormal):
     """
 
     allowed_values = {
+        ('status',): {
+            '403': 403,
+        },
     }
 
     validations = {
@@ -79,12 +82,8 @@ class PoolResponseCommon(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'between_bytes_timeout': (str,),  # noqa: E501
-            'connect_timeout': (str,),  # noqa: E501
-            'first_byte_timeout': (str,),  # noqa: E501
-            'max_conn_default': (str,),  # noqa: E501
-            'tls_check_cert': (str, none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'title': (str,),  # noqa: E501
+            'status': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -93,16 +92,11 @@ class PoolResponseCommon(ModelNormal):
 
 
     attribute_map = {
-        'between_bytes_timeout': 'between_bytes_timeout',  # noqa: E501
-        'connect_timeout': 'connect_timeout',  # noqa: E501
-        'first_byte_timeout': 'first_byte_timeout',  # noqa: E501
-        'max_conn_default': 'max_conn_default',  # noqa: E501
-        'tls_check_cert': 'tls_check_cert',  # noqa: E501
-        'id': 'id',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
-        'id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -110,7 +104,7 @@ class PoolResponseCommon(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """PoolResponseCommon - a model defined in OpenAPI
+        """DdosProtectionNotAuthorized - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,12 +137,8 @@ class PoolResponseCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            between_bytes_timeout (str): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, for Delivery services, the response received so far will be considered complete and the fetch will end. For Compute services, timeout expiration is treated as a failure of the backend connection, and an error is generated. May be set at runtime using `bereq.between_bytes_timeout`.. [optional]  # noqa: E501
-            connect_timeout (str): How long to wait for a timeout in milliseconds.. [optional]  # noqa: E501
-            first_byte_timeout (str): How long to wait for the first byte in milliseconds.. [optional]  # noqa: E501
-            max_conn_default (str): Maximum number of connections.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
-            tls_check_cert (str, none_type): Be strict on checking TLS certs.. [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            title (str): [optional]  # noqa: E501
+            status (int): [optional] if omitted the server will use the default value of 403  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -197,7 +187,7 @@ class PoolResponseCommon(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """PoolResponseCommon - a model defined in OpenAPI
+        """DdosProtectionNotAuthorized - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,12 +220,8 @@ class PoolResponseCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            between_bytes_timeout (str): Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, for Delivery services, the response received so far will be considered complete and the fetch will end. For Compute services, timeout expiration is treated as a failure of the backend connection, and an error is generated. May be set at runtime using `bereq.between_bytes_timeout`.. [optional]  # noqa: E501
-            connect_timeout (str): How long to wait for a timeout in milliseconds.. [optional]  # noqa: E501
-            first_byte_timeout (str): How long to wait for the first byte in milliseconds.. [optional]  # noqa: E501
-            max_conn_default (str): Maximum number of connections.. [optional] if omitted the server will use the default value of "200"  # noqa: E501
-            tls_check_cert (str, none_type): Be strict on checking TLS certs.. [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            title (str): [optional]  # noqa: E501
+            status (int): [optional] if omitted the server will use the default value of 403  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

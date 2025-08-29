@@ -31,9 +31,7 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.ddos_protection_attribute_value import DdosProtectionAttributeValue
-    from fastly.model.ddos_protection_traffic_attribute import DdosProtectionTrafficAttribute
     globals()['DdosProtectionAttributeValue'] = DdosProtectionAttributeValue
-    globals()['DdosProtectionTrafficAttribute'] = DdosProtectionTrafficAttribute
 
 
 class DdosProtectionAttributeStats(ModelNormal):
@@ -87,7 +85,7 @@ class DdosProtectionAttributeStats(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (DdosProtectionTrafficAttribute,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'values': ([DdosProtectionAttributeValue],),  # noqa: E501
         }
 
@@ -142,7 +140,7 @@ class DdosProtectionAttributeStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (DdosProtectionTrafficAttribute): [optional]  # noqa: E501
+            name (str): Name of an attribute type used in traffic stats. Currently, supported values are source_ip, country_code, host, asn, source_ip_prefix, user_agent, method_path.. [optional]  # noqa: E501
             values ([DdosProtectionAttributeValue]): Values for traffic attribute.. [optional]  # noqa: E501
         """
 
@@ -225,7 +223,7 @@ class DdosProtectionAttributeStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (DdosProtectionTrafficAttribute): [optional]  # noqa: E501
+            name (str): Name of an attribute type used in traffic stats. Currently, supported values are source_ip, country_code, host, asn, source_ip_prefix, user_agent, method_path.. [optional]  # noqa: E501
             values ([DdosProtectionAttributeValue]): Values for traffic attribute.. [optional]  # noqa: E501
         """
 

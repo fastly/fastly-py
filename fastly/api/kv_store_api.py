@@ -239,6 +239,7 @@ class KvStoreApi(object):
                 'all': [
                     'cursor',
                     'limit',
+                    'name',
                 ],
                 'required': [],
                 'nullable': [
@@ -263,14 +264,18 @@ class KvStoreApi(object):
                         (str,),
                     'limit':
                         (int,),
+                    'name':
+                        (str,),
                 },
                 'attribute_map': {
                     'cursor': 'cursor',
                     'limit': 'limit',
+                    'name': 'name',
                 },
                 'location_map': {
                     'cursor': 'query',
                     'limit': 'query',
+                    'name': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -534,6 +539,7 @@ class KvStoreApi(object):
         Keyword Args:
             cursor (str): [optional]
             limit (int): [optional] if omitted the server will use the default value of 1000
+            name (str): Returns a one-element array containing the details for the named KV store.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

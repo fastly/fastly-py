@@ -58,12 +58,13 @@ with fastly.ApiClient(configuration) as api_client:
     to = "2020-04-09T18:14:30Z" # str | Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  (optional) if omitted the server will use the default value of "now"
     by = "day" # str | Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  (optional) if omitted the server will use the default value of "day"
     region = "usa" # str | Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  (optional)
+    services = "services_example" # str | Limit the query to only the specified, comma-separated list of services.  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get historical stats
-        api_response = api_instance.get_hist_stats(_from=_from, to=to, by=by, region=region)
+        api_response = api_instance.get_hist_stats(_from=_from, to=to, by=by, region=region, services=services)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling HistoricalApi->get_hist_stats: %s\n" % e)
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
  **to** | **str**| Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  | [optional] if omitted the server will use the default value of "now"
  **by** | **str**| Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  | [optional] if omitted the server will use the default value of "day"
  **region** | **str**| Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  | [optional]
+ **services** | **str**| Limit the query to only the specified, comma-separated list of services.  | [optional]
 
 ### Return type
 

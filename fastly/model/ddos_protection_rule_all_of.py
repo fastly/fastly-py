@@ -29,10 +29,6 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.ddos_protection_action import DdosProtectionAction
-    globals()['DdosProtectionAction'] = DdosProtectionAction
-
 
 class DdosProtectionRuleAllOf(ModelNormal):
     """NOTE: This class is auto generated.
@@ -68,7 +64,6 @@ class DdosProtectionRuleAllOf(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -83,11 +78,10 @@ class DdosProtectionRuleAllOf(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'action': (DdosProtectionAction,),  # noqa: E501
+            'action': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'source_ip': (str, none_type,),  # noqa: E501
@@ -160,7 +154,7 @@ class DdosProtectionRuleAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the rule.. [optional]  # noqa: E501
             name (str): A human-readable name for the rule.. [optional]  # noqa: E501
-            action (DdosProtectionAction): [optional]  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             source_ip (str, none_type): Source IP address attribute.. [optional]  # noqa: E501
@@ -252,7 +246,7 @@ class DdosProtectionRuleAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the rule.. [optional]  # noqa: E501
             name (str): A human-readable name for the rule.. [optional]  # noqa: E501
-            action (DdosProtectionAction): [optional]  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             source_ip (str, none_type): Source IP address attribute.. [optional]  # noqa: E501

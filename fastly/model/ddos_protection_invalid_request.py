@@ -30,11 +30,11 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.log_timeseries_get_response_meta_filters import LogTimeseriesGetResponseMetaFilters
-    globals()['LogTimeseriesGetResponseMetaFilters'] = LogTimeseriesGetResponseMetaFilters
+    from fastly.model.ddos_protection_error_errors import DdosProtectionErrorErrors
+    globals()['DdosProtectionErrorErrors'] = DdosProtectionErrorErrors
 
 
-class LogTimeseriesGetResponseMeta(ModelNormal):
+class DdosProtectionInvalidRequest(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -57,9 +57,14 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
     """
 
     allowed_values = {
+        ('status',): {
+            '400': 400,
+        },
     }
 
     validations = {
+        ('errors',): {
+        },
     }
 
     @cached_property
@@ -85,11 +90,10 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
         """
         lazy_import()
         return {
-            'service_id': (str,),  # noqa: E501
-            'start': (str,),  # noqa: E501
-            'end': (str,),  # noqa: E501
-            'granularity': (str,),  # noqa: E501
-            'filters': (LogTimeseriesGetResponseMetaFilters,),  # noqa: E501
+            'title': (str,),  # noqa: E501
+            'status': (int,),  # noqa: E501
+            'detail': (str,),  # noqa: E501
+            'errors': ([DdosProtectionErrorErrors],),  # noqa: E501
         }
 
     @cached_property
@@ -98,11 +102,10 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
 
 
     attribute_map = {
-        'service_id': 'service_id',  # noqa: E501
-        'start': 'start',  # noqa: E501
-        'end': 'end',  # noqa: E501
-        'granularity': 'granularity',  # noqa: E501
-        'filters': 'filters',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'detail': 'detail',  # noqa: E501
+        'errors': 'errors',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,10 +115,16 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesGetResponseMeta - a model defined in OpenAPI
+    def _from_openapi_data(cls, title, detail, errors, *args, **kwargs):  # noqa: E501
+        """DdosProtectionInvalidRequest - a model defined in OpenAPI
+
+        Args:
+            title (str):
+            detail (str):
+            errors ([DdosProtectionErrorErrors]):
 
         Keyword Args:
+            status (int): defaults to 400, must be one of [400, ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -146,13 +155,9 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service_id (str): ID of the service for which data was returned.. [optional]  # noqa: E501
-            start (str): Start time for the query as supplied in the request.. [optional]  # noqa: E501
-            end (str): End time for the query as supplied in the request.. [optional]  # noqa: E501
-            granularity (str): The granularity of the time buckets in the response.. [optional]  # noqa: E501
-            filters (LogTimeseriesGetResponseMetaFilters): [optional]  # noqa: E501
         """
 
+        status = kwargs.get('status', 400)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -178,6 +183,10 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.title = title
+        self.status = status
+        self.detail = detail
+        self.errors = errors
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,10 +207,16 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesGetResponseMeta - a model defined in OpenAPI
+    def __init__(self, title, detail, errors, *args, **kwargs):  # noqa: E501
+        """DdosProtectionInvalidRequest - a model defined in OpenAPI
+
+        Args:
+            title (str):
+            detail (str):
+            errors ([DdosProtectionErrorErrors]):
 
         Keyword Args:
+            status (int): defaults to 400, must be one of [400, ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -232,13 +247,9 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service_id (str): ID of the service for which data was returned.. [optional]  # noqa: E501
-            start (str): Start time for the query as supplied in the request.. [optional]  # noqa: E501
-            end (str): End time for the query as supplied in the request.. [optional]  # noqa: E501
-            granularity (str): The granularity of the time buckets in the response.. [optional]  # noqa: E501
-            filters (LogTimeseriesGetResponseMetaFilters): [optional]  # noqa: E501
         """
 
+        status = kwargs.get('status', 400)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -262,6 +273,10 @@ class LogTimeseriesGetResponseMeta(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.title = title
+        self.status = status
+        self.detail = detail
+        self.errors = errors
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -143,7 +143,6 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tls_subscriptions_api.TlsSubscriptionsApi(api_client)
-    force = True # bool | A flag that allows you to edit and delete a subscription with active domains. Valid to use on PATCH and DELETE actions. As a warning, removing an active domain from a subscription or forcing the deletion of a subscription may result in breaking TLS termination to that domain.  (optional)
     tls_subscription = TlsSubscription(
         data=TlsSubscriptionData(
             type=TypeTlsSubscription("tls_subscription"),
@@ -158,7 +157,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a TLS subscription
-        api_response = api_instance.create_tls_sub(force=force, tls_subscription=tls_subscription)
+        api_response = api_instance.create_tls_sub(tls_subscription=tls_subscription)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling TlsSubscriptionsApi->create_tls_sub: %s\n" % e)
@@ -169,7 +168,6 @@ with fastly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **force** | **bool**| A flag that allows you to edit and delete a subscription with active domains. Valid to use on PATCH and DELETE actions. As a warning, removing an active domain from a subscription or forcing the deletion of a subscription may result in breaking TLS termination to that domain.  | [optional]
  **tls_subscription** | [**TlsSubscription**](TlsSubscription.md)|  | [optional]
 
 ### Return type

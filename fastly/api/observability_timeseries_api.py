@@ -21,10 +21,10 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.log_timeseries_get_response import LogTimeseriesGetResponse
+from fastly.model.timeseries_get_response import TimeseriesGetResponse
 
 
-class ObservabilityTimeseriesForLogsApi(object):
+class ObservabilityTimeseriesApi(object):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
     """
@@ -33,14 +33,14 @@ class ObservabilityTimeseriesForLogsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.log_timeseries_get_endpoint = _Endpoint(
+        self.timeseries_get_endpoint = _Endpoint(
             settings={
-                'response_type': (LogTimeseriesGetResponse,),
+                'response_type': (TimeseriesGetResponse,),
                 'auth': [
                     'token'
                 ],
                 'endpoint_path': '/observability/timeseries',
-                'operation_id': 'log_timeseries_get',
+                'operation_id': 'timeseries_get',
                 'http_method': 'GET',
                 'servers': [
                     {
@@ -52,25 +52,24 @@ class ObservabilityTimeseriesForLogsApi(object):
             params_map={
                 'all': [
                     'source',
-                    'service_id',
-                    'start',
-                    'end',
+                    '_from',
+                    'to',
                     'granularity',
                     'series',
+                    'dimensions',
                     'filter',
                 ],
                 'required': [
                     'source',
-                    'service_id',
-                    'start',
-                    'end',
+                    '_from',
+                    'to',
                     'granularity',
                     'series',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'granularity',
+                    'source',
                 ],
                 'validation': [
                 ]
@@ -79,46 +78,44 @@ class ObservabilityTimeseriesForLogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('granularity',): {
+                    ('source',): {
 
-                        "SECOND": "second",
-                        "MINUTE": "minute",
-                        "HOUR": "hour",
-                        "DAY": "day"
+                        "LOGS": "logs",
+                        "SUSTAINABILITY": "sustainability"
                     },
                 },
                 'openapi_types': {
                     'source':
                         (str,),
-                    'service_id':
+                    '_from':
                         (str,),
-                    'start':
-                        (str,),
-                    'end':
+                    'to':
                         (str,),
                     'granularity':
                         (str,),
                     'series':
+                        (str,),
+                    'dimensions':
                         (str,),
                     'filter':
                         (str,),
                 },
                 'attribute_map': {
                     'source': 'source',
-                    'service_id': 'service_id',
-                    'start': 'start',
-                    'end': 'end',
+                    '_from': 'from',
+                    'to': 'to',
                     'granularity': 'granularity',
                     'series': 'series',
+                    'dimensions': 'dimensions',
                     'filter': 'filter',
                 },
                 'location_map': {
                     'source': 'query',
-                    'service_id': 'query',
-                    'start': 'query',
-                    'end': 'query',
+                    '_from': 'query',
+                    'to': 'query',
                     'granularity': 'query',
                     'series': 'query',
+                    'dimensions': 'query',
                     'filter': 'query',
                 },
                 'path_params_allow_reserved_map': {
@@ -135,34 +132,33 @@ class ObservabilityTimeseriesForLogsApi(object):
             api_client=api_client
         )
 
-    def log_timeseries_get(
+    def timeseries_get(
         self,
         source,
-        service_id,
-        start,
-        end,
+        _from,
+        to,
         granularity,
         series,
         **kwargs
     ):
-        """Retrieve log data as time series  # noqa: E501
+        """Retrieve observability data as a time series  # noqa: E501
 
-        Retrieves log data as time series.  # noqa: E501
+        Retrieves observability data as a time series.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.log_timeseries_get(source, service_id, start, end, granularity, series, async_req=True)
+        >>> thread = api.timeseries_get(source, _from, to, granularity, series, async_req=True)
         >>> result = thread.get()
 
         Args:
             source (str):
-            service_id (str):
-            start (str):
-            end (str):
+            _from (str):
+            to (str):
             granularity (str):
             series (str):
 
         Keyword Args:
+            dimensions (str): [optional]
             filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -192,7 +188,7 @@ class ObservabilityTimeseriesForLogsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LogTimeseriesGetResponse
+            TimeseriesGetResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -222,15 +218,13 @@ class ObservabilityTimeseriesForLogsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['source'] = \
             source
-        kwargs['service_id'] = \
-            service_id
-        kwargs['start'] = \
-            start
-        kwargs['end'] = \
-            end
+        kwargs['_from'] = \
+            _from
+        kwargs['to'] = \
+            to
         kwargs['granularity'] = \
             granularity
         kwargs['series'] = \
             series
-        return self.log_timeseries_get_endpoint.call_with_http_info(**kwargs)
+        return self.timeseries_get_endpoint.call_with_http_info(**kwargs)
 

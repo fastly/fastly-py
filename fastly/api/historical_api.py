@@ -60,6 +60,7 @@ class HistoricalApi(object):
                     'to',
                     'by',
                     'region',
+                    'services',
                 ],
                 'required': [],
                 'nullable': [
@@ -102,18 +103,22 @@ class HistoricalApi(object):
                         (str,),
                     'region':
                         (str,),
+                    'services':
+                        (str,),
                 },
                 'attribute_map': {
                     '_from': 'from',
                     'to': 'to',
                     'by': 'by',
                     'region': 'region',
+                    'services': 'services',
                 },
                 'location_map': {
                     '_from': 'query',
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                    'services': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -774,6 +779,7 @@ class HistoricalApi(object):
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
             region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
+            services (str): Limit the query to only the specified, comma-separated list of services. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

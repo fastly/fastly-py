@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend. | [optional] 
 **auto_loadbalance** | **bool** | Whether or not this backend should be automatically load balanced. If true, all backends with this setting that don&#39;t have a `request_condition` will be selected based on their `weight`. | [optional] 
-**between_bytes_timeout** | **int** | Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, the response received so far will be considered complete and the fetch will end. May be set at runtime using `bereq.between_bytes_timeout`. | [optional] 
+**between_bytes_timeout** | **int** | Maximum duration in milliseconds that Fastly will wait while receiving no data on a download from a backend. If exceeded, for Delivery services, the response received so far will be considered complete and the fetch will end. For Compute services, timeout expiration is treated as a failure of the backend connection, and an error is generated. May be set at runtime using `bereq.between_bytes_timeout`. | [optional] 
 **client_cert** | **str, none_type** | Unused. | [optional] 
 **comment** | **str, none_type** | A freeform descriptive note. | [optional] 
 **connect_timeout** | **int** | Maximum duration in milliseconds to wait for a connection to this backend to be established. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.connect_timeout`. | [optional] 
@@ -35,9 +35,9 @@ Name | Type | Description | Notes
 **ssl_hostname** | **str, none_type** | Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation. | [optional] 
 **ssl_sni_hostname** | **str, none_type** | Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all. | [optional] 
 **tcp_keepalive_enable** | **bool, none_type** | Whether to enable TCP keepalives for backend connections. Varnish defaults to using keepalives if this is unspecified. | [optional] 
-**tcp_keepalive_interval** | **int, none_type** | Interval in seconds between subsequent keepalive probes. | [optional] 
-**tcp_keepalive_probes** | **int, none_type** | Number of unacknowledged probes to send before considering the connection dead. | [optional] 
-**tcp_keepalive_time** | **int, none_type** | Interval in seconds between the last data packet sent and the first keepalive probe. | [optional] 
+**tcp_keepalive_interval** | **int, none_type** | Interval in seconds between subsequent keepalive probes. | [optional]  if omitted the server will use the default value of 10
+**tcp_keepalive_probes** | **int, none_type** | Number of unacknowledged probes to send before considering the connection dead. | [optional]  if omitted the server will use the default value of 3
+**tcp_keepalive_time** | **int, none_type** | Interval in seconds between the last data packet sent and the first keepalive probe. | [optional]  if omitted the server will use the default value of 300
 **use_ssl** | **bool** | Whether or not to require TLS for connections to this backend. | [optional] 
 **weight** | **int** | Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

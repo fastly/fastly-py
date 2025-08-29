@@ -29,14 +29,8 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.log_timeseries_get_response_meta import LogTimeseriesGetResponseMeta
-    from fastly.model.log_timeseries_result import LogTimeseriesResult
-    globals()['LogTimeseriesGetResponseMeta'] = LogTimeseriesGetResponseMeta
-    globals()['LogTimeseriesResult'] = LogTimeseriesResult
 
-
-class LogTimeseriesGetResponse(ModelNormal):
+class DdosProtectionRulePatch(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -62,6 +56,9 @@ class LogTimeseriesGetResponse(ModelNormal):
     }
 
     validations = {
+        ('value',): {
+            'min_properties': 1,
+        },
     }
 
     @cached_property
@@ -70,7 +67,6 @@ class LogTimeseriesGetResponse(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -85,10 +81,8 @@ class LogTimeseriesGetResponse(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'data': ([LogTimeseriesResult],),  # noqa: E501
-            'meta': (LogTimeseriesGetResponseMeta,),  # noqa: E501
+            'action': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,8 +91,7 @@ class LogTimeseriesGetResponse(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
+        'action': 'action',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,7 +102,7 @@ class LogTimeseriesGetResponse(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesGetResponse - a model defined in OpenAPI
+        """DdosProtectionRulePatch - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,8 +135,7 @@ class LogTimeseriesGetResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([LogTimeseriesResult]): [optional]  # noqa: E501
-            meta (LogTimeseriesGetResponseMeta): [optional]  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,7 +184,7 @@ class LogTimeseriesGetResponse(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """LogTimeseriesGetResponse - a model defined in OpenAPI
+        """DdosProtectionRulePatch - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -225,8 +217,7 @@ class LogTimeseriesGetResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([LogTimeseriesResult]): [optional]  # noqa: E501
-            meta (LogTimeseriesGetResponseMeta): [optional]  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

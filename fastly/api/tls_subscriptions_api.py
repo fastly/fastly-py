@@ -123,7 +123,6 @@ class TlsSubscriptionsApi(object):
             },
             params_map={
                 'all': [
-                    'force',
                     'tls_subscription',
                 ],
                 'required': [],
@@ -140,16 +139,12 @@ class TlsSubscriptionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'force':
-                        (bool,),
                     'tls_subscription':
                         (TlsSubscription,),
                 },
                 'attribute_map': {
-                    'force': 'force',
                 },
                 'location_map': {
-                    'force': 'query',
                     'tls_subscription': 'body',
                 },
                 'path_params_allow_reserved_map': {
@@ -627,7 +622,6 @@ class TlsSubscriptionsApi(object):
 
 
         Keyword Args:
-            force (bool): A flag that allows you to edit and delete a subscription with active domains. Valid to use on PATCH and DELETE actions. As a warning, removing an active domain from a subscription or forcing the deletion of a subscription may result in breaking TLS termination to that domain. . [optional]
             tls_subscription (TlsSubscription): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

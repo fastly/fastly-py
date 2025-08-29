@@ -46,7 +46,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = log_explorer_api.LogExplorerApi(api_client)
-    service_id = "service_id_example" # str | 
+    service_id = "1jlmtMz1ncwA0KC3TBGD0X" # str | 
     start = "start_example" # str | 
     end = "end_example" # str | 
     limit = 3.14 # float |  (optional)

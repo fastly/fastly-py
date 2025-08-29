@@ -87,10 +87,11 @@ from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.ngwaf_reports_api import NgwafReportsApi
 from fastly.api.object_storage_access_keys_api import ObjectStorageAccessKeysApi
 from fastly.api.observability_aggregations_for_logs_api import ObservabilityAggregationsForLogsApi
 from fastly.api.observability_custom_dashboards_api import ObservabilityCustomDashboardsApi
-from fastly.api.observability_timeseries_for_logs_api import ObservabilityTimeseriesForLogsApi
+from fastly.api.observability_timeseries_api import ObservabilityTimeseriesApi
 from fastly.api.origin_inspector_historical_api import OriginInspectorHistoricalApi
 from fastly.api.origin_inspector_realtime_api import OriginInspectorRealtimeApi
 from fastly.api.package_api import PackageApi

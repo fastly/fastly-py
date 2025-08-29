@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the rule. | [optional] 
 **name** | **str** | A human-readable name for the rule. | [optional] 
-**action** | [**DdosProtectionAction**](DdosProtectionAction.md) |  | [optional] 
+**action** | **str** | Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service. | [optional]  if omitted the server will use the default value of "default"
 **customer_id** | **str** | Alphanumeric string identifying the customer. | [optional] 
 **service_id** | **str** | Alphanumeric string identifying the service. | [optional] 
 **source_ip** | **str, none_type** | Source IP address attribute. | [optional] 
