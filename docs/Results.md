@@ -273,6 +273,7 @@ Name | Type | Description | Notes
 **ngwaf_requests_blocked_count** | **int** | Count of Next-Gen WAF (Edge WAF &amp; Core WAF) requests blocked. | [optional] 
 **ngwaf_requests_timeout_count** | **int** | Count of Edge WAF requests timed outcome. | [optional] 
 **ngwaf_requests_challenged_count** | **int** | Count of Edge WAF requests challenged. | [optional] 
+**api_discovery_requests_count** | **int** | Number of requests processed by the API Discovery engine. | [optional] 
 **service_id** | **str** |  | [optional] [readonly] 
 **start_time** | **int** | Timestamp for the start of the time period being reported | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

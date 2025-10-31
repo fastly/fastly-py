@@ -51,6 +51,8 @@ class RoleUser(ModelSimple):
     allowed_values = {
         ('value',): {
             'USER': "user",
+            'TLS_VIEWER': "tls_viewer",
+            'TLS_ADMIN': "tls_admin",
             'BILLING': "billing",
             'ENGINEER': "engineer",
             'SUPERUSER': "superuser",
@@ -105,10 +107,10 @@ class RoleUser(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The permissions role assigned to the user. Can be `user`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "billing", "engineer", "superuser", ]  # noqa: E501
+            args[0] (str): The permissions role assigned to the user. Can be `user`, `tls_viewer`, `tls_admin`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "tls_viewer", "tls_admin", "billing", "engineer", "superuser", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The permissions role assigned to the user. Can be `user`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "billing", "engineer", "superuser", ]  # noqa: E501
+            value (str): The permissions role assigned to the user. Can be `user`, `tls_viewer`, `tls_admin`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "tls_viewer", "tls_admin", "billing", "engineer", "superuser", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -195,10 +197,10 @@ class RoleUser(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The permissions role assigned to the user. Can be `user`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "billing", "engineer", "superuser", ]  # noqa: E501
+            args[0] (str): The permissions role assigned to the user. Can be `user`, `tls_viewer`, `tls_admin`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "tls_viewer", "tls_admin", "billing", "engineer", "superuser", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The permissions role assigned to the user. Can be `user`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "billing", "engineer", "superuser", ]  # noqa: E501
+            value (str): The permissions role assigned to the user. Can be `user`, `tls_viewer`, `tls_admin`, `billing`, `engineer`, or `superuser`.., must be one of ["user", "tls_viewer", "tls_admin", "billing", "engineer", "superuser", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

@@ -30,18 +30,18 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.bot_management_response_links import BotManagementResponseLinks
     from fastly.model.bot_management_response_links_links import BotManagementResponseLinksLinks
     from fastly.model.bot_management_response_product import BotManagementResponseProduct
     from fastly.model.bot_management_response_product_product import BotManagementResponseProductProduct
     from fastly.model.bot_management_response_service import BotManagementResponseService
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['BotManagementResponseLinks'] = BotManagementResponseLinks
     globals()['BotManagementResponseLinksLinks'] = BotManagementResponseLinksLinks
     globals()['BotManagementResponseProduct'] = BotManagementResponseProduct
     globals()['BotManagementResponseProductProduct'] = BotManagementResponseProductProduct
     globals()['BotManagementResponseService'] = BotManagementResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
 
 
 class BotManagementResponseBodyEnable(ModelComposed):
@@ -96,7 +96,7 @@ class BotManagementResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (BotManagementResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (BotManagementResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class BotManagementResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (BotManagementResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (BotManagementResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class BotManagementResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (BotManagementResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (BotManagementResponseLinksLinks): [optional]  # noqa: E501
         """
 

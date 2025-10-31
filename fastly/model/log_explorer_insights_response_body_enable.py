@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.log_explorer_insights_response_links import LogExplorerInsightsResponseLinks
     from fastly.model.log_explorer_insights_response_links_links import LogExplorerInsightsResponseLinksLinks
     from fastly.model.log_explorer_insights_response_product import LogExplorerInsightsResponseProduct
     from fastly.model.log_explorer_insights_response_product_product import LogExplorerInsightsResponseProductProduct
     from fastly.model.log_explorer_insights_response_service import LogExplorerInsightsResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['LogExplorerInsightsResponseLinks'] = LogExplorerInsightsResponseLinks
     globals()['LogExplorerInsightsResponseLinksLinks'] = LogExplorerInsightsResponseLinksLinks
     globals()['LogExplorerInsightsResponseProduct'] = LogExplorerInsightsResponseProduct
@@ -96,7 +96,7 @@ class LogExplorerInsightsResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (LogExplorerInsightsResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (LogExplorerInsightsResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class LogExplorerInsightsResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (LogExplorerInsightsResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (LogExplorerInsightsResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class LogExplorerInsightsResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (LogExplorerInsightsResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (LogExplorerInsightsResponseLinksLinks): [optional]  # noqa: E501
         """
 

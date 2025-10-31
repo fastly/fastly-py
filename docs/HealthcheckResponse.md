@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**check_interval** | **int** | How often to run the health check in milliseconds. | [optional] 
+**check_interval** | **int** | How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour. | [optional] 
 **comment** | **str, none_type** | A freeform descriptive note. | [optional] 
 **expected_response** | **int** | The status code expected from the host. | [optional] 
 **headers** | **[str]** | Array of custom headers that will be added to the health check probes. | [optional] 

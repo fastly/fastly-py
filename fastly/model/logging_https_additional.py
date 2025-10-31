@@ -104,6 +104,7 @@ class LoggingHttpsAdditional(ModelNormal):
             'method': (str,),  # noqa: E501
             'json_format': (str,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'period': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -122,6 +123,7 @@ class LoggingHttpsAdditional(ModelNormal):
         'method': 'method',  # noqa: E501
         'json_format': 'json_format',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'period': 'period',  # noqa: E501
     }
 
     read_only_vars = {
@@ -175,6 +177,7 @@ class LoggingHttpsAdditional(ModelNormal):
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            period (int): How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds.. [optional] if omitted the server will use the default value of 5  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,6 +269,7 @@ class LoggingHttpsAdditional(ModelNormal):
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
             format (str): A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/).. [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"  # noqa: E501
+            period (int): How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds.. [optional] if omitted the server will use the default value of 5  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

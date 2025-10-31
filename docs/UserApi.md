@@ -59,6 +59,9 @@ with fastly.ApiClient(configuration) as api_client:
     locked = True # bool, none_type | Indicates whether the is account is locked for editing or not. (optional)
     require_new_password = True # bool, none_type | Indicates if a new password is required at next login. (optional)
     role = RoleUser("user") # RoleUser |  (optional)
+    roles = [
+        "6bKsDElwPt8vZXCArszK9x",
+    ] # [str] | A list of role IDs assigned to the user. (optional)
     two_factor_auth_enabled = True # bool, none_type | Indicates if 2FA is enabled on the user. (optional)
     two_factor_setup_required = True # bool | Indicates if 2FA is required by the user's customer account. (optional)
 
@@ -66,7 +69,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a user
-        api_response = api_instance.create_user(login=login, name=name, limit_services=limit_services, locked=locked, require_new_password=require_new_password, role=role, two_factor_auth_enabled=two_factor_auth_enabled, two_factor_setup_required=two_factor_setup_required)
+        api_response = api_instance.create_user(login=login, name=name, limit_services=limit_services, locked=locked, require_new_password=require_new_password, role=role, roles=roles, two_factor_auth_enabled=two_factor_auth_enabled, two_factor_setup_required=two_factor_setup_required)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling UserApi->create_user: %s\n" % e)
@@ -83,6 +86,7 @@ Name | Type | Description  | Notes
  **locked** | **bool, none_type**| Indicates whether the is account is locked for editing or not. | [optional]
  **require_new_password** | **bool, none_type**| Indicates if a new password is required at next login. | [optional]
  **role** | [**RoleUser**](RoleUser.md)|  | [optional]
+ **roles** | **[str]**| A list of role IDs assigned to the user. | [optional]
  **two_factor_auth_enabled** | **bool, none_type**| Indicates if 2FA is enabled on the user. | [optional]
  **two_factor_setup_required** | **bool**| Indicates if 2FA is required by the user&#39;s customer account. | [optional]
 
@@ -462,6 +466,9 @@ with fastly.ApiClient(configuration) as api_client:
     locked = True # bool, none_type | Indicates whether the is account is locked for editing or not. (optional)
     require_new_password = True # bool, none_type | Indicates if a new password is required at next login. (optional)
     role = RoleUser("user") # RoleUser |  (optional)
+    roles = [
+        "6bKsDElwPt8vZXCArszK9x",
+    ] # [str] | A list of role IDs assigned to the user. (optional)
     two_factor_auth_enabled = True # bool, none_type | Indicates if 2FA is enabled on the user. (optional)
     two_factor_setup_required = True # bool | Indicates if 2FA is required by the user's customer account. (optional)
 
@@ -477,7 +484,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a user
-        api_response = api_instance.update_user(user_id, login=login, name=name, limit_services=limit_services, locked=locked, require_new_password=require_new_password, role=role, two_factor_auth_enabled=two_factor_auth_enabled, two_factor_setup_required=two_factor_setup_required)
+        api_response = api_instance.update_user(user_id, login=login, name=name, limit_services=limit_services, locked=locked, require_new_password=require_new_password, role=role, roles=roles, two_factor_auth_enabled=two_factor_auth_enabled, two_factor_setup_required=two_factor_setup_required)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling UserApi->update_user: %s\n" % e)
@@ -495,6 +502,7 @@ Name | Type | Description  | Notes
  **locked** | **bool, none_type**| Indicates whether the is account is locked for editing or not. | [optional]
  **require_new_password** | **bool, none_type**| Indicates if a new password is required at next login. | [optional]
  **role** | [**RoleUser**](RoleUser.md)|  | [optional]
+ **roles** | **[str]**| A list of role IDs assigned to the user. | [optional]
  **two_factor_auth_enabled** | **bool, none_type**| Indicates if 2FA is enabled on the user. | [optional]
  **two_factor_setup_required** | **bool**| Indicates if 2FA is required by the user&#39;s customer account. | [optional]
 

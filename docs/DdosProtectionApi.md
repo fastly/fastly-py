@@ -234,6 +234,7 @@ with fastly.ApiClient(configuration) as api_client:
     event_id = "54de69dcba53b02fbf000018" # str | Unique ID of the event.
     cursor = "cursor_example" # str | Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. (optional)
     limit = 20 # int | Limit how many results are returned. (optional) if omitted the server will use the default value of 20
+    include = "include_example" # str | Include relationships. Optional. Comma-separated values. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -247,7 +248,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get all rules for an event
-        api_response = api_instance.ddos_protection_event_rule_list(event_id, cursor=cursor, limit=limit)
+        api_response = api_instance.ddos_protection_event_rule_list(event_id, cursor=cursor, limit=limit, include=include)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling DdosProtectionApi->ddos_protection_event_rule_list: %s\n" % e)
@@ -261,6 +262,7 @@ Name | Type | Description  | Notes
  **event_id** | **str**| Unique ID of the event. |
  **cursor** | **str**| Cursor value from the `next_cursor` field of a previous response, used to retrieve the next page. To request the first page, this should be empty. | [optional]
  **limit** | **int**| Limit how many results are returned. | [optional] if omitted the server will use the default value of 20
+ **include** | **str**| Include relationships. Optional. Comma-separated values. | [optional]
 
 ### Return type
 

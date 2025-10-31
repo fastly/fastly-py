@@ -91,6 +91,7 @@ class User(ModelNormal):
             'locked': (bool, none_type,),  # noqa: E501
             'require_new_password': (bool, none_type,),  # noqa: E501
             'role': (RoleUser,),  # noqa: E501
+            'roles': ([str],),  # noqa: E501
             'two_factor_auth_enabled': (bool, none_type,),  # noqa: E501
             'two_factor_setup_required': (bool,),  # noqa: E501
         }
@@ -107,6 +108,7 @@ class User(ModelNormal):
         'locked': 'locked',  # noqa: E501
         'require_new_password': 'require_new_password',  # noqa: E501
         'role': 'role',  # noqa: E501
+        'roles': 'roles',  # noqa: E501
         'two_factor_auth_enabled': 'two_factor_auth_enabled',  # noqa: E501
         'two_factor_setup_required': 'two_factor_setup_required',  # noqa: E501
     }
@@ -159,6 +161,7 @@ class User(ModelNormal):
             locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
             require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
+            roles ([str]): A list of role IDs assigned to the user.. [optional]  # noqa: E501
             two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
         """
@@ -248,6 +251,7 @@ class User(ModelNormal):
             locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]  # noqa: E501
             require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
+            roles ([str]): A list of role IDs assigned to the user.. [optional]  # noqa: E501
             two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]  # noqa: E501
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]  # noqa: E501
         """

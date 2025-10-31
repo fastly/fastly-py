@@ -31,7 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.ddos_protection_attribute_stats import DdosProtectionAttributeStats
+    from fastly.model.ddos_protection_traffic_percentage import DdosProtectionTrafficPercentage
     globals()['DdosProtectionAttributeStats'] = DdosProtectionAttributeStats
+    globals()['DdosProtectionTrafficPercentage'] = DdosProtectionTrafficPercentage
 
 
 class DdosProtectionTrafficStatsAllOf(ModelNormal):
@@ -88,6 +90,7 @@ class DdosProtectionTrafficStatsAllOf(ModelNormal):
             'customer_id': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'attributes': ([DdosProtectionAttributeStats],),  # noqa: E501
+            'traffic_percentage': (DdosProtectionTrafficPercentage,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +102,7 @@ class DdosProtectionTrafficStatsAllOf(ModelNormal):
         'customer_id': 'customer_id',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'traffic_percentage': 'traffic_percentage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +149,7 @@ class DdosProtectionTrafficStatsAllOf(ModelNormal):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             attributes ([DdosProtectionAttributeStats]): [optional]  # noqa: E501
+            traffic_percentage (DdosProtectionTrafficPercentage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,6 +234,7 @@ class DdosProtectionTrafficStatsAllOf(ModelNormal):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             attributes ([DdosProtectionAttributeStats]): [optional]  # noqa: E501
+            traffic_percentage (DdosProtectionTrafficPercentage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

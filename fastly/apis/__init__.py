@@ -38,6 +38,7 @@ from fastly.api.dictionary_item_api import DictionaryItemApi
 from fastly.api.diff_api import DiffApi
 from fastly.api.director_api import DirectorApi
 from fastly.api.director_backend_api import DirectorBackendApi
+from fastly.api.dm_domains_api import DmDomainsApi
 from fastly.api.domain_api import DomainApi
 from fastly.api.domain_inspector_historical_api import DomainInspectorHistoricalApi
 from fastly.api.domain_inspector_realtime_api import DomainInspectorRealtimeApi
@@ -98,6 +99,7 @@ from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi
 from fastly.api.product_ai_accelerator_api import ProductAiAcceleratorApi
+from fastly.api.product_api_discovery_api import ProductApiDiscoveryApi
 from fastly.api.product_bot_management_api import ProductBotManagementApi
 from fastly.api.product_brotli_compression_api import ProductBrotliCompressionApi
 from fastly.api.product_ddos_protection_api import ProductDdosProtectionApi

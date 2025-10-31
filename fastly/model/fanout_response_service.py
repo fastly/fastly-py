@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
 
 
 class FanoutResponseService(ModelNormal):
@@ -85,7 +85,7 @@ class FanoutResponseService(ModelNormal):
         """
         lazy_import()
         return {
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class FanoutResponseService(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class FanoutResponseService(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

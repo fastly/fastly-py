@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.image_optimizer_response_links import ImageOptimizerResponseLinks
     from fastly.model.image_optimizer_response_links_links import ImageOptimizerResponseLinksLinks
     from fastly.model.image_optimizer_response_product import ImageOptimizerResponseProduct
     from fastly.model.image_optimizer_response_product_product import ImageOptimizerResponseProductProduct
     from fastly.model.image_optimizer_response_service import ImageOptimizerResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['ImageOptimizerResponseLinks'] = ImageOptimizerResponseLinks
     globals()['ImageOptimizerResponseLinksLinks'] = ImageOptimizerResponseLinksLinks
     globals()['ImageOptimizerResponseProduct'] = ImageOptimizerResponseProduct
@@ -96,7 +96,7 @@ class ImageOptimizerResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (ImageOptimizerResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (ImageOptimizerResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class ImageOptimizerResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (ImageOptimizerResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (ImageOptimizerResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class ImageOptimizerResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (ImageOptimizerResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (ImageOptimizerResponseLinksLinks): [optional]  # noqa: E501
         """
 

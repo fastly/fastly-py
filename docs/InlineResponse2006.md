@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[str]** |  | [optional] 
+**data** | [**[KvStoreDetails]**](KvStoreDetails.md) |  | [optional] 
 **meta** | [**PaginationCursorMeta**](PaginationCursorMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

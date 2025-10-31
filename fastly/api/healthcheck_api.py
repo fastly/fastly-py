@@ -78,10 +78,16 @@ class HealthcheckApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'check_interval',
                 ]
             },
             root_map={
                 'validations': {
+                    ('check_interval',): {
+
+                        'inclusive_maximum': 3600000,
+                        'inclusive_minimum': 1000,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -417,10 +423,16 @@ class HealthcheckApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'check_interval',
                 ]
             },
             root_map={
                 'validations': {
+                    ('check_interval',): {
+
+                        'inclusive_maximum': 3600000,
+                        'inclusive_minimum': 1000,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -531,7 +543,7 @@ class HealthcheckApi(object):
             version_id (int): Integer identifying a service version.
 
         Keyword Args:
-            check_interval (int): How often to run the health check in milliseconds.. [optional]
+            check_interval (int): How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour.. [optional]
             comment (str, none_type): A freeform descriptive note.. [optional]
             expected_response (int): The status code expected from the host.. [optional]
             headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]
@@ -882,7 +894,7 @@ class HealthcheckApi(object):
             healthcheck_name (str): The name of the health check.
 
         Keyword Args:
-            check_interval (int): How often to run the health check in milliseconds.. [optional]
+            check_interval (int): How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour.. [optional]
             comment (str, none_type): A freeform descriptive note.. [optional]
             expected_response (int): The status code expected from the host.. [optional]
             headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]

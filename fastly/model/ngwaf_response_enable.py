@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.ngwaf_response_links import NgwafResponseLinks
     from fastly.model.ngwaf_response_links_links import NgwafResponseLinksLinks
     from fastly.model.ngwaf_response_product import NgwafResponseProduct
     from fastly.model.ngwaf_response_product_product import NgwafResponseProductProduct
     from fastly.model.ngwaf_response_service import NgwafResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['NgwafResponseLinks'] = NgwafResponseLinks
     globals()['NgwafResponseLinksLinks'] = NgwafResponseLinksLinks
     globals()['NgwafResponseProduct'] = NgwafResponseProduct
@@ -96,7 +96,7 @@ class NgwafResponseEnable(ModelComposed):
         lazy_import()
         return {
             'product': (NgwafResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (NgwafResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class NgwafResponseEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (NgwafResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (NgwafResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class NgwafResponseEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (NgwafResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (NgwafResponseLinksLinks): [optional]  # noqa: E501
         """
 

@@ -346,6 +346,7 @@ class RealtimeEntryAggregated(ModelComposed):
             'request_collapse_usable_count': (int,),  # noqa: E501
             'request_collapse_unusable_count': (int,),  # noqa: E501
             'compute_cache_operations_count': (int,),  # noqa: E501
+            'api_discovery_requests_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -615,6 +616,7 @@ class RealtimeEntryAggregated(ModelComposed):
         'request_collapse_usable_count': 'request_collapse_usable_count',  # noqa: E501
         'request_collapse_unusable_count': 'request_collapse_unusable_count',  # noqa: E501
         'compute_cache_operations_count': 'compute_cache_operations_count',  # noqa: E501
+        'api_discovery_requests_count': 'api_discovery_requests_count',  # noqa: E501
     }
 
     read_only_vars = {
@@ -917,6 +919,7 @@ class RealtimeEntryAggregated(ModelComposed):
             request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
+            api_discovery_requests_count (int): Number of requests processed by the API Discovery engine.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1277,6 +1280,7 @@ class RealtimeEntryAggregated(ModelComposed):
             request_collapse_usable_count (int): Number of requests that were collapsed and satisfied by a usable cache object.. [optional]  # noqa: E501
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
+            api_discovery_requests_count (int): Number of requests processed by the API Discovery engine.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

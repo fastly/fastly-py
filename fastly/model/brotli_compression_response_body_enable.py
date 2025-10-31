@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.brotli_compression_response_links import BrotliCompressionResponseLinks
     from fastly.model.brotli_compression_response_links_links import BrotliCompressionResponseLinksLinks
     from fastly.model.brotli_compression_response_product import BrotliCompressionResponseProduct
     from fastly.model.brotli_compression_response_product_product import BrotliCompressionResponseProductProduct
     from fastly.model.brotli_compression_response_service import BrotliCompressionResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['BrotliCompressionResponseLinks'] = BrotliCompressionResponseLinks
     globals()['BrotliCompressionResponseLinksLinks'] = BrotliCompressionResponseLinksLinks
     globals()['BrotliCompressionResponseProduct'] = BrotliCompressionResponseProduct
@@ -96,7 +96,7 @@ class BrotliCompressionResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (BrotliCompressionResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (BrotliCompressionResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class BrotliCompressionResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (BrotliCompressionResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (BrotliCompressionResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class BrotliCompressionResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (BrotliCompressionResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (BrotliCompressionResponseLinksLinks): [optional]  # noqa: E501
         """
 

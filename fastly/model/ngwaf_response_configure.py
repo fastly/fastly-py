@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.ngwaf_response_configuration import NgwafResponseConfiguration
     from fastly.model.ngwaf_response_configuration_configuration import NgwafResponseConfigurationConfiguration
     from fastly.model.ngwaf_response_links import NgwafResponseLinks
@@ -38,7 +38,7 @@ def lazy_import():
     from fastly.model.ngwaf_response_product import NgwafResponseProduct
     from fastly.model.ngwaf_response_product_product import NgwafResponseProductProduct
     from fastly.model.ngwaf_response_service import NgwafResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['NgwafResponseConfiguration'] = NgwafResponseConfiguration
     globals()['NgwafResponseConfigurationConfiguration'] = NgwafResponseConfigurationConfiguration
     globals()['NgwafResponseLinks'] = NgwafResponseLinks
@@ -100,7 +100,7 @@ class NgwafResponseConfigure(ModelComposed):
         lazy_import()
         return {
             'product': (NgwafResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'configuration': (NgwafResponseConfigurationConfiguration,),  # noqa: E501
             'links': (NgwafResponseLinksLinks,),  # noqa: E501
         }
@@ -157,7 +157,7 @@ class NgwafResponseConfigure(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (NgwafResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             configuration (NgwafResponseConfigurationConfiguration): [optional]  # noqa: E501
             links (NgwafResponseLinksLinks): [optional]  # noqa: E501
         """
@@ -260,7 +260,7 @@ class NgwafResponseConfigure(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (NgwafResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             configuration (NgwafResponseConfigurationConfiguration): [optional]  # noqa: E501
             links (NgwafResponseLinksLinks): [optional]  # noqa: E501
         """

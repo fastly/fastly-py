@@ -30,7 +30,7 @@ from fastly.exceptions import ApiAttributeError
 
 
 
-class BotManagementResponseServiceService(ModelNormal):
+class SuccessfulResponseAsObjectAllOf(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -80,7 +80,11 @@ class BotManagementResponseServiceService(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'object': (str,),  # noqa: E501
+            'fqdn': (str,),  # noqa: E501
+            'service_id': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'activated': (bool,),  # noqa: E501
+            'verified': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -90,10 +94,16 @@ class BotManagementResponseServiceService(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'object': 'object',  # noqa: E501
+        'fqdn': 'fqdn',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'activated': 'activated',  # noqa: E501
+        'verified': 'verified',  # noqa: E501
     }
 
     read_only_vars = {
+        'activated',  # noqa: E501
+        'verified',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -101,7 +111,7 @@ class BotManagementResponseServiceService(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """BotManagementResponseServiceService - a model defined in OpenAPI
+        """SuccessfulResponseAsObjectAllOf - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,8 +144,12 @@ class BotManagementResponseServiceService(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Service identifier. [optional]  # noqa: E501
-            object (str): Name of the object. [optional]  # noqa: E501
+            id (str): Domain Identifier (UUID).. [optional]  # noqa: E501
+            fqdn (str): The fully-qualified domain name for your domain. Can be created, but not updated.. [optional]  # noqa: E501
+            service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            description (str): A freeform descriptive note.. [optional]  # noqa: E501
+            activated (bool): Denotes if the domain has at least one TLS activation or not.. [optional]  # noqa: E501
+            verified (bool): Denotes that the customer has proven ownership over the domain by obtaining a Fastly-managed TLS certificate for it or by providing a their own TLS certificate from a publicly-trusted CA that includes the domain or matching wildcard.     . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,7 +198,7 @@ class BotManagementResponseServiceService(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """BotManagementResponseServiceService - a model defined in OpenAPI
+        """SuccessfulResponseAsObjectAllOf - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +231,12 @@ class BotManagementResponseServiceService(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Service identifier. [optional]  # noqa: E501
-            object (str): Name of the object. [optional]  # noqa: E501
+            id (str): Domain Identifier (UUID).. [optional]  # noqa: E501
+            fqdn (str): The fully-qualified domain name for your domain. Can be created, but not updated.. [optional]  # noqa: E501
+            service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            description (str): A freeform descriptive note.. [optional]  # noqa: E501
+            activated (bool): Denotes if the domain has at least one TLS activation or not.. [optional]  # noqa: E501
+            verified (bool): Denotes that the customer has proven ownership over the domain by obtaining a Fastly-managed TLS certificate for it or by providing a their own TLS certificate from a publicly-trusted CA that includes the domain or matching wildcard.     . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

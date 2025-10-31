@@ -52,7 +52,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = healthcheck_api.HealthcheckApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
-    check_interval = 1 # int | How often to run the health check in milliseconds. (optional)
+    check_interval = 1000 # int | How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour. (optional)
     comment = "" # str, none_type | A freeform descriptive note. (optional)
     expected_response = 1 # int | The status code expected from the host. (optional)
     headers = [
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
- **check_interval** | **int**| How often to run the health check in milliseconds. | [optional]
+ **check_interval** | **int**| How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour. | [optional]
  **comment** | **str, none_type**| A freeform descriptive note. | [optional]
  **expected_response** | **int**| The status code expected from the host. | [optional]
  **headers** | **[str]**| Array of custom headers that will be added to the health check probes. | [optional]
@@ -414,7 +414,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     version_id = 1 # int | Integer identifying a service version.
     healthcheck_name = "test-healthcheck" # str | The name of the health check.
-    check_interval = 1 # int | How often to run the health check in milliseconds. (optional)
+    check_interval = 1000 # int | How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour. (optional)
     comment = "" # str, none_type | A freeform descriptive note. (optional)
     expected_response = 1 # int | The status code expected from the host. (optional)
     headers = [
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **version_id** | **int**| Integer identifying a service version. |
  **healthcheck_name** | **str**| The name of the health check. |
- **check_interval** | **int**| How often to run the health check in milliseconds. | [optional]
+ **check_interval** | **int**| How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour. | [optional]
  **comment** | **str, none_type**| A freeform descriptive note. | [optional]
  **expected_response** | **int**| The status code expected from the host. | [optional]
  **headers** | **[str]**| Array of custom headers that will be added to the health check probes. | [optional]

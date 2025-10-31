@@ -92,6 +92,7 @@ class InvitationDataAttributes(ModelNormal):
             'email': (str,),  # noqa: E501
             'limit_services': (bool,),  # noqa: E501
             'role': (RoleUser,),  # noqa: E501
+            'roles': ([str],),  # noqa: E501
             'status_code': (int,),  # noqa: E501
         }
 
@@ -104,6 +105,7 @@ class InvitationDataAttributes(ModelNormal):
         'email': 'email',  # noqa: E501
         'limit_services': 'limit_services',  # noqa: E501
         'role': 'role',  # noqa: E501
+        'roles': 'roles',  # noqa: E501
         'status_code': 'status_code',  # noqa: E501
     }
 
@@ -151,6 +153,7 @@ class InvitationDataAttributes(ModelNormal):
             email (str): The email address of the invitee.. [optional]  # noqa: E501
             limit_services (bool): Indicates the user has limited access to the customer's services.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
+            roles ([str]): [optional]  # noqa: E501
             status_code (int): Indicates whether or not the invitation is active.. [optional]  # noqa: E501
         """
 
@@ -236,6 +239,7 @@ class InvitationDataAttributes(ModelNormal):
             email (str): The email address of the invitee.. [optional]  # noqa: E501
             limit_services (bool): Indicates the user has limited access to the customer's services.. [optional]  # noqa: E501
             role (RoleUser): [optional]  # noqa: E501
+            roles ([str]): [optional]  # noqa: E501
             status_code (int): Indicates whether or not the invitation is active.. [optional]  # noqa: E501
         """
 

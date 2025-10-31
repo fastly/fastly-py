@@ -31,9 +31,11 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.ddos_protection_attribute_stats import DdosProtectionAttributeStats
+    from fastly.model.ddos_protection_traffic_percentage import DdosProtectionTrafficPercentage
     from fastly.model.ddos_protection_traffic_stats_all_of import DdosProtectionTrafficStatsAllOf
     from fastly.model.timestamps_no_delete import TimestampsNoDelete
     globals()['DdosProtectionAttributeStats'] = DdosProtectionAttributeStats
+    globals()['DdosProtectionTrafficPercentage'] = DdosProtectionTrafficPercentage
     globals()['DdosProtectionTrafficStatsAllOf'] = DdosProtectionTrafficStatsAllOf
     globals()['TimestampsNoDelete'] = TimestampsNoDelete
 
@@ -94,6 +96,7 @@ class DdosProtectionTrafficStats(ModelComposed):
             'customer_id': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'attributes': ([DdosProtectionAttributeStats],),  # noqa: E501
+            'traffic_percentage': (DdosProtectionTrafficPercentage,),  # noqa: E501
         }
 
     @cached_property
@@ -107,6 +110,7 @@ class DdosProtectionTrafficStats(ModelComposed):
         'customer_id': 'customer_id',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'traffic_percentage': 'traffic_percentage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,6 +159,7 @@ class DdosProtectionTrafficStats(ModelComposed):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             attributes ([DdosProtectionAttributeStats]): [optional]  # noqa: E501
+            traffic_percentage (DdosProtectionTrafficPercentage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +264,7 @@ class DdosProtectionTrafficStats(ModelComposed):
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             attributes ([DdosProtectionAttributeStats]): [optional]  # noqa: E501
+            traffic_percentage (DdosProtectionTrafficPercentage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

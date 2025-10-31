@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2009 import InlineResponse2009
+from fastly.model.inline_response20010 import InlineResponse20010
 from fastly.model.service_authorization import ServiceAuthorization
 from fastly.model.service_authorization_response import ServiceAuthorizationResponse
 from fastly.model.service_authorizations_response import ServiceAuthorizationsResponse
@@ -151,7 +151,7 @@ class ServiceAuthorizationsApi(object):
         )
         self.delete_service_authorization2_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2009,),
+                'response_type': (InlineResponse20010,),
                 'auth': [
                     'token'
                 ],
@@ -649,7 +649,7 @@ class ServiceAuthorizationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2009
+            InlineResponse20010
                 If the method is called asynchronously, returns the request
                 thread.
         """

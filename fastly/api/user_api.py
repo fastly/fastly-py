@@ -59,6 +59,7 @@ class UserApi(object):
                     'locked',
                     'require_new_password',
                     'role',
+                    'roles',
                     'two_factor_auth_enabled',
                     'two_factor_setup_required',
                 ],
@@ -91,6 +92,8 @@ class UserApi(object):
                         (bool, none_type,),
                     'role':
                         (RoleUser,),
+                    'roles':
+                        ([str],),
                     'two_factor_auth_enabled':
                         (bool, none_type,),
                     'two_factor_setup_required':
@@ -103,6 +106,7 @@ class UserApi(object):
                     'locked': 'locked',
                     'require_new_password': 'require_new_password',
                     'role': 'role',
+                    'roles': 'roles',
                     'two_factor_auth_enabled': 'two_factor_auth_enabled',
                     'two_factor_setup_required': 'two_factor_setup_required',
                 },
@@ -113,12 +117,14 @@ class UserApi(object):
                     'locked': 'form',
                     'require_new_password': 'form',
                     'role': 'form',
+                    'roles': 'form',
                     'two_factor_auth_enabled': 'form',
                     'two_factor_setup_required': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
+                    'roles': 'csv',
                 }
             },
             headers_map={
@@ -381,6 +387,7 @@ class UserApi(object):
                     'locked',
                     'require_new_password',
                     'role',
+                    'roles',
                     'two_factor_auth_enabled',
                     'two_factor_setup_required',
                 ],
@@ -417,6 +424,8 @@ class UserApi(object):
                         (bool, none_type,),
                     'role':
                         (RoleUser,),
+                    'roles':
+                        ([str],),
                     'two_factor_auth_enabled':
                         (bool, none_type,),
                     'two_factor_setup_required':
@@ -430,6 +439,7 @@ class UserApi(object):
                     'locked': 'locked',
                     'require_new_password': 'require_new_password',
                     'role': 'role',
+                    'roles': 'roles',
                     'two_factor_auth_enabled': 'two_factor_auth_enabled',
                     'two_factor_setup_required': 'two_factor_setup_required',
                 },
@@ -441,12 +451,14 @@ class UserApi(object):
                     'locked': 'form',
                     'require_new_password': 'form',
                     'role': 'form',
+                    'roles': 'form',
                     'two_factor_auth_enabled': 'form',
                     'two_factor_setup_required': 'form',
                 },
                 'path_params_allow_reserved_map': {
                 },
                 'collection_format_map': {
+                    'roles': 'csv',
                 }
             },
             headers_map={
@@ -544,6 +556,7 @@ class UserApi(object):
             locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]
             require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]
             role (RoleUser): [optional]
+            roles ([str]): A list of role IDs assigned to the user.. [optional]
             two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -935,6 +948,7 @@ class UserApi(object):
             locked (bool, none_type): Indicates whether the is account is locked for editing or not.. [optional]
             require_new_password (bool, none_type): Indicates if a new password is required at next login.. [optional]
             role (RoleUser): [optional]
+            roles ([str]): A list of role IDs assigned to the user.. [optional]
             two_factor_auth_enabled (bool, none_type): Indicates if 2FA is enabled on the user.. [optional]
             two_factor_setup_required (bool): Indicates if 2FA is required by the user's customer account.. [optional]
             _return_http_data_only (bool): response data without head status

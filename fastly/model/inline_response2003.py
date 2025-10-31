@@ -30,9 +30,9 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.ddos_protection_rule import DdosProtectionRule
+    from fastly.model.ddos_protection_rule_with_stats import DdosProtectionRuleWithStats
     from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['DdosProtectionRule'] = DdosProtectionRule
+    globals()['DdosProtectionRuleWithStats'] = DdosProtectionRuleWithStats
     globals()['PaginationCursorMeta'] = PaginationCursorMeta
 
 
@@ -87,7 +87,7 @@ class InlineResponse2003(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([DdosProtectionRule],),  # noqa: E501
+            'data': ([DdosProtectionRuleWithStats],),  # noqa: E501
             'meta': (PaginationCursorMeta,),  # noqa: E501
         }
 
@@ -108,8 +108,12 @@ class InlineResponse2003(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, data, meta, *args, **kwargs):  # noqa: E501
         """InlineResponse2003 - a model defined in OpenAPI
+
+        Args:
+            data ([DdosProtectionRuleWithStats]):
+            meta (PaginationCursorMeta):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,8 +146,6 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionRule]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -171,6 +173,8 @@ class InlineResponse2003(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.data = data
+        self.meta = meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -191,8 +195,12 @@ class InlineResponse2003(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, data, meta, *args, **kwargs):  # noqa: E501
         """InlineResponse2003 - a model defined in OpenAPI
+
+        Args:
+            data ([DdosProtectionRuleWithStats]):
+            meta (PaginationCursorMeta):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -225,8 +233,6 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionRule]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +258,8 @@ class InlineResponse2003(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.data = data
+        self.meta = meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

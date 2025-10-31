@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.websockets_response_links import WebsocketsResponseLinks
     from fastly.model.websockets_response_links_links import WebsocketsResponseLinksLinks
     from fastly.model.websockets_response_product import WebsocketsResponseProduct
     from fastly.model.websockets_response_product_product import WebsocketsResponseProductProduct
     from fastly.model.websockets_response_service import WebsocketsResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['WebsocketsResponseLinks'] = WebsocketsResponseLinks
     globals()['WebsocketsResponseLinksLinks'] = WebsocketsResponseLinksLinks
     globals()['WebsocketsResponseProduct'] = WebsocketsResponseProduct
@@ -96,7 +96,7 @@ class WebsocketsResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (WebsocketsResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (WebsocketsResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class WebsocketsResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (WebsocketsResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (WebsocketsResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class WebsocketsResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (WebsocketsResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (WebsocketsResponseLinksLinks): [optional]  # noqa: E501
         """
 

@@ -56,6 +56,10 @@ class Healthcheck(ModelNormal):
     }
 
     validations = {
+        ('check_interval',): {
+            'inclusive_maximum': 3600000,
+            'inclusive_minimum': 1000,
+        },
     }
 
     @cached_property
@@ -156,7 +160,7 @@ class Healthcheck(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            check_interval (int): How often to run the health check in milliseconds.. [optional]  # noqa: E501
+            check_interval (int): How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             expected_response (int): The status code expected from the host.. [optional]  # noqa: E501
             headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]  # noqa: E501
@@ -250,7 +254,7 @@ class Healthcheck(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            check_interval (int): How often to run the health check in milliseconds.. [optional]  # noqa: E501
+            check_interval (int): How often to run the health check in milliseconds. Minimum 1 second, maximum 1 hour.. [optional]  # noqa: E501
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             expected_response (int): The status code expected from the host.. [optional]  # noqa: E501
             headers ([str]): Array of custom headers that will be added to the health check probes.. [optional]  # noqa: E501

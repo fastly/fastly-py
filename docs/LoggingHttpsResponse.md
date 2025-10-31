@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **header_value** | **str, none_type** | Value of the custom header sent with the request. | [optional]  if omitted the server will use the default value of "null"
 **method** | **str** | HTTP method used for request. | [optional]  if omitted the server will use the default value of "POST"
 **json_format** | **str** | Enforces valid JSON formatting for log entries. | [optional] 
+**period** | **int** | How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds. | [optional]  if omitted the server will use the default value of 5
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **updated_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

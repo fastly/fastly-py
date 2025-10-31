@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.origin_inspector_response_links import OriginInspectorResponseLinks
     from fastly.model.origin_inspector_response_links_links import OriginInspectorResponseLinksLinks
     from fastly.model.origin_inspector_response_product import OriginInspectorResponseProduct
     from fastly.model.origin_inspector_response_product_product import OriginInspectorResponseProductProduct
     from fastly.model.origin_inspector_response_service import OriginInspectorResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['OriginInspectorResponseLinks'] = OriginInspectorResponseLinks
     globals()['OriginInspectorResponseLinksLinks'] = OriginInspectorResponseLinksLinks
     globals()['OriginInspectorResponseProduct'] = OriginInspectorResponseProduct
@@ -96,7 +96,7 @@ class OriginInspectorResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (OriginInspectorResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (OriginInspectorResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class OriginInspectorResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (OriginInspectorResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (OriginInspectorResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class OriginInspectorResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (OriginInspectorResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (OriginInspectorResponseLinksLinks): [optional]  # noqa: E501
         """
 

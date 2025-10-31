@@ -29,8 +29,12 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
 
-class IamRoleAllOf(ModelNormal):
+
+class ApiDiscoveryResponseService(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +68,7 @@ class IamRoleAllOf(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,13 +83,9 @@ class IamRoleAllOf(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'id': (str,),  # noqa: E501
-            'object': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'custom': (bool,),  # noqa: E501
-            'permissions_count': (int,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
         }
 
     @cached_property
@@ -93,12 +94,7 @@ class IamRoleAllOf(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'object': 'object',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'custom': 'custom',  # noqa: E501
-        'permissions_count': 'permissions_count',  # noqa: E501
+        'service': 'service',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,7 +105,7 @@ class IamRoleAllOf(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """IamRoleAllOf - a model defined in OpenAPI
+        """ApiDiscoveryResponseService - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,12 +138,7 @@ class IamRoleAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Alphanumeric string identifying the role.. [optional]  # noqa: E501
-            object (str): The type of the object.. [optional]  # noqa: E501
-            name (str): Name of the role.. [optional]  # noqa: E501
-            description (str): Description of the role.. [optional]  # noqa: E501
-            custom (bool): This attribute is set to `true` if the role is managed by the customer. It is set to `false` if the role was created by Fastly.. [optional]  # noqa: E501
-            permissions_count (int): Number of permissions assigned to the role.. [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -196,7 +187,7 @@ class IamRoleAllOf(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """IamRoleAllOf - a model defined in OpenAPI
+        """ApiDiscoveryResponseService - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,12 +220,7 @@ class IamRoleAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Alphanumeric string identifying the role.. [optional]  # noqa: E501
-            object (str): The type of the object.. [optional]  # noqa: E501
-            name (str): Name of the role.. [optional]  # noqa: E501
-            description (str): Description of the role.. [optional]  # noqa: E501
-            custom (bool): This attribute is set to `true` if the role is managed by the customer. It is set to `false` if the role was created by Fastly.. [optional]  # noqa: E501
-            permissions_count (int): Number of permissions assigned to the role.. [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

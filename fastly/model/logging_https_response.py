@@ -139,6 +139,7 @@ class LoggingHttpsResponse(ModelComposed):
             'header_value': (str, none_type,),  # noqa: E501
             'method': (str,),  # noqa: E501
             'json_format': (str,),  # noqa: E501
+            'period': (int,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'deleted_at': (datetime, none_type,),  # noqa: E501
             'updated_at': (datetime, none_type,),  # noqa: E501
@@ -171,6 +172,7 @@ class LoggingHttpsResponse(ModelComposed):
         'header_value': 'header_value',  # noqa: E501
         'method': 'method',  # noqa: E501
         'json_format': 'json_format',  # noqa: E501
+        'period': 'period',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'deleted_at': 'deleted_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
@@ -241,6 +243,7 @@ class LoggingHttpsResponse(ModelComposed):
             header_value (str, none_type): Value of the custom header sent with the request.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
+            period (int): How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds.. [optional] if omitted the server will use the default value of 5  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -364,6 +367,7 @@ class LoggingHttpsResponse(ModelComposed):
             header_value (str, none_type): Value of the custom header sent with the request.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             method (str): HTTP method used for request.. [optional] if omitted the server will use the default value of "POST"  # noqa: E501
             json_format (str): Enforces valid JSON formatting for log entries.. [optional]  # noqa: E501
+            period (int): How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds.. [optional] if omitted the server will use the default value of 5  # noqa: E501
             created_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             deleted_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

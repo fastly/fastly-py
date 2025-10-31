@@ -72,6 +72,7 @@ with fastly.ApiClient(configuration) as api_client:
     header_value = "null" # str, none_type | Value of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
     method = "POST" # str | HTTP method used for request. (optional) if omitted the server will use the default value of "POST"
     json_format = "0" # str | Enforces valid JSON formatting for log entries. (optional)
+    period = 5 # int | How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds. (optional) if omitted the server will use the default value of 5
 
     # example passing only required values which don't have defaults set
     try:
@@ -85,7 +86,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an HTTPS log endpoint
-        api_response = api_instance.create_log_https(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, tls_ca_cert=tls_ca_cert, tls_client_cert=tls_client_cert, tls_client_key=tls_client_key, tls_hostname=tls_hostname, request_max_entries=request_max_entries, request_max_bytes=request_max_bytes, url=url, content_type=content_type, header_name=header_name, message_type=message_type, header_value=header_value, method=method, json_format=json_format)
+        api_response = api_instance.create_log_https(service_id, version_id, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, tls_ca_cert=tls_ca_cert, tls_client_cert=tls_client_cert, tls_client_key=tls_client_key, tls_hostname=tls_hostname, request_max_entries=request_max_entries, request_max_bytes=request_max_bytes, url=url, content_type=content_type, header_name=header_name, message_type=message_type, header_value=header_value, method=method, json_format=json_format, period=period)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingHttpsApi->create_log_https: %s\n" % e)
@@ -117,6 +118,7 @@ Name | Type | Description  | Notes
  **header_value** | **str, none_type**| Value of the custom header sent with the request. | [optional] if omitted the server will use the default value of "null"
  **method** | **str**| HTTP method used for request. | [optional] if omitted the server will use the default value of "POST"
  **json_format** | **str**| Enforces valid JSON formatting for log entries. | [optional]
+ **period** | **int**| How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds. | [optional] if omitted the server will use the default value of 5
 
 ### Return type
 
@@ -445,6 +447,7 @@ with fastly.ApiClient(configuration) as api_client:
     header_value = "null" # str, none_type | Value of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
     method = "POST" # str | HTTP method used for request. (optional) if omitted the server will use the default value of "POST"
     json_format = "0" # str | Enforces valid JSON formatting for log entries. (optional)
+    period = 5 # int | How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds. (optional) if omitted the server will use the default value of 5
 
     # example passing only required values which don't have defaults set
     try:
@@ -458,7 +461,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update an HTTPS log endpoint
-        api_response = api_instance.update_log_https(service_id, version_id, logging_https_name, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, tls_ca_cert=tls_ca_cert, tls_client_cert=tls_client_cert, tls_client_key=tls_client_key, tls_hostname=tls_hostname, request_max_entries=request_max_entries, request_max_bytes=request_max_bytes, url=url, content_type=content_type, header_name=header_name, message_type=message_type, header_value=header_value, method=method, json_format=json_format)
+        api_response = api_instance.update_log_https(service_id, version_id, logging_https_name, name=name, placement=placement, response_condition=response_condition, format=format, log_processing_region=log_processing_region, format_version=format_version, tls_ca_cert=tls_ca_cert, tls_client_cert=tls_client_cert, tls_client_key=tls_client_key, tls_hostname=tls_hostname, request_max_entries=request_max_entries, request_max_bytes=request_max_bytes, url=url, content_type=content_type, header_name=header_name, message_type=message_type, header_value=header_value, method=method, json_format=json_format, period=period)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling LoggingHttpsApi->update_log_https: %s\n" % e)
@@ -491,6 +494,7 @@ Name | Type | Description  | Notes
  **header_value** | **str, none_type**| Value of the custom header sent with the request. | [optional] if omitted the server will use the default value of "null"
  **method** | **str**| HTTP method used for request. | [optional] if omitted the server will use the default value of "POST"
  **json_format** | **str**| Enforces valid JSON formatting for log entries. | [optional]
+ **period** | **int**| How frequently, in seconds, batches of log data are sent to the HTTPS endpoint. A value of `0` sends logs at the same interval as the default, which is `5` seconds. | [optional] if omitted the server will use the default value of 5
 
 ### Return type
 

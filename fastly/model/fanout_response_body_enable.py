@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.fanout_response_links import FanoutResponseLinks
     from fastly.model.fanout_response_links_links import FanoutResponseLinksLinks
     from fastly.model.fanout_response_product import FanoutResponseProduct
     from fastly.model.fanout_response_product_product import FanoutResponseProductProduct
     from fastly.model.fanout_response_service import FanoutResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['FanoutResponseLinks'] = FanoutResponseLinks
     globals()['FanoutResponseLinksLinks'] = FanoutResponseLinksLinks
     globals()['FanoutResponseProduct'] = FanoutResponseProduct
@@ -96,7 +96,7 @@ class FanoutResponseBodyEnable(ModelComposed):
         lazy_import()
         return {
             'product': (FanoutResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (FanoutResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class FanoutResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (FanoutResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (FanoutResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class FanoutResponseBodyEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (FanoutResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (FanoutResponseLinksLinks): [optional]  # noqa: E501
         """
 

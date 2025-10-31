@@ -266,6 +266,7 @@ Name | Type | Description | Notes
 **request_collapse_usable_count** | **int** | Number of requests that were collapsed and satisfied by a usable cache object. | [optional] 
 **request_collapse_unusable_count** | **int** | Number of requests that were collapsed and unable to be satisfied by the resulting cache object. | [optional] 
 **compute_cache_operations_count** | **int** | Number of cache operations executed by the Compute platform. | [optional] 
+**api_discovery_requests_count** | **int** | Number of requests processed by the API Discovery engine. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

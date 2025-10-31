@@ -30,13 +30,13 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.bot_management_response_service_service import BotManagementResponseServiceService
+    from fastly.model.api_discovery_response_service_service import ApiDiscoveryResponseServiceService
     from fastly.model.ddos_protection_response_links import DdosProtectionResponseLinks
     from fastly.model.ddos_protection_response_links_links import DdosProtectionResponseLinksLinks
     from fastly.model.ddos_protection_response_product import DdosProtectionResponseProduct
     from fastly.model.ddos_protection_response_product_product import DdosProtectionResponseProductProduct
     from fastly.model.ddos_protection_response_service import DdosProtectionResponseService
-    globals()['BotManagementResponseServiceService'] = BotManagementResponseServiceService
+    globals()['ApiDiscoveryResponseServiceService'] = ApiDiscoveryResponseServiceService
     globals()['DdosProtectionResponseLinks'] = DdosProtectionResponseLinks
     globals()['DdosProtectionResponseLinksLinks'] = DdosProtectionResponseLinksLinks
     globals()['DdosProtectionResponseProduct'] = DdosProtectionResponseProduct
@@ -96,7 +96,7 @@ class DdosProtectionResponseEnable(ModelComposed):
         lazy_import()
         return {
             'product': (DdosProtectionResponseProductProduct,),  # noqa: E501
-            'service': (BotManagementResponseServiceService,),  # noqa: E501
+            'service': (ApiDiscoveryResponseServiceService,),  # noqa: E501
             'links': (DdosProtectionResponseLinksLinks,),  # noqa: E501
         }
 
@@ -151,7 +151,7 @@ class DdosProtectionResponseEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (DdosProtectionResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (DdosProtectionResponseLinksLinks): [optional]  # noqa: E501
         """
 
@@ -253,7 +253,7 @@ class DdosProtectionResponseEnable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             product (DdosProtectionResponseProductProduct): [optional]  # noqa: E501
-            service (BotManagementResponseServiceService): [optional]  # noqa: E501
+            service (ApiDiscoveryResponseServiceService): [optional]  # noqa: E501
             links (DdosProtectionResponseLinksLinks): [optional]  # noqa: E501
         """
 
