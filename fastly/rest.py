@@ -35,11 +35,17 @@ class RESTResponse(io.IOBase):
 
     def getheaders(self):
         """Returns a dictionary of the response headers."""
-        return self.urllib3_response.headers
+        # .getheaders() is deprecated in urllib3 2.0.0 and removed in 2.6.0
+        if hasattr(self.urllib3_response, 'headers'):
+            return self.urllib3_response.headers
+        return self.urllib3_response.getheaders()
 
     def getheader(self, name, default=None):
         """Returns a given response header."""
-        return self.urllib3_response.headers.get(name, default)
+        # .getheaders() is deprecated in urllib3 2.0.0 and removed in 2.6.0
+        if hasattr(self.urllib3_response, 'headers'):
+            return self.urllib3_response.headers.get(name, default)
+        return self.urllib3_response.getheader(name, default)
 
 
 class RESTClientObject(object):
