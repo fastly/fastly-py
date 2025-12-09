@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_secret_stores**
-> InlineResponse2008 get_secret_stores()
+> InlineResponse2009 get_secret_stores()
 
 Get all secret stores
 
@@ -338,7 +338,7 @@ Get all secret stores.
 import time
 import fastly
 from fastly.api import secret_store_api
-from fastly.model.inline_response2008 import InlineResponse2008
+from fastly.model.inline_response2009 import InlineResponse2009
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 

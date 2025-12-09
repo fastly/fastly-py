@@ -91,6 +91,8 @@ class DdosProtectionEvent(ModelComposed):
             'updated_at': (datetime, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'requests_allowed': (int,),  # noqa: E501
+            'requests_detected': (int,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'started_at': (datetime, none_type,),  # noqa: E501
@@ -107,6 +109,8 @@ class DdosProtectionEvent(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'requests_allowed': 'requests_allowed',  # noqa: E501
+        'requests_detected': 'requests_detected',  # noqa: E501
         'customer_id': 'customer_id',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'started_at': 'started_at',  # noqa: E501
@@ -160,6 +164,8 @@ class DdosProtectionEvent(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             id (str): Unique ID of the event.. [optional]  # noqa: E501
             name (str): A human-readable name for the event.. [optional]  # noqa: E501
+            requests_allowed (int): Number of requests classified as non-attack traffic for an event.. [optional]  # noqa: E501
+            requests_detected (int): Number of requests classified as DDoS attack traffic for an event.. [optional]  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             started_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
@@ -267,6 +273,8 @@ class DdosProtectionEvent(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             id (str): Unique ID of the event.. [optional]  # noqa: E501
             name (str): A human-readable name for the event.. [optional]  # noqa: E501
+            requests_allowed (int): Number of requests classified as non-attack traffic for an event.. [optional]  # noqa: E501
+            requests_detected (int): Number of requests classified as DDoS attack traffic for an event.. [optional]  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             started_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501

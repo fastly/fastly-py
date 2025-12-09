@@ -188,7 +188,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_service_authorization2**
-> InlineResponse20010 delete_service_authorization2()
+> InlineResponse20011 delete_service_authorization2()
 
 Delete service authorizations
 
@@ -202,7 +202,7 @@ Delete service authorizations.
 import time
 import fastly
 from fastly.api import service_authorizations_api
-from fastly.model.inline_response20010 import InlineResponse20010
+from fastly.model.inline_response20011 import InlineResponse20011
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

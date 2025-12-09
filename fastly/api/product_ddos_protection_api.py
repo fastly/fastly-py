@@ -21,6 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fastly.model.ddos_protection_request_enable_mode import DdosProtectionRequestEnableMode
 from fastly.model.ddos_protection_request_update_configuration import DdosProtectionRequestUpdateConfiguration
 from fastly.model.ddos_protection_response_body_get_all_services import DdosProtectionResponseBodyGetAllServices
 from fastly.model.ddos_protection_response_configure import DdosProtectionResponseConfigure
@@ -111,6 +112,7 @@ class ProductDdosProtectionApi(object):
             params_map={
                 'all': [
                     'service_id',
+                    'ddos_protection_request_enable_mode',
                 ],
                 'required': [
                     'service_id',
@@ -130,12 +132,15 @@ class ProductDdosProtectionApi(object):
                 'openapi_types': {
                     'service_id':
                         (str,),
+                    'ddos_protection_request_enable_mode':
+                        (DdosProtectionRequestEnableMode,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                 },
                 'location_map': {
                     'service_id': 'path',
+                    'ddos_protection_request_enable_mode': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -146,7 +151,9 @@ class ProductDdosProtectionApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -467,7 +474,7 @@ class ProductDdosProtectionApi(object):
     ):
         """Enable product  # noqa: E501
 
-        Enable the DDoS Protection product on a service in 'log' mode.  # noqa: E501
+        Enable the DDoS Protection product on a service in default 'log' mode unless otherwise specified in the request body.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -478,6 +485,7 @@ class ProductDdosProtectionApi(object):
             service_id (str): Alphanumeric string identifying the service.
 
         Keyword Args:
+            ddos_protection_request_enable_mode (DdosProtectionRequestEnableMode): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

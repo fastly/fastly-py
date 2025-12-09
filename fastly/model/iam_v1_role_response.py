@@ -81,6 +81,7 @@ class IamV1RoleResponse(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'permissions': ([str],),  # noqa: E501
         }
@@ -93,6 +94,7 @@ class IamV1RoleResponse(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'display_name': 'display_name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
     }
@@ -140,6 +142,7 @@ class IamV1RoleResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            display_name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             permissions ([str]): The set of permissions granted to this role.. [optional]  # noqa: E501
         """
@@ -225,6 +228,7 @@ class IamV1RoleResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            display_name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             permissions ([str]): The set of permissions granted to this role.. [optional]  # noqa: E501
         """

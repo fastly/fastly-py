@@ -21,9 +21,9 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2006 import InlineResponse2006
+from fastly.model.inline_response2007 import InlineResponse2007
 from fastly.model.kv_store_details import KvStoreDetails
-from fastly.model.kv_store_request_create import KvStoreRequestCreate
+from fastly.model.kv_store_request_create_or_update import KvStoreRequestCreateOrUpdate
 
 
 class KvStoreApi(object):
@@ -54,7 +54,7 @@ class KvStoreApi(object):
             params_map={
                 'all': [
                     'location',
-                    'kv_store_request_create',
+                    'kv_store_request_create_or_update',
                 ],
                 'required': [],
                 'nullable': [
@@ -80,15 +80,15 @@ class KvStoreApi(object):
                 'openapi_types': {
                     'location':
                         (str,),
-                    'kv_store_request_create':
-                        (KvStoreRequestCreate,),
+                    'kv_store_request_create_or_update':
+                        (KvStoreRequestCreateOrUpdate,),
                 },
                 'attribute_map': {
                     'location': 'location',
                 },
                 'location_map': {
                     'location': 'query',
-                    'kv_store_request_create': 'body',
+                    'kv_store_request_create_or_update': 'body',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -221,7 +221,7 @@ class KvStoreApi(object):
         )
         self.kv_store_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2006,),
+                'response_type': (InlineResponse2007,),
                 'auth': [
                     'token'
                 ],
@@ -290,6 +290,68 @@ class KvStoreApi(object):
             },
             api_client=api_client
         )
+        self.kv_store_put_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/resources/stores/kv/{store_id}',
+                'operation_id': 'kv_store_put',
+                'http_method': 'PUT',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'store_id',
+                    'kv_store_request_create_or_update',
+                ],
+                'required': [
+                    'store_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'store_id':
+                        (str,),
+                    'kv_store_request_create_or_update':
+                        (KvStoreRequestCreateOrUpdate,),
+                },
+                'attribute_map': {
+                    'store_id': 'store_id',
+                },
+                'location_map': {
+                    'store_id': 'path',
+                    'kv_store_request_create_or_update': 'body',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def kv_store_create(
         self,
@@ -307,7 +369,7 @@ class KvStoreApi(object):
 
         Keyword Args:
             location (str): [optional]
-            kv_store_request_create (KvStoreRequestCreate): [optional]
+            kv_store_request_create_or_update (KvStoreRequestCreateOrUpdate): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -568,7 +630,7 @@ class KvStoreApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2006
+            InlineResponse2007
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -597,4 +659,83 @@ class KvStoreApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.kv_store_list_endpoint.call_with_http_info(**kwargs)
+
+    def kv_store_put(
+        self,
+        store_id,
+        **kwargs
+    ):
+        """Update a KV store.  # noqa: E501
+
+        Update the name of a KV store.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.kv_store_put(store_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            store_id (str):
+
+        Keyword Args:
+            kv_store_request_create_or_update (KvStoreRequestCreateOrUpdate): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['store_id'] = \
+            store_id
+        return self.kv_store_put_endpoint.call_with_http_info(**kwargs)
 

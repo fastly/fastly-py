@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**kv_store_delete**](KvStoreApi.md#kv_store_delete) | **DELETE** /resources/stores/kv/{store_id} | Delete a KV store.
 [**kv_store_get**](KvStoreApi.md#kv_store_get) | **GET** /resources/stores/kv/{store_id} | Describe a KV store.
 [**kv_store_list**](KvStoreApi.md#kv_store_list) | **GET** /resources/stores/kv | List all KV stores.
+[**kv_store_put**](KvStoreApi.md#kv_store_put) | **PUT** /resources/stores/kv/{store_id} | Update a KV store.
 
 
 # **kv_store_create**
@@ -26,7 +27,7 @@ Create a KV store.
 import time
 import fastly
 from fastly.api import kv_store_api
-from fastly.model.kv_store_request_create import KvStoreRequestCreate
+from fastly.model.kv_store_request_create_or_update import KvStoreRequestCreateOrUpdate
 from fastly.model.kv_store_details import KvStoreDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
@@ -51,15 +52,15 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = kv_store_api.KvStoreApi(api_client)
     location = "US" # str |  (optional)
-    kv_store_request_create = KvStoreRequestCreate(
+    kv_store_request_create_or_update = KvStoreRequestCreateOrUpdate(
         name="name_example",
-    ) # KvStoreRequestCreate |  (optional)
+    ) # KvStoreRequestCreateOrUpdate |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create a KV store.
-        api_response = api_instance.kv_store_create(location=location, kv_store_request_create=kv_store_request_create)
+        api_response = api_instance.kv_store_create(location=location, kv_store_request_create_or_update=kv_store_request_create_or_update)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling KvStoreApi->kv_store_create: %s\n" % e)
@@ -71,7 +72,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **location** | **str**|  | [optional]
- **kv_store_request_create** | [**KvStoreRequestCreate**](KvStoreRequestCreate.md)|  | [optional]
+ **kv_store_request_create_or_update** | [**KvStoreRequestCreateOrUpdate**](KvStoreRequestCreateOrUpdate.md)|  | [optional]
 
 ### Return type
 
@@ -254,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **kv_store_list**
-> InlineResponse2006 kv_store_list()
+> InlineResponse2007 kv_store_list()
 
 List all KV stores.
 
@@ -268,7 +269,7 @@ List all KV stores.
 import time
 import fastly
 from fastly.api import kv_store_api
-from fastly.model.inline_response2006 import InlineResponse2006
+from fastly.model.inline_response2007 import InlineResponse2007
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -316,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -333,6 +334,97 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Stores listed. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **kv_store_put**
+> kv_store_put(store_id)
+
+Update a KV store.
+
+Update the name of a KV store.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import kv_store_api
+from fastly.model.kv_store_request_create_or_update import KvStoreRequestCreateOrUpdate
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = kv_store_api.KvStoreApi(api_client)
+    store_id = "store_id_example" # str | 
+    kv_store_request_create_or_update = KvStoreRequestCreateOrUpdate(
+        name="name_example",
+    ) # KvStoreRequestCreateOrUpdate |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a KV store.
+        api_instance.kv_store_put(store_id)
+    except fastly.ApiException as e:
+        print("Exception when calling KvStoreApi->kv_store_put: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update a KV store.
+        api_instance.kv_store_put(store_id, kv_store_request_create_or_update=kv_store_request_create_or_update)
+    except fastly.ApiException as e:
+        print("Exception when calling KvStoreApi->kv_store_put: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **str**|  |
+ **kv_store_request_create_or_update** | [**KvStoreRequestCreateOrUpdate**](KvStoreRequestCreateOrUpdate.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Provided name is not valid |  -  |
+**404** | KV store was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

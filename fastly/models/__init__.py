@@ -148,6 +148,7 @@ from fastly.model.ddos_protection_invalid_request import DdosProtectionInvalidRe
 from fastly.model.ddos_protection_not_authenticated import DdosProtectionNotAuthenticated
 from fastly.model.ddos_protection_not_authorized import DdosProtectionNotAuthorized
 from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
+from fastly.model.ddos_protection_request_enable_mode import DdosProtectionRequestEnableMode
 from fastly.model.ddos_protection_request_update_configuration import DdosProtectionRequestUpdateConfiguration
 from fastly.model.ddos_protection_response_body_get_all_services import DdosProtectionResponseBodyGetAllServices
 from fastly.model.ddos_protection_response_configuration import DdosProtectionResponseConfiguration
@@ -216,6 +217,12 @@ from fastly.model.domain_inspector_response_links_links import DomainInspectorRe
 from fastly.model.domain_inspector_response_product import DomainInspectorResponseProduct
 from fastly.model.domain_inspector_response_product_product import DomainInspectorResponseProductProduct
 from fastly.model.domain_inspector_response_service import DomainInspectorResponseService
+from fastly.model.domain_research_response_body_enable import DomainResearchResponseBodyEnable
+from fastly.model.domain_research_response_customer import DomainResearchResponseCustomer
+from fastly.model.domain_research_response_links import DomainResearchResponseLinks
+from fastly.model.domain_research_response_links_links import DomainResearchResponseLinksLinks
+from fastly.model.domain_research_response_product import DomainResearchResponseProduct
+from fastly.model.domain_research_response_product_product import DomainResearchResponseProductProduct
 from fastly.model.domain_response import DomainResponse
 from fastly.model.domains_response import DomainsResponse
 from fastly.model.environment import Environment
@@ -311,6 +318,7 @@ from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.inline_response2001 import InlineResponse2001
 from fastly.model.inline_response20010 import InlineResponse20010
+from fastly.model.inline_response20011 import InlineResponse20011
 from fastly.model.inline_response2002 import InlineResponse2002
 from fastly.model.inline_response2003 import InlineResponse2003
 from fastly.model.inline_response2004 import InlineResponse2004
@@ -337,7 +345,7 @@ from fastly.model.invoicelineitems import Invoicelineitems
 from fastly.model.kv_store_batch_response import KvStoreBatchResponse
 from fastly.model.kv_store_batch_response_errors import KvStoreBatchResponseErrors
 from fastly.model.kv_store_details import KvStoreDetails
-from fastly.model.kv_store_request_create import KvStoreRequestCreate
+from fastly.model.kv_store_request_create_or_update import KvStoreRequestCreateOrUpdate
 from fastly.model.kv_store_upsert_batch import KvStoreUpsertBatch
 from fastly.model.list_attack_report import ListAttackReport
 from fastly.model.list_attack_report_meta import ListAttackReportMeta
@@ -487,6 +495,8 @@ from fastly.model.object_storage_response_links import ObjectStorageResponseLink
 from fastly.model.object_storage_response_links_links import ObjectStorageResponseLinksLinks
 from fastly.model.object_storage_response_product import ObjectStorageResponseProduct
 from fastly.model.object_storage_response_product_product import ObjectStorageResponseProductProduct
+from fastly.model.offer import Offer
+from fastly.model.offer_all_of import OfferAllOf
 from fastly.model.origin_inspector import OriginInspector
 from fastly.model.origin_inspector_dimensions import OriginInspectorDimensions
 from fastly.model.origin_inspector_entry import OriginInspectorEntry
@@ -523,6 +533,9 @@ from fastly.model.platform_ddos_entry import PlatformDdosEntry
 from fastly.model.platform_ddos_response import PlatformDdosResponse
 from fastly.model.platform_ddos_response_all_of import PlatformDdosResponseAllOf
 from fastly.model.platform_ddos_response_data import PlatformDdosResponseData
+from fastly.model.platform_metadata import PlatformMetadata
+from fastly.model.platform_metrics_response import PlatformMetricsResponse
+from fastly.model.platform_values import PlatformValues
 from fastly.model.pool_additional import PoolAdditional
 from fastly.model.pool_response import PoolResponse
 from fastly.model.pool_response_all_of import PoolResponseAllOf
@@ -698,11 +711,15 @@ from fastly.model.star_data import StarData
 from fastly.model.star_response import StarResponse
 from fastly.model.star_response_all_of import StarResponseAllOf
 from fastly.model.stats import Stats
+from fastly.model.status import Status
+from fastly.model.status_all_of import StatusAllOf
 from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
 from fastly.model.successful_response_as_object_all_of import SuccessfulResponseAsObjectAllOf
 from fastly.model.sudo_generic_token_error import SudoGenericTokenError
 from fastly.model.sudo_request import SudoRequest
 from fastly.model.sudo_response import SudoResponse
+from fastly.model.suggestion import Suggestion
+from fastly.model.suggestion_all_of import SuggestionAllOf
 from fastly.model.timeseries_get_response import TimeseriesGetResponse
 from fastly.model.timeseries_meta import TimeseriesMeta
 from fastly.model.timeseries_result import TimeseriesResult

@@ -131,6 +131,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     ngwaf_request_enable = NgwafRequestEnable(
         workspace_id="workspace_id_example",
+        traffic_ramp="traffic_ramp_example",
     ) # NgwafRequestEnable |  (optional)
 
     # example passing only required values which don't have defaults set

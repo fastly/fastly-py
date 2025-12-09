@@ -43,6 +43,7 @@ from fastly.api.domain_api import DomainApi
 from fastly.api.domain_inspector_historical_api import DomainInspectorHistoricalApi
 from fastly.api.domain_inspector_realtime_api import DomainInspectorRealtimeApi
 from fastly.api.domain_ownerships_api import DomainOwnershipsApi
+from fastly.api.domain_research_api import DomainResearchApi
 from fastly.api.events_api import EventsApi
 from fastly.api.gzip_api import GzipApi
 from fastly.api.header_api import HeaderApi
@@ -87,6 +88,7 @@ from fastly.api.logging_sftp_api import LoggingSftpApi
 from fastly.api.logging_splunk_api import LoggingSplunkApi
 from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
+from fastly.api.metrics_platform_api import MetricsPlatformApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
 from fastly.api.ngwaf_reports_api import NgwafReportsApi
 from fastly.api.object_storage_access_keys_api import ObjectStorageAccessKeysApi
@@ -104,6 +106,7 @@ from fastly.api.product_bot_management_api import ProductBotManagementApi
 from fastly.api.product_brotli_compression_api import ProductBrotliCompressionApi
 from fastly.api.product_ddos_protection_api import ProductDdosProtectionApi
 from fastly.api.product_domain_inspector_api import ProductDomainInspectorApi
+from fastly.api.product_domain_research_api import ProductDomainResearchApi
 from fastly.api.product_fanout_api import ProductFanoutApi
 from fastly.api.product_image_optimizer_api import ProductImageOptimizerApi
 from fastly.api.product_log_explorer_insights_api import ProductLogExplorerInsightsApi

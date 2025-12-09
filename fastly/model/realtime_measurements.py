@@ -341,6 +341,10 @@ class RealtimeMeasurements(ModelNormal):
             'request_collapse_unusable_count': (int,),  # noqa: E501
             'compute_cache_operations_count': (int,),  # noqa: E501
             'api_discovery_requests_count': (int,),  # noqa: E501
+            'imgopto_compute_requests': (int,),  # noqa: E501
+            'dns_billable_responses_count': (int,),  # noqa: E501
+            'dns_nonbillable_responses_count': (int,),  # noqa: E501
+            'upgrade': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -611,6 +615,10 @@ class RealtimeMeasurements(ModelNormal):
         'request_collapse_unusable_count': 'request_collapse_unusable_count',  # noqa: E501
         'compute_cache_operations_count': 'compute_cache_operations_count',  # noqa: E501
         'api_discovery_requests_count': 'api_discovery_requests_count',  # noqa: E501
+        'imgopto_compute_requests': 'imgopto_compute_requests',  # noqa: E501
+        'dns_billable_responses_count': 'dns_billable_responses_count',  # noqa: E501
+        'dns_nonbillable_responses_count': 'dns_nonbillable_responses_count',  # noqa: E501
+        'upgrade': 'upgrade',  # noqa: E501
     }
 
     read_only_vars = {
@@ -916,6 +924,10 @@ class RealtimeMeasurements(ModelNormal):
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
             api_discovery_requests_count (int): Number of requests processed by the API Discovery engine.. [optional]  # noqa: E501
+            imgopto_compute_requests (int): The number of Image Optimizer requests made from Compute services.. [optional]  # noqa: E501
+            dns_billable_responses_count (int): Number of billable DNS responses (e.g., A, CNAME).. [optional]  # noqa: E501
+            dns_nonbillable_responses_count (int): Number of non-billable DNS responses (e.g., NODATA, NXDOMAIN).. [optional]  # noqa: E501
+            upgrade (int): Number of requests that resulted in a WebSocket upgrade.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1259,6 +1271,10 @@ class RealtimeMeasurements(ModelNormal):
             request_collapse_unusable_count (int): Number of requests that were collapsed and unable to be satisfied by the resulting cache object.. [optional]  # noqa: E501
             compute_cache_operations_count (int): Number of cache operations executed by the Compute platform.. [optional]  # noqa: E501
             api_discovery_requests_count (int): Number of requests processed by the API Discovery engine.. [optional]  # noqa: E501
+            imgopto_compute_requests (int): The number of Image Optimizer requests made from Compute services.. [optional]  # noqa: E501
+            dns_billable_responses_count (int): Number of billable DNS responses (e.g., A, CNAME).. [optional]  # noqa: E501
+            dns_nonbillable_responses_count (int): Number of non-billable DNS responses (e.g., NODATA, NXDOMAIN).. [optional]  # noqa: E501
+            upgrade (int): Number of requests that resulted in a WebSocket upgrade.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

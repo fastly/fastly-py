@@ -186,6 +186,8 @@ Class | Method | Description
 *DomainInspectorRealtimeApi* | [**get_domain_inspector_last_max_entries**](docs/DomainInspectorRealtimeApi.md#get_domain_inspector_last_max_entries) | Get a limited number of real-time domain data entries
 *DomainInspectorRealtimeApi* | [**get_domain_inspector_last_second**](docs/DomainInspectorRealtimeApi.md#get_domain_inspector_last_second) | Get real-time domain data from a specified time
 *DomainOwnershipsApi* | [**list_domain_ownerships**](docs/DomainOwnershipsApi.md#list_domain_ownerships) | List domain-ownerships
+*DomainResearchApi* | [**domain_status**](docs/DomainResearchApi.md#domain_status) | Domain status
+*DomainResearchApi* | [**suggest_domains**](docs/DomainResearchApi.md#suggest_domains) | Suggest domains
 *EventsApi* | [**get_event**](docs/EventsApi.md#get_event) | Get an event
 *EventsApi* | [**list_events**](docs/EventsApi.md#list_events) | List events
 *GzipApi* | [**create_gzip_config**](docs/GzipApi.md#create_gzip_config) | Create a gzip configuration
@@ -250,6 +252,7 @@ Class | Method | Description
 *KvStoreApi* | [**kv_store_delete**](docs/KvStoreApi.md#kv_store_delete) | Delete a KV store.
 *KvStoreApi* | [**kv_store_get**](docs/KvStoreApi.md#kv_store_get) | Describe a KV store.
 *KvStoreApi* | [**kv_store_list**](docs/KvStoreApi.md#kv_store_list) | List all KV stores.
+*KvStoreApi* | [**kv_store_put**](docs/KvStoreApi.md#kv_store_put) | Update a KV store.
 *KvStoreItemApi* | [**kv_store_delete_item**](docs/KvStoreItemApi.md#kv_store_delete_item) | Delete an item.
 *KvStoreItemApi* | [**kv_store_get_item**](docs/KvStoreItemApi.md#kv_store_get_item) | Get an item.
 *KvStoreItemApi* | [**kv_store_list_item_keys**](docs/KvStoreItemApi.md#kv_store_list_item_keys) | List item keys.
@@ -395,6 +398,7 @@ Class | Method | Description
 *LoggingSyslogApi* | [**get_log_syslog**](docs/LoggingSyslogApi.md#get_log_syslog) | Get a syslog log endpoint
 *LoggingSyslogApi* | [**list_log_syslog**](docs/LoggingSyslogApi.md#list_log_syslog) | List Syslog log endpoints
 *LoggingSyslogApi* | [**update_log_syslog**](docs/LoggingSyslogApi.md#update_log_syslog) | Update a syslog log endpoint
+*MetricsPlatformApi* | [**get_platform_metrics_service_historical**](docs/MetricsPlatformApi.md#get_platform_metrics_service_historical) | Get historical time series metrics for a single service
 *MutualAuthenticationApi* | [**create_mutual_tls_authentication**](docs/MutualAuthenticationApi.md#create_mutual_tls_authentication) | Create a Mutual Authentication
 *MutualAuthenticationApi* | [**delete_mutual_tls**](docs/MutualAuthenticationApi.md#delete_mutual_tls) | Delete a Mutual TLS
 *MutualAuthenticationApi* | [**get_mutual_authentication**](docs/MutualAuthenticationApi.md#get_mutual_authentication) | Get a Mutual Authentication
@@ -450,6 +454,9 @@ Class | Method | Description
 *ProductDomainInspectorApi* | [**enable_product_domain_inspector**](docs/ProductDomainInspectorApi.md#enable_product_domain_inspector) | Enable product
 *ProductDomainInspectorApi* | [**get_product_domain_inspector**](docs/ProductDomainInspectorApi.md#get_product_domain_inspector) | Get product enablement status
 *ProductDomainInspectorApi* | [**get_services_product_domain_inspector**](docs/ProductDomainInspectorApi.md#get_services_product_domain_inspector) | Get services with product enabled
+*ProductDomainResearchApi* | [**disable_product_domain_research**](docs/ProductDomainResearchApi.md#disable_product_domain_research) | Disable product
+*ProductDomainResearchApi* | [**enable_domain_research**](docs/ProductDomainResearchApi.md#enable_domain_research) | Enable product
+*ProductDomainResearchApi* | [**get_domain_research**](docs/ProductDomainResearchApi.md#get_domain_research) | Get product enablement status
 *ProductFanoutApi* | [**disable_product_fanout**](docs/ProductFanoutApi.md#disable_product_fanout) | Disable product
 *ProductFanoutApi* | [**enable_product_fanout**](docs/ProductFanoutApi.md#enable_product_fanout) | Enable product
 *ProductFanoutApi* | [**get_product_fanout**](docs/ProductFanoutApi.md#get_product_fanout) | Get product enablement status
@@ -641,8 +648,6 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/alerts/history`](https://www.fastly.com/documentation/reference/api/observability/alerts/history) (GET)
 - [`/dns/configurations/{dns_configuration_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/dns/configurations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
-- [`/domains/v1/tools/status`](https://www.fastly.com/documentation/reference/api/) (GET)
-- [`/domains/v1/tools/suggest`](https://www.fastly.com/documentation/reference/api/) (GET)
 - [`/ngwaf/v1/lists/{listId}`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/lists) (DELETE, GET, PATCH)
 - [`/ngwaf/v1/lists`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/lists) (GET, POST)
 - [`/ngwaf/v1/signals/{signal_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/signals) (DELETE, GET, PATCH)
@@ -655,6 +660,8 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/ngwaf/v1/workspaces/{workspace_id}/alerts`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/workspace_alerts) (GET, POST)
 - [`/ngwaf/v1/workspaces/{workspace_id}/events/{event_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/events) (GET, PATCH)
 - [`/ngwaf/v1/workspaces/{workspace_id}/events`](https://www.fastly.com/documentation/reference/api/ngwaf/events) (GET)
+- [`/ngwaf/v1/workspaces/{workspace_id}/header-links/{header_link_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/header-links) (DELETE, GET, PUT)
+- [`/ngwaf/v1/workspaces/{workspace_id}/header-links`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/header-links) (GET, POST)
 - [`/ngwaf/v1/workspaces/{workspace_id}/redactions/{redaction_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/redactions) (DELETE, GET, PATCH)
 - [`/ngwaf/v1/workspaces/{workspace_id}/redactions`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/redactions) (GET, POST)
 - [`/ngwaf/v1/workspaces/{workspace_id}/requests/{request_id}/report`](https://www.fastly.com/documentation/reference/api/ngwaf/v1/requests) (POST)
