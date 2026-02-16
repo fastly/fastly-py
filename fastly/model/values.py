@@ -143,6 +143,69 @@ class Values(ModelNormal):
             'origin_status_3xx': (int,),  # noqa: E501
             'origin_status_4xx': (int,),  # noqa: E501
             'origin_status_5xx': (int,),  # noqa: E501
+            'compute_bereq_body_bytes': (int,),  # noqa: E501
+            'compute_bereq_errors': (int,),  # noqa: E501
+            'compute_bereq_header_bytes': (int,),  # noqa: E501
+            'compute_bereqs': (int,),  # noqa: E501
+            'compute_beresp_body_bytes': (int,),  # noqa: E501
+            'compute_beresp_header_bytes': (int,),  # noqa: E501
+            'compute_execution_time_ms': (int,),  # noqa: E501
+            'compute_origin_status_1xx': (int,),  # noqa: E501
+            'compute_origin_status_200': (int,),  # noqa: E501
+            'compute_origin_status_204': (int,),  # noqa: E501
+            'compute_origin_status_206': (int,),  # noqa: E501
+            'compute_origin_status_2xx': (int,),  # noqa: E501
+            'compute_origin_status_301': (int,),  # noqa: E501
+            'compute_origin_status_302': (int,),  # noqa: E501
+            'compute_origin_status_304': (int,),  # noqa: E501
+            'compute_origin_status_3xx': (int,),  # noqa: E501
+            'compute_origin_status_400': (int,),  # noqa: E501
+            'compute_origin_status_401': (int,),  # noqa: E501
+            'compute_origin_status_403': (int,),  # noqa: E501
+            'compute_origin_status_404': (int,),  # noqa: E501
+            'compute_origin_status_416': (int,),  # noqa: E501
+            'compute_origin_status_429': (int,),  # noqa: E501
+            'compute_origin_status_4xx': (int,),  # noqa: E501
+            'compute_origin_status_500': (int,),  # noqa: E501
+            'compute_origin_status_501': (int,),  # noqa: E501
+            'compute_origin_status_502': (int,),  # noqa: E501
+            'compute_origin_status_503': (int,),  # noqa: E501
+            'compute_origin_status_504': (int,),  # noqa: E501
+            'compute_origin_status_505': (int,),  # noqa: E501
+            'compute_origin_status_530': (int,),  # noqa: E501
+            'compute_origin_status_5xx': (int,),  # noqa: E501
+            'compute_req_body_bytes': (int,),  # noqa: E501
+            'compute_req_header_bytes': (int,),  # noqa: E501
+            'compute_request_time_billed_ms': (int,),  # noqa: E501
+            'compute_request_time_ms': (int,),  # noqa: E501
+            'compute_request': (int,),  # noqa: E501
+            'compute_resp_body_bytes': (int,),  # noqa: E501
+            'compute_resp_header_bytes': (int,),  # noqa: E501
+            'compute_resp_status_103': (int,),  # noqa: E501
+            'compute_resp_status_1xx': (int,),  # noqa: E501
+            'compute_resp_status_200': (int,),  # noqa: E501
+            'compute_resp_status_204': (int,),  # noqa: E501
+            'compute_resp_status_206': (int,),  # noqa: E501
+            'compute_resp_status_2xx': (int,),  # noqa: E501
+            'compute_resp_status_301': (int,),  # noqa: E501
+            'compute_resp_status_302': (int,),  # noqa: E501
+            'compute_resp_status_304': (int,),  # noqa: E501
+            'compute_resp_status_3xx': (int,),  # noqa: E501
+            'compute_resp_status_400': (int,),  # noqa: E501
+            'compute_resp_status_401': (int,),  # noqa: E501
+            'compute_resp_status_403': (int,),  # noqa: E501
+            'compute_resp_status_404': (int,),  # noqa: E501
+            'compute_resp_status_416': (int,),  # noqa: E501
+            'compute_resp_status_429': (int,),  # noqa: E501
+            'compute_resp_status_4xx': (int,),  # noqa: E501
+            'compute_resp_status_500': (int,),  # noqa: E501
+            'compute_resp_status_501': (int,),  # noqa: E501
+            'compute_resp_status_502': (int,),  # noqa: E501
+            'compute_resp_status_503': (int,),  # noqa: E501
+            'compute_resp_status_504': (int,),  # noqa: E501
+            'compute_resp_status_505': (int,),  # noqa: E501
+            'compute_resp_status_530': (int,),  # noqa: E501
+            'compute_resp_status_5xx': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -215,6 +278,69 @@ class Values(ModelNormal):
         'origin_status_3xx': 'origin_status_3xx',  # noqa: E501
         'origin_status_4xx': 'origin_status_4xx',  # noqa: E501
         'origin_status_5xx': 'origin_status_5xx',  # noqa: E501
+        'compute_bereq_body_bytes': 'compute_bereq_body_bytes',  # noqa: E501
+        'compute_bereq_errors': 'compute_bereq_errors',  # noqa: E501
+        'compute_bereq_header_bytes': 'compute_bereq_header_bytes',  # noqa: E501
+        'compute_bereqs': 'compute_bereqs',  # noqa: E501
+        'compute_beresp_body_bytes': 'compute_beresp_body_bytes',  # noqa: E501
+        'compute_beresp_header_bytes': 'compute_beresp_header_bytes',  # noqa: E501
+        'compute_execution_time_ms': 'compute_execution_time_ms',  # noqa: E501
+        'compute_origin_status_1xx': 'compute_origin_status_1xx',  # noqa: E501
+        'compute_origin_status_200': 'compute_origin_status_200',  # noqa: E501
+        'compute_origin_status_204': 'compute_origin_status_204',  # noqa: E501
+        'compute_origin_status_206': 'compute_origin_status_206',  # noqa: E501
+        'compute_origin_status_2xx': 'compute_origin_status_2xx',  # noqa: E501
+        'compute_origin_status_301': 'compute_origin_status_301',  # noqa: E501
+        'compute_origin_status_302': 'compute_origin_status_302',  # noqa: E501
+        'compute_origin_status_304': 'compute_origin_status_304',  # noqa: E501
+        'compute_origin_status_3xx': 'compute_origin_status_3xx',  # noqa: E501
+        'compute_origin_status_400': 'compute_origin_status_400',  # noqa: E501
+        'compute_origin_status_401': 'compute_origin_status_401',  # noqa: E501
+        'compute_origin_status_403': 'compute_origin_status_403',  # noqa: E501
+        'compute_origin_status_404': 'compute_origin_status_404',  # noqa: E501
+        'compute_origin_status_416': 'compute_origin_status_416',  # noqa: E501
+        'compute_origin_status_429': 'compute_origin_status_429',  # noqa: E501
+        'compute_origin_status_4xx': 'compute_origin_status_4xx',  # noqa: E501
+        'compute_origin_status_500': 'compute_origin_status_500',  # noqa: E501
+        'compute_origin_status_501': 'compute_origin_status_501',  # noqa: E501
+        'compute_origin_status_502': 'compute_origin_status_502',  # noqa: E501
+        'compute_origin_status_503': 'compute_origin_status_503',  # noqa: E501
+        'compute_origin_status_504': 'compute_origin_status_504',  # noqa: E501
+        'compute_origin_status_505': 'compute_origin_status_505',  # noqa: E501
+        'compute_origin_status_530': 'compute_origin_status_530',  # noqa: E501
+        'compute_origin_status_5xx': 'compute_origin_status_5xx',  # noqa: E501
+        'compute_req_body_bytes': 'compute_req_body_bytes',  # noqa: E501
+        'compute_req_header_bytes': 'compute_req_header_bytes',  # noqa: E501
+        'compute_request_time_billed_ms': 'compute_request_time_billed_ms',  # noqa: E501
+        'compute_request_time_ms': 'compute_request_time_ms',  # noqa: E501
+        'compute_request': 'compute_request',  # noqa: E501
+        'compute_resp_body_bytes': 'compute_resp_body_bytes',  # noqa: E501
+        'compute_resp_header_bytes': 'compute_resp_header_bytes',  # noqa: E501
+        'compute_resp_status_103': 'compute_resp_status_103',  # noqa: E501
+        'compute_resp_status_1xx': 'compute_resp_status_1xx',  # noqa: E501
+        'compute_resp_status_200': 'compute_resp_status_200',  # noqa: E501
+        'compute_resp_status_204': 'compute_resp_status_204',  # noqa: E501
+        'compute_resp_status_206': 'compute_resp_status_206',  # noqa: E501
+        'compute_resp_status_2xx': 'compute_resp_status_2xx',  # noqa: E501
+        'compute_resp_status_301': 'compute_resp_status_301',  # noqa: E501
+        'compute_resp_status_302': 'compute_resp_status_302',  # noqa: E501
+        'compute_resp_status_304': 'compute_resp_status_304',  # noqa: E501
+        'compute_resp_status_3xx': 'compute_resp_status_3xx',  # noqa: E501
+        'compute_resp_status_400': 'compute_resp_status_400',  # noqa: E501
+        'compute_resp_status_401': 'compute_resp_status_401',  # noqa: E501
+        'compute_resp_status_403': 'compute_resp_status_403',  # noqa: E501
+        'compute_resp_status_404': 'compute_resp_status_404',  # noqa: E501
+        'compute_resp_status_416': 'compute_resp_status_416',  # noqa: E501
+        'compute_resp_status_429': 'compute_resp_status_429',  # noqa: E501
+        'compute_resp_status_4xx': 'compute_resp_status_4xx',  # noqa: E501
+        'compute_resp_status_500': 'compute_resp_status_500',  # noqa: E501
+        'compute_resp_status_501': 'compute_resp_status_501',  # noqa: E501
+        'compute_resp_status_502': 'compute_resp_status_502',  # noqa: E501
+        'compute_resp_status_503': 'compute_resp_status_503',  # noqa: E501
+        'compute_resp_status_504': 'compute_resp_status_504',  # noqa: E501
+        'compute_resp_status_505': 'compute_resp_status_505',  # noqa: E501
+        'compute_resp_status_530': 'compute_resp_status_530',  # noqa: E501
+        'compute_resp_status_5xx': 'compute_resp_status_5xx',  # noqa: E501
     }
 
     read_only_vars = {
@@ -322,6 +448,69 @@ class Values(ModelNormal):
             origin_status_3xx (int): Number of \"Redirection\" codes received from origin.. [optional]  # noqa: E501
             origin_status_4xx (int): Number of \"Client Error\" codes received from origin.. [optional]  # noqa: E501
             origin_status_5xx (int): Number of \"Server Error\" codes received from origin.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_errors (int): Number of backend request errors, including timeouts, by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereqs (int): Number of backend requests started by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_execution_time_ms (int): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
+            compute_origin_status_1xx (int): Number of \"Informational\" category status codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_200 (int): Number of responses received from origin with status code 200 (Success) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_204 (int): Number of responses received from origin with status code 204 (No Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_206 (int): Number of responses received from origin with status code 206 (Partial Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_2xx (int): Number of \"Success\" status codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_301 (int): Number of responses received from origin with status code 301 (Moved Permanently) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_302 (int): Number of responses received from origin with status code 302 (Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_304 (int): Number of responses received from origin with status code 304 (Not Modified) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_3xx (int): Number of \"Redirection\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_400 (int): Number of responses received from origin with status code 400 (Bad Request) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_401 (int): Number of responses received from origin with status code 401 (Unauthorized) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_403 (int): Number of responses received from origin with status code 403 (Forbidden) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_404 (int): Number of responses received from origin with status code 404 (Not Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_416 (int): Number of responses received from origin with status code 416 (Range Not Satisfiable) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_429 (int): Number of responses received from origin with status code 429 (Too Many Requests) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_4xx (int): Number of \"Client Error\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_500 (int): Number of responses received from origin with status code 500 (Internal Server Error) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_501 (int): Number of responses received from origin with status code 501 (Not Implemented) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_502 (int): Number of responses received from origin with status code 502 (Bad Gateway) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_503 (int): Number of responses received from origin with status code 503 (Service Unavailable) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_504 (int): Number of responses received from origin with status code 504 (Gateway Timeout) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_505 (int): Number of responses received from origin with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_530 (int): Number of responses received from origin with status code 530 by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_5xx (int): Number of \"Server Error\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_request_time_billed_ms (int): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            compute_request_time_ms (int): The total amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request (int): The total number of requests that were received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to the end user.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to the end user.. [optional]  # noqa: E501
+            compute_resp_status_103 (int): Number of responses delivered with status code 103 (Early Hints) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of 1xx \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_200 (int): Number of responses delivered with status code 200 (Success) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_204 (int): Number of responses delivered with status code 204 (No Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_206 (int): Number of responses delivered with status code 206 (Partial Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of 2xx \"Success\" status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_301 (int): Number of responses delivered with status code 301 (Moved Permanently) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_302 (int): Number of responses delivered with status code 302 (Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_304 (int): Number of responses delivered with status code 304 (Not Modified) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of 3xx \"Redirection\" codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_400 (int): Number of responses delivered with status code 400 (Bad Request) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_401 (int): Number of responses delivered with status code 401 (Unauthorized) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_403 (int): Number of responses delivered with status code 403 (Forbidden) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_404 (int): Number of responses delivered with status code 404 (Not Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_416 (int): Number of responses delivered with status code 416 (Range Not Satisfiable) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_429 (int): Number of responses delivered with status code 429 (Too Many Requests) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of 4xx \"Client Error\" codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_500 (int): Number of responses delivered with status code 500 (Internal Server Error) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_501 (int): Number of responses delivered with status code 501 (Not Implemented) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_502 (int): Number of responses delivered with status code 502 (Bad Gateway) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_503 (int): Number of responses delivered with status code 503 (Service Unavailable) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_504 (int): Number of responses delivered with status code 504 (Gateway Timeout) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_530 (int): Number of responses delivered with status code 530 by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -467,6 +656,69 @@ class Values(ModelNormal):
             origin_status_3xx (int): Number of \"Redirection\" codes received from origin.. [optional]  # noqa: E501
             origin_status_4xx (int): Number of \"Client Error\" codes received from origin.. [optional]  # noqa: E501
             origin_status_5xx (int): Number of \"Server Error\" codes received from origin.. [optional]  # noqa: E501
+            compute_bereq_body_bytes (int): Total body bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_errors (int): Number of backend request errors, including timeouts, by the Compute platform.. [optional]  # noqa: E501
+            compute_bereq_header_bytes (int): Total header bytes sent to backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_bereqs (int): Number of backend requests started by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_body_bytes (int): Total body bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_beresp_header_bytes (int): Total header bytes received from backends (origins) by the Compute platform.. [optional]  # noqa: E501
+            compute_execution_time_ms (int): The amount of active CPU time used to process your requests (in milliseconds).. [optional]  # noqa: E501
+            compute_origin_status_1xx (int): Number of \"Informational\" category status codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_200 (int): Number of responses received from origin with status code 200 (Success) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_204 (int): Number of responses received from origin with status code 204 (No Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_206 (int): Number of responses received from origin with status code 206 (Partial Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_2xx (int): Number of \"Success\" status codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_301 (int): Number of responses received from origin with status code 301 (Moved Permanently) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_302 (int): Number of responses received from origin with status code 302 (Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_304 (int): Number of responses received from origin with status code 304 (Not Modified) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_3xx (int): Number of \"Redirection\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_400 (int): Number of responses received from origin with status code 400 (Bad Request) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_401 (int): Number of responses received from origin with status code 401 (Unauthorized) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_403 (int): Number of responses received from origin with status code 403 (Forbidden) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_404 (int): Number of responses received from origin with status code 404 (Not Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_416 (int): Number of responses received from origin with status code 416 (Range Not Satisfiable) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_429 (int): Number of responses received from origin with status code 429 (Too Many Requests) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_4xx (int): Number of \"Client Error\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_500 (int): Number of responses received from origin with status code 500 (Internal Server Error) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_501 (int): Number of responses received from origin with status code 501 (Not Implemented) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_502 (int): Number of responses received from origin with status code 502 (Bad Gateway) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_503 (int): Number of responses received from origin with status code 503 (Service Unavailable) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_504 (int): Number of responses received from origin with status code 504 (Gateway Timeout) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_505 (int): Number of responses received from origin with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_530 (int): Number of responses received from origin with status code 530 by the Compute platform.. [optional]  # noqa: E501
+            compute_origin_status_5xx (int): Number of \"Server Error\" codes received from origin by the Compute platform.. [optional]  # noqa: E501
+            compute_req_body_bytes (int): Total body bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_req_header_bytes (int): Total header bytes received by the Compute platform.. [optional]  # noqa: E501
+            compute_request_time_billed_ms (int): The total amount of request processing time you will be billed for, measured in 50 millisecond increments.. [optional]  # noqa: E501
+            compute_request_time_ms (int): The total amount of time used to process your requests, including active CPU time (in milliseconds).. [optional]  # noqa: E501
+            compute_request (int): The total number of requests that were received by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_body_bytes (int): Total body bytes sent from Compute to the end user.. [optional]  # noqa: E501
+            compute_resp_header_bytes (int): Total header bytes sent from Compute to the end user.. [optional]  # noqa: E501
+            compute_resp_status_103 (int): Number of responses delivered with status code 103 (Early Hints) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_1xx (int): Number of 1xx \"Informational\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_200 (int): Number of responses delivered with status code 200 (Success) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_204 (int): Number of responses delivered with status code 204 (No Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_206 (int): Number of responses delivered with status code 206 (Partial Content) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_2xx (int): Number of 2xx \"Success\" status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_301 (int): Number of responses delivered with status code 301 (Moved Permanently) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_302 (int): Number of responses delivered with status code 302 (Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_304 (int): Number of responses delivered with status code 304 (Not Modified) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_3xx (int): Number of 3xx \"Redirection\" codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_400 (int): Number of responses delivered with status code 400 (Bad Request) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_401 (int): Number of responses delivered with status code 401 (Unauthorized) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_403 (int): Number of responses delivered with status code 403 (Forbidden) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_404 (int): Number of responses delivered with status code 404 (Not Found) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_416 (int): Number of responses delivered with status code 416 (Range Not Satisfiable) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_429 (int): Number of responses delivered with status code 429 (Too Many Requests) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_4xx (int): Number of 4xx \"Client Error\" codes delivered by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_500 (int): Number of responses delivered with status code 500 (Internal Server Error) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_501 (int): Number of responses delivered with status code 501 (Not Implemented) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_502 (int): Number of responses delivered with status code 502 (Bad Gateway) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_503 (int): Number of responses delivered with status code 503 (Service Unavailable) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_504 (int): Number of responses delivered with status code 504 (Gateway Timeout) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_530 (int): Number of responses delivered with status code 530 by the Compute platform.. [optional]  # noqa: E501
+            compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

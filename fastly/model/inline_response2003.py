@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.ddos_protection_rule_with_stats import DdosProtectionRuleWithStats
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['DdosProtectionRuleWithStats'] = DdosProtectionRuleWithStats
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
+    from fastly.model.meta import Meta
+    from fastly.model.tag_get import TagGet
+    globals()['Meta'] = Meta
+    globals()['TagGet'] = TagGet
 
 
 class InlineResponse2003(ModelNormal):
@@ -87,8 +87,8 @@ class InlineResponse2003(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([DdosProtectionRuleWithStats],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'meta': (Meta,),  # noqa: E501
+            'data': ([APISecurityTag],),  # noqa: E501
         }
 
     @cached_property
@@ -97,8 +97,8 @@ class InlineResponse2003(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
         'meta': 'meta',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,12 +108,8 @@ class InlineResponse2003(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, data, meta, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """InlineResponse2003 - a model defined in OpenAPI
-
-        Args:
-            data ([DdosProtectionRuleWithStats]):
-            meta (PaginationCursorMeta):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,6 +142,8 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityTag]): The operation tags returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,8 +171,6 @@ class InlineResponse2003(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
-        self.meta = meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,12 +191,8 @@ class InlineResponse2003(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, data, meta, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """InlineResponse2003 - a model defined in OpenAPI
-
-        Args:
-            data ([DdosProtectionRuleWithStats]):
-            meta (PaginationCursorMeta):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,6 +225,8 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityTag]): The operation tags returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,8 +252,6 @@ class InlineResponse2003(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
-        self.meta = meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

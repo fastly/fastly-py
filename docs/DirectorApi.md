@@ -62,6 +62,7 @@ with fastly.ApiClient(configuration) as api_client:
             comment="",
             connect_timeout=1,
             first_byte_timeout=1,
+            fetch_timeout=1,
             healthcheck="healthcheck_example",
             hostname="hostname_example",
             ipv4="ipv4_example",

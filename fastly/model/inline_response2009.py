@@ -30,10 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    from fastly.model.secret_store_response import SecretStoreResponse
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
-    globals()['SecretStoreResponse'] = SecretStoreResponse
+    from fastly.model.suggestion import Suggestion
+    globals()['Suggestion'] = Suggestion
 
 
 class InlineResponse2009(ModelNormal):
@@ -87,8 +85,7 @@ class InlineResponse2009(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([SecretStoreResponse],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'results': ([Suggestion],),  # noqa: E501
         }
 
     @cached_property
@@ -97,8 +94,7 @@ class InlineResponse2009(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
+        'results': 'results',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,8 +138,7 @@ class InlineResponse2009(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretStoreResponse]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            results ([Suggestion]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,8 +220,7 @@ class InlineResponse2009(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretStoreResponse]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            results ([Suggestion]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

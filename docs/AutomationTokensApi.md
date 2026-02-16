@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_automation_tokens_id_services**
-> InlineResponse2001 get_automation_tokens_id_services(id)
+> InlineResponse2004 get_automation_tokens_id_services(id)
 
 List Automation Token Services
 
@@ -201,8 +201,8 @@ List of services associated with the automation token.
 import time
 import fastly
 from fastly.api import automation_tokens_api
+from fastly.model.inline_response2004 import InlineResponse2004
 from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
-from fastly.model.inline_response2001 import InlineResponse2001
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

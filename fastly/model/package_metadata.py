@@ -148,8 +148,8 @@ class PackageMetadata(ModelNormal):
             description (str): Description of the Compute package.. [optional]  # noqa: E501
             authors ([str]): A list of package authors' email addresses.. [optional]  # noqa: E501
             language (str): The language of the Compute package.. [optional]  # noqa: E501
-            size (int): Size of the Compute package in bytes.. [optional]  # noqa: E501
-            hashsum (str): Hash of the Compute package.. [optional]  # noqa: E501
+            size (int): Size of the Compute package in bytes. This is deprecated along with `hashsum`.. [optional]  # noqa: E501
+            hashsum (str): Hash of the Compute package. This is deprecated in favor of `files_hash`.. [optional]  # noqa: E501
             files_hash (str): Hash of the files within the Compute package.. [optional]  # noqa: E501
         """
 
@@ -236,8 +236,8 @@ class PackageMetadata(ModelNormal):
             description (str): Description of the Compute package.. [optional]  # noqa: E501
             authors ([str]): A list of package authors' email addresses.. [optional]  # noqa: E501
             language (str): The language of the Compute package.. [optional]  # noqa: E501
-            size (int): Size of the Compute package in bytes.. [optional]  # noqa: E501
-            hashsum (str): Hash of the Compute package.. [optional]  # noqa: E501
+            size (int): Size of the Compute package in bytes. This is deprecated along with `hashsum`.. [optional]  # noqa: E501
+            hashsum (str): Hash of the Compute package. This is deprecated in favor of `files_hash`.. [optional]  # noqa: E501
             files_hash (str): Hash of the files within the Compute package.. [optional]  # noqa: E501
         """
 

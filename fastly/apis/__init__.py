@@ -18,6 +18,7 @@ from fastly.api.acl_api import AclApi
 from fastly.api.acl_entry_api import AclEntryApi
 from fastly.api.acls_in_compute_api import AclsInComputeApi
 from fastly.api.apex_redirect_api import ApexRedirectApi
+from fastly.api.apisecurity_operations_api import ApisecurityOperationsApi
 from fastly.api.automation_tokens_api import AutomationTokensApi
 from fastly.api.backend_api import BackendApi
 from fastly.api.billing_address_api import BillingAddressApi

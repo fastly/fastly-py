@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2006 import InlineResponse2006
+from fastly.model.inline_response2009 import InlineResponse2009
 from fastly.model.status import Status
 
 
@@ -99,7 +99,7 @@ class DomainResearchApi(object):
         )
         self.suggest_domains_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2006,),
+                'response_type': (InlineResponse2009,),
                 'auth': [
                     'token'
                 ],
@@ -305,7 +305,7 @@ class DomainResearchApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2006
+            InlineResponse2009
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -91,6 +91,7 @@ class Backend(ModelNormal):
             'comment': (str, none_type,),  # noqa: E501
             'connect_timeout': (int,),  # noqa: E501
             'first_byte_timeout': (int,),  # noqa: E501
+            'fetch_timeout': (int,),  # noqa: E501
             'healthcheck': (str, none_type,),  # noqa: E501
             'hostname': (str, none_type,),  # noqa: E501
             'ipv4': (str, none_type,),  # noqa: E501
@@ -135,6 +136,7 @@ class Backend(ModelNormal):
         'comment': 'comment',  # noqa: E501
         'connect_timeout': 'connect_timeout',  # noqa: E501
         'first_byte_timeout': 'first_byte_timeout',  # noqa: E501
+        'fetch_timeout': 'fetch_timeout',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'hostname': 'hostname',  # noqa: E501
         'ipv4': 'ipv4',  # noqa: E501
@@ -214,6 +216,7 @@ class Backend(ModelNormal):
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             connect_timeout (int): Maximum duration in milliseconds to wait for a connection to this backend to be established. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.connect_timeout`.. [optional]  # noqa: E501
             first_byte_timeout (int): Maximum duration in milliseconds to wait for the server response to begin after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.first_byte_timeout`.. [optional]  # noqa: E501
+            fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]  # noqa: E501
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]  # noqa: E501
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
@@ -331,6 +334,7 @@ class Backend(ModelNormal):
             comment (str, none_type): A freeform descriptive note.. [optional]  # noqa: E501
             connect_timeout (int): Maximum duration in milliseconds to wait for a connection to this backend to be established. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.connect_timeout`.. [optional]  # noqa: E501
             first_byte_timeout (int): Maximum duration in milliseconds to wait for the server response to begin after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.first_byte_timeout`.. [optional]  # noqa: E501
+            fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]  # noqa: E501
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]  # noqa: E501
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501

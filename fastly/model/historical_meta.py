@@ -83,6 +83,7 @@ class HistoricalMeta(ModelNormal):
             '_from': (str,),  # noqa: E501
             'by': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
+            'datacenter': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +96,7 @@ class HistoricalMeta(ModelNormal):
         '_from': 'from',  # noqa: E501
         'by': 'by',  # noqa: E501
         'region': 'region',  # noqa: E501
+        'datacenter': 'datacenter',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,6 +144,7 @@ class HistoricalMeta(ModelNormal):
             _from (str): [optional]  # noqa: E501
             by (str): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
+            datacenter (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,6 +230,7 @@ class HistoricalMeta(ModelNormal):
             _from (str): [optional]  # noqa: E501
             by (str): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
+            datacenter (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

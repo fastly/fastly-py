@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.kv_store_details import KvStoreDetails
     from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    from fastly.model.secret_response import SecretResponse
+    globals()['KvStoreDetails'] = KvStoreDetails
     globals()['PaginationCursorMeta'] = PaginationCursorMeta
-    globals()['SecretResponse'] = SecretResponse
 
 
 class InlineResponse20010(ModelNormal):
@@ -87,7 +87,7 @@ class InlineResponse20010(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([SecretResponse],),  # noqa: E501
+            'data': ([KvStoreDetails],),  # noqa: E501
             'meta': (PaginationCursorMeta,),  # noqa: E501
         }
 
@@ -142,7 +142,7 @@ class InlineResponse20010(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretResponse]): [optional]  # noqa: E501
+            data ([KvStoreDetails]): [optional]  # noqa: E501
             meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
@@ -225,7 +225,7 @@ class InlineResponse20010(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretResponse]): [optional]  # noqa: E501
+            data ([KvStoreDetails]): [optional]  # noqa: E501
             meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 

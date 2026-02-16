@@ -46,10 +46,10 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = insights_api.InsightsApi(api_client)
-    visualization = "top-url-by-bandwidth" # str | 
-    service_id = "service_id_example" # str | 
-    start = "start_example" # str | 
-    end = "end_example" # str | 
+    visualization = "top-url-by-requests" # str | 
+    service_id = "1jlmtMz1ncwA0KC3TBGD0X" # str | 
+    start = "2024-01-01T14:30:23Z" # str | 
+    end = "2024-01-05T14:30:23Z" # str | 
     pops = "pops_example" # str |  (optional)
     domain = "domain_example" # str |  (optional)
     domain_exact_match = True # bool |  (optional)

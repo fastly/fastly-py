@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.ddos_protection_event import DdosProtectionEvent
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['DdosProtectionEvent'] = DdosProtectionEvent
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
+    from fastly.model.meta import Meta
+    from fastly.model.operation_get import OperationGet
+    globals()['Meta'] = Meta
+    globals()['OperationGet'] = OperationGet
 
 
 class InlineResponse2002(ModelNormal):
@@ -87,8 +87,8 @@ class InlineResponse2002(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([DdosProtectionEvent],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'meta': (Meta,),  # noqa: E501
+            'data': ([APISecurityOperation],),  # noqa: E501
         }
 
     @cached_property
@@ -97,8 +97,8 @@ class InlineResponse2002(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
         'meta': 'meta',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,8 +142,8 @@ class InlineResponse2002(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionEvent]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityOperation]): The operations returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,8 +225,8 @@ class InlineResponse2002(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionEvent]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityOperation]): The operations returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

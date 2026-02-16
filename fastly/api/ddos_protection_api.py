@@ -30,8 +30,8 @@ from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
 from fastly.model.ddos_protection_rule import DdosProtectionRule
 from fastly.model.ddos_protection_rule_patch import DdosProtectionRulePatch
 from fastly.model.ddos_protection_traffic_stats import DdosProtectionTrafficStats
-from fastly.model.inline_response2002 import InlineResponse2002
-from fastly.model.inline_response2003 import InlineResponse2003
+from fastly.model.inline_response2005 import InlineResponse2005
+from fastly.model.inline_response2006 import InlineResponse2006
 
 
 class DdosProtectionApi(object):
@@ -104,7 +104,7 @@ class DdosProtectionApi(object):
         )
         self.ddos_protection_event_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2002,),
+                'response_type': (InlineResponse2005,),
                 'auth': [
                     'token'
                 ],
@@ -191,7 +191,7 @@ class DdosProtectionApi(object):
         )
         self.ddos_protection_event_rule_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2003,),
+                'response_type': (InlineResponse2006,),
                 'auth': [
                     'token'
                 ],
@@ -585,7 +585,7 @@ class DdosProtectionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2002
+            InlineResponse2005
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -664,7 +664,7 @@ class DdosProtectionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2003
+            InlineResponse2006
                 If the method is called asynchronously, returns the request
                 thread.
         """

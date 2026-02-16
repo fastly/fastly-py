@@ -61,6 +61,7 @@ class BackendApi(object):
                     'comment',
                     'connect_timeout',
                     'first_byte_timeout',
+                    'fetch_timeout',
                     'healthcheck',
                     'hostname',
                     'ipv4',
@@ -157,6 +158,8 @@ class BackendApi(object):
                         (int,),
                     'first_byte_timeout':
                         (int,),
+                    'fetch_timeout':
+                        (int,),
                     'healthcheck':
                         (str, none_type,),
                     'hostname':
@@ -226,6 +229,7 @@ class BackendApi(object):
                     'comment': 'comment',
                     'connect_timeout': 'connect_timeout',
                     'first_byte_timeout': 'first_byte_timeout',
+                    'fetch_timeout': 'fetch_timeout',
                     'healthcheck': 'healthcheck',
                     'hostname': 'hostname',
                     'ipv4': 'ipv4',
@@ -266,6 +270,7 @@ class BackendApi(object):
                     'comment': 'form',
                     'connect_timeout': 'form',
                     'first_byte_timeout': 'form',
+                    'fetch_timeout': 'form',
                     'healthcheck': 'form',
                     'hostname': 'form',
                     'ipv4': 'form',
@@ -543,6 +548,7 @@ class BackendApi(object):
                     'comment',
                     'connect_timeout',
                     'first_byte_timeout',
+                    'fetch_timeout',
                     'healthcheck',
                     'hostname',
                     'ipv4',
@@ -642,6 +648,8 @@ class BackendApi(object):
                         (int,),
                     'first_byte_timeout':
                         (int,),
+                    'fetch_timeout':
+                        (int,),
                     'healthcheck':
                         (str, none_type,),
                     'hostname':
@@ -712,6 +720,7 @@ class BackendApi(object):
                     'comment': 'comment',
                     'connect_timeout': 'connect_timeout',
                     'first_byte_timeout': 'first_byte_timeout',
+                    'fetch_timeout': 'fetch_timeout',
                     'healthcheck': 'healthcheck',
                     'hostname': 'hostname',
                     'ipv4': 'ipv4',
@@ -753,6 +762,7 @@ class BackendApi(object):
                     'comment': 'form',
                     'connect_timeout': 'form',
                     'first_byte_timeout': 'form',
+                    'fetch_timeout': 'form',
                     'healthcheck': 'form',
                     'hostname': 'form',
                     'ipv4': 'form',
@@ -826,6 +836,7 @@ class BackendApi(object):
             comment (str, none_type): A freeform descriptive note.. [optional]
             connect_timeout (int): Maximum duration in milliseconds to wait for a connection to this backend to be established. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.connect_timeout`.. [optional]
             first_byte_timeout (int): Maximum duration in milliseconds to wait for the server response to begin after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.first_byte_timeout`.. [optional]
+            fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
@@ -1200,6 +1211,7 @@ class BackendApi(object):
             comment (str, none_type): A freeform descriptive note.. [optional]
             connect_timeout (int): Maximum duration in milliseconds to wait for a connection to this backend to be established. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.connect_timeout`.. [optional]
             first_byte_timeout (int): Maximum duration in milliseconds to wait for the server response to begin after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.first_byte_timeout`.. [optional]
+            fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]

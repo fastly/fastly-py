@@ -9,6 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fastly.model.api_security_discovered_operation import APISecurityDiscoveredOperation
+from fastly.model.api_security_operation import APISecurityOperation
+from fastly.model.api_security_tag import APISecurityTag
 from fastly.model.access_key import AccessKey
 from fastly.model.access_key_response import AccessKeyResponse
 from fastly.model.acl import Acl
@@ -197,6 +200,9 @@ from fastly.model.director import Director
 from fastly.model.director_backend import DirectorBackend
 from fastly.model.director_backend_all_of import DirectorBackendAllOf
 from fastly.model.director_response import DirectorResponse
+from fastly.model.discovered_operation_base import DiscoveredOperationBase
+from fastly.model.discovered_operation_get import DiscoveredOperationGet
+from fastly.model.discovered_operation_get_extra import DiscoveredOperationGetExtra
 from fastly.model.domain import Domain
 from fastly.model.domain_check_response import DomainCheckResponse
 from fastly.model.domain_check_response_list import DomainCheckResponseList
@@ -319,6 +325,9 @@ from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.inline_response2001 import InlineResponse2001
 from fastly.model.inline_response20010 import InlineResponse20010
 from fastly.model.inline_response20011 import InlineResponse20011
+from fastly.model.inline_response20012 import InlineResponse20012
+from fastly.model.inline_response20013 import InlineResponse20013
+from fastly.model.inline_response20014 import InlineResponse20014
 from fastly.model.inline_response2002 import InlineResponse2002
 from fastly.model.inline_response2003 import InlineResponse2003
 from fastly.model.inline_response2004 import InlineResponse2004
@@ -457,6 +466,7 @@ from fastly.model.logging_syslog_additional import LoggingSyslogAdditional
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from fastly.model.logging_tls_common import LoggingTlsCommon
 from fastly.model.logging_use_tls_string import LoggingUseTlsString
+from fastly.model.meta import Meta
 from fastly.model.meta_per_page import MetaPerPage
 from fastly.model.metadata import Metadata
 from fastly.model.mtd_invoice_response import MtdInvoiceResponse
@@ -497,6 +507,12 @@ from fastly.model.object_storage_response_product import ObjectStorageResponsePr
 from fastly.model.object_storage_response_product_product import ObjectStorageResponseProductProduct
 from fastly.model.offer import Offer
 from fastly.model.offer_all_of import OfferAllOf
+from fastly.model.operation_base import OperationBase
+from fastly.model.operation_create import OperationCreate
+from fastly.model.operation_create_extra import OperationCreateExtra
+from fastly.model.operation_get import OperationGet
+from fastly.model.operation_get_extra import OperationGetExtra
+from fastly.model.operation_update import OperationUpdate
 from fastly.model.origin_inspector import OriginInspector
 from fastly.model.origin_inspector_dimensions import OriginInspectorDimensions
 from fastly.model.origin_inspector_entry import OriginInspectorEntry
@@ -720,6 +736,12 @@ from fastly.model.sudo_request import SudoRequest
 from fastly.model.sudo_response import SudoResponse
 from fastly.model.suggestion import Suggestion
 from fastly.model.suggestion_all_of import SuggestionAllOf
+from fastly.model.tag_base import TagBase
+from fastly.model.tag_create import TagCreate
+from fastly.model.tag_create_extra import TagCreateExtra
+from fastly.model.tag_get import TagGet
+from fastly.model.tag_get_extra import TagGetExtra
+from fastly.model.tag_update import TagUpdate
 from fastly.model.timeseries_get_response import TimeseriesGetResponse
 from fastly.model.timeseries_meta import TimeseriesMeta
 from fastly.model.timeseries_result import TimeseriesResult
