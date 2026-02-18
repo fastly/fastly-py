@@ -13,6 +13,9 @@ jobs:
   publish:
     name: Publish to PyPI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -38,7 +41,6 @@ jobs:
         if: ${{ env.DRY_RUN != '1' }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          password: ${{ secrets.PYPI_PUBLISH_TOKEN }}
           packages-dir: ./main/dist/
       - name: Write release body file
         run: CODE_PATH=./main ./main/.github/scripts/release_body.sh > ./dist/release_body.txt
