@@ -56,6 +56,7 @@ class RoleUser(ModelSimple):
             'BILLING': "billing",
             'ENGINEER': "engineer",
             'SUPERUSER': "superuser",
+            'NGWAF_OWNER_IMPORTED': "ngwaf_owner_imported",
         },
     }
 
