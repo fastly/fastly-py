@@ -45,6 +45,7 @@
 **Bug fixes:**
 
 - fix(dictionary): Correct example dictionary name to use valid characters
+ - fix(model): Make `ModelSimple` behave like a sequence when `value` is a list/tuple so generated response models (e.g. `DomainsResponse`) can be iterated, indexed and sized.
 
 **Enhancements:**
 
