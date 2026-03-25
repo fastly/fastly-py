@@ -88,6 +88,7 @@ from fastly.model.brotli_compression_response_links_links import BrotliCompressi
 from fastly.model.brotli_compression_response_product import BrotliCompressionResponseProduct
 from fastly.model.brotli_compression_response_product_product import BrotliCompressionResponseProductProduct
 from fastly.model.brotli_compression_response_service import BrotliCompressionResponseService
+from fastly.model.bulk_operation_result import BulkOperationResult
 from fastly.model.bulk_update_acl_entries_request import BulkUpdateAclEntriesRequest
 from fastly.model.bulk_update_acl_entry import BulkUpdateAclEntry
 from fastly.model.bulk_update_acl_entry_all_of import BulkUpdateAclEntryAllOf
@@ -337,6 +338,8 @@ from fastly.model.inline_response2007 import InlineResponse2007
 from fastly.model.inline_response2008 import InlineResponse2008
 from fastly.model.inline_response2009 import InlineResponse2009
 from fastly.model.inline_response201 import InlineResponse201
+from fastly.model.inline_response207 import InlineResponse207
+from fastly.model.inline_response2071 import InlineResponse2071
 from fastly.model.inline_response400 import InlineResponse400
 from fastly.model.invitation import Invitation
 from fastly.model.invitation_create_data import InvitationCreateData
@@ -508,6 +511,10 @@ from fastly.model.object_storage_response_product_product import ObjectStorageRe
 from fastly.model.offer import Offer
 from fastly.model.offer_all_of import OfferAllOf
 from fastly.model.operation_base import OperationBase
+from fastly.model.operation_bulk_add_tags import OperationBulkAddTags
+from fastly.model.operation_bulk_create import OperationBulkCreate
+from fastly.model.operation_bulk_create_operations import OperationBulkCreateOperations
+from fastly.model.operation_bulk_delete import OperationBulkDelete
 from fastly.model.operation_create import OperationCreate
 from fastly.model.operation_create_extra import OperationCreateExtra
 from fastly.model.operation_get import OperationGet

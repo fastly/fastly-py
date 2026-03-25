@@ -1,13 +1,10 @@
-# DiscoveredOperationGetExtra
+# InlineResponse2071
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique identifier of the discovered operation. | [readonly] 
-**updated_at** | **datetime** | The timestamp when the operation was last updated. | [optional] [readonly] 
-**last_seen_at** | **datetime** | The timestamp when the operation was last seen in traffic. | [optional] [readonly] 
-**rps** | **float** | Requests per second observed for this operation. | [optional] [readonly] 
+**data** | [**[BulkOperationResult]**](BulkOperationResult.md) | Results for each operation in the request. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

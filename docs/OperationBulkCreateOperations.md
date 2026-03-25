@@ -1,4 +1,4 @@
-# OperationCreate
+# OperationBulkCreateOperations
 
 
 ## Properties
@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **method** | **str** | The HTTP method for the operation. | 
 **domain** | **str** | The domain for the operation. | 
-**path** | **str** | The path for the operation, which may include path parameters. | 
+**path** | **str** | The path for the operation. | 
 **description** | **str** | A description of what the operation does. | [optional] 
-**tag_ids** | **[str]** | An array of operation tag IDs associated with this operation. | [optional] 
+**tag_ids** | **[str]** | An array of tag IDs to associate with this operation. | [optional] 
 **status** | **str** | The status to assign to the operation. Defaults to SAVED if omitted. | [optional]  if omitted the server will use the default value of "SAVED"
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

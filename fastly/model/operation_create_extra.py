@@ -53,6 +53,10 @@ class OperationCreateExtra(ModelNormal):
     """
 
     allowed_values = {
+        ('status',): {
+            'SAVED': "SAVED",
+            'IGNORED': "IGNORED",
+        },
     }
 
     validations = {
@@ -79,6 +83,7 @@ class OperationCreateExtra(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -87,6 +92,7 @@ class OperationCreateExtra(ModelNormal):
 
 
     attribute_map = {
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,6 +136,7 @@ class OperationCreateExtra(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (str): The status to assign to the operation. Defaults to SAVED if omitted.. [optional] if omitted the server will use the default value of "SAVED"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -211,6 +218,7 @@ class OperationCreateExtra(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (str): The status to assign to the operation. Defaults to SAVED if omitted.. [optional] if omitted the server will use the default value of "SAVED"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

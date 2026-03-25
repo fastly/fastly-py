@@ -256,8 +256,10 @@ class RealtimeEntryAggregated(ModelComposed):
             'shield_cache_fetches': (int,),  # noqa: E501
             'compute_bereqs': (int,),  # noqa: E501
             'compute_bereq_errors': (int,),  # noqa: E501
+            'compute_service_bereq_error': (int,),  # noqa: E501
             'compute_resource_limit_exceeded': (int,),  # noqa: E501
             'compute_heap_limit_exceeded': (int,),  # noqa: E501
+            'compute_service_memory_exceeded_error': (int,),  # noqa: E501
             'compute_stack_limit_exceeded': (int,),  # noqa: E501
             'compute_globals_limit_exceeded': (int,),  # noqa: E501
             'compute_guest_errors': (int,),  # noqa: E501
@@ -372,6 +374,22 @@ class RealtimeEntryAggregated(ModelComposed):
             'dns_nonbillable_responses_count': (int,),  # noqa: E501
             'upgrade': (int,),  # noqa: E501
             'ngwaf_bot_analysis_request_count': (int,),  # noqa: E501
+            'imgopto_avif_count': (int,),  # noqa: E501
+            'imgopto_jpeg_count': (int,),  # noqa: E501
+            'imgopto_png_count': (int,),  # noqa: E501
+            'imgopto_gif_count': (int,),  # noqa: E501
+            'imgopto_webp_count': (int,),  # noqa: E501
+            'imgopto_jpegxl_count': (int,),  # noqa: E501
+            'imgopto_svg_count': (int,),  # noqa: E501
+            'imgopto_mp4_count': (int,),  # noqa: E501
+            'compute_service_resource_limits_error': (int,),  # noqa: E501
+            'compute_service_runtime_error': (int,),  # noqa: E501
+            'compute_service_chain_error': (int,),  # noqa: E501
+            'compute_platform_internal_error': (int,),  # noqa: E501
+            'compute_service_timeout_error': (int,),  # noqa: E501
+            'compute_service_vcpu_exceeded_error': (int,),  # noqa: E501
+            'compute_service_limits_error': (int,),  # noqa: E501
+            'compute_platform_invalid_request_error': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -551,8 +569,10 @@ class RealtimeEntryAggregated(ModelComposed):
         'shield_cache_fetches': 'shield_cache_fetches',  # noqa: E501
         'compute_bereqs': 'compute_bereqs',  # noqa: E501
         'compute_bereq_errors': 'compute_bereq_errors',  # noqa: E501
+        'compute_service_bereq_error': 'compute_service_bereq_error',  # noqa: E501
         'compute_resource_limit_exceeded': 'compute_resource_limit_exceeded',  # noqa: E501
         'compute_heap_limit_exceeded': 'compute_heap_limit_exceeded',  # noqa: E501
+        'compute_service_memory_exceeded_error': 'compute_service_memory_exceeded_error',  # noqa: E501
         'compute_stack_limit_exceeded': 'compute_stack_limit_exceeded',  # noqa: E501
         'compute_globals_limit_exceeded': 'compute_globals_limit_exceeded',  # noqa: E501
         'compute_guest_errors': 'compute_guest_errors',  # noqa: E501
@@ -667,6 +687,22 @@ class RealtimeEntryAggregated(ModelComposed):
         'dns_nonbillable_responses_count': 'dns_nonbillable_responses_count',  # noqa: E501
         'upgrade': 'upgrade',  # noqa: E501
         'ngwaf_bot_analysis_request_count': 'ngwaf_bot_analysis_request_count',  # noqa: E501
+        'imgopto_avif_count': 'imgopto_avif_count',  # noqa: E501
+        'imgopto_jpeg_count': 'imgopto_jpeg_count',  # noqa: E501
+        'imgopto_png_count': 'imgopto_png_count',  # noqa: E501
+        'imgopto_gif_count': 'imgopto_gif_count',  # noqa: E501
+        'imgopto_webp_count': 'imgopto_webp_count',  # noqa: E501
+        'imgopto_jpegxl_count': 'imgopto_jpegxl_count',  # noqa: E501
+        'imgopto_svg_count': 'imgopto_svg_count',  # noqa: E501
+        'imgopto_mp4_count': 'imgopto_mp4_count',  # noqa: E501
+        'compute_service_resource_limits_error': 'compute_service_resource_limits_error',  # noqa: E501
+        'compute_service_runtime_error': 'compute_service_runtime_error',  # noqa: E501
+        'compute_service_chain_error': 'compute_service_chain_error',  # noqa: E501
+        'compute_platform_internal_error': 'compute_platform_internal_error',  # noqa: E501
+        'compute_service_timeout_error': 'compute_service_timeout_error',  # noqa: E501
+        'compute_service_vcpu_exceeded_error': 'compute_service_vcpu_exceeded_error',  # noqa: E501
+        'compute_service_limits_error': 'compute_service_limits_error',  # noqa: E501
+        'compute_platform_invalid_request_error': 'compute_platform_invalid_request_error',  # noqa: E501
     }
 
     read_only_vars = {
@@ -879,8 +915,10 @@ class RealtimeEntryAggregated(ModelComposed):
             shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
+            compute_service_bereq_error (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501
             compute_heap_limit_exceeded (int): Number of times a guest exceeded its heap limit.. [optional]  # noqa: E501
+            compute_service_memory_exceeded_error (int): Number of times a guest exceeded its heap limit.. [optional]  # noqa: E501
             compute_stack_limit_exceeded (int): Number of times a guest exceeded its stack limit.. [optional]  # noqa: E501
             compute_globals_limit_exceeded (int): Number of times a guest exceeded its globals limit.. [optional]  # noqa: E501
             compute_guest_errors (int): Number of times a service experienced a guest code error.. [optional]  # noqa: E501
@@ -995,6 +1033,22 @@ class RealtimeEntryAggregated(ModelComposed):
             dns_nonbillable_responses_count (int): Number of non-billable DNS responses (e.g., NODATA, NXDOMAIN).. [optional]  # noqa: E501
             upgrade (int): Number of requests that resulted in a WebSocket upgrade.. [optional]  # noqa: E501
             ngwaf_bot_analysis_request_count (int): Count of Next-Gen WAF Bot Management requests.. [optional]  # noqa: E501
+            imgopto_avif_count (int): Count of AVIF images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_jpeg_count (int): Count of JPEG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_png_count (int): Count of PNG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_gif_count (int): Count of GIF images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_webp_count (int): Count of WebP images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_jpegxl_count (int): Count of JPEGXL images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_svg_count (int): Count of SVG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_mp4_count (int): Count of MP4s delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            compute_service_resource_limits_error (int): Aggregate of fatal errors caused by exceeding allocated resource limits, specifically runtime duration, vCPU usage, and heap memory limits.. [optional]  # noqa: E501
+            compute_service_runtime_error (int): Fatal errors caused by service logic faults, including stack overflows, unreachable code traps, illegal memory access, or attempts to send multiple responses.. [optional]  # noqa: E501
+            compute_service_chain_error (int): Fatal errors caused by the service path exceeding hop or service limits, or where a forwarding loop is detected via CDN-Loop headers.. [optional]  # noqa: E501
+            compute_platform_internal_error (int): Fatal errors caused by internal errors in Fastly’s Compute platform.. [optional]  # noqa: E501
+            compute_service_timeout_error (int): Fatal errors caused by exceeding the per-request runtime limit.. [optional]  # noqa: E501
+            compute_service_vcpu_exceeded_error (int): Fatal errors caused by exceeding the per-request vCPU time limit.. [optional]  # noqa: E501
+            compute_service_limits_error (int): Non-fatal errors caused by attempts to exceed defined operational limits, such as simultaneous backend requests or cache transactions.. [optional]  # noqa: E501
+            compute_platform_invalid_request_error (int): Fatal errors caused by unprocessable requests to the service, such as requests with malformed CDN-Loop headers or invalid purge credentials.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1265,8 +1319,10 @@ class RealtimeEntryAggregated(ModelComposed):
             shield_cache_fetches (int): The total number of completed requests made to shields that returned cacheable content.. [optional]  # noqa: E501
             compute_bereqs (int): Number of backend requests started.. [optional]  # noqa: E501
             compute_bereq_errors (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
+            compute_service_bereq_error (int): Number of backend request errors, including timeouts.. [optional]  # noqa: E501
             compute_resource_limit_exceeded (int): Number of times a guest exceeded its resource limit, includes heap, stack, globals, and code execution timeout.. [optional]  # noqa: E501
             compute_heap_limit_exceeded (int): Number of times a guest exceeded its heap limit.. [optional]  # noqa: E501
+            compute_service_memory_exceeded_error (int): Number of times a guest exceeded its heap limit.. [optional]  # noqa: E501
             compute_stack_limit_exceeded (int): Number of times a guest exceeded its stack limit.. [optional]  # noqa: E501
             compute_globals_limit_exceeded (int): Number of times a guest exceeded its globals limit.. [optional]  # noqa: E501
             compute_guest_errors (int): Number of times a service experienced a guest code error.. [optional]  # noqa: E501
@@ -1381,6 +1437,22 @@ class RealtimeEntryAggregated(ModelComposed):
             dns_nonbillable_responses_count (int): Number of non-billable DNS responses (e.g., NODATA, NXDOMAIN).. [optional]  # noqa: E501
             upgrade (int): Number of requests that resulted in a WebSocket upgrade.. [optional]  # noqa: E501
             ngwaf_bot_analysis_request_count (int): Count of Next-Gen WAF Bot Management requests.. [optional]  # noqa: E501
+            imgopto_avif_count (int): Count of AVIF images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_jpeg_count (int): Count of JPEG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_png_count (int): Count of PNG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_gif_count (int): Count of GIF images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_webp_count (int): Count of WebP images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_jpegxl_count (int): Count of JPEGXL images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_svg_count (int): Count of SVG images delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            imgopto_mp4_count (int): Count of MP4s delivered to end user by Image Optimizer.. [optional]  # noqa: E501
+            compute_service_resource_limits_error (int): Aggregate of fatal errors caused by exceeding allocated resource limits, specifically runtime duration, vCPU usage, and heap memory limits.. [optional]  # noqa: E501
+            compute_service_runtime_error (int): Fatal errors caused by service logic faults, including stack overflows, unreachable code traps, illegal memory access, or attempts to send multiple responses.. [optional]  # noqa: E501
+            compute_service_chain_error (int): Fatal errors caused by the service path exceeding hop or service limits, or where a forwarding loop is detected via CDN-Loop headers.. [optional]  # noqa: E501
+            compute_platform_internal_error (int): Fatal errors caused by internal errors in Fastly’s Compute platform.. [optional]  # noqa: E501
+            compute_service_timeout_error (int): Fatal errors caused by exceeding the per-request runtime limit.. [optional]  # noqa: E501
+            compute_service_vcpu_exceeded_error (int): Fatal errors caused by exceeding the per-request vCPU time limit.. [optional]  # noqa: E501
+            compute_service_limits_error (int): Non-fatal errors caused by attempts to exceed defined operational limits, such as simultaneous backend requests or cache transactions.. [optional]  # noqa: E501
+            compute_platform_invalid_request_error (int): Fatal errors caused by unprocessable requests to the service, such as requests with malformed CDN-Loop headers or invalid purge credentials.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

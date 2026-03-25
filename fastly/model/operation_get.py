@@ -70,6 +70,10 @@ class OperationGet(ModelComposed):
             'CONNECT': "CONNECT",
             'TRACE': "TRACE",
         },
+        ('status',): {
+            'SAVED': "SAVED",
+            'IGNORED': "IGNORED",
+        },
     }
 
     validations = {
@@ -110,6 +114,8 @@ class OperationGet(ModelComposed):
             'tag_ids': ([str],),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'last_seen_at': (datetime,),  # noqa: E501
+            'rps': (float,),  # noqa: E501
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -127,6 +133,8 @@ class OperationGet(ModelComposed):
         'tag_ids': 'tag_ids',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'last_seen_at': 'last_seen_at',  # noqa: E501
+        'rps': 'rps',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,6 +142,8 @@ class OperationGet(ModelComposed):
         'updated_at',  # noqa: E501
         'created_at',  # noqa: E501
         'last_seen_at',  # noqa: E501
+        'rps',  # noqa: E501
+        'status',  # noqa: E501
     }
 
     @classmethod
@@ -181,6 +191,8 @@ class OperationGet(ModelComposed):
             tag_ids ([str]): An array of operation tag IDs associated with this operation.. [optional]  # noqa: E501
             created_at (datetime): The timestamp when the operation was created.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
+            status (str): The status of the operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,6 +299,8 @@ class OperationGet(ModelComposed):
             tag_ids ([str]): An array of operation tag IDs associated with this operation.. [optional]  # noqa: E501
             created_at (datetime): The timestamp when the operation was created.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
+            status (str): The status of the operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

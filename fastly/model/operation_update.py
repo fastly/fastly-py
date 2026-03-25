@@ -64,6 +64,10 @@ class OperationUpdate(ModelNormal):
             'CONNECT': "CONNECT",
             'TRACE': "TRACE",
         },
+        ('status',): {
+            'SAVED': "SAVED",
+            'IGNORED': "IGNORED",
+        },
     }
 
     validations = {
@@ -98,6 +102,7 @@ class OperationUpdate(ModelNormal):
             'path': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'tag_ids': ([str],),  # noqa: E501
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -111,6 +116,7 @@ class OperationUpdate(ModelNormal):
         'path': 'path',  # noqa: E501
         'description': 'description',  # noqa: E501
         'tag_ids': 'tag_ids',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +165,7 @@ class OperationUpdate(ModelNormal):
             path (str): The path for the operation, which may include path parameters.. [optional]  # noqa: E501
             description (str): A description of what the operation does.. [optional]  # noqa: E501
             tag_ids ([str]): An array of operation tag IDs associated with this operation.. [optional]  # noqa: E501
+            status (str): The status of the operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,6 +252,7 @@ class OperationUpdate(ModelNormal):
             path (str): The path for the operation, which may include path parameters.. [optional]  # noqa: E501
             description (str): A description of what the operation does.. [optional]  # noqa: E501
             tag_ids ([str]): An array of operation tag IDs associated with this operation.. [optional]  # noqa: E501
+            status (str): The status of the operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

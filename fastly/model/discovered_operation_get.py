@@ -70,11 +70,6 @@ class DiscoveredOperationGet(ModelComposed):
             'CONNECT': "CONNECT",
             'TRACE': "TRACE",
         },
-        ('status',): {
-            'DISCOVERED': "DISCOVERED",
-            'SAVED': "SAVED",
-            'IGNORED': "IGNORED",
-        },
     }
 
     validations = {
@@ -106,9 +101,10 @@ class DiscoveredOperationGet(ModelComposed):
             'method': (str,),  # noqa: E501
             'domain': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'last_seen_at': (datetime,),  # noqa: E501
+            'rps': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -120,14 +116,17 @@ class DiscoveredOperationGet(ModelComposed):
         'method': 'method',  # noqa: E501
         'domain': 'domain',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'status': 'status',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'last_seen_at': 'last_seen_at',  # noqa: E501
+        'rps': 'rps',  # noqa: E501
     }
 
     read_only_vars = {
+        'id',  # noqa: E501
         'updated_at',  # noqa: E501
         'last_seen_at',  # noqa: E501
+        'rps',  # noqa: E501
     }
 
     @classmethod
@@ -139,6 +138,7 @@ class DiscoveredOperationGet(ModelComposed):
             method (str): The HTTP method for the operation.
             domain (str): The domain for the operation.
             path (str): The path for the operation, which may include path parameters.
+            id (str): The unique identifier of the discovered operation.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -169,9 +169,9 @@ class DiscoveredOperationGet(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The current status of the operation.. [optional]  # noqa: E501
             updated_at (datetime): The timestamp when the operation was last updated.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,9 +274,9 @@ class DiscoveredOperationGet(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The current status of the operation.. [optional]  # noqa: E501
             updated_at (datetime): The timestamp when the operation was last updated.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

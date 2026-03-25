@@ -53,11 +53,6 @@ class DiscoveredOperationGetExtra(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'DISCOVERED': "DISCOVERED",
-            'SAVED': "SAVED",
-            'IGNORED': "IGNORED",
-        },
     }
 
     validations = {
@@ -84,9 +79,10 @@ class DiscoveredOperationGetExtra(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'last_seen_at': (datetime,),  # noqa: E501
+            'rps': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -95,22 +91,28 @@ class DiscoveredOperationGetExtra(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'last_seen_at': 'last_seen_at',  # noqa: E501
+        'rps': 'rps',  # noqa: E501
     }
 
     read_only_vars = {
+        'id',  # noqa: E501
         'updated_at',  # noqa: E501
         'last_seen_at',  # noqa: E501
+        'rps',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, *args, **kwargs):  # noqa: E501
         """DiscoveredOperationGetExtra - a model defined in OpenAPI
+
+        Args:
+            id (str): The unique identifier of the discovered operation.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,9 +145,9 @@ class DiscoveredOperationGetExtra(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The current status of the operation.. [optional]  # noqa: E501
             updated_at (datetime): The timestamp when the operation was last updated.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +175,7 @@ class DiscoveredOperationGetExtra(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -227,9 +230,9 @@ class DiscoveredOperationGetExtra(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The current status of the operation.. [optional]  # noqa: E501
             updated_at (datetime): The timestamp when the operation was last updated.. [optional]  # noqa: E501
             last_seen_at (datetime): The timestamp when the operation was last seen in traffic.. [optional]  # noqa: E501
+            rps (float): Requests per second observed for this operation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
