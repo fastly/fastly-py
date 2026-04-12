@@ -95,13 +95,15 @@ class DomainInspectorHistoricalApi(object):
                     },
                     ('region',): {
 
-                        "USA": "usa",
-                        "EUROPE": "europe",
+                        "AFRICA_STD": "africa_std",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
-                        "AFRICA_STD": "africa_std",
-                        "SOUTHAMERICA_STD": "southamerica_std"
+                        "EUROPE": "europe",
+                        "MEXICO": "mexico",
+                        "SOUTHAMERICA_STD": "southamerica_std",
+                        "USA": "usa"
                     },
                 },
                 'openapi_types': {

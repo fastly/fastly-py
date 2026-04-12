@@ -29,8 +29,14 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
+    from fastly.model.secret_response import SecretResponse
+    globals()['PaginationCursorMeta'] = PaginationCursorMeta
+    globals()['SecretResponse'] = SecretResponse
 
-class KvStoreRequestCreate(ModelNormal):
+
+class InlineResponse20013(ModelNormal):
     """NOTE: This class is auto generated.
     Do not edit the class manually.
 
@@ -64,6 +70,7 @@ class KvStoreRequestCreate(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +85,10 @@ class KvStoreRequestCreate(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'name': (str,),  # noqa: E501
+            'data': ([SecretResponse],),  # noqa: E501
+            'meta': (PaginationCursorMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -88,7 +97,8 @@ class KvStoreRequestCreate(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,11 +108,8 @@ class KvStoreRequestCreate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
-        """KvStoreRequestCreate - a model defined in OpenAPI
-
-        Args:
-            name (str): A human-readable name for the store. Refer to https://docs.fastly.com/products/compute-resource-limits#kv-store for limitations on the KV store name.
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """InlineResponse20013 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -135,6 +142,8 @@ class KvStoreRequestCreate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            data ([SecretResponse]): [optional]  # noqa: E501
+            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -162,7 +171,6 @@ class KvStoreRequestCreate(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -183,11 +191,8 @@ class KvStoreRequestCreate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
-        """KvStoreRequestCreate - a model defined in OpenAPI
-
-        Args:
-            name (str): A human-readable name for the store. Refer to https://docs.fastly.com/products/compute-resource-limits#kv-store for limitations on the KV store name.
+    def __init__(self, *args, **kwargs):  # noqa: E501
+        """InlineResponse20013 - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,6 +225,8 @@ class KvStoreRequestCreate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            data ([SecretResponse]): [optional]  # noqa: E501
+            meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,7 +252,6 @@ class KvStoreRequestCreate(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

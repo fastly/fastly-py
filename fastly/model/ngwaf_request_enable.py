@@ -80,6 +80,7 @@ class NgwafRequestEnable(ModelNormal):
         """
         return {
             'workspace_id': (str,),  # noqa: E501
+            'traffic_ramp': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +90,7 @@ class NgwafRequestEnable(ModelNormal):
 
     attribute_map = {
         'workspace_id': 'workspace_id',  # noqa: E501
+        'traffic_ramp': 'traffic_ramp',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,6 +137,7 @@ class NgwafRequestEnable(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            traffic_ramp (str): The percentage of traffic to inspect.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +223,7 @@ class NgwafRequestEnable(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            traffic_ramp (str): The percentage of traffic to inspect.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

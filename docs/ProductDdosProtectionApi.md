@@ -94,7 +94,7 @@ void (empty response body)
 
 Enable product
 
-Enable the DDoS Protection product on a service in 'log' mode.
+Enable the DDoS Protection product on a service in default 'log' mode unless otherwise specified in the request body.
 
 ### Example
 
@@ -105,6 +105,7 @@ import time
 import fastly
 from fastly.api import product_ddos_protection_api
 from fastly.model.ddos_protection_response_enable import DdosProtectionResponseEnable
+from fastly.model.ddos_protection_request_enable_mode import DdosProtectionRequestEnableMode
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -128,11 +129,23 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_ddos_protection_api.ProductDdosProtectionApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
+    ddos_protection_request_enable_mode = DdosProtectionRequestEnableMode(
+        mode="false",
+    ) # DdosProtectionRequestEnableMode |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Enable product
         api_response = api_instance.enable_product_ddos_protection(service_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling ProductDdosProtectionApi->enable_product_ddos_protection: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Enable product
+        api_response = api_instance.enable_product_ddos_protection(service_id, ddos_protection_request_enable_mode=ddos_protection_request_enable_mode)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling ProductDdosProtectionApi->enable_product_ddos_protection: %s\n" % e)
@@ -144,6 +157,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
+ **ddos_protection_request_enable_mode** | [**DdosProtectionRequestEnableMode**](DdosProtectionRequestEnableMode.md)|  | [optional]
 
 ### Return type
 
@@ -155,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

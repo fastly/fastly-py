@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **description** | **str** | Description of the Compute package. | [optional] 
 **authors** | **[str]** | A list of package authors&#39; email addresses. | [optional] 
 **language** | **str** | The language of the Compute package. | [optional] 
-**size** | **int** | Size of the Compute package in bytes. | [optional] 
-**hashsum** | **str** | Hash of the Compute package. | [optional] 
+**size** | **int** | Size of the Compute package in bytes. This is deprecated along with `hashsum`. | [optional] 
+**hashsum** | **str** | Hash of the Compute package. This is deprecated in favor of `files_hash`. | [optional] 
 **files_hash** | **str** | Hash of the files within the Compute package. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

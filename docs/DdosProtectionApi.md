@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ddos_protection_event_list**
-> InlineResponse2002 ddos_protection_event_list()
+> InlineResponse2005 ddos_protection_event_list()
 
 Get events
 
@@ -112,7 +112,7 @@ import time
 import fastly
 from fastly.api import ddos_protection_api
 from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
-from fastly.model.inline_response2002 import InlineResponse2002
+from fastly.model.inline_response2005 import InlineResponse2005
 from fastly.model.ddos_protection_not_authenticated import DdosProtectionNotAuthenticated
 from fastly.model.ddos_protection_error import DdosProtectionError
 from pprint import pprint
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ddos_protection_event_rule_list**
-> InlineResponse2003 ddos_protection_event_rule_list(event_id)
+> InlineResponse2006 ddos_protection_event_rule_list(event_id)
 
 Get all rules for an event
 
@@ -205,10 +205,10 @@ Get all rules for an event.
 import time
 import fastly
 from fastly.api import ddos_protection_api
-from fastly.model.inline_response2003 import InlineResponse2003
 from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
 from fastly.model.ddos_protection_not_authenticated import DdosProtectionNotAuthenticated
 from fastly.model.ddos_protection_error import DdosProtectionError
+from fastly.model.inline_response2006 import InlineResponse2006
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 

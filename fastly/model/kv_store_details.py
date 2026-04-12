@@ -81,6 +81,8 @@ class KvStoreDetails(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'created_at': (str,),  # noqa: E501
+            'updated_at': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +93,8 @@ class KvStoreDetails(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +140,8 @@ class KvStoreDetails(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): ID of the store.. [optional]  # noqa: E501
             name (str): Name of the store.. [optional]  # noqa: E501
+            created_at (str): Timestamp at which the store was created.. [optional]  # noqa: E501
+            updated_at (str): Timestamp at which the store was last updated.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +225,8 @@ class KvStoreDetails(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): ID of the store.. [optional]  # noqa: E501
             name (str): Name of the store.. [optional]  # noqa: E501
+            created_at (str): Timestamp at which the store was created.. [optional]  # noqa: E501
+            updated_at (str): Timestamp at which the store was last updated.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

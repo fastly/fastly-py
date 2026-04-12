@@ -58,13 +58,14 @@ with fastly.ApiClient(configuration) as api_client:
     to = "2020-04-09T18:14:30Z" # str | Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  (optional) if omitted the server will use the default value of "now"
     by = "day" # str | Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  (optional) if omitted the server will use the default value of "day"
     region = "usa" # str | Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  (optional)
+    datacenter = "IAD,CHI" # str | Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  (optional)
     services = "services_example" # str | Limit the query to only the specified, comma-separated list of services.  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get historical stats
-        api_response = api_instance.get_hist_stats(_from=_from, to=to, by=by, region=region, services=services)
+        api_response = api_instance.get_hist_stats(_from=_from, to=to, by=by, region=region, datacenter=datacenter, services=services)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling HistoricalApi->get_hist_stats: %s\n" % e)
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  **to** | **str**| Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  | [optional] if omitted the server will use the default value of "now"
  **by** | **str**| Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  | [optional] if omitted the server will use the default value of "day"
  **region** | **str**| Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  | [optional]
+ **datacenter** | **str**| Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  | [optional]
  **services** | **str**| Limit the query to only the specified, comma-separated list of services.  | [optional]
 
 ### Return type
@@ -231,6 +233,7 @@ with fastly.ApiClient(configuration) as api_client:
     to = "2020-04-09T18:14:30Z" # str | Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  (optional) if omitted the server will use the default value of "now"
     by = "day" # str | Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  (optional) if omitted the server will use the default value of "day"
     region = "usa" # str | Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  (optional)
+    datacenter = "IAD,CHI" # str | Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -244,7 +247,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get historical stats for a single field
-        api_response = api_instance.get_hist_stats_field(field, _from=_from, to=to, by=by, region=region)
+        api_response = api_instance.get_hist_stats_field(field, _from=_from, to=to, by=by, region=region, datacenter=datacenter)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling HistoricalApi->get_hist_stats_field: %s\n" % e)
@@ -260,6 +263,7 @@ Name | Type | Description  | Notes
  **to** | **str**| Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  | [optional] if omitted the server will use the default value of "now"
  **by** | **str**| Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  | [optional] if omitted the server will use the default value of "day"
  **region** | **str**| Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  | [optional]
+ **datacenter** | **str**| Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  | [optional]
 
 ### Return type
 
@@ -326,6 +330,7 @@ with fastly.ApiClient(configuration) as api_client:
     to = "2020-04-09T18:14:30Z" # str | Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  (optional) if omitted the server will use the default value of "now"
     by = "day" # str | Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  (optional) if omitted the server will use the default value of "day"
     region = "usa" # str | Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  (optional)
+    datacenter = "IAD,CHI" # str | Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -339,7 +344,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get historical stats for a single service
-        api_response = api_instance.get_hist_stats_service(service_id, _from=_from, to=to, by=by, region=region)
+        api_response = api_instance.get_hist_stats_service(service_id, _from=_from, to=to, by=by, region=region, datacenter=datacenter)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling HistoricalApi->get_hist_stats_service: %s\n" % e)
@@ -355,6 +360,7 @@ Name | Type | Description  | Notes
  **to** | **str**| Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  | [optional] if omitted the server will use the default value of "now"
  **by** | **str**| Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  | [optional] if omitted the server will use the default value of "day"
  **region** | **str**| Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  | [optional]
+ **datacenter** | **str**| Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  | [optional]
 
 ### Return type
 
@@ -422,6 +428,7 @@ with fastly.ApiClient(configuration) as api_client:
     to = "2020-04-09T18:14:30Z" # str | Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  (optional) if omitted the server will use the default value of "now"
     by = "day" # str | Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  (optional) if omitted the server will use the default value of "day"
     region = "usa" # str | Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  (optional)
+    datacenter = "IAD,CHI" # str | Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -435,7 +442,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get historical stats for a single service/field combination
-        api_response = api_instance.get_hist_stats_service_field(service_id, field, _from=_from, to=to, by=by, region=region)
+        api_response = api_instance.get_hist_stats_service_field(service_id, field, _from=_from, to=to, by=by, region=region, datacenter=datacenter)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling HistoricalApi->get_hist_stats_service_field: %s\n" % e)
@@ -452,6 +459,7 @@ Name | Type | Description  | Notes
  **to** | **str**| Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.  | [optional] if omitted the server will use the default value of "now"
  **by** | **str**| Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day.  | [optional] if omitted the server will use the default value of "day"
  **region** | **str**| Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America.  | [optional]
+ **datacenter** | **str**| Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/).  | [optional]
 
 ### Return type
 

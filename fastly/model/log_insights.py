@@ -91,7 +91,7 @@ class LogInsights(ModelNormal):
         return {
             'dimensions': (LogInsightsDimensions,),  # noqa: E501
             'dimension_attributes': (LogInsightsDimensionAttributes,),  # noqa: E501
-            'values': (LogInsightsValues,),  # noqa: E501
+            'values': ([LogInsightsValues],),  # noqa: E501
         }
 
     @cached_property
@@ -148,7 +148,7 @@ class LogInsights(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             dimensions (LogInsightsDimensions): [optional]  # noqa: E501
             dimension_attributes (LogInsightsDimensionAttributes): [optional]  # noqa: E501
-            values (LogInsightsValues): [optional]  # noqa: E501
+            values ([LogInsightsValues]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +232,7 @@ class LogInsights(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             dimensions (LogInsightsDimensions): [optional]  # noqa: E501
             dimension_attributes (LogInsightsDimensionAttributes): [optional]  # noqa: E501
-            values (LogInsightsValues): [optional]  # noqa: E501
+            values ([LogInsightsValues]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

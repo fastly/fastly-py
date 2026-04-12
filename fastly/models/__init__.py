@@ -9,6 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fastly.model.api_security_discovered_operation import APISecurityDiscoveredOperation
+from fastly.model.api_security_operation import APISecurityOperation
+from fastly.model.api_security_tag import APISecurityTag
 from fastly.model.access_key import AccessKey
 from fastly.model.access_key_response import AccessKeyResponse
 from fastly.model.acl import Acl
@@ -85,6 +88,7 @@ from fastly.model.brotli_compression_response_links_links import BrotliCompressi
 from fastly.model.brotli_compression_response_product import BrotliCompressionResponseProduct
 from fastly.model.brotli_compression_response_product_product import BrotliCompressionResponseProductProduct
 from fastly.model.brotli_compression_response_service import BrotliCompressionResponseService
+from fastly.model.bulk_operation_result import BulkOperationResult
 from fastly.model.bulk_update_acl_entries_request import BulkUpdateAclEntriesRequest
 from fastly.model.bulk_update_acl_entry import BulkUpdateAclEntry
 from fastly.model.bulk_update_acl_entry_all_of import BulkUpdateAclEntryAllOf
@@ -148,6 +152,7 @@ from fastly.model.ddos_protection_invalid_request import DdosProtectionInvalidRe
 from fastly.model.ddos_protection_not_authenticated import DdosProtectionNotAuthenticated
 from fastly.model.ddos_protection_not_authorized import DdosProtectionNotAuthorized
 from fastly.model.ddos_protection_not_found import DdosProtectionNotFound
+from fastly.model.ddos_protection_request_enable_mode import DdosProtectionRequestEnableMode
 from fastly.model.ddos_protection_request_update_configuration import DdosProtectionRequestUpdateConfiguration
 from fastly.model.ddos_protection_response_body_get_all_services import DdosProtectionResponseBodyGetAllServices
 from fastly.model.ddos_protection_response_configuration import DdosProtectionResponseConfiguration
@@ -196,6 +201,9 @@ from fastly.model.director import Director
 from fastly.model.director_backend import DirectorBackend
 from fastly.model.director_backend_all_of import DirectorBackendAllOf
 from fastly.model.director_response import DirectorResponse
+from fastly.model.discovered_operation_base import DiscoveredOperationBase
+from fastly.model.discovered_operation_get import DiscoveredOperationGet
+from fastly.model.discovered_operation_get_extra import DiscoveredOperationGetExtra
 from fastly.model.domain import Domain
 from fastly.model.domain_check_response import DomainCheckResponse
 from fastly.model.domain_check_response_list import DomainCheckResponseList
@@ -216,6 +224,12 @@ from fastly.model.domain_inspector_response_links_links import DomainInspectorRe
 from fastly.model.domain_inspector_response_product import DomainInspectorResponseProduct
 from fastly.model.domain_inspector_response_product_product import DomainInspectorResponseProductProduct
 from fastly.model.domain_inspector_response_service import DomainInspectorResponseService
+from fastly.model.domain_research_response_body_enable import DomainResearchResponseBodyEnable
+from fastly.model.domain_research_response_customer import DomainResearchResponseCustomer
+from fastly.model.domain_research_response_links import DomainResearchResponseLinks
+from fastly.model.domain_research_response_links_links import DomainResearchResponseLinksLinks
+from fastly.model.domain_research_response_product import DomainResearchResponseProduct
+from fastly.model.domain_research_response_product_product import DomainResearchResponseProductProduct
 from fastly.model.domain_response import DomainResponse
 from fastly.model.domains_response import DomainsResponse
 from fastly.model.environment import Environment
@@ -311,6 +325,10 @@ from fastly.model.inline_object1 import InlineObject1
 from fastly.model.inline_response200 import InlineResponse200
 from fastly.model.inline_response2001 import InlineResponse2001
 from fastly.model.inline_response20010 import InlineResponse20010
+from fastly.model.inline_response20011 import InlineResponse20011
+from fastly.model.inline_response20012 import InlineResponse20012
+from fastly.model.inline_response20013 import InlineResponse20013
+from fastly.model.inline_response20014 import InlineResponse20014
 from fastly.model.inline_response2002 import InlineResponse2002
 from fastly.model.inline_response2003 import InlineResponse2003
 from fastly.model.inline_response2004 import InlineResponse2004
@@ -320,6 +338,8 @@ from fastly.model.inline_response2007 import InlineResponse2007
 from fastly.model.inline_response2008 import InlineResponse2008
 from fastly.model.inline_response2009 import InlineResponse2009
 from fastly.model.inline_response201 import InlineResponse201
+from fastly.model.inline_response207 import InlineResponse207
+from fastly.model.inline_response2071 import InlineResponse2071
 from fastly.model.inline_response400 import InlineResponse400
 from fastly.model.invitation import Invitation
 from fastly.model.invitation_create_data import InvitationCreateData
@@ -337,7 +357,7 @@ from fastly.model.invoicelineitems import Invoicelineitems
 from fastly.model.kv_store_batch_response import KvStoreBatchResponse
 from fastly.model.kv_store_batch_response_errors import KvStoreBatchResponseErrors
 from fastly.model.kv_store_details import KvStoreDetails
-from fastly.model.kv_store_request_create import KvStoreRequestCreate
+from fastly.model.kv_store_request_create_or_update import KvStoreRequestCreateOrUpdate
 from fastly.model.kv_store_upsert_batch import KvStoreUpsertBatch
 from fastly.model.list_attack_report import ListAttackReport
 from fastly.model.list_attack_report_meta import ListAttackReportMeta
@@ -449,6 +469,7 @@ from fastly.model.logging_syslog_additional import LoggingSyslogAdditional
 from fastly.model.logging_syslog_response import LoggingSyslogResponse
 from fastly.model.logging_tls_common import LoggingTlsCommon
 from fastly.model.logging_use_tls_string import LoggingUseTlsString
+from fastly.model.meta import Meta
 from fastly.model.meta_per_page import MetaPerPage
 from fastly.model.metadata import Metadata
 from fastly.model.mtd_invoice_response import MtdInvoiceResponse
@@ -487,6 +508,18 @@ from fastly.model.object_storage_response_links import ObjectStorageResponseLink
 from fastly.model.object_storage_response_links_links import ObjectStorageResponseLinksLinks
 from fastly.model.object_storage_response_product import ObjectStorageResponseProduct
 from fastly.model.object_storage_response_product_product import ObjectStorageResponseProductProduct
+from fastly.model.offer import Offer
+from fastly.model.offer_all_of import OfferAllOf
+from fastly.model.operation_base import OperationBase
+from fastly.model.operation_bulk_add_tags import OperationBulkAddTags
+from fastly.model.operation_bulk_create import OperationBulkCreate
+from fastly.model.operation_bulk_create_operations import OperationBulkCreateOperations
+from fastly.model.operation_bulk_delete import OperationBulkDelete
+from fastly.model.operation_create import OperationCreate
+from fastly.model.operation_create_extra import OperationCreateExtra
+from fastly.model.operation_get import OperationGet
+from fastly.model.operation_get_extra import OperationGetExtra
+from fastly.model.operation_update import OperationUpdate
 from fastly.model.origin_inspector import OriginInspector
 from fastly.model.origin_inspector_dimensions import OriginInspectorDimensions
 from fastly.model.origin_inspector_entry import OriginInspectorEntry
@@ -523,6 +556,9 @@ from fastly.model.platform_ddos_entry import PlatformDdosEntry
 from fastly.model.platform_ddos_response import PlatformDdosResponse
 from fastly.model.platform_ddos_response_all_of import PlatformDdosResponseAllOf
 from fastly.model.platform_ddos_response_data import PlatformDdosResponseData
+from fastly.model.platform_metadata import PlatformMetadata
+from fastly.model.platform_metrics_response import PlatformMetricsResponse
+from fastly.model.platform_values import PlatformValues
 from fastly.model.pool_additional import PoolAdditional
 from fastly.model.pool_response import PoolResponse
 from fastly.model.pool_response_all_of import PoolResponseAllOf
@@ -698,11 +734,21 @@ from fastly.model.star_data import StarData
 from fastly.model.star_response import StarResponse
 from fastly.model.star_response_all_of import StarResponseAllOf
 from fastly.model.stats import Stats
+from fastly.model.status import Status
+from fastly.model.status_all_of import StatusAllOf
 from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
 from fastly.model.successful_response_as_object_all_of import SuccessfulResponseAsObjectAllOf
 from fastly.model.sudo_generic_token_error import SudoGenericTokenError
 from fastly.model.sudo_request import SudoRequest
 from fastly.model.sudo_response import SudoResponse
+from fastly.model.suggestion import Suggestion
+from fastly.model.suggestion_all_of import SuggestionAllOf
+from fastly.model.tag_base import TagBase
+from fastly.model.tag_create import TagCreate
+from fastly.model.tag_create_extra import TagCreateExtra
+from fastly.model.tag_get import TagGet
+from fastly.model.tag_get_extra import TagGetExtra
+from fastly.model.tag_update import TagUpdate
 from fastly.model.timeseries_get_response import TimeseriesGetResponse
 from fastly.model.timeseries_meta import TimeseriesMeta
 from fastly.model.timeseries_result import TimeseriesResult

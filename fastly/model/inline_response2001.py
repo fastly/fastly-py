@@ -29,6 +29,12 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.discovered_operation_get import DiscoveredOperationGet
+    from fastly.model.meta import Meta
+    globals()['DiscoveredOperationGet'] = DiscoveredOperationGet
+    globals()['Meta'] = Meta
+
 
 class InlineResponse2001(ModelNormal):
     """NOTE: This class is auto generated.
@@ -64,6 +70,7 @@ class InlineResponse2001(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -78,8 +85,10 @@ class InlineResponse2001(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'data': ([str],),  # noqa: E501
+            'meta': (Meta,),  # noqa: E501
+            'data': ([APISecurityDiscoveredOperation],),  # noqa: E501
         }
 
     @cached_property
@@ -88,6 +97,7 @@ class InlineResponse2001(ModelNormal):
 
 
     attribute_map = {
+        'meta': 'meta',  # noqa: E501
         'data': 'data',  # noqa: E501
     }
 
@@ -132,7 +142,8 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): The service IDs of the services the token will have access to. Separate service IDs with a space.. [optional]  # noqa: E501
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityDiscoveredOperation]): The discovered operations returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -214,7 +225,8 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): The service IDs of the services the token will have access to. Separate service IDs with a space.. [optional]  # noqa: E501
+            meta (Meta): [optional]  # noqa: E501
+            data ([APISecurityDiscoveredOperation]): The discovered operations returned by the request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

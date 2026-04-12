@@ -30,8 +30,8 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
+    from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
+    globals()['SuccessfulResponseAsObject'] = SuccessfulResponseAsObject
 
 
 class InlineResponse2007(ModelNormal):
@@ -85,8 +85,8 @@ class InlineResponse2007(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([str],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'data': ([SuccessfulResponseAsObject],),  # noqa: E501
+            'meta': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -140,8 +140,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            data ([SuccessfulResponseAsObject]): [optional]  # noqa: E501
+            meta (bool, date, datetime, dict, float, int, list, str, none_type): Meta for the pagination.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +223,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([str]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            data ([SuccessfulResponseAsObject]): [optional]  # noqa: E501
+            meta (bool, date, datetime, dict, float, int, list, str, none_type): Meta for the pagination.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

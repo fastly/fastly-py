@@ -1,5 +1,64 @@
 # Changelog
 
+## [v13.1.0](https://github.com/fastly/fastly-py/releases/tag/release/v13.1.0) (2026-03-30)
+
+**Enhancements:**
+
+- feat(historical, realtime): Deprecated metrics `compute_bereq_errors`, `compute_resource_limit_exceeded`,
+                              `compute_heap_limit_exceeded`, `compute_stack_limit_exceeded`, `compute_globals_limit_exceeded`,
+                              `compute_guest_errors`, and `compute_runtime_errors`.
+- feat(historical, realtime): Added metrics `compute_service_bereq_error`, `compute_service_memory_exceeded_error`.
+                              `imgopto_avif_count`, `imgopto_jpeg_count`, `imgopto_png_count`, `imgopto_gif_count`,
+                              `imgopto_webp_count`, `imgopto_jpegxl_count`, `imgopto_svg_count`, `imgopto_mp4_count`,
+                              `compute_service_resource_limits_error`, `compute_service_runtime_error`, `compute_service_chain_error`
+                              `compute_platform_internal_error`, `compute_service_timeout_error`, `compute_service_vcpu_exceeded_error`
+                              `compute_service_limits_error`, and `compute_platform_invalid_request_error`.
+- feat(domains): Add new Domain Management Domains API.
+- feat(apisecurity-operations): Results include support for `rps` and `id`.
+- feat(apisecurity-operations): List endpoints add support for new parameters `method`, `domain`, and `path`.
+- feat(apisecurity-operations): Add new bulk operations endpoints.
+
+
+## [v13.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v13.0.0) (2026-02-16)
+
+**Breaking Changes:**
+
+- deprecated(user): The Compute package metadata model `hashsum` and `size` fields have been deprecated.
+
+
+**Enhancements:**
+
+- feat(apisecurity-operations): Add new API Security Operations API.
+- feat(domain-inspector-realtime, domain-inspector-historical): Add new metrics `compute_*`.
+- feat(realtime, historical): Add new metrics `compute_resp_status_*`.
+- feat(realtime, historical): Add new metric `ngwaf_bot_analysis_request_count`.
+- feat(backend): Add support for `fetch_timeout` field.
+- feat(historical): Add support for `datacenter` query.
+
+
+## [v12.1.0](https://github.com/fastly/fastly-py/releases/tag/release/v12.1.0) (2025-12-09)
+
+**Enhancements:**
+
+- feat(py): Update to support urllib3 2.6.0 (fastly-py#112)
+- feat(realtime, historical): Add new metrics `imgopto_compute_requests`, `dns_billable_responses_count`,
+                              `dns_nonbillable_responses_count`, and `upgrade`.
+- feat(products[ngwaf]): Add new parameter `traffic_ramp` to `enable-product-ngwaf`.
+- feat(products[ddos_protection]): Add new parameter `mode` to `enable-product-ddos-protection`.
+- feat(kv_store): Add `kv-store-put` operation.
+- feat(iam_roles): Add `DisplayName` field to model.
+- feat(domain_research): Add new Domain Research API.
+- feat(ddos_protection): Add `requests_allowed` and `requests_detected` fields to DDoS Protection event API.
+
+- feat(products): Add `domain_research` product to enablement API.
+
+
+
+**Documentation:**
+
+- doc(enabled-products): Add support for optional enablement parameters for some products.
+
+
 ## [v12.0.0](https://github.com/fastly/fastly-py/releases/tag/release/v12.0.0) (2025-10-31)
 
 **Bug fixes:**

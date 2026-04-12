@@ -60,6 +60,7 @@ class HistoricalApi(object):
                     'to',
                     'by',
                     'region',
+                    'datacenter',
                     'services',
                 ],
                 'required': [],
@@ -103,6 +104,8 @@ class HistoricalApi(object):
                         (str,),
                     'region':
                         (str,),
+                    'datacenter':
+                        (str,),
                     'services':
                         (str,),
                 },
@@ -111,6 +114,7 @@ class HistoricalApi(object):
                     'to': 'to',
                     'by': 'by',
                     'region': 'region',
+                    'datacenter': 'datacenter',
                     'services': 'services',
                 },
                 'location_map': {
@@ -118,6 +122,7 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                    'datacenter': 'query',
                     'services': 'query',
                 },
                 'path_params_allow_reserved_map': {
@@ -246,6 +251,7 @@ class HistoricalApi(object):
                     'to',
                     'by',
                     'region',
+                    'datacenter',
                 ],
                 'required': [
                     'field',
@@ -292,6 +298,8 @@ class HistoricalApi(object):
                         (str,),
                     'region':
                         (str,),
+                    'datacenter':
+                        (str,),
                 },
                 'attribute_map': {
                     'field': 'field',
@@ -299,6 +307,7 @@ class HistoricalApi(object):
                     'to': 'to',
                     'by': 'by',
                     'region': 'region',
+                    'datacenter': 'datacenter',
                 },
                 'location_map': {
                     'field': 'path',
@@ -306,6 +315,7 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                    'datacenter': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -343,6 +353,7 @@ class HistoricalApi(object):
                     'to',
                     'by',
                     'region',
+                    'datacenter',
                 ],
                 'required': [
                     'service_id',
@@ -389,6 +400,8 @@ class HistoricalApi(object):
                         (str,),
                     'region':
                         (str,),
+                    'datacenter':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -396,6 +409,7 @@ class HistoricalApi(object):
                     'to': 'to',
                     'by': 'by',
                     'region': 'region',
+                    'datacenter': 'datacenter',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -403,6 +417,7 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                    'datacenter': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -441,6 +456,7 @@ class HistoricalApi(object):
                     'to',
                     'by',
                     'region',
+                    'datacenter',
                 ],
                 'required': [
                     'service_id',
@@ -490,6 +506,8 @@ class HistoricalApi(object):
                         (str,),
                     'region':
                         (str,),
+                    'datacenter':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
@@ -498,6 +516,7 @@ class HistoricalApi(object):
                     'to': 'to',
                     'by': 'by',
                     'region': 'region',
+                    'datacenter': 'datacenter',
                 },
                 'location_map': {
                     'service_id': 'path',
@@ -506,6 +525,7 @@ class HistoricalApi(object):
                     'to': 'query',
                     'by': 'query',
                     'region': 'query',
+                    'datacenter': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -779,6 +799,7 @@ class HistoricalApi(object):
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
             region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
+            datacenter (str): Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/). . [optional]
             services (str): Limit the query to only the specified, comma-separated list of services. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -937,6 +958,7 @@ class HistoricalApi(object):
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
             region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
+            datacenter (str): Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/). . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1019,6 +1041,7 @@ class HistoricalApi(object):
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
             region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
+            datacenter (str): Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/). . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1103,6 +1126,7 @@ class HistoricalApi(object):
             to (str): Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`. . [optional] if omitted the server will use the default value of "now"
             by (str): Duration of sample windows. One of:   * `hour` - Group data by hour.   * `minute` - Group data by minute.   * `day` - Group data by day. . [optional] if omitted the server will use the default value of "day"
             region (str): Limit query to a specific geographic region. One of:   * `usa` - North America.   * `europe` - Europe.   * `anzac` - Australia and New Zealand.   * `asia` - Asia.   * `asia_india` - India.   * `asia_southkorea` - South Korea.   * `africa_std` - Africa.   * `mexico` - Mexico.   * `southamerica_std` - South America. . [optional]
+            datacenter (str): Limit query to one or more Fastly POPs. For multiple POPs use a comma-seperated list of POPs. These must be all uppercase and be valid codes. A full list of POPs can be obtained from the [POPs endpoint](https://www.fastly.com/documentation/reference/api/utils/pops/). . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

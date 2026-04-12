@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2004 import InlineResponse2004
+from fastly.model.inline_response2007 import InlineResponse2007
 from fastly.model.request_body_for_create import RequestBodyForCreate
 from fastly.model.request_body_for_update import RequestBodyForUpdate
 from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
@@ -209,7 +209,7 @@ class DmDomainsApi(object):
         )
         self.list_dm_domains_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2004,),
+                'response_type': (InlineResponse2007,),
                 'auth': [
                     'token'
                 ],
@@ -226,6 +226,7 @@ class DmDomainsApi(object):
             params_map={
                 'all': [
                     'fqdn',
+                    'fqdn_match',
                     'service_id',
                     'sort',
                     'activated',
@@ -237,6 +238,7 @@ class DmDomainsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'fqdn_match',
                     'sort',
                 ],
                 'validation': [
@@ -251,6 +253,13 @@ class DmDomainsApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('fqdn_match',): {
+
+                        "fqdn_match_contains": "contains",
+                        "fqdn_match_exact": "exact",
+                        "fqdn_match_starts_with": "starts_with",
+                        "fqdn_match_ends_with": "ends_with"
+                    },
                     ('sort',): {
 
                         "fqdn_asc": "fqdn",
@@ -259,6 +268,8 @@ class DmDomainsApi(object):
                 },
                 'openapi_types': {
                     'fqdn':
+                        (str,),
+                    'fqdn_match':
                         (str,),
                     'service_id':
                         (str,),
@@ -275,6 +286,7 @@ class DmDomainsApi(object):
                 },
                 'attribute_map': {
                     'fqdn': 'fqdn',
+                    'fqdn_match': 'fqdn_match',
                     'service_id': 'service_id',
                     'sort': 'sort',
                     'activated': 'activated',
@@ -284,6 +296,7 @@ class DmDomainsApi(object):
                 },
                 'location_map': {
                     'fqdn': 'query',
+                    'fqdn_match': 'query',
                     'service_id': 'query',
                     'sort': 'query',
                     'activated': 'query',
@@ -615,6 +628,7 @@ class DmDomainsApi(object):
 
         Keyword Args:
             fqdn (str): [optional]
+            fqdn_match (str): (Optional) Filter fully-qualified domain name (FQDN) specifically by match type. If used, requires filtering by FQDN.. [optional] if omitted the server will use the default value of "contains"
             service_id (str): Filter results based on a service_id.. [optional]
             sort (str): The order in which to list the results.. [optional] if omitted the server will use the default value of "fqdn"
             activated (bool): [optional]
@@ -649,7 +663,7 @@ class DmDomainsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2004
+            InlineResponse2007
                 If the method is called asynchronously, returns the request
                 thread.
         """

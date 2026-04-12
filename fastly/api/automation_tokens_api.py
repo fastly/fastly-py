@@ -25,7 +25,7 @@ from fastly.model.automation_token_create_request import AutomationTokenCreateRe
 from fastly.model.automation_token_create_response import AutomationTokenCreateResponse
 from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from fastly.model.automation_token_response import AutomationTokenResponse
-from fastly.model.inline_response2001 import InlineResponse2001
+from fastly.model.inline_response2004 import InlineResponse2004
 
 
 class AutomationTokensApi(object):
@@ -155,7 +155,7 @@ class AutomationTokensApi(object):
         )
         self.get_automation_tokens_id_services_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2001,),
+                'response_type': (InlineResponse2004,),
                 'auth': [
                     'token'
                 ],
@@ -544,7 +544,7 @@ class AutomationTokensApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2001
+            InlineResponse2004
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_dm_domains**
-> InlineResponse2004 list_dm_domains()
+> InlineResponse2007 list_dm_domains()
 
 List domains
 
@@ -265,7 +265,7 @@ List all domains
 import time
 import fastly
 from fastly.api import dm_domains_api
-from fastly.model.inline_response2004 import InlineResponse2004
+from fastly.model.inline_response2007 import InlineResponse2007
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,6 +289,7 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dm_domains_api.DmDomainsApi(api_client)
     fqdn = "fqdn_example" # str |  (optional)
+    fqdn_match = "contains" # str | (Optional) Filter fully-qualified domain name (FQDN) specifically by match type. If used, requires filtering by FQDN. (optional) if omitted the server will use the default value of "contains"
     service_id = "service_id_example" # str | Filter results based on a service_id. (optional)
     sort = "fqdn" # str | The order in which to list the results. (optional) if omitted the server will use the default value of "fqdn"
     activated = True # bool |  (optional)
@@ -300,7 +301,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List domains
-        api_response = api_instance.list_dm_domains(fqdn=fqdn, service_id=service_id, sort=sort, activated=activated, verified=verified, cursor=cursor, limit=limit)
+        api_response = api_instance.list_dm_domains(fqdn=fqdn, fqdn_match=fqdn_match, service_id=service_id, sort=sort, activated=activated, verified=verified, cursor=cursor, limit=limit)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling DmDomainsApi->list_dm_domains: %s\n" % e)
@@ -312,6 +313,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fqdn** | **str**|  | [optional]
+ **fqdn_match** | **str**| (Optional) Filter fully-qualified domain name (FQDN) specifically by match type. If used, requires filtering by FQDN. | [optional] if omitted the server will use the default value of "contains"
  **service_id** | **str**| Filter results based on a service_id. | [optional]
  **sort** | **str**| The order in which to list the results. | [optional] if omitted the server will use the default value of "fqdn"
  **activated** | **bool**|  | [optional]
@@ -321,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
