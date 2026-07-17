@@ -6,6 +6,7 @@ All attributes for updating a domain
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str, none_type** | The `service_id` associated with your domain or `null` if there is no association. | [optional] 
+**routing_configuration_id** | **str, none_type** | The `routing_configuration_id` associated with your domain or `null` if there is no association. | [optional] 
 **description** | **str** | A freeform descriptive note. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

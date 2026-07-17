@@ -54,6 +54,7 @@ with fastly.ApiClient(configuration) as api_client:
     request_body_for_create = RequestBodyForCreate(
         fqdn="fqdn_example",
         service_id="service_id_example",
+        routing_configuration_id="routing_configuration_id_example",
         description="description_example",
     ) # RequestBodyForCreate |  (optional)
 
@@ -251,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_dm_domains**
-> InlineResponse2007 list_dm_domains()
+> InlineResponse20014 list_dm_domains()
 
 List domains
 
@@ -265,7 +266,7 @@ List all domains
 import time
 import fastly
 from fastly.api import dm_domains_api
-from fastly.model.inline_response2007 import InlineResponse2007
+from fastly.model.inline_response20014 import InlineResponse20014
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -323,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -385,6 +386,7 @@ with fastly.ApiClient(configuration) as api_client:
     domain_id = "domain_id_example" # str | 
     request_body_for_update = RequestBodyForUpdate(
         service_id="service_id_example",
+        routing_configuration_id="routing_configuration_id_example",
         description="description_example",
     ) # RequestBodyForUpdate |  (optional)
 

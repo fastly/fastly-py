@@ -31,9 +31,9 @@ from fastly.exceptions import ApiAttributeError
 
 def lazy_import():
     from fastly.model.pagination_links import PaginationLinks
-    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.pagination_meta1 import PaginationMeta1
     globals()['PaginationLinks'] = PaginationLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['PaginationMeta1'] = PaginationMeta1
 
 
 class Pagination(ModelNormal):
@@ -88,7 +88,7 @@ class Pagination(ModelNormal):
         lazy_import()
         return {
             'links': (PaginationLinks,),  # noqa: E501
-            'meta': (PaginationMeta,),  # noqa: E501
+            'meta': (PaginationMeta1,),  # noqa: E501
         }
 
     @cached_property
@@ -143,7 +143,7 @@ class Pagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,7 +226,7 @@ class Pagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

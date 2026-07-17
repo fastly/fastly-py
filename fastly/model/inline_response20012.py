@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fastly.model.ddos_protection_event import DdosProtectionEvent
     from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    from fastly.model.secret_store_response import SecretStoreResponse
+    globals()['DdosProtectionEvent'] = DdosProtectionEvent
     globals()['PaginationCursorMeta'] = PaginationCursorMeta
-    globals()['SecretStoreResponse'] = SecretStoreResponse
 
 
 class InlineResponse20012(ModelNormal):
@@ -87,7 +87,7 @@ class InlineResponse20012(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([SecretStoreResponse],),  # noqa: E501
+            'data': ([DdosProtectionEvent],),  # noqa: E501
             'meta': (PaginationCursorMeta,),  # noqa: E501
         }
 
@@ -142,7 +142,7 @@ class InlineResponse20012(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretStoreResponse]): [optional]  # noqa: E501
+            data ([DdosProtectionEvent]): [optional]  # noqa: E501
             meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 
@@ -225,7 +225,7 @@ class InlineResponse20012(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SecretStoreResponse]): [optional]  # noqa: E501
+            data ([DdosProtectionEvent]): [optional]  # noqa: E501
             meta (PaginationCursorMeta): [optional]  # noqa: E501
         """
 

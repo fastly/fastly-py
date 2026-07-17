@@ -56,10 +56,6 @@ class PaginationMeta(ModelNormal):
     }
 
     validations = {
-        ('per_page',): {
-            'inclusive_maximum': 100,
-            'inclusive_minimum': 1,
-        },
     }
 
     @cached_property
@@ -83,10 +79,10 @@ class PaginationMeta(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'current_page': (int,),  # noqa: E501
-            'per_page': (int,),  # noqa: E501
-            'record_count': (int,),  # noqa: E501
-            'total_pages': (int,),  # noqa: E501
+            'limit': (int,),  # noqa: E501
+            'next_cursor': (str,),  # noqa: E501
+            'previous_cursor': (str,),  # noqa: E501
+            'sort': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +91,10 @@ class PaginationMeta(ModelNormal):
 
 
     attribute_map = {
-        'current_page': 'current_page',  # noqa: E501
-        'per_page': 'per_page',  # noqa: E501
-        'record_count': 'record_count',  # noqa: E501
-        'total_pages': 'total_pages',  # noqa: E501
+        'limit': 'limit',  # noqa: E501
+        'next_cursor': 'next_cursor',  # noqa: E501
+        'previous_cursor': 'previous_cursor',  # noqa: E501
+        'sort': 'sort',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,10 +138,10 @@ class PaginationMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            current_page (int): Current page.. [optional]  # noqa: E501
-            per_page (int): Number of records per page.. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            record_count (int): Total records in result set.. [optional]  # noqa: E501
-            total_pages (int): Total pages in result set.. [optional]  # noqa: E501
+            limit (int): The number of records returned per page.. [optional]  # noqa: E501
+            next_cursor (str): Cursor value used to retrieve the next page of results. Empty if there are no more results.. [optional]  # noqa: E501
+            previous_cursor (str): Cursor value used to retrieve the previous page of results. Empty if there is no previous page.. [optional]  # noqa: E501
+            sort (str): The sort order applied to the results.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,10 +223,10 @@ class PaginationMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            current_page (int): Current page.. [optional]  # noqa: E501
-            per_page (int): Number of records per page.. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            record_count (int): Total records in result set.. [optional]  # noqa: E501
-            total_pages (int): Total pages in result set.. [optional]  # noqa: E501
+            limit (int): The number of records returned per page.. [optional]  # noqa: E501
+            next_cursor (str): Cursor value used to retrieve the next page of results. Empty if there are no more results.. [optional]  # noqa: E501
+            previous_cursor (str): Cursor value used to retrieve the previous page of results. Empty if there is no previous page.. [optional]  # noqa: E501
+            sort (str): The sort order applied to the results.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

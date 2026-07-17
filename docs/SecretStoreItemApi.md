@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_secrets**
-> InlineResponse20013 get_secrets(store_id)
+> InlineResponse20021 get_secrets(store_id)
 
 List secrets within a store.
 
@@ -280,7 +280,7 @@ List all secrets within a store.
 import time
 import fastly
 from fastly.api import secret_store_item_api
-from fastly.model.inline_response20013 import InlineResponse20013
+from fastly.model.inline_response20021 import InlineResponse20021
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.fastly.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 

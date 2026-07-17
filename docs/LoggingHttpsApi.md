@@ -68,7 +68,7 @@ with fastly.ApiClient(configuration) as api_client:
     url = "url_example" # str | The URL to send logs to. Must use HTTPS. Required. (optional)
     content_type = "null" # str, none_type | Content type of the header sent with the request. (optional) if omitted the server will use the default value of "null"
     header_name = "null" # str, none_type | Name of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
-    message_type = LoggingMessageType("classic") # LoggingMessageType |  (optional)
+    message_type = LoggingMessageType("blank") # LoggingMessageType |  (optional)
     header_value = "null" # str, none_type | Value of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
     method = "POST" # str | HTTP method used for request. (optional) if omitted the server will use the default value of "POST"
     json_format = "0" # str | Enforces valid JSON formatting for log entries. (optional)
@@ -443,7 +443,7 @@ with fastly.ApiClient(configuration) as api_client:
     url = "url_example" # str | The URL to send logs to. Must use HTTPS. Required. (optional)
     content_type = "null" # str, none_type | Content type of the header sent with the request. (optional) if omitted the server will use the default value of "null"
     header_name = "null" # str, none_type | Name of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
-    message_type = LoggingMessageType("classic") # LoggingMessageType |  (optional)
+    message_type = LoggingMessageType("blank") # LoggingMessageType |  (optional)
     header_value = "null" # str, none_type | Value of the custom header sent with the request. (optional) if omitted the server will use the default value of "null"
     method = "POST" # str | HTTP method used for request. (optional) if omitted the server will use the default value of "POST"
     json_format = "0" # str | Enforces valid JSON formatting for log entries. (optional)

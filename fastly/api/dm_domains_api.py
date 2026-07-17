@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2007 import InlineResponse2007
+from fastly.model.inline_response20014 import InlineResponse20014
 from fastly.model.request_body_for_create import RequestBodyForCreate
 from fastly.model.request_body_for_update import RequestBodyForUpdate
 from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
@@ -209,7 +209,7 @@ class DmDomainsApi(object):
         )
         self.list_dm_domains_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2007,),
+                'response_type': (InlineResponse20014,),
                 'auth': [
                     'token'
                 ],
@@ -663,7 +663,7 @@ class DmDomainsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2007
+            InlineResponse20014
                 If the method is called asynchronously, returns the request
                 thread.
         """

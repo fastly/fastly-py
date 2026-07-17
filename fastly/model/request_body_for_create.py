@@ -81,6 +81,7 @@ class RequestBodyForCreate(ModelNormal):
         return {
             'fqdn': (str,),  # noqa: E501
             'service_id': (str, none_type,),  # noqa: E501
+            'routing_configuration_id': (str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
         }
 
@@ -92,6 +93,7 @@ class RequestBodyForCreate(ModelNormal):
     attribute_map = {
         'fqdn': 'fqdn',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
+        'routing_configuration_id': 'routing_configuration_id',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
 
@@ -140,6 +142,7 @@ class RequestBodyForCreate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            routing_configuration_id (str, none_type): The `routing_configuration_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
             description (str): A freeform descriptive note.. [optional]  # noqa: E501
         """
 
@@ -227,6 +230,7 @@ class RequestBodyForCreate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            routing_configuration_id (str, none_type): The `routing_configuration_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
             description (str): A freeform descriptive note.. [optional]  # noqa: E501
         """
 

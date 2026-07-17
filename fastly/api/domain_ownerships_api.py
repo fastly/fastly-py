@@ -21,7 +21,7 @@ from fastly.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from fastly.model.inline_response2008 import InlineResponse2008
+from fastly.model.inline_response20015 import InlineResponse20015
 
 
 class DomainOwnershipsApi(object):
@@ -35,7 +35,7 @@ class DomainOwnershipsApi(object):
         self.api_client = api_client
         self.list_domain_ownerships_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2008,),
+                'response_type': (InlineResponse20015,),
                 'auth': [
                     'token'
                 ],
@@ -128,7 +128,7 @@ class DomainOwnershipsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2008
+            InlineResponse20015
                 If the method is called asynchronously, returns the request
                 thread.
         """

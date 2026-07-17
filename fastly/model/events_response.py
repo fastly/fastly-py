@@ -34,12 +34,12 @@ def lazy_import():
     from fastly.model.event_data_items import EventDataItems
     from fastly.model.pagination import Pagination
     from fastly.model.pagination_links import PaginationLinks
-    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.pagination_meta1 import PaginationMeta1
     globals()['EventData'] = EventData
     globals()['EventDataItems'] = EventDataItems
     globals()['Pagination'] = Pagination
     globals()['PaginationLinks'] = PaginationLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['PaginationMeta1'] = PaginationMeta1
 
 
 class EventsResponse(ModelComposed):
@@ -94,7 +94,7 @@ class EventsResponse(ModelComposed):
         lazy_import()
         return {
             'links': (PaginationLinks,),  # noqa: E501
-            'meta': (PaginationMeta,),  # noqa: E501
+            'meta': (PaginationMeta1,),  # noqa: E501
             'data': (EventDataItems,),  # noqa: E501
         }
 
@@ -149,7 +149,7 @@ class EventsResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data (EventDataItems): [optional]  # noqa: E501
         """
 
@@ -251,7 +251,7 @@ class EventsResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data (EventDataItems): [optional]  # noqa: E501
         """
 

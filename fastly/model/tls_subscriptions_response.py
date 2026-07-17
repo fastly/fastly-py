@@ -32,12 +32,12 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.pagination import Pagination
     from fastly.model.pagination_links import PaginationLinks
-    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.pagination_meta1 import PaginationMeta1
     from fastly.model.tls_subscription_response import TlsSubscriptionResponse
     from fastly.model.tls_subscriptions_response_all_of import TlsSubscriptionsResponseAllOf
     globals()['Pagination'] = Pagination
     globals()['PaginationLinks'] = PaginationLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['PaginationMeta1'] = PaginationMeta1
     globals()['TlsSubscriptionResponse'] = TlsSubscriptionResponse
     globals()['TlsSubscriptionsResponseAllOf'] = TlsSubscriptionsResponseAllOf
 
@@ -94,7 +94,7 @@ class TlsSubscriptionsResponse(ModelComposed):
         lazy_import()
         return {
             'links': (PaginationLinks,),  # noqa: E501
-            'meta': (PaginationMeta,),  # noqa: E501
+            'meta': (PaginationMeta1,),  # noqa: E501
             'data': ([TlsSubscriptionResponse],),  # noqa: E501
         }
 
@@ -149,7 +149,7 @@ class TlsSubscriptionsResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsSubscriptionResponse]): [optional]  # noqa: E501
         """
 
@@ -251,7 +251,7 @@ class TlsSubscriptionsResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsSubscriptionResponse]): [optional]  # noqa: E501
         """
 

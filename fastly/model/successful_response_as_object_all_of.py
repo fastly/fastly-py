@@ -82,6 +82,7 @@ class SuccessfulResponseAsObjectAllOf(ModelNormal):
             'id': (str,),  # noqa: E501
             'fqdn': (str,),  # noqa: E501
             'service_id': (str, none_type,),  # noqa: E501
+            'routing_configuration_id': (str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'activated': (bool,),  # noqa: E501
             'verified': (bool,),  # noqa: E501
@@ -96,6 +97,7 @@ class SuccessfulResponseAsObjectAllOf(ModelNormal):
         'id': 'id',  # noqa: E501
         'fqdn': 'fqdn',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
+        'routing_configuration_id': 'routing_configuration_id',  # noqa: E501
         'description': 'description',  # noqa: E501
         'activated': 'activated',  # noqa: E501
         'verified': 'verified',  # noqa: E501
@@ -147,6 +149,7 @@ class SuccessfulResponseAsObjectAllOf(ModelNormal):
             id (str): Domain Identifier (UUID).. [optional]  # noqa: E501
             fqdn (str): The fully-qualified domain name for your domain. Can be created, but not updated.. [optional]  # noqa: E501
             service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            routing_configuration_id (str, none_type): The `routing_configuration_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
             description (str): A freeform descriptive note.. [optional]  # noqa: E501
             activated (bool): Denotes if the domain has at least one TLS activation or not.. [optional]  # noqa: E501
             verified (bool): Denotes that the customer has proven ownership over the domain by obtaining a Fastly-managed TLS certificate for it or by providing a their own TLS certificate from a publicly-trusted CA that includes the domain or matching wildcard.     . [optional]  # noqa: E501
@@ -234,6 +237,7 @@ class SuccessfulResponseAsObjectAllOf(ModelNormal):
             id (str): Domain Identifier (UUID).. [optional]  # noqa: E501
             fqdn (str): The fully-qualified domain name for your domain. Can be created, but not updated.. [optional]  # noqa: E501
             service_id (str, none_type): The `service_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
+            routing_configuration_id (str, none_type): The `routing_configuration_id` associated with your domain or `null` if there is no association.. [optional]  # noqa: E501
             description (str): A freeform descriptive note.. [optional]  # noqa: E501
             activated (bool): Denotes if the domain has at least one TLS activation or not.. [optional]  # noqa: E501
             verified (bool): Denotes that the customer has proven ownership over the domain by obtaining a Fastly-managed TLS certificate for it or by providing a their own TLS certificate from a publicly-trusted CA that includes the domain or matching wildcard.     . [optional]  # noqa: E501

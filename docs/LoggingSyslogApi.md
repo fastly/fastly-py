@@ -66,7 +66,7 @@ with fastly.ApiClient(configuration) as api_client:
     tls_hostname = "null" # str, none_type | The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported. (optional) if omitted the server will use the default value of "null"
     address = "example.com" # str | A hostname or IPv4 address. (optional)
     port = 514 # int | The port number. (optional) if omitted the server will use the default value of 514
-    message_type = LoggingMessageType("classic") # LoggingMessageType |  (optional)
+    message_type = LoggingMessageType("blank") # LoggingMessageType |  (optional)
     hostname = "hostname_example" # str | The hostname used for the syslog endpoint. (optional)
     ipv4 = "ipv4_example" # str, none_type | The IPv4 address used for the syslog endpoint. (optional)
     token = "null" # str, none_type | Whether to prepend each message with a specific token. (optional) if omitted the server will use the default value of "null"
@@ -436,7 +436,7 @@ with fastly.ApiClient(configuration) as api_client:
     tls_hostname = "null" # str, none_type | The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported. (optional) if omitted the server will use the default value of "null"
     address = "example.com" # str | A hostname or IPv4 address. (optional)
     port = 514 # int | The port number. (optional) if omitted the server will use the default value of 514
-    message_type = LoggingMessageType("classic") # LoggingMessageType |  (optional)
+    message_type = LoggingMessageType("blank") # LoggingMessageType |  (optional)
     hostname = "hostname_example" # str | The hostname used for the syslog endpoint. (optional)
     ipv4 = "ipv4_example" # str, none_type | The IPv4 address used for the syslog endpoint. (optional)
     token = "null" # str, none_type | Whether to prepend each message with a specific token. (optional) if omitted the server will use the default value of "null"

@@ -30,10 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.ddos_protection_event import DdosProtectionEvent
-    from fastly.model.pagination_cursor_meta import PaginationCursorMeta
-    globals()['DdosProtectionEvent'] = DdosProtectionEvent
-    globals()['PaginationCursorMeta'] = PaginationCursorMeta
+    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.website import Website
+    globals()['PaginationMeta'] = PaginationMeta
+    globals()['Website'] = Website
 
 
 class InlineResponse2005(ModelNormal):
@@ -87,8 +87,8 @@ class InlineResponse2005(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([DdosProtectionEvent],),  # noqa: E501
-            'meta': (PaginationCursorMeta,),  # noqa: E501
+            'data': ([Website],),  # noqa: E501
+            'meta': (PaginationMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -142,8 +142,8 @@ class InlineResponse2005(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionEvent]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            data ([Website]): [optional]  # noqa: E501
+            meta (PaginationMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,8 +225,8 @@ class InlineResponse2005(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([DdosProtectionEvent]): [optional]  # noqa: E501
-            meta (PaginationCursorMeta): [optional]  # noqa: E501
+            data ([Website]): [optional]  # noqa: E501
+            meta (PaginationMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

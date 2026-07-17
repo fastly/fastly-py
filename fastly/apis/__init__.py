@@ -25,6 +25,7 @@ from fastly.api.billing_address_api import BillingAddressApi
 from fastly.api.billing_invoices_api import BillingInvoicesApi
 from fastly.api.billing_usage_metrics_api import BillingUsageMetricsApi
 from fastly.api.cache_settings_api import CacheSettingsApi
+from fastly.api.client_side_protection_api import ClientSideProtectionApi
 from fastly.api.condition_api import ConditionApi
 from fastly.api.config_store_api import ConfigStoreApi
 from fastly.api.config_store_item_api import ConfigStoreItemApi
@@ -40,6 +41,7 @@ from fastly.api.diff_api import DiffApi
 from fastly.api.director_api import DirectorApi
 from fastly.api.director_backend_api import DirectorBackendApi
 from fastly.api.dm_domains_api import DmDomainsApi
+from fastly.api.dm_routing_configs_api import DmRoutingConfigsApi
 from fastly.api.domain_api import DomainApi
 from fastly.api.domain_inspector_historical_api import DomainInspectorHistoricalApi
 from fastly.api.domain_inspector_realtime_api import DomainInspectorRealtimeApi
@@ -91,7 +93,9 @@ from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.metrics_platform_api import MetricsPlatformApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.ngwaf_agent_keys_api import NgwafAgentKeysApi
 from fastly.api.ngwaf_reports_api import NgwafReportsApi
+from fastly.api.ngwaf_simulate_api import NgwafSimulateApi
 from fastly.api.object_storage_access_keys_api import ObjectStorageAccessKeysApi
 from fastly.api.observability_aggregations_for_logs_api import ObservabilityAggregationsForLogsApi
 from fastly.api.observability_custom_dashboards_api import ObservabilityCustomDashboardsApi
@@ -110,6 +114,7 @@ from fastly.api.product_domain_inspector_api import ProductDomainInspectorApi
 from fastly.api.product_domain_research_api import ProductDomainResearchApi
 from fastly.api.product_fanout_api import ProductFanoutApi
 from fastly.api.product_image_optimizer_api import ProductImageOptimizerApi
+from fastly.api.product_kv_store_api import ProductKvStoreApi
 from fastly.api.product_log_explorer_insights_api import ProductLogExplorerInsightsApi
 from fastly.api.product_ngwaf_api import ProductNgwafApi
 from fastly.api.product_object_storage_api import ProductObjectStorageApi

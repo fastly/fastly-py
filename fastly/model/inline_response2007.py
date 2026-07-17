@@ -30,8 +30,10 @@ from fastly.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fastly.model.successful_response_as_object import SuccessfulResponseAsObject
-    globals()['SuccessfulResponseAsObject'] = SuccessfulResponseAsObject
+    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.script import Script
+    globals()['PaginationMeta'] = PaginationMeta
+    globals()['Script'] = Script
 
 
 class InlineResponse2007(ModelNormal):
@@ -85,8 +87,8 @@ class InlineResponse2007(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([SuccessfulResponseAsObject],),  # noqa: E501
-            'meta': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'data': ([Script],),  # noqa: E501
+            'meta': (PaginationMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -140,8 +142,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SuccessfulResponseAsObject]): [optional]  # noqa: E501
-            meta (bool, date, datetime, dict, float, int, list, str, none_type): Meta for the pagination.. [optional]  # noqa: E501
+            data ([Script]): [optional]  # noqa: E501
+            meta (PaginationMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +225,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([SuccessfulResponseAsObject]): [optional]  # noqa: E501
-            meta (bool, date, datetime, dict, float, int, list, str, none_type): Meta for the pagination.. [optional]  # noqa: E501
+            data ([Script]): [optional]  # noqa: E501
+            meta (PaginationMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

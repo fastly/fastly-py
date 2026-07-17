@@ -54,10 +54,10 @@ class LoggingGenericCommon(ModelNormal):
 
     allowed_values = {
         ('message_type',): {
+            'BLANK': "blank",
             'CLASSIC': "classic",
             'LOGGLY': "loggly",
             'LOGPLEX': "logplex",
-            'BLANK': "blank",
         },
         ('compression_codec',): {
             'ZSTD': "zstd",
@@ -148,7 +148,7 @@ class LoggingGenericCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
+            message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "blank"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
         """
@@ -232,7 +232,7 @@ class LoggingGenericCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "classic"  # noqa: E501
+            message_type (str): How the message should be formatted.. [optional] if omitted the server will use the default value of "blank"  # noqa: E501
             timestamp_format (str, none_type): A timestamp format. [optional]  # noqa: E501
             compression_codec (str): The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.. [optional]  # noqa: E501
         """

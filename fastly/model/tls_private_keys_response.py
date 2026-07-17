@@ -32,12 +32,12 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.pagination import Pagination
     from fastly.model.pagination_links import PaginationLinks
-    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.pagination_meta1 import PaginationMeta1
     from fastly.model.tls_private_key_response_data import TlsPrivateKeyResponseData
     from fastly.model.tls_private_keys_response_all_of import TlsPrivateKeysResponseAllOf
     globals()['Pagination'] = Pagination
     globals()['PaginationLinks'] = PaginationLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['PaginationMeta1'] = PaginationMeta1
     globals()['TlsPrivateKeyResponseData'] = TlsPrivateKeyResponseData
     globals()['TlsPrivateKeysResponseAllOf'] = TlsPrivateKeysResponseAllOf
 
@@ -94,7 +94,7 @@ class TlsPrivateKeysResponse(ModelComposed):
         lazy_import()
         return {
             'links': (PaginationLinks,),  # noqa: E501
-            'meta': (PaginationMeta,),  # noqa: E501
+            'meta': (PaginationMeta1,),  # noqa: E501
             'data': ([TlsPrivateKeyResponseData],),  # noqa: E501
         }
 
@@ -149,7 +149,7 @@ class TlsPrivateKeysResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsPrivateKeyResponseData]): [optional]  # noqa: E501
         """
 
@@ -251,7 +251,7 @@ class TlsPrivateKeysResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsPrivateKeyResponseData]): [optional]  # noqa: E501
         """
 

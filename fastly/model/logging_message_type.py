@@ -50,10 +50,10 @@ class LoggingMessageType(ModelSimple):
 
     allowed_values = {
         ('value',): {
+            'BLANK': "blank",
             'CLASSIC': "classic",
             'LOGGLY': "loggly",
             'LOGPLEX': "logplex",
-            'BLANK': "blank",
         },
     }
 
@@ -105,10 +105,10 @@ class LoggingMessageType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): How the message should be formatted.. if omitted defaults to "classic", must be one of ["classic", "loggly", "logplex", "blank", ]  # noqa: E501
+            args[0] (str): How the message should be formatted.. if omitted defaults to "blank", must be one of ["blank", "classic", "loggly", "logplex", ]  # noqa: E501
 
         Keyword Args:
-            value (str): How the message should be formatted.. if omitted defaults to "classic", must be one of ["classic", "loggly", "logplex", "blank", ]  # noqa: E501
+            value (str): How the message should be formatted.. if omitted defaults to "blank", must be one of ["blank", "classic", "loggly", "logplex", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -149,7 +149,7 @@ class LoggingMessageType(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "classic"
+            value = "blank"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -191,10 +191,10 @@ class LoggingMessageType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): How the message should be formatted.. if omitted defaults to "classic", must be one of ["classic", "loggly", "logplex", "blank", ]  # noqa: E501
+            args[0] (str): How the message should be formatted.. if omitted defaults to "blank", must be one of ["blank", "classic", "loggly", "logplex", ]  # noqa: E501
 
         Keyword Args:
-            value (str): How the message should be formatted.. if omitted defaults to "classic", must be one of ["classic", "loggly", "logplex", "blank", ]  # noqa: E501
+            value (str): How the message should be formatted.. if omitted defaults to "blank", must be one of ["blank", "classic", "loggly", "logplex", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -237,7 +237,7 @@ class LoggingMessageType(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "classic"
+            value = "blank"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)

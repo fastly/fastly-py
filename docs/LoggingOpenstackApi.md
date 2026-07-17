@@ -58,7 +58,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     log_processing_region = "eu" # str | The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. (optional) if omitted the server will use the default value of "none"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
-    message_type = "classic" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "classic"
+    message_type = "blank" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "blank"
     timestamp_format = "%Y-%m-%dT%H:%M:%S.000" # str, none_type | A timestamp format (optional)
     compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     period = 3600 # int | How frequently log files are finalized so they can be available for reading (in seconds). (optional) if omitted the server will use the default value of 3600
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **log_processing_region** | **str**| The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. | [optional] if omitted the server will use the default value of "none"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
- **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "classic"
+ **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "blank"
  **timestamp_format** | **str, none_type**| A timestamp format | [optional]
  **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **period** | **int**| How frequently log files are finalized so they can be available for reading (in seconds). | [optional] if omitted the server will use the default value of 3600
@@ -429,7 +429,7 @@ with fastly.ApiClient(configuration) as api_client:
     format = "%h %l %u %t "%r" %&gt;s %b" # str | A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). (optional) if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
     log_processing_region = "eu" # str | The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. (optional) if omitted the server will use the default value of "none"
     format_version = 2 # int | The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  (optional) if omitted the server will use the default value of 2
-    message_type = "classic" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "classic"
+    message_type = "blank" # str | How the message should be formatted. (optional) if omitted the server will use the default value of "blank"
     timestamp_format = "%Y-%m-%dT%H:%M:%S.000" # str, none_type | A timestamp format (optional)
     compression_codec = "zstd" # str | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. (optional)
     period = 3600 # int | How frequently log files are finalized so they can be available for reading (in seconds). (optional) if omitted the server will use the default value of 3600
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
  **format** | **str**| A Fastly [log format string](https://www.fastly.com/documentation/guides/integrations/streaming-logs/custom-log-formats/). | [optional] if omitted the server will use the default value of "%h %l %u %t "%r" %&gt;s %b"
  **log_processing_region** | **str**| The geographic region where the logs will be processed before streaming. Valid values are `us`, `eu`, and `none` for global. | [optional] if omitted the server will use the default value of "none"
  **format_version** | **int**| The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.  | [optional] if omitted the server will use the default value of 2
- **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "classic"
+ **message_type** | **str**| How the message should be formatted. | [optional] if omitted the server will use the default value of "blank"
  **timestamp_format** | **str, none_type**| A timestamp format | [optional]
  **compression_codec** | **str**| The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional]
  **period** | **int**| How frequently log files are finalized so they can be available for reading (in seconds). | [optional] if omitted the server will use the default value of 3600

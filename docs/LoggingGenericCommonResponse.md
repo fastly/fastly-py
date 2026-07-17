@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message_type** | **str** | How the message should be formatted. | [optional]  if omitted the server will use the default value of "classic"
+**message_type** | **str** | How the message should be formatted. | [optional]  if omitted the server will use the default value of "blank"
 **timestamp_format** | **str, none_type** | A timestamp format | [optional] [readonly] 
 **compression_codec** | **str** | The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error. | [optional] 
 **period** | **str** | How frequently log files are finalized so they can be available for reading (in seconds). | [optional]  if omitted the server will use the default value of "3600"

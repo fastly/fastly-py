@@ -110,8 +110,10 @@ class BackendResponse(ModelComposed):
             'ipv6': (str, none_type,),  # noqa: E501
             'keepalive_time': (int, none_type,),  # noqa: E501
             'max_conn': (int,),  # noqa: E501
+            'max_lifetime': (int, none_type,),  # noqa: E501
             'max_tls_version': (str, none_type,),  # noqa: E501
             'min_tls_version': (str, none_type,),  # noqa: E501
+            'max_use': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'override_host': (str, none_type,),  # noqa: E501
             'port': (int,),  # noqa: E501
@@ -161,8 +163,10 @@ class BackendResponse(ModelComposed):
         'ipv6': 'ipv6',  # noqa: E501
         'keepalive_time': 'keepalive_time',  # noqa: E501
         'max_conn': 'max_conn',  # noqa: E501
+        'max_lifetime': 'max_lifetime',  # noqa: E501
         'max_tls_version': 'max_tls_version',  # noqa: E501
         'min_tls_version': 'min_tls_version',  # noqa: E501
+        'max_use': 'max_use',  # noqa: E501
         'name': 'name',  # noqa: E501
         'override_host': 'override_host',  # noqa: E501
         'port': 'port',  # noqa: E501
@@ -249,10 +253,12 @@ class BackendResponse(ModelComposed):
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
-            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can.. [optional]  # noqa: E501
+            keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]  # noqa: E501
             max_conn (int): Maximum number of concurrent connections this backend will accept.. [optional]  # noqa: E501
+            max_lifetime (int, none_type): Maximum time from creation (in milliseconds) that a pooled HTTP keepalive connection will be eligible for reuse; 0 is treated as unlimited.. [optional]  # noqa: E501
             max_tls_version (str, none_type): Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             min_tls_version (str, none_type): Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
+            max_use (int, none_type): Maximum number of requests allowed over a single, pooled HTTP keepalive connection to this backend; 0 is treated as unlimited.. [optional]  # noqa: E501
             name (str): The name of the backend.. [optional]  # noqa: E501
             override_host (str, none_type): If set, will replace the client-supplied HTTP `Host` header on connections to this backend. Applied after VCL has been processed, so this setting will take precedence over changing `bereq.http.Host` in VCL.. [optional]  # noqa: E501
             port (int): Port on which the backend server is listening for connections from Fastly. Setting `port` to 80 or 443 will also set `use_ssl` automatically (to false and true respectively), unless explicitly overridden by setting `use_ssl` in the same request.. [optional]  # noqa: E501
@@ -391,10 +397,12 @@ class BackendResponse(ModelComposed):
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
-            keepalive_time (int, none_type): How long in seconds to keep a persistent connection to the backend between requests. By default, Varnish keeps connections open as long as it can.. [optional]  # noqa: E501
+            keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]  # noqa: E501
             max_conn (int): Maximum number of concurrent connections this backend will accept.. [optional]  # noqa: E501
+            max_lifetime (int, none_type): Maximum time from creation (in milliseconds) that a pooled HTTP keepalive connection will be eligible for reuse; 0 is treated as unlimited.. [optional]  # noqa: E501
             max_tls_version (str, none_type): Maximum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
             min_tls_version (str, none_type): Minimum allowed TLS version on SSL connections to this backend. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.. [optional]  # noqa: E501
+            max_use (int, none_type): Maximum number of requests allowed over a single, pooled HTTP keepalive connection to this backend; 0 is treated as unlimited.. [optional]  # noqa: E501
             name (str): The name of the backend.. [optional]  # noqa: E501
             override_host (str, none_type): If set, will replace the client-supplied HTTP `Host` header on connections to this backend. Applied after VCL has been processed, so this setting will take precedence over changing `bereq.http.Host` in VCL.. [optional]  # noqa: E501
             port (int): Port on which the backend server is listening for connections from Fastly. Setting `port` to 80 or 443 will also set `use_ssl` automatically (to false and true respectively), unless explicitly overridden by setting `use_ssl` in the same request.. [optional]  # noqa: E501

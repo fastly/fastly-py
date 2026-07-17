@@ -32,12 +32,12 @@ from fastly.exceptions import ApiAttributeError
 def lazy_import():
     from fastly.model.pagination import Pagination
     from fastly.model.pagination_links import PaginationLinks
-    from fastly.model.pagination_meta import PaginationMeta
+    from fastly.model.pagination_meta1 import PaginationMeta1
     from fastly.model.tls_bulk_certificate_response_data import TlsBulkCertificateResponseData
     from fastly.model.tls_bulk_certificates_response_all_of import TlsBulkCertificatesResponseAllOf
     globals()['Pagination'] = Pagination
     globals()['PaginationLinks'] = PaginationLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['PaginationMeta1'] = PaginationMeta1
     globals()['TlsBulkCertificateResponseData'] = TlsBulkCertificateResponseData
     globals()['TlsBulkCertificatesResponseAllOf'] = TlsBulkCertificatesResponseAllOf
 
@@ -94,7 +94,7 @@ class TlsBulkCertificatesResponse(ModelComposed):
         lazy_import()
         return {
             'links': (PaginationLinks,),  # noqa: E501
-            'meta': (PaginationMeta,),  # noqa: E501
+            'meta': (PaginationMeta1,),  # noqa: E501
             'data': ([TlsBulkCertificateResponseData],),  # noqa: E501
         }
 
@@ -149,7 +149,7 @@ class TlsBulkCertificatesResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsBulkCertificateResponseData]): [optional]  # noqa: E501
         """
 
@@ -251,7 +251,7 @@ class TlsBulkCertificatesResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             links (PaginationLinks): [optional]  # noqa: E501
-            meta (PaginationMeta): [optional]  # noqa: E501
+            meta (PaginationMeta1): [optional]  # noqa: E501
             data ([TlsBulkCertificateResponseData]): [optional]  # noqa: E501
         """
 

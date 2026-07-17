@@ -143,9 +143,6 @@ class Results(ModelNormal):
             'log_bytes': (int,),  # noqa: E501
             'http2': (int,),  # noqa: E501
             'http3': (int,),  # noqa: E501
-            'waf_logged': (int,),  # noqa: E501
-            'waf_blocked': (int,),  # noqa: E501
-            'waf_passed': (int,),  # noqa: E501
             'attack_req_body_bytes': (int,),  # noqa: E501
             'attack_req_header_bytes': (int,),  # noqa: E501
             'attack_logged_req_body_bytes': (int,),  # noqa: E501
@@ -391,6 +388,40 @@ class Results(ModelNormal):
             'compute_service_vcpu_exceeded_error': (int,),  # noqa: E501
             'compute_service_limits_error': (int,),  # noqa: E501
             'compute_platform_invalid_request_error': (int,),  # noqa: E501
+            'compute_sandboxes': (int,),  # noqa: E501
+            'bot_requests_total_count': (int,),  # noqa: E501
+            'bot_edge_requests_analyzed_count': (int,),  # noqa: E501
+            'bot_edge_requests_detected_count': (int,),  # noqa: E501
+            'bot_edge_requests_verified_count': (int,),  # noqa: E501
+            'bot_edge_requests_ai_crawler_count': (int,),  # noqa: E501
+            'bot_edge_requests_ai_fetcher_count': (int,),  # noqa: E501
+            'bot_edge_requests_accessibility_count': (int,),  # noqa: E501
+            'bot_edge_requests_content_fetcher_count': (int,),  # noqa: E501
+            'bot_edge_requests_monitoring_count': (int,),  # noqa: E501
+            'bot_edge_requests_online_marketing_count': (int,),  # noqa: E501
+            'bot_edge_requests_page_preview_count': (int,),  # noqa: E501
+            'bot_edge_requests_platform_integrations_count': (int,),  # noqa: E501
+            'bot_edge_requests_research_count': (int,),  # noqa: E501
+            'bot_edge_requests_search_engine_crawler_count': (int,),  # noqa: E501
+            'bot_edge_requests_search_engine_optimization_count': (int,),  # noqa: E501
+            'bot_edge_requests_security_tools_count': (int,),  # noqa: E501
+            'compute_handoff': (int,),  # noqa: E501
+            'compute_service_bereq_dns_error': (int,),  # noqa: E501
+            'compute_service_bereq_conn_timeout_error': (int,),  # noqa: E501
+            'compute_service_bereq_conn_refused_error': (int,),  # noqa: E501
+            'compute_service_bereq_conn_other_error': (int,),  # noqa: E501
+            'compute_service_bereq_tls_server_cert_error': (int,),  # noqa: E501
+            'compute_service_bereq_tls_other_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_proto_v1_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_proto_v2_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_incomplete_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_timeout_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_other_error': (int,),  # noqa: E501
+            'compute_service_bereq_other_error': (int,),  # noqa: E501
+            'compute_service_bereq_5xx_error': (int,),  # noqa: E501
+            'compute_service_bereq_conn_error': (int,),  # noqa: E501
+            'compute_service_bereq_tls_error': (int,),  # noqa: E501
+            'compute_service_bereq_http_error': (int,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -465,9 +496,6 @@ class Results(ModelNormal):
         'log_bytes': 'log_bytes',  # noqa: E501
         'http2': 'http2',  # noqa: E501
         'http3': 'http3',  # noqa: E501
-        'waf_logged': 'waf_logged',  # noqa: E501
-        'waf_blocked': 'waf_blocked',  # noqa: E501
-        'waf_passed': 'waf_passed',  # noqa: E501
         'attack_req_body_bytes': 'attack_req_body_bytes',  # noqa: E501
         'attack_req_header_bytes': 'attack_req_header_bytes',  # noqa: E501
         'attack_logged_req_body_bytes': 'attack_logged_req_body_bytes',  # noqa: E501
@@ -713,6 +741,40 @@ class Results(ModelNormal):
         'compute_service_vcpu_exceeded_error': 'compute_service_vcpu_exceeded_error',  # noqa: E501
         'compute_service_limits_error': 'compute_service_limits_error',  # noqa: E501
         'compute_platform_invalid_request_error': 'compute_platform_invalid_request_error',  # noqa: E501
+        'compute_sandboxes': 'compute_sandboxes',  # noqa: E501
+        'bot_requests_total_count': 'bot_requests_total_count',  # noqa: E501
+        'bot_edge_requests_analyzed_count': 'bot_edge_requests_analyzed_count',  # noqa: E501
+        'bot_edge_requests_detected_count': 'bot_edge_requests_detected_count',  # noqa: E501
+        'bot_edge_requests_verified_count': 'bot_edge_requests_verified_count',  # noqa: E501
+        'bot_edge_requests_ai_crawler_count': 'bot_edge_requests_ai_crawler_count',  # noqa: E501
+        'bot_edge_requests_ai_fetcher_count': 'bot_edge_requests_ai_fetcher_count',  # noqa: E501
+        'bot_edge_requests_accessibility_count': 'bot_edge_requests_accessibility_count',  # noqa: E501
+        'bot_edge_requests_content_fetcher_count': 'bot_edge_requests_content_fetcher_count',  # noqa: E501
+        'bot_edge_requests_monitoring_count': 'bot_edge_requests_monitoring_count',  # noqa: E501
+        'bot_edge_requests_online_marketing_count': 'bot_edge_requests_online_marketing_count',  # noqa: E501
+        'bot_edge_requests_page_preview_count': 'bot_edge_requests_page_preview_count',  # noqa: E501
+        'bot_edge_requests_platform_integrations_count': 'bot_edge_requests_platform_integrations_count',  # noqa: E501
+        'bot_edge_requests_research_count': 'bot_edge_requests_research_count',  # noqa: E501
+        'bot_edge_requests_search_engine_crawler_count': 'bot_edge_requests_search_engine_crawler_count',  # noqa: E501
+        'bot_edge_requests_search_engine_optimization_count': 'bot_edge_requests_search_engine_optimization_count',  # noqa: E501
+        'bot_edge_requests_security_tools_count': 'bot_edge_requests_security_tools_count',  # noqa: E501
+        'compute_handoff': 'compute_handoff',  # noqa: E501
+        'compute_service_bereq_dns_error': 'compute_service_bereq_dns_error',  # noqa: E501
+        'compute_service_bereq_conn_timeout_error': 'compute_service_bereq_conn_timeout_error',  # noqa: E501
+        'compute_service_bereq_conn_refused_error': 'compute_service_bereq_conn_refused_error',  # noqa: E501
+        'compute_service_bereq_conn_other_error': 'compute_service_bereq_conn_other_error',  # noqa: E501
+        'compute_service_bereq_tls_server_cert_error': 'compute_service_bereq_tls_server_cert_error',  # noqa: E501
+        'compute_service_bereq_tls_other_error': 'compute_service_bereq_tls_other_error',  # noqa: E501
+        'compute_service_bereq_http_proto_v1_error': 'compute_service_bereq_http_proto_v1_error',  # noqa: E501
+        'compute_service_bereq_http_proto_v2_error': 'compute_service_bereq_http_proto_v2_error',  # noqa: E501
+        'compute_service_bereq_http_incomplete_error': 'compute_service_bereq_http_incomplete_error',  # noqa: E501
+        'compute_service_bereq_http_timeout_error': 'compute_service_bereq_http_timeout_error',  # noqa: E501
+        'compute_service_bereq_http_other_error': 'compute_service_bereq_http_other_error',  # noqa: E501
+        'compute_service_bereq_other_error': 'compute_service_bereq_other_error',  # noqa: E501
+        'compute_service_bereq_5xx_error': 'compute_service_bereq_5xx_error',  # noqa: E501
+        'compute_service_bereq_conn_error': 'compute_service_bereq_conn_error',  # noqa: E501
+        'compute_service_bereq_tls_error': 'compute_service_bereq_tls_error',  # noqa: E501
+        'compute_service_bereq_http_error': 'compute_service_bereq_http_error',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -823,9 +885,6 @@ class Results(ModelNormal):
             log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
             http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
             http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
-            waf_logged (int): Number of requests that triggered a WAF rule and were logged.. [optional]  # noqa: E501
-            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
-            waf_passed (int): Number of requests that triggered a WAF rule and were passed.. [optional]  # noqa: E501
             attack_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_logged_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
@@ -1071,6 +1130,40 @@ class Results(ModelNormal):
             compute_service_vcpu_exceeded_error (int): Fatal errors caused by exceeding the per-request vCPU time limit.. [optional]  # noqa: E501
             compute_service_limits_error (int): Non-fatal errors caused by attempts to exceed defined operational limits, such as simultaneous backend requests or cache transactions.. [optional]  # noqa: E501
             compute_platform_invalid_request_error (int): Fatal errors caused by unprocessable requests to the service, such as requests with malformed CDN-Loop headers or invalid purge credentials.. [optional]  # noqa: E501
+            compute_sandboxes (int): Number of WebAssembly (Wasm) sandboxes created.. [optional]  # noqa: E501
+            bot_requests_total_count (int): Total number of Bot Management requests across all deployments.. [optional]  # noqa: E501
+            bot_edge_requests_analyzed_count (int): Count of edge requests where bot detection analysis was performed.. [optional]  # noqa: E501
+            bot_edge_requests_detected_count (int): Count of edge requests where a bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_verified_count (int): Count of edge requests where a verified bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_ai_crawler_count (int): Count of edge requests where an AI crawler was detected.. [optional]  # noqa: E501
+            bot_edge_requests_ai_fetcher_count (int): Count of edge requests where an AI fetcher was detected.. [optional]  # noqa: E501
+            bot_edge_requests_accessibility_count (int): Count of edge requests where an accessibility bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_content_fetcher_count (int): Count of edge requests where a content fetcher was detected.. [optional]  # noqa: E501
+            bot_edge_requests_monitoring_count (int): Count of edge requests where a monitoring and site tool was detected.. [optional]  # noqa: E501
+            bot_edge_requests_online_marketing_count (int): Count of edge requests where an online marketing bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_page_preview_count (int): Count of edge requests where a page preview bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_platform_integrations_count (int): Count of edge requests where a platform integration was detected.. [optional]  # noqa: E501
+            bot_edge_requests_research_count (int): Count of edge requests where a research bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_search_engine_crawler_count (int): Count of edge requests where a search engine crawler was detected.. [optional]  # noqa: E501
+            bot_edge_requests_search_engine_optimization_count (int): Count of edge requests where a search engine optimization bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_security_tools_count (int): Count of edge requests where a security tool was detected.. [optional]  # noqa: E501
+            compute_handoff (int): The number of times Compute has handed off a request to the Fanout proxy or WebSocket proxy.. [optional]  # noqa: E501
+            compute_service_bereq_dns_error (int): Number of backend requests from a Compute service that failed during DNS resolution.. [optional]  # noqa: E501
+            compute_service_bereq_conn_timeout_error (int): Number of backend requests from a Compute service where the connection to the origin timed out before being established.. [optional]  # noqa: E501
+            compute_service_bereq_conn_refused_error (int): Number of backend requests from a Compute service where the origin actively refused the connection.. [optional]  # noqa: E501
+            compute_service_bereq_conn_other_error (int): Number of backend requests from a Compute service that failed due to a connection error not classified as a timeout or refusal.. [optional]  # noqa: E501
+            compute_service_bereq_tls_server_cert_error (int): Number of backend requests from a Compute service that failed due to a TLS certificate validation error (e.g., expired, untrusted CA, hostname mismatch).. [optional]  # noqa: E501
+            compute_service_bereq_tls_other_error (int): Number of backend requests from a Compute service that failed due to a TLS error not classified as a certificate error.. [optional]  # noqa: E501
+            compute_service_bereq_http_proto_v1_error (int): Number of backend requests from a Compute service that failed due to an HTTP/1.x protocol violation after the request was transmitted.. [optional]  # noqa: E501
+            compute_service_bereq_http_proto_v2_error (int): Number of backend requests from a Compute service that failed due to an HTTP/2 protocol error, typically a `RST_STREAM` or `GO_AWAY` from the origin.. [optional]  # noqa: E501
+            compute_service_bereq_http_incomplete_error (int): Number of backend requests from a Compute service where the origin sent an incomplete HTTP response.. [optional]  # noqa: E501
+            compute_service_bereq_http_timeout_error (int): Number of backend requests from a Compute service where the origin did not respond within the configured timeout period.. [optional]  # noqa: E501
+            compute_service_bereq_http_other_error (int): Number of backend requests from a Compute service that failed due to an HTTP-level error not classified in any category.. [optional]  # noqa: E501
+            compute_service_bereq_other_error (int): Number of backend requests from a Compute service that failed due to an error not classified into the DNS, connection, TLS, or HTTP categories.. [optional]  # noqa: E501
+            compute_service_bereq_5xx_error (int): Number of backend requests from a Compute service where the origin returned a 5xx status code.. [optional]  # noqa: E501
+            compute_service_bereq_conn_error (int): Number of backend requests from a Compute service that failed at the TCP connection level. Sum of `compute_service_bereq_conn_timeout_error`, `compute_service_bereq_conn_refused_error`, and `compute_service_bereq_conn_other_error`.. [optional]  # noqa: E501
+            compute_service_bereq_tls_error (int): Number of backend requests from a Compute service that failed during the TLS handshake or session with the origin. Sum of `compute_service_bereq_tls_server_cert_error` and `compute_service_bereq_tls_other_error`.. [optional]  # noqa: E501
+            compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
@@ -1218,9 +1311,6 @@ class Results(ModelNormal):
             log_bytes (int): Total log bytes sent.. [optional]  # noqa: E501
             http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
             http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
-            waf_logged (int): Number of requests that triggered a WAF rule and were logged.. [optional]  # noqa: E501
-            waf_blocked (int): Number of requests that triggered a WAF rule and were blocked.. [optional]  # noqa: E501
-            waf_passed (int): Number of requests that triggered a WAF rule and were passed.. [optional]  # noqa: E501
             attack_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_req_header_bytes (int): Total header bytes received from requests that triggered a WAF rule.. [optional]  # noqa: E501
             attack_logged_req_body_bytes (int): Total body bytes received from requests that triggered a WAF rule that was logged.. [optional]  # noqa: E501
@@ -1466,6 +1556,40 @@ class Results(ModelNormal):
             compute_service_vcpu_exceeded_error (int): Fatal errors caused by exceeding the per-request vCPU time limit.. [optional]  # noqa: E501
             compute_service_limits_error (int): Non-fatal errors caused by attempts to exceed defined operational limits, such as simultaneous backend requests or cache transactions.. [optional]  # noqa: E501
             compute_platform_invalid_request_error (int): Fatal errors caused by unprocessable requests to the service, such as requests with malformed CDN-Loop headers or invalid purge credentials.. [optional]  # noqa: E501
+            compute_sandboxes (int): Number of WebAssembly (Wasm) sandboxes created.. [optional]  # noqa: E501
+            bot_requests_total_count (int): Total number of Bot Management requests across all deployments.. [optional]  # noqa: E501
+            bot_edge_requests_analyzed_count (int): Count of edge requests where bot detection analysis was performed.. [optional]  # noqa: E501
+            bot_edge_requests_detected_count (int): Count of edge requests where a bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_verified_count (int): Count of edge requests where a verified bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_ai_crawler_count (int): Count of edge requests where an AI crawler was detected.. [optional]  # noqa: E501
+            bot_edge_requests_ai_fetcher_count (int): Count of edge requests where an AI fetcher was detected.. [optional]  # noqa: E501
+            bot_edge_requests_accessibility_count (int): Count of edge requests where an accessibility bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_content_fetcher_count (int): Count of edge requests where a content fetcher was detected.. [optional]  # noqa: E501
+            bot_edge_requests_monitoring_count (int): Count of edge requests where a monitoring and site tool was detected.. [optional]  # noqa: E501
+            bot_edge_requests_online_marketing_count (int): Count of edge requests where an online marketing bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_page_preview_count (int): Count of edge requests where a page preview bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_platform_integrations_count (int): Count of edge requests where a platform integration was detected.. [optional]  # noqa: E501
+            bot_edge_requests_research_count (int): Count of edge requests where a research bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_search_engine_crawler_count (int): Count of edge requests where a search engine crawler was detected.. [optional]  # noqa: E501
+            bot_edge_requests_search_engine_optimization_count (int): Count of edge requests where a search engine optimization bot was detected.. [optional]  # noqa: E501
+            bot_edge_requests_security_tools_count (int): Count of edge requests where a security tool was detected.. [optional]  # noqa: E501
+            compute_handoff (int): The number of times Compute has handed off a request to the Fanout proxy or WebSocket proxy.. [optional]  # noqa: E501
+            compute_service_bereq_dns_error (int): Number of backend requests from a Compute service that failed during DNS resolution.. [optional]  # noqa: E501
+            compute_service_bereq_conn_timeout_error (int): Number of backend requests from a Compute service where the connection to the origin timed out before being established.. [optional]  # noqa: E501
+            compute_service_bereq_conn_refused_error (int): Number of backend requests from a Compute service where the origin actively refused the connection.. [optional]  # noqa: E501
+            compute_service_bereq_conn_other_error (int): Number of backend requests from a Compute service that failed due to a connection error not classified as a timeout or refusal.. [optional]  # noqa: E501
+            compute_service_bereq_tls_server_cert_error (int): Number of backend requests from a Compute service that failed due to a TLS certificate validation error (e.g., expired, untrusted CA, hostname mismatch).. [optional]  # noqa: E501
+            compute_service_bereq_tls_other_error (int): Number of backend requests from a Compute service that failed due to a TLS error not classified as a certificate error.. [optional]  # noqa: E501
+            compute_service_bereq_http_proto_v1_error (int): Number of backend requests from a Compute service that failed due to an HTTP/1.x protocol violation after the request was transmitted.. [optional]  # noqa: E501
+            compute_service_bereq_http_proto_v2_error (int): Number of backend requests from a Compute service that failed due to an HTTP/2 protocol error, typically a `RST_STREAM` or `GO_AWAY` from the origin.. [optional]  # noqa: E501
+            compute_service_bereq_http_incomplete_error (int): Number of backend requests from a Compute service where the origin sent an incomplete HTTP response.. [optional]  # noqa: E501
+            compute_service_bereq_http_timeout_error (int): Number of backend requests from a Compute service where the origin did not respond within the configured timeout period.. [optional]  # noqa: E501
+            compute_service_bereq_http_other_error (int): Number of backend requests from a Compute service that failed due to an HTTP-level error not classified in any category.. [optional]  # noqa: E501
+            compute_service_bereq_other_error (int): Number of backend requests from a Compute service that failed due to an error not classified into the DNS, connection, TLS, or HTTP categories.. [optional]  # noqa: E501
+            compute_service_bereq_5xx_error (int): Number of backend requests from a Compute service where the origin returned a 5xx status code.. [optional]  # noqa: E501
+            compute_service_bereq_conn_error (int): Number of backend requests from a Compute service that failed at the TCP connection level. Sum of `compute_service_bereq_conn_timeout_error`, `compute_service_bereq_conn_refused_error`, and `compute_service_bereq_conn_other_error`.. [optional]  # noqa: E501
+            compute_service_bereq_tls_error (int): Number of backend requests from a Compute service that failed during the TLS handshake or session with the origin. Sum of `compute_service_bereq_tls_server_cert_error` and `compute_service_bereq_tls_other_error`.. [optional]  # noqa: E501
+            compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
