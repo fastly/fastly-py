@@ -87,10 +87,12 @@ class HistoricalApi(object):
 
                         "USA": "usa",
                         "EUROPE": "europe",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "LATAM": "latam",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
@@ -185,10 +187,12 @@ class HistoricalApi(object):
 
                         "USA": "usa",
                         "EUROPE": "europe",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "LATAM": "latam",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
@@ -279,10 +283,12 @@ class HistoricalApi(object):
 
                         "USA": "usa",
                         "EUROPE": "europe",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "LATAM": "latam",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
@@ -381,10 +387,12 @@ class HistoricalApi(object):
 
                         "USA": "usa",
                         "EUROPE": "europe",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "LATAM": "latam",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
@@ -485,10 +493,12 @@ class HistoricalApi(object):
 
                         "USA": "usa",
                         "EUROPE": "europe",
+                        "ANZAC": "anzac",
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
                         "AFRICA_STD": "africa_std",
+                        "LATAM": "latam",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std"
                     },
