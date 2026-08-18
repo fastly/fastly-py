@@ -69,6 +69,7 @@ from fastly.api.logging_cloudfiles_api import LoggingCloudfilesApi
 from fastly.api.logging_datadog_api import LoggingDatadogApi
 from fastly.api.logging_digitalocean_api import LoggingDigitaloceanApi
 from fastly.api.logging_elasticsearch_api import LoggingElasticsearchApi
+from fastly.api.logging_endpoint_errors_api import LoggingEndpointErrorsApi
 from fastly.api.logging_ftp_api import LoggingFtpApi
 from fastly.api.logging_gcs_api import LoggingGcsApi
 from fastly.api.logging_grafanacloudlogs_api import LoggingGrafanacloudlogsApi

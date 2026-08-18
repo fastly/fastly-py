@@ -98,6 +98,7 @@ Name | Type | Description  | Notes
 **200** | Simulation result. |  -  |
 **400** | Request parameters are invalid. |  -  |
 **401** | User is not authenticated. |  -  |
+**403** | User is not allowed to perform this request. |  -  |
 **404** | Entity not found. |  -  |
 **429** | Request was not processed and should be retried later. |  -  |
 

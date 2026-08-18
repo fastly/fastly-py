@@ -249,7 +249,9 @@ from fastly.model.environment import Environment
 from fastly.model.environment_name import EnvironmentName
 from fastly.model.eom_invoice_response import EomInvoiceResponse
 from fastly.model.error import Error
+from fastly.model.error_response import ErrorResponse
 from fastly.model.error_response_data import ErrorResponseData
+from fastly.model.error_response_errors import ErrorResponseErrors
 from fastly.model.event import Event
 from fastly.model.event_attributes import EventAttributes
 from fastly.model.event_data import EventData
@@ -406,6 +408,8 @@ from fastly.model.log_aggregations_value_field import LogAggregationsValueField
 from fastly.model.log_aggregations_value_float_array import LogAggregationsValueFloatArray
 from fastly.model.log_aggregations_value_integer_array import LogAggregationsValueIntegerArray
 from fastly.model.log_aggregations_value_string_array import LogAggregationsValueStringArray
+from fastly.model.log_error import LogError
+from fastly.model.log_error_batch import LogErrorBatch
 from fastly.model.log_explorer_insights_response_body_enable import LogExplorerInsightsResponseBodyEnable
 from fastly.model.log_explorer_insights_response_body_get_all_services import LogExplorerInsightsResponseBodyGetAllServices
 from fastly.model.log_explorer_insights_response_customer import LogExplorerInsightsResponseCustomer

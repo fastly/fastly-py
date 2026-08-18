@@ -132,6 +132,12 @@ Name | Type | Description | Notes
 **compute_resp_status_505** | **int** | Number of responses delivered with status code 505 (HTTP Version Not Supported) by the Compute platform. | [optional] 
 **compute_resp_status_530** | **int** | Number of responses delivered with status code 530 by the Compute platform. | [optional] 
 **compute_resp_status_5xx** | **int** | Number of \&quot;Server Error\&quot; category status codes delivered by the Compute platform. | [optional] 
+**http2** | **int** | Number of requests received over HTTP/2. | [optional] 
+**http3** | **int** | Number of requests received over HTTP/3. | [optional] 
+**tls_v10** | **int** | Number of requests received over TLS 1.0. | [optional] 
+**tls_v11** | **int** | Number of requests received over TLS 1.1. | [optional] 
+**tls_v12** | **int** | Number of requests received over TLS 1.2. | [optional] 
+**tls_v13** | **int** | Number of requests received over TLS 1.3. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

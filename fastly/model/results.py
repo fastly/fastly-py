@@ -422,6 +422,8 @@ class Results(ModelNormal):
             'compute_service_bereq_conn_error': (int,),  # noqa: E501
             'compute_service_bereq_tls_error': (int,),  # noqa: E501
             'compute_service_bereq_http_error': (int,),  # noqa: E501
+            'bot_challenges_pats_issued': (int,),  # noqa: E501
+            'bot_challenges_pats_succeeded': (int,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -775,6 +777,8 @@ class Results(ModelNormal):
         'compute_service_bereq_conn_error': 'compute_service_bereq_conn_error',  # noqa: E501
         'compute_service_bereq_tls_error': 'compute_service_bereq_tls_error',  # noqa: E501
         'compute_service_bereq_http_error': 'compute_service_bereq_http_error',  # noqa: E501
+        'bot_challenges_pats_issued': 'bot_challenges_pats_issued',  # noqa: E501
+        'bot_challenges_pats_succeeded': 'bot_challenges_pats_succeeded',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -1164,6 +1168,8 @@ class Results(ModelNormal):
             compute_service_bereq_conn_error (int): Number of backend requests from a Compute service that failed at the TCP connection level. Sum of `compute_service_bereq_conn_timeout_error`, `compute_service_bereq_conn_refused_error`, and `compute_service_bereq_conn_other_error`.. [optional]  # noqa: E501
             compute_service_bereq_tls_error (int): Number of backend requests from a Compute service that failed during the TLS handshake or session with the origin. Sum of `compute_service_bereq_tls_server_cert_error` and `compute_service_bereq_tls_other_error`.. [optional]  # noqa: E501
             compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
+            bot_challenges_pats_issued (int): Number of Private Access Token challenges issued.. [optional]  # noqa: E501
+            bot_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
@@ -1590,6 +1596,8 @@ class Results(ModelNormal):
             compute_service_bereq_conn_error (int): Number of backend requests from a Compute service that failed at the TCP connection level. Sum of `compute_service_bereq_conn_timeout_error`, `compute_service_bereq_conn_refused_error`, and `compute_service_bereq_conn_other_error`.. [optional]  # noqa: E501
             compute_service_bereq_tls_error (int): Number of backend requests from a Compute service that failed during the TLS handshake or session with the origin. Sum of `compute_service_bereq_tls_server_cert_error` and `compute_service_bereq_tls_other_error`.. [optional]  # noqa: E501
             compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
+            bot_challenges_pats_issued (int): Number of Private Access Token challenges issued.. [optional]  # noqa: E501
+            bot_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """

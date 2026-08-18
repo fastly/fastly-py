@@ -206,6 +206,12 @@ class DomainInspectorMeasurements(ModelNormal):
             'compute_resp_status_505': (int,),  # noqa: E501
             'compute_resp_status_530': (int,),  # noqa: E501
             'compute_resp_status_5xx': (int,),  # noqa: E501
+            'http2': (int,),  # noqa: E501
+            'http3': (int,),  # noqa: E501
+            'tls_v10': (int,),  # noqa: E501
+            'tls_v11': (int,),  # noqa: E501
+            'tls_v12': (int,),  # noqa: E501
+            'tls_v13': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -341,6 +347,12 @@ class DomainInspectorMeasurements(ModelNormal):
         'compute_resp_status_505': 'compute_resp_status_505',  # noqa: E501
         'compute_resp_status_530': 'compute_resp_status_530',  # noqa: E501
         'compute_resp_status_5xx': 'compute_resp_status_5xx',  # noqa: E501
+        'http2': 'http2',  # noqa: E501
+        'http3': 'http3',  # noqa: E501
+        'tls_v10': 'tls_v10',  # noqa: E501
+        'tls_v11': 'tls_v11',  # noqa: E501
+        'tls_v12': 'tls_v12',  # noqa: E501
+        'tls_v13': 'tls_v13',  # noqa: E501
     }
 
     read_only_vars = {
@@ -511,6 +523,12 @@ class DomainInspectorMeasurements(ModelNormal):
             compute_resp_status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
             compute_resp_status_530 (int): Number of responses delivered with status code 530 by the Compute platform.. [optional]  # noqa: E501
             compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
+            http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
+            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
+            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
+            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
+            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -719,6 +737,12 @@ class DomainInspectorMeasurements(ModelNormal):
             compute_resp_status_505 (int): Number of responses delivered with status code 505 (HTTP Version Not Supported) by the Compute platform.. [optional]  # noqa: E501
             compute_resp_status_530 (int): Number of responses delivered with status code 530 by the Compute platform.. [optional]  # noqa: E501
             compute_resp_status_5xx (int): Number of \"Server Error\" category status codes delivered by the Compute platform.. [optional]  # noqa: E501
+            http2 (int): Number of requests received over HTTP/2.. [optional]  # noqa: E501
+            http3 (int): Number of requests received over HTTP/3.. [optional]  # noqa: E501
+            tls_v10 (int): Number of requests received over TLS 1.0.. [optional]  # noqa: E501
+            tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
+            tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
+            tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
