@@ -14,11 +14,15 @@ jobs:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      # `contents: write` is needed by the "Create GitHub release" step below.
+      # Declaring this block at all drops every unlisted scope to `none`, so it
+      # cannot be omitted just because `write` is the repository default.
+      contents: write
+      # Needed for PyPI trusted publishing.
       id-token: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
           path: main
       - name: Set up environment variables
@@ -26,7 +30,7 @@ jobs:
         working-directory: ./main
         shell: bash
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.10'
       - name: Pack API client
@@ -50,7 +54,7 @@ jobs:
         run: cat ./dist/release_body.txt
       - name: Create GitHub release
         if: ${{ env.DRY_RUN != '1' }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           name: v${{ env.VERSION }}
           body_path: ./dist/release_body.txt
