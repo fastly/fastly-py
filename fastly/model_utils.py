@@ -462,6 +462,31 @@ class ModelSimple(OpenApiModel):
 
     def __getitem__(self, name):
         """get the value of an attribute using square-bracket notation: `instance[attr]`"""
+        # Support numeric indexing for simple models that wrap a list-like
+        # value (for example response models that have `value: [Item]`).
+        # Iteration (for x in model) falls back to __getitem__ with integer
+        # indices if __iter__ is not present, so accept ints and slices here.
+        if isinstance(name, (int, slice)):
+            try:
+                v = self.__dict__['_data_store'].get('value')
+            except Exception:
+                v = None
+            if v is None:
+                raise ApiAttributeError(
+                    "{0} has no attribute '{1}'".format(
+                        type(self).__name__, name),
+                    [e for e in [self._path_to_item, name] if e]
+                )
+            try:
+                return v[name]
+            except Exception:
+                # normalize to attribute error expected by callers
+                raise ApiAttributeError(
+                    "{0} has no attribute '{1}'".format(
+                        type(self).__name__, name),
+                    [e for e in [self._path_to_item, name] if e]
+                )
+
         if name in self:
             return self.get(name)
 
@@ -470,6 +495,41 @@ class ModelSimple(OpenApiModel):
                 type(self).__name__, name),
             [e for e in [self._path_to_item, name] if e]
         )
+
+    def __iter__(self):
+        """Allow iteration over simple models that wrap a sequence in `value`.
+
+        Example: for item in DomainsResponse(...): iterates over the underlying list.
+        """
+        try:
+            v = self.__dict__['_data_store'].get('value')
+        except Exception:
+            v = None
+        if v is None:
+            # behave like an empty iterator
+            return iter(())
+        # Only treat list/tuple as a true sequence to iterate over. Dicts are
+        # technically iterable (yield keys) but in API models the `value`
+        # field may contain a dict representing a single item. Treat non
+        # (list, tuple) values as single items.
+        if isinstance(v, (list, tuple)):
+            return iter(v)
+        # Otherwise wrap single value in an iterator
+        return iter((v,))
+
+    def __len__(self):
+        """Return length of the underlying sequence if present, otherwise 0."""
+        try:
+            v = self.__dict__['_data_store'].get('value')
+        except Exception:
+            return 0
+        if v is None:
+            return 0
+        # If underlying value is a sequence (list/tuple), return its length.
+        if isinstance(v, (list, tuple)):
+            return len(v)
+        # For dict or other single objects, treat as single item.
+        return 1
 
     def __contains__(self, name):
         """used by `in` operator to check if an attribute value was set in an instance: `'attr' in instance`"""
