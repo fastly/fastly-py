@@ -133,6 +133,8 @@ class RealtimeMeasurements(ModelNormal):
             'otfp_shield_resp_body_bytes': (int,),  # noqa: E501
             'otfp_shield_time': (float,),  # noqa: E501
             'otfp_deliver_time': (float,),  # noqa: E501
+            'imgopto_input_image_bytes': (int,),  # noqa: E501
+            'imgopto_output_image_bytes': (int,),  # noqa: E501
             'imgopto_resp_header_bytes': (int,),  # noqa: E501
             'imgopto_resp_body_bytes': (int,),  # noqa: E501
             'imgopto_shield_resp_header_bytes': (int,),  # noqa: E501
@@ -417,6 +419,19 @@ class RealtimeMeasurements(ModelNormal):
             'compute_service_bereq_http_error': (int,),  # noqa: E501
             'bot_challenges_pats_issued': (int,),  # noqa: E501
             'bot_challenges_pats_succeeded': (int,),  # noqa: E501
+            'bot_edge_requests_headless_count': (int,),  # noqa: E501
+            'status_499': (int,),  # noqa: E501
+            'arc_requests': (int,),  # noqa: E501
+            'ddos_challenge_complete_tokens_checked': (int,),  # noqa: E501
+            'ddos_challenge_complete_tokens_passed': (int,),  # noqa: E501
+            'ddos_challenge_complete_tokens_failed': (int,),  # noqa: E501
+            'ddos_challenge_starts': (int,),  # noqa: E501
+            'ddos_challenge_complete_tokens_issued': (int,),  # noqa: E501
+            'ddos_challenges_issued': (int,),  # noqa: E501
+            'ddos_challenges_succeeded': (int,),  # noqa: E501
+            'ddos_challenges_failed': (int,),  # noqa: E501
+            'ddos_challenges_pats_issued': (int,),  # noqa: E501
+            'ddos_challenges_pats_succeeded': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -479,6 +494,8 @@ class RealtimeMeasurements(ModelNormal):
         'otfp_shield_resp_body_bytes': 'otfp_shield_resp_body_bytes',  # noqa: E501
         'otfp_shield_time': 'otfp_shield_time',  # noqa: E501
         'otfp_deliver_time': 'otfp_deliver_time',  # noqa: E501
+        'imgopto_input_image_bytes': 'imgopto_input_image_bytes',  # noqa: E501
+        'imgopto_output_image_bytes': 'imgopto_output_image_bytes',  # noqa: E501
         'imgopto_resp_header_bytes': 'imgopto_resp_header_bytes',  # noqa: E501
         'imgopto_resp_body_bytes': 'imgopto_resp_body_bytes',  # noqa: E501
         'imgopto_shield_resp_header_bytes': 'imgopto_shield_resp_header_bytes',  # noqa: E501
@@ -763,6 +780,19 @@ class RealtimeMeasurements(ModelNormal):
         'compute_service_bereq_http_error': 'compute_service_bereq_http_error',  # noqa: E501
         'bot_challenges_pats_issued': 'bot_challenges_pats_issued',  # noqa: E501
         'bot_challenges_pats_succeeded': 'bot_challenges_pats_succeeded',  # noqa: E501
+        'bot_edge_requests_headless_count': 'bot_edge_requests_headless_count',  # noqa: E501
+        'status_499': 'status_499',  # noqa: E501
+        'arc_requests': 'arc_requests',  # noqa: E501
+        'ddos_challenge_complete_tokens_checked': 'ddos_challenge_complete_tokens_checked',  # noqa: E501
+        'ddos_challenge_complete_tokens_passed': 'ddos_challenge_complete_tokens_passed',  # noqa: E501
+        'ddos_challenge_complete_tokens_failed': 'ddos_challenge_complete_tokens_failed',  # noqa: E501
+        'ddos_challenge_starts': 'ddos_challenge_starts',  # noqa: E501
+        'ddos_challenge_complete_tokens_issued': 'ddos_challenge_complete_tokens_issued',  # noqa: E501
+        'ddos_challenges_issued': 'ddos_challenges_issued',  # noqa: E501
+        'ddos_challenges_succeeded': 'ddos_challenges_succeeded',  # noqa: E501
+        'ddos_challenges_failed': 'ddos_challenges_failed',  # noqa: E501
+        'ddos_challenges_pats_issued': 'ddos_challenges_pats_issued',  # noqa: E501
+        'ddos_challenges_pats_succeeded': 'ddos_challenges_pats_succeeded',  # noqa: E501
     }
 
     read_only_vars = {
@@ -860,6 +890,8 @@ class RealtimeMeasurements(ModelNormal):
             otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
             otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
             otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
+            imgopto_input_image_bytes (int): The total image bytes that would have been delivered if the images had not been transformed by the Fastly Image Optimizer. Bytes are counted once per client request. Byte counts exclude shield traffic and requests where Fastly Image Optimizer proxied a request without attempting to transform it (e.g., file types that are not supported by Image Optimizer).. [optional]  # noqa: E501
+            imgopto_output_image_bytes (int): The total image bytes delivered that have been transformed by the Fastly Image Optimizer. Bytes are counted once per client request. Byte counts exclude shield traffic and requests where Fastly Image Optimizer proxied a request without attempting to transform it (e.g., file types that are not supported by Image Optimizer).. [optional]  # noqa: E501
             imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
@@ -1144,6 +1176,19 @@ class RealtimeMeasurements(ModelNormal):
             compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
             bot_challenges_pats_issued (int): Number of Private Access Token challenges issued.. [optional]  # noqa: E501
             bot_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed.. [optional]  # noqa: E501
+            bot_edge_requests_headless_count (int): Number of edge requests where a headless bot was detected.. [optional]  # noqa: E501
+            status_499 (int): Number of responses sent with status code 499 (Client Disconnected).. [optional]  # noqa: E501
+            arc_requests (int): Number of requests received by AI Runtime Control.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_checked (int): The number of challenge-complete tokens checked while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_passed (int): The number of challenge-complete tokens that passed validation while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_failed (int): The number of challenge-complete tokens that failed validation while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_starts (int): The number of challenge-start tokens created while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_issued (int): Number of challenge-complete tokens issued as a result of a DDoS action. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
+            ddos_challenges_issued (int): Number of challenges issued from a DDoS action.. [optional]  # noqa: E501
+            ddos_challenges_succeeded (int): Number of successful challenge solutions processed as a result of a DDoS action. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_challenges_failed (int): Number of failed challenge solutions processed as a result of a DDoS action. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_challenges_pats_issued (int): Number of Private Access Token challenges issued as a result of a DDoS action.. [optional]  # noqa: E501
+            ddos_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed as a result of a DDoS action.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1279,6 +1324,8 @@ class RealtimeMeasurements(ModelNormal):
             otfp_shield_resp_body_bytes (int): Total body bytes delivered via a shield for the Fastly On-the-Fly Packaging service for video-on-demand.. [optional]  # noqa: E501
             otfp_shield_time (float): Total amount of time spent delivering a response via a shield from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
             otfp_deliver_time (float): Total amount of time spent delivering a response from the Fastly On-the-Fly Packaging service for video-on-demand (in seconds).. [optional]  # noqa: E501
+            imgopto_input_image_bytes (int): The total image bytes that would have been delivered if the images had not been transformed by the Fastly Image Optimizer. Bytes are counted once per client request. Byte counts exclude shield traffic and requests where Fastly Image Optimizer proxied a request without attempting to transform it (e.g., file types that are not supported by Image Optimizer).. [optional]  # noqa: E501
+            imgopto_output_image_bytes (int): The total image bytes delivered that have been transformed by the Fastly Image Optimizer. Bytes are counted once per client request. Byte counts exclude shield traffic and requests where Fastly Image Optimizer proxied a request without attempting to transform it (e.g., file types that are not supported by Image Optimizer).. [optional]  # noqa: E501
             imgopto_resp_header_bytes (int): Total header bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_resp_body_bytes (int): Total body bytes delivered from the Fastly Image Optimizer service, including shield traffic.. [optional]  # noqa: E501
             imgopto_shield_resp_header_bytes (int): Total header bytes delivered via a shield from the Fastly Image Optimizer service.. [optional]  # noqa: E501
@@ -1563,6 +1610,19 @@ class RealtimeMeasurements(ModelNormal):
             compute_service_bereq_http_error (int): Number of backend requests from a Compute service that failed at the HTTP protocol level. Sum of `compute_service_bereq_http_proto_v1_error`, `compute_service_bereq_http_proto_v2_error`, `compute_service_bereq_http_incomplete_error`, `compute_service_bereq_http_timeout_error`, and `compute_service_bereq_http_other_error`.. [optional]  # noqa: E501
             bot_challenges_pats_issued (int): Number of Private Access Token challenges issued.. [optional]  # noqa: E501
             bot_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed.. [optional]  # noqa: E501
+            bot_edge_requests_headless_count (int): Number of edge requests where a headless bot was detected.. [optional]  # noqa: E501
+            status_499 (int): Number of responses sent with status code 499 (Client Disconnected).. [optional]  # noqa: E501
+            arc_requests (int): Number of requests received by AI Runtime Control.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_checked (int): The number of challenge-complete tokens checked while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_passed (int): The number of challenge-complete tokens that passed validation while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_failed (int): The number of challenge-complete tokens that failed validation while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_starts (int): The number of challenge-start tokens created while enforcing DDoS protection rules.. [optional]  # noqa: E501
+            ddos_challenge_complete_tokens_issued (int): Number of challenge-complete tokens issued as a result of a DDoS action. For example, issuing a challenge-complete token after a series of CAPTCHA challenges ending in success.. [optional]  # noqa: E501
+            ddos_challenges_issued (int): Number of challenges issued from a DDoS action.. [optional]  # noqa: E501
+            ddos_challenges_succeeded (int): Number of successful challenge solutions processed as a result of a DDoS action. For example, a correct CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_challenges_failed (int): Number of failed challenge solutions processed as a result of a DDoS action. For example, an incorrect CAPTCHA solution.. [optional]  # noqa: E501
+            ddos_challenges_pats_issued (int): Number of Private Access Token challenges issued as a result of a DDoS action.. [optional]  # noqa: E501
+            ddos_challenges_pats_succeeded (int): Number of successful Private Access Token challenge solutions processed as a result of a DDoS action.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

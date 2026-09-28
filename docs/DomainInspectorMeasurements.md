@@ -138,6 +138,7 @@ Name | Type | Description | Notes
 **tls_v11** | **int** | Number of requests received over TLS 1.1. | [optional] 
 **tls_v12** | **int** | Number of requests received over TLS 1.2. | [optional] 
 **tls_v13** | **int** | Number of requests received over TLS 1.3. | [optional] 
+**status_499** | **int** | Number of responses sent with status code 499 (Client Disconnected). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
