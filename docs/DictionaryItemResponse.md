@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item_key** | **str** | Item key, maximum 256 characters. | [optional] 
+**item_key** | **str** | Item key, maximum 255 characters. | [optional] 
 **item_value** | **str** | Item value, maximum 8000 characters. | [optional] 
 **created_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 
 **deleted_at** | **datetime, none_type** | Date and time in ISO 8601 format. | [optional] [readonly] 

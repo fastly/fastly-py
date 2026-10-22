@@ -29,10 +29,6 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
-def lazy_import():
-    from fastly.model.automation_token_create_request_attributes import AutomationTokenCreateRequestAttributes
-    globals()['AutomationTokenCreateRequestAttributes'] = AutomationTokenCreateRequestAttributes
-
 
 class AutomationTokenCreateRequest(ModelNormal):
     """NOTE: This class is auto generated.
@@ -57,6 +53,17 @@ class AutomationTokenCreateRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('role',): {
+            'ENGINEER': "engineer",
+            'BILLING': "billing",
+            'USER': "user",
+        },
+        ('scope',): {
+            'GLOBAL': "global",
+            'GLOBAL:READ': "global:read",
+            'PURGE_ALL': "purge_all",
+            'PURGE_SELECT': "purge_select",
+        },
     }
 
     validations = {
@@ -68,7 +75,6 @@ class AutomationTokenCreateRequest(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -83,9 +89,17 @@ class AutomationTokenCreateRequest(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'attributes': (AutomationTokenCreateRequestAttributes,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'expires_at': (datetime, none_type,),  # noqa: E501
+            'role': (str,),  # noqa: E501
+            'roles': ([str],),  # noqa: E501
+            'services': ([str],),  # noqa: E501
+            'limit_services': (bool,),  # noqa: E501
+            'limit_workspaces': (bool,),  # noqa: E501
+            'workspaces': ([str],),  # noqa: E501
+            'scope': (str,),  # noqa: E501
+            'tls_access': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +108,16 @@ class AutomationTokenCreateRequest(ModelNormal):
 
 
     attribute_map = {
-        'attributes': 'attributes',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
+        'role': 'role',  # noqa: E501
+        'roles': 'roles',  # noqa: E501
+        'services': 'services',  # noqa: E501
+        'limit_services': 'limit_services',  # noqa: E501
+        'limit_workspaces': 'limit_workspaces',  # noqa: E501
+        'workspaces': 'workspaces',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
+        'tls_access': 'tls_access',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,8 +127,12 @@ class AutomationTokenCreateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, expires_at, *args, **kwargs):  # noqa: E501
         """AutomationTokenCreateRequest - a model defined in OpenAPI
+
+        Args:
+            name (str): The name of the token.
+            expires_at (datetime, none_type): A UTC timestamp of when the token will expire.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,7 +165,14 @@ class AutomationTokenCreateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            attributes (AutomationTokenCreateRequestAttributes): [optional]  # noqa: E501
+            role (str): The role for the token. The `roles` field is the preferred way to assign roles. This field is supported for backwards compatibility with single-role tokens.. [optional]  # noqa: E501
+            roles ([str]): Array of role IDs to assign to the token. Use this field for tokens with multiple roles. When provided, this takes precedence over the `role` field. To get available role IDs, use [GET /roles](https://www.fastly.com/documentation/reference/api/account/roles/).. [optional]  # noqa: E501
+            services ([str]): List of service IDs the token can access. Only used when `limit_services` is `true`.. [optional]  # noqa: E501
+            limit_services (bool): When `true`, restricts the token to only the services specified in the `services` array. When `false` (default), the token has access to all services.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            limit_workspaces (bool): When `true` (default), restricts the token to only the workspaces specified in the `workspaces` array. When `false`, the token has access to all workspaces. Only applies to roles that support workspace access (such as Next-Gen WAF roles). For roles without workspace support, this field has no effect.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            workspaces ([str]): List of workspace IDs the token can access. Only used when `limit_workspaces` is `true` and the token has roles that support workspace access.. [optional]  # noqa: E501
+            scope (str): [optional] if omitted the server will use the default value of "global"  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token. Only applicable when using the single-role `role` field. For tokens with multiple roles, assign TLS roles (`tls_admin` or `tls_viewer`) via the `roles` field instead.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,6 +200,8 @@ class AutomationTokenCreateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.expires_at = expires_at
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,8 +222,12 @@ class AutomationTokenCreateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, expires_at, *args, **kwargs):  # noqa: E501
         """AutomationTokenCreateRequest - a model defined in OpenAPI
+
+        Args:
+            name (str): The name of the token.
+            expires_at (datetime, none_type): A UTC timestamp of when the token will expire.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,7 +260,14 @@ class AutomationTokenCreateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            attributes (AutomationTokenCreateRequestAttributes): [optional]  # noqa: E501
+            role (str): The role for the token. The `roles` field is the preferred way to assign roles. This field is supported for backwards compatibility with single-role tokens.. [optional]  # noqa: E501
+            roles ([str]): Array of role IDs to assign to the token. Use this field for tokens with multiple roles. When provided, this takes precedence over the `role` field. To get available role IDs, use [GET /roles](https://www.fastly.com/documentation/reference/api/account/roles/).. [optional]  # noqa: E501
+            services ([str]): List of service IDs the token can access. Only used when `limit_services` is `true`.. [optional]  # noqa: E501
+            limit_services (bool): When `true`, restricts the token to only the services specified in the `services` array. When `false` (default), the token has access to all services.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            limit_workspaces (bool): When `true` (default), restricts the token to only the workspaces specified in the `workspaces` array. When `false`, the token has access to all workspaces. Only applies to roles that support workspace access (such as Next-Gen WAF roles). For roles without workspace support, this field has no effect.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            workspaces ([str]): List of workspace IDs the token can access. Only used when `limit_workspaces` is `true` and the token has roles that support workspace access.. [optional]  # noqa: E501
+            scope (str): [optional] if omitted the server will use the default value of "global"  # noqa: E501
+            tls_access (bool): Indicates whether TLS access is enabled for the token. Only applicable when using the single-role `role` field. For tokens with multiple roles, assign TLS roles (`tls_admin` or `tls_viewer`) via the `roles` field instead.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +293,8 @@ class AutomationTokenCreateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.expires_at = expires_at
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

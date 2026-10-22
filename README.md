@@ -81,6 +81,25 @@ Class | Method | Description
 *AclsInComputeApi* | [**compute_acl_list_acls_s_acl_id**](docs/AclsInComputeApi.md#compute_acl_list_acls_s_acl_id) | Describe an ACL
 *AclsInComputeApi* | [**compute_acl_lookup_acls**](docs/AclsInComputeApi.md#compute_acl_lookup_acls) | Lookup an ACL
 *AclsInComputeApi* | [**compute_acl_update_acls**](docs/AclsInComputeApi.md#compute_acl_update_acls) | Update an ACL
+*AiRuntimeControlProviderConnectionsApi* | [**arc_create_provider_connection**](docs/AiRuntimeControlProviderConnectionsApi.md#arc_create_provider_connection) | Create a provider connection
+*AiRuntimeControlProviderConnectionsApi* | [**arc_delete_provider_connection**](docs/AiRuntimeControlProviderConnectionsApi.md#arc_delete_provider_connection) | Delete a provider connection
+*AiRuntimeControlProviderConnectionsApi* | [**arc_get_provider_connection**](docs/AiRuntimeControlProviderConnectionsApi.md#arc_get_provider_connection) | Get a provider connection
+*AiRuntimeControlProviderConnectionsApi* | [**arc_list_provider_connections**](docs/AiRuntimeControlProviderConnectionsApi.md#arc_list_provider_connections) | List provider connections
+*AiRuntimeControlProviderConnectionsApi* | [**arc_update_provider_connection**](docs/AiRuntimeControlProviderConnectionsApi.md#arc_update_provider_connection) | Update a provider connection
+*AiRuntimeControlProvidersApi* | [**arc_get_bedrock_setup**](docs/AiRuntimeControlProvidersApi.md#arc_get_bedrock_setup) | Get Bedrock setup information
+*AiRuntimeControlProvidersApi* | [**arc_get_models_for_provider**](docs/AiRuntimeControlProvidersApi.md#arc_get_models_for_provider) | Get models for a provider
+*AiRuntimeControlProvidersApi* | [**arc_get_supported_providers**](docs/AiRuntimeControlProvidersApi.md#arc_get_supported_providers) | Get supported providers
+*AiRuntimeControlSessionsApi* | [**arc_get_session_logs**](docs/AiRuntimeControlSessionsApi.md#arc_get_session_logs) | Get session logs
+*AiRuntimeControlUsageMetricsApi* | [**arc_export_usage_metrics**](docs/AiRuntimeControlUsageMetricsApi.md#arc_export_usage_metrics) | Export usage metrics
+*AiRuntimeControlUsageMetricsApi* | [**arc_get_usage_metrics**](docs/AiRuntimeControlUsageMetricsApi.md#arc_get_usage_metrics) | Get usage metrics
+*AiRuntimeControlVirtualKeysApi* | [**arc_create_virtual_key**](docs/AiRuntimeControlVirtualKeysApi.md#arc_create_virtual_key) | Create a virtual key
+*AiRuntimeControlVirtualKeysApi* | [**arc_delete_virtual_key**](docs/AiRuntimeControlVirtualKeysApi.md#arc_delete_virtual_key) | Delete a virtual key
+*AiRuntimeControlVirtualKeysApi* | [**arc_get_virtual_key**](docs/AiRuntimeControlVirtualKeysApi.md#arc_get_virtual_key) | Get a virtual key
+*AiRuntimeControlVirtualKeysApi* | [**arc_get_virtual_key_failover**](docs/AiRuntimeControlVirtualKeysApi.md#arc_get_virtual_key_failover) | Get a virtual key&#39;s failover policy
+*AiRuntimeControlVirtualKeysApi* | [**arc_list_virtual_keys**](docs/AiRuntimeControlVirtualKeysApi.md#arc_list_virtual_keys) | List virtual keys
+*AiRuntimeControlVirtualKeysApi* | [**arc_rotate_virtual_key**](docs/AiRuntimeControlVirtualKeysApi.md#arc_rotate_virtual_key) | Rotate a virtual key
+*AiRuntimeControlVirtualKeysApi* | [**arc_update_virtual_key**](docs/AiRuntimeControlVirtualKeysApi.md#arc_update_virtual_key) | Update a virtual key
+*AiRuntimeControlVirtualKeysApi* | [**arc_update_virtual_key_failover**](docs/AiRuntimeControlVirtualKeysApi.md#arc_update_virtual_key_failover) | Update a virtual key&#39;s failover policy
 *ApexRedirectApi* | [**create_apex_redirect**](docs/ApexRedirectApi.md#create_apex_redirect) | Create an apex redirect
 *ApexRedirectApi* | [**delete_apex_redirect**](docs/ApexRedirectApi.md#delete_apex_redirect) | Delete an apex redirect
 *ApexRedirectApi* | [**get_apex_redirect**](docs/ApexRedirectApi.md#get_apex_redirect) | Get an apex redirect
@@ -103,6 +122,7 @@ Class | Method | Description
 *AutomationTokensApi* | [**create_automation_token**](docs/AutomationTokensApi.md#create_automation_token) | Create Automation Token
 *AutomationTokensApi* | [**get_automation_token_id**](docs/AutomationTokensApi.md#get_automation_token_id) | Retrieve an Automation Token by ID
 *AutomationTokensApi* | [**get_automation_tokens_id_services**](docs/AutomationTokensApi.md#get_automation_tokens_id_services) | List Automation Token Services
+*AutomationTokensApi* | [**get_automation_tokens_id_workspaces**](docs/AutomationTokensApi.md#get_automation_tokens_id_workspaces) | List Automation Token Workspaces
 *AutomationTokensApi* | [**list_automation_tokens**](docs/AutomationTokensApi.md#list_automation_tokens) | List Customer Automation Tokens
 *AutomationTokensApi* | [**revoke_automation_token_id**](docs/AutomationTokensApi.md#revoke_automation_token_id) | Revoke an Automation Token by ID
 *BackendApi* | [**create_backend**](docs/BackendApi.md#create_backend) | Create a backend
@@ -119,6 +139,17 @@ Class | Method | Description
 *BillingInvoicesApi* | [**list_invoices**](docs/BillingInvoicesApi.md#list_invoices) | List of invoices.
 *BillingUsageMetricsApi* | [**get_service_level_usage**](docs/BillingUsageMetricsApi.md#get_service_level_usage) | Retrieve service-level usage metrics for services with non-zero usage units.
 *BillingUsageMetricsApi* | [**get_usage_metrics**](docs/BillingUsageMetricsApi.md#get_usage_metrics) | Get monthly usage metrics
+*BotManagementApi* | [**bot_management_get_bot**](docs/BotManagementApi.md#bot_management_get_bot) | Get a bot
+*BotManagementApi* | [**bot_management_get_category**](docs/BotManagementApi.md#bot_management_get_category) | Get a category
+*BotManagementApi* | [**bot_management_get_workspace**](docs/BotManagementApi.md#bot_management_get_workspace) | Get a workspace
+*BotManagementApi* | [**bot_management_list_bots**](docs/BotManagementApi.md#bot_management_list_bots) | List all bots in a workspace
+*BotManagementApi* | [**bot_management_list_categories**](docs/BotManagementApi.md#bot_management_list_categories) | List categories
+*BotManagementApi* | [**bot_management_list_category_bots**](docs/BotManagementApi.md#bot_management_list_category_bots) | List bots in a category
+*BotManagementApi* | [**bot_management_list_workspaces**](docs/BotManagementApi.md#bot_management_list_workspaces) | List workspaces
+*BotManagementApi* | [**bot_management_update_bot**](docs/BotManagementApi.md#bot_management_update_bot) | Set a bot action
+*BotManagementApi* | [**bot_management_update_category**](docs/BotManagementApi.md#bot_management_update_category) | Set a category action
+*BotManagementApi* | [**bot_management_update_workspace**](docs/BotManagementApi.md#bot_management_update_workspace) | Update a workspace
+*BotRequestsMetricsApi* | [**get_bot_request_metrics_service_historical**](docs/BotRequestsMetricsApi.md#get_bot_request_metrics_service_historical) | Get per-service historical time series metrics for bot requests broken down by bot-type.
 *CacheSettingsApi* | [**create_cache_settings**](docs/CacheSettingsApi.md#create_cache_settings) | Create a cache settings object
 *CacheSettingsApi* | [**delete_cache_settings**](docs/CacheSettingsApi.md#delete_cache_settings) | Delete a cache settings object
 *CacheSettingsApi* | [**get_cache_settings**](docs/CacheSettingsApi.md#get_cache_settings) | Get a cache settings object
@@ -455,12 +486,33 @@ Class | Method | Description
 *LoggingSyslogApi* | [**get_log_syslog**](docs/LoggingSyslogApi.md#get_log_syslog) | Get a syslog log endpoint
 *LoggingSyslogApi* | [**list_log_syslog**](docs/LoggingSyslogApi.md#list_log_syslog) | List Syslog log endpoints
 *LoggingSyslogApi* | [**update_log_syslog**](docs/LoggingSyslogApi.md#update_log_syslog) | Update a syslog log endpoint
-*MetricsPlatformApi* | [**get_platform_metrics_service_historical**](docs/MetricsPlatformApi.md#get_platform_metrics_service_historical) | Get historical time series metrics for a single service
+*MetricsPlatformApi* | [**get_platform_metrics_aggregate_historical**](docs/MetricsPlatformApi.md#get_platform_metrics_aggregate_historical) | Get aggregated historical time series metrics for all entities
+*MetricsPlatformApi* | [**get_platform_metrics_entity_historical**](docs/MetricsPlatformApi.md#get_platform_metrics_entity_historical) | Get historical time series metrics for a single entity.
 *MutualAuthenticationApi* | [**create_mutual_tls_authentication**](docs/MutualAuthenticationApi.md#create_mutual_tls_authentication) | Create a Mutual Authentication
 *MutualAuthenticationApi* | [**delete_mutual_tls**](docs/MutualAuthenticationApi.md#delete_mutual_tls) | Delete a Mutual TLS
 *MutualAuthenticationApi* | [**get_mutual_authentication**](docs/MutualAuthenticationApi.md#get_mutual_authentication) | Get a Mutual Authentication
 *MutualAuthenticationApi* | [**list_mutual_authentications**](docs/MutualAuthenticationApi.md#list_mutual_authentications) | List Mutual Authentications
 *MutualAuthenticationApi* | [**patch_mutual_authentication**](docs/MutualAuthenticationApi.md#patch_mutual_authentication) | Update a Mutual Authentication
+*NetworkProtectApi* | [**create_network_protect_endpoint**](docs/NetworkProtectApi.md#create_network_protect_endpoint) | Create a Network Protect endpoint
+*NetworkProtectApi* | [**create_network_protect_network**](docs/NetworkProtectApi.md#create_network_protect_network) | Create a Network Protect network
+*NetworkProtectApi* | [**create_network_protect_prefix_list**](docs/NetworkProtectApi.md#create_network_protect_prefix_list) | Create a Network Protect prefix list
+*NetworkProtectApi* | [**create_network_protect_rule_set**](docs/NetworkProtectApi.md#create_network_protect_rule_set) | Create a Network Protect rule set
+*NetworkProtectApi* | [**delete_network_protect_endpoint**](docs/NetworkProtectApi.md#delete_network_protect_endpoint) | Delete a Network Protect endpoint
+*NetworkProtectApi* | [**delete_network_protect_network**](docs/NetworkProtectApi.md#delete_network_protect_network) | Delete a Network Protect network
+*NetworkProtectApi* | [**delete_network_protect_prefix_list**](docs/NetworkProtectApi.md#delete_network_protect_prefix_list) | Delete a Network Protect prefix list
+*NetworkProtectApi* | [**delete_network_protect_rule_set**](docs/NetworkProtectApi.md#delete_network_protect_rule_set) | Delete a Network Protect rule set
+*NetworkProtectApi* | [**get_network_protect_endpoint**](docs/NetworkProtectApi.md#get_network_protect_endpoint) | Get a Network Protect endpoint
+*NetworkProtectApi* | [**get_network_protect_network**](docs/NetworkProtectApi.md#get_network_protect_network) | Get a Network Protect network
+*NetworkProtectApi* | [**get_network_protect_prefix_list**](docs/NetworkProtectApi.md#get_network_protect_prefix_list) | Get a Network Protect prefix list
+*NetworkProtectApi* | [**get_network_protect_rule_set**](docs/NetworkProtectApi.md#get_network_protect_rule_set) | Get a Network Protect rule set
+*NetworkProtectApi* | [**list_network_protect_endpoints**](docs/NetworkProtectApi.md#list_network_protect_endpoints) | List Network Protect endpoints
+*NetworkProtectApi* | [**list_network_protect_networks**](docs/NetworkProtectApi.md#list_network_protect_networks) | List Network Protect networks
+*NetworkProtectApi* | [**list_network_protect_prefix_lists**](docs/NetworkProtectApi.md#list_network_protect_prefix_lists) | List Network Protect prefix lists
+*NetworkProtectApi* | [**list_network_protect_rule_sets**](docs/NetworkProtectApi.md#list_network_protect_rule_sets) | List Network Protect rule sets
+*NetworkProtectApi* | [**update_network_protect_endpoint**](docs/NetworkProtectApi.md#update_network_protect_endpoint) | Update a Network Protect endpoint
+*NetworkProtectApi* | [**update_network_protect_network**](docs/NetworkProtectApi.md#update_network_protect_network) | Update a Network Protect network
+*NetworkProtectApi* | [**update_network_protect_prefix_list**](docs/NetworkProtectApi.md#update_network_protect_prefix_list) | Update a Network Protect prefix list
+*NetworkProtectApi* | [**update_network_protect_rule_set**](docs/NetworkProtectApi.md#update_network_protect_rule_set) | Update a Network Protect rule set
 *NgwafAgentKeysApi* | [**ngwaf_list_agent_keys**](docs/NgwafAgentKeysApi.md#ngwaf_list_agent_keys) | List agent keys for a workspace
 *NgwafReportsApi* | [**get_attacks_report**](docs/NgwafReportsApi.md#get_attacks_report) | Get attacks report
 *NgwafReportsApi* | [**get_signals_report**](docs/NgwafReportsApi.md#get_signals_report) | Get signals report
@@ -491,6 +543,9 @@ Class | Method | Description
 *ProductAiAcceleratorApi* | [**disable_product_ai_accelerator**](docs/ProductAiAcceleratorApi.md#disable_product_ai_accelerator) | Disable product
 *ProductAiAcceleratorApi* | [**enable_ai_accelerator**](docs/ProductAiAcceleratorApi.md#enable_ai_accelerator) | Enable product
 *ProductAiAcceleratorApi* | [**get_ai_accelerator**](docs/ProductAiAcceleratorApi.md#get_ai_accelerator) | Get product enablement status
+*ProductAiRuntimeControlApi* | [**disable_product_ai_runtime_control**](docs/ProductAiRuntimeControlApi.md#disable_product_ai_runtime_control) | Disable product
+*ProductAiRuntimeControlApi* | [**enable_product_ai_runtime_control**](docs/ProductAiRuntimeControlApi.md#enable_product_ai_runtime_control) | Enable product
+*ProductAiRuntimeControlApi* | [**get_product_ai_runtime_control**](docs/ProductAiRuntimeControlApi.md#get_product_ai_runtime_control) | Get product enablement status
 *ProductApiDiscoveryApi* | [**disable_product_api_discovery**](docs/ProductApiDiscoveryApi.md#disable_product_api_discovery) | Disable product
 *ProductApiDiscoveryApi* | [**enable_product_api_discovery**](docs/ProductApiDiscoveryApi.md#enable_product_api_discovery) | Enable product
 *ProductApiDiscoveryApi* | [**get_product_api_discovery**](docs/ProductApiDiscoveryApi.md#get_product_api_discovery) | Get product enablement status
@@ -716,6 +771,14 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/dns/v1/tsig-keys`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
 - [`/dns/v1/zones/{zone_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/dns/v1/zones`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/iam/v1/organizations/{organization_id}/accounts`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/iam/v1/organizations/{organization_id}/invitations/{invitation_id}/notifications`](https://www.fastly.com/documentation/reference/api/) (POST)
+- [`/iam/v1/organizations/{organization_id}/invitations/{invitation_id}`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
+- [`/iam/v1/organizations/{organization_id}/invitations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/iam/v1/organizations/{organization_id}/options`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
+- [`/iam/v1/organizations/{organization_id}`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
+- [`/model/{modelId}/invoke-with-response-stream`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
+- [`/model/{modelId}/invoke`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
 - [`/ngwaf/v1/default-dashboards`](https://www.fastly.com/documentation/reference/api/ngwaf/custom-dashboards) (GET)
 - [`/ngwaf/v1/lists/{listId}`](https://www.fastly.com/documentation/reference/api/ngwaf/lists) (DELETE, GET, PATCH)
 - [`/ngwaf/v1/lists`](https://www.fastly.com/documentation/reference/api/ngwaf/lists) (GET, POST)
@@ -733,6 +796,7 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/ngwaf/v1/workspaces/{workspace_id}/alerts/{alert_id}/test`](https://www.fastly.com/documentation/reference/api/ngwaf/workspace-alerts/) (POST)
 - [`/ngwaf/v1/workspaces/{workspace_id}/alerts/{alert_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/workspace-alerts/) (DELETE, GET, PATCH)
 - [`/ngwaf/v1/workspaces/{workspace_id}/alerts`](https://www.fastly.com/documentation/reference/api/ngwaf/workspace-alerts/) (GET, POST)
+- [`/ngwaf/v1/workspaces/{workspace_id}/challenge-settings`](https://www.fastly.com/documentation/reference/api/ngwaf/challenge-settings) (GET, PATCH)
 - [`/ngwaf/v1/workspaces/{workspace_id}/dashboards/{dashboard_id}`](https://www.fastly.com/documentation/reference/api/ngwaf/custom-dashboards) (DELETE, GET, PATCH)
 - [`/ngwaf/v1/workspaces/{workspace_id}/dashboards`](https://www.fastly.com/documentation/reference/api/ngwaf/custom-dashboards) (GET, POST)
 - [`/ngwaf/v1/workspaces/{workspace_id}/default-dashboard`](https://www.fastly.com/documentation/reference/api/ngwaf/custom-dashboards) (GET, PUT)
@@ -778,9 +842,16 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/tls/activations`](https://www.fastly.com/documentation/reference/api/tls/mutual-tls/activations) (GET)
 - [`/tls/configurations/{tls_configuration_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
 - [`/tls/configurations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/v1/audio/speech`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
+- [`/v1/audio/transcriptions`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
 - [`/v1/channel/{service_id}/ts/h/limit/{max_entries}`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)
 - [`/v1/channel/{service_id}/ts/h`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)
 - [`/v1/channel/{service_id}/ts/{start_timestamp}`](https://www.fastly.com/documentation/reference/api/metrics-stats/origin-insights) (GET)
+- [`/v1/chat/completions`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
+- [`/v1/messages/count_tokens`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
+- [`/v1/messages`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
+- [`/v1/models`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (GET)
+- [`/v1/responses`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)
 
 
 If you encounter any non-security-related bug or unexpected behavior, please [file an issue][bug]

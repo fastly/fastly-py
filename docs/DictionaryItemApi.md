@@ -150,7 +150,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = dictionary_item_api.DictionaryItemApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
-    item_key = "test-key" # str | Item key, maximum 256 characters. (optional)
+    item_key = "test-key" # str | Item key, maximum 255 characters. (optional)
     item_value = "test-value" # str | Item value, maximum 8000 characters. (optional)
 
     # example passing only required values which don't have defaults set
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
- **item_key** | **str**| Item key, maximum 256 characters. | [optional]
+ **item_key** | **str**| Item key, maximum 255 characters. | [optional]
  **item_value** | **str**| Item value, maximum 8000 characters. | [optional]
 
 ### Return type
@@ -243,7 +243,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = dictionary_item_api.DictionaryItemApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
-    dictionary_item_key = "test-key" # str | Item key, maximum 256 characters.
+    dictionary_item_key = "test-key" # str | Item key, maximum 255 characters.
 
     # example passing only required values which don't have defaults set
     try:
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
- **dictionary_item_key** | **str**| Item key, maximum 256 characters. |
+ **dictionary_item_key** | **str**| Item key, maximum 255 characters. |
 
 ### Return type
 
@@ -325,7 +325,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = dictionary_item_api.DictionaryItemApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
-    dictionary_item_key = "test-key" # str | Item key, maximum 256 characters.
+    dictionary_item_key = "test-key" # str | Item key, maximum 255 characters.
 
     # example passing only required values which don't have defaults set
     try:
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
- **dictionary_item_key** | **str**| Item key, maximum 256 characters. |
+ **dictionary_item_key** | **str**| Item key, maximum 255 characters. |
 
 ### Return type
 
@@ -504,8 +504,8 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = dictionary_item_api.DictionaryItemApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
-    dictionary_item_key = "test-key" # str | Item key, maximum 256 characters.
-    item_key = "test-key" # str | Item key, maximum 256 characters. (optional)
+    dictionary_item_key = "test-key" # str | Item key, maximum 255 characters.
+    item_key = "test-key" # str | Item key, maximum 255 characters. (optional)
     item_value = "test-value" # str | Item value, maximum 8000 characters. (optional)
 
     # example passing only required values which don't have defaults set
@@ -533,8 +533,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
- **dictionary_item_key** | **str**| Item key, maximum 256 characters. |
- **item_key** | **str**| Item key, maximum 256 characters. | [optional]
+ **dictionary_item_key** | **str**| Item key, maximum 255 characters. |
+ **item_key** | **str**| Item key, maximum 255 characters. | [optional]
  **item_value** | **str**| Item value, maximum 8000 characters. | [optional]
 
 ### Return type
@@ -599,8 +599,8 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = dictionary_item_api.DictionaryItemApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     dictionary_id = "3vjTN8v1O7nOAY7aNDGOL" # str | Alphanumeric string identifying a Dictionary.
-    dictionary_item_key = "test-key" # str | Item key, maximum 256 characters.
-    item_key = "test-key" # str | Item key, maximum 256 characters. (optional)
+    dictionary_item_key = "test-key" # str | Item key, maximum 255 characters.
+    item_key = "test-key" # str | Item key, maximum 255 characters. (optional)
     item_value = "test-value" # str | Item value, maximum 8000 characters. (optional)
 
     # example passing only required values which don't have defaults set
@@ -628,8 +628,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **dictionary_id** | **str**| Alphanumeric string identifying a Dictionary. |
- **dictionary_item_key** | **str**| Item key, maximum 256 characters. |
- **item_key** | **str**| Item key, maximum 256 characters. | [optional]
+ **dictionary_item_key** | **str**| Item key, maximum 255 characters. |
+ **item_key** | **str**| Item key, maximum 255 characters. | [optional]
  **item_value** | **str**| Item value, maximum 8000 characters. | [optional]
 
 ### Return type

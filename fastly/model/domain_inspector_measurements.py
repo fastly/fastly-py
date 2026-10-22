@@ -212,6 +212,7 @@ class DomainInspectorMeasurements(ModelNormal):
             'tls_v11': (int,),  # noqa: E501
             'tls_v12': (int,),  # noqa: E501
             'tls_v13': (int,),  # noqa: E501
+            'status_499': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -353,6 +354,7 @@ class DomainInspectorMeasurements(ModelNormal):
         'tls_v11': 'tls_v11',  # noqa: E501
         'tls_v12': 'tls_v12',  # noqa: E501
         'tls_v13': 'tls_v13',  # noqa: E501
+        'status_499': 'status_499',  # noqa: E501
     }
 
     read_only_vars = {
@@ -529,6 +531,7 @@ class DomainInspectorMeasurements(ModelNormal):
             tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
             tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
             tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            status_499 (int): Number of responses sent with status code 499 (Client Disconnected).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -743,6 +746,7 @@ class DomainInspectorMeasurements(ModelNormal):
             tls_v11 (int): Number of requests received over TLS 1.1.. [optional]  # noqa: E501
             tls_v12 (int): Number of requests received over TLS 1.2.. [optional]  # noqa: E501
             tls_v13 (int): Number of requests received over TLS 1.3.. [optional]  # noqa: E501
+            status_499 (int): Number of responses sent with status code 499 (Client Disconnected).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

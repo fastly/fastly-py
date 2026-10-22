@@ -25,6 +25,8 @@ from fastly.model.automation_token_create_request import AutomationTokenCreateRe
 from fastly.model.automation_token_create_response import AutomationTokenCreateResponse
 from fastly.model.automation_token_error_response import AutomationTokenErrorResponse
 from fastly.model.automation_token_response import AutomationTokenResponse
+from fastly.model.automation_token_unversioned_error_response import AutomationTokenUnversionedErrorResponse
+from fastly.model.automation_token_workspaces_response import AutomationTokenWorkspacesResponse
 from fastly.model.inline_response2004 import InlineResponse2004
 
 
@@ -86,7 +88,8 @@ class AutomationTokensApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json'
+                    'application/json',
+                    'application/problem+json'
                 ],
                 'content_type': [
                     'application/json'
@@ -207,6 +210,81 @@ class AutomationTokensApi(object):
                     'id': 'path',
                     'per_page': 'query',
                     'page': 'query',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_automation_tokens_id_workspaces_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutomationTokenWorkspacesResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/automation-tokens/{id}/workspaces',
+                'operation_id': 'get_automation_tokens_id_workspaces',
+                'http_method': 'GET',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'limit',
+                    'cursor',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('limit',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 1,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'cursor':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'limit': 'limit',
+                    'cursor': 'cursor',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'limit': 'query',
+                    'cursor': 'query',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -575,6 +653,86 @@ class AutomationTokensApi(object):
         kwargs['id'] = \
             id
         return self.get_automation_tokens_id_services_endpoint.call_with_http_info(**kwargs)
+
+    def get_automation_tokens_id_workspaces(
+        self,
+        id,
+        **kwargs
+    ):
+        """List Automation Token Workspaces  # noqa: E501
+
+        Lists the Next-Gen WAF workspaces accessible by an automation token. Only applicable for tokens with roles that support workspace access (such as Next-Gen WAF roles).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_automation_tokens_id_workspaces(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): The alphanumeric string identifying the automation token.
+
+        Keyword Args:
+            limit (int): Maximum number of workspaces to return per page.. [optional] if omitted the server will use the default value of 20
+            cursor (str): Pagination cursor from a previous response. Pass the `next_cursor` value to retrieve the next page, or `previous_cursor` to go back.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutomationTokenWorkspacesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_automation_tokens_id_workspaces_endpoint.call_with_http_info(**kwargs)
 
     def list_automation_tokens(
         self,

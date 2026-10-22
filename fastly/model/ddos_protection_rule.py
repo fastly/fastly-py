@@ -168,7 +168,7 @@ class DdosProtectionRule(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             id (str): Unique ID of the rule.. [optional]  # noqa: E501
             name (str): A human-readable name for the rule.. [optional]  # noqa: E501
-            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off, client_challenge. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             source_ip (str, none_type): Source IP address attribute.. [optional]  # noqa: E501
@@ -280,7 +280,7 @@ class DdosProtectionRule(ModelComposed):
             updated_at (datetime, none_type): Date and time in ISO 8601 format.. [optional]  # noqa: E501
             id (str): Unique ID of the rule.. [optional]  # noqa: E501
             name (str): A human-readable name for the rule.. [optional]  # noqa: E501
-            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off, client_challenge. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
             customer_id (str): Alphanumeric string identifying the customer.. [optional]  # noqa: E501
             service_id (str): Alphanumeric string identifying the service.. [optional]  # noqa: E501
             source_ip (str, none_type): Source IP address attribute.. [optional]  # noqa: E501

@@ -29,6 +29,10 @@ from fastly.model_utils import (  # noqa: F401
 from fastly.exceptions import ApiAttributeError
 
 
+def lazy_import():
+    from fastly.model.automation_token_role import AutomationTokenRole
+    globals()['AutomationTokenRole'] = AutomationTokenRole
+
 
 class AutomationToken(ModelNormal):
     """NOTE: This class is auto generated.
@@ -57,6 +61,12 @@ class AutomationToken(ModelNormal):
             'BILLING': "billing",
             'ENGINEER': "engineer",
             'USER': "user",
+            'NGWAF_USER_IMPORTED': "ngwaf_user_imported",
+            'NGWAF_ADMIN_IMPORTED': "ngwaf_admin_imported",
+            'NGWAF_OWNER_IMPORTED': "ngwaf_owner_imported",
+            'NGWAF_OBSERVER_IMPORTED': "ngwaf_observer_imported",
+            'TLS_ADMIN': "tls_admin",
+            'TLS_VIEWER': "tls_viewer",
         },
         ('scope',): {
             'GLOBAL': "global",
@@ -75,6 +85,7 @@ class AutomationToken(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -89,10 +100,15 @@ class AutomationToken(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'name': (str,),  # noqa: E501
             'role': (str,),  # noqa: E501
+            'roles': ([AutomationTokenRole],),  # noqa: E501
             'services': ([str],),  # noqa: E501
+            'limit_services': (bool,),  # noqa: E501
+            'limit_workspaces': (bool,),  # noqa: E501
+            'workspaces': ([str],),  # noqa: E501
             'scope': (str,),  # noqa: E501
             'expires_at': (str,),  # noqa: E501
         }
@@ -105,7 +121,11 @@ class AutomationToken(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'role': 'role',  # noqa: E501
+        'roles': 'roles',  # noqa: E501
         'services': 'services',  # noqa: E501
+        'limit_services': 'limit_services',  # noqa: E501
+        'limit_workspaces': 'limit_workspaces',  # noqa: E501
+        'workspaces': 'workspaces',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
     }
@@ -152,8 +172,12 @@ class AutomationToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the token.. [optional]  # noqa: E501
-            role (str): The role on the token.. [optional]  # noqa: E501
-            services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
+            role (str): The primary role on the token. For tokens with multiple roles, this returns the highest-priority role for backwards compatibility.. [optional]  # noqa: E501
+            roles ([AutomationTokenRole]): All roles assigned to the token. Each role includes an `id` and `name`.. [optional]  # noqa: E501
+            services ([str]): The service IDs of the services the token has access to. Empty when `limit_services` is `false` (full access) or when the token has no service access.. [optional]  # noqa: E501
+            limit_services (bool): When `true`, the token is restricted to only the services in the `services` array. When `false`, the token has access to all services.. [optional]  # noqa: E501
+            limit_workspaces (bool): When `true`, the token is restricted to only the workspaces in the `workspaces` array. When `false`, the token has access to all workspaces. Only applies to roles that support workspace access.. [optional]  # noqa: E501
+            workspaces ([str]): The workspace IDs of the workspaces the token has access to. Returns an empty array for tokens without workspace access.. [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
             expires_at (str): A UTC timestamp of when the token expires.. [optional]  # noqa: E501
         """
@@ -238,8 +262,12 @@ class AutomationToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the token.. [optional]  # noqa: E501
-            role (str): The role on the token.. [optional]  # noqa: E501
-            services ([str]): (Optional) The service IDs of the services the token will have access to. Separate service IDs with a space. If no services are specified, the token will have access to all services on the account. . [optional]  # noqa: E501
+            role (str): The primary role on the token. For tokens with multiple roles, this returns the highest-priority role for backwards compatibility.. [optional]  # noqa: E501
+            roles ([AutomationTokenRole]): All roles assigned to the token. Each role includes an `id` and `name`.. [optional]  # noqa: E501
+            services ([str]): The service IDs of the services the token has access to. Empty when `limit_services` is `false` (full access) or when the token has no service access.. [optional]  # noqa: E501
+            limit_services (bool): When `true`, the token is restricted to only the services in the `services` array. When `false`, the token has access to all services.. [optional]  # noqa: E501
+            limit_workspaces (bool): When `true`, the token is restricted to only the workspaces in the `workspaces` array. When `false`, the token has access to all workspaces. Only applies to roles that support workspace access.. [optional]  # noqa: E501
+            workspaces ([str]): The workspace IDs of the workspaces the token has access to. Returns an empty array for tokens without workspace access.. [optional]  # noqa: E501
             scope (str): A space-delimited list of authorization scope.. [optional] if omitted the server will use the default value of "global"  # noqa: E501
             expires_at (str): A UTC timestamp of when the token expires.. [optional]  # noqa: E501
         """

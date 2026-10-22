@@ -52,6 +52,7 @@ with fastly.ApiClient(configuration) as api_client:
     api_instance = purge_api.PurgeApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     fastly_soft_purge = 1 # int | If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to \"1\" when used, but the value is not important. (optional)
+    fastly_purge_environment = "staging" # str | Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. (optional) if omitted the server will use the default value of "staging"
     surrogate_key = "key_1 key_2 key_3" # str | Purge multiple surrogate key tags using a request header. Not required if a JSON POST body is specified. (optional)
     purge_response = PurgeResponse(
         status="status_example",
@@ -69,7 +70,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Purge multiple surrogate key tags
-        api_response = api_instance.bulk_purge_tag(service_id, fastly_soft_purge=fastly_soft_purge, surrogate_key=surrogate_key, purge_response=purge_response)
+        api_response = api_instance.bulk_purge_tag(service_id, fastly_soft_purge=fastly_soft_purge, fastly_purge_environment=fastly_purge_environment, surrogate_key=surrogate_key, purge_response=purge_response)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling PurgeApi->bulk_purge_tag: %s\n" % e)
@@ -82,6 +83,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **fastly_soft_purge** | **int**| If present, this header triggers the purge to be &#39;soft&#39;, which marks the affected object as stale rather than making it inaccessible.  Typically set to \&quot;1\&quot; when used, but the value is not important. | [optional]
+ **fastly_purge_environment** | **str**| Set to `staging` to purge the cache of the service&#39;s [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. | [optional] if omitted the server will use the default value of "staging"
  **surrogate_key** | **str**| Purge multiple surrogate key tags using a request header. Not required if a JSON POST body is specified. | [optional]
  **purge_response** | [**PurgeResponse**](PurgeResponse.md)|  | [optional]
 
@@ -146,11 +148,21 @@ with fastly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = purge_api.PurgeApi(api_client)
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
+    fastly_purge_environment = "staging" # str | Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. (optional) if omitted the server will use the default value of "staging"
 
     # example passing only required values which don't have defaults set
     try:
         # Purge everything from a service
         api_response = api_instance.purge_all(service_id)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling PurgeApi->purge_all: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Purge everything from a service
+        api_response = api_instance.purge_all(service_id, fastly_purge_environment=fastly_purge_environment)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling PurgeApi->purge_all: %s\n" % e)
@@ -162,6 +174,7 @@ with fastly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| Alphanumeric string identifying the service. |
+ **fastly_purge_environment** | **str**| Set to `staging` to purge the cache of the service&#39;s [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. | [optional] if omitted the server will use the default value of "staging"
 
 ### Return type
 
@@ -315,6 +328,7 @@ with fastly.ApiClient(configuration) as api_client:
     service_id = "SU1Z0isxPaozGVKXdv0eY" # str | Alphanumeric string identifying the service.
     surrogate_key = "key_1" # str | Surrogate keys are used to efficiently purge content from cache. Instead of purging your entire site or individual URLs, you can tag related assets (like all images and descriptions associated with a single product) with surrogate keys, and these grouped URLs can be purged in a single request.
     fastly_soft_purge = 1 # int | If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to \"1\" when used, but the value is not important. (optional)
+    fastly_purge_environment = "staging" # str | Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. (optional) if omitted the server will use the default value of "staging"
 
     # example passing only required values which don't have defaults set
     try:
@@ -328,7 +342,7 @@ with fastly.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Purge by surrogate key tag
-        api_response = api_instance.purge_tag(service_id, surrogate_key, fastly_soft_purge=fastly_soft_purge)
+        api_response = api_instance.purge_tag(service_id, surrogate_key, fastly_soft_purge=fastly_soft_purge, fastly_purge_environment=fastly_purge_environment)
         pprint(api_response)
     except fastly.ApiException as e:
         print("Exception when calling PurgeApi->purge_tag: %s\n" % e)
@@ -342,6 +356,7 @@ Name | Type | Description  | Notes
  **service_id** | **str**| Alphanumeric string identifying the service. |
  **surrogate_key** | **str**| Surrogate keys are used to efficiently purge content from cache. Instead of purging your entire site or individual URLs, you can tag related assets (like all images and descriptions associated with a single product) with surrogate keys, and these grouped URLs can be purged in a single request. |
  **fastly_soft_purge** | **int**| If present, this header triggers the purge to be &#39;soft&#39;, which marks the affected object as stale rather than making it inaccessible.  Typically set to \&quot;1\&quot; when used, but the value is not important. | [optional]
+ **fastly_purge_environment** | **str**| Set to `staging` to purge the cache of the service&#39;s [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment. | [optional] if omitted the server will use the default value of "staging"
 
 ### Return type
 

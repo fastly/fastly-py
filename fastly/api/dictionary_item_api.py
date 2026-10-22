@@ -685,7 +685,7 @@ class DictionaryItemApi(object):
             dictionary_id (str): Alphanumeric string identifying a Dictionary.
 
         Keyword Args:
-            item_key (str): Item key, maximum 256 characters.. [optional]
+            item_key (str): Item key, maximum 255 characters.. [optional]
             item_value (str): Item value, maximum 8000 characters.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -768,7 +768,7 @@ class DictionaryItemApi(object):
         Args:
             service_id (str): Alphanumeric string identifying the service.
             dictionary_id (str): Alphanumeric string identifying a Dictionary.
-            dictionary_item_key (str): Item key, maximum 256 characters.
+            dictionary_item_key (str): Item key, maximum 255 characters.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -854,7 +854,7 @@ class DictionaryItemApi(object):
         Args:
             service_id (str): Alphanumeric string identifying the service.
             dictionary_id (str): Alphanumeric string identifying a Dictionary.
-            dictionary_item_key (str): Item key, maximum 256 characters.
+            dictionary_item_key (str): Item key, maximum 255 characters.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1026,10 +1026,10 @@ class DictionaryItemApi(object):
         Args:
             service_id (str): Alphanumeric string identifying the service.
             dictionary_id (str): Alphanumeric string identifying a Dictionary.
-            dictionary_item_key (str): Item key, maximum 256 characters.
+            dictionary_item_key (str): Item key, maximum 255 characters.
 
         Keyword Args:
-            item_key (str): Item key, maximum 256 characters.. [optional]
+            item_key (str): Item key, maximum 255 characters.. [optional]
             item_value (str): Item value, maximum 8000 characters.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1114,10 +1114,10 @@ class DictionaryItemApi(object):
         Args:
             service_id (str): Alphanumeric string identifying the service.
             dictionary_id (str): Alphanumeric string identifying a Dictionary.
-            dictionary_item_key (str): Item key, maximum 256 characters.
+            dictionary_item_key (str): Item key, maximum 255 characters.
 
         Keyword Args:
-            item_key (str): Item key, maximum 256 characters.. [optional]
+            item_key (str): Item key, maximum 255 characters.. [optional]
             item_value (str): Item value, maximum 8000 characters.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

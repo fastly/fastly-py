@@ -135,7 +135,7 @@ class DdosProtectionRulePatch(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off, client_challenge. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class DdosProtectionRulePatch(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str): Action types for a rule. Supported action values are default, block, log, off. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
+            action (str): Action types for a rule. Supported action values are default, block, log, off, client_challenge. The default action value follows the current protection mode of the associated service.. [optional] if omitted the server will use the default value of "default"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

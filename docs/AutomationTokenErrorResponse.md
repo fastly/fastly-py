@@ -1,5 +1,6 @@
 # AutomationTokenErrorResponse
 
+Error response format used by automation token endpoints.
 
 ## Properties
 Name | Type | Description | Notes

@@ -55,6 +55,7 @@ class PurgeApi(object):
                 'all': [
                     'service_id',
                     'fastly_soft_purge',
+                    'fastly_purge_environment',
                     'surrogate_key',
                     'purge_response',
                 ],
@@ -64,6 +65,7 @@ class PurgeApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'fastly_purge_environment',
                 ],
                 'validation': [
                 ]
@@ -72,12 +74,18 @@ class PurgeApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('fastly_purge_environment',): {
+
+                        "STAGING": "staging"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
                         (str,),
                     'fastly_soft_purge':
                         (int,),
+                    'fastly_purge_environment':
+                        (str,),
                     'surrogate_key':
                         (str,),
                     'purge_response':
@@ -86,11 +94,13 @@ class PurgeApi(object):
                 'attribute_map': {
                     'service_id': 'service_id',
                     'fastly_soft_purge': 'fastly-soft-purge',
+                    'fastly_purge_environment': 'fastly-purge-environment',
                     'surrogate_key': 'surrogate-key',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'fastly_soft_purge': 'header',
+                    'fastly_purge_environment': 'header',
                     'surrogate_key': 'header',
                     'purge_response': 'body',
                 },
@@ -128,6 +138,7 @@ class PurgeApi(object):
             params_map={
                 'all': [
                     'service_id',
+                    'fastly_purge_environment',
                 ],
                 'required': [
                     'service_id',
@@ -135,6 +146,7 @@ class PurgeApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'fastly_purge_environment',
                 ],
                 'validation': [
                 ]
@@ -143,16 +155,24 @@ class PurgeApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('fastly_purge_environment',): {
+
+                        "STAGING": "staging"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
                         (str,),
+                    'fastly_purge_environment':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
+                    'fastly_purge_environment': 'fastly-purge-environment',
                 },
                 'location_map': {
                     'service_id': 'path',
+                    'fastly_purge_environment': 'header',
                 },
                 'path_params_allow_reserved_map': {
                 },
@@ -252,6 +272,7 @@ class PurgeApi(object):
                     'service_id',
                     'surrogate_key',
                     'fastly_soft_purge',
+                    'fastly_purge_environment',
                 ],
                 'required': [
                     'service_id',
@@ -260,6 +281,7 @@ class PurgeApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'fastly_purge_environment',
                 ],
                 'validation': [
                 ]
@@ -268,6 +290,10 @@ class PurgeApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('fastly_purge_environment',): {
+
+                        "STAGING": "staging"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
@@ -276,16 +302,20 @@ class PurgeApi(object):
                         (str,),
                     'fastly_soft_purge':
                         (int,),
+                    'fastly_purge_environment':
+                        (str,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
                     'surrogate_key': 'surrogate_key',
                     'fastly_soft_purge': 'fastly-soft-purge',
+                    'fastly_purge_environment': 'fastly-purge-environment',
                 },
                 'location_map': {
                     'service_id': 'path',
                     'surrogate_key': 'path',
                     'fastly_soft_purge': 'header',
+                    'fastly_purge_environment': 'header',
                 },
                 'path_params_allow_reserved_map': {
                     'surrogate_key': 1,
@@ -321,6 +351,7 @@ class PurgeApi(object):
 
         Keyword Args:
             fastly_soft_purge (int): If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to \"1\" when used, but the value is not important.. [optional]
+            fastly_purge_environment (str): Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment.. [optional] if omitted the server will use the default value of "staging"
             surrogate_key (str): Purge multiple surrogate key tags using a request header. Not required if a JSON POST body is specified.. [optional]
             purge_response (PurgeResponse): [optional]
             _return_http_data_only (bool): response data without head status
@@ -401,6 +432,7 @@ class PurgeApi(object):
             service_id (str): Alphanumeric string identifying the service.
 
         Keyword Args:
+            fastly_purge_environment (str): Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment.. [optional] if omitted the server will use the default value of "staging"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -561,6 +593,7 @@ class PurgeApi(object):
 
         Keyword Args:
             fastly_soft_purge (int): If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to \"1\" when used, but the value is not important.. [optional]
+            fastly_purge_environment (str): Set to `staging` to purge the cache of the service's [staging environment](https://www.fastly.com/documentation/guides/getting-started/services/working-with-staging/) instead of its production environment. If this header is not present, the purge applies to the production environment.. [optional] if omitted the server will use the default value of "staging"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

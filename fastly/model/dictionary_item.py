@@ -134,7 +134,7 @@ class DictionaryItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_key (str): Item key, maximum 256 characters.. [optional]  # noqa: E501
+            item_key (str): Item key, maximum 255 characters.. [optional]  # noqa: E501
             item_value (str): Item value, maximum 8000 characters.. [optional]  # noqa: E501
         """
 
@@ -217,7 +217,7 @@ class DictionaryItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_key (str): Item key, maximum 256 characters.. [optional]  # noqa: E501
+            item_key (str): Item key, maximum 255 characters.. [optional]  # noqa: E501
             item_value (str): Item value, maximum 8000 characters.. [optional]  # noqa: E501
         """
 

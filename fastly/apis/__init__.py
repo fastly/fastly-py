@@ -17,6 +17,11 @@
 from fastly.api.acl_api import AclApi
 from fastly.api.acl_entry_api import AclEntryApi
 from fastly.api.acls_in_compute_api import AclsInComputeApi
+from fastly.api.ai_runtime_control_provider_connections_api import AiRuntimeControlProviderConnectionsApi
+from fastly.api.ai_runtime_control_providers_api import AiRuntimeControlProvidersApi
+from fastly.api.ai_runtime_control_sessions_api import AiRuntimeControlSessionsApi
+from fastly.api.ai_runtime_control_usage_metrics_api import AiRuntimeControlUsageMetricsApi
+from fastly.api.ai_runtime_control_virtual_keys_api import AiRuntimeControlVirtualKeysApi
 from fastly.api.apex_redirect_api import ApexRedirectApi
 from fastly.api.apisecurity_operations_api import ApisecurityOperationsApi
 from fastly.api.automation_tokens_api import AutomationTokensApi
@@ -24,6 +29,8 @@ from fastly.api.backend_api import BackendApi
 from fastly.api.billing_address_api import BillingAddressApi
 from fastly.api.billing_invoices_api import BillingInvoicesApi
 from fastly.api.billing_usage_metrics_api import BillingUsageMetricsApi
+from fastly.api.bot_management_api import BotManagementApi
+from fastly.api.bot_requests_metrics_api import BotRequestsMetricsApi
 from fastly.api.cache_settings_api import CacheSettingsApi
 from fastly.api.client_side_protection_api import ClientSideProtectionApi
 from fastly.api.condition_api import ConditionApi
@@ -94,6 +101,7 @@ from fastly.api.logging_sumologic_api import LoggingSumologicApi
 from fastly.api.logging_syslog_api import LoggingSyslogApi
 from fastly.api.metrics_platform_api import MetricsPlatformApi
 from fastly.api.mutual_authentication_api import MutualAuthenticationApi
+from fastly.api.network_protect_api import NetworkProtectApi
 from fastly.api.ngwaf_agent_keys_api import NgwafAgentKeysApi
 from fastly.api.ngwaf_reports_api import NgwafReportsApi
 from fastly.api.ngwaf_simulate_api import NgwafSimulateApi
@@ -107,6 +115,7 @@ from fastly.api.package_api import PackageApi
 from fastly.api.pool_api import PoolApi
 from fastly.api.pop_api import PopApi
 from fastly.api.product_ai_accelerator_api import ProductAiAcceleratorApi
+from fastly.api.product_ai_runtime_control_api import ProductAiRuntimeControlApi
 from fastly.api.product_api_discovery_api import ProductApiDiscoveryApi
 from fastly.api.product_bot_management_api import ProductBotManagementApi
 from fastly.api.product_brotli_compression_api import ProductBrotliCompressionApi

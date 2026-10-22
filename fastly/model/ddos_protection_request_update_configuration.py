@@ -57,6 +57,7 @@ class DdosProtectionRequestUpdateConfiguration(ModelNormal):
             'FALSE': "false",
             'LOG': "log",
             'BLOCK': "block",
+            'CLIENT_CHALLENGE': "client_challenge",
         },
     }
 
