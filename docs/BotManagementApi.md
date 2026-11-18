@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**bot_management_list_workspaces**](BotManagementApi.md#bot_management_list_workspaces) | **GET** /bot-management/v1/workspaces | List workspaces
 [**bot_management_update_bot**](BotManagementApi.md#bot_management_update_bot) | **PATCH** /bot-management/v1/workspaces/{workspace_id}/policy/categories/{category_id}/bots/{bot_id} | Set a bot action
 [**bot_management_update_category**](BotManagementApi.md#bot_management_update_category) | **PATCH** /bot-management/v1/workspaces/{workspace_id}/policy/categories/{category_id} | Set a category action
+[**bot_management_update_category_bots**](BotManagementApi.md#bot_management_update_category_bots) | **PATCH** /bot-management/v1/workspaces/{workspace_id}/policy/categories/{category_id}/bots | Set the action for all bots in a category
 [**bot_management_update_workspace**](BotManagementApi.md#bot_management_update_workspace) | **PATCH** /bot-management/v1/workspaces/{workspace_id} | Update a workspace
 
 
@@ -393,7 +394,7 @@ Name | Type | Description  | Notes
 
 List categories
 
-List all bot categories in a workspace's policy. Each category has an action that applies to every bot in the category. To list the bots themselves, use [list all bots in a workspace](#bot-management-list-bots) or [list bots in a category](#bot-management-list-category-bots).
+List all bot categories in a workspace's policy. Each category has an action that applies to every bot in the category that is set to `inherit`. To list the bots themselves, use [list all bots in a workspace](#bot-management-list-bots) or [list bots in a category](#bot-management-list-category-bots).
 
 ### Example
 
@@ -787,7 +788,7 @@ Name | Type | Description  | Notes
 
 Set a category action
 
-Set the action for a bot category. Every bot in the category configured with the 'inherit' action uses the action set for the category.
+Set the default action for a bot category. Bots set to `inherit` follow this action. Bots with their own action keep it. To remove every bot's own action in the category, use [set the action for all bots in a category](#bot-management-update-category-bots).
 
 ### Example
 
@@ -871,6 +872,103 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested bot category. |  -  |
+**400** | Request parameters are invalid. |  -  |
+**401** | User is not authenticated. |  -  |
+**403** | User is not allowed to perform this request. |  -  |
+**404** | Entity not found. |  -  |
+**429** | Request was not processed and should be retried later. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bot_management_update_category_bots**
+> BotManagementBotsResponse bot_management_update_category_bots(workspace_id, category_id, bot_management_category_bots)
+
+Set the action for all bots in a category
+
+Set the action for every bot in a category. Setting `inherit` removes each bot's own action, so every bot follows the category's action. The category's own action is unchanged. The update applies to every bot in the category or to none, and repeating it gives the same result. The response lists every bot in the category, including bots that already inherited, and is not paginated.
+
+### Example
+
+* Api Key Authentication (token):
+
+```python
+import time
+import fastly
+from fastly.api import bot_management_api
+from fastly.model.bot_management_bots_response import BotManagementBotsResponse
+from fastly.model.bot_management_not_authenticated_error import BotManagementNotAuthenticatedError
+from fastly.model.bot_management_not_allowed_error import BotManagementNotAllowedError
+from fastly.model.bot_management_not_found_error import BotManagementNotFoundError
+from fastly.model.bot_management_invalid_request_error import BotManagementInvalidRequestError
+from fastly.model.bot_management_category_bots import BotManagementCategoryBots
+from fastly.model.bot_management_rate_limit_error import BotManagementRateLimitError
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.fastly.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fastly.Configuration(
+    host = "https://api.fastly.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: token
+configuration.api_key['token'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with fastly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = bot_management_api.BotManagementApi(api_client)
+    workspace_id = "SU1Z0isxPaozGVKXdv0eY" # str | The ID of the bot management workspace.
+    category_id = "ai_crawlers" # str | The ID of the bot category.
+    bot_management_category_bots = BotManagementCategoryBots(
+        action=BotManagementCategoryBotsAction(
+            type="inherit",
+        ),
+    ) # BotManagementCategoryBots | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Set the action for all bots in a category
+        api_response = api_instance.bot_management_update_category_bots(workspace_id, category_id, bot_management_category_bots)
+        pprint(api_response)
+    except fastly.ApiException as e:
+        print("Exception when calling BotManagementApi->bot_management_update_category_bots: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**| The ID of the bot management workspace. |
+ **category_id** | **str**| The ID of the bot category. |
+ **bot_management_category_bots** | [**BotManagementCategoryBots**](BotManagementCategoryBots.md)|  |
+
+### Return type
+
+[**BotManagementBotsResponse**](BotManagementBotsResponse.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Every bot in the category after the update. |  -  |
 **400** | Request parameters are invalid. |  -  |
 **401** | User is not authenticated. |  -  |
 **403** | User is not allowed to perform this request. |  -  |

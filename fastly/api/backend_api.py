@@ -64,6 +64,11 @@ class BackendApi(object):
                     'fetch_timeout',
                     'healthcheck',
                     'hostname',
+                    'iam_external_id',
+                    'iam_product',
+                    'iam_region',
+                    'iam_role',
+                    'iam_vendor',
                     'ipv4',
                     'ipv6',
                     'keepalive_time',
@@ -103,6 +108,11 @@ class BackendApi(object):
                     'comment',
                     'healthcheck',
                     'hostname',
+                    'iam_external_id',
+                    'iam_product',
+                    'iam_region',
+                    'iam_role',
+                    'iam_vendor',
                     'ipv4',
                     'ipv6',
                     'keepalive_time',
@@ -127,6 +137,7 @@ class BackendApi(object):
                     'tcp_keepalive_time',
                 ],
                 'enum': [
+                    'iam_vendor',
                 ],
                 'validation': [
                     'share_key',
@@ -142,6 +153,10 @@ class BackendApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('iam_vendor',): {
+                        'None': None,
+                        "AWS": "aws"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
@@ -167,6 +182,16 @@ class BackendApi(object):
                     'healthcheck':
                         (str, none_type,),
                     'hostname':
+                        (str, none_type,),
+                    'iam_external_id':
+                        (str, none_type,),
+                    'iam_product':
+                        (str, none_type,),
+                    'iam_region':
+                        (str, none_type,),
+                    'iam_role':
+                        (str, none_type,),
+                    'iam_vendor':
                         (str, none_type,),
                     'ipv4':
                         (str, none_type,),
@@ -240,6 +265,11 @@ class BackendApi(object):
                     'fetch_timeout': 'fetch_timeout',
                     'healthcheck': 'healthcheck',
                     'hostname': 'hostname',
+                    'iam_external_id': 'iam_external_id',
+                    'iam_product': 'iam_product',
+                    'iam_region': 'iam_region',
+                    'iam_role': 'iam_role',
+                    'iam_vendor': 'iam_vendor',
                     'ipv4': 'ipv4',
                     'ipv6': 'ipv6',
                     'keepalive_time': 'keepalive_time',
@@ -283,6 +313,11 @@ class BackendApi(object):
                     'fetch_timeout': 'form',
                     'healthcheck': 'form',
                     'hostname': 'form',
+                    'iam_external_id': 'form',
+                    'iam_product': 'form',
+                    'iam_region': 'form',
+                    'iam_role': 'form',
+                    'iam_vendor': 'form',
                     'ipv4': 'form',
                     'ipv6': 'form',
                     'keepalive_time': 'form',
@@ -563,6 +598,11 @@ class BackendApi(object):
                     'fetch_timeout',
                     'healthcheck',
                     'hostname',
+                    'iam_external_id',
+                    'iam_product',
+                    'iam_region',
+                    'iam_role',
+                    'iam_vendor',
                     'ipv4',
                     'ipv6',
                     'keepalive_time',
@@ -603,6 +643,11 @@ class BackendApi(object):
                     'comment',
                     'healthcheck',
                     'hostname',
+                    'iam_external_id',
+                    'iam_product',
+                    'iam_region',
+                    'iam_role',
+                    'iam_vendor',
                     'ipv4',
                     'ipv6',
                     'keepalive_time',
@@ -627,6 +672,7 @@ class BackendApi(object):
                     'tcp_keepalive_time',
                 ],
                 'enum': [
+                    'iam_vendor',
                 ],
                 'validation': [
                     'share_key',
@@ -642,6 +688,10 @@ class BackendApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('iam_vendor',): {
+                        'None': None,
+                        "AWS": "aws"
+                    },
                 },
                 'openapi_types': {
                     'service_id':
@@ -669,6 +719,16 @@ class BackendApi(object):
                     'healthcheck':
                         (str, none_type,),
                     'hostname':
+                        (str, none_type,),
+                    'iam_external_id':
+                        (str, none_type,),
+                    'iam_product':
+                        (str, none_type,),
+                    'iam_region':
+                        (str, none_type,),
+                    'iam_role':
+                        (str, none_type,),
+                    'iam_vendor':
                         (str, none_type,),
                     'ipv4':
                         (str, none_type,),
@@ -743,6 +803,11 @@ class BackendApi(object):
                     'fetch_timeout': 'fetch_timeout',
                     'healthcheck': 'healthcheck',
                     'hostname': 'hostname',
+                    'iam_external_id': 'iam_external_id',
+                    'iam_product': 'iam_product',
+                    'iam_region': 'iam_region',
+                    'iam_role': 'iam_role',
+                    'iam_vendor': 'iam_vendor',
                     'ipv4': 'ipv4',
                     'ipv6': 'ipv6',
                     'keepalive_time': 'keepalive_time',
@@ -787,6 +852,11 @@ class BackendApi(object):
                     'fetch_timeout': 'form',
                     'healthcheck': 'form',
                     'hostname': 'form',
+                    'iam_external_id': 'form',
+                    'iam_product': 'form',
+                    'iam_region': 'form',
+                    'iam_role': 'form',
+                    'iam_vendor': 'form',
                     'ipv4': 'form',
                     'ipv6': 'form',
                     'keepalive_time': 'form',
@@ -863,6 +933,11 @@ class BackendApi(object):
             fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
+            iam_external_id (str, none_type): If the backend is using IAM authentication and the IAM system policy requires a matching external identifier, it should match this value. Your Fastly customer ID will be used if this attribute is not set.. [optional]
+            iam_product (str, none_type): If the backend is using IAM authentication, the IAM signature will use this as the product element.. [optional]
+            iam_region (str, none_type): If the backend is using IAM authentication, this region will be used for signing and access.. [optional]
+            iam_role (str, none_type): If the backend is using IAM authentication, the fully qualified role string supplied by the storage vendor.. [optional]
+            iam_vendor (str, none_type): A label that identifies the storage vendor. Providing a value in this field enables IAM usage, and all other IAM fields depend on its value.. [optional] if omitted the server will use the default value of "aws"
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]
@@ -1240,6 +1315,11 @@ class BackendApi(object):
             fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
+            iam_external_id (str, none_type): If the backend is using IAM authentication and the IAM system policy requires a matching external identifier, it should match this value. Your Fastly customer ID will be used if this attribute is not set.. [optional]
+            iam_product (str, none_type): If the backend is using IAM authentication, the IAM signature will use this as the product element.. [optional]
+            iam_region (str, none_type): If the backend is using IAM authentication, this region will be used for signing and access.. [optional]
+            iam_role (str, none_type): If the backend is using IAM authentication, the fully qualified role string supplied by the storage vendor.. [optional]
+            iam_vendor (str, none_type): A label that identifies the storage vendor. Providing a value in this field enables IAM usage, and all other IAM fields depend on its value.. [optional] if omitted the server will use the default value of "aws"
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]
             keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]

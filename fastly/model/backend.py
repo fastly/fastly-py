@@ -53,6 +53,10 @@ class Backend(ModelNormal):
     """
 
     allowed_values = {
+        ('iam_vendor',): {
+            'None': None,
+            'AWS': "aws",
+        },
     }
 
     validations = {
@@ -94,6 +98,11 @@ class Backend(ModelNormal):
             'fetch_timeout': (int,),  # noqa: E501
             'healthcheck': (str, none_type,),  # noqa: E501
             'hostname': (str, none_type,),  # noqa: E501
+            'iam_external_id': (str, none_type,),  # noqa: E501
+            'iam_product': (str, none_type,),  # noqa: E501
+            'iam_region': (str, none_type,),  # noqa: E501
+            'iam_role': (str, none_type,),  # noqa: E501
+            'iam_vendor': (str, none_type,),  # noqa: E501
             'ipv4': (str, none_type,),  # noqa: E501
             'ipv6': (str, none_type,),  # noqa: E501
             'keepalive_time': (int, none_type,),  # noqa: E501
@@ -141,6 +150,11 @@ class Backend(ModelNormal):
         'fetch_timeout': 'fetch_timeout',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'hostname': 'hostname',  # noqa: E501
+        'iam_external_id': 'iam_external_id',  # noqa: E501
+        'iam_product': 'iam_product',  # noqa: E501
+        'iam_region': 'iam_region',  # noqa: E501
+        'iam_role': 'iam_role',  # noqa: E501
+        'iam_vendor': 'iam_vendor',  # noqa: E501
         'ipv4': 'ipv4',  # noqa: E501
         'ipv6': 'ipv6',  # noqa: E501
         'keepalive_time': 'keepalive_time',  # noqa: E501
@@ -223,6 +237,11 @@ class Backend(ModelNormal):
             fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]  # noqa: E501
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]  # noqa: E501
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
+            iam_external_id (str, none_type): If the backend is using IAM authentication and the IAM system policy requires a matching external identifier, it should match this value. Your Fastly customer ID will be used if this attribute is not set.. [optional]  # noqa: E501
+            iam_product (str, none_type): If the backend is using IAM authentication, the IAM signature will use this as the product element.. [optional]  # noqa: E501
+            iam_region (str, none_type): If the backend is using IAM authentication, this region will be used for signing and access.. [optional]  # noqa: E501
+            iam_role (str, none_type): If the backend is using IAM authentication, the fully qualified role string supplied by the storage vendor.. [optional]  # noqa: E501
+            iam_vendor (str, none_type): A label that identifies the storage vendor. Providing a value in this field enables IAM usage, and all other IAM fields depend on its value.. [optional] if omitted the server will use the default value of "aws"  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]  # noqa: E501
@@ -343,6 +362,11 @@ class Backend(ModelNormal):
             fetch_timeout (int): Maximum duration in milliseconds to wait for the entire response to be received after a TCP connection is established and the request has been sent. If exceeded, the connection is aborted and a synthetic `503` response will be presented instead. May be set at runtime using `bereq.fetch_timeout`.. [optional]  # noqa: E501
             healthcheck (str, none_type): The name of the healthcheck to use with this backend.. [optional]  # noqa: E501
             hostname (str, none_type): The hostname of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
+            iam_external_id (str, none_type): If the backend is using IAM authentication and the IAM system policy requires a matching external identifier, it should match this value. Your Fastly customer ID will be used if this attribute is not set.. [optional]  # noqa: E501
+            iam_product (str, none_type): If the backend is using IAM authentication, the IAM signature will use this as the product element.. [optional]  # noqa: E501
+            iam_region (str, none_type): If the backend is using IAM authentication, this region will be used for signing and access.. [optional]  # noqa: E501
+            iam_role (str, none_type): If the backend is using IAM authentication, the fully qualified role string supplied by the storage vendor.. [optional]  # noqa: E501
+            iam_vendor (str, none_type): A label that identifies the storage vendor. Providing a value in this field enables IAM usage, and all other IAM fields depend on its value.. [optional] if omitted the server will use the default value of "aws"  # noqa: E501
             ipv4 (str, none_type): IPv4 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             ipv6 (str, none_type): IPv6 address of the backend. May be used as an alternative to `address` to set the backend location.. [optional]  # noqa: E501
             keepalive_time (int, none_type): How long (in seconds) to keep a persistent connection to the backend between requests. By default, Fastly keeps connections open as long as it can.. [optional]  # noqa: E501

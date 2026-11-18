@@ -381,6 +381,8 @@ Name | Type | Description | Notes
 **netprotect_firewall_dropped_packets** | **int** | Number of packets dropped by network protection firewall. | [optional] 
 **api_enforcement_allowed_requests_count** | **int** | Number of requests allowed after evaluation by the API Enforcement engine. | [optional] 
 **api_enforcement_flagged_requests_count** | **int** | Number of requests flagged after evaluation by the API Enforcement engine. | [optional] 
+**origin_fetch_iam_success_count** | **int** | Count of successful IAM authenticated backend requests. | [optional] 
+**origin_fetch_iam_failure_count** | **int** | Count of failed IAM authenticated backend requests. | [optional] 
 **service_id** | **str** |  | [optional] [readonly] 
 **start_time** | **int** | Timestamp for the start of the time period being reported | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

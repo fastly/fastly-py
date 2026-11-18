@@ -101,6 +101,7 @@ class DdosProtectionRuleWithStats(ModelComposed):
             'host': (str, none_type,),  # noqa: E501
             'asn': (str, none_type,),  # noqa: E501
             'source_ip_prefix': (str, none_type,),  # noqa: E501
+            'path': (str, none_type,),  # noqa: E501
             'additional_attributes': ([str],),  # noqa: E501
             'traffic_stats': (DdosProtectionTrafficStats,),  # noqa: E501
         }
@@ -123,6 +124,7 @@ class DdosProtectionRuleWithStats(ModelComposed):
         'host': 'host',  # noqa: E501
         'asn': 'asn',  # noqa: E501
         'source_ip_prefix': 'source_ip_prefix',  # noqa: E501
+        'path': 'path',  # noqa: E501
         'additional_attributes': 'additional_attributes',  # noqa: E501
         'traffic_stats': 'traffic_stats',  # noqa: E501
     }
@@ -180,6 +182,7 @@ class DdosProtectionRuleWithStats(ModelComposed):
             host (str, none_type): Host attribute.. [optional]  # noqa: E501
             asn (str, none_type): ASN attribute.. [optional]  # noqa: E501
             source_ip_prefix (str, none_type): Source IP prefix attribute.. [optional]  # noqa: E501
+            path (str, none_type): URL path attribute.. [optional]  # noqa: E501
             additional_attributes ([str]): Attribute category for additional, unlisted attributes used in a rule.. [optional]  # noqa: E501
             traffic_stats (DdosProtectionTrafficStats): [optional]  # noqa: E501
         """
@@ -293,6 +296,7 @@ class DdosProtectionRuleWithStats(ModelComposed):
             host (str, none_type): Host attribute.. [optional]  # noqa: E501
             asn (str, none_type): ASN attribute.. [optional]  # noqa: E501
             source_ip_prefix (str, none_type): Source IP prefix attribute.. [optional]  # noqa: E501
+            path (str, none_type): URL path attribute.. [optional]  # noqa: E501
             additional_attributes ([str]): Attribute category for additional, unlisted attributes used in a rule.. [optional]  # noqa: E501
             traffic_stats (DdosProtectionTrafficStats): [optional]  # noqa: E501
         """

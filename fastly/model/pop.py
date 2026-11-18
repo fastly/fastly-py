@@ -64,6 +64,7 @@ class Pop(ModelNormal):
             'EU-CENTRAL': "EU-Central",
             'EU-EAST': "EU-East",
             'EU-WEST': "EU-West",
+            'KSA-CENTRAL': "KSA-Central",
             'MX-NORTH': "MX-North",
             'MX-CENTRAL': "MX-Central",
             'MX-SOUTH': "MX-South",
@@ -90,6 +91,7 @@ class Pop(ModelNormal):
             'ASIA_INDIA': "asia_india",
             'ASIA_SOUTHKOREA': "asia_southkorea",
             'MEXICO': "mexico",
+            'SAUDI_ARABIA': "saudi_arabia",
         },
         ('billing_region',): {
             'AFRICA': "Africa",
@@ -99,6 +101,7 @@ class Pop(ModelNormal):
             'INDIA': "India",
             'MEXICO': "Mexico",
             'NORTH_AMERICA': "North America",
+            'SAUDI_ARABIA': "Saudi Arabia",
             'SOUTH_KOREA': "South Korea",
             'SOUTH_AMERICA': "South America",
         },

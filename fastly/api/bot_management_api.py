@@ -26,6 +26,7 @@ from fastly.model.bot_management_bot_response import BotManagementBotResponse
 from fastly.model.bot_management_bots_response import BotManagementBotsResponse
 from fastly.model.bot_management_categories_response import BotManagementCategoriesResponse
 from fastly.model.bot_management_category import BotManagementCategory
+from fastly.model.bot_management_category_bots import BotManagementCategoryBots
 from fastly.model.bot_management_category_response import BotManagementCategoryResponse
 from fastly.model.bot_management_invalid_request_error import BotManagementInvalidRequestError
 from fastly.model.bot_management_not_allowed_error import BotManagementNotAllowedError
@@ -696,6 +697,78 @@ class BotManagementApi(object):
             },
             api_client=api_client
         )
+        self.bot_management_update_category_bots_endpoint = _Endpoint(
+            settings={
+                'response_type': (BotManagementBotsResponse,),
+                'auth': [
+                    'token'
+                ],
+                'endpoint_path': '/bot-management/v1/workspaces/{workspace_id}/policy/categories/{category_id}/bots',
+                'operation_id': 'bot_management_update_category_bots',
+                'http_method': 'PATCH',
+                'servers': [
+                    {
+                        'url': "https://api.fastly.com",
+                        'description': "No description provided",
+                    },
+                ]
+            },
+            params_map={
+                'all': [
+                    'workspace_id',
+                    'category_id',
+                    'bot_management_category_bots',
+                ],
+                'required': [
+                    'workspace_id',
+                    'category_id',
+                    'bot_management_category_bots',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'workspace_id':
+                        (str,),
+                    'category_id':
+                        (str,),
+                    'bot_management_category_bots':
+                        (BotManagementCategoryBots,),
+                },
+                'attribute_map': {
+                    'workspace_id': 'workspace_id',
+                    'category_id': 'category_id',
+                },
+                'location_map': {
+                    'workspace_id': 'path',
+                    'category_id': 'path',
+                    'bot_management_category_bots': 'body',
+                },
+                'path_params_allow_reserved_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'application/problem+json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.bot_management_update_workspace_endpoint = _Endpoint(
             settings={
                 'response_type': (BotManagementWorkspaceResponse,),
@@ -1096,7 +1169,7 @@ class BotManagementApi(object):
     ):
         """List categories  # noqa: E501
 
-        List all bot categories in a workspace's policy. Each category has an action that applies to every bot in the category. To list the bots themselves, use [list all bots in a workspace](#bot-management-list-bots) or [list bots in a category](#bot-management-list-category-bots).  # noqa: E501
+        List all bot categories in a workspace's policy. Each category has an action that applies to every bot in the category that is set to `inherit`. To list the bots themselves, use [list all bots in a workspace](#bot-management-list-bots) or [list bots in a category](#bot-management-list-category-bots).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1428,7 +1501,7 @@ class BotManagementApi(object):
     ):
         """Set a category action  # noqa: E501
 
-        Set the action for a bot category. Every bot in the category configured with the 'inherit' action uses the action set for the category.  # noqa: E501
+        Set the default action for a bot category. Bots set to `inherit` follow this action. Bots with their own action keep it. To remove every bot's own action in the category, use [set the action for all bots in a category](#bot-management-update-category-bots).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1504,6 +1577,92 @@ class BotManagementApi(object):
         kwargs['bot_management_category'] = \
             bot_management_category
         return self.bot_management_update_category_endpoint.call_with_http_info(**kwargs)
+
+    def bot_management_update_category_bots(
+        self,
+        workspace_id,
+        category_id,
+        bot_management_category_bots,
+        **kwargs
+    ):
+        """Set the action for all bots in a category  # noqa: E501
+
+        Set the action for every bot in a category. Setting `inherit` removes each bot's own action, so every bot follows the category's action. The category's own action is unchanged. The update applies to every bot in the category or to none, and repeating it gives the same result. The response lists every bot in the category, including bots that already inherited, and is not paginated.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.bot_management_update_category_bots(workspace_id, category_id, bot_management_category_bots, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            workspace_id (str): The ID of the bot management workspace.
+            category_id (str): The ID of the bot category.
+            bot_management_category_bots (BotManagementCategoryBots):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            BotManagementBotsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['workspace_id'] = \
+            workspace_id
+        kwargs['category_id'] = \
+            category_id
+        kwargs['bot_management_category_bots'] = \
+            bot_management_category_bots
+        return self.bot_management_update_category_bots_endpoint.call_with_http_info(**kwargs)
 
     def bot_management_update_workspace(
         self,

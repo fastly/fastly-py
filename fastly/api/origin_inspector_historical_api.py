@@ -100,6 +100,7 @@ class OriginInspectorHistoricalApi(object):
                         "ASIA": "asia",
                         "ASIA_INDIA": "asia_india",
                         "ASIA_SOUTHKOREA": "asia_southkorea",
+                        "SAUDI_ARABIA": "saudi_arabia",
                         "EUROPE": "europe",
                         "MEXICO": "mexico",
                         "SOUTHAMERICA_STD": "southamerica_std",

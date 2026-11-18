@@ -454,6 +454,8 @@ class RealtimeEntryAggregated(ModelComposed):
             'netprotect_firewall_dropped_packets': (int,),  # noqa: E501
             'api_enforcement_allowed_requests_count': (int,),  # noqa: E501
             'api_enforcement_flagged_requests_count': (int,),  # noqa: E501
+            'origin_fetch_iam_success_count': (int,),  # noqa: E501
+            'origin_fetch_iam_failure_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -831,6 +833,8 @@ class RealtimeEntryAggregated(ModelComposed):
         'netprotect_firewall_dropped_packets': 'netprotect_firewall_dropped_packets',  # noqa: E501
         'api_enforcement_allowed_requests_count': 'api_enforcement_allowed_requests_count',  # noqa: E501
         'api_enforcement_flagged_requests_count': 'api_enforcement_flagged_requests_count',  # noqa: E501
+        'origin_fetch_iam_success_count': 'origin_fetch_iam_success_count',  # noqa: E501
+        'origin_fetch_iam_failure_count': 'origin_fetch_iam_failure_count',  # noqa: E501
     }
 
     read_only_vars = {
@@ -1241,6 +1245,8 @@ class RealtimeEntryAggregated(ModelComposed):
             netprotect_firewall_dropped_packets (int): Number of packets dropped by network protection firewall.. [optional]  # noqa: E501
             api_enforcement_allowed_requests_count (int): Number of requests allowed after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
             api_enforcement_flagged_requests_count (int): Number of requests flagged after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
+            origin_fetch_iam_success_count (int): Count of successful IAM authenticated backend requests.. [optional]  # noqa: E501
+            origin_fetch_iam_failure_count (int): Count of failed IAM authenticated backend requests.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -1709,6 +1715,8 @@ class RealtimeEntryAggregated(ModelComposed):
             netprotect_firewall_dropped_packets (int): Number of packets dropped by network protection firewall.. [optional]  # noqa: E501
             api_enforcement_allowed_requests_count (int): Number of requests allowed after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
             api_enforcement_flagged_requests_count (int): Number of requests flagged after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
+            origin_fetch_iam_success_count (int): Count of successful IAM authenticated backend requests.. [optional]  # noqa: E501
+            origin_fetch_iam_failure_count (int): Count of failed IAM authenticated backend requests.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

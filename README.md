@@ -148,6 +148,7 @@ Class | Method | Description
 *BotManagementApi* | [**bot_management_list_workspaces**](docs/BotManagementApi.md#bot_management_list_workspaces) | List workspaces
 *BotManagementApi* | [**bot_management_update_bot**](docs/BotManagementApi.md#bot_management_update_bot) | Set a bot action
 *BotManagementApi* | [**bot_management_update_category**](docs/BotManagementApi.md#bot_management_update_category) | Set a category action
+*BotManagementApi* | [**bot_management_update_category_bots**](docs/BotManagementApi.md#bot_management_update_category_bots) | Set the action for all bots in a category
 *BotManagementApi* | [**bot_management_update_workspace**](docs/BotManagementApi.md#bot_management_update_workspace) | Update a workspace
 *BotRequestsMetricsApi* | [**get_bot_request_metrics_service_historical**](docs/BotRequestsMetricsApi.md#get_bot_request_metrics_service_historical) | Get per-service historical time series metrics for bot requests broken down by bot-type.
 *CacheSettingsApi* | [**create_cache_settings**](docs/CacheSettingsApi.md#create_cache_settings) | Create a cache settings object
@@ -775,6 +776,8 @@ The fastly-py API client currently does not support the following endpoints:
 - [`/iam/v1/organizations/{organization_id}/invitations/{invitation_id}/notifications`](https://www.fastly.com/documentation/reference/api/) (POST)
 - [`/iam/v1/organizations/{organization_id}/invitations/{invitation_id}`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
 - [`/iam/v1/organizations/{organization_id}/invitations`](https://www.fastly.com/documentation/reference/api/) (GET, POST)
+- [`/iam/v1/organizations/{organization_id}/memberships/{membership_id}`](https://www.fastly.com/documentation/reference/api/) (DELETE, GET, PATCH)
+- [`/iam/v1/organizations/{organization_id}/memberships`](https://www.fastly.com/documentation/reference/api/) (GET)
 - [`/iam/v1/organizations/{organization_id}/options`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
 - [`/iam/v1/organizations/{organization_id}`](https://www.fastly.com/documentation/reference/api/) (GET, PATCH)
 - [`/model/{modelId}/invoke-with-response-stream`](https://www.fastly.com/documentation/reference/api/ai-runtime-control/gateway) (POST)

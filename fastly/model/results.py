@@ -455,6 +455,8 @@ class Results(ModelNormal):
             'netprotect_firewall_dropped_packets': (int,),  # noqa: E501
             'api_enforcement_allowed_requests_count': (int,),  # noqa: E501
             'api_enforcement_flagged_requests_count': (int,),  # noqa: E501
+            'origin_fetch_iam_success_count': (int,),  # noqa: E501
+            'origin_fetch_iam_failure_count': (int,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'start_time': (int,),  # noqa: E501
         }
@@ -841,6 +843,8 @@ class Results(ModelNormal):
         'netprotect_firewall_dropped_packets': 'netprotect_firewall_dropped_packets',  # noqa: E501
         'api_enforcement_allowed_requests_count': 'api_enforcement_allowed_requests_count',  # noqa: E501
         'api_enforcement_flagged_requests_count': 'api_enforcement_flagged_requests_count',  # noqa: E501
+        'origin_fetch_iam_success_count': 'origin_fetch_iam_success_count',  # noqa: E501
+        'origin_fetch_iam_failure_count': 'origin_fetch_iam_failure_count',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
     }
@@ -1263,6 +1267,8 @@ class Results(ModelNormal):
             netprotect_firewall_dropped_packets (int): Number of packets dropped by network protection firewall.. [optional]  # noqa: E501
             api_enforcement_allowed_requests_count (int): Number of requests allowed after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
             api_enforcement_flagged_requests_count (int): Number of requests flagged after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
+            origin_fetch_iam_success_count (int): Count of successful IAM authenticated backend requests.. [optional]  # noqa: E501
+            origin_fetch_iam_failure_count (int): Count of failed IAM authenticated backend requests.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """
@@ -1722,6 +1728,8 @@ class Results(ModelNormal):
             netprotect_firewall_dropped_packets (int): Number of packets dropped by network protection firewall.. [optional]  # noqa: E501
             api_enforcement_allowed_requests_count (int): Number of requests allowed after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
             api_enforcement_flagged_requests_count (int): Number of requests flagged after evaluation by the API Enforcement engine.. [optional]  # noqa: E501
+            origin_fetch_iam_success_count (int): Count of successful IAM authenticated backend requests.. [optional]  # noqa: E501
+            origin_fetch_iam_failure_count (int): Count of failed IAM authenticated backend requests.. [optional]  # noqa: E501
             service_id (str): [optional]  # noqa: E501
             start_time (int): Timestamp for the start of the time period being reported. [optional]  # noqa: E501
         """

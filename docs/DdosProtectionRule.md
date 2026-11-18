@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **host** | **str, none_type** | Host attribute. | [optional] 
 **asn** | **str, none_type** | ASN attribute. | [optional] 
 **source_ip_prefix** | **str, none_type** | Source IP prefix attribute. | [optional] 
+**path** | **str, none_type** | URL path attribute. | [optional] 
 **additional_attributes** | **[str]** | Attribute category for additional, unlisted attributes used in a rule. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
